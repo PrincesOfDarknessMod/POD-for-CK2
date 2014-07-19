@@ -1,0 +1,444 @@
+vassal_decisions = {
+	torpor_abdicate_decision = {
+		from_potential = {
+			is_ruler = yes
+			trait = "vampire"
+			trait = "torpor"
+			ai = yes
+			NOT = { is_patrician = yes }
+		}
+	
+		potential = {
+			trait = "vampire"
+		}
+		allow = {
+					NOT = { trait = "slow" }
+					NOT = { trait = "torpor" }
+					NOT = { trait = "imbecile" }
+			}
+		effect = {
+			FROM = { abdicate_to = PREV
+					}
+			set_character_flag = "NWOD_TOOK_TITLE_FROM_TOPOR_VAMP"
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+				factor = 1
+				modifier = {
+				factor = 1.1
+				opinion = { who = FROM value = 50 }
+			}
+			modifier = {
+				factor = 1.5
+				OR = {
+						learning = 10
+						martial = 10
+						stewardship = 10
+						diplomacy = 10
+						intrigue = 10
+						trait = "genius"
+						trait = "quick"
+						trait = "strong"
+						trait = "brilliant_strategist"
+						trait = "elusive_shadow"
+						trait = "grey_eminence"
+						trait = "midas_touched"
+						trait = "mastermind_theologian"
+						trait = "scholarly_theologian"
+						trait = "fortune_builder"
+						trait = "skilled_tactician"
+						trait = "charismatic_negotiator"
+						trait = "intricate_webweaver"
+					}
+				}
+
+		 modifier = {
+		factor = 0.9
+		trait = "neonate"
+	}
+	 
+	 modifier = {
+		factor = 1.5
+		trait = "ancilla"
+	}
+	
+	    modifier = {
+		factor = 2.0
+		trait = "elder"
+	}
+	
+		
+	modifier = {
+		factor = 1.1
+		trait = "proud"
+		}
+
+		
+	modifier = {
+		factor = 0.9
+		trait = "content"
+		}
+		
+	modifier = {
+		factor = 1.1
+		trait = "ambitious"
+		}
+		
+	modifier = {
+		factor = 1.1
+		trait = "envious" 
+		}
+	
+	modifier = {
+		factor = 0.9
+		trait = "humble"
+		}
+	
+	modifier = {
+		factor = 0.9
+		trait = "patient"
+		}
+	
+
+		}
+	}
+
+torpor_abdicate_patrician_title_decision = {
+		from_potential = {
+			is_patrician = yes 
+			trait = "vampire"
+			trait = "torpor"
+			ai = yes
+		}
+	
+		potential = {
+			trait = "vampire"
+		}
+		allow = {
+					NOT = { trait = "slow" }
+					NOT = { trait = "torpor" }
+					NOT = { trait = "imbecile" }
+					NOT = { is_female = yes }
+			}
+		effect = {
+			FROM = { abdicate_to = PREV
+					}
+			set_character_flag = NWOD_TOOK_TITLE_FROM_TOPOR_VAMP
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+				factor = 1
+				modifier = {
+				factor = 1.1
+				opinion = { who = FROM value = 50 }
+			}
+			modifier = {
+				factor = 1.5
+				OR = {
+						learning = 10
+						martial = 10
+						stewardship = 10
+						diplomacy = 10
+						intrigue = 10
+						trait = "genius"
+						trait = "quick"
+						trait = "strong"
+						trait = "brilliant_strategist"
+						trait = "elusive_shadow"
+						trait = "grey_eminence"
+						trait = "midas_touched"
+						trait = "mastermind_theologian"
+						trait = "scholarly_theologian"
+						trait = "fortune_builder"
+						trait = "skilled_tactician"
+						trait = "charismatic_negotiator"
+						trait = "intricate_webweaver"
+					}
+				}
+
+		 modifier = {
+		factor = 0.9
+		trait = "neonate"
+	}
+	 
+	 modifier = {
+		factor = 1.5
+		trait = "ancilla"
+	}
+	
+	    modifier = {
+		factor = 2.0
+		trait = "elder"
+	}
+	
+		
+	modifier = {
+		factor = 1.1
+		trait = "proud"
+		}
+
+		
+	modifier = {
+		factor = 0.9
+		trait = "content"
+		}
+		
+	modifier = {
+		factor = 1.1
+		trait = "ambitious"
+		}
+		
+	modifier = {
+		factor = 1.1
+		trait = "envious" 
+		}
+	
+	modifier = {
+		factor = 0.9
+		trait = "humble"
+		}
+	
+	modifier = {
+		factor = 0.9
+		trait = "patient"
+		}
+	
+
+		}
+	}
+	
+	mortal_abdicate_title_decision = {
+		from_potential = {
+			is_ruler = yes
+			trait = "mortal"
+			NOT = { trait = "supe_hunter" }
+			NOT = { is_patrician = yes }
+			ai = yes
+		}
+	
+		potential = {
+			OR = {			
+					trait = "vampire"
+					trait = "werewolf" 
+					trait = "mage" 
+					trait = "changeling" 
+					trait = "demon" 
+					trait = "promethean" 
+					trait = "supe_hunter"
+					}
+		}
+		allow = {
+			NOT = { trait = "slow" }
+			NOT = { trait = "torpor" }
+			NOT = { trait = "imbecile" }
+			}
+		effect = {
+			FROM = {
+					abdicate_to = PREV
+					}
+			set_character_flag = NWOD_TOOK_TITLE_FROM_MORTAL
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+				factor = 3
+						modifier = {
+				factor = 1.1
+				opinion = { who = FROM value = 50 }
+			}
+			modifier = {
+				factor = 1.5
+				OR = {
+						learning = 10
+						martial = 10
+						stewardship = 10
+						diplomacy = 10
+						intrigue = 10
+						trait = "genius"
+						trait = "quick"
+						trait = "strong"
+						trait = "brilliant_strategist"
+						trait = "elusive_shadow"
+						trait = "grey_eminence"
+						trait = "midas_touched"
+						trait = "mastermind_theologian"
+						trait = "scholarly_theologian"
+						trait = "fortune_builder"
+						trait = "skilled_tactician"
+						trait = "charismatic_negotiator"
+						trait = "intricate_webweaver"
+					}
+				}
+
+		 modifier = {
+		factor = 0.9
+		trait = "neonate"
+	}
+	 
+	 modifier = {
+		factor = 1.5
+		trait = "ancilla"
+	}
+	
+	    modifier = {
+		factor = 2.0
+		trait = "elder"
+	}
+	
+		
+	modifier = {
+		factor = 1.1
+		trait = "proud"
+		}
+
+		
+	modifier = {
+		factor = 0.9
+		trait = "content"
+		}
+		
+	modifier = {
+		factor = 1.1
+		trait = "ambitious"
+		}
+		
+	modifier = {
+		factor = 1.1
+		trait = "envious" 
+		}
+	
+	modifier = {
+		factor = 0.9
+		trait = "humble"
+		}
+	
+	modifier = {
+		factor = 0.9
+		trait = "patient"
+		}
+	
+
+		}
+	}
+
+	mortal_abdicate_patrician_title_decision = {
+		from_potential = {
+			is_patrician = yes 
+			trait = "mortal"
+			NOT = { trait = "supe_hunter" }
+			ai = yes
+		}
+	
+		potential = {
+			OR = {			
+					trait = "vampire"
+					trait = "werewolf" 
+					trait = "mage" 
+					trait = "changeling" 
+					trait = "demon" 
+					trait = "promethean" 
+					trait = "supe_hunter"
+					}
+		}
+		allow = {
+			NOT = { trait = "slow" }
+			NOT = { trait = "torpor" }
+			NOT = { trait = "imbecile" }
+			NOT = { is_female = yes }
+			}
+		effect = {
+			FROM = {
+					abdicate_to = PREV
+					}
+			set_character_flag = NWOD_TOOK_TITLE_FROM_MORTAL
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+				factor = 3
+						modifier = {
+				factor = 1.1
+				opinion = { who = FROM value = 50 }
+			}
+			modifier = {
+				factor = 1.5
+				OR = {
+						learning = 10
+						martial = 10
+						stewardship = 10
+						diplomacy = 10
+						intrigue = 10
+						trait = "genius"
+						trait = "quick"
+						trait = "strong"
+						trait = "brilliant_strategist"
+						trait = "elusive_shadow"
+						trait = "grey_eminence"
+						trait = "midas_touched"
+						trait = "mastermind_theologian"
+						trait = "scholarly_theologian"
+						trait = "fortune_builder"
+						trait = "skilled_tactician"
+						trait = "charismatic_negotiator"
+						trait = "intricate_webweaver"
+					}
+				}
+
+		 modifier = {
+		factor = 0.9
+		trait = "neonate"
+	}
+	 
+	 modifier = {
+		factor = 1.5
+		trait = "ancilla"
+	}
+	
+	    modifier = {
+		factor = 2.0
+		trait = "elder"
+	}
+	
+		
+	modifier = {
+		factor = 1.1
+		trait = "proud"
+		}
+
+		
+	modifier = {
+		factor = 0.9
+		trait = "content"
+		}
+		
+	modifier = {
+		factor = 1.1
+		trait = "ambitious"
+		}
+		
+	modifier = {
+		factor = 1.1
+		trait = "envious" 
+		}
+	
+	modifier = {
+		factor = 0.9
+		trait = "humble"
+		}
+	
+	modifier = {
+		factor = 0.9
+		trait = "patient"
+		}
+	
+
+		}
+	}
+	
+}
