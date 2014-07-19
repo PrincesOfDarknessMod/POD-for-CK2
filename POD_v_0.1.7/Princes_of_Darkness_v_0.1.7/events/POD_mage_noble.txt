@@ -1,0 +1,35 @@
+namespace = "POD_MAGE_NOBLE"
+character_event = {
+	id = pod.666003
+	desc = "POD_MAGE_NOBLE_DESC"
+	picture = GFX_evt_comet
+	hide_window = yes	
+	is_triggered_only = yes
+
+	immediate = {
+		name = "set_inital_mage_ruler"
+
+			if = {
+					limit = {
+					age = 16
+					NOT = { trait = mortal }
+					NOT = { trait = vampire }
+					NOT = { trait = werewolf }
+					NOT = { trait = mage }
+					NOT = { trait = mummy }
+					NOT = { trait = changeling }
+					NOT = { trait = promethean }
+					NOT = { trait = geist }
+					NOT = { trait = demon }
+					NOT = { trait = fledgling }
+					OR = { 
+							religion_group = mage_group
+						}
+
+					}	
+# make mage ruler
+
+		
+				}	
+			}
+		}

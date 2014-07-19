@@ -1,0 +1,61 @@
+# revenant events
+
+namespace = "nwod_revenant_children"
+
+character_event = {
+	id = pod.666045
+	desc = "NWOD_REVENANT_CHILDREN_DESC"
+	picture = GFX_evt_comet
+	hide_window = yes
+	max_age = 5
+	min_age = 1
+	
+	trigger = {
+		trait = mortal
+		NOT = { trait = revenant }
+		NOT = { has_character_flag = flag_nwod_revenant_check_event_fired }
+		OR =  {
+				mother = { trait = revenant }
+				father = { trait = revenant } 
+				father = { trait = ghoul }
+				mother = { trait = ghoul } 
+			}
+		}
+	mean_time_to_happen = {
+		years = 5
+		
+		 modifier = {
+			factor = 0.8
+			father = { trait = ghoul }
+		}
+	
+		modifier = {
+			factor = 0.7
+			mother = { trait = ghoul }
+		}
+
+		modifier = {
+			factor = 0.6
+			father = { trait = revenant }
+		}
+		
+		modifier = {
+			factor = 0.5
+			mother = { trait = revenant }
+		}			
+	}
+
+	immediate = {
+		random_list = { 
+						50 = {  set_character_flag = flag_nwod_revenant_check_event_fired 
+								set_character_flag = flag_nwod_never_revenant
+							}
+						50 = { 	set_character_flag = flag_nwod_werewolf_check_event_fired 
+								remove_trait = mortal
+								add_trait = revenant	
+							}
+
+			}
+		}
+
+	}	
