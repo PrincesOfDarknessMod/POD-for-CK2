@@ -25,7 +25,10 @@ vassal_decisions = {
 				killer = FROM
 			}
 			FROM = {
-				wealth = 100
+				set_variable = {
+					which = vitae
+					which = maxvitae
+				}
 				piety = -50
 			}
 		}
@@ -108,22 +111,26 @@ vassal_decisions = {
 				killer = FROM
 			}
 			FROM = {
-							vassal_opinion = {
-												who = PREV
-												modifier = opinion_tyrant
-												multiplier = 2
-												months = 60
-											}
-							add_trait = diabolist
-							wealth = 200
-							piety = -100
-				if = { LIMIT = { trait = bloodpotency_9
-									ROOT = { trait = bloodpotency_10 }
-											}
+				vassal_opinion = {
+					who = PREV
+					modifier = opinion_tyrant
+					multiplier = 2
+					months = 60
+				}
+				add_trait = diabolist
+				piety = -100
+				if = { 
+					LIMIT = { 
+						trait = bloodpotency_9 
+						ROOT = { trait = bloodpotency_10 }
+					}
 							
 					add_trait = bloodpotency_10
 					remove_trait = bloodpotency_9
-					wealth = 1000
+					change_variable = {
+						which = maxvitae
+						value = 1
+					}
 				}
 				if = { LIMIT = { trait = bloodpotency_8 
 								OR = { 	
@@ -133,7 +140,10 @@ vassal_decisions = {
 							}
 					add_trait = bloodpotency_9
 					remove_trait = bloodpotency_8
-					wealth = 900
+					change_variable = {
+						which = maxvitae
+						value = 1
+					}
 				}
 				if = { LIMIT = { trait = bloodpotency_7
 								OR = { 	
@@ -144,7 +154,10 @@ vassal_decisions = {
 							}
 					add_trait = bloodpotency_8
 					remove_trait = bloodpotency_7
-					wealth = 800
+					change_variable = {
+						which = maxvitae
+						value = 1
+					}
 				}
 				if = { LIMIT = { trait = bloodpotency_6
 								OR = { 	
@@ -156,7 +169,10 @@ vassal_decisions = {
 							}
 					add_trait = bloodpotency_7
 					remove_trait = bloodpotency_6
-					wealth = 700
+					change_variable = {
+						which = maxvitae
+						value = 1
+					}
 				}
 				if = { LIMIT = { trait = bloodpotency_5
 								OR = { 	
@@ -169,7 +185,10 @@ vassal_decisions = {
 							}
 					add_trait = bloodpotency_6
 					remove_trait = bloodpotency_5
-					wealth = 600
+					change_variable = {
+						which = maxvitae
+						value = 1
+					}
 				}
 				if = { LIMIT = { trait = bloodpotency_4
 								OR = { 	
@@ -183,7 +202,6 @@ vassal_decisions = {
 							}
 					add_trait = bloodpotency_5
 					remove_trait = bloodpotency_4
-					wealth = 500
 				}
 				if = { LIMIT = { trait = bloodpotency_3
 								OR = { 	
@@ -198,7 +216,6 @@ vassal_decisions = {
 							}
 					add_trait = bloodpotency_4
 					remove_trait = bloodpotency_3
-					wealth = 400
 				}
 				if = { LIMIT = { trait = bloodpotency_2
 								OR = { 	
@@ -214,7 +231,6 @@ vassal_decisions = {
 							}
 					add_trait = bloodpotency_3
 					remove_trait = bloodpotency_2
-					wealth = 300
 				}
 				if = { LIMIT = { trait = bloodpotency_1
 								OR = { 	ROOT = { trait = bloodpotency_2 }
@@ -230,7 +246,6 @@ vassal_decisions = {
 							}
 					add_trait = bloodpotency_2
 					remove_trait = bloodpotency_1
-					wealth = 200
 				}
 
 			}
@@ -382,7 +397,10 @@ vassal_decisions = {
 			prisoner = yes
 		}
 		effect = {
-				wealth = -30	
+					change_variable = {
+						which = maxvitae
+						value = -2
+					}	
 					opinion = {
 									modifier = opinion_blood_bond_to_domitor
 									who = FROM

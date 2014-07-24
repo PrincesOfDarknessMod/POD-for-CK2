@@ -1,9 +1,9 @@
 # Setup random new noble characters as supernaturals or mortals
 
-namespace = "POD_SUPE_NOBLE"
+namespace = setup_noble
 character_event = {
-	id = pod.666000
-	desc = "POD_SUPE_NOBLE_DESC"
+	id = setup_noble.1
+	#desc = "POD_SUPE_NOBLE_DESC"
 	picture = GFX_evt_comet
 	hide_window = yes
 	trigger = {
@@ -33,7 +33,7 @@ character_event = {
 		days = 1
 		}
 	immediate = {
-		name = "set_inital_random_supernaturals_rulers"
+		#name = "set_inital_random_supernaturals_rulers"
 		hidden_tooltip = {
 			if = {
 					limit = {
@@ -136,7 +136,7 @@ set_character_flag = FLAG_POD_SETUP_NOBLE_FIRED
 					
 # make Vampire ruler
 				add_trait = vampire
-				character_event = { id = pod.666001 }	
+				character_event = { id = vampire_noble.1 }	
 			}
 															
 # Werewolf nobles				
@@ -169,7 +169,7 @@ set_character_flag = FLAG_POD_SETUP_NOBLE_FIRED
 					}
 							# make werewolf ruler
 							add_trait = werewolf
-							character_event = { id = pod.666002 }		
+							character_event = { id = werewolf_noble.1 }		
 				}				
 				
 # Mage nobles				
@@ -197,7 +197,7 @@ set_character_flag = FLAG_POD_SETUP_NOBLE_FIRED
 				}
 							# make mage ruler
 							add_trait = mage
-							character_event = { id = pod.666003 }
+							character_event = { id = mage_noble.1 }
 			}
 						
 # Supe hunter nobles						
@@ -226,7 +226,7 @@ set_character_flag = FLAG_POD_SETUP_NOBLE_FIRED
 					# make supe hunter ruler
 					add_trait = mortal
 					add_trait = supe_hunter
-					character_event = { id = pod.666004 }
+					character_event = { id = hunter_noble.1 }
 				}				
 				
 # changeling nobles						
@@ -254,7 +254,7 @@ set_character_flag = FLAG_POD_SETUP_NOBLE_FIRED
 				}
 					# make changeling ruler
 					add_trait = changeling
-					character_event = { id = pod.666005 }
+					character_event = { id = changeling_noble.1 }
 				}		
 
 # promethean nobles						
@@ -282,7 +282,7 @@ set_character_flag = FLAG_POD_SETUP_NOBLE_FIRED
 				}
 					# make promethean ruler
 					add_trait = promethean
-					character_event = { id = pod.666007 }
+					character_event = { id = promethean_noble.1 }
 				}					
 
 # mummy nobles						
@@ -310,7 +310,7 @@ set_character_flag = FLAG_POD_SETUP_NOBLE_FIRED
 				}
 					# make mummy ruler
 					add_trait = mummy
-					character_event = { id = pod.666009 }
+					character_event = { id = mummy_noble.1 }
 				}					
 
 # geist nobles						
@@ -338,7 +338,7 @@ set_character_flag = FLAG_POD_SETUP_NOBLE_FIRED
 				}
 					# make geist ruler
 					add_trait = geist
-					character_event = { id = pod.666008 }
+					character_event = { id = geist_noble.1 }
 				}	
 				
 # demon nobles						
@@ -366,7 +366,7 @@ set_character_flag = FLAG_POD_SETUP_NOBLE_FIRED
 				}
 					# make demon ruler
 					add_trait = demon
-					character_event = { id = pod.666006 }
+					character_event = { id = demon_noble.1 }
 				}					
 
 # revenant nobles						
@@ -400,7 +400,7 @@ set_character_flag = FLAG_POD_SETUP_NOBLE_FIRED
 				}
 					# make revenant ruler
 					add_trait = revenant
-					character_event = { id = pod.666010 }
+					character_event = { id = revenant_noble.1 }
 				}	
 
 if = { limit = {
@@ -450,7 +450,7 @@ if = { limit = {
 				}
 					# make mortal ruler
 					add_trait = mortal
-					character_event = { id = pod.666011 }
+					character_event = { id = mortal_noble.1 }
 				}					
 				
 				

@@ -1,13 +1,13 @@
-namespace = "POD_SPECIAL_TITLE_MAINTENANCE"
+namespace = pod
 character_event = {
 	id = pod.666600
-	desc = "POD_SPECIAL_TITLE_MAINTENANCE_DESC"
+	#desc = "POD_SPECIAL_TITLE_MAINTENANCE_DESC"
 	picture = GFX_evt_comet
 	hide_window = yes	
 	is_triggered_only = yes
 
 	immediate = {
-		name = "destroy_special_titles"
+		#name = "destroy_special_titles"
 
 			if = {
 					limit = {
@@ -92,11 +92,11 @@ character_event = {
 										NOT = { trait = vampire }
 										NOT = { religion = circle_of_the_crone }										
 								}
-								AND = {
+								#AND = {
 										NOT = { culture_group = west_slavic }
 										NOT = { culture_group = east_slavic }
 										NOT = { culture_group = south_slavic }
-								}
+								#}# comented out due to redundancy: statements inside if = {}count as in inside if = { and = {}}
 					}
 					e_voivodate = { destroy_landed_title = THIS }
 				}	

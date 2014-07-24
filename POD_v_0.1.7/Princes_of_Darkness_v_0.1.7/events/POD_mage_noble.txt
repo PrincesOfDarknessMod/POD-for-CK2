@@ -1,13 +1,13 @@
-namespace = "POD_MAGE_NOBLE"
+namespace = mage_noble
 character_event = {
-	id = pod.666003
-	desc = "POD_MAGE_NOBLE_DESC"
+	id = mage_noble.1
+	#desc = "POD_MAGE_NOBLE_DESC"
 	picture = GFX_evt_comet
 	hide_window = yes	
 	is_triggered_only = yes
 
 	immediate = {
-		name = "set_inital_mage_ruler"
+		#name = "set_inital_mage_ruler"
 
 			if = {
 					limit = {
@@ -22,9 +22,9 @@ character_event = {
 					NOT = { trait = geist }
 					NOT = { trait = demon }
 					NOT = { trait = fledgling }
-					OR = { 
+					#OR = { 
 							religion_group = mage_group
-						}
+					#	} #comented the OR clause due to it being redundant, having only une condition
 
 					}	
 # make mage ruler

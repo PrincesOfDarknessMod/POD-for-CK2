@@ -27,18 +27,18 @@ title_embrace_mortal = {
 	}
 	
 	gain_effect = {
-	set_character_flag = FLAG_NWOD_EMBRACE_MORTAL_MINOR_TITLE_FIRED
-					if = { limit = { FROM = { is_female = no } }
-							set_father = FROM
-							set_mother = 0
-						}
-				if = { limit = { FROM = { is_female = yes } }
-							set_father = NULL
-							set_mother = FROM
-						}	
-    	dynasty = FROM
-	add_trait = fledgling
-				}
+		set_character_flag = FLAG_NWOD_EMBRACE_MORTAL_MINOR_TITLE_FIRED
+		if = { limit = { FROM = { is_female = no } }
+			set_father = FROM
+			set_mother = 0
+		}
+		if = { limit = { FROM = { is_female = yes } }
+			set_father = NULL
+			set_mother = FROM
+		}	
+    		dynasty = FROM
+		add_trait = fledgling
+	}
 	lose_effect = {
 	}
 	
@@ -86,32 +86,51 @@ title_ghoul = {
 				trait = werewolf
 				}
 		FROM = {
-			 trait = vampire
-			wealth = 10
+			trait = vampire
+			check_variable =  {
+				which = "vitae"
+				value = 2
+			}
 		}
 	}
 	
 	gain_effect = {
-	add_trait = ghoul
-	add_trait = vigor_1
-	opinion = {
-									modifier = opinion_blood_bond_to_domitor
-									who = FROM
-									years = 3000
-								}
-	set_character_flag = FLAG_NWOD_BLOODBOUND
+		add_trait = ghoul
+		add_trait = vigor_1
+		opinion = { 
+			modifier = opinion_blood_bond_to_domitor
+			who = FROM
+			years = 3000
+		}					}
+		set_character_flag = FLAG_NWOD_BLOODBOUND
+		FROM = {
+			change_variable = {
+				which = "vitae"
+				value = -1
+			}
+			change_variable = {
+				which = "maxvitae"
+				value = -1
+			}
+		}
 	}
 	lose_effect = {
-	remove_trait = ghoul
-	remove_trait = vigor_1
-	add_trait = vampire_blood_thirst
-	opinion = {
-									modifier = opinion_rejected_by_domitor
-									who = FROM
-									years = 3000
+		THIS = { 
+			remove_trait = ghoul
+			remove_trait = vigor_1
+			add_trait = vampire_blood_thirst
+			remove_opinion = { 
+				modifier = opinion_blood_bond_to_domitor
+				who = FROM
 			}
+		}			
+		FROM = {
+			change_variable =  {
+			which = "maxvitae"
+			value = 1
+			}
+		}
 	}
-
 	message = yes
 }
 
