@@ -1,0 +1,301 @@
+
+############
+# leader
+############
+# INTRIGUE OUTCOMES
+amateurish_plotter = {
+	leader = yes random = no
+	
+	intrigue = 1
+	stewardship = -1
+	
+	opposites = {
+	flamboyant_schemer
+	intricate_webweaver
+	elusive_shadow
+	}
+}
+flamboyant_schemer = {
+	leader = yes random = no
+	
+	intrigue = 3
+	stewardship = -1
+	
+	opposites = {
+	amateurish_plotter
+	intricate_webweaver
+	elusive_shadow
+	}
+}
+intricate_webweaver = {
+	leader = yes random = no
+	
+	intrigue = 6
+	martial = 1
+	diplomacy = 1
+	stewardship = -1
+	
+	opposites = {
+	amateurish_plotter
+	flamboyant_schemer
+	elusive_shadow
+	}
+}
+elusive_shadow = {
+	leader = yes random = no
+	
+	intrigue = 9
+	martial = 2
+	diplomacy = 2
+	stewardship = -1
+	
+	opposites = {
+	amateurish_plotter
+	flamboyant_schemer
+	intricate_webweaver
+	}
+}
+
+# DIPLOMACY OUTCOMES
+naive_appeaser = {
+	leader = yes random = no
+	
+	diplomacy = 1
+	martial = -1
+	
+	opposites = {
+	underhanded_rogue
+	charismatic_negotiator
+	grey_eminence
+	}
+}
+
+underhanded_rogue = {
+	leader = yes random = no
+	
+	diplomacy = 3
+	martial = -1
+	fertility = 0.05
+	
+	opposites = {
+	naive_appeaser
+	charismatic_negotiator
+	grey_eminence
+	}
+}
+charismatic_negotiator = {
+	leader = yes random = no
+	
+	diplomacy = 6
+	intrigue = 1
+	learning = 1
+	martial = -1
+	fertility = 0.05
+	
+	opposites = {
+	underhanded_rogue
+	naive_appeaser
+	grey_eminence
+	}
+	
+}
+grey_eminence = {
+	leader = yes random = no
+	
+	diplomacy = 9
+	intrigue = 2
+	learning = 2
+	martial = -1
+	fertility = 0.1
+	
+	opposites = {
+	underhanded_rogue
+	charismatic_negotiator
+	naive_appeaser
+	}
+}
+
+# STEWARDSHIP OUTCOMES
+indulgent_wastrel = {
+	leader = yes random = no
+	
+	stewardship = 1
+	diplomacy = -1
+	
+	opposites = {
+	thrifty_clerk
+	fortune_builder
+	midas_touched
+	}
+}
+thrifty_clerk = {
+	leader = yes random = no
+	
+	stewardship = 3
+	diplomacy = -1
+	fertility = 0.05
+	
+	opposites = {
+	indulgent_wastrel
+	fortune_builder
+	midas_touched
+	}
+}
+fortune_builder = {	
+	leader = yes random = no
+	
+	stewardship = 6
+	martial = 1
+	learning = 1
+	diplomacy = -1
+	fertility = 0.1
+	
+	opposites = {
+	thrifty_clerk
+	indulgent_wastrel
+	midas_touched
+	}
+}
+midas_touched = {
+	leader = yes random = no
+	
+	stewardship = 9
+	martial = 2
+	learning = 2
+	diplomacy = -1
+	fertility = 0.15
+	
+	opposites = {
+	thrifty_clerk
+	fortune_builder
+	indulgent_wastrel
+	}
+}
+
+# MARTIAL OUTCOMES
+misguided_warrior = {
+	leader = yes random = no
+	
+	martial = 1
+	learning = -1
+	
+	opposites = {
+	tough_soldier
+	skilled_tactician
+	brilliant_strategist
+	}
+	
+	health = 0.5
+}
+tough_soldier = {
+	leader = yes random = no
+	
+	martial = 3
+	learning = -1
+	
+	opposites = {
+	misguided_warrior
+	skilled_tactician
+	brilliant_strategist
+	}
+	
+	health = 0.5
+}
+skilled_tactician = {
+	leader = yes random = no
+	
+	martial = 6
+	intrigue = 1
+	stewardship = 1
+	learning = -1
+	
+	opposites = {
+	misguided_warrior
+	tough_soldier
+	brilliant_strategist
+	}
+	
+	health = 0.5
+}
+brilliant_strategist = {
+	leader = yes random = no
+	
+	martial = 9
+	intrigue = 2
+	stewardship = 2
+	learning = -1
+	
+	opposites = {
+	misguided_warrior
+	skilled_tactician
+	tough_soldier
+	}
+	
+	health = 0.5
+
+	leader_traits = 1
+}
+
+# ECCLESIASTICAL OUTCOMES
+detached_priest = {
+	leader = yes random = no
+	
+	learning = 1
+	intrigue = -1
+	
+	opposites = {
+	martial_cleric
+	scholarly_theologian
+	mastermind_theologian
+	}
+}
+martial_cleric = {
+	leader = yes random = no
+	
+	learning = 3
+	intrigue = -1
+	
+	opposites = {
+	detached_priest
+	scholarly_theologian
+	mastermind_theologian
+	}
+	
+	ai_zeal = 10
+}
+scholarly_theologian = {
+	leader = yes random = no
+	
+	learning = 6
+	diplomacy = 1
+	stewardship = 1
+	intrigue = -1
+	
+	opposites = {
+	detached_priest
+	maartial_cleric
+	mastermind_theologian
+	}
+	
+	fertility = -0.05
+	
+	ai_zeal = 20
+}
+mastermind_theologian = {
+	leader = yes random = no
+	
+	learning = 9
+	diplomacy = 2
+	stewardship = 2
+	intrigue = -1
+	
+	opposites = {
+	detached_priest
+	scholarly_theologian
+	martial_cleric
+	}
+	
+	fertility = -0.05
+	
+	ai_zeal = 30
+}

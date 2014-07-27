@@ -1,0 +1,18 @@
+Changes:
+-finally exorcised the insiduous parsing errors in disciplines and gifts decisions. See comments on those files for more information.
+-fixed some errors in character histories: one swaped character culture (nameless) and religion (scottish) as well as some traits spelling errors
+-simplified allow clauses in vampire disciplines decisions.
+-removed redundant conitions an comands in both vampires and werewolf training decision (the same condition need not be in both allow and potential, it two traits are opposites, adding one removes the other without needing a remove_trait command
+
+-[experimental] turned education traits into representation of abilities (retagged as leadership traits)
+	-removed "education" flag for all vanilla traits, created an educational "dummy" trait.
+	-assigned the dummy trait to all characters in history
+	-increased to 7 the number of possible leadership traits in defines (I foresee that need some finenuning).
+	NOTE: the fisrt time I tested this, it kept crashing upong "adapting history". Then I added more dummy traits, loaded the game into a playable character just fine, deleted the extra dummies so that only the original remain, and the game kept running fine. Please test this on your machine; it could have been an ocasional problem in mine, like the transitory portrait bug.
+	NOTE2: the interface need urgent tweaking: the new abilities icons (and all leaership icon, I suspect) show where claim should, without any soacce between them.
+Observations:
+-the character 3010 lacks a clan and has a nonexisten "saxon" trait. I have commented it out
+-the dynasty defined in top line of the dynasties file lacks any and all definition
+-The cost curve seems to be different for gifts and disciplines.
+	Gifts: 100-400-600-800-1000
+	Disciplines: 200-400-600-800-1200

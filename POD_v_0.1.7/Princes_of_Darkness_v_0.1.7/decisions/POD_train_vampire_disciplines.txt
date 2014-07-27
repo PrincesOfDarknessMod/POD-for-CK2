@@ -1,3 +1,6 @@
+# Fixed the insidious parsing error! Nevermore write # }, but instead } #
+# Simplified code, exploiting the functionality of traits opposites (if A is an opposite to B, you don'y need to check for both A and not-B, but only for A. Also, if you put a requirement in the Code reduced from 4357 lines to 3469
+
 decisions = {
 
 train_animalism_1_decision = {
@@ -14,14 +17,6 @@ train_animalism_1_decision = {
 	}
 	allow = {
 		prestige = 200
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = animalism_1 }
-			NOT = { trait = animalism_2 }
-			NOT = { trait = animalism_3 }
-			NOT = { trait = animalism_4 }
-			NOT = { trait = animalism_5 }		
 	}
 	effect = {
 		prestige = -200
@@ -37,7 +32,7 @@ train_animalism_1_decision = {
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.09 # Slow it down }
+					factor = 0.09  }
 
 			modifier = {
 					factor = 1.5
@@ -69,26 +64,13 @@ train_animalism_2_decision = {
 			trait = vampire
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = animalism_1 
-			NOT = { trait = animalism_2 }
-			NOT = { trait = animalism_3 }
-			NOT = { trait = animalism_4 }
-			NOT = { trait = animalism_5 }
 	}
 	allow = {
-		prestige = 400
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			trait = animalism_1 
-			NOT = { trait = animalism_2 }
-			NOT = { trait = animalism_3 }
-			NOT = { trait = animalism_4 }
-			NOT = { trait = animalism_5 }		
+		prestige = 400	
 	}
 	effect = {
 		prestige = -400
 		add_trait = animalism_2
-		remove_trait = animalism_1
 		# in clan bonus
 		if = { limit = { OR = {
 						trait = gangrel 
@@ -99,7 +81,7 @@ train_animalism_2_decision = {
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.08 # Slow it down }
+					factor = 0.08  }
 
 			modifier = {
 					factor = 1.5
@@ -130,26 +112,13 @@ train_animalism_3_decision = {
 			age = 50
 			trait = vampire
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = animalism_1 }
 			trait = animalism_2
-			NOT = { trait = animalism_3 }
-			NOT = { trait = animalism_4 }
-			NOT = { trait = animalism_5 }
 	}
 	allow = {
 		prestige = 600
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = animalism_1 }
-			trait = animalism_2
-			NOT = { trait = animalism_3 }
-			NOT = { trait = animalism_4 }
-			NOT = { trait = animalism_5 }		
 	}
 	effect = {
 		prestige = -600
-		remove_trait = animalism_2
 		add_trait = animalism_3
 		# in clan bonus
 		if = { limit = { OR = {
@@ -161,7 +130,7 @@ train_animalism_3_decision = {
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.07 # Slow it down }
+					factor = 0.07  }
 
 			modifier = {
 					factor = 1.5
@@ -192,26 +161,13 @@ train_animalism_4_decision = {
 			age = 50
 			trait = vampire		
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = animalism_1 }
-			NOT = { trait = animalism_2 }
 			trait = animalism_3
-			NOT = { trait = animalism_4 }
-			NOT = { trait = animalism_5 }
 	}
 	allow = {
 		prestige = 800
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = animalism_1 }
-			NOT = { trait = animalism_2 }
-			trait = animalism_3
-			NOT = { trait = animalism_4 }
-			NOT = { trait = animalism_5 }		
 	}
 	effect = {
 		prestige = -800
-		remove_trait = animalism_3
 		add_trait = animalism_4
 		# in clan bonus
 		if = { limit = { OR = {
@@ -223,7 +179,7 @@ train_animalism_4_decision = {
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.06 # Slow it down }
+					factor = 0.06  }
 
 			modifier = {
 					factor = 1.5
@@ -262,26 +218,13 @@ train_animalism_5_decision = {
 			age = 50
 			trait = vampire			
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = animalism_1 }
-			NOT = { trait = animalism_2 }
-			NOT = { trait = animalism_3 }
 			trait = animalism_4 
-			NOT = { trait = animalism_5 }
 	}
 	allow = {
 		prestige = 1200
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = animalism_1 }
-			NOT = { trait = animalism_2 }
-			NOT = { trait = animalism_3 }
-			trait = animalism_4 
-			NOT = { trait = animalism_5 }		
 	}
 	effect = {
 		prestige = -1200
-		remove_trait = animalism_4
 		add_trait = animalism_5
 		# in clan bonus
 		if = { limit = { OR = {
@@ -293,7 +236,7 @@ train_animalism_5_decision = {
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.05 # Slow it down }
+					factor = 0.05  }
 
 			modifier = {
 					factor = 1.5
@@ -340,16 +283,7 @@ train_auspex_1_decision = {
 			NOT = { trait = auspex_5 }
 	}
 	allow = {
-		prestige = 200
-			age = 50
-			trait = vampire
-			trait = mekhet
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = auspex_1 }
-			NOT = { trait = auspex_2 }
-			NOT = { trait = auspex_3 }
-			NOT = { trait = auspex_4 }
-			NOT = { trait = auspex_5 }		
+		prestige = 200	
 	}
 	effect = {
 		prestige = -200
@@ -362,7 +296,7 @@ train_auspex_1_decision = {
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.09 # Slow it down }
+					factor = 0.09  }
 
 			modifier = {
 					factor = 1.5
@@ -392,26 +326,13 @@ train_auspex_2_decision = {
 			trait = vampire
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = auspex_1 
-			NOT = { trait = auspex_2 }
-			NOT = { trait = auspex_3 }
-			NOT = { trait = auspex_4 }
-			NOT = { trait = auspex_5 }
 	}
 	allow = {
 		prestige = 400
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			trait = auspex_1 
-			NOT = { trait = auspex_2 }
-			NOT = { trait = auspex_3 }
-			NOT = { trait = auspex_4 }
-			NOT = { trait = auspex_5 }
 	}
 	effect = {
 		prestige = -400
 		add_trait = auspex_2
-		remove_trait = auspex_1
 		# in clan bonus
 		if = { limit = { trait = mekhet }
 				prestige = 200
@@ -420,7 +341,7 @@ train_auspex_2_decision = {
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.08 # Slow it down }
+					factor = 0.08  }
 
 			modifier = {
 					factor = 1.5
@@ -448,26 +369,13 @@ train_auspex_3_decision = {
 			age = 50
 			trait = vampire
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = auspex_1 }
 			trait = auspex_2
-			NOT = { trait = auspex_3 }
-			NOT = { trait = auspex_4 }
-			NOT = { trait = auspex_5 }
 	}
 	allow = {
 		prestige = 600
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = auspex_1 }
-			trait = auspex_2
-			NOT = { trait = auspex_3 }
-			NOT = { trait = auspex_4 }
-			NOT = { trait = auspex_5 }
 	}
 	effect = {
 		prestige = -600
-		remove_trait = auspex_2
 		add_trait = auspex_3
 		# in clan bonus
 		if = { limit = { trait = mekhet }
@@ -477,7 +385,7 @@ train_auspex_3_decision = {
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.07 # Slow it down }
+					factor = 0.07  }
 
 			modifier = {
 					factor = 1.5
@@ -505,26 +413,13 @@ train_auspex_4_decision = {
 			age = 50
 			trait = vampire
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = auspex_1 }
-			NOT = { trait = auspex_2 }
 			trait = auspex_3
-			NOT = { trait = auspex_4 }
-			NOT = { trait = auspex_5 }
 	}
 	allow = {
 		prestige = 800
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = auspex_1 }
-			NOT = { trait = auspex_2 }
-			trait = auspex_3
-			NOT = { trait = auspex_4 }
-			NOT = { trait = auspex_5 }
 	}
 	effect = {
 		prestige = -800
-		remove_trait = auspex_3
 		add_trait = auspex_4
 		# in clan bonus
 		if = { limit = { trait = mekhet }
@@ -534,7 +429,7 @@ train_auspex_4_decision = {
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.06 # Slow it down }
+					factor = 0.06  }
 
 			modifier = {
 					factor = 1.5
@@ -569,19 +464,10 @@ train_auspex_5_decision = {
 			NOT = { trait = auspex_5 }
 	}
 	allow = {
-		prestige = 1200
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = auspex_1 }
-			NOT = { trait = auspex_2 }
-			NOT = { trait = auspex_3 }
-			trait = auspex_4 
-			NOT = { trait = auspex_5 }		
+		prestige = 1200	
 	}
 	effect = {
 		prestige = -1200
-		remove_trait = auspex_4
 		add_trait = auspex_5
 		# in clan bonus
 		if = { limit = { trait = mekhet }
@@ -591,7 +477,7 @@ train_auspex_5_decision = {
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.05 # Slow it down }
+					factor = 0.05  }
 
 			modifier = {
 					factor = 1.5
@@ -627,14 +513,6 @@ train_celerity_1_decision = {
 	}
 	allow = {
 		prestige = 200
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = celerity_1 }
-			NOT = { trait = celerity_2 }
-			NOT = { trait = celerity_3 }
-			NOT = { trait = celerity_4 }
-			NOT = { trait = celerity_5 }
 	}
 	effect = {
 		prestige = -200
@@ -650,7 +528,7 @@ train_celerity_1_decision = {
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.09 # Slow it down }
+					factor = 0.09  }
 
 			modifier = {
 					factor = 1.5
@@ -683,26 +561,13 @@ train_celerity_2_decision = {
 			trait = vampire
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = celerity_1 
-			NOT = { trait = celerity_2 }
-			NOT = { trait = celerity_3 }
-			NOT = { trait = celerity_4 }
-			NOT = { trait = celerity_5 }
 	}
 	allow = {
 		prestige = 400
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			trait = celerity_1 
-			NOT = { trait = celerity_2 }
-			NOT = { trait = celerity_3 }
-			NOT = { trait = celerity_4 }
-			NOT = { trait = celerity_5 }		
 	}
 	effect = {
 		prestige = -400
 		add_trait = celerity_2
-		remove_trait = celerity_1
 		# in clan bonus
 		if = { limit = { OR = {
 						trait = daeva 
@@ -714,7 +579,7 @@ train_celerity_2_decision = {
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.08 # Slow it down }
+					factor = 0.08  }
 
 			modifier = {
 					factor = 1.5
@@ -746,26 +611,13 @@ train_celerity_3_decision = {
 			age = 50
 			trait = vampire
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = celerity_1 }
 			trait = celerity_2
-			NOT = { trait = celerity_3 }
-			NOT = { trait = celerity_4 }
-			NOT = { trait = celerity_5 }
 	}
 	allow = {
 		prestige = 600
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = celerity_1 }
-			trait = celerity_2
-			NOT = { trait = celerity_3 }
-			NOT = { trait = celerity_4 }
-			NOT = { trait = celerity_5 }
 	}
 	effect = {
 		prestige = -600
-		remove_trait = celerity_2
 		add_trait = celerity_3
 		# in clan bonus
 		if = { limit = { OR = {
@@ -778,7 +630,7 @@ train_celerity_3_decision = {
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.07 # Slow it down }
+					factor = 0.07  }
 
 			modifier = {
 					factor = 1.5
@@ -810,26 +662,13 @@ train_celerity_4_decision = {
 			age = 50
 			trait = vampire			
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = celerity_1 }
-			NOT = { trait = celerity_2 }
 			trait = celerity_3
-			NOT = { trait = celerity_4 }
-			NOT = { trait = celerity_5 }
 	}
 	allow = {
-		prestige = 800
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = celerity_1 }
-			NOT = { trait = celerity_2 }
-			trait = celerity_3
-			NOT = { trait = celerity_4 }
-			NOT = { trait = celerity_5 }
+		prestige = 800 
 	}
 	effect = {
 		prestige = -800
-		remove_trait = celerity_3
 		add_trait = celerity_4
 		# in clan bonus
 		if = { limit = { OR = {
@@ -842,7 +681,7 @@ train_celerity_4_decision = {
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.06 # Slow it down }
+					factor = 0.06  }
 
 			modifier = {
 					factor = 1.5
@@ -884,26 +723,13 @@ train_celerity_5_decision = {
 			age = 50
 			trait = vampire
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = celerity_1 }
-			NOT = { trait = celerity_2 }
-			NOT = { trait = celerity_3 }
 			trait = celerity_4 
-			NOT = { trait = celerity_5 }
 	}
 	allow = {
 		prestige = 1200
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = celerity_1 }
-			NOT = { trait = celerity_2 }
-			NOT = { trait = celerity_3 }
-			trait = celerity_4 
-			NOT = { trait = celerity_5 }
 	}
 	effect = {
 		prestige = -1200
-		remove_trait = celerity_4
 		add_trait = celerity_5
 		# in clan bonus
 		if = { limit = { OR = {
@@ -916,7 +742,7 @@ train_celerity_5_decision = {
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.05 # Slow it down }
+					factor = 0.05  }
 
 			modifier = {
 					factor = 1.5
@@ -965,15 +791,6 @@ train_dominate_1_decision = {
 	}
 	allow = {
 		prestige = 200
-			age = 50
-			trait = vampire
-			trait = ventrue
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = dominate_1 }
-			NOT = { trait = dominate_2 }
-			NOT = { trait = dominate_3 }
-			NOT = { trait = dominate_4 }
-			NOT = { trait = dominate_5 }
 	}
 	effect = {
 		prestige = -200
@@ -986,7 +803,7 @@ train_dominate_1_decision = {
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.09 # Slow it down }
+					factor = 0.09  }
 
 			modifier = {
 					factor = 1.5
@@ -1015,26 +832,13 @@ train_dominate_2_decision = {
 			trait = vampire
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = dominate_1 
-			NOT = { trait = dominate_2 }
-			NOT = { trait = dominate_3 }
-			NOT = { trait = dominate_4 }
-			NOT = { trait = dominate_5 }
 	}
 	allow = {
 		prestige = 400
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			trait = dominate_1 
-			NOT = { trait = dominate_2 }
-			NOT = { trait = dominate_3 }
-			NOT = { trait = dominate_4 }
-			NOT = { trait = dominate_5 }
 	}
 	effect = {
 		prestige = -400
 		add_trait = dominate_2
-		remove_trait = dominate_1
 		# in clan bonus
 		if = { limit = { trait = ventrue }
 				prestige = 200
@@ -1043,7 +847,7 @@ train_dominate_2_decision = {
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.08 # Slow it down }
+					factor = 0.08  }
 
 			modifier = {
 					factor = 1.5
@@ -1071,26 +875,13 @@ train_dominate_3_decision = {
 			age = 50
 			trait = vampire
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = dominate_1 }
 			trait = dominate_2
-			NOT = { trait = dominate_3 }
-			NOT = { trait = dominate_4 }
-			NOT = { trait = dominate_5 }
 	}
 	allow = {
-		prestige = 600
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = dominate_1 }
-			trait = dominate_2
-			NOT = { trait = dominate_3 }
-			NOT = { trait = dominate_4 }
-			NOT = { trait = dominate_5 }		
+		prestige = 600		
 	}
 	effect = {
 		prestige = -600
-		remove_trait = dominate_2
 		add_trait = dominate_3
 		# in clan bonus
 		if = { limit = { trait = ventrue }
@@ -1100,7 +891,7 @@ train_dominate_3_decision = {
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.07 # Slow it down }
+					factor = 0.07  }
 
 			modifier = {
 					factor = 1.5
@@ -1128,26 +919,13 @@ train_dominate_4_decision = {
 			age = 50
 			trait = vampire
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = dominate_1 }
-			NOT = { trait = dominate_2 }
 			trait = dominate_3
-			NOT = { trait = dominate_4 }
-			NOT = { trait = dominate_5 }
 	}
 	allow = {
 		prestige = 800
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = dominate_1 }
-			NOT = { trait = dominate_2 }
-			trait = dominate_3
-			NOT = { trait = dominate_4 }
-			NOT = { trait = dominate_5 }
 	}
 	effect = {
 		prestige = -800
-		remove_trait = dominate_3
 		add_trait = dominate_4
 		# in clan bonus
 		if = { limit = { trait = ventrue }
@@ -1157,7 +935,7 @@ train_dominate_4_decision = {
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.08 # Slow it down }
+					factor = 0.08  }
 
 			modifier = {
 					factor = 1.5
@@ -1185,26 +963,13 @@ train_dominate_5_decision = {
 			age = 50
 			trait = vampire
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = dominate_1 }
-			NOT = { trait = dominate_2 }
-			NOT = { trait = dominate_3 }
 			trait = dominate_4 
-			NOT = { trait = dominate_5 }
 	}
 	allow = {
 		prestige = 1200
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = dominate_1 }
-			NOT = { trait = dominate_2 }
-			NOT = { trait = dominate_3 }
-			trait = dominate_4 
-			NOT = { trait = dominate_5 }
 	}
 	effect = {
 		prestige = -1200
-		remove_trait = dominate_4
 		add_trait = dominate_5
 		# in clan bonus
 		if = { limit = { trait = ventrue }
@@ -1214,7 +979,7 @@ train_dominate_5_decision = {
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.05 # Slow it down }
+					factor = 0.05  }
 
 			modifier = {
 					factor = 1.5
@@ -1251,15 +1016,6 @@ train_majesty_1_decision = {
 	}
 	allow = {
 		prestige = 200
-			age = 50
-			trait = vampire
-			trait = daeva
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = majesty_1 }
-			NOT = { trait = majesty_2 }
-			NOT = { trait = majesty_3 }
-			NOT = { trait = majesty_4 }
-			NOT = { trait = majesty_5 }
 	}
 	effect = {
 		prestige = -200
@@ -1272,7 +1028,7 @@ train_majesty_1_decision = {
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.09 # Slow it down }
+					factor = 0.09  }
 
 			modifier = {
 					factor = 1.5
@@ -1302,26 +1058,13 @@ train_majesty_2_decision = {
 			trait = vampire
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = majesty_1 
-			NOT = { trait = majesty_2 }
-			NOT = { trait = majesty_3 }
-			NOT = { trait = majesty_4 }
-			NOT = { trait = majesty_5 }
 	}
 	allow = {
 		prestige = 400
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			trait = majesty_1 
-			NOT = { trait = majesty_2 }
-			NOT = { trait = majesty_3 }
-			NOT = { trait = majesty_4 }
-			NOT = { trait = majesty_5 }		
 	}
 	effect = {
 		prestige = -400
 		add_trait = majesty_2
-		remove_trait = majesty_1
 		# in clan bonus
 		if = { limit = { trait = daeva }
 				prestige = 200
@@ -1330,7 +1073,7 @@ train_majesty_2_decision = {
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.08 # Slow it down }
+					factor = 0.08  }
 
 			modifier = {
 					factor = 1.5
@@ -1358,26 +1101,13 @@ train_majesty_3_decision = {
 			age = 50
 			trait = vampire
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = majesty_1 }
 			trait = majesty_2
-			NOT = { trait = majesty_3 }
-			NOT = { trait = majesty_4 }
-			NOT = { trait = majesty_5 }
 	}
 	allow = {
 		prestige = 600
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = majesty_1 }
-			trait = majesty_2
-			NOT = { trait = majesty_3 }
-			NOT = { trait = majesty_4 }
-			NOT = { trait = majesty_5 }
 	}
 	effect = {
 		prestige = -600
-		remove_trait = majesty_2
 		add_trait = majesty_3
 		# in clan bonus
 		if = { limit = { trait = daeva }
@@ -1387,7 +1117,7 @@ train_majesty_3_decision = {
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.07 # Slow it down }
+					factor = 0.07  }
 
 			modifier = {
 					factor = 1.5
@@ -1415,26 +1145,13 @@ train_majesty_4_decision = {
 			age = 50
 			trait = vampire
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = majesty_1 }
-			NOT = { trait = majesty_2 }
 			trait = majesty_3
-			NOT = { trait = majesty_4 }
-			NOT = { trait = majesty_5 }
 	}
 	allow = {
-		prestige = 800
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = majesty_1 }
-			NOT = { trait = majesty_2 }
-			trait = majesty_3
-			NOT = { trait = majesty_4 }
-			NOT = { trait = majesty_5 }		
+		prestige = 800	
 	}
 	effect = {
 		prestige = -800
-		remove_trait = majesty_3
 		add_trait = majesty_4
 		# in clan bonus
 		if = { limit = { trait = daeva }
@@ -1444,7 +1161,7 @@ train_majesty_4_decision = {
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.06 # Slow it down }
+					factor = 0.06  }
 
 			modifier = {
 					factor = 1.5
@@ -1472,26 +1189,13 @@ train_majesty_5_decision = {
 			age = 50
 			trait = vampire
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = majesty_1 }
-			NOT = { trait = majesty_2 }
-			NOT = { trait = majesty_3 }
 			trait = majesty_4 
-			NOT = { trait = majesty_5 }
 	}
 	allow = {
-		prestige = 1200
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = majesty_1 }
-			NOT = { trait = majesty_2 }
-			NOT = { trait = majesty_3 }
-			trait = majesty_4 
-			NOT = { trait = majesty_5 }		
+		prestige = 1200	
 	}
 	effect = {
 		prestige = -1200
-		remove_trait = majesty_4
 		add_trait = majesty_5
 		# in clan bonus
 		if = { limit = { trait = daeva }
@@ -1501,7 +1205,7 @@ train_majesty_5_decision = {
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.05 # Slow it down }
+					factor = 0.05  }
 
 			modifier = {
 					factor = 1.5
@@ -1537,16 +1241,7 @@ train_nightmare_1_decision = {
 			NOT = { trait = nightmare_5 }
 	}
 	allow = {
-		prestige = 200
-			age = 50
-			trait = vampire
-			trait = nosferatu
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = nightmare_1 }
-			NOT = { trait = nightmare_2 }
-			NOT = { trait = nightmare_3 }
-			NOT = { trait = nightmare_4 }
-			NOT = { trait = nightmare_5 }		
+		prestige = 200		
 	}
 	effect = {
 		prestige = -200
@@ -1559,7 +1254,7 @@ train_nightmare_1_decision = {
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.09 # Slow it down }
+					factor = 0.09  }
 
 			modifier = {
 					factor = 1.5
@@ -1589,26 +1284,13 @@ train_nightmare_2_decision = {
 			trait = vampire
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = nightmare_1 
-			NOT = { trait = nightmare_2 }
-			NOT = { trait = nightmare_3 }
-			NOT = { trait = nightmare_4 }
-			NOT = { trait = nightmare_5 }
 	}
 	allow = {
-		prestige = 400
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			trait = nightmare_1 
-			NOT = { trait = nightmare_2 }
-			NOT = { trait = nightmare_3 }
-			NOT = { trait = nightmare_4 }
-			NOT = { trait = nightmare_5 }		
+		prestige = 400	
 	}
 	effect = {
 		prestige = -400
 		add_trait = nightmare_2
-		remove_trait = nightmare_1
 		# in clan bonus
 		if = { limit = { trait = nosferatu }
 				prestige = 200
@@ -1617,7 +1299,7 @@ train_nightmare_2_decision = {
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.08 # Slow it down }
+					factor = 0.08  }
 
 			modifier = {
 					factor = 1.5
@@ -1646,26 +1328,13 @@ train_nightmare_3_decision = {
 			age = 50
 			trait = vampire
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = nightmare_1 }
 			trait = nightmare_2
-			NOT = { trait = nightmare_3 }
-			NOT = { trait = nightmare_4 }
-			NOT = { trait = nightmare_5 }
 	}
 	allow = {
 		prestige = 600
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = nightmare_1 }
-			trait = nightmare_2
-			NOT = { trait = nightmare_3 }
-			NOT = { trait = nightmare_4 }
-			NOT = { trait = nightmare_5 }		
 	}
 	effect = {
 		prestige = -600
-		remove_trait = nightmare_2
 		add_trait = nightmare_3
 		# in clan bonus
 		if = { limit = { trait = nosferatu }
@@ -1675,7 +1344,7 @@ train_nightmare_3_decision = {
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.07 # Slow it down }
+					factor = 0.07  }
 
 			modifier = {
 					factor = 1.5
@@ -1704,26 +1373,13 @@ train_nightmare_4_decision = {
 			age = 50
 			trait = vampire
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = nightmare_1 }
-			NOT = { trait = nightmare_2 }
 			trait = nightmare_3
-			NOT = { trait = nightmare_4 }
-			NOT = { trait = nightmare_5 }
 	}
 	allow = {
-		prestige = 800
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = nightmare_1 }
-			NOT = { trait = nightmare_2 }
-			trait = nightmare_3
-			NOT = { trait = nightmare_4 }
-			NOT = { trait = nightmare_5 }		
+		prestige = 800	
 	}
 	effect = {
 		prestige = -800
-		remove_trait = nightmare_3
 		add_trait = nightmare_4
 		# in clan bonus
 		if = { limit = { trait = nosferatu }
@@ -1733,7 +1389,7 @@ train_nightmare_4_decision = {
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.06 # Slow it down }
+					factor = 0.06  }
 
 			modifier = {
 					factor = 1.5
@@ -1762,26 +1418,13 @@ train_nightmare_5_decision = {
 			age = 50
 			trait = vampire
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = nightmare_1 }
-			NOT = { trait = nightmare_2 }
-			NOT = { trait = nightmare_3 }
 			trait = nightmare_4 
-			NOT = { trait = nightmare_5 }
 	}
 	allow = {
 		prestige = 1200
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = nightmare_1 }
-			NOT = { trait = nightmare_2 }
-			NOT = { trait = nightmare_3 }
-			trait = nightmare_4 
-			NOT = { trait = nightmare_5 }		
 	}
 	effect = {
 		prestige = -1200
-		remove_trait = nightmare_4
 		add_trait = nightmare_5
 		# in clan bonus
 		if = { limit = { trait = nosferatu }
@@ -1791,7 +1434,7 @@ train_nightmare_5_decision = {
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.05 # Slow it down }
+					factor = 0.05  }
 
 			modifier = {
 					factor = 1.5
@@ -1827,15 +1470,7 @@ train_obfuscate_1_decision = {
 			NOT = { trait = obfuscate_5 }
 	}
 	allow = {
-		prestige = 200
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = obfuscate_1 }
-			NOT = { trait = obfuscate_2 }
-			NOT = { trait = obfuscate_3 }
-			NOT = { trait = obfuscate_4 }
-			NOT = { trait = obfuscate_5 }		
+		prestige = 200	
 	}
 	effect = {
 		prestige = -200
@@ -1849,7 +1484,7 @@ train_obfuscate_1_decision = {
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.09 # Slow it down }
+					factor = 0.09  }
 
 			modifier = {
 					factor = 1.5
@@ -1881,26 +1516,13 @@ train_obfuscate_2_decision = {
 			trait = vampire
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = obfuscate_1 
-			NOT = { trait = obfuscate_2 }
-			NOT = { trait = obfuscate_3 }
-			NOT = { trait = obfuscate_4 }
-			NOT = { trait = obfuscate_5 }
 	}
 	allow = {
-		prestige = 400
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			trait = obfuscate_1 
-			NOT = { trait = obfuscate_2 }
-			NOT = { trait = obfuscate_3 }
-			NOT = { trait = obfuscate_4 }
-			NOT = { trait = obfuscate_5 }		
+		prestige = 400	
 	}
 	effect = {
 		prestige = -400
 		add_trait = obfuscate_2
-		remove_trait = obfuscate_1
 		# in clan bonus
 		if = { limit = { OR = { trait = mekhet
 								trait = nosferatu }}
@@ -1910,7 +1532,7 @@ train_obfuscate_2_decision = {
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.08 # Slow it down }
+					factor = 0.08  }
 
 			modifier = {
 					factor = 1.5
@@ -1941,26 +1563,13 @@ train_obfuscate_3_decision = {
 			age = 50
 			trait = vampire
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = obfuscate_1 }
 			trait = obfuscate_2
-			NOT = { trait = obfuscate_3 }
-			NOT = { trait = obfuscate_4 }
-			NOT = { trait = obfuscate_5 }
 	}
 	allow = {
-		prestige = 600
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = obfuscate_1 }
-			trait = obfuscate_2
-			NOT = { trait = obfuscate_3 }
-			NOT = { trait = obfuscate_4 }
-			NOT = { trait = obfuscate_5 }		
+		prestige = 600	
 	}
 	effect = {
 		prestige = -600
-		remove_trait = obfuscate_2
 		add_trait = obfuscate_3
 		# in clan bonus
 		if = { limit = { OR = { trait = mekhet
@@ -1971,7 +1580,7 @@ train_obfuscate_3_decision = {
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.07 # Slow it down }
+					factor = 0.07  }
 
 			modifier = {
 					factor = 1.5
@@ -2002,26 +1611,13 @@ train_obfuscate_4_decision = {
 			age = 50
 			trait = vampire
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = obfuscate_1 }
-			NOT = { trait = obfuscate_2 }
 			trait = obfuscate_3
-			NOT = { trait = obfuscate_4 }
-			NOT = { trait = obfuscate_5 }
 	}
 	allow = {
 		prestige = 800
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = obfuscate_1 }
-			NOT = { trait = obfuscate_2 }
-			trait = obfuscate_3
-			NOT = { trait = obfuscate_4 }
-			NOT = { trait = obfuscate_5 }		
 	}
 	effect = {
 		prestige = -800
-		remove_trait = obfuscate_3
 		add_trait = obfuscate_4
 		# in clan bonus
 		if = { limit = { OR = { trait = mekhet
@@ -2032,7 +1628,7 @@ train_obfuscate_4_decision = {
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.06 # Slow it down }
+					factor = 0.06  }
 
 			modifier = {
 					factor = 1.5
@@ -2072,26 +1668,13 @@ train_obfuscate_5_decision = {
 			age = 50
 			trait = vampire
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = obfuscate_1 }
-			NOT = { trait = obfuscate_2 }
-			NOT = { trait = obfuscate_3 }
 			trait = obfuscate_4 
-			NOT = { trait = obfuscate_5 }
 	}
 	allow = {
-		prestige = 1200
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = obfuscate_1 }
-			NOT = { trait = obfuscate_2 }
-			NOT = { trait = obfuscate_3 }
-			trait = obfuscate_4 
-			NOT = { trait = obfuscate_5 }		
+		prestige = 1200		
 	}
 	effect = {
 		prestige = -1200
-		remove_trait = obfuscate_4
 		add_trait = obfuscate_5
 		# in clan bonus
 		if = { limit = { OR = { trait = mekhet
@@ -2102,7 +1685,7 @@ train_obfuscate_5_decision = {
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.05 # Slow it down }
+					factor = 0.05  }
 
 			modifier = {
 					factor = 1.5
@@ -2149,16 +1732,7 @@ train_protean_1_decision = {
 			NOT = { trait = protean_5 }
 	}
 	allow = {
-		prestige = 200
-			age = 50
-			trait = vampire
-			trait = gangrel
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = protean_1 }
-			NOT = { trait = protean_2 }
-			NOT = { trait = protean_3 }
-			NOT = { trait = protean_4 }
-			NOT = { trait = protean_5 }		
+		prestige = 200	
 	}
 	effect = {
 		prestige = -200
@@ -2172,7 +1746,7 @@ train_protean_1_decision = {
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.09 # Slow it down }
+					factor = 0.09  }
 
 			modifier = {
 					factor = 1.5
@@ -2206,26 +1780,13 @@ train_protean_2_decision = {
 			trait = vampire
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = protean_1 
-			NOT = { trait = protean_2 }
-			NOT = { trait = protean_3 }
-			NOT = { trait = protean_4 }
-			NOT = { trait = protean_5 }
 	}
 	allow = {
 		prestige = 400
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			trait = protean_1 
-			NOT = { trait = protean_2 }
-			NOT = { trait = protean_3 }
-			NOT = { trait = protean_4 }
-			NOT = { trait = protean_5 }		
 	}
 	effect = {
 		prestige = -400
 		add_trait = protean_2
-		remove_trait = protean_1
 		# in clan bonus
 		if = { limit = { trait = gangrel }
 				prestige = 200
@@ -2234,7 +1795,7 @@ train_protean_2_decision = {
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.08 # Slow it down }
+					factor = 0.08  }
 
 			modifier = {
 					factor = 1.5
@@ -2267,26 +1828,13 @@ train_protean_3_decision = {
 			age = 50
 			trait = vampire
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = protean_1 }
 			trait = protean_2
-			NOT = { trait = protean_3 }
-			NOT = { trait = protean_4 }
-			NOT = { trait = protean_5 }
 	}
 	allow = {
 		prestige = 600
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = protean_1 }
-			trait = protean_2
-			NOT = { trait = protean_3 }
-			NOT = { trait = protean_4 }
-			NOT = { trait = protean_5 }		
 	}
 	effect = {
 		prestige = -600
-		remove_trait = protean_2
 		add_trait = protean_3
 		# in clan bonus
 		if = { limit = { trait = gangrel }
@@ -2296,7 +1844,7 @@ train_protean_3_decision = {
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.07 # Slow it down }
+					factor = 0.07  }
 
 			modifier = {
 					factor = 1.5
@@ -2329,26 +1877,14 @@ train_protean_4_decision = {
 			age = 50
 			trait = vampire
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = protean_1 }
-			NOT = { trait = protean_2 }
 			trait = protean_3
-			NOT = { trait = protean_4 }
-			NOT = { trait = protean_5 }
 	}
 	allow = {
 		prestige = 800
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = protean_1 }
-			NOT = { trait = protean_2 }
-			trait = protean_3
-			NOT = { trait = protean_4 }
-			NOT = { trait = protean_5 }		
+			trait = protean_3	
 	}
 	effect = {
 		prestige = -800
-		remove_trait = protean_3
 		add_trait = protean_4
 		# in clan bonus
 		if = { limit = { trait = gangrel }
@@ -2358,7 +1894,7 @@ train_protean_4_decision = {
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.06 # Slow it down }
+					factor = 0.06  }
 
 			modifier = {
 					factor = 1.5
@@ -2391,26 +1927,13 @@ train_protean_5_decision = {
 			age = 50
 			trait = vampire
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = protean_1 }
-			NOT = { trait = protean_2 }
-			NOT = { trait = protean_3 }
 			trait = protean_4 
-			NOT = { trait = protean_5 }
 	}
 	allow = {
 		prestige = 1200
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = protean_1 }
-			NOT = { trait = protean_2 }
-			NOT = { trait = protean_3 }
-			trait = protean_4 
-			NOT = { trait = protean_5 }		
 	}
 	effect = {
 		prestige = -1200
-		remove_trait = protean_4
 		add_trait = protean_5
 		# in clan bonus
 		if = { limit = { trait = gangrel }
@@ -2420,7 +1943,7 @@ train_protean_5_decision = {
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.05 # Slow it down }
+					factor = 0.05  }
 
 			modifier = {
 					factor = 1.5
@@ -2461,14 +1984,6 @@ train_resilience_1_decision = {
 	}
 	allow = {
 		prestige = 200
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = resilience_1 }
-			NOT = { trait = resilience_2 }
-			NOT = { trait = resilience_3 }
-			NOT = { trait = resilience_4 }
-			NOT = { trait = resilience_5 }		
 	}
 	effect = {
 		prestige = -200
@@ -2482,7 +1997,7 @@ train_resilience_1_decision = {
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.09 # Slow it down }
+					factor = 0.09  }
 
 			modifier = {
 					factor = 1.5
@@ -2515,26 +2030,13 @@ train_resilience_2_decision = {
 			trait = vampire
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = resilience_1 
-			NOT = { trait = resilience_2 }
-			NOT = { trait = resilience_3 }
-			NOT = { trait = resilience_4 }
-			NOT = { trait = resilience_5 }
 	}
 	allow = {
-		prestige = 400
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			trait = resilience_1 
-			NOT = { trait = resilience_2 }
-			NOT = { trait = resilience_3 }
-			NOT = { trait = resilience_4 }
-			NOT = { trait = resilience_5 }		
+		prestige = 400		
 	}
 	effect = {
 		prestige = -400
 		add_trait = resilience_2
-		remove_trait = resilience_1
 		# in clan bonus
 		if = { limit = { OR = { trait = gangrel
 								trait = ventrue } }
@@ -2544,7 +2046,7 @@ train_resilience_2_decision = {
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.08 # Slow it down }
+					factor = 0.08  }
 
 			modifier = {
 					factor = 1.5
@@ -2576,26 +2078,13 @@ train_resilience_3_decision = {
 			age = 50
 			trait = vampire
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = resilience_1 }
 			trait = resilience_2
-			NOT = { trait = resilience_3 }
-			NOT = { trait = resilience_4 }
-			NOT = { trait = resilience_5 }
 	}
 	allow = {
 		prestige = 600
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = resilience_1 }
-			trait = resilience_2
-			NOT = { trait = resilience_3 }
-			NOT = { trait = resilience_4 }
-			NOT = { trait = resilience_5 }		
 	}
 	effect = {
 		prestige = -600
-		remove_trait = resilience_2
 		add_trait = resilience_3
 		# in clan bonus
 		if = { limit = { OR = { trait = gangrel
@@ -2606,7 +2095,7 @@ train_resilience_3_decision = {
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.07 # Slow it down }
+					factor = 0.07  }
 
 			modifier = {
 					factor = 1.5
@@ -2638,26 +2127,13 @@ train_resilience_4_decision = {
 			age = 50
 			trait = vampire
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = resilience_1 }
-			NOT = { trait = resilience_2 }
 			trait = resilience_3
-			NOT = { trait = resilience_4 }
-			NOT = { trait = resilience_5 }
 	}
 	allow = {
 		prestige = 800
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = resilience_1 }
-			NOT = { trait = resilience_2 }
-			trait = resilience_3
-			NOT = { trait = resilience_4 }
-			NOT = { trait = resilience_5 }		
 	}
 	effect = {
 		prestige = -800
-		remove_trait = resilience_3
 		add_trait = resilience_4
 		# in clan bonus
 		if = { limit = { OR = { trait = gangrel
@@ -2668,7 +2144,7 @@ train_resilience_4_decision = {
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.06 # Slow it down }
+					factor = 0.06  }
 
 			modifier = {
 					factor = 1.5
@@ -2708,26 +2184,13 @@ train_resilience_5_decision = {
 			age = 50
 			trait = vampire
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = resilience_1 }
-			NOT = { trait = resilience_2 }
-			NOT = { trait = resilience_3 }
 			trait = resilience_4 
-			NOT = { trait = resilience_5 }
 	}
 	allow = {
-		prestige = 1200
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = resilience_1 }
-			NOT = { trait = resilience_2 }
-			NOT = { trait = resilience_3 }
-			trait = resilience_4 
-			NOT = { trait = resilience_5 }		
+		prestige = 1200		
 	}
 	effect = {
 		prestige = -1200
-		remove_trait = resilience_4
 		add_trait = resilience_5
 		# in clan bonus
 		if = { limit = { OR = { trait = gangrel
@@ -2738,7 +2201,7 @@ train_resilience_5_decision = {
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.05 # Slow it down }
+					factor = 0.05  }
 
 			modifier = {
 					factor = 1.5
@@ -2785,15 +2248,7 @@ train_vigor_1_decision = {
 			NOT = { trait = vigor_5 }
 	}
 	allow = {
-		prestige = 200
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = vigor_1 }
-			NOT = { trait = vigor_2 }
-			NOT = { trait = vigor_3 }
-			NOT = { trait = vigor_4 }
-			NOT = { trait = vigor_5 }		
+		prestige = 200	
 	}
 	effect = {
 		prestige = -200
@@ -2807,7 +2262,7 @@ train_vigor_1_decision = {
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.09 # Slow it down }
+					factor = 0.09  }
 
 			modifier = {
 					factor = 1.5
@@ -2840,26 +2295,13 @@ train_vigor_2_decision = {
 			trait = vampire
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = vigor_1 
-			NOT = { trait = vigor_2 }
-			NOT = { trait = vigor_3 }
-			NOT = { trait = vigor_4 }
-			NOT = { trait = vigor_5 }
 	}
 	allow = {
-		prestige = 400
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			trait = vigor_1 
-			NOT = { trait = vigor_2 }
-			NOT = { trait = vigor_3 }
-			NOT = { trait = vigor_4 }
-			NOT = { trait = vigor_5 }		
+		prestige = 400		
 	}
 	effect = {
 		prestige = -400
 		add_trait = vigor_2
-		remove_trait = vigor_1
 		# in clan bonus
 		if = { limit = { OR = { trait = daeva
 								trait = nosferatu } }
@@ -2869,7 +2311,7 @@ train_vigor_2_decision = {
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.08 # Slow it down }
+					factor = 0.08  }
 
 			modifier = {
 					factor = 1.5
@@ -2901,26 +2343,13 @@ train_vigor_3_decision = {
 			age = 50
 			trait = vampire
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = vigor_1 }
 			trait = vigor_2
-			NOT = { trait = vigor_3 }
-			NOT = { trait = vigor_4 }
-			NOT = { trait = vigor_5 }
 	}
 	allow = {
-		prestige = 600
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = vigor_1 }
-			trait = vigor_2
-			NOT = { trait = vigor_3 }
-			NOT = { trait = vigor_4 }
-			NOT = { trait = vigor_5 }		
+		prestige = 600	
 	}
 	effect = {
 		prestige = -600
-		remove_trait = vigor_2
 		add_trait = vigor_3
 		# in clan bonus
 		if = { limit = { OR = { trait = daeva
@@ -2931,7 +2360,7 @@ train_vigor_3_decision = {
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.07 # Slow it down }
+					factor = 0.07  }
 
 			modifier = {
 					factor = 1.5
@@ -2964,26 +2393,13 @@ train_vigor_4_decision = {
 			age = 50
 			trait = vampire
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = vigor_1 }
-			NOT = { trait = vigor_2 }
 			trait = vigor_3
-			NOT = { trait = vigor_4 }
-			NOT = { trait = vigor_5 }
 	}
 	allow = {
 		prestige = 800
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = vigor_1 }
-			NOT = { trait = vigor_2 }
-			trait = vigor_3
-			NOT = { trait = vigor_4 }
-			NOT = { trait = vigor_5 }		
 	}
 	effect = {
 		prestige = -800
-		remove_trait = vigor_3
 		add_trait = vigor_4
 		# in clan bonus
 		if = { limit = { OR = { trait = daeva
@@ -2994,7 +2410,7 @@ train_vigor_4_decision = {
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.06 # Slow it down }
+					factor = 0.06  }
 
 			modifier = {
 					factor = 1.5
@@ -3034,26 +2450,13 @@ train_vigor_5_decision = {
 			age = 50
 			trait = vampire
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = vigor_1 }
-			NOT = { trait = vigor_2 }
-			NOT = { trait = vigor_3 }
 			trait = vigor_4 
-			NOT = { trait = vigor_5 }
 	}
 	allow = {
 		prestige = 1200
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = vigor_1 }
-			NOT = { trait = vigor_2 }
-			NOT = { trait = vigor_3 }
-			trait = vigor_4 
-			NOT = { trait = vigor_5 }		
 	}
 	effect = {
 		prestige = -1200
-		remove_trait = vigor_4
 		add_trait = vigor_5
 		# in clan bonus
 		if = { limit = { OR = { trait = daeva
@@ -3064,7 +2467,7 @@ train_vigor_5_decision = {
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.05 # Slow it down }
+					factor = 0.05  }
 
 
 			modifier = {
@@ -3109,16 +2512,7 @@ train_constance_1_decision = {
 			NOT = { trait = constance_5 }
 	}
 	allow = {
-		prestige = 200
-			age = 50
-			trait = vampire
-			trait = bloodline_icarian
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = constance_1 }
-			NOT = { trait = constance_2 }
-			NOT = { trait = constance_3 }
-			NOT = { trait = constance_4 }
-			NOT = { trait = constance_5 }		
+		prestige = 200		
 	}
 	effect = {
 		prestige = -200
@@ -3131,7 +2525,7 @@ train_constance_1_decision = {
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.09 # Slow it down }
+					factor = 0.09  }
 
 
 			modifier = {
@@ -3157,26 +2551,13 @@ train_constance_2_decision = {
 			trait = vampire
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = constance_1 
-			NOT = { trait = constance_2 }
-			NOT = { trait = constance_3 }
-			NOT = { trait = constance_4 }
-			NOT = { trait = constance_5 }
 	}
 	allow = {
-		prestige = 400
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			trait = constance_1 
-			NOT = { trait = constance_2 }
-			NOT = { trait = constance_3 }
-			NOT = { trait = constance_4 }
-			NOT = { trait = constance_5 }		
+		prestige = 400	
 	}
 	effect = {
 		prestige = -400
 		add_trait = constance_2
-		remove_trait = constance_1
 		# in clan bonus
 		if = { limit = { trait = bloodline_icarian }
 				prestige = 200
@@ -3185,7 +2566,7 @@ train_constance_2_decision = {
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.08 # Slow it down }
+					factor = 0.08  }
 
 
 			modifier = {
@@ -3210,26 +2591,13 @@ train_constance_3_decision = {
 			age = 50
 			trait = vampire
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = constance_1 }
 			trait = constance_2
-			NOT = { trait = constance_3 }
-			NOT = { trait = constance_4 }
-			NOT = { trait = constance_5 }
 	}
 	allow = {
-		prestige = 600
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = constance_1 }
-			trait = constance_2
-			NOT = { trait = constance_3 }
-			NOT = { trait = constance_4 }
-			NOT = { trait = constance_5 }		
+		prestige = 600		
 	}
 	effect = {
 		prestige = -600
-		remove_trait = constance_2
 		add_trait = constance_3
 		# in clan bonus
 		if = { limit = { trait = bloodline_icarian }
@@ -3239,7 +2607,7 @@ train_constance_3_decision = {
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.07 # Slow it down }
+					factor = 0.07  }
 
 
 			modifier = {
@@ -3264,26 +2632,17 @@ train_constance_4_decision = {
 			age = 50
 			trait = vampire
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = constance_1 }
-			NOT = { trait = constance_2 }
 			trait = constance_3
-			NOT = { trait = constance_4 }
-			NOT = { trait = constance_5 }
 	}
 	allow = {
 		prestige = 800
 			age = 50
 			trait = vampire
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = constance_1 }
-			NOT = { trait = constance_2 }
 			trait = constance_3
-			NOT = { trait = constance_4 }
-			NOT = { trait = constance_5 }		
 	}
 	effect = {
 		prestige = -800
-		remove_trait = constance_3
 		add_trait = constance_4
 		# in clan bonus
 		if = { limit = { trait = bloodline_icarian }
@@ -3293,7 +2652,7 @@ train_constance_4_decision = {
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.06 # Slow it down }
+					factor = 0.06  }
 
 
 			modifier = {
@@ -3318,26 +2677,13 @@ train_constance_5_decision = {
 			age = 50
 			trait = vampire
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = constance_1 }
-			NOT = { trait = constance_2 }
-			NOT = { trait = constance_3 }
 			trait = constance_4 
-			NOT = { trait = constance_5 }
 	}
 	allow = {
-		prestige = 1200
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = constance_1 }
-			NOT = { trait = constance_2 }
-			NOT = { trait = constance_3 }
-			trait = constance_4 
-			NOT = { trait = constance_5 }		
+		prestige = 1200		
 	}
 	effect = {
 		prestige = -1200
-		remove_trait = constance_5
 		add_trait = constance_5
 		# in clan bonus
 		if = { limit = { trait = bloodline_icarian }
@@ -3347,7 +2693,7 @@ train_constance_5_decision = {
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.05 # Slow it down }
+					factor = 0.05  }
 
 
 			modifier = {
@@ -3381,15 +2727,6 @@ train_courtoisie_1_decision = {
 	}
 	allow = {
 		prestige = 200
-			age = 50
-			trait = vampire
-			trait = bloodline_spina
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = courtoisie_1 }
-			NOT = { trait = courtoisie_2 }
-			NOT = { trait = courtoisie_3 }
-			NOT = { trait = courtoisie_4 }
-			NOT = { trait = courtoisie_5 }		
 	}
 	effect = {
 		prestige = -200
@@ -3402,7 +2739,7 @@ train_courtoisie_1_decision = {
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.09 # Slow it down }
+					factor = 0.09  }
 
 
 			modifier = {
@@ -3429,26 +2766,13 @@ train_courtoisie_2_decision = {
 			trait = vampire
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = courtoisie_1 
-			NOT = { trait = courtoisie_2 }
-			NOT = { trait = courtoisie_3 }
-			NOT = { trait = courtoisie_4 }
-			NOT = { trait = courtoisie_5 }
 	}
 	allow = {
-		prestige = 400
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			trait = courtoisie_1 
-			NOT = { trait = courtoisie_2 }
-			NOT = { trait = courtoisie_3 }
-			NOT = { trait = courtoisie_4 }
-			NOT = { trait = courtoisie_5 }		
+		prestige = 400	
 	}
 	effect = {
 		prestige = -400
 		add_trait = courtoisie_2
-		remove_trait = courtoisie_1
 		# in clan bonus
 		if = { limit = { trait = bloodline_spina }
 				prestige = 200
@@ -3457,7 +2781,7 @@ train_courtoisie_2_decision = {
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.08 # Slow it down }
+					factor = 0.08  }
 
 
 			modifier = {
@@ -3483,26 +2807,13 @@ train_courtoisie_3_decision = {
 			age = 50
 			trait = vampire
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = courtoisie_1 }
 			trait = courtoisie_2
-			NOT = { trait = courtoisie_3 }
-			NOT = { trait = courtoisie_4 }
-			NOT = { trait = courtoisie_5 }
 	}
 	allow = {
-		prestige = 600
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = courtoisie_1 }
-			trait = courtoisie_2
-			NOT = { trait = courtoisie_3 }
-			NOT = { trait = courtoisie_4 }
-			NOT = { trait = courtoisie_5 }		
+		prestige = 600	
 	}
 	effect = {
 		prestige = -600
-		remove_trait = courtoisie_2
 		add_trait = courtoisie_3
 		# in clan bonus
 		if = { limit = { trait = bloodline_spina }
@@ -3512,7 +2823,7 @@ train_courtoisie_3_decision = {
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.07 # Slow it down }
+					factor = 0.07  }
 
 
 			modifier = {
@@ -3538,26 +2849,13 @@ train_courtoisie_4_decision = {
 			age = 50
 			trait = vampire
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = courtoisie_1 }
-			NOT = { trait = courtoisie_2 }
 			trait = courtoisie_3
-			NOT = { trait = courtoisie_4 }
-			NOT = { trait = courtoisie_5 }
 	}
 	allow = {
-		prestige = 800
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = courtoisie_1 }
-			NOT = { trait = courtoisie_2 }
-			trait = courtoisie_3
-			NOT = { trait = courtoisie_4 }
-			NOT = { trait = courtoisie_5 }		
+		prestige = 800	
 	}
 	effect = {
 		prestige = -800
-		remove_trait = courtoisie_3
 		add_trait = courtoisie_4
 		# in clan bonus
 		if = { limit = { trait = bloodline_spina }
@@ -3567,7 +2865,7 @@ train_courtoisie_4_decision = {
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.06 # Slow it down }
+					factor = 0.06  }
 
 
 			modifier = {
@@ -3593,26 +2891,13 @@ train_courtoisie_5_decision = {
 			age = 50
 			trait = vampire
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = courtoisie_1 }
-			NOT = { trait = courtoisie_2 }
-			NOT = { trait = courtoisie_3 }
 			trait = courtoisie_4 
-			NOT = { trait = courtoisie_5 }
 	}
 	allow = {
 		prestige = 1200
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = courtoisie_1 }
-			NOT = { trait = courtoisie_2 }
-			NOT = { trait = courtoisie_3 }
-			trait = courtoisie_4 
-			NOT = { trait = courtoisie_5 }		
 	}
 	effect = {
 		prestige = -1200
-		remove_trait = courtoisie_5
 		add_trait = courtoisie_5
 		# in clan bonus
 		if = { limit = { trait = bloodline_spina }
@@ -3622,7 +2907,7 @@ train_courtoisie_5_decision = {
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.05 # Slow it down }
+					factor = 0.05  }
 
 
 			modifier = {
@@ -3662,20 +2947,6 @@ train_theban_1_decision = {
 	}
 	allow = {
 		piety = 200
-		age = 50
-		trait = vampire
-		learning = 5
-		OR = { 	religion = lancea_sanctum
-					religion = livian
-					religion = icarian
-					religion = banu_shaitan 
-				}
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = theban_1 }
-			NOT = { trait = theban_2 }
-			NOT = { trait = theban_3 }
-			NOT = { trait = theban_4 }
-			NOT = { trait = theban_5 }
 	}
 	effect = {
 		piety = -200
@@ -3684,7 +2955,7 @@ train_theban_1_decision = {
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.09 # Slow it down }
+					factor = 0.09  }
 
 
 								modifier = {
@@ -3706,31 +2977,19 @@ train_theban_2_decision = {
 			trait = vampire
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = theban_1 
-			NOT = { trait = theban_2 }
-			NOT = { trait = theban_3 }
-			NOT = { trait = theban_4 }
-			NOT = { trait = theban_5 }
 	}
 	allow = {
 		piety = 400
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			trait = theban_1 
-			NOT = { trait = theban_2 }
-			NOT = { trait = theban_3 }
-			NOT = { trait = theban_4 }
-			NOT = { trait = theban_5 }
+			learning = 5
 	}
 	effect = {
 		piety = -400
 		add_trait = theban_2
-		remove_trait = theban_1
 	}
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.08 # Slow it down }
+					factor = 0.08  }
 
 
 								modifier = {
@@ -3751,32 +3010,20 @@ train_theban_3_decision = {
 			age = 50
 			trait = vampire
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = theban_1 }
 			trait = theban_2
-			NOT = { trait = theban_3 }
-			NOT = { trait = theban_4 }
-			NOT = { trait = theban_5 }
 	}
 	allow = {
-		piety = 600
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = theban_1 }
-			trait = theban_2
-			NOT = { trait = theban_3 }
-			NOT = { trait = theban_4 }
-			NOT = { trait = theban_5 }		
+		piety = 600	
+			learning = 5
 	}
 	effect = {
 		piety = -600
-		remove_trait = theban_2
 		add_trait = theban_3
 	}
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.07 # Slow it down }
+					factor = 0.07  }
 
 
 								modifier = {
@@ -3797,32 +3044,20 @@ train_theban_4_decision = {
 			age = 50
 			trait = vampire
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = theban_1 }
-			NOT = { trait = theban_2 }
 			trait = theban_3
-			NOT = { trait = theban_4 }
-			NOT = { trait = theban_5 }
 	}
 	allow = {
 		piety = 800
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = theban_1 }
-			NOT = { trait = theban_2 }
-			trait = theban_3
-			NOT = { trait = theban_4 }
-			NOT = { trait = theban_5 }	
+			learning = 5
 	}
 	effect = {
 		piety = -800
-		remove_trait = theban_3
 		add_trait = theban_4
 	}
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.06 # Slow it down }
+					factor = 0.06  }
 
 
 								modifier = {
@@ -3843,32 +3078,20 @@ train_theban_5_decision = {
 			age = 50
 			trait = vampire
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = theban_1 }
-			NOT = { trait = theban_2 }
-			NOT = { trait = theban_3 }
 			trait = theban_4 
-			NOT = { trait = theban_5 }
 	}
 	allow = {
-		piety = 1200
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = theban_1 }
-			NOT = { trait = theban_2 }
-			NOT = { trait = theban_3 }
-			trait = theban_4 
-			NOT = { trait = theban_5 }		
+		piety = 1200	
+			learning = 5
 	}
 	effect = {
 		piety = -1200
-		remove_trait = theban_5
 		add_trait = theban_5
 	}
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.05 # Slow it down }
+					factor = 0.05  }
 
 
 								modifier = {
@@ -3899,18 +3122,8 @@ religion = livian }
 			NOT = { trait = cruac_5 }
 	}
 	allow = {
-		piety = 200
-			age = 50
-			trait = vampire
+		piety = 200	
 			learning = 5
-			OR = { religion = circle_of_the_crone
-religion = livian }
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = cruac_1 }
-			NOT = { trait = cruac_2 }
-			NOT = { trait = cruac_3 }
-			NOT = { trait = cruac_4 }
-			NOT = { trait = cruac_5 }		
 	}
 	effect = {
 		piety = -200
@@ -3919,7 +3132,7 @@ religion = livian }
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.09 # Slow it down }
+					factor = 0.09  }
 
 
 								modifier = {
@@ -3941,32 +3154,20 @@ train_cruac_2_decision = {
 			trait = vampire
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = cruac_1 
-			NOT = { trait = cruac_2 }
-			NOT = { trait = cruac_3 }
-			NOT = { trait = cruac_4 }
-			NOT = { trait = cruac_5 }
 	}
 	allow = {
 		piety = 400
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			trait = cruac_1 
-			NOT = { trait = cruac_2 }
-			NOT = { trait = cruac_3 }
-			NOT = { trait = cruac_4 }
-			NOT = { trait = cruac_5 }		
+			learning = 5		
 	}
 	effect = {
 		piety = -400
 		add_trait = cruac_2
-		remove_trait = cruac_1
 
 	}
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.08 # Slow it down }
+					factor = 0.08  }
 
 
 								modifier = {
@@ -3987,32 +3188,20 @@ train_cruac_3_decision = {
 			age = 50
 			trait = vampire
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = cruac_1 }
 			trait = cruac_2
-			NOT = { trait = cruac_3 }
-			NOT = { trait = cruac_4 }
-			NOT = { trait = cruac_5 }
 	}
 	allow = {
 		piety = 600
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = cruac_1 }
-			trait = cruac_2
-			NOT = { trait = cruac_3 }
-			NOT = { trait = cruac_4 }
-			NOT = { trait = cruac_5 }		
+			learning = 5		
 	}
 	effect = {
 		piety = -600
-		remove_trait = cruac_2
 		add_trait = cruac_3
 	}
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.07 # Slow it down }
+					factor = 0.07  }
 
 
 								modifier = {
@@ -4033,32 +3222,20 @@ train_cruac_4_decision = {
 			age = 50
 			trait = vampire
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = cruac_1 }
-			NOT = { trait = cruac_2 }
 			trait = cruac_3
-			NOT = { trait = cruac_4 }
-			NOT = { trait = cruac_5 }
 	}
 	allow = {
 		piety = 800
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = cruac_1 }
-			NOT = { trait = cruac_2 }
-			trait = cruac_3
-			NOT = { trait = cruac_4 }
-			NOT = { trait = cruac_5 }		
+			learning = 5	
 	}
 	effect = {
 		piety = -800
-		remove_trait = cruac_3
 		add_trait = cruac_4
 	}
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.06 # Slow it down }
+					factor = 0.06  }
 
 
 								modifier = {
@@ -4079,32 +3256,20 @@ train_cruac_5_decision = {
 			age = 50
 			trait = vampire
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = cruac_1 }
-			NOT = { trait = cruac_2 }
-			NOT = { trait = cruac_3 }
 			trait = cruac_4 
-			NOT = { trait = cruac_5 }
 	}
 	allow = {
 		piety = 1200
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = cruac_1 }
-			NOT = { trait = cruac_2 }
-			NOT = { trait = cruac_3 }
-			trait = cruac_4 
-			NOT = { trait = cruac_5 }		
+			learning = 5		
 	}
 	effect = {
 		piety = -1200
-		remove_trait = cruac_5
 		add_trait = cruac_5
 	}
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.05 # Slow it down }
+					factor = 0.05  }
 
 
 								modifier = {
@@ -4136,17 +3301,7 @@ train_coils_1_decision = {
 	}
 	allow = {
 		piety = 200
-			age = 50
-			trait = vampire
 			learning = 5
-			OR = { 	religion = ordo_dracul
-				}
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = coils_1 }
-			NOT = { trait = coils_2 }
-			NOT = { trait = coils_3 }
-			NOT = { trait = coils_4 }
-			NOT = { trait = coils_5 }
 	}
 	effect = {
 		piety = -200
@@ -4155,7 +3310,7 @@ train_coils_1_decision = {
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.09 # Slow it down }
+					factor = 0.09  }
 
 
 								modifier = {
@@ -4184,24 +3339,16 @@ train_coils_2_decision = {
 	}
 	allow = {
 		piety = 400
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			trait = coils_1 
-			NOT = { trait = coils_2 }
-			NOT = { trait = coils_3 }
-			NOT = { trait = coils_4 }
-			NOT = { trait = coils_5 }		
+			learning = 5	
 	}
 	effect = {
 		piety = -400
 		add_trait = coils_2
-		remove_trait = coils_1
 	}
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.08 # Slow it down }
+					factor = 0.08  }
 
 
 								modifier = {
@@ -4222,32 +3369,20 @@ train_coils_3_decision = {
 			age = 50
 			trait = vampire
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = coils_1 }
 			trait = coils_2
-			NOT = { trait = coils_3 }
-			NOT = { trait = coils_4 }
-			NOT = { trait = coils_5 }
 	}
 	allow = {
 		piety = 600
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = coils_1 }
-			trait = coils_2
-			NOT = { trait = coils_3 }
-			NOT = { trait = coils_4 }
-			NOT = { trait = coils_5 }		
+			learning = 5	
 	}
 	effect = {
 		piety = -600
-		remove_trait = coils_2
 		add_trait = coils_3
 	}
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.07 # Slow it down }
+					factor = 0.07  }
 
 
 								modifier = {
@@ -4268,32 +3403,20 @@ train_coils_4_decision = {
 			age = 50
 			trait = vampire
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = coils_1 }
-			NOT = { trait = coils_2 }
 			trait = coils_3
-			NOT = { trait = coils_4 }
-			NOT = { trait = coils_5 }
 	}
 	allow = {
 		piety = 800
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = coils_1 }
-			NOT = { trait = coils_2 }
-			trait = coils_3
-			NOT = { trait = coils_4 }
-			NOT = { trait = coils_5 }
+			learning = 5
 	}
 	effect = {
 		piety = -800
-		remove_trait = coils_3
 		add_trait = coils_4
 	}
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.06 # Slow it down }
+					factor = 0.06  }
 
 
 								modifier = {
@@ -4314,32 +3437,20 @@ train_coils_5_decision = {
 			age = 50
 			trait = vampire
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = coils_1 }
-			NOT = { trait = coils_2 }
-			NOT = { trait = coils_3 }
 			trait = coils_4 
-			NOT = { trait = coils_5 }
 	}
 	allow = {
 		piety = 1200
-			age = 50
-			trait = vampire
-			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = coils_1 }
-			NOT = { trait = coils_2 }
-			NOT = { trait = coils_3 }
-			trait = coils_4 
-			NOT = { trait = coils_5 }		
+			learning = 5	
 	}
 	effect = {
 		piety = -1200
-		remove_trait = coils_5
 		add_trait = coils_5
 	}
 	ai_will_do = {
 			factor = 1
 			modifier = {
-					factor = 0.05 # Slow it down }
+					factor = 0.05  }
 
 
 								modifier = {
