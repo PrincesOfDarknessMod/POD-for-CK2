@@ -1,0 +1,56 @@
+namespace = hunter_noble
+# AN EVENT CAN BE EITHER TRIGGERED ONLY OR WITH MTTH; NOT BOTH; WHICH IS THIS?
+character_event = {
+	id = hunter_noble.1
+	#desc = "supe_hunter_noble_SUPE_HUNTER_NOBLE_DESC"
+	is_triggered_only = yes
+	
+	trigger = {
+		OR = {		is_landed = yes
+					mercenary = yes
+					holy_order = yes
+					is_patrician = yes
+					}
+		trait = supe_hunter
+		trait = mortal
+		NOT = { trait = vampire }
+		NOT = { trait = werewolf }
+		NOT = { trait = mage }
+		NOT = { trait = mummy }
+		NOT = { trait = changeling }
+		NOT = { trait = promethean }
+		NOT = { trait = geist }
+		NOT = { trait = demon }
+		NOT = { trait = fledgling }
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+		}
+	immediate = {
+		#name = "set_inital_supe_hunter_ruler"
+		hidden_tooltip = {
+
+			if = {
+					limit = {
+					age = 16
+					NOT = { trait = mortal }
+					NOT = { trait = vampire }
+					NOT = { trait = werewolf }
+					NOT = { trait = mage }
+					NOT = { trait = mummy }
+					NOT = { trait = changeling }
+					NOT = { trait = promethean }
+					NOT = { trait = geist }
+					NOT = { trait = demon }
+					NOT = { trait = fledgling }
+					#OR = { 
+							religion_group = supe_hunter_group
+						#}
+					}	
+# make supe ruler
+
+				}	
+			}
+		}
+	}

@@ -1,0 +1,199 @@
+namespace = vitae
+
+
+character_event = { #set up the vitae counter
+
+	id = vitae.1
+	
+	age = 16
+	hide_window = yes
+	
+	
+	trigger = {
+		trait = vampire
+		NOT = {
+			check_variable = {
+				which = "vitae"
+				value = 1
+			}
+		}
+	} 
+
+
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		set_variable = {
+			which = "vitae"
+			value = 0
+		}
+		set_variable = {
+			which = vitae_setup
+			value = 0
+		}
+			character_event = { id = vitae.2 }
+			character_event = { id = vitae.3 }
+	}
+}
+
+
+
+character_event = { #set initial bloodpool to 5
+
+	id = vitae.2
+	
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		set_variable = {
+			which = "maxvitae"
+			value = 0
+		}
+	}
+}
+
+character_event = { #set initial bloodpool to 5
+
+	id = vitae.3
+	
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		set_character_flag = vitae_initialised
+		change_variable = {
+			which = "vitae"
+			value = 5
+		}
+		IF = {
+			limit = {
+				trait = bloodpotency_1
+			}
+			change_variable = {
+				which = "maxvitae"
+				value = 5
+			}
+		}
+		IF = {
+			limit = {
+				trait = bloodpotency_2
+			}
+			change_variable = {
+				which = "maxvitae"
+				value = 5
+			}
+		}
+		IF = {
+			limit = {
+				trait = bloodpotency_3
+			}
+			change_variable = {
+				which = "maxvitae"
+				value = 5
+			}
+		}
+		IF = {
+			limit = {
+				trait = bloodpotency_4
+			}
+			change_variable = {
+				which = "maxvitae"
+				value = 5
+			}
+		}
+		IF = {
+			limit = {
+				trait = bloodpotency_5
+			}
+			change_variable = {
+				which = "maxvitae"
+				value = 5
+			}
+		}
+		IF = {
+			limit = {
+				trait = bloodpotency_6
+			}
+			change_variable = {
+				which = "maxvitae"
+				value = 6
+			}
+		}
+		IF = {
+			limit = {
+				trait = bloodpotency_7
+			}
+			change_variable = {
+				which = "maxvitae"
+				value = 7
+			}
+		}
+		IF = {
+			limit = {
+				trait = bloodpotency_8
+			}
+			change_variable = {
+				which = "maxvitae"
+				value = 8
+			}
+		}
+		IF = {
+			limit = {
+				trait = bloodpotency_9
+			}
+			change_variable = {
+				which = "maxvitae"
+				value = 9
+			}
+		}
+		IF = {
+			limit = {
+				trait = bloodpotency_10
+			}
+			change_variable = {
+				which = "maxvitae"
+				value = 10
+			}
+		}
+	}
+}
+
+
+
+
+character_event = { # PROVISIONAL increase vitae by 1 per month
+
+	id = vitae.4
+	
+	age = 16
+	hide_window = yes
+	
+	trigger= {
+		NOT = {
+			check_variable = {
+				which = "vitae"
+				which = "maxvitae"
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+
+	immediate = {
+		change_variable = {
+			which = "vitae"
+			value = 1
+		}
+	}
+}	
+
+
+	
+
