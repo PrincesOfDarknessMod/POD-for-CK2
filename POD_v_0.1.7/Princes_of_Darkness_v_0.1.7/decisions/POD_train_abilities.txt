@@ -1,8 +1,8 @@
 decisions = {
 
-open_discipline_training_menu = {
-	is_high_prio = yes
-	potential = {     OR = { ai= yes has_character_flag = abilities_menu_open }
+open_ability_training_menu = {
+	potential = {     
+			NOT = { has_character_flag = abilities_menu_open } 
 			NOT = { OR = { has_character_flag = gifts_menu_open  has_character_flag = disciplines_menu_open} }
 			NOT = { has_character_flag = abilities_menu_open } 
 			ai = no
@@ -10,12 +10,13 @@ open_discipline_training_menu = {
 	allow = {
 		age = 50
 	}
-	effect = { set_character_flag = disciplines_menu_open }
+	effect = { set_character_flag = abilities_menu_open }
 	ai_will_do = { factor = 0 }
 }
-close_discipline_training_menu = {
+close_ability_training_menu = {
 	is_high_prio = yes
-	potential = {     OR = { ai= yes has_character_flag = abilities_menu_open }
+	potential = {     
+			has_character_flag = abilities_menu_open 
 			NOT = { OR = { has_character_flag = gifts_menu_open  has_character_flag = disciplines_menu_open} }
 			has_character_flag = abilities_menu_open 
 			ai = no
@@ -23,7 +24,7 @@ close_discipline_training_menu = {
 	allow = {
 		age = 50
 	}
-	effect = { clr_character_flag = disciplines_menu_open }
+	effect = { clr_character_flag = abilities_menu_open }
 	ai_will_do = { factor = 0 }
 }
 train_intrigue_1_decision = {
@@ -134,7 +135,7 @@ train_intrigue_4_decision = {
 			}
 }
 
-train_diploacy_1_decision = {
+train_diplomacy_1_decision = {
 	
 	potential = {     OR = { ai= yes has_character_flag = abilities_menu_open }
 			NOT = { trait = amateurish_plotter }
