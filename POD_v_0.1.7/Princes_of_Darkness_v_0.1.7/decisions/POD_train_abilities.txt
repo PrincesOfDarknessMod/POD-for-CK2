@@ -1,8 +1,34 @@
 decisions = {
 
+open_discipline_training_menu = {
+	is_high_prio = yes
+	potential = {     OR = { ai= yes has_character_flag = abilities_menu_open }
+			NOT = { OR = { has_character_flag = gifts_menu_open  has_character_flag = disciplines_menu_open} }
+			NOT = { has_character_flag = abilities_menu_open } 
+			ai = no
+	}
+	allow = {
+		age = 50
+	}
+	effect = { set_character_flag = disciplines_menu_open }
+	ai_will_do = { factor = 0 }
+}
+close_discipline_training_menu = {
+	is_high_prio = yes
+	potential = {     OR = { ai= yes has_character_flag = abilities_menu_open }
+			NOT = { OR = { has_character_flag = gifts_menu_open  has_character_flag = disciplines_menu_open} }
+			has_character_flag = abilities_menu_open 
+			ai = no
+	}
+	allow = {
+		age = 50
+	}
+	effect = { clr_character_flag = disciplines_menu_open }
+	ai_will_do = { factor = 0 }
+}
 train_intrigue_1_decision = {
 	
-	potential = {
+	potential = {     OR = { ai= yes has_character_flag = abilities_menu_open }
 			NOT = { trait = amateurish_plotter }
 			NOT = { trait = flamboyant_schemer }
 			NOT = { trait = intricate_webweaver }
@@ -31,7 +57,7 @@ train_intrigue_1_decision = {
 }
 train_intrigue_2_decision = {
 	
-	potential = {
+	potential = {     OR = { ai= yes has_character_flag = abilities_menu_open }
 			trait = amateurish_plotter 
 	}
 	allow = {
@@ -57,7 +83,7 @@ train_intrigue_2_decision = {
 }
 train_intrigue_3_decision = {
 	
-	potential = {
+	potential = {     OR = { ai= yes has_character_flag = abilities_menu_open }
 			trait = flamboyant_schemer
 	}
 	allow = {
@@ -83,7 +109,7 @@ train_intrigue_3_decision = {
 }
 train_intrigue_4_decision = {
 	
-	potential = {
+	potential = {     OR = { ai= yes has_character_flag = abilities_menu_open }
 			trait = intricate_webweaver 
 	}
 	allow = {
@@ -110,7 +136,7 @@ train_intrigue_4_decision = {
 
 train_diploacy_1_decision = {
 	
-	potential = {
+	potential = {     OR = { ai= yes has_character_flag = abilities_menu_open }
 			NOT = { trait = amateurish_plotter }
 			NOT = { trait = flamboyant_schemer }
 			NOT = { trait = intricate_webweaver }
@@ -139,7 +165,7 @@ train_diploacy_1_decision = {
 }
 train_diplomacy_2_decision = {
 	
-	potential = {
+	potential = {     OR = { ai= yes has_character_flag = abilities_menu_open }
 			trait = naive_appeaser 
 	}
 	allow = {
@@ -165,7 +191,7 @@ train_diplomacy_2_decision = {
 }
 train_diplomacy_3_decision = {
 	
-	potential = {
+	potential = {     OR = { ai= yes has_character_flag = abilities_menu_open }
 			trait = underhanded_rogue
 	}
 	allow = {
@@ -191,7 +217,7 @@ train_diplomacy_3_decision = {
 }
 train_diplomacy_4_decision = {
 	
-	potential = {
+	potential = {     OR = { ai= yes has_character_flag = abilities_menu_open }
 			trait = charismatic_negotiator
 	}
 	allow = {
@@ -217,7 +243,7 @@ train_diplomacy_4_decision = {
 }
 train_stewardship_1_decision = {
 	
-	potential = {
+	potential = {     OR = { ai= yes has_character_flag = abilities_menu_open }
 			NOT = { trait = indulgent_wastrel }
 			NOT = { trait = thrifty_clerk }
 			NOT = { trait = fortune_builder }
@@ -246,7 +272,7 @@ train_stewardship_1_decision = {
 }
 train_stewardship_2_decision = {
 	
-	potential = {
+	potential = {     OR = { ai= yes has_character_flag = abilities_menu_open }
 			trait = indulgent_wastrel 
 	}
 	allow = {
@@ -272,7 +298,7 @@ train_stewardship_2_decision = {
 }
 train_stewardship_3_decision = {
 	
-	potential = {
+	potential = {     OR = { ai= yes has_character_flag = abilities_menu_open }
 			trait = thrifty_clerk
 	}
 	allow = {
@@ -298,7 +324,7 @@ train_stewardship_3_decision = {
 }
 train_stewarship_4_decision = {
 	
-	potential = {
+	potential = {     OR = { ai= yes has_character_flag = abilities_menu_open }
 			trait = fortune_builder
 	}
 	allow = {
@@ -325,7 +351,7 @@ train_stewarship_4_decision = {
 
 train_martial_1_decision = {
 	
-	potential = {
+	potential = {     OR = { ai= yes has_character_flag = abilities_menu_open }
 			NOT = { trait = misguided_warrior }
 			NOT = { trait = tough_soldier }
 			NOT = { trait = skilled_tactician }
@@ -354,7 +380,7 @@ train_martial_1_decision = {
 }
 train_martial_2_decision = {
 	
-	potential = {
+	potential = {     OR = { ai= yes has_character_flag = abilities_menu_open }
 			trait = misguided_warrior
 	}
 	allow = {
@@ -380,7 +406,7 @@ train_martial_2_decision = {
 }
 train_martial_3_decision = {
 	
-	potential = {
+	potential = {     OR = { ai= yes has_character_flag = abilities_menu_open }
 			trait = tough_soldier
 	}
 	allow = {
@@ -406,7 +432,7 @@ train_martial_3_decision = {
 }
 train_martial_4_decision = {
 	
-	potential = {
+	potential = {     OR = { ai= yes has_character_flag = abilities_menu_open }
 			trait = skilled_tactician
 	}
 	allow = {
@@ -433,7 +459,7 @@ train_martial_4_decision = {
 
 train_learining_1_decision = {
 	
-	potential = {
+	potential = {     OR = { ai= yes has_character_flag = abilities_menu_open }
 			NOT = { trait = detached_priest }
 			NOT = { trait = martial_cleric }
 			NOT = { trait = scholarly_theologian }
@@ -462,7 +488,7 @@ train_learining_1_decision = {
 }
 train_learning_2_decision = {
 	
-	potential = {
+	potential = {     OR = { ai= yes has_character_flag = abilities_menu_open }
 			trait = detached_priest
 	}
 	allow = {
@@ -488,7 +514,7 @@ train_learning_2_decision = {
 }
 train_learning_3_decision = {
 	
-	potential = {
+	potential = {     OR = { ai= yes has_character_flag = abilities_menu_open }
 			trait = martial_cleric
 	}
 	allow = {
@@ -514,7 +540,7 @@ train_learning_3_decision = {
 }
 train_learning_4_decision = {
 	
-	potential = {
+	potential = {     OR = { ai= yes has_character_flag = abilities_menu_open }
 			trait = scholarly_theologian
 	}
 	allow = {

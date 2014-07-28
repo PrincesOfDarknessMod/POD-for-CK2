@@ -1,13 +1,38 @@
 # Fixed the insidious parsing error! Nevermore write # }, but instead } #
-# Simplified code, exploiting the functionality of traits opposites (if A is an opposite to B, you don'y need to check for both A and not-B, but only for A. Also, if you put a requirement in the Code reduced from 4357 lines to 3469
+# Simplified code, exploiting the functionality of traits opposites (if A is an opposite to B, you don'y need to check for both A and not-B, but only for A. Also, if you put a requirement in the Code reduced from 4357 lines to 3229
 
 decisions = {
 
-train_animalism_1_decision = {
-	
+open_discipline_training_menu = {
+	is_high_prio = yes
 	potential = {
+			trait = vampire NOT = { OR = { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
+			NOT = { has_character_flag = disciplines_menu_open } 
+			ai = no
+	}
+	allow = {
+		age = 50
+	}
+	effect = { set_character_flag = disciplines_menu_open }
+	ai_will_do = { factor = 0 }
+}
+close_discipline_training_menu = {
+	is_high_prio = yes
+	potential = {
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
+			has_character_flag = disciplines_menu_open 
+			ai = no
+	}
+	allow = {
+		age = 50
+	}
+	effect = { clr_character_flag = disciplines_menu_open }
+	ai_will_do = { factor = 0 }
+}
+train_animalism_1_decision = {
+	potential = {    OR = { ai= yes has_character_flag = disciplines_menu_open }
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			NOT = { trait = animalism_1 }
 			NOT = { trait = animalism_2 }
@@ -33,7 +58,6 @@ train_animalism_1_decision = {
 			factor = 1
 			modifier = {
 					factor = 0.09  }
-
 			modifier = {
 					factor = 1.5
 					trait = ambitious
@@ -56,12 +80,10 @@ train_animalism_1_decision = {
 													}				
 			}
 }
-
 train_animalism_2_decision = {
-	
-	potential = {
+	potential = {    OR = { ai= yes has_character_flag = disciplines_menu_open }
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = animalism_1 
 	}
@@ -105,12 +127,10 @@ train_animalism_2_decision = {
 													}	
 	}
 }
-
 train_animalism_3_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = animalism_2
 	}
@@ -131,7 +151,6 @@ train_animalism_3_decision = {
 			factor = 1
 			modifier = {
 					factor = 0.07  }
-
 			modifier = {
 					factor = 1.5
 					trait = ambitious
@@ -154,12 +173,10 @@ train_animalism_3_decision = {
 													}
 		}
 }
-
 train_animalism_4_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire		
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }		
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = animalism_3
 	}
@@ -211,12 +228,10 @@ train_animalism_4_decision = {
 													}				
 			}
 	}
-
 train_animalism_5_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire			
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }			
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = animalism_4 
 	}
@@ -268,12 +283,10 @@ train_animalism_5_decision = {
 													}				
 			}
 	}
-
 train_auspex_1_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			trait = mekhet
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			NOT = { trait = auspex_1 }
@@ -316,14 +329,11 @@ train_auspex_1_decision = {
 											}
 								}
 				}
-
 			}
-			
 train_auspex_2_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = auspex_1 
 	}
@@ -342,7 +352,6 @@ train_auspex_2_decision = {
 			factor = 1
 			modifier = {
 					factor = 0.08  }
-
 			modifier = {
 					factor = 1.5
 					trait = ambitious
@@ -362,12 +371,10 @@ train_auspex_2_decision = {
 								}																
 			}
 }
-
 train_auspex_3_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = auspex_2
 	}
@@ -406,12 +413,10 @@ train_auspex_3_decision = {
 								}																
 			}
 }
-
 train_auspex_4_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = auspex_3
 	}
@@ -450,18 +455,12 @@ train_auspex_4_decision = {
 								}																
 			}
 		}
-
 train_auspex_5_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
-			NOT = { trait = auspex_1 }
-			NOT = { trait = auspex_2 }
-			NOT = { trait = auspex_3 }
 			trait = auspex_4 
-			NOT = { trait = auspex_5 }
 	}
 	allow = {
 		prestige = 1200	
@@ -498,12 +497,10 @@ train_auspex_5_decision = {
 								}																
 			}
 	}
-
 train_celerity_1_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			NOT = { trait = celerity_1 }
 			NOT = { trait = celerity_2 }
@@ -553,12 +550,10 @@ train_celerity_1_decision = {
 													}				
 			}
 	}
-
 train_celerity_2_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = celerity_1 
 	}
@@ -604,12 +599,10 @@ train_celerity_2_decision = {
 													}					
 			}
 }
-
 train_celerity_3_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = celerity_2
 	}
@@ -655,12 +648,10 @@ train_celerity_3_decision = {
 													}				
 			}
 }
-
 train_celerity_4_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire			
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }			
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = celerity_3
 	}
@@ -701,9 +692,7 @@ train_celerity_4_decision = {
 							trait = nosferatu
 							trait = ventrue
 						}
-				}						
-						
-				
+				}				
 									modifier = {
 										factor = 1.5
 										OR = {
@@ -716,12 +705,10 @@ train_celerity_4_decision = {
 													}				
 			}
 		}
-
 train_celerity_5_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = celerity_4 
 	}
@@ -775,12 +762,10 @@ train_celerity_5_decision = {
 													}				
 			}
 	}
-		
 train_dominate_1_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			trait = ventrue
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			NOT = { trait = dominate_1 }
@@ -804,7 +789,6 @@ train_dominate_1_decision = {
 			factor = 1
 			modifier = {
 					factor = 0.09  }
-
 			modifier = {
 					factor = 1.5
 					trait = ambitious
@@ -824,12 +808,10 @@ train_dominate_1_decision = {
 											}			
 			}
 }
-
 train_dominate_2_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = dominate_1 
 	}
@@ -848,7 +830,6 @@ train_dominate_2_decision = {
 			factor = 1
 			modifier = {
 					factor = 0.08  }
-
 			modifier = {
 					factor = 1.5
 					trait = ambitious
@@ -868,12 +849,10 @@ train_dominate_2_decision = {
 											}			
 			}
 	}
-
 train_dominate_3_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = dominate_2
 	}
@@ -892,7 +871,6 @@ train_dominate_3_decision = {
 			factor = 1
 			modifier = {
 					factor = 0.07  }
-
 			modifier = {
 					factor = 1.5
 					trait = ambitious
@@ -912,12 +890,10 @@ train_dominate_3_decision = {
 											}			
 			}
 }
-
 train_dominate_4_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = dominate_3
 	}
@@ -936,7 +912,6 @@ train_dominate_4_decision = {
 			factor = 1
 			modifier = {
 					factor = 0.08  }
-
 			modifier = {
 					factor = 1.5
 					trait = ambitious
@@ -956,12 +931,10 @@ train_dominate_4_decision = {
 											}			
 			}
 }
-
 train_dominate_5_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = dominate_4 
 	}
@@ -1000,12 +973,10 @@ train_dominate_5_decision = {
 											}				
 			}
 }
-
 train_majesty_1_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			trait = daeva
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			NOT = { trait = majesty_1 }
@@ -1029,7 +1000,6 @@ train_majesty_1_decision = {
 			factor = 1
 			modifier = {
 					factor = 0.09  }
-
 			modifier = {
 					factor = 1.5
 					trait = ambitious
@@ -1047,15 +1017,12 @@ train_majesty_1_decision = {
 												trait = grey_eminence 
 												}
 											}
-											
 			}
 }
-
 train_majesty_2_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = majesty_1 
 	}
@@ -1094,12 +1061,10 @@ train_majesty_2_decision = {
 											}				
 			}
 }
-
 train_majesty_3_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = majesty_2
 	}
@@ -1118,7 +1083,6 @@ train_majesty_3_decision = {
 			factor = 1
 			modifier = {
 					factor = 0.07  }
-
 			modifier = {
 					factor = 1.5
 					trait = ambitious
@@ -1138,12 +1102,10 @@ train_majesty_3_decision = {
 											}				
 			}
 }
-
 train_majesty_4_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = majesty_3
 	}
@@ -1162,7 +1124,6 @@ train_majesty_4_decision = {
 			factor = 1
 			modifier = {
 					factor = 0.06  }
-
 			modifier = {
 					factor = 1.5
 					trait = ambitious
@@ -1182,12 +1143,10 @@ train_majesty_4_decision = {
 											}				
 			}
 }
-
 train_majesty_5_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = majesty_4 
 	}
@@ -1206,7 +1165,6 @@ train_majesty_5_decision = {
 			factor = 1
 			modifier = {
 					factor = 0.05  }
-
 			modifier = {
 					factor = 1.5
 					trait = ambitious
@@ -1226,12 +1184,10 @@ train_majesty_5_decision = {
 											}				
 			}
 }
-
 train_nightmare_1_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			trait = nosferatu
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			NOT = { trait = nightmare_1 }
@@ -1276,12 +1232,10 @@ train_nightmare_1_decision = {
 													}				
 			}
 }
-
 train_nightmare_2_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = nightmare_1 
 	}
@@ -1300,7 +1254,6 @@ train_nightmare_2_decision = {
 			factor = 1
 			modifier = {
 					factor = 0.08  }
-
 			modifier = {
 					factor = 1.5
 					trait = ambitious
@@ -1321,12 +1274,10 @@ train_nightmare_2_decision = {
 													}				
 			}
 }
-
 train_nightmare_3_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = nightmare_2
 	}
@@ -1345,7 +1296,6 @@ train_nightmare_3_decision = {
 			factor = 1
 			modifier = {
 					factor = 0.07  }
-
 			modifier = {
 					factor = 1.5
 					trait = ambitious
@@ -1366,12 +1316,10 @@ train_nightmare_3_decision = {
 													}				
 			}
 }
-
 train_nightmare_4_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = nightmare_3
 	}
@@ -1390,7 +1338,6 @@ train_nightmare_4_decision = {
 			factor = 1
 			modifier = {
 					factor = 0.06  }
-
 			modifier = {
 					factor = 1.5
 					trait = ambitious
@@ -1411,12 +1358,10 @@ train_nightmare_4_decision = {
 													}				
 			}
 }
-
 train_nightmare_5_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = nightmare_4 
 	}
@@ -1456,12 +1401,10 @@ train_nightmare_5_decision = {
 													}				
 			}
 }
-
 train_obfuscate_1_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			NOT = { trait = obfuscate_1 }
 			NOT = { trait = obfuscate_2 }
@@ -1485,7 +1428,6 @@ train_obfuscate_1_decision = {
 			factor = 1
 			modifier = {
 					factor = 0.09  }
-
 			modifier = {
 					factor = 1.5
 					trait = ambitious
@@ -1508,12 +1450,10 @@ train_obfuscate_1_decision = {
 											}				
 			}
 }
-
 train_obfuscate_2_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = obfuscate_1 
 	}
@@ -1556,12 +1496,10 @@ train_obfuscate_2_decision = {
 											}				
 			}
 }
-
 train_obfuscate_3_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = obfuscate_2
 	}
@@ -1604,12 +1542,10 @@ train_obfuscate_3_decision = {
 											}				
 			}
 }
-
 train_obfuscate_4_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = obfuscate_3
 	}
@@ -1629,7 +1565,6 @@ train_obfuscate_4_decision = {
 			factor = 1
 			modifier = {
 					factor = 0.06  }
-
 			modifier = {
 					factor = 1.5
 					trait = ambitious
@@ -1641,7 +1576,6 @@ train_obfuscate_4_decision = {
 							trait = mekhet
 						}
 				}	
-
 			modifier = {
 					factor = 0
 					OR = {
@@ -1661,12 +1595,10 @@ train_obfuscate_4_decision = {
 											}				
 			}
 }
-
 train_obfuscate_5_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = obfuscate_4 
 	}
@@ -1686,7 +1618,6 @@ train_obfuscate_5_decision = {
 			factor = 1
 			modifier = {
 					factor = 0.05  }
-
 			modifier = {
 					factor = 1.5
 					trait = ambitious
@@ -1717,12 +1648,10 @@ train_obfuscate_5_decision = {
 											}
 			}
 }
-
 train_protean_1_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			trait = gangrel
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			NOT = { trait = protean_1 }
@@ -1747,7 +1676,6 @@ train_protean_1_decision = {
 			factor = 1
 			modifier = {
 					factor = 0.09  }
-
 			modifier = {
 					factor = 1.5
 					trait = ambitious
@@ -1772,12 +1700,10 @@ train_protean_1_decision = {
 											}				
 			}
 }
-
 train_protean_2_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = protean_1 
 	}
@@ -1821,12 +1747,10 @@ train_protean_2_decision = {
 											}				
 			}
 }
-
 train_protean_3_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = protean_2
 	}
@@ -1845,7 +1769,6 @@ train_protean_3_decision = {
 			factor = 1
 			modifier = {
 					factor = 0.07  }
-
 			modifier = {
 					factor = 1.5
 					trait = ambitious
@@ -1870,12 +1793,10 @@ train_protean_3_decision = {
 											}				
 			}
 }
-
 train_protean_4_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = protean_3
 	}
@@ -1895,7 +1816,6 @@ train_protean_4_decision = {
 			factor = 1
 			modifier = {
 					factor = 0.06  }
-
 			modifier = {
 					factor = 1.5
 					trait = ambitious
@@ -1920,12 +1840,10 @@ train_protean_4_decision = {
 											}				
 			}
 }
-
 train_protean_5_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = protean_4 
 	}
@@ -1944,7 +1862,6 @@ train_protean_5_decision = {
 			factor = 1
 			modifier = {
 					factor = 0.05  }
-
 			modifier = {
 					factor = 1.5
 					trait = ambitious
@@ -1969,12 +1886,10 @@ train_protean_5_decision = {
 											}				
 			}
 }
-
 train_resilience_1_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			NOT = { trait = resilience_1 }
 			NOT = { trait = resilience_2 }
@@ -1998,7 +1913,6 @@ train_resilience_1_decision = {
 			factor = 1
 			modifier = {
 					factor = 0.09  }
-
 			modifier = {
 					factor = 1.5
 					trait = ambitious
@@ -2022,12 +1936,10 @@ train_resilience_1_decision = {
 													}				
 			}
 }
-
 train_resilience_2_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = resilience_1 
 	}
@@ -2047,7 +1959,6 @@ train_resilience_2_decision = {
 			factor = 1
 			modifier = {
 					factor = 0.08  }
-
 			modifier = {
 					factor = 1.5
 					trait = ambitious
@@ -2071,12 +1982,10 @@ train_resilience_2_decision = {
 													}				
 			}
 }
-
 train_resilience_3_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = resilience_2
 	}
@@ -2096,7 +2005,6 @@ train_resilience_3_decision = {
 			factor = 1
 			modifier = {
 					factor = 0.07  }
-
 			modifier = {
 					factor = 1.5
 					trait = ambitious
@@ -2120,12 +2028,10 @@ train_resilience_3_decision = {
 													}				
 			}
 }
-
 train_resilience_4_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = resilience_3
 	}
@@ -2145,7 +2051,6 @@ train_resilience_4_decision = {
 			factor = 1
 			modifier = {
 					factor = 0.06  }
-
 			modifier = {
 					factor = 1.5
 					trait = ambitious
@@ -2177,12 +2082,10 @@ train_resilience_4_decision = {
 													}				
 			}
 }
-
 train_resilience_5_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = resilience_4 
 	}
@@ -2202,7 +2105,6 @@ train_resilience_5_decision = {
 			factor = 1
 			modifier = {
 					factor = 0.05  }
-
 			modifier = {
 					factor = 1.5
 					trait = ambitious
@@ -2234,12 +2136,10 @@ train_resilience_5_decision = {
 													}				
 			}
 }
-
 train_vigor_1_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			NOT = { trait = vigor_1 }
 			NOT = { trait = vigor_2 }
@@ -2263,7 +2163,6 @@ train_vigor_1_decision = {
 			factor = 1
 			modifier = {
 					factor = 0.09  }
-
 			modifier = {
 					factor = 1.5
 					trait = ambitious
@@ -2287,12 +2186,10 @@ train_vigor_1_decision = {
 													}				
 			}
 }
-
 train_vigor_2_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = vigor_1 
 	}
@@ -2312,7 +2209,6 @@ train_vigor_2_decision = {
 			factor = 1
 			modifier = {
 					factor = 0.08  }
-
 			modifier = {
 					factor = 1.5
 					trait = ambitious
@@ -2336,12 +2232,10 @@ train_vigor_2_decision = {
 													}				
 			}
 }
-
 train_vigor_3_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = vigor_2
 	}
@@ -2361,7 +2255,6 @@ train_vigor_3_decision = {
 			factor = 1
 			modifier = {
 					factor = 0.07  }
-
 			modifier = {
 					factor = 1.5
 					trait = ambitious
@@ -2386,12 +2279,10 @@ train_vigor_3_decision = {
 
 			}
 }
-
 train_vigor_4_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = vigor_3
 	}
@@ -2411,7 +2302,6 @@ train_vigor_4_decision = {
 			factor = 1
 			modifier = {
 					factor = 0.06  }
-
 			modifier = {
 					factor = 1.5
 					trait = ambitious
@@ -2443,12 +2333,10 @@ train_vigor_4_decision = {
 													}				
 			}
 }
-
 train_vigor_5_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = vigor_4 
 	}
@@ -2468,8 +2356,6 @@ train_vigor_5_decision = {
 			factor = 1
 			modifier = {
 					factor = 0.05  }
-
-
 			modifier = {
 					factor = 1.5
 					OR = {
@@ -2497,12 +2383,10 @@ train_vigor_5_decision = {
 													}				
 			}
 }
-
 train_constance_1_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			trait = bloodline_icarian
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			NOT = { trait = constance_1 }
@@ -2526,8 +2410,6 @@ train_constance_1_decision = {
 			factor = 1
 			modifier = {
 					factor = 0.09  }
-
-
 			modifier = {
 					factor = 1.5
 					trait = bloodline_icarian
@@ -2543,12 +2425,10 @@ train_constance_1_decision = {
 											}				
 			}
 }
-
 train_constance_2_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = constance_1 
 	}
@@ -2567,8 +2447,6 @@ train_constance_2_decision = {
 			factor = 1
 			modifier = {
 					factor = 0.08  }
-
-
 			modifier = {
 					factor = 1.5
 					trait = bloodline_icarian
@@ -2584,12 +2462,10 @@ train_constance_2_decision = {
 											}				
 			}
 }
-
 train_constance_3_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = constance_2
 	}
@@ -2608,8 +2484,6 @@ train_constance_3_decision = {
 			factor = 1
 			modifier = {
 					factor = 0.07  }
-
-
 			modifier = {
 					factor = 1.5
 					trait = bloodline_icarian
@@ -2625,19 +2499,17 @@ train_constance_3_decision = {
 											}				
 			}
 }
-
 train_constance_4_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = constance_3
 	}
 	allow = {
 		prestige = 800
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = constance_3
 	}
@@ -2653,8 +2525,6 @@ train_constance_4_decision = {
 			factor = 1
 			modifier = {
 					factor = 0.06  }
-
-
 			modifier = {
 					factor = 1.5
 					trait = bloodline_icarian
@@ -2670,12 +2540,10 @@ train_constance_4_decision = {
 											}				
 			}
 }
-
 train_constance_5_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = constance_4 
 	}
@@ -2694,8 +2562,6 @@ train_constance_5_decision = {
 			factor = 1
 			modifier = {
 					factor = 0.05  }
-
-
 			modifier = {
 					factor = 1.5
 					trait = bloodline_icarian
@@ -2711,12 +2577,10 @@ train_constance_5_decision = {
 											}				
 			}
 	}
-
 train_courtoisie_1_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			trait = bloodline_spina
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			NOT = { trait = courtoisie_1 }
@@ -2740,8 +2604,6 @@ train_courtoisie_1_decision = {
 			factor = 1
 			modifier = {
 					factor = 0.09  }
-
-
 			modifier = {
 					factor = 1.5
 					trait = bloodline_spina
@@ -2758,12 +2620,10 @@ train_courtoisie_1_decision = {
 													}				
 			}
 }
-
 train_courtoisie_2_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = courtoisie_1 
 	}
@@ -2782,8 +2642,6 @@ train_courtoisie_2_decision = {
 			factor = 1
 			modifier = {
 					factor = 0.08  }
-
-
 			modifier = {
 					factor = 1.5
 					trait = bloodline_spina
@@ -2800,12 +2658,10 @@ train_courtoisie_2_decision = {
 													}				
 			}
 }
-
 train_courtoisie_3_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = courtoisie_2
 	}
@@ -2824,8 +2680,6 @@ train_courtoisie_3_decision = {
 			factor = 1
 			modifier = {
 					factor = 0.07  }
-
-
 			modifier = {
 					factor = 1.5
 					trait = bloodline_spina
@@ -2842,12 +2696,10 @@ train_courtoisie_3_decision = {
 													}				
 			}
 }
-
 train_courtoisie_4_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = courtoisie_3
 	}
@@ -2866,8 +2718,6 @@ train_courtoisie_4_decision = {
 			factor = 1
 			modifier = {
 					factor = 0.06  }
-
-
 			modifier = {
 					factor = 1.5
 					trait = bloodline_spina
@@ -2884,12 +2734,10 @@ train_courtoisie_4_decision = {
 													}				
 			}
 }
-
 train_courtoisie_5_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = courtoisie_4 
 	}
@@ -2908,8 +2756,6 @@ train_courtoisie_5_decision = {
 			factor = 1
 			modifier = {
 					factor = 0.05  }
-
-
 			modifier = {
 					factor = 1.5
 					trait = bloodline_spina
@@ -2926,12 +2772,10 @@ train_courtoisie_5_decision = {
 													}				
 			}
 	}
-	
 train_theban_1_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			learning = 5
 			OR = { 	religion = lancea_sanctum
 					religion = livian
@@ -2956,8 +2800,6 @@ train_theban_1_decision = {
 			factor = 1
 			modifier = {
 					factor = 0.09  }
-
-
 								modifier = {
 										factor = 1.5
 										OR = {	
@@ -2969,12 +2811,10 @@ train_theban_1_decision = {
 													}
 			}
 }
-
 train_theban_2_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = theban_1 
 	}
@@ -2990,8 +2830,6 @@ train_theban_2_decision = {
 			factor = 1
 			modifier = {
 					factor = 0.08  }
-
-
 								modifier = {
 										factor = 1.5
 										OR = {	
@@ -3003,12 +2841,10 @@ train_theban_2_decision = {
 													}
 			}
 }
-
 train_theban_3_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = theban_2
 	}
@@ -3024,8 +2860,6 @@ train_theban_3_decision = {
 			factor = 1
 			modifier = {
 					factor = 0.07  }
-
-
 								modifier = {
 										factor = 1.5
 										OR = {	
@@ -3037,12 +2871,10 @@ train_theban_3_decision = {
 													}
 			}
 }
-
 train_theban_4_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = theban_3
 	}
@@ -3058,8 +2890,6 @@ train_theban_4_decision = {
 			factor = 1
 			modifier = {
 					factor = 0.06  }
-
-
 								modifier = {
 										factor = 1.5
 										OR = {	
@@ -3071,12 +2901,10 @@ train_theban_4_decision = {
 													}
 			}
 }
-
 train_theban_5_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = theban_4 
 	}
@@ -3092,8 +2920,6 @@ train_theban_5_decision = {
 			factor = 1
 			modifier = {
 					factor = 0.05  }
-
-
 								modifier = {
 										factor = 1.5
 										OR = {	
@@ -3105,12 +2931,10 @@ train_theban_5_decision = {
 													}
 			}
 	}
-
 train_cruac_1_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			learning = 5
 			OR = { religion = circle_of_the_crone
 religion = livian }
@@ -3133,8 +2957,6 @@ religion = livian }
 			factor = 1
 			modifier = {
 					factor = 0.09  }
-
-
 								modifier = {
 										factor = 1.5
 										OR = {	
@@ -3146,12 +2968,10 @@ religion = livian }
 													}
 			}
 }
-
 train_cruac_2_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = cruac_1 
 	}
@@ -3162,14 +2982,11 @@ train_cruac_2_decision = {
 	effect = {
 		piety = -400
 		add_trait = cruac_2
-
 	}
 	ai_will_do = {
 			factor = 1
 			modifier = {
 					factor = 0.08  }
-
-
 								modifier = {
 										factor = 1.5
 										OR = {	
@@ -3181,12 +2998,10 @@ train_cruac_2_decision = {
 													}
 			}
 }
-
 train_cruac_3_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = cruac_2
 	}
@@ -3202,8 +3017,6 @@ train_cruac_3_decision = {
 			factor = 1
 			modifier = {
 					factor = 0.07  }
-
-
 								modifier = {
 										factor = 1.5
 										OR = {	
@@ -3215,12 +3028,10 @@ train_cruac_3_decision = {
 													}
 			}
 }
-
 train_cruac_4_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = cruac_3
 	}
@@ -3231,13 +3042,11 @@ train_cruac_4_decision = {
 	effect = {
 		piety = -800
 		add_trait = cruac_4
-	}
+			}
 	ai_will_do = {
 			factor = 1
 			modifier = {
 					factor = 0.06  }
-
-
 								modifier = {
 										factor = 1.5
 										OR = {	
@@ -3249,12 +3058,10 @@ train_cruac_4_decision = {
 													}
 			}
 }
-
 train_cruac_5_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = cruac_4 
 	}
@@ -3270,8 +3077,6 @@ train_cruac_5_decision = {
 			factor = 1
 			modifier = {
 					factor = 0.05  }
-
-
 								modifier = {
 										factor = 1.5
 										OR = {	
@@ -3283,12 +3088,10 @@ train_cruac_5_decision = {
 													}
 			}
 	}		
-
 train_coils_1_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			learning = 5
 			OR = { 	religion = ordo_dracul
 				}
@@ -3311,8 +3114,6 @@ train_coils_1_decision = {
 			factor = 1
 			modifier = {
 					factor = 0.09  }
-
-
 								modifier = {
 										factor = 1.5
 										OR = {	
@@ -3324,12 +3125,10 @@ train_coils_1_decision = {
 													}
 			}
 }
-
 train_coils_2_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = coils_1 
 			NOT = { trait = coils_2 }
@@ -3349,8 +3148,6 @@ train_coils_2_decision = {
 			factor = 1
 			modifier = {
 					factor = 0.08  }
-
-
 								modifier = {
 										factor = 1.5
 										OR = {	
@@ -3362,12 +3159,10 @@ train_coils_2_decision = {
 													}
 			}
 }
-
 train_coils_3_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = coils_2
 	}
@@ -3396,12 +3191,10 @@ train_coils_3_decision = {
 													}
 			}
 }
-
 train_coils_4_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = coils_3
 	}
@@ -3417,8 +3210,6 @@ train_coils_4_decision = {
 			factor = 1
 			modifier = {
 					factor = 0.06  }
-
-
 								modifier = {
 										factor = 1.5
 										OR = {	
@@ -3430,12 +3221,10 @@ train_coils_4_decision = {
 													}
 			}
 }
-
 train_coils_5_decision = {
-	
-	potential = {
+	potential = {    has_character_flag =disciplines_menu_open
 			age = 50
-			trait = vampire
+			trait = vampire NOT = { OR= { has_character_flag = gifts_menu_open  has_character_flag = abilities_menu_open} }
 			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			trait = coils_4 
 	}
@@ -3451,8 +3240,6 @@ train_coils_5_decision = {
 			factor = 1
 			modifier = {
 					factor = 0.05  }
-
-
 								modifier = {
 										factor = 1.5
 										OR = {	
