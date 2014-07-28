@@ -11,7 +11,5 @@ This line added from flintsparc's PC repository through PC client to master bran
 
 This line added from github.com web editor through browser to flintsparc-test branch.
 
-Edited by ngppgn
-
 
 
