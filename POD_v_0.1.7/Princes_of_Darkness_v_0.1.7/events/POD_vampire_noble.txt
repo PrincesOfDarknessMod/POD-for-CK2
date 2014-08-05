@@ -2751,8 +2751,18 @@ if = { limit = { culture = armenian }
 
 
 if = { limit = { culture = greek }
-		ROOT = { dynasty = 5000019 }
-		
+	random_list = {
+	
+		75 = {
+				ROOT = { dynasty = 5000019 }
+			}
+		25 = {	
+				ROOT = { dynasty = 5000097 }
+				ROOT = { religion = circle_of_the_crone }
+				ROOT = { add_trait = fair }
+				ROOT = { remove_trait = ugly }
+			}
+		}	
 	}
 
 
@@ -4246,7 +4256,16 @@ if = {
 																					}
 																				}
 																}																	
-
+																# Galloi
+															if = {
+															
+																limit = {
+																		dynasty = 5000097 
+																	}
+																	religion = circle_of_the_crone 
+																	add_trait = fair
+																	remove_trait = ugly 
+																}
 															if = {
 																limit = 
 																	{
@@ -4743,6 +4762,7 @@ if = {
 				}
 
 			}
+			
 		}		
 	}
 		

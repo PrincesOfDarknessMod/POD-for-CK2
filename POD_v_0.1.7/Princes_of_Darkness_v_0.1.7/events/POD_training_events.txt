@@ -1,0 +1,1561 @@
+#TRAINING DISCIPLINES EVENT
+namespace = train_discipline
+#events 1-5 fire after the time has passed and grant the ability
+#event 6 verifies that the vampire have not reached the limit of "dots" for his age status (3 for neonate, 7 for ancilla, 11 for elders).
+#do we need a notification event about the training starting?
+
+character_event = {
+
+	id = train_discipline.1
+	desc = "training_successful"
+	picture = GFX_evt_council
+
+	trigger = {
+		OR = {
+			has_character_flag = train_animalism_1
+			has_character_flag = train_obfuscate_1
+			has_character_flag = train_auspex_1
+			has_character_flag = train_celerity_1
+			has_character_flag = train_dominate_1
+			has_character_flag = train_majesty_1
+			has_character_flag = train_nightmare_1
+			has_character_flag = train_protean_1
+			has_character_flag = train_resilience_1
+			has_character_flag = train_vigor_1
+			has_character_flag = train_constance_1
+			has_character_flag = train_courtoisie_1
+			has_character_flag = train_theban_1
+			has_character_flag = train_cruac_1
+			has_character_flag = train_coils_1
+		}
+	}	
+	mean_time_to_happen = {
+		days = 1800
+		
+		modifier = {
+			trait = genius 
+			factor = 0.5
+		}
+		modifier = {
+			trait = quick
+			factor = 0.75
+		}
+		modifier = {
+			trait = diligent
+			factor = 0.8
+		}
+		modifier = {
+			learning = 20
+			factor = 0.8
+		}
+		modifier = {
+			learning = 25
+			factor = 0.85
+		}
+		modifier = {
+			learning = 30
+			factor = 0.9
+		}
+		modifier = {
+			NOT = { learning = 10 }
+			factor = 1.2
+		}
+		modifier = {
+			NOT = { learning = 5 }
+			factor = 1.2
+		}
+		modifier = {
+			trait = slow
+			factor = 1.2
+		}
+		modifier = {
+			trait = imbecile
+			factor = 1.2
+		}
+		modifier = {
+			trait = slothful
+			factor = 1.2
+		}
+		
+	}
+	
+option = { 
+ name = "Ok." 
+ clr_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
+			if = { 
+				limit = {
+				has_character_flag = train_obfuscate_1 } 
+						add_trait = obfuscate_1 
+				clr_character_flag = train_obfuscate_1 }
+
+			if = { 
+				limit = {
+				has_character_flag = train_animalism_1 } 
+						add_trait = animalism_1 
+				clr_character_flag = train_animalism_1 }
+
+			if = { 
+				limit = {
+				has_character_flag = train_auspex_1 } 
+						add_trait = auspex_1 
+				clr_character_flag = train_auuspex_1 }
+
+			if = { 
+				limit = {
+				has_character_flag = train_celerity_1 } 
+						add_trait = celerity_1 
+				clr_character_flag = train_celerity_1 }
+
+			if = { 
+				limit = {
+				has_character_flag = train_dominate_1 } 
+						add_trait = dominate_1 
+				clr_character_flag = train_dominate_1 }
+
+			if = { 
+				limit = {
+				has_character_flag = train_majesty_1 } 
+						add_trait = majesty_1 
+				clr_character_flag = train_majesty_1 }
+
+			if = { 
+				limit = {
+				has_character_flag = train_nightmare_1 } 
+						add_trait = nightmare_1 
+				clr_character_flag = train_nightmare_1 }
+
+			if = { 
+				limit = {
+				has_character_flag = train_protean_1 } 
+						add_trait = protean_1 
+				clr_character_flag = train_protean_1 }
+
+			if = { 
+				limit = {
+				has_character_flag = train_resilience_1 } 
+						add_trait = resilience_1 
+				clr_character_flag = train_resilience_1 }
+
+			if = { 
+				limit = {
+				has_character_flag = train_vigor_1 } 
+						add_trait = vigor_1 
+				clr_character_flag = train_vigor_1 }
+
+			if = { 
+				limit = {
+				has_character_flag = train_constance_1 } 
+						add_trait = constance_1 
+				clr_character_flag = train_constance_1 }
+
+			if = { 
+				limit = {
+				has_character_flag = train_courtoisie_1 } 
+						add_trait = courtoisie_1 
+				clr_character_flag = train_courtoisie_1 }
+
+			if = { 
+				limit = {
+				has_character_flag = train_theban_1 } 
+						add_trait = theban_1 
+				clr_character_flag = train_theban_1 }
+
+			if = { 
+				limit = {
+				has_character_flag = train_cruac_1 } 
+						add_trait = cruac_1 
+				clr_character_flag = train_cruac_1 }
+
+			if = { 
+				limit = {
+				has_character_flag = train_coils_1 } 
+						add_trait = coils_1 
+				clr_character_flag = train_coils_1 }
+#			
+			change_variable = {
+#				
+				which = "discipline_dots"
+#				
+				value = 1
+#			}
+			
+				clr_character_flag = dots_initialised
+	}
+}
+character_event = {
+
+	id = train_discipline.2
+	desc = "training_successful"
+	picture = GFX_evt_council
+
+	trigger = {
+		OR = {
+			has_character_flag = train_animalism_2
+			has_character_flag = train_obfuscate_2
+			has_character_flag = train_auspex_2
+			has_character_flag = train_celerity_2
+			has_character_flag = train_dominate_2
+			has_character_flag = train_majesty_2
+			has_character_flag = train_nightmare_2
+			has_character_flag = train_protean_2
+			has_character_flag = train_resilience_2
+			has_character_flag = train_vigor_2
+			has_character_flag = train_constance_2
+			has_character_flag = train_courtoisie_2
+			has_character_flag = train_theban_2
+			has_character_flag = train_cruac_2
+			has_character_flag = train_coils_2
+		}
+	}	
+	mean_time_to_happen = {
+		years = 4000
+		
+		modifier = {
+			trait = genius 
+			factor = 0.5
+		}
+		modifier = {
+			trait = quick
+			factor = 0.75
+		}
+		modifier = {
+			trait = diligent
+			factor = 0.8
+		}
+		modifier = {
+			learning = 20
+			factor = 0.8
+		}
+		modifier = {
+			learning = 25
+			factor = 0.85
+		}
+		modifier = {
+			learning = 30
+			factor = 0.9
+		}
+		modifier = {
+			NOT = { learning = 10 }
+			factor = 1.2
+		}
+		modifier = {
+			NOT = { learning = 5 }
+			factor = 1.2
+		}
+		modifier = {
+			trait = slow
+			factor = 1.2
+		}
+		modifier = {
+			trait = imbecile
+			factor = 1.2
+		}
+		modifier = {
+			trait = slothful
+			factor = 1.2
+		}
+		
+	}
+	
+	option = { 
+ name = "Ok." 
+ 
+				clr_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
+			if = { 
+				limit = {
+				has_character_flag = train_obfuscate_2 } 
+						add_trait = obfuscate_2 
+				clr_character_flag = train_obfuscate_2 }
+
+			if = { 
+				limit = {
+				has_character_flag = train_animalism_2 } 
+						add_trait = animalism_2 
+				clr_character_flag = train_animalism_2 }
+
+			if = { 
+				limit = {
+				has_character_flag = train_auspex_2 } 
+						add_trait = auspex_2 
+				clr_character_flag = train_auuspex_2 }
+
+			if = { 
+				limit = {
+				has_character_flag = train_celerity_2 } 
+						add_trait = celerity_2 
+				clr_character_flag = train_celerity_2 }
+
+			if = { 
+				limit = {
+				has_character_flag = train_dominate_2 } 
+						add_trait = dominate_2 
+				clr_character_flag = train_dominate_2 }
+
+			if = { 
+				limit = {
+				has_character_flag = train_majesty_2 } 
+						add_trait = majesty_2 
+				clr_character_flag = train_majesty_2 }
+
+			if = { 
+				limit = {
+				has_character_flag = train_nightmare_2 } 
+						add_trait = nightmare_2 
+				clr_character_flag = train_nightmare_2 }
+
+			if = { 
+				limit = {
+				has_character_flag = train_protean_2 } 
+						add_trait = protean_2 
+				clr_character_flag = train_protean_2 }
+
+			if = { 
+				limit = {
+				has_character_flag = train_resilience_2 } 
+						add_trait = resilience_2 
+				clr_character_flag = train_resilience_2 }
+
+			if = { 
+				limit = {
+				has_character_flag = train_vigor_2 } 
+						add_trait = vigor_2 
+				clr_character_flag = train_vigor_2 }
+
+			if = { 
+				limit = {
+				has_character_flag = train_constance_2 } 
+						add_trait = constance_2 
+				clr_character_flag = train_constance_2 }
+
+			if = { 
+				limit = {
+				has_character_flag = train_courtoisie_2 } 
+						add_trait = courtoisie_2 
+				clr_character_flag = train_courtoisie_2 }
+
+			if = { 
+				limit = {
+				has_character_flag = train_theban_2 } 
+						add_trait = theban_2 
+				clr_character_flag = train_theban_2 }
+
+			if = { 
+				limit = {
+				has_character_flag = train_cruac_2 } 
+						add_trait = cruac_2 
+				clr_character_flag = train_cruac_2 }
+
+			if = { 
+				limit = {
+				has_character_flag = train_coils_2 } 
+						add_trait = coils_2 
+				clr_character_flag = train_coils_1 }
+#			
+			change_variable = {
+#				
+				which = "discipline_dots"
+#				
+				value = 1
+#			}
+			
+				clr_character_flag = dots_initialised
+	}
+}
+character_event = {
+
+	id = train_discipline.3
+	desc = "training_successful"
+	picture = GFX_evt_council
+
+	trigger = {
+		OR = {
+			has_character_flag = train_animalism_3
+			has_character_flag = train_obfuscate_3
+			has_character_flag = train_auspex_3
+			has_character_flag = train_celerity_3
+			has_character_flag = train_dominate_3
+			has_character_flag = train_majesty_3
+			has_character_flag = train_nightmare_3
+			has_character_flag = train_protean_3
+			has_character_flag = train_resilience_3
+			has_character_flag = train_vigor_3
+			has_character_flag = train_constance_3
+			has_character_flag = train_courtoisie_3
+			has_character_flag = train_theban_3
+			has_character_flag = train_cruac_3
+			has_character_flag = train_coils_3
+		}
+	}	
+	mean_time_to_happen = {
+		years = 5300
+		
+		modifier = {
+			trait = genius 
+			factor = 0.5
+		}
+		modifier = {
+			trait = quick
+			factor = 0.75
+		}
+		modifier = {
+			trait = diligent
+			factor = 0.8
+		}
+		modifier = {
+			learning = 20
+			factor = 0.8
+		}
+		modifier = {
+			learning = 25
+			factor = 0.85
+		}
+		modifier = {
+			learning = 30
+			factor = 0.9
+		}
+		modifier = {
+			NOT = { learning = 10 }
+			factor = 1.2
+		}
+		modifier = {
+			NOT = { learning = 5 }
+			factor = 1.2
+		}
+		modifier = {
+			trait = slow
+			factor = 1.2
+		}
+		modifier = {
+			trait = imbecile
+			factor = 1.2
+		}
+		modifier = {
+			trait = slothful
+			factor = 1.2
+		}
+		
+	}
+	
+	option = { 
+ name = "Ok." 
+ 
+				clr_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
+			if = { 
+				limit = {
+				has_character_flag = train_obfuscate_3 } 
+						add_trait = obfuscate_3 
+				clr_character_flag = train_obfuscate_3 }
+
+			if = { 
+				limit = {
+				has_character_flag = train_animalism_3 } 
+						add_trait = animalism_3 
+				clr_character_flag = train_animalism_3 }
+
+			if = { 
+				limit = {
+				has_character_flag = train_auspex_3 } 
+						add_trait = auspex_3 
+				clr_character_flag = train_auuspex_3 }
+
+			if = { 
+				limit = {
+				has_character_flag = train_celerity_3 } 
+						add_trait = celerity_3 
+				clr_character_flag = train_celerity_3 }
+
+			if = { 
+				limit = {
+				has_character_flag = train_dominate_3 } 
+						add_trait = dominate_3 
+				clr_character_flag = train_dominate_3 }
+
+			if = { 
+				limit = {
+				has_character_flag = train_majesty_3 } 
+						add_trait = majesty_3 
+				clr_character_flag = train_majesty_3 }
+
+			if = { 
+				limit = {
+				has_character_flag = train_nightmare_3 } 
+						add_trait = nightmare_3 
+				clr_character_flag = train_nightmare_3 }
+
+			if = { 
+				limit = {
+				has_character_flag = train_protean_3 } 
+						add_trait = protean_3 
+				clr_character_flag = train_protean_3 }
+
+			if = { 
+				limit = {
+				has_character_flag = train_resilience_3 } 
+						add_trait = resilience_3 
+				clr_character_flag = train_resilience_3 }
+
+			if = { 
+				limit = {
+				has_character_flag = train_vigor_3 } 
+						add_trait = vigor_3 
+				clr_character_flag = train_vigor_3 }
+
+			if = { 
+				limit = {
+				has_character_flag = train_constance_3 } 
+						add_trait = constance_3 
+				clr_character_flag = train_constance_3 }
+
+			if = { 
+				limit = {
+				has_character_flag = train_courtoisie_3 } 
+						add_trait = courtoisie_3 
+				clr_character_flag = train_courtoisie_3 }
+
+			if = { 
+				limit = {
+				has_character_flag = train_theban_3 } 
+						add_trait = theban_3 
+				clr_character_flag = train_theban_3 }
+
+			if = { 
+				limit = {
+				has_character_flag = train_cruac_3 } 
+						add_trait = cruac_3 
+				clr_character_flag = train_cruac_3 }
+
+			if = { 
+				limit = {
+				has_character_flag = train_coils_3 } 
+						add_trait = coils_3 
+				clr_character_flag = train_coils_3 }
+#			
+			change_variable = {
+#				
+				which = "discipline_dots"
+#				
+				value = 1
+#			}
+			
+				clr_character_flag = dots_initialised
+	}
+}
+character_event = {
+
+	id = train_discipline.4
+	desc = "training_successful"
+	picture = GFX_evt_council
+
+	trigger = {
+		OR = {
+			has_character_flag = train_animalism_4
+			has_character_flag = train_obfuscate_4
+			has_character_flag = train_auspex_4
+			has_character_flag = train_celerity_4
+			has_character_flag = train_dominate_4
+			has_character_flag = train_majesty_4
+			has_character_flag = train_nightmare_4
+			has_character_flag = train_protean_4
+			has_character_flag = train_resilience_4
+			has_character_flag = train_vigor_4
+			has_character_flag = train_constance_4
+			has_character_flag = train_courtoisie_4
+			has_character_flag = train_theban_4
+			has_character_flag = train_cruac_4
+			has_character_flag = train_coils_4
+		}
+	}	
+	mean_time_to_happen = {
+		years = 7000
+		
+		modifier = {
+			trait = genius 
+			factor = 0.5
+		}
+		modifier = {
+			trait = quick
+			factor = 0.75
+		}
+		modifier = {
+			trait = diligent
+			factor = 0.8
+		}
+		modifier = {
+			learning = 20
+			factor = 0.8
+		}
+		modifier = {
+			learning = 25
+			factor = 0.85
+		}
+		modifier = {
+			learning = 30
+			factor = 0.9
+		}
+		modifier = {
+			NOT = { learning = 10 }
+			factor = 1.2
+		}
+		modifier = {
+			NOT = { learning = 5 }
+			factor = 1.2
+		}
+		modifier = {
+			trait = slow
+			factor = 1.2
+		}
+		modifier = {
+			trait = imbecile
+			factor = 1.2
+		}
+		modifier = {
+			trait = slothful
+			factor = 1.2
+		}
+		
+	}
+	
+	option = { 
+ name = "Ok." 
+ 
+				clr_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
+			if = { 
+				limit = {
+				has_character_flag = train_obfuscate_4 } 
+						add_trait = obfuscate_4 
+				clr_character_flag = train_obfuscate_4 }
+
+			if = { 
+				limit = {
+				has_character_flag = train_animalism_4 } 
+						add_trait = animalism_4 
+				clr_character_flag = train_animalism_4 }
+
+			if = { 
+				limit = {
+				has_character_flag = train_auspex_4 } 
+						add_trait = auspex_4 
+				clr_character_flag = train_auuspex_4 }
+
+			if = { 
+				limit = {
+				has_character_flag = train_celerity_4 } 
+						add_trait = celerity_4 
+				clr_character_flag = train_celerity_4 }
+
+			if = { 
+				limit = {
+				has_character_flag = train_dominate_4 } 
+						add_trait = dominate_4 
+				clr_character_flag = train_dominate_4 }
+
+			if = { 
+				limit = {
+				has_character_flag = train_majesty_4 } 
+						add_trait = majesty_4 
+				clr_character_flag = train_majesty_4 }
+
+			if = { 
+				limit = {
+				has_character_flag = train_nightmare_4 } 
+						add_trait = nightmare_4 
+				clr_character_flag = train_nightmare_4 }
+
+			if = { 
+				limit = {
+				has_character_flag = train_protean_4 } 
+						add_trait = protean_4 
+				clr_character_flag = train_protean_4 }
+
+			if = { 
+				limit = {
+				has_character_flag = train_resilience_4 } 
+						add_trait = resilience_4 
+				clr_character_flag = train_resilience_4 }
+
+			if = { 
+				limit = {
+				has_character_flag = train_vigor_4 } 
+						add_trait = vigor_4 
+				clr_character_flag = train_vigor_4 }
+
+			if = { 
+				limit = {
+				has_character_flag = train_constance_4 } 
+						add_trait = constance_4 
+				clr_character_flag = train_constance_4 }
+
+			if = { 
+				limit = {
+				has_character_flag = train_courtoisie_4 } 
+						add_trait = courtoisie_4 
+				clr_character_flag = train_courtoisie_4 }
+
+			if = { 
+				limit = {
+				has_character_flag = train_theban_4 } 
+						add_trait = theban_4 
+				clr_character_flag = train_theban_4 }
+
+			if = { 
+				limit = {
+				has_character_flag = train_cruac_4 } 
+						add_trait = cruac_4 
+				clr_character_flag = train_cruac_4 }
+
+			if = { 
+				limit = {
+				has_character_flag = train_coils_4 } 
+						add_trait = coils_4 
+				clr_character_flag = train_coils_4 }
+#			
+			change_variable = {
+#				
+				which = "discipline_dots"
+#				
+				value = 1
+#			}
+			
+				clr_character_flag = dots_initialised
+	}
+}
+character_event = {
+
+	id = train_discipline.5
+	desc = "training_successful"
+	picture = GFX_evt_council
+
+	trigger = {
+		OR = {
+			has_character_flag = train_animalism_5
+			has_character_flag = train_obfuscate_5
+			has_character_flag = train_auspex_5
+			has_character_flag = train_celerity_5
+			has_character_flag = train_dominate_5
+			has_character_flag = train_majesty_5
+			has_character_flag = train_nightmare_5
+			has_character_flag = train_protean_5
+			has_character_flag = train_resilience_5
+			has_character_flag = train_vigor_5
+			has_character_flag = train_constance_5
+			has_character_flag = train_courtoisie_5
+			has_character_flag = train_theban_5
+			has_character_flag = train_cruac_5
+			has_character_flag = train_coils_5
+		}
+	}	
+	mean_time_to_happen = {
+		years = 10000
+		
+		modifier = {
+			trait = genius 
+			factor = 0.5
+		}
+		modifier = {
+			trait = quick
+			factor = 0.75
+		}
+		modifier = {
+			trait = diligent
+			factor = 0.8
+		}
+		modifier = {
+			learning = 20
+			factor = 0.8
+		}
+		modifier = {
+			learning = 25
+			factor = 0.85
+		}
+		modifier = {
+			learning = 30
+			factor = 0.9
+		}
+		modifier = {
+			NOT = { learning = 10 }
+			factor = 1.2
+		}
+		modifier = {
+			NOT = { learning = 5 }
+			factor = 1.2
+		}
+		modifier = {
+			trait = slow
+			factor = 1.2
+		}
+		modifier = {
+			trait = imbecile
+			factor = 1.2
+		}
+		modifier = {
+			trait = slothful
+			factor = 1.2
+		}
+		
+	}
+	
+	option = { 
+ name = "Ok." 
+ 
+				clr_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
+			if = { 
+					limit = {
+						has_character_flag = train_obfuscate_5 } 
+						add_trait = obfuscate_5 
+						clr_charcter_flag = train_obfuscate_5 }
+
+			if = { 
+					limit = {
+						has_character_flag = train_animalism_5 } 
+						add_trait = animalism_5 
+						clr_charcter_flag = train_animalism_5 }
+
+			if = { 
+					limit = {
+						has_character_flag = train_auspex_5 } 
+						add_trait = auspex_5 
+						clr_charcter_flag = train_auuspex_5 }
+
+			if = { 
+					limit = {
+						has_character_flag = train_celerity_5 } 
+						add_trait = celerity_5 
+						clr_charcter_flag = train_celerity_5 }
+
+			if = { 
+					limit = {
+						has_character_flag = train_dominate_5 } 
+						add_trait = dominate_5 
+						clr_charcter_flag = train_dominate_5 }
+
+			if = { 
+					limit = {
+						has_character_flag = train_majesty_5 } 
+						add_trait = majesty_5 
+						clr_charcter_flag = train_majesty_5 }
+
+			if = { 
+					limit = {
+						has_character_flag = train_nightmare_5 } 
+						add_trait = nightmare_5 
+						clr_charcter_flag = train_nightmare_5 }
+
+			if = { 
+					limit = {
+						has_character_flag = train_protean_5 } 
+						add_trait = protean_5 
+						clr_charcter_flag = train_protean_5 }
+
+			if = { 
+					limit = {
+						has_character_flag = train_resilience_5 } 
+						add_trait = resilience_5 
+						clr_charcter_flag = train_resilience_5 }
+
+			if = { 
+					limit = {
+						has_character_flag = train_vigor_5 } 
+						add_trait = vigor_5 
+						clr_charcter_flag = train_vigor_5 }
+
+			if = { 
+					limit = {
+						has_character_flag = train_constance_5 } 
+						add_trait = constance_5 
+						clr_charcter_flag = train_constance_5 }
+
+			if = { 
+					limit = {
+						has_character_flag = train_courtoisie_5 } 
+						add_trait = courtoisie_5 
+						clr_charcter_flag = train_courtoisie_5 }
+
+			if = { 
+					limit = {
+						has_character_flag = train_theban_5 } 
+						add_trait = theban_5 
+						clr_charcter_flag = train_theban_5 }
+
+			if = { 
+					limit = {
+						has_character_flag = train_cruac_5 } 
+						add_trait = cruac_5 
+						clr_charcter_flag = train_cruac_5 }
+
+			if = { 
+					limit = {
+						has_character_flag = train_coils_5 } 
+						add_trait = coils_5 
+						clr_charcter_flag = train_coils_5 }
+#			
+			change_variable = {
+#				
+				which = "discipline_dots"
+#				
+				value = 1
+#			}
+			
+				clr_character_flag = dots_initialised
+	}
+}
+
+character_event = {
+
+	id = train_discipline.6
+	desc = "training_successful"
+	picture = GFX_evt_council
+	hide_window = yes
+	
+	trigger = {
+		trait = vampire
+		NOT = { has_character_flag = dots_initialised }
+	}
+	
+	mean_time_to_happen = { days = 1 }
+	
+	immediate = {
+		set_character_flag = dots_initialised
+		set_variable = {
+			
+				which = "discipline_dots"
+			
+				value = 0
+		}
+		character_event = train_discipline.7
+	}
+}
+
+character_event = {
+
+	id = train_discipline.7
+	desc = "training_successful"
+	picture = GFX_evt_council
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	
+	immediate = {
+		
+
+			if = { 
+		limit = {
+			trait = obfuscate_5 } 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 5 }}
+
+			if = { 
+		limit = {
+			trait = animalism_5 } 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 5 }}
+
+			if = { 
+		limit = {
+			trait = auspex_5 } 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 5 }}
+
+			if = { 
+		limit = {
+			trait = celerity_5}  
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 5 }}
+
+			if = { 
+		limit = {
+			trait = dominate_5 } 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 5 }}
+
+			if = { 
+		limit = {
+			trait = majesty_5} 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 5 }}
+
+			if = { 
+		limit = {
+			trait = nightmare_5} 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 5 }}
+
+			if = { 
+		limit = {
+			trait = protean_5 } 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 5 }}
+
+			if = { 
+		limit = {
+			trait = resilience_5} 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 5 }}
+
+			if = { 
+		limit = {
+			trait = vigor_5 } 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 5 }}
+
+			if = { 
+		limit = {
+			trait = constance_5 } 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 5 }}
+
+			if = { 
+		limit = {
+			trait = courtoisie_5}  
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 5 }}
+
+			if = { 
+		limit = {
+			trait = theban_5 } 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 5 }}
+
+			if = { 
+		limit = {
+			trait = cruac_5 } 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 5 }}
+
+			if = { 
+		limit = {
+			trait = coils_5} 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 5 }}
+		
+
+			if = { 
+		limit = {
+			trait = obfuscate_4 } 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 4 }}
+
+			if = { 
+		limit = {
+			trait = animalism_4 } 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 4 }}
+
+			if = { 
+		limit = {
+			trait = auspex_4 } 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 4 }}
+
+			if = { 
+		limit = {
+			trait = celerity_4}  
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 4 }}
+
+			if = { 
+		limit = {
+			trait = dominate_4 } 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 4 }}
+
+			if = { 
+		limit = {
+			trait = majesty_4} 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 4 }}
+
+			if = { 
+		limit = {
+			trait = nightmare_4} 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 4 }}
+
+			if = { 
+		limit = {
+			trait = protean_4 } 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 4 }}
+
+			if = { 
+		limit = {
+			trait = resilience_4} 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 4 }}
+
+			if = { 
+		limit = {
+			trait = vigor_4 } 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 4 }}
+
+			if = { 
+		limit = {
+			trait = constance_4 } 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 4 }}
+
+			if = { 
+		limit = {
+			trait = courtoisie_4}  
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 4 }}
+
+			if = { 
+		limit = {
+			trait = theban_4 } 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 4 }}
+
+			if = { 
+		limit = {
+			trait = cruac_4 } 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 4 }}
+
+			if = { 
+		limit = {
+			trait = coils_4} 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 4 }}
+		
+
+			if = { 
+		limit = {
+			trait = obfuscate_3 } 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 3 }}
+
+			if = { 
+		limit = {
+			trait = animalism_3 } 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 3 }}
+
+			if = { 
+		limit = {
+			trait = auspex_3 } 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 3 }}
+
+			if = { 
+		limit = {
+			trait = celerity_3}  
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 3 }}
+
+			if = { 
+		limit = {
+			trait = dominate_3 } 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 3 }}
+
+			if = { 
+		limit = {
+			trait = majesty_3} 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 3 }}
+
+			if = { 
+		limit = {
+			trait = nightmare_3} 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 3 }}
+
+			if = { 
+		limit = {
+			trait = protean_3 } 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 3 }}
+
+			if = { 
+		limit = {
+			trait = resilience_3} 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 3 }}
+
+			if = { 
+		limit = {
+			trait = vigor_3 } 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 3 }}
+
+			if = { 
+		limit = {
+			trait = constance_3 } 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 3 }}
+
+			if = { 
+		limit = {
+			trait = courtoisie_3}  
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 3 }}
+
+			if = { 
+		limit = {
+			trait = theban_3 } 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 3 }}
+
+			if = { 
+		limit = {
+			trait = cruac_3 } 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 3 }}
+
+			if = { 
+		limit = {
+			trait = coils_3} 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 3 }}
+		
+
+			if = { 
+		limit = {
+			trait = obfuscate_2 } 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 2 }}
+
+			if = { 
+		limit = {
+			trait = animalism_2 } 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 2 }}
+
+			if = { 
+		limit = {
+			trait = auspex_2 } 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 2 }}
+
+			if = { 
+		limit = {
+			trait = celerity_2}  
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 2 }}
+
+			if = { 
+		limit = {
+			trait = dominate_2 } 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 2 }}
+
+			if = { 
+		limit = {
+			trait = majesty_2} 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 2 }}
+
+			if = { 
+		limit = {
+			trait = nightmare_2} 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 2 }}
+
+			if = { 
+		limit = {
+			trait = protean_2 } 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 2 }}
+
+			if = { 
+		limit = {
+			trait = resilience_2} 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 2 }}
+
+			if = { 
+		limit = {
+			trait = vigor_2 } 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 2 }}
+
+			if = { 
+		limit = {
+			trait = constance_2 } 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 2 }}
+
+			if = { 
+		limit = {
+			trait = courtoisie_2}  
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 2 }}
+
+			if = { 
+		limit = {
+			trait = theban_2 } 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 2 }}
+
+			if = { 
+		limit = {
+			trait = cruac_2 } 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 2 }}
+
+			if = { 
+		limit = {
+			trait = coils_2} 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 2 }}
+		
+
+			if = { 
+		limit = {
+			trait = obfuscate_1 } 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 1 }}
+
+			if = { 
+		limit = {
+			trait = animalism_1 } 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 1 }}
+
+			if = { 
+		limit = {
+			trait = auspex_1 } 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 1 }}
+
+			if = { 
+		limit = {
+			trait = celerity_1}  
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 1 }}
+
+			if = { 
+		limit = {
+			trait = dominate_1 } 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 1 }}
+
+			if = { 
+		limit = {
+			trait = majesty_1} 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 1 }}
+
+			if = { 
+		limit = {
+			trait = nightmare_1} 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 1 }}
+
+			if = { 
+		limit = {
+			trait = protean_1 } 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 1 }}
+
+			if = { 
+		limit = {
+			trait = resilience_1} 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 1 }}
+
+			if = { 
+		limit = {
+			trait = vigor_1 } 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 1 }}
+
+			if = { 
+		limit = {
+			trait = constance_1 } 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 1 }}
+
+			if = { 
+		limit = {
+			trait = courtoisie_1}  
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 1 }}
+
+			if = { 
+		limit = {
+			trait = theban_1 } 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 1 }}
+
+			if = { 
+		limit = {
+			trait = cruac_1 } 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 1 }}
+
+			if = { 
+		limit = {
+			trait = coils_1} 
+			change_variable = { 
+				which = "discipline_dots" 
+				value = 1 }}
+			
+
+			if = { 
+				limit = {
+					is_variable_equal = { 
+				which = "discipline_dots" 
+				value = 1 }} 
+						add_trait = test_1 }
+
+			if = { 
+				limit = {
+					is_variable_equal = { 
+				which = "discipline_dots" 
+				value = 2 }} 
+						add_trait = test_2 }
+
+			if = { 
+				limit = {
+					is_variable_equal = { 
+				which = "discipline_dots" 
+				value = 3 }} 
+						add_trait = test_3 }
+
+			if = { 
+				limit = {
+					is_variable_equal = { 
+				which = "discipline_dots" 
+				value = 4 }} 
+						add_trait = test_4 }
+
+			if = { 
+				limit = {
+					is_variable_equal = { 
+				which = "discipline_dots" 
+				value = 5 }} 
+						add_trait = test_5 }
+
+			if = { 
+				limit = {
+					is_variable_equal = { 
+				which = "discipline_dots" 
+				value = 6 }} 
+						add_trait = test_6 }
+
+			if = { 
+				limit = {
+					is_variable_equal = { 
+				which = "discipline_dots" 
+				value = 7 }} 
+						add_trait = test_7 }
+
+			if = { 
+				limit = {
+					is_variable_equal = { 
+				which = "discipline_dots" 
+				value = 8 }} 
+						add_trait = test_8 }
+
+			if = { 
+				limit = {
+					is_variable_equal = { 
+				which = "discipline_dots" 
+				value = 9 }} 
+						add_trait = test_9 }
+
+			if = { 
+				limit = {
+					is_variable_equal = { 
+				which = "discipline_dots" 
+				value = 10 }} 
+						add_trait = test_10 }
+
+			if = { 
+				limit = {
+					is_variable_equal = { 
+				which = "discipline_dots" 
+				value = 11 }} 
+						add_trait = test_11 }
+
+			if = { 
+				limit = {
+					is_variable_equal = { 
+				which = "discipline_dots" 
+				value = 12 }} 
+						add_trait = test_12 }
+		}	
+	}	
+	

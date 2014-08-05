@@ -1,22 +1,55 @@
 Princes of Darkness
 Change Log
 
+Team:
+flintsparc: code, 1142 Empires (VTR/WTF/NWOD) bookmark, 1250 shattered world (VTR/WTF/NWOD) bookmark, graphics (icons, flags, COAs) 
+ngpgn: code cleanup, vitae code, 1230 War of Princes (DAV/VTM/OWOD) bookmark, character screen, testing
+Dragonovith: graphics: werewolf gift icons 
+
 Version 0.1.7
 
-Removed "Demand Religious Conversion" through editing defines.lua.  Modified Lord Spiritual Job and conversion decisions to restrict conversions to type (Werewolves can only convert to werewolf tribe, Vampires can only convert to vampire covenants, etc...).
+Removed "Demand Religious Conversion" through editing defines.lua.  Modified Lord Spiritual Job and conversion decisions to restrict conversions to type (Werewolves should usually only convert to werewolf tribe, Vampires should usally only convert to vampire covenants, etc...).
+Removed Province Cultural Conversions.
+
+Character Info screen redesigned by ngppgn to allow more space for traits, fixed placement of objectives and plots.  
 
 Massive code cleanup by ngppgn
+Finally exorcised the insiduous parsing errors in disciplines and gifts decisions. See comments on those files for more information.
+Simplified allow clauses in vampire disciplines decisions.
+Removed redundant conitions an comands in both vampires and werewolf training decision (the same condition need not be in both allow and potential, it two traits are opposites, adding one removes the other without needing a remove_trait command
+The player will now have a toggleable "decision menu" for training decision, to reduce crowdedness in decisions tab
+Number of Maximum Leadership Traits increased to 10
 
 Added War of Princess 1230 Bookmark for development by ngppgn.  This is a Dakr Ages: Vampire (Vampire the Masquerade/old World of Darkness) book mark.  
 
 Vampire:
+Added vitae code by ngppgn. 
+Incorporated vitae changes for ghouldom and blood oath (-1 and -2, permanent). Also for draining mortal (replenish pool).
+Separated opinion_blood_bond_to_domitor and opinion_blood_bond_to_domitor_ghoul for targeting purposes.
+Vampire disciplines are now leadership traits.
+
+1142: 
+Added Wiki Links from White Wolf Wiki for Hardestadt, Michael, Odin, Baba Yaga, Vladimir Rustovitch, Mithras, Esclarmonde, Montano, Regis, Icarius.  
+Added Wiki Link to White Wolf Wiki Prince (VTM) index for Bulscu, Salianna, Etienne, Helene and Isouda
 Lord Mithras of the Baronies of Avalon is now Circle of the Crone.  He is an unliving pagan god with his own cult.  Invictus provinces in England are now Circle of the Crone provinces.
-Minor adjustments to Italian princes and dynasties for 1250 bookmark.
+Added three Invictus empire dukes to Greece.  Armenia, Georgia and Armenia Minor are now independent of Adamantes Athanatoi empire.  Added many claimaints to Kingdom of Greece, Duchy of Thrace and County of Byzantion.
+Added Afanso Corajoso as the Duke of Portugal
+Added Alexander, Etienne, Helene, Isouda, Regis to the Courts of Love; granted claims on the Courts of Love.
+Andaulsia is now independent of the Banu Shaitan Caliphate.
 Minor adjustment to vampire special empire titles to make them less restrictive.
 
+1250:
+Minor adjustments to Italian princes and dynasties for 1250 bookmark.
+
+
 Werewolf:
+Werewolf gifts are now leadership traits
+Fixed the opposites in auspices traits (I'd swear I had fixed those before!)
 Minor adjustments to Italian princes and dynasties for 1250 bookmark.
 Minor adjustments to werewolf special empire titles to make them less restrictive.
+Added four more Russian werewolf dynasties. 
+
+
 
 Version 0.1.6
 

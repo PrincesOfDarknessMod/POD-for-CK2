@@ -27,18 +27,18 @@ title_embrace_mortal = {
 	}
 	
 	gain_effect = {
-		set_character_flag = FLAG_NWOD_EMBRACE_MORTAL_MINOR_TITLE_FIRED
-		if = { limit = { FROM = { is_female = no } }
-			set_father = FROM
-			set_mother = 0
-		}
-		if = { limit = { FROM = { is_female = yes } }
-			set_father = NULL
-			set_mother = FROM
-		}	
-    		dynasty = FROM
-		add_trait = fledgling
-	}
+	set_character_flag = FLAG_NWOD_EMBRACE_MORTAL_MINOR_TITLE_FIRED
+					if = { limit = { FROM = { is_female = no } }
+							set_father = FROM
+							set_mother = 0
+						}
+				if = { limit = { FROM = { is_female = yes } }
+							set_father = NULL
+							set_mother = FROM
+						}	
+    	dynasty = FROM
+	add_trait = fledgling
+				}
 	lose_effect = {
 	}
 	
@@ -86,8 +86,9 @@ title_ghoul = {
 				trait = werewolf
 				}
 		FROM = {
-			trait = vampire
-			check_variable =  {
+			 trait = vampire
+			wealth = 10
+			check_variable = { 
 				which = "vitae"
 				value = 2
 			}
@@ -95,45 +96,69 @@ title_ghoul = {
 	}
 	
 	gain_effect = {
-		add_trait = ghoul
-		add_trait = vigor_1
-		opinion = { 
-			modifier = opinion_blood_bond_to_domitor
-			who = FROM
-			years = 3000
-		}					}
-		set_character_flag = FLAG_NWOD_BLOODBOUND
+	add_trait = ghoul
+	add_trait = vigor_1
+	opinion = {
+									modifier = opinion_blood_bond_to_domitor_ghoul
+									who = FROM
+									years = 3000
+								}
+	set_character_flag = FLAG_NWOD_BLOODBOUND
 		FROM = {
-			change_variable = {
-				which = "vitae"
-				value = -1
-			}
-			change_variable = {
+			change_variable = { 
 				which = "maxvitae"
 				value = -1
 			}
+			change_variable = { 
+				which = "vitae"
+				value = -1
+			}
 		}
+	
+	character_event = { id = ghoul.1 }
 	}
 	lose_effect = {
-		THIS = { 
-			remove_trait = ghoul
-			remove_trait = vigor_1
-			add_trait = vampire_blood_thirst
-			remove_opinion = { 
-				modifier = opinion_blood_bond_to_domitor
-				who = FROM
+	remove_trait = ghoul
+	remove_trait = vigor_1
+	add_trait = vampire_blood_thirst
+	opinion = {
+									modifier = opinion_rejected_by_domitor
+									who = FROM
+									years = 3000
 			}
-		}			
-		FROM = {
-			change_variable =  {
-			which = "maxvitae"
-			value = 1
-			}
-		}
 	}
+
 	message = yes
 }
 
+title_reject_ghoul = {
+	allow = {
+		trait = ghoul
+	}
+	gain_effect = {
+	remove_trait = ghoul
+	remove_trait = vigor_1
+	add_trait = vampire_blood_thirst
+	remove_opinion = {
+									modifier = opinion_blood_bond_to_domitor
+									who = FROM
+								}
+	opinion = {
+			modifier = opinion_rejected_by_domitor
+			who = FROM
+			years = 3000
+			}
+	character_event = { id = ghoul.1 }
+	FROM = {
+	change_variable = {
+		which = "maxvitae"
+		value = 1
+	}
+	}
+	}
+	lose_effect = {}
+}
+	
 # Keeper of Elysium
 title_keeper_of_elysium = {
 	dignity = 0.06

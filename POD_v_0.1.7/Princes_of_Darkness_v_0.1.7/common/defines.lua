@@ -1059,8 +1059,8 @@ NAI =
 	DESIRED_CONSORTS = 0,									-- AI will always want at least this many concubines, if they lack sons
 	RAID_MAX_REALM_SIZE = 24,								-- Realms with more holdings than this will never go on Raids
 	RAID_AGGRESSION = 18,									-- General frequency of raids. A LOWER number means more often!
-	RAID_PREP_INV_SPARE_SAME_CULTURE = 1,					-- AI of religions that allow prepared invasions will not raid provinces in their own culture group (to prevent intra-Scandinavian raids)
-	RAID_SPARE_ACCEPTED_RELIGIONS = 1						-- AI will not raid rulers of other religions in the same religion group, unless heresy vs parent religion
+	RAID_PREP_INV_SPARE_SAME_CULTURE = 0,					-- AI of religions that allow prepared invasions will not raid provinces in their own culture group (to prevent intra-Scandinavian raids)
+	RAID_SPARE_ACCEPTED_RELIGIONS = 0						-- AI will not raid rulers of other religions in the same religion group, unless heresy vs parent religion
 },
 
 NFrontend = 
