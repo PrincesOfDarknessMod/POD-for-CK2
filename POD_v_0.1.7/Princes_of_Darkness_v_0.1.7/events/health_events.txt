@@ -10,6 +10,119 @@
 # and Chris King
 # and Henrik Eklund
 
+# remove disease for immortals
+character_event = {
+	id = immortal_disease_cure.1
+	picture = GFX_evt_comet
+	hide_window = yes
+
+	min_age = 16
+	
+	trigger = {
+				OR = {
+						trait = vampire
+						trait = promethean
+						trait = geist
+						trait = mummy
+					}
+				OR = {
+						trait = ill
+						trait = syphilitic
+						trait = infirm
+						trait = incapable
+						trait = sickly
+						trait = pneumonic 
+						trait = has_tuberculosis 
+						trait = has_typhoid_fever 
+						trait = has_typhus 
+						trait = has_bubonic_plague 
+						trait = has_measles 
+						trait = has_small_pox 					
+					}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+
+		modifier = {
+			factor = 0.1
+				OR = {
+						trait = vampire
+						trait = promethean
+						trait = geist
+						trait = mummy
+					}						
+		}		
+	}		
+
+	immediate = {
+		hidden_tooltip = {	
+			if = {
+					limit = {trait = ill }	
+					remove_trait = ill	
+				}
+
+			if = {
+					limit = {trait = syphilitic	}
+					remove_trait = syphilitic
+				}
+
+			if = {
+					limit = {trait = infirm }	
+					remove_trait = infirm
+				}
+
+			if = {
+					limit = {trait = incapable }	
+					remove_trait = incapable	
+				}
+
+			if = {
+					limit = {trait = sickly }	
+					remove_trait = sickly	
+				}
+
+			if = {
+					limit = {trait = pneumonic }	
+					remove_trait = pneumonic	
+				}
+
+			if = {
+					limit = {trait = has_tuberculosis }	
+					remove_trait = has_tuberculosis	
+				}
+
+			if = {
+					limit = {trait = has_typhoid_fever }	
+					remove_trait = has_typhoid_fever	
+				}
+
+			if = {
+					limit = {trait = has_typhus }	
+					remove_trait = has_typhus	
+				}
+
+			if = {
+					limit = {trait = has_bubonic_plague }	
+					remove_trait = has_bubonic_plague	
+				}
+
+			if = {
+					limit = {trait = has_measles }	
+					remove_trait = has_measles	
+				}
+
+			if = {
+					limit = {trait = has_small_pox }	
+					remove_trait = has_small_pox 	
+				}				
+				
+				
+			}
+		}
+	}	
+
+
 #Syphilitic
 character_event = {
 	id = 6000
