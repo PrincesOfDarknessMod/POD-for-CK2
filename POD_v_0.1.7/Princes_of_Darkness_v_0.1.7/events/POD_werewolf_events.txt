@@ -68,6 +68,7 @@ character_event = {
 		NOT = { trait = promethean }
 		NOT = { trait = geist }
 		NOT = { trait = demon }
+		NOT = { trait = fledgling }
 	}
 	
 	mean_time_to_happen = {
@@ -95,6 +96,17 @@ character_event = {
 		
       }
 	immediate = {	
+		if = { limit = { 
+									NOT = { trait = vampire } 
+									NOT = { trait = werewolf }
+									NOT = { trait = mage }
+									NOT = { trait = mummy }
+									NOT = { trait = changeling }
+									NOT = { trait = promethean }
+									NOT = { trait = geist }
+									NOT = { trait = demon }
+									NOT = { trait = fledgling }									
+							} 
 		random_list = { 
 						50 = {  set_character_flag = FLAG_POD_WEREWOLF_CHANGE_EVENT_FIRED
 								set_character_flag = FLAG_POD_NEVER_SHAPECHANGE
@@ -365,6 +377,7 @@ character_event = {
 									
 					}
 			}
+		}
 	}	
 }
 

@@ -1,0 +1,315 @@
+namespace = vampire_frenzy
+# vampire courtier frenzies
+character_event = {
+	id = vampire_frenzy.1
+	desc = "POD_EVTDESC_VAMPIRE_FRENZY"
+	picture = GFX_evt_shadowy_cabal
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	
+	trigger = {
+				trait = vampire	
+				NOT = { trait = torpor }
+				}
+
+	mean_time_to_happen = {
+		months = 480	
+
+# traits that encourages frenzy		
+
+#		modifier = {
+#			factor = 0.9
+#			poor_hunting_province_modifer_goes_here
+#		}
+#
+#		modifier = {
+#			factor = 0.9
+#			small_individual_blood_pool_goes_here
+#		}
+
+		modifier = {
+			factor = 0.9
+			trait = stressed
+		}		
+
+		modifier = {
+			factor = 0.5
+			trait = gangrel
+		}
+
+		modifier = {
+			factor = 0.9
+			trait = wroth
+		}
+
+		modifier = {
+			factor = 0.9
+			trait = possessed
+		}
+		
+		modifier = {
+			factor = 0.9
+			trait = arbitrary
+		}		
+		
+		modifier = {
+			factor = 0.9
+			trait = gluttonous
+		}		
+		
+		modifier = {
+			factor = 0.9
+			trait = lustful
+		}				
+
+		modifier = {
+			factor = 0.9
+			trait = hedonist
+		}		
+
+		modifier = {
+			factor = 0.9
+			trait = implaer
+		}			
+		
+		modifier = {
+			factor = 0.9
+			trait = paranoid
+		}			
+
+		modifier = {
+			factor = 0.9
+			trait = cruel
+		}
+		
+		modifier = {
+			factor = 0.9
+			trait = aggresive_leader
+		}		
+		
+		modifier = {
+			factor = 0.9
+			trait = duellist
+		}			
+		
+		modifier = {
+			factor = 0.9
+			trait = wounded
+		}		
+		
+		modifier = {
+			factor = 0.9
+			trait = neonate
+		}		
+
+# traits that discourage frenzy
+		
+#		modifier = {
+#			factor = 1.5
+#			good_hunting_province_modifer_goes_here
+#		}		
+#
+#		modifier = {
+#			factor = 1.5
+#			large_individual_blood_pool_goes_here
+#		}
+		
+		modifier = {
+			factor = 0.9
+			trait = maimed
+		}		
+
+		modifier = {
+			factor = 1.5
+			trait = slothful
+		}	
+
+		modifier = {
+			factor = 1.5
+			trait = humble
+		}		
+		
+		modifier = {
+			factor = 1.5
+			trait = kind
+		}
+		
+		modifier = {
+			factor = 1.5
+			trait = chaste
+		}		
+
+		modifier = {
+			factor = 1.5
+			trait = celibate
+		}
+
+		modifier = {
+			factor = 1.5
+			trait = temperate
+		}	
+
+		modifier = {
+			factor = 1.5
+			trait = elder
+		}			
+
+		modifier = {
+			factor = 2.0
+			trait = patient
+		}		
+		
+		modifier = {
+			factor = 2.0
+			trait = content
+		}			
+	}
+
+	option = {
+		name = "POD_EVTOPTA_VAMPIRE_FRENZY"
+		random_list = {
+						5 = { 
+						character_event = { id = vampire_frenzy_masquerade_breach.1 }						
+						}
+						5 = { 
+						character_event = { id = vampire_frenzy_elysium_breach.1 }	
+						}
+						5 = { 
+						character_event = { id = vampire_frenzy_kill_mortal.1 }	
+						}
+						5 = {
+						character_event = { id = vampire_frenzy_wound_supernatural.1 }	
+						}
+						5 = {
+						character_event = { id = vampire_frenzy_insanity.1 }	
+						}
+						75 = {		
+						character_event = { id = vampire_frenzy_passes.1 }	
+						}					
+			}							
+	}
+}
+
+
+namespace = vampire_frenzy_masquerade_breach
+
+character_event = {
+	id = vampire_frenzy_masquerade_breach.1
+	desc = "POD_EVTDESC_VAMPIRE_FRENZY_MASQUERADE_BREACH"
+	picture = GFX_evt_whispers
+	border = GFX_event_normal_frame_religion	
+
+	is_triggered_only = yes	
+	
+	option = {	
+		name = "POD_EVTOPTA_VAMPIRE_FRENZY_MASQUERADE_BREACH"
+	}
+}
+
+namespace = vampire_frenzy_elysium_breach
+
+character_event = {
+	id = vampire_frenzy_elysium_breach.1
+	desc = "POD_EVTDESC_VAMPIRE_FRENZY_ELYSIUM_BREACH"
+	picture = GFX_evt_feast
+	border = GFX_event_normal_frame_religion	
+
+	is_triggered_only = yes	
+	
+	option = {	
+		name = "POD_EVTOPTA_VAMPIRE_FRENZY_ELYSIUM_BREACH"
+	}
+}
+
+namespace = vampire_frenzy_kill_mortal
+
+character_event = {
+	id = vampire_frenzy_kill_mortal.1
+	desc = "POD_EVTDESC_VAMPIRE_FRENZY_KILL_MORTAL"
+	picture = GFX_evt_death
+	border = GFX_event_normal_frame_religion	
+
+	is_triggered_only = yes	
+	
+	option = {	
+		name = "POD_EVTOPTA_VAMPIRE_FRENZY_KILL_MORTAL"
+	}
+}
+
+
+namespace = vampire_frenzy_wound_supernatural
+
+character_event = {
+	id = vampire_frenzy_wound_supernatural.1
+	desc = "POD_EVTDESC_VAMPIRE_FRENZY_WOUND_SUPERNATURAL"
+	picture = GFX_evt_bloody_man
+	border = GFX_event_normal_frame_religion	
+
+	is_triggered_only = yes	
+	
+	option = {	
+		name = "POD_EVTOPTA_VAMPIRE_FRENZY_WOUND_SUPERNATURAL"
+	}
+}
+
+namespace = vampire_frenzy_insanity
+# Vampire Frenzy Insanity
+character_event = {
+	id = vampire_frenzy_insanity.1
+	desc = "EVTDESC6020"
+	picture = GFX_evt_bad_news	
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTA6020"
+		add_trait = lunatic
+	}
+}
+
+namespace = vampire_frenzy_passes
+
+character_event = {
+	id = vampire_frenzy_passes.1
+	desc = "POD_EVTDESC_VAMPIRE_FRENZY_PASSES"
+	picture = GFX_evt_bad_news_female
+	border = GFX_event_normal_frame_religion	
+
+	is_triggered_only = yes	
+	
+	option = {	
+		name = "POD_EVTOPTA_VAMPIRE_FRENZY_PASSES"
+	}
+}
+
+#Frenzy Kill Courtier Event
+#Random mortal courtier killed!
+#
+#Liege:
+#
+#1) Ignore Vampire
+#
+#2) Chastise Vampire (+ piety)
+#
+#3) get rid of vampire
+#
+#a) imprison vampire
+#
+#b) banish vampire; tyranny
+#
+#c) bloodhunt vampire; tyranny
+#
+#Frenzy Wound Vampire event
+#Liege:
+#
+#1) ignore attacking vamp (negative opinion malus toward liege from victim)
+#
+#2) chastise attacking vamp (+ piety)
+#
+#3) get rid of attacking vamp
+#
+#a) imprison attacking vamp
+#
+#b) banish attacking vamp
+#
+#c) bloodhunt attacking vamp; tyranny
