@@ -17,23 +17,7 @@ open_discipline_training_menu = {
 	allow = {
 		age = 50 
  
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
+
 	}
 	effect = {  set_character_flag = disciplines_menu_open }
 	ai_will_do = { factor = 0 }
@@ -54,23 +38,7 @@ close_discipline_training_menu = {
 	allow = {
 		age = 50 
  
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
+
 	}
 	effect = {  
 				clr_character_flag = disciplines_menu_open }
@@ -83,24 +51,6 @@ train_animalism_1_decision = {
 				ai = yes  
 				has_character_flag = disciplines_menu_open }
 			age = 50 
- 
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -125,6 +75,7 @@ train_animalism_1_decision = {
 		if = { limit = { OR = {
 						trait = gangrel 
 						trait = ventrue
+						trait = julii
 						}}
 				prestige = 100
 				}
@@ -142,6 +93,7 @@ train_animalism_1_decision = {
 					OR = {
 							trait = gangrel
 							trait = ventrue
+						trait = julii
 						}
 				}
 									modifier = {
@@ -162,24 +114,6 @@ train_animalism_2_decision = {
 				ai = yes  
 				has_character_flag = disciplines_menu_open }
 			age = 50 
- 
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -199,7 +133,8 @@ train_animalism_2_decision = {
 		# in clan bonus
 		if = { limit = { OR = {
 						trait = gangrel 
-						trait = ventrue } }
+						trait = ventrue
+						trait = julii } }
 				prestige = 200
 				}
 	}
@@ -217,6 +152,7 @@ train_animalism_2_decision = {
 					OR = {
 							trait = gangrel
 							trait = ventrue
+						trait = julii
 						}
 			}
 									modifier = {
@@ -234,24 +170,6 @@ train_animalism_2_decision = {
 train_animalism_3_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
- 
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -271,7 +189,8 @@ train_animalism_3_decision = {
 		# in clan bonus
 		if = { limit = { OR = {
 						trait = gangrel 
-						trait = ventrue } }
+						trait = ventrue
+						trait = julii } }
 				prestige = 300
 				}
 	}
@@ -288,6 +207,7 @@ train_animalism_3_decision = {
 					OR = {
 							trait = gangrel
 							trait = ventrue
+						trait = julii
 						}
 			}
 												modifier = {
@@ -305,24 +225,6 @@ train_animalism_3_decision = {
 train_animalism_4_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
- 
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -342,7 +244,8 @@ train_animalism_4_decision = {
 		# in clan bonus
 		if = { limit = { OR = {
 						trait = gangrel 
-						trait = ventrue } }
+						trait = ventrue
+						trait = julii } }
 				prestige = 400
 				}
 			}
@@ -360,6 +263,7 @@ train_animalism_4_decision = {
 					OR = {
 							trait = gangrel
 							trait = ventrue
+						trait = julii
 						}
 				}
 			modifier = {
@@ -385,24 +289,6 @@ train_animalism_4_decision = {
 train_animalism_5_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
- 
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -422,7 +308,8 @@ train_animalism_5_decision = {
 		# in clan bonus
 		if = { limit = { OR = {
 						trait = gangrel 
-						trait = ventrue } }
+						trait = ventrue
+						trait = julii } }
 				prestige = 600
 				}
 	}
@@ -440,6 +327,7 @@ train_animalism_5_decision = {
 					OR = {
 							trait = gangrel
 							trait = ventrue
+						trait = julii
 						}
 				}
 			modifier = {
@@ -465,24 +353,6 @@ train_animalism_5_decision = {
 train_auspex_1_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
- 
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -537,24 +407,6 @@ train_auspex_1_decision = {
 train_auspex_2_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
- 
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -603,24 +455,6 @@ train_auspex_2_decision = {
 train_auspex_3_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
- 
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -670,24 +504,6 @@ train_auspex_3_decision = {
 train_auspex_4_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
- 
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -737,24 +553,6 @@ train_auspex_4_decision = {
 train_auspex_5_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
- 
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -804,24 +602,6 @@ train_auspex_5_decision = {
 train_celerity_1_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
- 
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -882,24 +662,6 @@ train_celerity_1_decision = {
 train_celerity_2_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
- 
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -956,24 +718,6 @@ train_celerity_2_decision = {
 train_celerity_3_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
- 
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -1030,24 +774,6 @@ train_celerity_3_decision = {
 train_celerity_4_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
- 
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -1094,6 +820,7 @@ train_celerity_4_decision = {
 							trait = gangrel
 							trait = nosferatu
 							trait = ventrue
+						trait = julii
 						}
 				}				
 									modifier = {
@@ -1112,24 +839,6 @@ train_celerity_4_decision = {
 train_celerity_5_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
- 
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -1176,6 +885,7 @@ train_celerity_5_decision = {
 							trait = gangrel
 							trait = nosferatu
 							trait = ventrue
+						trait = julii
 						}
 				}					
 									modifier = {
@@ -1194,30 +904,13 @@ train_celerity_5_decision = {
 train_dominate_1_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
- 
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
 			trait = vampire 
 			NOT = { 
 				OR = {  
 				has_character_flag = gifts_menu_open   
 				has_character_flag = abilities_menu_open} }
 			trait = ventrue
+						trait = julii
 			NOT = {  
 				has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			NOT = { trait = dominate_1 }
@@ -1234,7 +927,8 @@ train_dominate_1_decision = {
 		prestige = -200
 		set_character_flag = train_dominate_1
 		# in clan bonus
-		if = { limit = { trait = ventrue }
+		if = { limit = { trait = ventrue
+						trait = julii }
 				prestige = 100
 				}
 	}
@@ -1249,6 +943,7 @@ train_dominate_1_decision = {
 			modifier = {
 					factor = 1.5
 					trait = ventrue
+						trait = julii
 				}
 								modifier = {
 										factor = 1.5
@@ -1265,24 +960,6 @@ train_dominate_1_decision = {
 train_dominate_2_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
- 
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -1300,7 +977,8 @@ train_dominate_2_decision = {
 		prestige = -400
 		set_character_flag = train_dominate_2
 		# in clan bonus
-		if = { limit = { trait = ventrue }
+		if = { limit = { trait = ventrue
+						trait = julii }
 				prestige = 200
 				}
 	}
@@ -1315,6 +993,7 @@ train_dominate_2_decision = {
 			modifier = {
 					factor = 1.5
 					trait = ventrue
+						trait = julii
 				}
 								modifier = {
 										factor = 1.5
@@ -1331,24 +1010,6 @@ train_dominate_2_decision = {
 train_dominate_3_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
- 
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -1366,7 +1027,8 @@ train_dominate_3_decision = {
 		prestige = -600
 		set_character_flag = train_dominate_3
 		# in clan bonus
-		if = { limit = { trait = ventrue }
+		if = { limit = { trait = ventrue
+						trait = julii }
 				prestige = 300
 				}
 	}
@@ -1381,6 +1043,7 @@ train_dominate_3_decision = {
 			modifier = {
 					factor = 1.5
 					trait = ventrue
+						trait = julii
 				}
 								modifier = {
 										factor = 1.5
@@ -1397,24 +1060,6 @@ train_dominate_3_decision = {
 train_dominate_4_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
- 
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -1432,7 +1077,8 @@ train_dominate_4_decision = {
 		prestige = -800
 		set_character_flag = train_dominate_4
 		# in clan bonus
-		if = { limit = { trait = ventrue }
+		if = { limit = { trait = ventrue
+						trait = julii }
 				prestige = 400
 				}
 	}
@@ -1447,6 +1093,7 @@ train_dominate_4_decision = {
 			modifier = {
 					factor = 1.5
 					trait = ventrue
+						trait = julii
 				}
 								modifier = {
 										factor = 1.5
@@ -1463,24 +1110,6 @@ train_dominate_4_decision = {
 train_dominate_5_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
- 
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -1498,7 +1127,8 @@ train_dominate_5_decision = {
 		prestige = -1200
 		set_character_flag = train_dominate_5
 		# in clan bonus
-		if = { limit = { trait = ventrue }
+		if = { limit = { trait = ventrue
+						trait = julii }
 				prestige = 600
 				}
 	}
@@ -1514,6 +1144,7 @@ train_dominate_5_decision = {
 			modifier = {
 					factor = 1.5
 					trait = ventrue
+						trait = julii
 				}
 								modifier = {
 										factor = 1.5
@@ -1530,24 +1161,6 @@ train_dominate_5_decision = {
 train_majesty_1_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
- 
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -1601,24 +1214,6 @@ train_majesty_1_decision = {
 train_majesty_2_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
- 
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -1668,24 +1263,6 @@ train_majesty_2_decision = {
 train_majesty_3_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
- 
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -1734,24 +1311,6 @@ train_majesty_3_decision = {
 train_majesty_4_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
- 
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -1800,24 +1359,6 @@ train_majesty_4_decision = {
 train_majesty_5_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
- 
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -1866,24 +1407,6 @@ train_majesty_5_decision = {
 train_nightmare_1_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
- 
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -1939,24 +1462,6 @@ train_nightmare_1_decision = {
 train_nightmare_2_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
- 
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -2006,24 +1511,6 @@ train_nightmare_2_decision = {
 train_nightmare_3_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
- 
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -2073,24 +1560,6 @@ train_nightmare_3_decision = {
 train_nightmare_4_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
- 
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -2139,25 +1608,7 @@ train_nightmare_4_decision = {
 
 train_nightmare_5_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
- 
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
+			age = 50  
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -2207,25 +1658,7 @@ train_nightmare_5_decision = {
 
 train_obfuscate_1_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
- 
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
+			age = 50  
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -2282,24 +1715,6 @@ train_obfuscate_1_decision = {
 train_obfuscate_2_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
- 
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -2353,24 +1768,7 @@ train_obfuscate_2_decision = {
 train_obfuscate_3_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
- 
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
+
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -2424,24 +1822,6 @@ train_obfuscate_3_decision = {
 train_obfuscate_4_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
- 
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -2485,6 +1865,7 @@ train_obfuscate_4_decision = {
 							trait = gangrel
 							trait = daeva
 							trait = ventrue
+						trait = julii
 						}
 				}				
 								modifier = {
@@ -2502,24 +1883,6 @@ train_obfuscate_4_decision = {
 train_obfuscate_5_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
- 
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -2563,6 +1926,7 @@ train_obfuscate_5_decision = {
 							trait = gangrel
 							trait = daeva
 							trait = ventrue
+						trait = julii
 						}
 				}					
 								modifier = {
@@ -2580,24 +1944,6 @@ train_obfuscate_5_decision = {
 train_protean_1_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
- 
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -2657,24 +2003,6 @@ train_protean_1_decision = {
 train_protean_2_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
- 
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -2729,24 +2057,6 @@ train_protean_2_decision = {
 train_protean_3_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
- 
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -2800,24 +2110,6 @@ train_protean_3_decision = {
 train_protean_4_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
- 
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -2872,24 +2164,6 @@ train_protean_4_decision = {
 train_protean_5_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
- 
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -2943,24 +2217,6 @@ train_protean_5_decision = {
 train_resilience_1_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
- 
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -2983,7 +2239,8 @@ train_resilience_1_decision = {
 		set_character_flag = train_resilience_1
 		# in clan bonus
 		if = { limit = { OR = { trait = gangrel
-								trait = ventrue } }
+								trait = ventrue
+						trait = julii } }
 				prestige = 100
 				}
 	}
@@ -3000,6 +2257,7 @@ train_resilience_1_decision = {
 					OR = {
 							trait = gangrel
 							trait = ventrue
+						trait = julii
 						}
 				}	
 									modifier = {
@@ -3018,24 +2276,6 @@ train_resilience_1_decision = {
 train_resilience_2_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
- 
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -3054,7 +2294,8 @@ train_resilience_2_decision = {
 		set_character_flag = train_resilience_2
 		# in clan bonus
 		if = { limit = { OR = { trait = gangrel
-								trait = ventrue } }
+								trait = ventrue
+						trait = julii } }
 				prestige = 200
 				}
 	}
@@ -3071,6 +2312,7 @@ train_resilience_2_decision = {
 					OR = {
 							trait = gangrel
 							trait = ventrue
+						trait = julii
 						}
 				}	
 									modifier = {
@@ -3089,24 +2331,6 @@ train_resilience_2_decision = {
 train_resilience_3_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
- 
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -3125,7 +2349,8 @@ train_resilience_3_decision = {
 		set_character_flag = train_resilience_3
 		# in clan bonus
 		if = { limit = { OR = { trait = gangrel
-								trait = ventrue } }
+								trait = ventrue
+						trait = julii } }
 				prestige = 300
 				}
 	}
@@ -3142,6 +2367,7 @@ train_resilience_3_decision = {
 					OR = {
 							trait = gangrel
 							trait = ventrue
+						trait = julii
 						}
 				}	
 									modifier = {
@@ -3161,23 +2387,7 @@ train_resilience_4_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
  
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
+
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -3196,7 +2406,8 @@ train_resilience_4_decision = {
 		set_character_flag = train_resilience_4
 		# in clan bonus
 		if = { limit = { OR = { trait = gangrel
-								trait = ventrue } }
+								trait = ventrue
+						trait = julii } }
 				prestige = 400
 				}
 	}
@@ -3213,6 +2424,7 @@ train_resilience_4_decision = {
 					OR = {
 							trait = gangrel
 							trait = ventrue
+						trait = julii
 						}
 				}	
 			modifier = {
@@ -3240,23 +2452,7 @@ train_resilience_5_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
  
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
+
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -3275,7 +2471,8 @@ train_resilience_5_decision = {
 		set_character_flag = train_resilience_5
 		# in clan bonus
 		if = { limit = { OR = { trait = gangrel
-								trait = ventrue } }
+								trait = ventrue
+						trait = julii } }
 				prestige = 600
 				}
 	}
@@ -3292,6 +2489,7 @@ train_resilience_5_decision = {
 					OR = {
 							trait = gangrel
 							trait = ventrue
+						trait = julii
 						}
 				}	
 			modifier = {
@@ -3319,23 +2517,7 @@ train_vigor_1_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
  
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
+
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -3394,23 +2576,7 @@ train_vigor_2_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
  
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
+
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -3465,23 +2631,7 @@ train_vigor_3_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
  
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
+
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -3537,23 +2687,7 @@ train_vigor_4_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
  
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
+
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -3597,6 +2731,7 @@ train_vigor_4_decision = {
 							trait = gangrel
 							trait = mekhet
 							trait = ventrue
+						trait = julii
 						}
 				}					
 									modifier = {
@@ -3616,23 +2751,7 @@ train_vigor_5_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
  
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
+
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -3672,6 +2791,7 @@ train_vigor_5_decision = {
 							trait = gangrel
 							trait = mekhet
 							trait = ventrue
+						trait = julii
 						}
 				}					
 									modifier = {
@@ -3691,23 +2811,7 @@ train_constance_1_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
  
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
+
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -3758,23 +2862,7 @@ train_constance_2_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
  
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
+
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -3820,23 +2908,7 @@ train_constance_3_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
  
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
+
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -3882,23 +2954,7 @@ train_constance_4_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
  
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
+
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -3912,23 +2968,7 @@ train_constance_4_decision = {
 		prestige = 800
 			age = 50 
  
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
+
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -3971,23 +3011,7 @@ train_constance_5_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
  
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
+
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -4033,23 +3057,7 @@ train_courtoisie_1_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
  
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
+
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -4101,23 +3109,7 @@ train_courtoisie_2_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
  
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
+
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -4164,23 +3156,7 @@ train_courtoisie_3_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
  
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
+
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -4227,23 +3203,7 @@ train_courtoisie_4_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
  
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
+
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -4290,23 +3250,7 @@ train_courtoisie_5_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
  
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
+
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -4353,23 +3297,7 @@ train_theban_1_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
  
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
+
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -4417,23 +3345,7 @@ train_theban_2_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
  
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
+
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -4472,23 +3384,7 @@ train_theban_3_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
  
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
+
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -4527,23 +3423,7 @@ train_theban_4_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
  
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
+
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -4582,23 +3462,7 @@ train_theban_5_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
  
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
+
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -4637,23 +3501,7 @@ train_cruac_1_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
  
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
+
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -4699,23 +3547,7 @@ train_cruac_2_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
  
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
+
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -4754,23 +3586,7 @@ train_cruac_3_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
  
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
+
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -4809,23 +3625,7 @@ train_cruac_4_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
  
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
+
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -4864,23 +3664,7 @@ train_cruac_5_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
  
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
+
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -4918,23 +3702,7 @@ train_coils_1_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
  
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
+
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -4980,23 +3748,7 @@ train_coils_2_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
  
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
+
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -5039,23 +3791,7 @@ train_coils_3_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
  
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
+
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -5096,23 +3832,7 @@ train_coils_4_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
  
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
+
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -5151,23 +3871,7 @@ train_coils_5_decision = {
 	potential = {    has_character_flag =disciplines_menu_open
 			age = 50 
  
-			NOT = { 
-				OR = { 
-				AND = { 
-					trait = neonate 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 3 } } 
-						AND = { 
-						trait = ancilla 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 7 } } 
-						AND = { 
-						trait = elder 
-				check_variable = { 
-					which = "discipline_dots" 
-					value = 11 }}}} 
+
 			trait = vampire 
 			NOT = { 
 				OR = {  

@@ -21,11 +21,21 @@ character_event = {
 		NOT = { trait = geist }
 		NOT = { trait = demon }
 		NOT = { trait = revenant }
+		NOT = { trait = storyteller }
+		OR = {
+				has_global_flag = bookmark1142	
+				has_global_flag = bookmark1250
+		}
 	}
 	
 	mean_time_to_happen = {
 		days = 1
+		modifier = {
+		factor = 0.1 
+		adult = yes
+		}		
 	}
+	
 	immediate = {
 		#name = "set_inital_random_supernaturals_commoners"
 		hidden_tooltip = {	
@@ -45,7 +55,7 @@ character_event = {
 								NOT = { trait = changeling }
 								NOT = { trait = promethean }
 								NOT = { trait = geist }
-								NOT = { trait = demon }
+								NOT = { trait = demon }								
 							}
 								add_trait = mortal
 #								religion = { mother = {religion } }
@@ -64,7 +74,8 @@ character_event = {
 		NOT = { trait = promethean }
 		NOT = { trait = geist }
 		NOT = { trait = demon }
-		NOT = { trait = revenant }					
+		NOT = { trait = revenant }		
+		NOT = { trait = storyteller }		
 				}
 
 # vamp mercs

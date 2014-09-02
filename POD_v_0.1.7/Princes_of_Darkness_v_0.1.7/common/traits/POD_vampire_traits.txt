@@ -293,6 +293,8 @@ revenant = {
 	customizer = no
 }
 
+# Requiem clans
+
 daeva = {
 	opposites =  {
 		gangrel
@@ -333,7 +335,19 @@ gangrel = {
 		marisovich
 		dubrov
 		julii
-		akhud			
+		akhud	
+		assasmite
+		brujah
+		cappadocian
+		followerofset
+		giovanni
+		lasombra
+		malkavian
+		ravnos
+		salubri
+		toreador
+		tremere
+		tzimisce		
 	}
 	inherit_chance = 0 
 	# animalism, protean, resilience
@@ -395,7 +409,19 @@ nosferatu = {
 		marisovich
 		dubrov
 		julii
-		akhud			
+		akhud		
+		assasmite
+		brujah
+		cappadocian
+		followerofset
+		giovanni
+		lasombra
+		malkavian
+		ravnos
+		salubri
+		toreador
+		tremere
+		tzimisce		
 	}
 	inherit_chance = 0 
 	# nightmare, obfuscate, vigour
@@ -423,7 +449,19 @@ ventrue = {
 		marisovich
 		dubrov
 		julii
-		akhud			
+		akhud	
+		assasmite
+		brujah
+		cappadocian
+		followerofset
+		giovanni
+		lasombra
+		malkavian
+		ravnos
+		salubri
+		toreador
+		tremere
+		tzimisce		
 	}
 	inherit_chance = 0 
 	# animalism, dominate, resilience
@@ -433,6 +471,356 @@ ventrue = {
 	  random = no
 	stewardship = 1
 }
+
+# Masquerade clans
+
+assamite = {
+	opposites =  {
+		brujah
+		cappadocian
+		followerofset
+		gangrel
+		giovanni
+		lasombra
+		malkavian
+		nosferatu
+		ravnos
+		salubri
+		toreador
+		tremere
+		tzimisce
+		ventrue		
+		}
+	inherit_chance = 0 
+	martial = 1
+	# quietus, obfuscate, celerity
+	customizer = no
+	same_opinion = 10
+	opposite_opinion = -5
+	random = no
+}
+
+brujah = {
+	opposites =  {
+		assamite
+		cappadocian
+		followerofset
+		gangrel
+		giovanni
+		lasombra
+		malkavian
+		nosferatu
+		ravnos
+		salubri
+		toreador
+		tremere
+		tzimisce
+		ventrue		
+		}
+	inherit_chance = 0 
+	martial = 1
+	# celerity, majesty, vigor
+	# savage
+	command_modifier = {
+		pursue = 0.2
+		damage = 0.1
+		defence = -0.2
+	}
+	ai_rationality = -10	
+	customizer = no
+	same_opinion = 10
+	opposite_opinion = -5
+	random = no
+}
+
+cappadocian = {
+	opposites =  {
+		assasmite
+		brujah
+		followerofset
+		gangrel
+		giovanni
+		lasombra
+		malkavian
+		nosferatu
+		ravnos
+		salubri
+		toreador
+		tremere
+		tzimisce
+		ventrue		
+		}
+	inherit_chance = 0 
+	learning = 1
+	# auspex, resilience, mortis
+	customizer = no
+	same_opinion = 10
+	opposite_opinion = -5
+	random = no
+}
+
+followerofset = {
+	opposites =  {
+		assasmite
+		brujah
+		cappadocian
+		gangrel
+		giovanni
+		lasombra
+		malkavian
+		nosferatu
+		ravnos
+		salubri
+		toreador
+		tremere
+		tzimisce
+		ventrue		
+		}
+	inherit_chance = 0 
+	intrigue = 1
+	# obfucate, majesty, serpentis
+	customizer = no
+	same_opinion = 10
+	opposite_opinion = -5
+	random = no
+}
+
+baali = {
+	opposites =  {
+		assasmite
+		brujah
+		cappadocian
+		gangrel
+		giovanni
+		lasombra
+		malkavian
+		nosferatu
+		ravnos
+		salubri
+		toreador
+		tremere
+		tzimisce
+		ventrue	
+		followerofset
+		}
+	inherit_chance = 0 
+	intrigue = 1
+	# obfucate, majesty, serpentis
+	customizer = no
+	same_opinion = 10
+	opposite_opinion = -25
+	random = no
+}
+
+giovanni = {
+	opposites =  {
+		assasmite
+		brujah
+		cappadocian
+		gangrel
+		followerofset
+		lasombra
+		malkavian
+		nosferatu
+		ravnos
+		salubri
+		toreador
+		tremere
+		tzimisce
+		ventrue		
+		}
+	inherit_chance = 0 
+	learning = 1
+	# dominate, necromancy, vigor
+	customizer = no
+	same_opinion = 10
+	opposite_opinion = -5
+	random = no
+}
+
+lasombra = {
+	opposites =  {
+		assasmite
+		brujah
+		cappadocian
+		gangrel
+		followerofset
+		giovanni
+		malkavian
+		nosferatu
+		ravnos
+		salubri
+		toreador
+		tremere
+		tzimisce
+		ventrue		
+		}
+	inherit_chance = 0 
+	learning = 1
+	# dominate, obtenebration, vigor
+	customizer = no
+	same_opinion = 10
+	opposite_opinion = -5
+	random = no
+}
+
+malkavian = {
+	opposites =  {
+		assasmite
+		brujah
+		cappadocian
+		gangrel
+		followerofset
+		giovanni
+		lasombra
+		nosferatu
+		ravnos
+		salubri
+		toreador
+		tremere
+		tzimisce
+		ventrue		
+		}
+	inherit_chance = 0 
+	learning = 1
+	# dominate, obfuscate, auspex
+	customizer = no
+	same_opinion = 10
+	opposite_opinion = -5
+	random = no
+}
+
+ravnos = {
+	opposites =  {
+		assasmite
+		brujah
+		cappadocian
+		gangrel
+		followerofset
+		giovanni
+		lasombra
+		malkavian
+		nosferatu
+		salubri
+		toreador
+		tremere
+		tzimisce
+		ventrue		
+		}
+	inherit_chance = 0 
+	learning = 1
+	# animalism, resilience, chemistry
+	customizer = no
+	same_opinion = 10
+	opposite_opinion = -5
+	random = no
+}
+
+salubri = {
+	opposites =  {
+		assasmite
+		brujah
+		cappadocian
+		gangrel
+		followerofset
+		giovanni
+		lasombra
+		malkavian
+		nosferatu
+		ravnos
+		toreador
+		tremere
+		tzimisce
+		ventrue		
+		}
+	inherit_chance = 0 
+	learning = 1
+	# auspex, fortitude, daimoinon
+	customizer = no
+	same_opinion = 10
+	opposite_opinion = -5
+	random = no
+}
+
+tremere = {
+	opposites =  {
+		assasmite
+		brujah
+		cappadocian
+		gangrel
+		followerofset
+		giovanni
+		lasombra
+		malkavian
+		nosferatu
+		ravnos
+		salubri
+		toreador
+		tzimisce
+		ventrue		
+		}
+	inherit_chance = 0 
+	learning = 1
+	# auspex, dominate, thaumaturgy
+	customizer = no
+	same_opinion = 10
+	opposite_opinion = -5
+	random = no
+}
+
+toreador = {
+	opposites =  {
+		assasmite
+		brujah
+		cappadocian
+		followerofset
+		gangrel
+		giovanni
+		lasombra
+		malkavian
+		nosferatu
+		ravnos
+		salubri
+		tremere
+		tzimisce
+		ventrue		
+		}
+	inherit_chance = 0 
+	sex_appeal_opinion = 10
+	diplomacy = 1
+	# majesty, celerity, auspex
+	customizer = no
+	same_opinion = 10
+	opposite_opinion = -5
+	random = no
+}
+
+tzimisce = {
+	opposites =  {
+		assasmite
+		brujah
+		cappadocian
+		gangrel
+		followerofset
+		giovanni
+		lasombra
+		malkavian
+		nosferatu
+		ravnos
+		salubri
+		toreador
+		tremere
+		ventrue		
+		}
+	inherit_chance = 0 
+	learning = 1
+	# auspex, animalism, vicissitude
+	customizer = no
+	same_opinion = 10
+	opposite_opinion = -5
+	random = no
+}
+
 
 neonate = {
 	opposites =  {
@@ -867,8 +1255,6 @@ auspex_3 = {
  	leader = yes  
 	random = no 
 
- 
- 	 
 	customizer = yes
 }
 
@@ -886,9 +1272,6 @@ auspex_4 = {
 	inherit_chance = 0 
  	leader = yes  
 	random = no 
-
- 
- 	 
 	customizer = yes
 }
 
@@ -906,9 +1289,6 @@ auspex_5 = {
 	inherit_chance = 0 
  	leader = yes  
 	random = no 
-
- 
- 	 
 	customizer = yes
 }
 
@@ -2051,7 +2431,7 @@ bloodpotency_2 = {
 	martial = 1
 	intrigue = 1
 	inherit_chance = 0 
-	lrandom = no 
+	random = no 
 	customizer = yes
 }
 
@@ -2515,6 +2895,844 @@ courtoisie_5 = {
 
  
  	 
+	customizer = yes
+}
+
+# Masquerade disciplines
+
+chimerstry_1 = {
+	opposites =  {
+		chimerstry_2
+		chimerstry_3
+		chimerstry_4
+		chimerstry_5
+	}
+	martial = 1
+	inherit_chance = 0 
+ 	leader = yes  
+	random = no 
+
+ 
+ 	 
+	customizer = yes
+}
+
+chimerstry_2 = {
+	opposites =  {
+		chimerstry_1
+		chimerstry_3
+		chimerstry_4
+		chimerstry_5
+	}
+	martial = 2
+	inherit_chance = 0 
+ 	leader = yes  
+	random = no 
+	customizer = yes
+}
+
+chimerstry_3 = {
+	opposites =  {
+		chimerstry_2
+		chimerstry_1
+		chimerstry_4
+		chimerstry_5
+	}
+	martial = 3
+	inherit_chance = 0 
+ 	leader = yes  
+	random = no 
+
+ 
+ 	 
+	customizer = yes
+}
+
+chimerstry_4 = {
+	opposites =  {
+		chimerstry_2
+		chimerstry_3
+		chimerstry_1
+		chimerstry_5
+	}
+	martial = 4
+	inherit_chance = 0 
+ 	leader = yes  
+	random = no 
+	customizer = yes
+}
+
+chimerstry_5 = {
+	opposites =  {
+		chimerstry_2
+		chimerstry_3
+		chimerstry_4
+		chimerstry_1
+	}
+	martial = 5
+	inherit_chance = 0 
+ 	leader = yes  
+	random = no 
+	customizer = yes
+}
+
+dementation_1 = {
+	opposites =  {
+		dementation_2
+		dementation_3
+		dementation_4
+		dementation_5
+	}
+	martial = 1
+	inherit_chance = 0 
+ 	leader = yes  
+	random = no 
+
+ 
+ 	 
+	customizer = yes
+}
+
+dementation_2 = {
+	opposites =  {
+		dementation_1
+		dementation_3
+		dementation_4
+		dementation_5
+	}
+	martial = 2
+	inherit_chance = 0 
+ 	leader = yes  
+	random = no 
+	customizer = yes
+}
+
+dementation_3 = {
+	opposites =  {
+		dementation_2
+		dementation_1
+		dementation_4
+		dementation_5
+	}
+	martial = 3
+	inherit_chance = 0 
+ 	leader = yes  
+	random = no 
+
+ 
+ 	 
+	customizer = yes
+}
+
+dementation_4 = {
+	opposites =  {
+		dementation_2
+		dementation_3
+		dementation_1
+		dementation_5
+	}
+	martial = 4
+	inherit_chance = 0 
+ 	leader = yes  
+	random = no 
+	customizer = yes
+}
+
+dementation_5 = {
+	opposites =  {
+		dementation_2
+		dementation_3
+		dementation_4
+		dementation_1
+	}
+	martial = 5
+	inherit_chance = 0 
+ 	leader = yes  
+	random = no 
+	customizer = yes
+}
+
+necromancy_1 = {
+	opposites =  {
+		necromancy_2
+		necromancy_3
+		necromancy_4
+		necromancy_5
+	}
+	martial = 1
+	inherit_chance = 0 
+ 	leader = yes  
+	random = no 
+
+ 
+ 	 
+	customizer = yes
+}
+
+necromancy_2 = {
+	opposites =  {
+		necromancy_1
+		necromancy_3
+		necromancy_4
+		necromancy_5
+	}
+	martial = 2
+	inherit_chance = 0 
+ 	leader = yes  
+	random = no 
+	customizer = yes
+}
+
+necromancy_3 = {
+	opposites =  {
+		necromancy_2
+		necromancy_1
+		necromancy_4
+		necromancy_5
+	}
+	martial = 3
+	inherit_chance = 0 
+ 	leader = yes  
+	random = no 
+
+ 
+ 	 
+	customizer = yes
+}
+
+necromancy_4 = {
+	opposites =  {
+		necromancy_2
+		necromancy_3
+		necromancy_1
+		necromancy_5
+	}
+	martial = 4
+	inherit_chance = 0 
+ 	leader = yes  
+	random = no 
+	customizer = yes
+}
+
+necromancy_5 = {
+	opposites =  {
+		necromancy_2
+		necromancy_3
+		necromancy_4
+		necromancy_1
+	}
+	martial = 5
+	inherit_chance = 0 
+ 	leader = yes  
+	random = no 
+	customizer = yes
+}
+
+mortis_1 = {
+	opposites =  {
+		mortis_2
+		mortis_3
+		mortis_4
+		mortis_5
+	}
+	martial = 1
+	inherit_chance = 0 
+ 	leader = yes  
+	random = no 
+
+ 
+ 	 
+	customizer = yes
+}
+
+mortis_2 = {
+	opposites =  {
+		mortis_1
+		mortis_3
+		mortis_4
+		mortis_5
+	}
+	martial = 2
+	inherit_chance = 0 
+ 	leader = yes  
+	random = no 
+	customizer = yes
+}
+
+mortis_3 = {
+	opposites =  {
+		mortis_2
+		mortis_1
+		mortis_4
+		mortis_5
+	}
+	martial = 3
+	inherit_chance = 0 
+ 	leader = yes  
+	random = no 
+
+ 
+ 	 
+	customizer = yes
+}
+
+mortis_4 = {
+	opposites =  {
+		mortis_2
+		mortis_3
+		mortis_1
+		mortis_5
+	}
+	martial = 4
+	inherit_chance = 0 
+ 	leader = yes  
+	random = no 
+	customizer = yes
+}
+
+mortis_5 = {
+	opposites =  {
+		mortis_2
+		mortis_3
+		mortis_4
+		mortis_1
+	}
+	martial = 5
+	inherit_chance = 0 
+ 	leader = yes  
+	random = no 
+	customizer = yes
+}
+
+daimoinon_1 = {
+	opposites =  {
+		daimoinon_2
+		daimoinon_3
+		daimoinon_4
+		daimoinon_5
+	}
+	martial = 1
+	inherit_chance = 0 
+ 	leader = yes  
+	random = no 
+
+ 
+ 	 
+	customizer = yes
+}
+
+daimoinon_2 = {
+	opposites =  {
+		daimoinon_1
+		daimoinon_3
+		daimoinon_4
+		daimoinon_5
+	}
+	martial = 2
+	inherit_chance = 0 
+ 	leader = yes  
+	random = no 
+	customizer = yes
+}
+
+daimoinon_3 = {
+	opposites =  {
+		daimoinon_2
+		daimoinon_1
+		daimoinon_4
+		daimoinon_5
+	}
+	martial = 3
+	inherit_chance = 0 
+ 	leader = yes  
+	random = no 
+
+ 
+ 	 
+	customizer = yes
+}
+
+daimoinon_4 = {
+	opposites =  {
+		daimoinon_2
+		daimoinon_3
+		daimoinon_1
+		daimoinon_5
+	}
+	martial = 4
+	inherit_chance = 0 
+ 	leader = yes  
+	random = no 
+	customizer = yes
+}
+
+daimoinon_5 = {
+	opposites =  {
+		daimoinon_2
+		daimoinon_3
+		daimoinon_4
+		daimoinon_1
+	}
+	martial = 5
+	inherit_chance = 0 
+ 	leader = yes  
+	random = no 
+	customizer = yes
+}
+
+obtenebration_1 = {
+	opposites =  {
+		obtenebration_2
+		obtenebration_3
+		obtenebration_4
+		obtenebration_5
+	}
+	martial = 1
+	inherit_chance = 0 
+ 	leader = yes  
+	random = no 
+
+ 
+ 	 
+	customizer = yes
+}
+
+obtenebration_2 = {
+	opposites =  {
+		obtenebration_1
+		obtenebration_3
+		obtenebration_4
+		obtenebration_5
+	}
+	martial = 2
+	inherit_chance = 0 
+ 	leader = yes  
+	random = no 
+	customizer = yes
+}
+
+obtenebration_3 = {
+	opposites =  {
+		obtenebration_2
+		obtenebration_1
+		obtenebration_4
+		obtenebration_5
+	}
+	martial = 3
+	inherit_chance = 0 
+ 	leader = yes  
+	random = no 
+
+ 
+ 	 
+	customizer = yes
+}
+
+obtenebration_4 = {
+	opposites =  {
+		obtenebration_2
+		obtenebration_3
+		obtenebration_1
+		obtenebration_5
+	}
+	martial = 4
+	inherit_chance = 0 
+ 	leader = yes  
+	random = no 
+	customizer = yes
+}
+
+obtenebration_5 = {
+	opposites =  {
+		obtenebration_2
+		obtenebration_3
+		obtenebration_4
+		obtenebration_1
+	}
+	martial = 5
+	inherit_chance = 0 
+ 	leader = yes  
+	random = no 
+	customizer = yes
+}
+
+quietus_1 = {
+	opposites =  {
+		quietus_2
+		quietus_3
+		quietus_4
+		quietus_5
+	}
+	martial = 1
+	inherit_chance = 0 
+ 	leader = yes  
+	random = no 
+
+ 
+ 	 
+	customizer = yes
+}
+
+quietus_2 = {
+	opposites =  {
+		quietus_1
+		quietus_3
+		quietus_4
+		quietus_5
+	}
+	martial = 2
+	inherit_chance = 0 
+ 	leader = yes  
+	random = no 
+	customizer = yes
+}
+
+quietus_3 = {
+	opposites =  {
+		quietus_2
+		quietus_1
+		quietus_4
+		quietus_5
+	}
+	martial = 3
+	inherit_chance = 0 
+ 	leader = yes  
+	random = no 
+
+ 
+ 	 
+	customizer = yes
+}
+
+quietus_4 = {
+	opposites =  {
+		quietus_2
+		quietus_3
+		quietus_1
+		quietus_5
+	}
+	martial = 4
+	inherit_chance = 0 
+ 	leader = yes  
+	random = no 
+	customizer = yes
+}
+
+quietus_5 = {
+	opposites =  {
+		quietus_2
+		quietus_3
+		quietus_4
+		quietus_1
+	}
+	martial = 5
+	inherit_chance = 0 
+ 	leader = yes  
+	random = no 
+	customizer = yes
+}
+
+serpentis_1 = {
+	opposites =  {
+		serpentis_2
+		serpentis_3
+		serpentis_4
+		serpentis_5
+	}
+	martial = 1
+	inherit_chance = 0 
+ 	leader = yes  
+	random = no 
+
+ 
+ 	 
+	customizer = yes
+}
+
+serpentis_2 = {
+	opposites =  {
+		serpentis_1
+		serpentis_3
+		serpentis_4
+		serpentis_5
+	}
+	martial = 2
+	inherit_chance = 0 
+ 	leader = yes  
+	random = no 
+	customizer = yes
+}
+
+serpentis_3 = {
+	opposites =  {
+		serpentis_2
+		serpentis_1
+		serpentis_4
+		serpentis_5
+	}
+	martial = 3
+	inherit_chance = 0 
+ 	leader = yes  
+	random = no 
+
+ 
+ 	 
+	customizer = yes
+}
+
+serpentis_4 = {
+	opposites =  {
+		serpentis_2
+		serpentis_3
+		serpentis_1
+		serpentis_5
+	}
+	martial = 4
+	inherit_chance = 0 
+ 	leader = yes  
+	random = no 
+	customizer = yes
+}
+
+serpentis_5 = {
+	opposites =  {
+		serpentis_2
+		serpentis_3
+		serpentis_4
+		serpentis_1
+	}
+	martial = 5
+	inherit_chance = 0 
+ 	leader = yes  
+	random = no 
+	customizer = yes
+}
+
+thaumaturgy_1 = {
+	opposites =  {
+		thaumaturgy_2
+		thaumaturgy_3
+		thaumaturgy_4
+		thaumaturgy_5
+	}
+	martial = 1
+	inherit_chance = 0 
+ 	leader = yes  
+	random = no 
+
+ 
+ 	 
+	customizer = yes
+}
+
+thaumaturgy_2 = {
+	opposites =  {
+		thaumaturgy_1
+		thaumaturgy_3
+		thaumaturgy_4
+		thaumaturgy_5
+	}
+	martial = 2
+	inherit_chance = 0 
+ 	leader = yes  
+	random = no 
+	customizer = yes
+}
+
+thaumaturgy_3 = {
+	opposites =  {
+		thaumaturgy_2
+		thaumaturgy_1
+		thaumaturgy_4
+		thaumaturgy_5
+	}
+	martial = 3
+	inherit_chance = 0 
+ 	leader = yes  
+	random = no 
+
+ 
+ 	 
+	customizer = yes
+}
+
+thaumaturgy_4 = {
+	opposites =  {
+		thaumaturgy_2
+		thaumaturgy_3
+		thaumaturgy_1
+		thaumaturgy_5
+	}
+	martial = 4
+	inherit_chance = 0 
+ 	leader = yes  
+	random = no 
+	customizer = yes
+}
+
+thaumaturgy_5 = {
+	opposites =  {
+		thaumaturgy_2
+		thaumaturgy_3
+		thaumaturgy_4
+		thaumaturgy_1
+	}
+	martial = 5
+	inherit_chance = 0 
+ 	leader = yes  
+	random = no 
+	customizer = yes
+}
+
+vicissitude_1 = {
+	opposites =  {
+		vicissitude_2
+		vicissitude_3
+		vicissitude_4
+		vicissitude_5
+	}
+	martial = 1
+	inherit_chance = 0 
+ 	leader = yes  
+	random = no 
+
+ 
+ 	 
+	customizer = yes
+}
+
+vicissitude_2 = {
+	opposites =  {
+		vicissitude_1
+		vicissitude_3
+		vicissitude_4
+		vicissitude_5
+	}
+	martial = 2
+	inherit_chance = 0 
+ 	leader = yes  
+	random = no 
+	customizer = yes
+}
+
+vicissitude_3 = {
+	opposites =  {
+		vicissitude_2
+		vicissitude_1
+		vicissitude_4
+		vicissitude_5
+	}
+	martial = 3
+	inherit_chance = 0 
+ 	leader = yes  
+	random = no 
+
+ 
+ 	 
+	customizer = yes
+}
+
+vicissitude_4 = {
+	opposites =  {
+		vicissitude_2
+		vicissitude_3
+		vicissitude_1
+		vicissitude_5
+	}
+	martial = 4
+	inherit_chance = 0 
+ 	leader = yes  
+	random = no 
+	customizer = yes
+}
+
+vicissitude_5 = {
+	opposites =  {
+		vicissitude_2
+		vicissitude_3
+		vicissitude_4
+		vicissitude_1
+	}
+	martial = 5
+	inherit_chance = 0 
+ 	leader = yes  
+	random = no 
+	customizer = yes
+}
+
+daimoinon_1 = {
+	opposites =  {
+		daimoinon_2
+		daimoinon_3
+		daimoinon_4
+		daimoinon_5
+	}
+	martial = 1
+	inherit_chance = 0 
+ 	leader = yes  
+	random = no 
+
+ 
+ 	 
+	customizer = yes
+}
+
+daimoinon_2 = {
+	opposites =  {
+		daimoinon_1
+		daimoinon_3
+		daimoinon_4
+		daimoinon_5
+	}
+	martial = 2
+	inherit_chance = 0 
+ 	leader = yes  
+	random = no 
+	customizer = yes
+}
+
+daimoinon_3 = {
+	opposites =  {
+		daimoinon_2
+		daimoinon_1
+		daimoinon_4
+		daimoinon_5
+	}
+	martial = 3
+	inherit_chance = 0 
+ 	leader = yes  
+	random = no 
+
+ 
+ 	 
+	customizer = yes
+}
+
+daimoinon_4 = {
+	opposites =  {
+		daimoinon_2
+		daimoinon_3
+		daimoinon_1
+		daimoinon_5
+	}
+	martial = 4
+	inherit_chance = 0 
+ 	leader = yes  
+	random = no 
+	customizer = yes
+}
+
+daimoinon_5 = {
+	opposites =  {
+		daimoinon_2
+		daimoinon_3
+		daimoinon_4
+		daimoinon_1
+	}
+	martial = 5
+	inherit_chance = 0 
+ 	leader = yes  
+	random = no 
 	customizer = yes
 }
 

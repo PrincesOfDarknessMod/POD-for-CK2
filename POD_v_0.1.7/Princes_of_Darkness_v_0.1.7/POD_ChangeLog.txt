@@ -2,42 +2,62 @@ Princes of Darkness
 Change Log
 
 Team:
-flintsparc: code, 1142 Empires (VTR/WTF/NWOD) bookmark, 1250 shattered world (VTR/WTF/NWOD) bookmark, graphics (icons, flags, COAs) 
+flintsparc: code, 1142 Empires (VTR/WTF/NWOD) bookmark, 1250 shattered world (VTR/WTF/NWOD) bookmark, 232/412 Requiem for Rome bookmark, 1500 Camarilla/Sabbat bookmark, graphics (icons, flags, COAs) 
 ngpgn: code cleanup, vitae code, 1230 War of Princes (DAV/VTM/OWOD) bookmark, character screen, testing
 Dragonovith: graphics: werewolf gift icons 
 
 Version 0.1.7
 
-Removed "Demand Religious Conversion" through editing defines.lua.  Modified Lord Spiritual Job and conversion decisions to restrict conversions to type (Werewolves should usually only convert to werewolf tribe, Vampires should usally only convert to vampire covenants, etc...).
+Added "Storyteller" Character with id=9999999 for different game mechanics at different bookmarks (traits: bookmark232, bookmark412, bookmark1142, bookmark1230, bookmark1250, bookmark1500).  
+Storyteller is immortal, immune to disease and immune to plots. Emperor of Storytelling.  Landless. Unknown Location.
+
+Removed "Demand Religious Conversion" through editing defines.lua.  Modified Lord Spiritual Job and conversion decisions to restrict conversions to type.
+Werewolves should usually only convert to werewolf tribe, Vampires should usually only convert to vampire covenants, etc...
+
 Removed Province Cultural Conversions.
+
+Added War of Princess 1230 Bookmark for development by ngppgn.  This is a Dark Ages: Vampire (Vampire the Masquerade/old World of Darkness) book mark.  
+Divided up the religion file by supernatural type to make maintenance and expansion easier.
+Reduced cost of Controlled buildings/influence.
+Adjusted starting influence/technology levels, and with it starting buildings. 
 
 Character Info screen redesigned by ngppgn to allow more space for traits, fixed placement of objectives and plots.  
 
 Massive code cleanup by ngppgn
 Finally exorcised the insiduous parsing errors in disciplines and gifts decisions. See comments on those files for more information.
 Simplified allow clauses in vampire disciplines decisions.
-Removed redundant conitions an comands in both vampires and werewolf training decision (the same condition need not be in both allow and potential, it two traits are opposites, adding one removes the other without needing a remove_trait command
+Removed redundant conditions and commands in both vampires and werewolf training decision (the same condition need not be in both allow and potential, 
+it two traits are opposites, adding one removes the other without needing a remove_trait command
+
 The player will now have a toggleable "decision menu" for training decision, to reduce crowdedness in decisions tab
-Number of Maximum Leadership Traits increased to 10
-
-Added War of Princess 1230 Bookmark for development by ngppgn.  This is a Dakr Ages: Vampire (Vampire the Masquerade/old World of Darkness) book mark.  
-Divided up the religion file by supernatural type to make maintenance and expansion easier.
-
+Number of Maximum Leadership Traits increased to 10 
 
 Vampire:
+
+Added Vampire: the Masquerade/Dark Ages: Vampire clans, disciplines and covenants as well as expanding on a 1230 CE War of Princes (DAV) bookmark 
+Added Vampire: the Masquerade covenants from a 1500 CE Convention of Thorns (Camarilla vs. Sabbat) bookmark.
+
+Added Requiem for Rome: Julii, Akhud, Roman covenants and expanded upon 232 CE Foundation of Lancea Sanctum and 412 CE Fall of the Camarilla Bookmarks.  
+Gained permission from Enlil to make use of 480 Migration mod common/cultures and history/provinces file for later fleshing out the Requiem for Rome bookmark.
+Future development of Requiem for Rome bookmark will await release of the 480 Migration mod, which in turn is awaiting the release of the patch which accompanies the Charlemagne DLC. 
+
 Added vitae code by ngppgn. 
+Removed gold cost to embrace childer.
 Incorporated vitae changes for ghouldom and blood oath (-1 and -2, permanent). Also for draining mortal (replenish pool).
 Separated opinion_blood_bond_to_domitor and opinion_blood_bond_to_domitor_ghoul for targeting purposes.
 Vampire disciplines are now leadership traits.
 Vampires, Mummies, Prometheans and Geists should no longer get diseases. 
 Vampires, Revenants and Ghouls should no longer become infirm or incapable.
 Added Frenzy events.
+Added new Revenant/Ghoul Family Mercenary Flags for: Basarab, Carcassonne, Danislaw, Enrathi, Grimaldi, Marijava, Premysl and Rafastio
 
 1142: 
 Added Wiki Links from White Wolf Wiki for Hardestadt, Michael, Odin, Baba Yaga, Vladimir Rustovitch, Mithras, Esclarmonde, Montano, Regis, Icarius.  
 Added Wiki Link to White Wolf Wiki Prince (VTM) index for Bulscu, Salianna, Etienne, Helene and Isouda
-Lord Mithras of the Baronies of Avalon is now Circle of the Crone.  He is an unliving pagan god with his own cult.  Invictus provinces in England are now Circle of the Crone provinces.
-Added three Invictus empire dukes to Greece.  Armenia, Georgia and Armenia Minor are now independent of Adamantes Athanatoi empire.  Added many claimaints to Kingdom of Greece, Duchy of Thrace and County of Byzantion.
+Lord Mithras of the Baronies of Avalon is now Circle of the Crone.  He is an unliving pagan god with his own cult.  
+Invictus provinces in England are now Circle of the Crone provinces.
+Added three Invictus empire dukes to Greece.  Armenia, Georgia and Armenia Minor are now independent of Adamantes Athanatoi empire.  
+Added many claimaints to Kingdom of Greece, Duchy of Thrace and County of Byzantion.
 Added Afanso Corajoso as the Duke of Portugal
 Added Alexander, Etienne, Helene, Isouda, Regis to the Courts of Love; granted claims on the Courts of Love.
 Andaulsia is now independent of the Banu Shaitan Caliphate.
@@ -45,7 +65,6 @@ Minor adjustment to vampire special empire titles to make them less restrictive.
 
 1250:
 Minor adjustments to Italian princes and dynasties for 1250 bookmark.
-
 
 Werewolf:
 Werewolf gifts are now leadership traits

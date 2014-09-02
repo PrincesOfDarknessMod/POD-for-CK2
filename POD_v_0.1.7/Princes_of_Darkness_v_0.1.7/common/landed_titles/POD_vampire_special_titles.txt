@@ -4,6 +4,8 @@ e_invictus = {
 		color = { 102 0 51 }
 		capital = 496 # Germany
 		culture = german
+		title = "NACHT_KAISER"
+		title_female = "NACHT_KAISER"		
 		caliphate = yes			
 		controls_religion = invictus		
 		short_name = yes
@@ -47,7 +49,7 @@ e_adamantes_athanatoi = {
 
 e_ager_sanguinis = {
 # Field of Blood, the Crusader States
-		color = { 204 0.0 0.0 }
+		color = { 204 0 0 }
 		dignity = 5
 		capital = 774 # Jerusalem
 		culture = frankish
@@ -359,4 +361,26 @@ e_banu_shaitan = {
 #		}
 #		religion=banu_shaitan
 #	}
+}
+
+e_ahrimanite = {
+		color = { 204 0 0 }
+		capital = 693 # Baghdad
+		culture = persian
+		title = "Shahanshah"
+		title_female = "Bambisnan Bambisn"		
+		caliphate = yes			
+		controls_religion = aka_manah		
+		short_name = yes
+		allow = {
+			OR = {
+					trait = daeva
+				}		
+			culture = persian
+			religion = aka_manah
+			trait = vampire
+			NOT = { trait = werewolf }	
+		}
+		gain_effect = {
+		}
 }

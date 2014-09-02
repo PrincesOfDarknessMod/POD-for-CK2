@@ -1,0 +1,4738 @@
+namespace = CWOD_vampire_noble
+character_event = {
+	id = CWOD_vampire_noble.1
+	#desc = "POD_VAMPIRE_NOBLE_DESC"
+	picture = GFX_evt_comet
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_tooltip = {	
+			if = {
+					limit = {
+					age = 16
+					trait = vampire
+					NOT = { religion = revenant_high_clans }
+					NOT = { religion = revenant_ashirra }
+					NOT = { religion = revenant_anarchs }
+					NOT = { religion = revenant_autarkis }
+					NOT = { religion = revenant_furores }
+					NOT = { religion = revenant_low_clans }
+					NOT = { religion = revenant_baali }
+					NOT = { religion = revenant_masquerade_camarilla }
+					NOT = { religion = revenant_sabbat }
+					NOT = { religion = revenant_inconnu }
+					NOT = { religion = revenant_giovanni }
+					NOT = { religion = revenant_settite }
+					NOT = { religion = revenant_mayaparisataya }
+					NOT = { religion = revenant_assamites }
+					NOT = { trait = storyteller }					
+					}	
+# make vampire ruler
+
+				add_trait = elder
+				add_trait = bloodpotency_5
+
+# War of Princes
+						if = { 
+								limit = { 
+											has_global_flag = bookmark1230
+											trait = vampire
+											NOT = { trait = assamite }
+											NOT = { trait = brujah }
+											NOT = { trait = cappadocian }
+											NOT = { trait = followerofset }
+											NOT = { trait = gangrel }
+											NOT = { trait = lasombra }
+											NOT = { trait = malkavian }
+											NOT = { trait = nosferatu }
+											NOT = { trait = ravnos }
+											NOT = { trait = toreador }
+											NOT = { trait = tremere }
+											NOT = { trait = tzimisce }
+											NOT = { trait = ventrue }
+											NOT = { trait = salubri }
+											NOT = { trait = baali }	
+									} 
+
+								if = { 
+									limit = { 
+												trait = vampire
+												OR = {
+														culture = occitan
+														culture = frankish
+														culture = norman
+														culture_group = byzantine
+														culture = ashkenazi
+														}
+										} 	
+										random_list = {
+												10 = { 
+												add_trait = brujah
+												religion = vampire_high_clans
+												}
+												5 = { 
+												add_trait = cappadocian
+												religion = vampire_high_clans
+												}												
+												10 = { 
+												add_trait = lasombra
+												religion = vampire_high_clans
+												}
+												35 = { 
+												add_trait = toreador
+												religion = vampire_high_clans
+												}
+												2 = { 
+												add_trait = tzimisce
+												religion = vampire_high_clans
+												}	
+												20 = { 
+												add_trait = ventrue
+												religion = vampire_high_clans
+												}	
+												1 = { 
+												add_trait = assamite
+												religion = assamites
+												}	
+												1 = { 
+												add_trait = followerofset
+												religion = settite
+												}	
+												5 = { 
+												add_trait = gangrel
+												religion = vampire_low_clans
+												}	
+												5 = { 
+												add_trait = malkavian
+												religion = vampire_low_clans
+												}	
+												5 = { 
+												add_trait = nosferatu
+												religion = vampire_low_clans
+												}	
+												1 = { 
+												add_trait = ravnos
+												religion = mayaparisataya
+												}	
+												1 = { 
+												add_trait = tremere
+												religion = vampire_low_clans
+												}		
+												
+											}
+									}								
+									
+								if = { 
+									limit = { 
+												trait = vampire
+												OR = {
+														culture = english
+														culture = saxon
+														culture = dutch
+														culture = german
+														culture = prussian
+														}
+										} 	
+										random_list = {
+												10 = { 
+												add_trait = brujah
+												religion = vampire_high_clans
+												}
+												5 = { 
+												add_trait = cappadocian
+												religion = vampire_high_clans
+												}												
+												10 = { 
+												add_trait = lasombra
+												religion = vampire_high_clans
+												}
+												20 = { 
+												add_trait = toreador
+												religion = vampire_high_clans
+												}
+												2 = { 
+												add_trait = tzimisce
+												religion = vampire_high_clans												
+												}	
+												35 = { 
+												add_trait = ventrue
+												religion = vampire_high_clans
+												}	
+												1 = { 
+												add_trait = assamite
+												religion = assamites
+												}	
+												1 = { 
+												add_trait = followerofset
+												religion = settite
+												}	
+												5 = { 
+												add_trait = gangrel
+												religion = vampire_low_clans
+												}	
+												5 = { 
+												add_trait = malkavian
+												religion = vampire_low_clans
+												}	
+												5 = { 
+												add_trait = nosferatu
+												religion = vampire_low_clans
+												}	
+												1 = { 
+												add_trait = ravnos
+												religion = mayaparisataya
+												}	
+												1 = { 
+												add_trait = tremere
+												religion = vampire_low_clans
+												}		
+												
+											}
+									}									
+									
+								if = { 
+									limit = { 
+												trait = vampire
+												OR = {
+														culture = italian
+														culture_group = iberian														
+														}
+										} 	
+										random_list = {
+												10 = { 
+												add_trait = brujah 
+												religion = vampire_high_clans
+												}
+												5 = { 
+												add_trait = cappadocian 
+												religion = vampire_high_clans
+												}												
+												35 = { 
+												add_trait = lasombra
+												religion = vampire_high_clans
+												}
+												20 = { 
+												add_trait = toreador
+												religion = vampire_high_clans
+												}
+												2 = { 
+												add_trait = tzimisce 
+												religion = vampire_high_clans
+												}	
+												10 = { 
+												add_trait = ventrue
+												religion = vampire_high_clans
+												}	
+												1 = { 
+												add_trait = assamite
+												religion = assamites
+												}	
+												1 = { 
+												add_trait = followerofset
+												religion = settite
+												}	
+												5 = { 
+												add_trait = gangrel
+												religion = vampire_low_clans
+												}	
+												5 = { 
+												add_trait = malkavian
+												religion = vampire_low_clans
+												}	
+												5 = { 
+												add_trait = nosferatu
+												religion = vampire_low_clans
+												}	
+												1 = { 
+												add_trait = ravnos
+												religion = mayaparisataya
+												}	
+												1 = { 
+												add_trait = tremere
+												religion = vampire_low_clans
+												}
+												
+											}
+									}
+									
+								if = { 
+									limit = { 
+												trait = vampire
+												OR = {	
+														culture_group = east_slavic														
+														culture_group = south_slavic
+														culture = polish
+														culture = lettigallish
+														culture = lithuanian
+														
+														}
+										} 	
+										random_list = {
+												10 = { 
+												add_trait = brujah 
+												religion = vampire_high_clans
+												}
+												5 = { 
+												add_trait = cappadocian 
+												religion = vampire_high_clans
+												}												
+												5 = { 
+												add_trait = lasombra
+												religion = vampire_high_clans
+												}
+												10 = { 
+												add_trait = toreador
+												religion = vampire_high_clans
+												}
+												40 = { 
+												add_trait = tzimisce 
+												religion = vampire_high_clans
+												}	
+												10 = { 
+												add_trait = ventrue
+												religion = vampire_high_clans
+												}	
+												1 = { 
+												add_trait = assamite
+												religion = assamites
+												}	
+												1 = { 
+												add_trait = followerofset
+												religion = settite
+												}	
+												5 = { 
+												add_trait = gangrel
+												religion = vampire_low_clans
+												}	
+												5 = { 
+												add_trait = malkavian
+												religion = vampire_low_clans
+												}	
+												8 = { 
+												add_trait = nosferatu
+												religion = vampire_low_clans
+												}	
+												5 = { 
+												add_trait = ravnos
+												religion = mayaparisataya
+												}	
+												5 = { 
+												add_trait = tremere
+												religion = vampire_low_clans
+												}
+												
+											}
+									}
+
+								if = { 
+									limit = { 
+												trait = vampire
+												OR = {
+												culture = levantine_arabic
+												culture = bedouin_arabic
+												culture = andalusian_arabic
+												culture = sephardi
+												}
+										} 	
+										random_list = {
+												10 = { 
+												add_trait = brujah 
+												religion = ashirra
+												}
+												5 = { 
+												add_trait = cappadocian 
+												religion = ashirra
+												}												
+												20 = { 
+												add_trait = lasombra
+												religion = ashirra
+												}
+												5 = { 
+												add_trait = toreador
+												religion = ashirra
+												}
+												1 = { 
+												add_trait = tzimisce 
+												religion = vampire_high_clans
+												}	
+												5 = { 
+												add_trait = ventrue
+												religion = ashirra
+												}	
+												15 = { 
+												add_trait = assamite
+												religion = assamites
+												}	
+												15 = { 
+												add_trait = followerofset
+												religion = settite
+												}	
+												5 = { 
+												add_trait = gangrel
+												religion = ashirra
+												}	
+												5 = { 
+												add_trait = malkavian
+												religion = ashirra
+												}	
+												5 = { 
+												add_trait = nosferatu
+												religion = ashirra
+												}	
+												5 = { 
+												add_trait = ravnos
+												religion = mayaparisataya
+												}	
+												1 = { 
+												add_trait = tremere
+												religion = vampire_low_clans
+												}
+												1 = { 
+												add_trait = salubri
+												religion = ashirra
+												}
+												5 = {
+												add_trait = baali
+												religion = baali
+												}
+												
+											}
+									}
+									
+								if = { 
+									limit = { 
+												trait = vampire
+												OR = {
+												culture = maghreb_arabic
+												culture = egyptian_arabic
+												}
+										} 	
+										random_list = {
+												10 = { 
+												add_trait = brujah 
+												religion = ashirra
+												}
+												5 = { 
+												add_trait = cappadocian 
+												religion = ashirra
+												}												
+												10 = { 
+												add_trait = lasombra
+												religion = ashirra
+												}
+												5 = { 
+												add_trait = toreador
+												religion = ashirra
+												}
+												1 = { 
+												add_trait = tzimisce 
+												religion = vampire_high_clans
+												}	
+												5 = { 
+												add_trait = ventrue
+												religion = ashirra
+												}	
+												10 = { 
+												add_trait = assamite
+												religion = assamites
+												}	
+												30 = { 
+												add_trait = followerofset
+												religion = settite
+												}	
+												5 = { 
+												add_trait = gangrel
+												religion = ashirra
+												}	
+												5 = { 
+												add_trait = malkavian
+												religion = ashirra
+												}	
+												5 = { 
+												add_trait = nosferatu
+												religion = ashirra
+												}	
+												5 = { 
+												add_trait = ravnos
+												religion = mayaparisataya
+												}	
+												1 = { 
+												add_trait = tremere
+												religion = vampire_low_clans
+												}
+												1 = { 
+												add_trait = salubri
+												religion = ashirra
+												}
+												5 = {
+												add_trait = baali
+												religion = baali
+												}
+												
+											}
+									}									
+
+								if = { 
+									limit = { 
+												trait = vampire
+												OR = {
+												culture = turkish
+												culture_group = iranian
+												}
+										} 	
+										random_list = {
+												10 = { 
+												add_trait = brujah 
+												religion = ashirra
+												}
+												5 = { 
+												add_trait = cappadocian 
+												religion = ashirra
+												}												
+												10 = { 
+												add_trait = lasombra
+												religion = ashirra
+												}
+												5 = { 
+												add_trait = toreador
+												religion = ashirra
+												}
+												1 = { 
+												add_trait = tzimisce 
+												religion = vampire_high_clans
+												}	
+												5 = { 
+												add_trait = ventrue
+												religion = ashirra
+												}	
+												30 = { 
+												add_trait = assamite
+												religion = assamites
+												}	
+												10 = { 
+												add_trait = followerofset
+												religion = settite
+												}	
+												5 = { 
+												add_trait = gangrel
+												religion = ashirra
+												}	
+												5 = { 
+												add_trait = malkavian
+												religion = ashirra
+												}	
+												5 = { 
+												add_trait = nosferatu
+												religion = ashirra
+												}	
+												5 = { 
+												add_trait = ravnos
+												religion = mayaparisataya
+												}	
+												1 = { 
+												add_trait = tremere
+												religion = vampire_low_clans
+												}
+												1 = { 
+												add_trait = salubri
+												religion = ashirra
+												}
+												5 = {
+												add_trait = baali
+												religion = baali
+												}
+												
+											}
+									}	
+
+								if = { 
+									limit = { 
+												trait = vampire
+												OR = {
+												culture_group = indo_aryan
+												culture_group = dravidian
+												}
+										} 	
+										random_list = {
+												51 = { 
+												add_trait = ravnos
+												religion = mayaparisataya
+												}	
+												3 = { 
+												add_trait = brujah 
+												religion = ashirra
+												}
+												3 = { 
+												add_trait = cappadocian 
+												religion = ashirra
+												}												
+												3 = { 
+												add_trait = lasombra
+												religion = ashirra
+												}
+												3 = { 
+												add_trait = toreador
+												religion = ashirra
+												}
+												1 = { 
+												add_trait = tzimisce 
+												religion = vampire_high_clans
+												}	
+												1 = { 
+												add_trait = ventrue
+												religion = ashirra
+												}	
+												10 = { 
+												add_trait = assamite
+												religion = assamites
+												}	
+												3 = { 
+												add_trait = followerofset
+												religion = settite
+												}	
+												5 = { 
+												add_trait = gangrel
+												religion = ashirra
+												}	
+												3 = { 
+												add_trait = malkavian
+												religion = ashirra
+												}	
+												5 = { 
+												add_trait = nosferatu
+												religion = ashirra
+												}													
+												1 = { 
+												add_trait = tremere
+												religion = vampire_low_clans
+												}
+												5 = { 
+												add_trait = salubri
+												religion = ashirra
+												}
+												3 = {
+												add_trait = baali
+												religion = baali
+												}
+												
+											}
+									}									
+								if = { 
+									limit = { 
+												trait = vampire
+												NOT = { culture = turkish }
+												OR = {
+												culture_group = north_germanic
+												culture_group = celtic
+												culture_group = finno_ugric
+												culture_group = altaic
+												}
+										} 	
+										random_list = {
+												5 = { 
+												add_trait = brujah
+												religion = vampire_high_clans
+												}
+												5 = { 
+												add_trait = cappadocian
+												religion = vampire_high_clans												
+												}												
+												5 = { 
+												add_trait = lasombra
+												religion = vampire_high_clans
+												}
+												5 = { 
+												add_trait = toreador
+												religion = vampire_high_clans
+												}
+												5 = { 
+												add_trait = tzimisce
+												religion = vampire_high_clans												
+												}	
+												5 = { 
+												add_trait = ventrue
+												religion = vampire_high_clans
+												}	
+												5 = { 
+												add_trait = assamite
+												religion = assamites
+												}	
+												5 = { 
+												add_trait = followerofset
+												religion = settite
+												}	
+												25 = { 
+												add_trait = gangrel
+												religion = vampire_low_clans
+												}	
+												5 = { 
+												add_trait = malkavian
+												religion = vampire_low_clans
+												}	
+												18 = { 
+												add_trait = nosferatu
+												religion = vampire_low_clans
+												}	
+												5 = { 
+												add_trait = ravnos
+												religion = mayaparisataya
+												}	
+												1 = { 
+												add_trait = tremere
+												religion = vampire_low_clans
+												}
+												5 = {
+												add_trait = baali
+												religion = baali
+												}
+												1 = {
+												add_trait = salubri
+												religion = vampire_low_clans
+												}
+												
+											}
+									}
+									
+								if = { 
+									limit = { 
+										trait = vampire
+										culture = magyar } 	
+										random_list = {
+												10 = { 
+												add_trait = brujah 
+												religion = vampire_high_clans
+												}
+												5 = { 
+												add_trait = cappadocian 
+												religion = vampire_high_clans
+												}												
+												10 = { 
+												add_trait = lasombra
+												religion = vampire_high_clans
+												}
+												10 = { 
+												add_trait = toreador
+												religion = vampire_high_clans
+												}
+												10 = { 
+												add_trait = tzimisce 
+												religion = vampire_high_clans
+												}	
+												10 = { 
+												add_trait = ventrue
+												religion = vampire_high_clans
+												}	
+												1 = { 
+												add_trait = assamite
+												religion = assamites
+												}	
+												1 = { 
+												add_trait = followerofset
+												religion = settite
+												}	
+												5 = { 
+												add_trait = gangrel
+												religion = vampire_low_clans
+												}	
+												5 = { 
+												add_trait = malkavian
+												religion = vampire_low_clans
+												}	
+												5 = { 
+												add_trait = nosferatu
+												religion = vampire_low_clans
+												}	
+												1 = { 
+												add_trait = ravnos
+												religion = mayaparisataya
+												}	
+												36 = { 
+												add_trait = tremere
+												religion = vampire_low_clans
+												}
+												
+											}
+									}
+						if = { 
+								limit = { 
+											has_global_flag = bookmark1230
+											trait = vampire
+											OR = {
+											culture = manden
+											culture = nubian
+											culture = ethiopian
+											}
+											NOT = { trait = assamite }
+											NOT = { trait = brujah }
+											NOT = { trait = cappadocian }
+											NOT = { trait = followerofset }
+											NOT = { trait = gangrel }
+											NOT = { trait = lasombra }
+											NOT = { trait = malkavian }
+											NOT = { trait = nosferatu }
+											NOT = { trait = ravnos }
+											NOT = { trait = toreador }
+											NOT = { trait = tremere }
+											NOT = { trait = tzimisce }
+											NOT = { trait = ventrue }
+											NOT = { trait = salubri }
+											NOT = { trait = baali }	
+									} 									
+								random_list = {
+												7 = { 
+												add_trait = brujah
+												religion = laibon
+												}
+												7 = { 
+												add_trait = cappadocian
+												religion = laibon												
+												}												
+												7 = { 
+												add_trait = lasombra
+												religion = laibon
+												}
+												7 = { 
+												add_trait = toreador
+												religion = laibon
+												}
+												7 = { 
+												add_trait = tzimisce
+												religion = vampire_high_clans												
+												}	
+												7 = { 
+												add_trait = ventrue
+												religion = laibon
+												}	
+												7 = { 
+												add_trait = assamite
+												religion = assamites
+												}	
+												7 = { 
+												add_trait = followerofset
+												religion = settite
+												}	
+												7 = { 
+												add_trait = gangrel
+												religion = laibon
+												}	
+												7 = { 
+												add_trait = malkavian
+												religion = laibon
+												}	
+												7 = { 
+												add_trait = nosferatu
+												religion = laibon
+												}	
+												7 = { 
+												add_trait = ravnos
+												religion = mayaparisataya
+												}	
+												7 = { 
+												add_trait = tremere
+												religion = vampire_low_clans
+												}
+												7 = {
+												add_trait = baali
+												religion = baali
+												}
+												2 = {
+												add_trait = salubri
+												religion = laibon
+												}
+								}
+						}												
+																			
+				}
+
+						if = { 
+								limit = { 
+											has_global_flag = bookmark1230
+											trait = vampire
+											NOT = { trait = assamite }
+											NOT = { trait = brujah }
+											NOT = { trait = cappadocian }
+											NOT = { trait = followerofset }
+											NOT = { trait = gangrel }
+											NOT = { trait = lasombra }
+											NOT = { trait = malkavian }
+											NOT = { trait = nosferatu }
+											NOT = { trait = ravnos }
+											NOT = { trait = toreador }
+											NOT = { trait = tremere }
+											NOT = { trait = tzimisce }
+											NOT = { trait = ventrue }
+											NOT = { trait = salubri }
+											NOT = { trait = baali }	
+									} 									
+								random_list = {
+												7 = { 
+												add_trait = brujah
+												religion = vampire_high_clans
+												}
+												7 = { 
+												add_trait = cappadocian
+												religion = vampire_high_clans												
+												}												
+												7 = { 
+												add_trait = lasombra
+												religion = vampire_high_clans
+												}
+												7 = { 
+												add_trait = toreador
+												religion = vampire_high_clans
+												}
+												7 = { 
+												add_trait = tzimisce
+												religion = vampire_high_clans												
+												}	
+												7 = { 
+												add_trait = ventrue
+												religion = vampire_high_clans
+												}	
+												7 = { 
+												add_trait = assamite
+												religion = assamites
+												}	
+												7 = { 
+												add_trait = followerofset
+												religion = settite
+												}	
+												7 = { 
+												add_trait = gangrel
+												religion = vampire_low_clans
+												}	
+												7 = { 
+												add_trait = malkavian
+												religion = vampire_low_clans
+												}	
+												7 = { 
+												add_trait = nosferatu
+												religion = vampire_low_clans
+												}	
+												7 = { 
+												add_trait = ravnos
+												religion = mayaparisataya
+												}	
+												7 = { 
+												add_trait = tremere
+												religion = vampire_low_clans
+												}
+												7 = {
+												add_trait = baali
+												religion = baali
+												}
+												2 = {
+												add_trait = salubri
+												religion = vampire_low_clans
+												}
+								}
+						}				
+													
+# Vampire Dynasty reassignement
+
+#dynasty = culture
+
+# toreador vampire dynasty reassignment
+
+		
+
+if = { 
+		limit = {
+					trait = "toreador"
+					NOT = { is_patrician = yes }
+					NOT = { dynasty = 2000096 }
+				}
+
+random_list = {
+
+	50 = {
+set_character_flag = nwod_vampire_independent_dynasty	
+		}
+		
+	50 = {				
+
+if = { limit = { culture = norwegian }
+		ROOT = { dynasty = 2000001 }
+		
+	}
+
+
+if = { limit = { culture = swedish }
+		ROOT = { dynasty = 2000002 }
+		
+	}
+
+
+if = { limit = { culture = danish }
+		ROOT = { dynasty = 2000003 }
+		
+	}
+
+
+if = { limit = { culture = norse }
+		ROOT = { dynasty = 2000004 }
+		
+	}
+
+
+if = { limit = { culture = german }
+		ROOT = { dynasty = 2000005 }
+		
+	}
+
+
+if = { limit = { culture = english }
+		ROOT = { dynasty = 2000006 }
+		
+	}
+
+
+if = { limit = { culture = saxon }
+		ROOT = { dynasty = 2000007 }
+		
+	}
+
+
+if = { limit = { culture = dutch }
+		ROOT = { dynasty = 2000008 }
+		
+	}
+
+
+if = { limit = { culture = frankish }
+		ROOT = { dynasty = 2000009 }
+		
+	}
+
+
+if = { limit = { culture = norman }
+		ROOT = { dynasty = 2000010 }
+		
+	}
+
+
+if = { limit = { culture = occitan }
+		ROOT = { dynasty = 2000011 }
+		
+	}
+
+
+if = { limit = { culture = italian }
+		ROOT = { dynasty = 2000012 }
+		
+	}
+
+
+if = { limit = { culture = roman }
+		ROOT = { dynasty = 2000013 }
+		
+	}
+
+
+if = { limit = { culture = basque }
+		ROOT = { dynasty = 2000014 }
+		
+	}
+
+
+if = { limit = { culture = castillan }
+		ROOT = { dynasty = 2000015 }
+		
+	}
+
+
+if = { limit = { culture = portuguese }
+		ROOT = { dynasty = 2000016 }
+		
+	}
+
+
+if = { limit = { culture = catalan }
+		ROOT = { dynasty = 2000017 }
+		
+	}
+
+
+if = { limit = { culture = armenian }
+		ROOT = { dynasty = 2000018 }
+		
+	}
+
+
+if = { limit = { culture = greek }
+		ROOT = { dynasty = 2000019 }
+		
+	}
+
+
+if = { limit = { culture = alan }
+		ROOT = { dynasty = 2000020 }
+		
+	}
+
+
+if = { limit = { culture = georgian }
+		ROOT = { dynasty = 2000021 }
+		
+	}
+
+
+if = { limit = { culture = irish }
+		ROOT = { dynasty = 2000022 }
+		
+	}
+
+
+if = { limit = { culture = scottish }
+		ROOT = { dynasty = 2000023 }
+		
+	}
+
+
+if = { limit = { culture = breton }
+		ROOT = { dynasty = 2000024 }
+		
+	}
+
+
+if = { limit = { culture = welsh }
+		ROOT = { dynasty = 2000025 }
+		
+	}
+
+
+if = { limit = { culture = finnish }
+		ROOT = { dynasty = 2000026 }
+		
+	}
+
+
+if = { limit = { culture = lappish }
+		ROOT = { dynasty = 2000027 }
+		
+	}
+
+
+if = { limit = { culture = ugricbaltic }
+		ROOT = { dynasty = 2000028 }
+		
+	}
+
+
+if = { limit = { culture = samoyed }
+		ROOT = { dynasty = 2000029 }
+		
+	}
+
+
+if = { limit = { culture = mordvin }
+		ROOT = { dynasty = 2000030 }
+		
+	}
+
+
+if = { limit = { culture = komi }
+		ROOT = { dynasty = 2000031 }
+		
+	}
+
+
+if = { limit = { culture = lettigallish }
+		ROOT = { dynasty = 2000032 }
+		
+	}
+
+
+if = { limit = { culture = lithuanian }
+		ROOT = { dynasty = 2000033 }
+		
+	}
+
+
+if = { limit = { culture = prussian }
+		ROOT = { dynasty = 2000034 }
+		
+	}
+
+
+if = { limit = { culture = turkish }
+		ROOT = { dynasty = 2000035 }
+		
+	}
+
+
+if = { limit = { culture = mongol }
+		ROOT = { dynasty = 2000036 }
+		
+	}
+
+
+if = { limit = { culture = cuman }
+		ROOT = { dynasty = 2000037 }
+		
+	}
+
+
+if = { limit = { culture = pecheneg }
+		ROOT = { dynasty = 2000038 }
+		
+	}
+
+
+if = { limit = { culture = khazar }
+		ROOT = { dynasty = 2000039 }
+		
+	}
+
+
+if = { limit = { culture = bolghar }
+		ROOT = { dynasty = 2000040 }
+		
+	}
+
+
+if = { limit = { culture = avar }
+		ROOT = { dynasty = 2000041 }
+		
+	}
+
+
+if = { limit = { culture = bedouin_arabic }
+		ROOT = { dynasty = 2000042 }
+		
+	}
+
+
+if = { limit = { culture = levantine_arabic }
+		ROOT = { dynasty = 2000043 }
+		
+	}
+
+
+if = { limit = { culture = egyptian_arabic }
+		ROOT = { dynasty = 2000044 }
+		
+	}
+
+
+if = { limit = { culture = maghreb_arabic }
+		ROOT = { dynasty = 2000045 }
+		
+	}
+
+
+if = { limit = { culture = andalusian_arabic }
+		ROOT = { dynasty = 2000046 }
+		
+	}
+
+
+if = { limit = { culture = russian }
+		ROOT = { dynasty = 2000047 }
+		
+	}
+
+
+if = { limit = { culture = pommeranian }
+		ROOT = { dynasty = 2000048 }
+		
+	}
+
+
+if = { limit = { culture = bohemian }
+		ROOT = { dynasty = 2000049 }
+		
+	}
+
+
+if = { limit = { culture = polish }
+		ROOT = { dynasty = 2000050 }
+		
+	}
+
+
+if = { limit = { culture = croatian }
+		ROOT = { dynasty = 2000052 }
+		
+	}
+
+
+if = { limit = { culture = serbian }
+		ROOT = { dynasty = 2000053 }
+		
+	}
+
+
+if = { limit = { culture = romanian }
+		ROOT = { dynasty = 2000054 }
+		
+	}
+
+
+if = { limit = { culture = bulgarian }
+		ROOT = { dynasty = 2000055 }
+		
+	}
+
+
+if = { limit = { culture = hungarian }
+		ROOT = { dynasty = 2000056 }
+		
+	}
+
+
+if = { limit = { culture = persian }
+		ROOT = { dynasty = 2000057 }
+		
+	}
+
+
+if = { limit = { culture = kurdish }
+		ROOT = { dynasty = 2000058 }
+		
+	}
+
+
+if = { limit = { culture = ethiopian }
+		ROOT = { dynasty = 2000059 }
+		
+	}
+
+if = { limit = { culture = nahuatl }
+		ROOT = { dynasty = 2000061 }
+		
+	}
+
+
+if = { limit = { culture = ashkenazi }
+		ROOT = { dynasty = 2000062 }
+		
+	}
+
+
+if = { limit = { culture = sephardi }
+		ROOT = { dynasty = 2000063 }
+		
+	}
+	
+
+if = { limit = { culture = 	khanty }
+		ROOT = { dynasty = 2000064 }
+		
+	}
+	
+if = { limit = { culture = 	karluk }
+		ROOT = { dynasty = 2000065 }
+		
+	}
+	
+if = { limit = { culture = 	kirghiz }
+		ROOT = { dynasty = 2000066 }
+		
+	}
+	
+if = { limit = { culture = 	afghan }
+		ROOT = { dynasty = 2000067 }
+		
+	}
+	
+if = { limit = { culture = 	baloch }
+		ROOT = { dynasty = 2000068 }
+		
+	}
+	
+if = { limit = { culture = 	nubian }
+		ROOT = { dynasty = 2000069 }
+		
+	}
+	
+if = { limit = { culture = bengali }
+		if = { limit = { ROOT = { is_theocracy = yes } } 
+				ROOT = { dynasty = 2000070 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+				ROOT = { dynasty = 2000071	}
+			}	
+	}		
+			
+if = { limit = { culture = oriya }
+		if = { limit = { ROOT = { is_theocracy = yes } }
+			ROOT = { dynasty = 2000072 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+			ROOT = { dynasty = 2000073 }
+			}
+	}
+
+if = { limit = { culture = assamese }
+		if = { limit = { ROOT = { is_theocracy = yes } }
+			ROOT = { dynasty = 2000074 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+			ROOT = { dynasty = 2000075 }
+			}
+	}
+
+if = { limit = { culture = hindustani }
+		if = { limit = { ROOT = { is_theocracy = yes } }
+			ROOT = { dynasty = 2000076 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+			ROOT = { dynasty = 2000077 }
+			}
+	}
+
+if = { limit = { culture = gujurati }
+		if = { limit = { ROOT = { is_theocracy = yes } }
+			ROOT = { dynasty = 2000078 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+			ROOT = { dynasty = 2000079 }
+			}
+	}
+
+if = { limit = { culture = panjabi }
+		if = { limit = { ROOT = { is_theocracy = yes } }
+			ROOT = { dynasty = 2000080 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+			ROOT = { dynasty = 2000081 }
+			}
+	}
+
+if = { limit = { culture = rajput }
+		if = { limit = { ROOT = { is_theocracy = yes } }
+			ROOT = { dynasty = 2000082 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+			ROOT = { dynasty = 2000083 }
+			}
+	}
+
+if = { limit = { culture = sindhi }
+		if = { limit = { ROOT = { is_theocracy = yes } }
+			ROOT = { dynasty = 2000084 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+			ROOT = { dynasty = 2000085 }
+			}
+	}
+
+if = { limit = { culture = marathi }
+		if = { limit = { ROOT = { is_theocracy = yes } }
+			ROOT = { dynasty = 2000086 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+			ROOT = { dynasty = 2000087 }
+			}
+	}
+
+if = { limit = { culture = sinhala }
+		if = { limit = { ROOT = { is_theocracy = yes } }
+			ROOT = { dynasty = 2000088 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+			ROOT = { dynasty = 2000089 }
+			}
+	}
+
+if = { limit = { culture = tamil }
+		if = { limit = { ROOT = { is_theocracy = yes } }
+			ROOT = { dynasty = 2000090 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+			ROOT = { dynasty = 2000091 }
+			}
+	}
+
+if = { limit = { culture = telugu }
+		if = { limit = { ROOT = { is_theocracy = yes } }
+			ROOT = { dynasty = 2000092 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+			ROOT = { dynasty = 2000093 }
+			}
+	}
+
+if = { limit = { culture = kannada }
+		if = { limit = { ROOT = { is_theocracy = yes } }
+			ROOT = { dynasty = 2000094 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+			ROOT = { dynasty = 2000095 }
+			}
+	}	
+	}
+
+	}
+
+	}
+
+# Toreador vampire discipline assign
+	
+															if = {
+																limit = 
+																	{
+																	trait = "elder"
+																	trait = "daeva"
+																	}
+																	random_list = {
+																					40 = {
+																						add_trait = "celerity_3"
+																						add_trait = "majesty_5"
+																						add_trait = "auspex_3"
+																					}
+																					30 = {
+																						add_trait = "celerity_5"
+																						add_trait = "majesty_3"
+																						add_trait = "auspex_3"
+																					}
+																					30 = {
+																						add_trait = "celerity_3"
+																						add_trait = "majesty_3"
+																						add_trait = "auspex_5"
+																					}
+																				}
+																	}
+															
+																	
+# Gangrel vampire dynasty reassignment
+
+		
+if = { 
+		limit = {
+					trait = "gangrel"
+					NOT = { is_patrician = yes }
+					NOT = { dynasty = 3000096 }
+				}
+	
+random_list = {
+
+	50 = {
+set_character_flag = nwod_vampire_independent_dynasty	
+		}
+		
+	50 = {	
+	
+if = { limit = { culture = norwegian }
+		ROOT = { dynasty = 3000001 }
+		
+	}
+
+
+if = { limit = { culture = swedish }
+		ROOT = { dynasty = 3000002 }
+		
+	}
+
+
+if = { limit = { culture = danish }
+		ROOT = { dynasty = 3000003 }
+		
+	}
+
+
+if = { limit = { culture = norse }
+		ROOT = { dynasty = 3000004 }
+		
+	}
+
+
+if = { limit = { culture = german }
+		ROOT = { dynasty = 3000005 }
+		
+	}
+
+
+if = { limit = { culture = english }
+		ROOT = { dynasty = 3000006 }
+		
+	}
+
+
+if = { limit = { culture = saxon }
+		ROOT = { dynasty = 3000007 }
+		
+	}
+
+
+if = { limit = { culture = dutch }
+		ROOT = { dynasty = 3000008 }
+		
+	}
+
+
+if = { limit = { culture = frankish }
+		ROOT = { dynasty = 3000009 }
+		
+	}
+
+
+if = { limit = { culture = norman }
+		ROOT = { dynasty = 3000010 }
+		
+	}
+
+
+if = { limit = { culture = occitan }
+		ROOT = { dynasty = 3000011 }
+		
+	}
+
+
+if = { limit = { culture = italian }
+		ROOT = { dynasty = 3000012 }
+		
+	}
+
+
+if = { limit = { culture = roman }
+		ROOT = { dynasty = 3000013 }
+		
+	}
+
+
+if = { limit = { culture = basque }
+		ROOT = { dynasty = 3000014 }
+		
+	}
+
+
+if = { limit = { culture = castillan }
+		ROOT = { dynasty = 3000015 }
+		
+	}
+
+
+if = { limit = { culture = portuguese }
+		ROOT = { dynasty = 3000016 }
+		
+	}
+
+
+if = { limit = { culture = catalan }
+		ROOT = { dynasty = 3000017 }
+		
+	}
+
+
+if = { limit = { culture = armenian }
+		ROOT = { dynasty = 3000018 }
+		
+	}
+
+
+if = { limit = { culture = greek }
+		ROOT = { dynasty = 3000019 }
+		
+	}
+
+
+if = { limit = { culture = alan }
+		ROOT = { dynasty = 3000020 }
+		
+	}
+
+
+if = { limit = { culture = georgian }
+		ROOT = { dynasty = 3000021 }
+		
+	}
+
+
+if = { limit = { culture = irish }
+		ROOT = { dynasty = 3000022 }
+		
+	}
+
+
+if = { limit = { culture = scottish }
+		ROOT = { dynasty = 3000023 }
+		
+	}
+
+
+if = { limit = { culture = breton }
+		ROOT = { dynasty = 3000024 }
+		
+	}
+
+
+if = { limit = { culture = welsh }
+		ROOT = { dynasty = 3000025 }
+		
+	}
+
+
+if = { limit = { culture = finnish }
+		ROOT = { dynasty = 3000026 }
+		
+	}
+
+
+if = { limit = { culture = lappish }
+		ROOT = { dynasty = 3000027 }
+		
+	}
+
+
+if = { limit = { culture = ugricbaltic }
+		ROOT = { dynasty = 3000028 }
+		
+	}
+
+
+if = { limit = { culture = samoyed }
+		ROOT = { dynasty = 3000029 }
+		
+	}
+
+
+if = { limit = { culture = mordvin }
+		ROOT = { dynasty = 3000030 }
+		
+	}
+
+
+if = { limit = { culture = komi }
+		ROOT = { dynasty = 3000031 }
+		
+	}
+
+
+if = { limit = { culture = lettigallish }
+		ROOT = { dynasty = 3000032 }
+		
+	}
+
+
+if = { limit = { culture = lithuanian }
+		ROOT = { dynasty = 3000033 }
+		
+	}
+
+
+if = { limit = { culture = prussian }
+		ROOT = { dynasty = 3000034 }
+		
+	}
+
+
+if = { limit = { culture = turkish }
+		ROOT = { dynasty = 3000035 }
+		
+	}
+
+
+if = { limit = { culture = mongol }
+		ROOT = { dynasty = 3000036 }
+		
+	}
+
+
+if = { limit = { culture = cuman }
+		ROOT = { dynasty = 3000037 }
+		
+	}
+
+
+if = { limit = { culture = pecheneg }
+		ROOT = { dynasty = 3000038 }
+		
+	}
+
+
+if = { limit = { culture = khazar }
+		ROOT = { dynasty = 3000039 }
+		
+	}
+
+
+if = { limit = { culture = bolghar }
+		ROOT = { dynasty = 3000040 }
+		
+	}
+
+
+if = { limit = { culture = avar }
+		ROOT = { dynasty = 3000041 }
+		
+	}
+
+
+if = { limit = { culture = bedouin_arabic }
+		ROOT = { dynasty = 3000042 }
+		
+	}
+
+
+if = { limit = { culture = levantine_arabic }
+		ROOT = { dynasty = 3000043 }
+		
+	}
+
+
+if = { limit = { culture = egyptian_arabic }
+		ROOT = { dynasty = 3000044 }
+		
+	}
+
+
+if = { limit = { culture = maghreb_arabic }
+		ROOT = { dynasty = 3000045 }
+		
+	}
+
+
+if = { limit = { culture = andalusian_arabic }
+		ROOT = { dynasty = 3000046 }
+		
+	}
+
+
+if = { limit = { culture = russian }
+		ROOT = { dynasty = 3000047 }
+		
+	}
+
+
+if = { limit = { culture = pommeranian }
+		ROOT = { dynasty = 3000048 }
+		
+	}
+
+
+if = { limit = { culture = bohemian }
+		ROOT = { dynasty = 3000049 }
+		
+	}
+
+
+if = { limit = { culture = polish }
+		ROOT = { dynasty = 3000050 }
+		
+	}
+
+
+if = { limit = { culture = croatian }
+		ROOT = { dynasty = 3000052 }
+		
+	}
+
+
+if = { limit = { culture = serbian }
+		ROOT = { dynasty = 3000053 }
+		
+	}
+
+
+if = { limit = { culture = romanian }
+		ROOT = { dynasty = 3000054 }
+		
+	}
+
+
+if = { limit = { culture = bulgarian }
+		ROOT = { dynasty = 3000055 }
+		
+	}
+
+
+if = { limit = { culture = hungarian }
+		ROOT = { dynasty = 3000056 }
+		
+	}
+
+
+if = { limit = { culture = persian }
+		ROOT = { dynasty = 3000057 }
+		
+	}
+
+
+if = { limit = { culture = kurdish }
+		ROOT = { dynasty = 3000058 }
+		
+	}
+
+if = { limit = { culture = manden }
+		ROOT = { dynasty = 3000060 }
+		
+	}
+
+
+if = { limit = { culture = nahuatl }
+		ROOT = { dynasty = 3000061 }
+		
+	}
+
+
+if = { limit = { culture = ashkenazi }
+		ROOT = { dynasty = 3000062 }
+		
+	}
+
+
+if = { limit = { culture = sephardi }
+		ROOT = { dynasty = 3000063 }
+		
+	}
+	
+
+if = { limit = { culture = 	khanty }
+		ROOT = { dynasty = 3000064 }
+		
+	}
+	
+if = { limit = { culture = 	karluk }
+		ROOT = { dynasty = 3000065 }
+		
+	}
+	
+if = { limit = { culture = 	kirghiz }
+		ROOT = { dynasty = 3000066 }
+		
+	}
+	
+if = { limit = { culture = 	afghan }
+		ROOT = { dynasty = 3000067 }
+		
+	}
+	
+if = { limit = { culture = 	baloch }
+		ROOT = { dynasty = 3000068 }
+		
+	}
+	
+if = { limit = { culture = 	nubian }
+		ROOT = { dynasty = 3000069 }
+		
+	}
+
+if = { limit = { culture = bengali }
+		if = { limit = { ROOT = { is_theocracy = yes } } 
+				ROOT = { dynasty = 3000070 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+				ROOT = { dynasty = 3000071	}
+			}	
+	}		
+			
+if = { limit = { culture = oriya }
+		if = { limit = { ROOT = { is_theocracy = yes } }
+			ROOT = { dynasty = 3000072 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+			ROOT = { dynasty = 3000073 }
+			}
+	}
+
+if = { limit = { culture = assamese }
+		if = { limit = { ROOT = { is_theocracy = yes } }
+			ROOT = { dynasty = 3000074 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+			ROOT = { dynasty = 3000075 }
+			}
+	}
+
+if = { limit = { culture = hindustani }
+		if = { limit = { ROOT = { is_theocracy = yes } }
+			ROOT = { dynasty = 3000076 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+			ROOT = { dynasty = 3000077 }
+			}
+	}
+
+if = { limit = { culture = gujurati }
+		if = { limit = { ROOT = { is_theocracy = yes } }
+			ROOT = { dynasty = 3000078 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+			ROOT = { dynasty = 3000079 }
+			}
+	}
+
+if = { limit = { culture = panjabi }
+		if = { limit = { ROOT = { is_theocracy = yes } }
+			ROOT = { dynasty = 3000080 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+			ROOT = { dynasty = 3000081 }
+			}
+	}
+
+if = { limit = { culture = rajput }
+		if = { limit = { ROOT = { is_theocracy = yes } }
+			ROOT = { dynasty = 3000082 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+			ROOT = { dynasty = 3000083 }
+			}
+	}
+
+if = { limit = { culture = sindhi }
+		if = { limit = { ROOT = { is_theocracy = yes } }
+			ROOT = { dynasty = 3000084 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+			ROOT = { dynasty = 3000085 }
+			}
+	}
+
+if = { limit = { culture = marathi }
+		if = { limit = { ROOT = { is_theocracy = yes } }
+			ROOT = { dynasty = 3000086 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+			ROOT = { dynasty = 3000087 }
+			}
+	}
+
+if = { limit = { culture = sinhala }
+		if = { limit = { ROOT = { is_theocracy = yes } }
+			ROOT = { dynasty = 3000088 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+			ROOT = { dynasty = 3000089 }
+			}
+	}
+
+if = { limit = { culture = tamil }
+		if = { limit = { ROOT = { is_theocracy = yes } }
+			ROOT = { dynasty = 3000090 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+			ROOT = { dynasty = 3000091 }
+			}
+	}
+
+if = { limit = { culture = telugu }
+		if = { limit = { ROOT = { is_theocracy = yes } }
+			ROOT = { dynasty = 3000092 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+			ROOT = { dynasty = 3000093 }
+			}
+	}
+
+if = { limit = { culture = kannada }
+		if = { limit = { ROOT = { is_theocracy = yes } }
+			ROOT = { dynasty = 3000094 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+			ROOT = { dynasty = 3000095 }
+			}
+	}	
+
+	}	
+	}
+	}
+	
+# Gangrel vampire discipline assignment
+															if = {
+																limit = 
+																	{
+																	trait = "elder"
+																	trait = "gangrel"
+																	}
+																	random_list = {
+																					40 = {
+																						add_trait = animalism_3
+																						add_trait = protean_5
+																						add_trait = resilience_3
+																					}
+																					30 = {
+																						add_trait = animalism_5
+																						add_trait = protean_3
+																						add_trait = resilience_3
+																					}
+																					30 = {
+																						add_trait = animalism_3
+																						add_trait = protean_3
+																						add_trait = resilience_5
+																					}
+																				}
+																	}
+															
+															
+# followerofset vampire dynasty reassignment
+
+if = { 
+		limit = {
+					trait = "followerofset"
+					NOT = { is_patrician = yes }
+					NOT = { dynasty = 4000096 }
+				}
+	
+random_list = {
+
+	50 = {
+set_character_flag = nwod_vampire_independent_dynasty	
+		}
+		
+	50 = {		
+	
+	
+if = { limit = { culture = norwegian }
+		ROOT = { dynasty = 4000001 }
+		
+	}
+
+
+if = { limit = { culture = swedish }
+		ROOT = { dynasty = 4000002 }
+		
+	}
+
+
+if = { limit = { culture = danish }
+		ROOT = { dynasty = 4000003 }
+		
+	}
+
+
+if = { limit = { culture = norse }
+		ROOT = { dynasty = 4000004 }
+		
+	}
+
+
+if = { limit = { culture = german }
+		ROOT = { dynasty = 4000005 }
+		
+	}
+
+
+if = { limit = { culture = english }
+		ROOT = { dynasty = 4000006 }
+		
+	}
+
+
+if = { limit = { culture = saxon }
+		ROOT = { dynasty = 4000007 }
+		
+	}
+
+
+if = { limit = { culture = dutch }
+		ROOT = { dynasty = 4000008 }
+		
+	}
+
+
+if = { limit = { culture = frankish }
+		ROOT = { dynasty = 4000009 }
+		
+	}
+
+
+if = { limit = { culture = norman }
+		ROOT = { dynasty = 4000010 }
+		
+	}
+
+
+if = { limit = { culture = occitan }
+		ROOT = { dynasty = 4000011 }
+		
+	}
+
+
+if = { limit = { culture = italian }
+		ROOT = { dynasty = 4000012 }
+		
+	}
+
+
+if = { limit = { culture = roman }
+		ROOT = { dynasty = 4000013 }
+		
+	}
+
+
+if = { limit = { culture = basque }
+		ROOT = { dynasty = 4000014 }
+		
+	}
+
+
+if = { limit = { culture = castillan }
+		ROOT = { dynasty = 4000015 }
+		
+	}
+
+
+if = { limit = { culture = portuguese }
+		ROOT = { dynasty = 4000016 }
+		
+	}
+
+
+if = { limit = { culture = catalan }
+		ROOT = { dynasty = 4000017 }
+		
+	}
+
+
+if = { limit = { culture = armenian }
+		ROOT = { dynasty = 4000018 }
+		
+	}
+
+
+if = { limit = { culture = greek }
+		ROOT = { dynasty = 4000019 }
+		
+	}
+
+
+if = { limit = { culture = alan }
+		ROOT = { dynasty = 4000020 }
+		
+	}
+
+
+if = { limit = { culture = georgian }
+		ROOT = { dynasty = 4000021 }
+		
+	}
+
+
+if = { limit = { culture = irish }
+		ROOT = { dynasty = 4000022 }
+		
+	}
+
+
+if = { limit = { culture = scottish }
+		ROOT = { dynasty = 4000023 }
+		
+	}
+
+
+if = { limit = { culture = breton }
+		ROOT = { dynasty = 4000024 }
+		
+	}
+
+
+if = { limit = { culture = welsh }
+		ROOT = { dynasty = 4000025 }
+		
+	}
+
+
+if = { limit = { culture = finnish }
+		ROOT = { dynasty = 4000026 }
+		
+	}
+
+
+if = { limit = { culture = lappish }
+		ROOT = { dynasty = 4000027 }
+		
+	}
+
+
+if = { limit = { culture = ugricbaltic }
+		ROOT = { dynasty = 4000028 }
+		
+	}
+
+
+if = { limit = { culture = samoyed }
+		ROOT = { dynasty = 4000029 }
+		
+	}
+
+
+if = { limit = { culture = mordvin }
+		ROOT = { dynasty = 4000030 }
+		
+	}
+
+
+if = { limit = { culture = komi }
+		ROOT = { dynasty = 4000031 }
+		
+	}
+
+
+if = { limit = { culture = lettigallish }
+		ROOT = { dynasty = 4000032 }
+		
+	}
+
+
+if = { limit = { culture = lithuanian }
+		ROOT = { dynasty = 4000033 }
+		
+	}
+
+
+if = { limit = { culture = prussian }
+		ROOT = { dynasty = 4000034 }
+		
+	}
+
+
+if = { limit = { culture = turkish }
+		ROOT = { dynasty = 4000035 }
+		
+	}
+
+
+if = { limit = { culture = mongol }
+		ROOT = { dynasty = 4000036 }
+		
+	}
+
+
+if = { limit = { culture = cuman }
+		ROOT = { dynasty = 4000037 }
+		
+	}
+
+
+if = { limit = { culture = pecheneg }
+		ROOT = { dynasty = 4000038 }
+		
+	}
+
+
+if = { limit = { culture = khazar }
+		ROOT = { dynasty = 4000039 }
+		
+	}
+
+
+if = { limit = { culture = bolghar }
+		ROOT = { dynasty = 4000040 }
+		
+	}
+
+
+if = { limit = { culture = avar }
+		ROOT = { dynasty = 4000041 }
+		
+	}
+
+
+if = { limit = { culture = bedouin_arabic }
+		ROOT = { dynasty = 4000042 }
+		
+	}
+
+
+if = { limit = { culture = levantine_arabic }
+		ROOT = { dynasty = 4000043 }
+		
+	}
+
+
+if = { limit = { culture = egyptian_arabic }
+		ROOT = { dynasty = 4000044 }
+		
+	}
+
+
+if = { limit = { culture = maghreb_arabic }
+		ROOT = { dynasty = 4000045 }
+		
+	}
+
+
+if = { limit = { culture = andalusian_arabic }
+		ROOT = { dynasty = 4000046 }
+		
+	}
+
+
+if = { limit = { culture = russian }
+		ROOT = { dynasty = 4000047 }
+		
+	}
+
+
+if = { limit = { culture = pommeranian }
+		ROOT = { dynasty = 4000048 }
+		
+	}
+
+
+if = { limit = { culture = bohemian }
+		ROOT = { dynasty = 4000049 }
+		
+	}
+
+
+if = { limit = { culture = polish }
+		ROOT = { dynasty = 4000050 }
+		
+	}
+
+
+if = { limit = { culture = croatian }
+		ROOT = { dynasty = 4000052 }
+		
+	}
+
+
+if = { limit = { culture = serbian }
+		ROOT = { dynasty = 4000053 }
+		
+	}
+
+
+if = { limit = { culture = romanian }
+		ROOT = { dynasty = 4000054 }
+		
+	}
+
+
+if = { limit = { culture = bulgarian }
+		ROOT = { dynasty = 4000055 }
+		
+	}
+
+
+if = { limit = { culture = hungarian }
+		ROOT = { dynasty = 4000056 }
+		
+	}
+
+
+if = { limit = { culture = persian }
+		ROOT = { dynasty = 4000057 }
+		
+	}
+
+
+if = { limit = { culture = kurdish }
+		ROOT = { dynasty = 4000058 }
+		
+	}
+
+
+if = { limit = { culture = nahuatl }
+		ROOT = { dynasty = 4000061 }
+		
+	}
+
+
+if = { limit = { culture = ashkenazi }
+		ROOT = { dynasty = 4000062 }
+		
+	}
+
+
+if = { limit = { culture = sephardi }
+		ROOT = { dynasty = 4000063 }
+		
+	}
+	
+
+if = { limit = { culture = 	khanty }
+		ROOT = { dynasty = 4000064 }
+		
+	}
+	
+if = { limit = { culture = 	karluk }
+		ROOT = { dynasty = 4000065 }
+		
+	}
+	
+if = { limit = { culture = 	kirghiz }
+		ROOT = { dynasty = 4000066 }
+		
+	}
+	
+if = { limit = { culture = 	afghan }
+		ROOT = { dynasty = 4000067 }
+		
+	}
+	
+if = { limit = { culture = 	baloch }
+		ROOT = { dynasty = 4000068 }
+		
+	}
+	
+if = { limit = { culture = 	nubian }
+		ROOT = { dynasty = 4000069 }
+		
+	}
+
+if = { limit = { culture = bengali }
+		if = { limit = { ROOT = { is_theocracy = yes } } 
+				ROOT = { dynasty = 4000070 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+				ROOT = { dynasty = 4000071	}
+			}	
+	}		
+			
+if = { limit = { culture = oriya }
+		if = { limit = { ROOT = { is_theocracy = yes } }
+			ROOT = { dynasty = 4000072 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+			ROOT = { dynasty = 4000073 }
+			}
+	}
+
+if = { limit = { culture = assamese }
+		if = { limit = { ROOT = { is_theocracy = yes } }
+			ROOT = { dynasty = 4000074 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+			ROOT = { dynasty = 4000075 }
+			}
+	}
+
+if = { limit = { culture = hindustani }
+		if = { limit = { ROOT = { is_theocracy = yes } }
+			ROOT = { dynasty = 4000076 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+			ROOT = { dynasty = 4000077 }
+			}
+	}
+
+if = { limit = { culture = gujurati }
+		if = { limit = { ROOT = { is_theocracy = yes } }
+			ROOT = { dynasty = 4000078 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+			ROOT = { dynasty = 4000079 }
+			}
+	}
+
+if = { limit = { culture = panjabi }
+		if = { limit = { ROOT = { is_theocracy = yes } }
+			ROOT = { dynasty = 4000080 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+			ROOT = { dynasty = 4000081 }
+			}
+	}
+
+if = { limit = { culture = rajput }
+		if = { limit = { ROOT = { is_theocracy = yes } }
+			ROOT = { dynasty = 4000082 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+			ROOT = { dynasty = 4000083 }
+			}
+	}
+
+if = { limit = { culture = sindhi }
+		if = { limit = { ROOT = { is_theocracy = yes } }
+			ROOT = { dynasty = 4000084 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+			ROOT = { dynasty = 4000085 }
+			}
+	}
+
+if = { limit = { culture = marathi }
+		if = { limit = { ROOT = { is_theocracy = yes } }
+			ROOT = { dynasty = 4000086 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+			ROOT = { dynasty = 4000087 }
+			}
+	}
+
+if = { limit = { culture = sinhala }
+		if = { limit = { ROOT = { is_theocracy = yes } }
+			ROOT = { dynasty = 4000088 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+			ROOT = { dynasty = 4000089 }
+			}
+	}
+
+if = { limit = { culture = tamil }
+		if = { limit = { ROOT = { is_theocracy = yes } }
+			ROOT = { dynasty = 4000090 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+			ROOT = { dynasty = 4000091 }
+			}
+	}
+
+if = { limit = { culture = telugu }
+		if = { limit = { ROOT = { is_theocracy = yes } }
+			ROOT = { dynasty = 4000092 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+			ROOT = { dynasty = 4000093 }
+			}
+	}
+
+if = { limit = { culture = kannada }
+		if = { limit = { ROOT = { is_theocracy = yes } }
+			ROOT = { dynasty = 4000094 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+			ROOT = { dynasty = 4000095 }
+			}
+	}
+	}
+	}
+	}
+	
+# followerofset vampire discipline assignment
+															if = {
+																limit = 
+																	{
+																	trait = "elder"
+																	trait = "followerofset"
+																	}
+																	random_list = {
+																					40 = {
+																						add_trait = majesty_3
+																						add_trait = serpentis_5
+																						add_trait = obfuscate_3
+																					}
+																					30 = {
+																						add_trait = majesty_5
+																						add_trait = serpentis_3
+																						add_trait = obfuscate_3
+																					}
+																					30 = {
+																						add_trait = majesty_3
+																						add_trait = serpentis_3
+																						add_trait = obfuscate_5
+																					}
+																				}
+																	}
+
+															
+# Nosferatu vampire dynasty reassignment
+
+if = { 
+		limit = {
+					trait = "nosferatu"
+					NOT = { is_patrician = yes }
+					NOT = { dynasty = 5000096 }
+				}
+
+random_list = {
+
+	50 = {
+set_character_flag = nwod_vampire_independent_dynasty	
+		}
+		
+	50 = {					
+				
+				
+if = { limit = { culture = norwegian }
+		ROOT = { dynasty = 5000001 }
+		
+	}
+
+
+if = { limit = { culture = swedish }
+		ROOT = { dynasty = 5000002 }
+		
+	}
+
+
+if = { limit = { culture = danish }
+		ROOT = { dynasty = 5000003 }
+		
+	}
+
+
+if = { limit = { culture = norse }
+		ROOT = { dynasty = 5000004 }
+		
+	}
+
+
+if = { limit = { culture = german }
+		ROOT = { dynasty = 5000005 }
+		
+	}
+
+
+if = { limit = { culture = english }
+		ROOT = { dynasty = 5000006 }
+		
+	}
+
+
+if = { limit = { culture = saxon }
+		ROOT = { dynasty = 5000007 }
+		
+	}
+
+
+if = { limit = { culture = dutch }
+		ROOT = { dynasty = 5000008 }
+		
+	}
+
+
+if = { limit = { culture = frankish }
+		ROOT = { dynasty = 5000009 }
+		
+	}
+
+
+if = { limit = { culture = norman }
+		ROOT = { dynasty = 5000010 }
+		
+	}
+
+
+if = { limit = { culture = occitan }
+		ROOT = { dynasty = 5000011 }
+		
+	}
+
+
+if = { limit = { culture = italian }
+		ROOT = { dynasty = 5000012 }
+		
+	}
+
+
+if = { limit = { culture = roman }
+		ROOT = { dynasty = 5000013 }
+		
+	}
+
+
+if = { limit = { culture = basque }
+		ROOT = { dynasty = 5000014 }
+		
+	}
+
+
+if = { limit = { culture = castillan }
+		ROOT = { dynasty = 5000015 }
+		
+	}
+
+
+if = { limit = { culture = portuguese }
+		ROOT = { dynasty = 5000016 }
+		
+	}
+
+
+if = { limit = { culture = catalan }
+		ROOT = { dynasty = 5000017 }
+		
+	}
+
+
+if = { limit = { culture = armenian }
+		ROOT = { dynasty = 5000018 }
+		
+	}
+
+
+if = { limit = { culture = greek }
+	random_list = {
+	
+		75 = {
+				ROOT = { dynasty = 5000019 }
+			}
+		25 = {	
+				ROOT = { dynasty = 5000097 }
+				ROOT = { religion = circle_of_the_crone }
+				ROOT = { add_trait = fair }
+				ROOT = { remove_trait = ugly }
+			}
+		}	
+	}
+
+
+if = { limit = { culture = alan }
+		ROOT = { dynasty = 5000020 }
+		
+	}
+
+
+if = { limit = { culture = georgian }
+		ROOT = { dynasty = 5000021 }
+		
+	}
+
+
+if = { limit = { culture = irish }
+		ROOT = { dynasty = 5000022 }
+		
+	}
+
+
+if = { limit = { culture = scottish }
+		ROOT = { dynasty = 5000023 }
+		
+	}
+
+
+if = { limit = { culture = breton }
+		ROOT = { dynasty = 5000024 }
+		
+	}
+
+
+if = { limit = { culture = welsh }
+		ROOT = { dynasty = 5000025 }
+		
+	}
+
+
+if = { limit = { culture = finnish }
+		ROOT = { dynasty = 5000026 }
+		
+	}
+
+
+if = { limit = { culture = lappish }
+		ROOT = { dynasty = 5000027 }
+		
+	}
+
+
+if = { limit = { culture = ugricbaltic }
+		ROOT = { dynasty = 5000028 }
+		
+	}
+
+
+if = { limit = { culture = samoyed }
+		ROOT = { dynasty = 5000029 }
+		
+	}
+
+
+if = { limit = { culture = mordvin }
+		ROOT = { dynasty = 5000030 }
+		
+	}
+
+
+if = { limit = { culture = komi }
+		ROOT = { dynasty = 5000031 }
+		
+	}
+
+
+if = { limit = { culture = lettigallish }
+		ROOT = { dynasty = 5000032 }
+		
+	}
+
+
+if = { limit = { culture = lithuanian }
+		ROOT = { dynasty = 5000033 }
+		
+	}
+
+
+if = { limit = { culture = prussian }
+		ROOT = { dynasty = 5000034 }
+		
+	}
+
+
+if = { limit = { culture = turkish }
+		ROOT = { dynasty = 5000035 }
+		
+	}
+
+
+if = { limit = { culture = mongol }
+		ROOT = { dynasty = 5000036 }
+		
+	}
+
+
+if = { limit = { culture = cuman }
+		ROOT = { dynasty = 5000037 }
+		
+	}
+
+
+if = { limit = { culture = pecheneg }
+		ROOT = { dynasty = 5000038 }
+		
+	}
+
+
+if = { limit = { culture = khazar }
+		ROOT = { dynasty = 5000039 }
+		
+	}
+
+
+if = { limit = { culture = bolghar }
+		ROOT = { dynasty = 5000040 }
+		
+	}
+
+
+if = { limit = { culture = avar }
+		ROOT = { dynasty = 5000041 }
+		
+	}
+
+
+if = { limit = { culture = bedouin_arabic }
+		ROOT = { dynasty = 5000042 }
+		
+	}
+
+
+if = { limit = { culture = levantine_arabic }
+		ROOT = { dynasty = 5000043 }
+		
+	}
+
+
+if = { limit = { culture = egyptian_arabic }
+		ROOT = { dynasty = 5000044 }
+		
+	}
+
+
+if = { limit = { culture = maghreb_arabic }
+		ROOT = { dynasty = 5000045 }
+		
+	}
+
+
+if = { limit = { culture = andalusian_arabic }
+		ROOT = { dynasty = 5000046 }
+		
+	}
+
+
+if = { limit = { culture = russian }
+		ROOT = { dynasty = 5000047 }
+		
+	}
+
+
+if = { limit = { culture = pommeranian }
+		ROOT = { dynasty = 5000048 }
+		
+	}
+
+
+if = { limit = { culture = bohemian }
+		ROOT = { dynasty = 5000049 }
+		
+	}
+
+
+if = { limit = { culture = polish }
+		ROOT = { dynasty = 5000050 }
+		
+	}
+
+
+if = { limit = { culture = croatian }
+		ROOT = { dynasty = 5000052 }
+		
+	}
+
+
+if = { limit = { culture = serbian }
+		ROOT = { dynasty = 5000053 }
+		
+	}
+
+
+if = { limit = { culture = romanian }
+		ROOT = { dynasty = 5000054 }
+		
+	}
+
+
+if = { limit = { culture = bulgarian }
+		ROOT = { dynasty = 5000055 }
+		
+	}
+
+
+if = { limit = { culture = hungarian }
+		ROOT = { dynasty = 5000056 }
+		
+	}
+
+
+if = { limit = { culture = persian }
+		ROOT = { dynasty = 5000057 }
+		
+	}
+
+
+if = { limit = { culture = kurdish }
+		ROOT = { dynasty = 5000058 }
+		
+	}
+
+
+if = { limit = { culture = ethiopian }
+		ROOT = { dynasty = 5000059 }
+		
+	}
+
+if = { limit = { culture = nahuatl }
+		ROOT = { dynasty = 5000061 }
+		
+	}
+
+
+if = { limit = { culture = ashkenazi }
+		ROOT = { dynasty = 5000062 }
+		
+	}
+
+
+if = { limit = { culture = sephardi }
+		ROOT = { dynasty = 5000063 }
+		
+	}
+	
+
+if = { limit = { culture = 	khanty }
+		ROOT = { dynasty = 5000064 }
+		
+	}
+	
+if = { limit = { culture = 	karluk }
+		ROOT = { dynasty = 5000065 }
+		
+	}
+	
+if = { limit = { culture = 	kirghiz }
+		ROOT = { dynasty = 5000066 }
+		
+	}
+	
+if = { limit = { culture = 	afghan }
+		ROOT = { dynasty = 5000067 }
+		
+	}
+	
+if = { limit = { culture = 	baloch }
+		ROOT = { dynasty = 5000068 }
+		
+	}
+	
+
+if = { limit = { culture = bengali }
+		if = { limit = { ROOT = { is_theocracy = yes } } 
+				ROOT = { dynasty = 5000070 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+				ROOT = { dynasty = 5000071	}
+			}	
+	}		
+			
+if = { limit = { culture = oriya }
+		if = { limit = { ROOT = { is_theocracy = yes } }
+			ROOT = { dynasty = 5000072 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+			ROOT = { dynasty = 5000073 }
+			}
+	}
+
+if = { limit = { culture = assamese }
+		if = { limit = { ROOT = { is_theocracy = yes } }
+			ROOT = { dynasty = 5000074 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+			ROOT = { dynasty = 5000075 }
+			}
+	}
+
+if = { limit = { culture = hindustani }
+		if = { limit = { ROOT = { is_theocracy = yes } }
+			ROOT = { dynasty = 5000076 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+			ROOT = { dynasty = 5000077 }
+			}
+	}
+
+if = { limit = { culture = gujurati }
+		if = { limit = { ROOT = { is_theocracy = yes } }
+			ROOT = { dynasty = 5000078 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+			ROOT = { dynasty = 5000079 }
+			}
+	}
+
+if = { limit = { culture = panjabi }
+		if = { limit = { ROOT = { is_theocracy = yes } }
+			ROOT = { dynasty = 5000080 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+			ROOT = { dynasty = 5000081 }
+			}
+	}
+
+if = { limit = { culture = rajput }
+		if = { limit = { ROOT = { is_theocracy = yes } }
+			ROOT = { dynasty = 5000082 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+			ROOT = { dynasty = 5000083 }
+			}
+	}
+
+if = { limit = { culture = sindhi }
+		if = { limit = { ROOT = { is_theocracy = yes } }
+			ROOT = { dynasty = 5000084 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+			ROOT = { dynasty = 5000085 }
+			}
+	}
+
+if = { limit = { culture = marathi }
+		if = { limit = { ROOT = { is_theocracy = yes } }
+			ROOT = { dynasty = 5000086 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+			ROOT = { dynasty = 5000087 }
+			}
+	}
+
+if = { limit = { culture = sinhala }
+		if = { limit = { ROOT = { is_theocracy = yes } }
+			ROOT = { dynasty = 5000088 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+			ROOT = { dynasty = 5000089 }
+			}
+	}
+
+if = { limit = { culture = tamil }
+		if = { limit = { ROOT = { is_theocracy = yes } }
+			ROOT = { dynasty = 5000090 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+			ROOT = { dynasty = 5000091 }
+			}
+	}
+
+if = { limit = { culture = telugu }
+		if = { limit = { ROOT = { is_theocracy = yes } }
+			ROOT = { dynasty = 5000092 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+			ROOT = { dynasty = 5000093 }
+			}
+	}
+
+if = { limit = { culture = kannada }
+		if = { limit = { ROOT = { is_theocracy = yes } }
+			ROOT = { dynasty = 5000094 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+			ROOT = { dynasty = 5000095 }
+			}
+	}	
+	}
+	}
+	}
+	
+# Nosferatu vampire discipline assignment
+
+															if = {
+																limit = 
+																	{
+																	trait = "elder"
+																	trait = "nosferatu"
+																	}
+																	random_list = {
+																					40 = {
+																						add_trait = obfuscate_3
+																						add_trait = animalism_5
+																						add_trait = vigor_3
+																					}
+																					30 = {
+																						add_trait = obfuscate_5
+																						add_trait = animalism_3
+																						add_trait = vigor_3
+																					}
+																					30 = {
+																						add_trait = obfuscate_3
+																						add_trait = animalism_3
+																						add_trait = vigor_5
+																					}
+																				}
+																	}
+															
+# Ventrue vampire dynasty reassignment
+
+if = { 
+		limit = {
+					trait = "ventrue"
+					NOT = { is_patrician = yes }
+				}															
+
+				random_list = {
+
+	50 = {
+set_character_flag = nwod_vampire_independent_dynasty	
+		}
+		
+	50 = {	
+				
+if = { limit = { culture = norwegian }
+		ROOT = { dynasty = 6000001 }
+		
+	}
+
+
+if = { limit = { culture = swedish }
+		ROOT = { dynasty = 6000002 }
+		
+	}
+
+
+if = { limit = { culture = danish }
+		ROOT = { dynasty = 6000003 }
+		
+	}
+
+
+if = { limit = { culture = norse }
+		ROOT = { dynasty = 6000004 }
+		
+	}
+
+
+if = { limit = { culture = german }
+		ROOT = { dynasty = 6000005 }
+		
+	}
+
+
+if = { limit = { culture = english }
+		ROOT = { dynasty = 6000006 }
+		
+	}
+
+
+if = { limit = { culture = saxon }
+		ROOT = { dynasty = 6000007 }
+		
+	}
+
+
+if = { limit = { culture = dutch }
+		ROOT = { dynasty = 6000008 }
+		
+	}
+
+
+if = { limit = { culture = frankish }
+		ROOT = { dynasty = 6000009 }
+		
+	}
+
+
+if = { limit = { culture = norman }
+		ROOT = { dynasty = 6000010 }
+		
+	}
+
+
+if = { limit = { culture = occitan }
+		ROOT = { dynasty = 6000011 }
+		
+	}
+
+
+if = { limit = { culture = italian }
+		ROOT = { dynasty = 6000012 } 	
+	}
+
+if = { limit = { culture = roman }
+		ROOT = { dynasty = 6000013 }
+		
+	}
+
+if = { limit = { culture = basque }
+		ROOT = { dynasty = 6000014 }
+		
+	}
+
+if = { limit = { culture = portuguese }
+		ROOT = { dynasty = 6000016 }
+		
+	}
+
+
+if = { limit = { culture = catalan }
+		 ROOT = { dynasty = 6000017 } 							
+	}
+
+if = { limit = { culture = armenian }
+		ROOT = { dynasty = 6000018}		
+		
+}
+
+
+if = { limit = { culture = greek }
+		ROOT = { dynasty = 6000019 }
+		
+	}
+
+
+if = { limit = { culture = alan }
+		ROOT = { dynasty = 6000020 }
+		
+	}
+
+
+if = { limit = { culture = georgian }
+		ROOT = { dynasty = 6000021 }
+		
+	}
+
+
+if = { limit = { culture = irish }
+		ROOT = { dynasty = 6000022 }
+		
+	}
+
+
+if = { limit = { culture = scottish }
+		ROOT = { dynasty = 6000023 }
+		
+	}
+
+
+if = { limit = { culture = breton }
+		ROOT = { dynasty = 6000024 }
+		
+	}
+
+
+if = { limit = { culture = welsh }
+		ROOT = { dynasty = 6000025 }
+		
+	}
+
+
+if = { limit = { culture = finnish }
+		ROOT = { dynasty = 6000026 }
+		
+	}
+
+
+if = { limit = { culture = lappish }
+		ROOT = { dynasty = 6000027 }
+		
+	}
+
+
+if = { limit = { culture = ugricbaltic }
+		ROOT = { dynasty = 6000028 }
+		
+	}
+
+
+if = { limit = { culture = samoyed }
+		ROOT = { dynasty = 6000029 }
+		
+	}
+
+
+if = { limit = { culture = mordvin }
+		ROOT = { dynasty = 6000030 }
+		
+	}
+
+
+if = { limit = { culture = komi }
+		ROOT = { dynasty = 6000031 }
+		
+	}
+
+
+if = { limit = { culture = lettigallish }
+		ROOT = { dynasty = 6000032 }
+		
+	}
+
+
+if = { limit = { culture = lithuanian }
+		ROOT = { dynasty = 6000033 }
+		
+	}
+
+
+if = { limit = { culture = prussian }
+		ROOT = { dynasty = 6000034 }
+		
+	}
+
+
+if = { limit = { culture = turkish }
+		ROOT = { dynasty = 6000035 }
+		
+	}
+
+
+if = { limit = { culture = mongol }
+		ROOT = { dynasty = 6000036 }
+		
+	}
+
+
+if = { limit = { culture = cuman }
+		ROOT = { dynasty = 6000037 }
+		
+	}
+
+
+if = { limit = { culture = pecheneg }
+		ROOT = { dynasty = 6000038 }
+		
+	}
+
+
+if = { limit = { culture = khazar }
+		ROOT = { dynasty = 6000039 }
+		
+	}
+
+
+if = { limit = { culture = bolghar }
+		ROOT = { dynasty = 6000040 }
+		
+	}
+
+
+if = { limit = { culture = avar }
+		ROOT = { dynasty = 6000041 }
+		
+	}
+
+
+if = { limit = { culture = bedouin_arabic }
+		ROOT = { dynasty = 6000042 }
+		
+	}
+
+
+if = { limit = { culture = levantine_arabic }
+		ROOT = { dynasty = 6000043 }
+		
+	}
+
+
+if = { limit = { culture = egyptian_arabic }
+		ROOT = { dynasty = 6000044 }
+		
+	}
+
+
+if = { limit = { culture = maghreb_arabic }
+		ROOT = { dynasty = 6000045 }
+		
+	}
+
+
+if = { limit = { culture = andalusian_arabic }
+		ROOT = { dynasty = 6000046 }
+		
+	}
+
+
+
+if = { limit = { culture = hungarian }
+		ROOT = { dynasty = 6000056 }
+		
+	}
+
+
+if = { limit = { culture = persian }
+		ROOT = { dynasty = 6000057 }
+		
+	}
+
+
+if = { limit = { culture = kurdish }
+		ROOT = { dynasty = 6000058 }
+		
+	}
+
+
+if = { limit = { culture = manden }
+		ROOT = { dynasty = 6000060 }
+		
+	}
+
+
+if = { limit = { culture = nahuatl }
+		ROOT = { dynasty = 6000061 }
+		
+	}
+
+
+if = { limit = { culture = ashkenazi }
+		ROOT = { dynasty = 6000062 }
+		
+	}
+
+
+if = { limit = { culture = sephardi }
+		ROOT = { dynasty = 6000063 }
+		
+	}
+	
+
+if = { limit = { culture = 	khanty }
+		ROOT = { dynasty = 6000064 }
+		
+	}
+	
+if = { limit = { culture = 	karluk }
+		ROOT = { dynasty = 6000065 }
+		
+	}
+	
+if = { limit = { culture = 	kirghiz }
+		ROOT = { dynasty = 6000066 }
+		
+	}
+	
+if = { limit = { culture = 	afghan }
+		ROOT = { dynasty = 6000067 }
+		
+	}
+	
+if = { limit = { culture = 	baloch }
+		ROOT = { dynasty = 6000068 }
+		
+	}
+	
+if = { limit = { culture = 	nubian }
+		ROOT = { dynasty = 6000069 }
+		
+	}
+
+if = { limit = { culture = bengali }
+		if = { limit = { ROOT = { is_theocracy = yes } } 
+				ROOT = { dynasty = 6000070 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+				ROOT = { dynasty = 6000071	}
+			}	
+	}		
+			
+if = { limit = { culture = oriya }
+		if = { limit = { ROOT = { is_theocracy = yes } }
+			ROOT = { dynasty = 6000072 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+			ROOT = { dynasty = 6000073 }
+			}
+	}
+
+if = { limit = { culture = assamese }
+		if = { limit = { ROOT = { is_theocracy = yes } }
+			ROOT = { dynasty = 6000074 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+			ROOT = { dynasty = 6000075 }
+			}
+	}
+
+if = { limit = { culture = hindustani }
+		if = { limit = { ROOT = { is_theocracy = yes } }
+			ROOT = { dynasty = 6000076 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+			ROOT = { dynasty = 6000077 }
+			}
+	}
+
+if = { limit = { culture = gujurati }
+		if = { limit = { ROOT = { is_theocracy = yes } }
+			ROOT = { dynasty = 6000078 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+			ROOT = { dynasty = 6000079 }
+			}
+	}
+
+if = { limit = { culture = panjabi }
+		if = { limit = { ROOT = { is_theocracy = yes } }
+			ROOT = { dynasty = 6000080 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+			ROOT = { dynasty = 6000081 }
+			}
+	}
+
+if = { limit = { culture = rajput }
+		if = { limit = { ROOT = { is_theocracy = yes } }
+			ROOT = { dynasty = 6000082 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+			ROOT = { dynasty = 6000083 }
+			}
+	}
+
+if = { limit = { culture = sindhi }
+		if = { limit = { ROOT = { is_theocracy = yes } }
+			ROOT = { dynasty = 6000084 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+			ROOT = { dynasty = 6000085 }
+			}
+	}
+
+if = { limit = { culture = marathi }
+		if = { limit = { ROOT = { is_theocracy = yes } }
+			ROOT = { dynasty = 6000086 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+			ROOT = { dynasty = 6000087 }
+			}
+	}
+
+if = { limit = { culture = sinhala }
+		if = { limit = { ROOT = { is_theocracy = yes } }
+			ROOT = { dynasty = 6000088 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+			ROOT = { dynasty = 6000089 }
+			}
+	}
+
+if = { limit = { culture = tamil }
+		if = { limit = { ROOT = { is_theocracy = yes } }
+			ROOT = { dynasty = 6000090 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+			ROOT = { dynasty = 6000091 }
+			}
+	}
+
+if = { limit = { culture = telugu }
+		if = { limit = { ROOT = { is_theocracy = yes } }
+			ROOT = { dynasty = 6000092 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+			ROOT = { dynasty = 6000093 }
+			}
+	}
+
+if = { limit = { culture = kannada }
+		if = { limit = { ROOT = { is_theocracy = yes } }
+			ROOT = { dynasty = 6000094 }
+			}
+		if = { limit = { ROOT = { is_theocracy = no } }
+			ROOT = { dynasty = 6000095 }
+			}
+	}
+	}
+	}
+	}
+
+# Ventrue vampire discipline assignment
+
+															if = {
+																limit = 
+																	{
+																	trait = "elder"
+																	trait = "ventrue"
+																	}
+																	random_list = {
+																					40 = {
+																						add_trait = majesty_3
+																						add_trait = dominate_5
+																						add_trait = resilience_3
+																					}
+																					30 = {
+																						add_trait = majesty_5
+																						add_trait = dominate_3
+																						add_trait = resilience_3
+																					}
+																					30 = {
+																						add_trait = majesty_3
+																						add_trait = dominate_3
+																						add_trait = resilience_5
+																					}
+																				}
+																	}
+
+
+
+				
+															
+# Vampire: The Next Generation  ( creating a virtual history )
+
+				random_list = {							
+							10 = {
+									# Create Young Ancilla
+									create_character = {
+														random_traits = yes
+														trait = vampire
+														age = 100
+														dynasty = ROOT
+														culture = ROOT
+														religion = ROOT
+														
+									}
+									new_character = {
+														inherit = PREV
+														set_father = ROOT
+														add_trait = ancilla
+														add_trait = bloodpotency_2
+														
+													}
+								}
+							10 = {
+									# Create Young Ancilla
+									create_character = {
+														random_traits = yes
+														trait = vampire
+														age = 100
+														female = yes
+														dynasty = ROOT
+														culture = ROOT
+														religion = ROOT
+														
+									}
+									new_character = {
+														inherit = PREV
+														set_father = ROOT
+														add_trait = ancilla
+														add_trait = bloodpotency_2
+													}
+								}
+							20 = {
+									# Create Old Ancilla
+									create_character = {
+														random_traits = yes
+														trait = vampire
+														age = 150
+														dynasty = ROOT
+														culture = ROOT
+														religion = ROOT
+														
+									}
+									new_character = {
+														inherit = PREV
+														set_father = ROOT
+														add_trait = ancilla
+														add_trait = bloodpotency_3
+													}
+								}
+							20 = {
+									# Create Old Ancilla
+									create_character = {
+														random_traits = yes
+														trait = vampire
+														age = 150
+														female = yes
+														dynasty = ROOT
+														culture = ROOT
+														religion = ROOT
+														employer = ROOT
+														
+									}
+									new_character = {
+														inherit = PREV
+														set_father = ROOT
+														add_trait = ancilla
+														add_trait = bloodpotency_3
+													}
+								}
+							20 = {
+									# Create Elder
+									create_character = {
+														random_traits = yes
+														trait = vampire
+														age = 250
+														dynasty = ROOT
+														culture = ROOT
+														religion = ROOT
+														employer = ROOT
+														
+									}
+									new_character = {
+														inherit = PREV
+														set_father = ROOT
+														add_trait = elder
+														add_trait = bloodpotency_4
+													}
+								}
+							20 = {
+									# Create Elder
+									create_character = {
+														random_traits = yes
+														trait = vampire
+														age = 250
+														female = yes
+														dynasty = ROOT
+														culture = ROOT
+														religion = ROOT
+														employer = ROOT														
+									}
+									new_character = {
+														inherit = PREV
+														set_father = ROOT
+														add_trait = elder
+														add_trait = bloodpotency_4
+													}
+								}
+							}
+															
+				new_character = { 
+								if = {
+											limit = {
+													age = 1
+													is_adult = yes
+													trait = "vampire"
+													NOT = { trait = assamite }
+													NOT = { trait = brujah }
+													NOT = { trait = cappadocian }
+													NOT = { trait = followerofset }
+													NOT = { trait = gangrel }
+													NOT = { trait = lasombra }
+													NOT = { trait = malkavian }
+													NOT = { trait = nosferatu }
+													NOT = { trait = ravnos }
+													NOT = { trait = toreador }
+													NOT = { trait = tremere }
+													NOT = { trait = tzimisce }
+													NOT = { trait = ventrue }
+													NOT = { trait = salubri }
+													NOT = { trait = baali }													
+													}
+
+													# indian vampires inherit caste
+														if = { limit = { father = { trait = kshatriya } }
+															add_trait = kshatriya
+															}
+														if = { limit = { father = { trait = brahmin } }
+															add_trait = brahmin
+															}
+													# vampires inherit sire's clan	
+														if = { limit = { ROOT = { trait = assamite } }
+															add_trait = assamite
+															}
+															
+														if = { limit = { ROOT = { trait = brujah } }
+															add_trait = brujah
+															}
+															
+														if = { limit = { ROOT = { trait = cappadocian } }
+															add_trait = cappadocian
+															
+															}
+														if = { limit = { ROOT = { trait = followerofset } }
+															add_trait = followerofset 
+															
+															}
+														if = { limit = { ROOT = { trait = gangrel } }
+															add_trait = gangrel 
+															
+															}
+														if = { limit = { ROOT = { trait = lasombra } }
+															add_trait = lasombra 
+															
+															}
+														if = { limit = { ROOT = { trait = malkavian } }
+															add_trait = malkavian 
+															}		
+														if = { limit = { ROOT = { trait = nosferatu } }
+															add_trait = nosferatu
+															}
+														if = { limit = { ROOT = { trait = ravnos } }
+															add_trait = ravnos
+															}
+														if = { limit = { ROOT = { trait = toreador } }
+															add_trait = toreador
+															}
+														if = { limit = { ROOT = { trait = tremere } }
+															add_trait = tremere
+															}	
+														if = { limit = { ROOT = { trait = tzimisce } }
+															add_trait = tzimisce
+															}	
+														if = { limit = { ROOT = { trait = ventrue } }
+															add_trait = ventrue
+															}
+														if = { limit = { ROOT = { trait = salubri } }
+															add_trait = salubri
+															}															
+														if = { limit = { ROOT = { trait = baali } }
+															add_trait = baali
+															}	
+
+														
+# assigning vampire ruler childe disciplines
+
+# Brujah
+																if = {
+																limit = 
+																	{
+																	trait = "ancilla"
+																	trait = "brujah"
+																	}
+																	random_list = {
+																	70 = {
+																		add_trait = celerity_2
+																		add_trait = majesty_3
+																		add_trait = vigor_2
+																	}
+																	10 = {
+																		add_trait = celerity_5
+																		add_trait = majesty_1
+																		add_trait = vigor_1
+																	}
+																	10 = {
+																		add_trait = celerity_1
+																		add_trait = majesty_5
+																		add_trait = vigor_1
+																	}
+																	10 = {
+																		add_trait = celerity_1
+																		add_trait = majesty_1
+																		add_trait = vigor_5
+																	}
+																	}
+																}
+															if = {
+																limit = 
+																	{
+																	trait = "elder"
+																	trait = "brujah"
+																	}
+																	random_list = {
+																					40 = {
+																						add_trait = celerity_3
+																						add_trait = majesty_5
+																						add_trait = vigor_3
+																					}
+																					30 = {
+																						add_trait = celerity_5
+																						add_trait = majesty_3
+																						add_trait = vigor_3
+																					}
+																					30 = {
+																						add_trait = celerity_3
+																						add_trait = majesty_3
+																						add_trait = vigor_5
+																					}
+																				}
+																}
+
+# cappadocian
+																if = {
+																limit = 
+																	{
+																	trait = "ancilla"
+																	trait = "cappadocian"
+																	}
+																	random_list = {
+																	70 = {
+																		add_trait = auspex_2
+																		add_trait = mortis_3
+																		add_trait = resilience_2
+																	}
+																	10 = {
+																		add_trait = auspex_5
+																		add_trait = mortis_1
+																		add_trait = resilience_1
+																	}
+																	10 = {
+																		add_trait = auspex_1
+																		add_trait = mortis_5
+																		add_trait = resilience_1
+																	}
+																	10 = {
+																		add_trait = auspex_1
+																		add_trait = mortis_1
+																		add_trait = resilience_5
+																	}
+																	}
+																}
+															if = {
+																limit = 
+																	{
+																	trait = "elder"
+																	trait = "cappadocian"
+																	}
+																	random_list = {
+																					40 = {
+																						add_trait = auspex_3
+																						add_trait = mortis_5
+																						add_trait = resilience_3
+																					}
+																					30 = {
+																						add_trait = auspex_5
+																						add_trait = mortis_3
+																						add_trait = resilience_3
+																					}
+																					30 = {
+																						add_trait = auspex_3
+																						add_trait = mortis_3
+																						add_trait = resilience_5
+																					}
+																				}
+																}																
+																
+																
+# followerofset
+																if = {
+																limit = 
+																	{
+																	trait = "ancilla"
+																	trait = "followerofset"
+																	}
+																	random_list = {
+																	70 = {
+																		add_trait = majesty_2
+																		add_trait = serpentis_3
+																		add_trait = obfuscate_2
+																	}
+																	10 = {
+																		add_trait = majesty_5
+																		add_trait = serpentis_1
+																		add_trait = obfuscate_1
+																	}
+																	10 = {
+																		add_trait = majesty_1
+																		add_trait = serpentis_5
+																		add_trait = obfuscate_1
+																	}
+																	10 = {
+																		add_trait = majesty_1
+																		add_trait = serpentis_1
+																		add_trait = obfuscate_5
+																	}
+																	}
+																}
+															if = {
+																limit = 
+																	{
+																	trait = "elder"
+																	trait = "followerofset"
+																	}
+																	random_list = {
+																					40 = {
+																						add_trait = majesty_3
+																						add_trait = serpentis_5
+																						add_trait = obfuscate_3
+																					}
+																					30 = {
+																						add_trait = majesty_5
+																						add_trait = serpentis_3
+																						add_trait = obfuscate_3
+																					}
+																					30 = {
+																						add_trait = majesty_3
+																						add_trait = serpentis_3
+																						add_trait = obfuscate_5
+																					}
+																				}
+																}
+
+
+# lasombra
+																if = {
+																limit = 
+																	{
+																	trait = "ancilla"
+																	trait = "lasombra"
+																	}
+																	random_list = {
+																	70 = {
+																		add_trait = obtenebration_2
+																		add_trait = dominate_3
+																		add_trait = vigor_2
+																	}
+																	10 = {
+																		add_trait = obtenebration_5
+																		add_trait = dominate_1
+																		add_trait = vigor_1
+																	}
+																	10 = {
+																		add_trait = obtenebration_1
+																		add_trait = dominate_5
+																		add_trait = vigor_1
+																	}
+																	10 = {
+																		add_trait = obtenebration_1
+																		add_trait = dominate_1
+																		add_trait = vigor_5
+																	}
+																	}
+																}
+															if = {
+																limit = 
+																	{
+																	trait = "elder"
+																	trait = "lasombra"
+																	}
+																	random_list = {
+																					40 = {
+																						add_trait = obtenebration_3
+																						add_trait = dominate_5
+																						add_trait = vigor_3
+																					}
+																					30 = {
+																						add_trait = obtenebration_5
+																						add_trait = dominate_3
+																						add_trait = vigor_3
+																					}
+																					30 = {
+																						add_trait = obtenebration_3
+																						add_trait = dominate_3
+																						add_trait = vigor_5
+																					}
+																				}
+																}
+
+# malkavian
+																if = {
+																limit = 
+																	{
+																	trait = "ancilla"
+																	trait = "malkavian"
+																	}
+																	random_list = {
+																	70 = {
+																		add_trait = auspex_2
+																		add_trait = obfuscate_3
+																		add_trait = dementation_2
+																	}
+																	10 = {
+																		add_trait = auspex_5
+																		add_trait = obfuscate_1
+																		add_trait = dementation_1
+																	}
+																	10 = {
+																		add_trait = auspex_1
+																		add_trait = obfuscate_5
+																		add_trait = dementation_1
+																	}
+																	10 = {
+																		add_trait = auspex_1
+																		add_trait = obfuscate_1
+																		add_trait = dementation_5
+																	}
+																	}
+																}
+															if = {
+																limit = 
+																	{
+																	trait = "elder"
+																	trait = "malkavian"
+																	}
+																	random_list = {
+																					40 = {
+																						add_trait = auspex_3
+																						add_trait = obfuscate_5
+																						add_trait = dementation_3
+																					}
+																					30 = {
+																						add_trait = auspex_5
+																						add_trait = obfuscate_3
+																						add_trait = dementation_3
+																					}
+																					30 = {
+																						add_trait = auspex_3
+																						add_trait = obfuscate_3
+																						add_trait = dementation_5
+																					}
+																				}
+																}
+
+# ravnos
+																if = {
+																limit = 
+																	{
+																	trait = "ancilla"
+																	trait = "ravnos"
+																	}
+																	random_list = {
+																	70 = {
+																		add_trait = animalism_2
+																		add_trait = resilience_3
+																		add_trait = chimerstry_2
+																	}
+																	10 = {
+																		add_trait = animalism_5
+																		add_trait = resilience_1
+																		add_trait = chimerstry_1
+																	}
+																	10 = {
+																		add_trait = animalism_1
+																		add_trait = resilience_5
+																		add_trait = chimerstry_1
+																	}
+																	10 = {
+																		add_trait = animalism_1
+																		add_trait = resilience_1
+																		add_trait = chimerstry_5
+																	}
+																	}
+																}
+															if = {
+																limit = 
+																	{
+																	trait = "elder"
+																	trait = "ravnos"
+																	}
+																	random_list = {
+																					40 = {
+																						add_trait = animalism_3
+																						add_trait = resilience_5
+																						add_trait = chimerstry_3
+																					}
+																					30 = {
+																						add_trait = animalism_5
+																						add_trait = resilience_3
+																						add_trait = chimerstry_3
+																					}
+																					30 = {
+																						add_trait = animalism_3
+																						add_trait = resilience_3
+																						add_trait = chimerstry_5
+																					}
+																				}
+																}
+
+# salubri
+																if = {
+																limit = 
+																	{
+																	trait = "ancilla"
+																	trait = "salubri"
+																	}
+																	random_list = {
+																	70 = {
+																		add_trait = auspex_2
+																		add_trait = resilience_3
+																		add_trait = obeah_2
+																	}
+																	10 = {
+																		add_trait = auspex_5
+																		add_trait = resilience_1
+																		add_trait = obeah_1
+																	}
+																	10 = {
+																		add_trait = auspex_1
+																		add_trait = resilience_5
+																		add_trait = obeah_1
+																	}
+																	10 = {
+																		add_trait = auspex_1
+																		add_trait = resilience_1
+																		add_trait = obeah_5
+																	}
+																	}
+																}
+															if = {
+																limit = 
+																	{
+																	trait = "elder"
+																	trait = "salubri"
+																	}
+																	random_list = {
+																					40 = {
+																						add_trait = auspex_3
+																						add_trait = resilience_5
+																						add_trait = obeah_3
+																					}
+																					30 = {
+																						add_trait = auspex_5
+																						add_trait = resilience_3
+																						add_trait = obeah_3
+																					}
+																					30 = {
+																						add_trait = auspex_3
+																						add_trait = resilience_3
+																						add_trait = obeah_5
+																					}
+																				}
+																}
+																
+# Toreador
+																if = {
+																limit = 
+																	{
+																	trait = "ancilla"
+																	trait = "toreador"
+																	}
+																	random_list = {
+																	70 = {
+																		add_trait = celerity_2
+																		add_trait = majesty_3
+																		add_trait = auspex_2
+																	}
+																	10 = {
+																		add_trait = celerity_5
+																		add_trait = majesty_1
+																		add_trait = auspex_1
+																	}
+																	10 = {
+																		add_trait = celerity_1
+																		add_trait = majesty_5
+																		add_trait = auspex_1
+																	}
+																	10 = {
+																		add_trait = celerity_1
+																		add_trait = majesty_1
+																		add_trait = auspex_5
+																	}
+																	}
+																}
+															if = {
+																limit = 
+																	{
+																	trait = "elder"
+																	trait = "toreador"
+																	}
+																	random_list = {
+																					40 = {
+																						add_trait = celerity_3
+																						add_trait = majesty_5
+																						add_trait = auspex_3
+																					}
+																					30 = {
+																						add_trait = celerity_5
+																						add_trait = majesty_3
+																						add_trait = auspex_3
+																					}
+																					30 = {
+																						add_trait = celerity_3
+																						add_trait = majesty_3
+																						add_trait = auspex_5
+																					}
+																				}
+																}
+
+# tremere
+																if = {
+																limit = 
+																	{
+																	trait = "ancilla"
+																	trait = "tremere"
+																	}
+																	random_list = {
+																	70 = {
+																		add_trait = auspex_2
+																		add_trait = dominate_3
+																		add_trait = thaumaturgy_2
+																	}
+																	10 = {
+																		add_trait = auspex_5
+																		add_trait = dominate_1
+																		add_trait = thaumaturgy_1
+																	}
+																	10 = {
+																		add_trait = auspex_1
+																		add_trait = dominate_5
+																		add_trait = thaumaturgy_1
+																	}
+																	10 = {
+																		add_trait = auspex_1
+																		add_trait = dominate_1
+																		add_trait = thaumaturgy_5
+																	}
+																	}
+																}
+															if = {
+																limit = 
+																	{
+																	trait = "elder"
+																	trait = "tremere"
+																	}
+																	random_list = {
+																					40 = {
+																						add_trait = auspex_3
+																						add_trait = dominate_5
+																						add_trait = thaumaturgy_3
+																					}
+																					30 = {
+																						add_trait = auspex_5
+																						add_trait = dominate_3
+																						add_trait = thaumaturgy_3
+																					}
+																					30 = {
+																						add_trait = auspex_3
+																						add_trait = dominate_3
+																						add_trait = thaumaturgy_5
+																					}
+																				}
+																}																
+
+# tzimisce
+																if = {
+																limit = 
+																	{
+																	trait = "ancilla"
+																	trait = "tzimisce"
+																	}
+																	random_list = {
+																	70 = {
+																		add_trait = auspex_2
+																		add_trait = animalism_3
+																		add_trait = vicissitude_2
+																	}
+																	10 = {
+																		add_trait = auspex_5
+																		add_trait = animalism_1
+																		add_trait = vicissitude_1
+																	}
+																	10 = {
+																		add_trait = auspex_1
+																		add_trait = animalism_5
+																		add_trait = vicissitude_1
+																	}
+																	10 = {
+																		add_trait = auspex_1
+																		add_trait = animalism_1
+																		add_trait = vicissitude_5
+																	}
+																	}
+																}
+															if = {
+																limit = 
+																	{
+																	trait = "elder"
+																	trait = "tzimisce"
+																	}
+																	random_list = {
+																					40 = {
+																						add_trait = auspex_3
+																						add_trait = animalism_5
+																						add_trait = vicissitude_3
+																					}
+																					30 = {
+																						add_trait = auspex_5
+																						add_trait = animalism_3
+																						add_trait = vicissitude_3
+																					}
+																					30 = {
+																						add_trait = auspex_3
+																						add_trait = animalism_3
+																						add_trait = vicissitude_5
+																					}
+																				}
+																}
+																
+# baali
+																if = {
+																limit = 
+																	{
+																	trait = "ancilla"
+																	trait = "baali"
+																	}
+																	random_list = {
+																	70 = {
+																		add_trait = obfuscate_2
+																		add_trait = majesty_3
+																		add_trait = daimoinon_2
+																	}
+																	10 = {
+																		add_trait = obfuscate_5
+																		add_trait = majesty_1
+																		add_trait = daimoinon_1
+																	}
+																	10 = {
+																		add_trait = obfuscate_1
+																		add_trait = majesty_5
+																		add_trait = daimoinon_1
+																	}
+																	10 = {
+																		add_trait = obfuscate_1
+																		add_trait = majesty_1
+																		add_trait = daimoinon_5
+																	}
+																	}
+																}
+															if = {
+																limit = 
+																	{
+																	trait = "elder"
+																	trait = "baali"
+																	}
+																	random_list = {
+																					40 = {
+																						add_trait = obfuscate_3
+																						add_trait = majesty_5
+																						add_trait = daimoinon_3
+																					}
+																					30 = {
+																						add_trait = obfuscate_5
+																						add_trait = majesty_3
+																						add_trait = daimoinon_3
+																					}
+																					30 = {
+																						add_trait = obfuscate_3
+																						add_trait = majesty_3
+																						add_trait = daimoinon_5
+																					}
+																				}
+																}
+																
+# Gangrel							
+															if = {
+																limit = 
+																	{
+																	trait = "ancilla"
+																	trait = "gangrel"
+																	}
+																	random_list = {
+																	70 = {
+																		add_trait = animalism_2
+																		add_trait = protean_3
+																		add_trait = resilience_2
+																	}
+																	10 = {
+																		add_trait = animalism_5
+																		add_trait = protean_1
+																		add_trait = resilience_1
+																	}
+																	10 = {
+																		add_trait = animalism_1
+																		add_trait = protean_5
+																		add_trait = resilience_1
+																	}
+																	10 = {
+																		add_trait = animalism_1
+																		add_trait = protean_1
+																		add_trait = resilience_5
+																	}
+																	}
+																}
+															if = {
+																limit = 
+																	{
+																	trait = "elder"
+																	trait = "gangrel"
+																	}
+																	random_list = {
+																					40 = {
+																						add_trait = animalism_3
+																						add_trait = protean_5
+																						add_trait = resilience_3
+																					}
+																					30 = {
+																						add_trait = animalism_5
+																						add_trait = protean_3
+																						add_trait = resilience_3
+																					}
+																					30 = {
+																						add_trait = animalism_3
+																						add_trait = protean_3
+																						add_trait = resilience_5
+																					}
+																				}
+																	}
+# Assamite							
+															if = {
+																limit = 
+																	{
+																	trait = "assamite"
+																	trait = "ancilla"
+																	}
+																	random_list = {
+																	70 = {
+																		add_trait = celerity_2
+																		add_trait = quietus_3
+																		add_trait = obfuscate_2
+																	}
+																	10 = {
+																		add_trait = celerity_5
+																		add_trait = quietus_1
+																		add_trait = obfuscate_1
+																	}
+																	10 = {
+																		add_trait = celerity_1
+																		add_trait = quietus_5
+																		add_trait = obfuscate_1
+																	}
+																	10 = {
+																		add_trait = celerity_1
+																		add_trait = quietus_1
+																		add_trait = obfuscate_5
+																	}
+																	}
+																}
+															if = {
+																limit = 
+																	{
+																	trait = "assamite"
+																	trait = "elder"
+																	}
+																	random_list = {
+																					40 = {
+																						add_trait = celerity_3
+																						add_trait = quietus_5
+																						add_trait = obfuscate_3
+																					}
+																					30 = {
+																						add_trait = celerity_5
+																						add_trait = quietus_3
+																						add_trait = obfuscate_3
+																					}
+																					30 = {
+																						add_trait = celerity_3
+																						add_trait = quietus_3
+																						add_trait = obfuscate_5
+																					}
+																				}
+																}																	
+
+# Nosferatu
+																
+															if = {
+																limit = 
+																	{
+																	trait = "nosferatu"
+																	trait = "ancilla"
+																	}
+																	random_list = {
+																	70 = {
+																		add_trait = obfuscate_2
+																		add_trait = animalism_3
+																		add_trait = vigor_2
+																	}
+																	10 = {
+																		add_trait = obfuscate_5
+																		add_trait = animalism_1
+																		add_trait = vigor_1
+																	}
+																	10 = {
+																		add_trait = obfuscate_1
+																		add_trait = animalism_5
+																		add_trait = vigor_1
+																	}
+																	10 = {
+																		add_trait = obfuscate_1
+																		add_trait = animalism_1
+																		add_trait = vigor_5
+																	}
+																	}
+																}
+															if = {
+																limit = 
+																	{
+																	trait = "nosferatu"
+																	trait = "elder"
+																	}
+																	random_list = {
+																					40 = {
+																						add_trait = obfuscate_3
+																						add_trait = animalism_5
+																						add_trait = vigor_3
+																					}
+																					30 = {
+																						add_trait = obfuscate_5
+																						add_trait = animalism_3
+																						add_trait = vigor_3
+																					}
+																					30 = {
+																						add_trait = obfuscate_3
+																						add_trait = animalism_3
+																						add_trait = vigor_5
+																					}
+																				}
+																}	
+
+# Ventrue																
+															if = {
+																limit = 
+																	{
+																	trait = "ventrue"
+																	trait = "ancilla"
+																	}
+																	random_list = {
+																	70 = {
+																		add_trait = majesty_2
+																		add_trait = dominate_3
+																		add_trait = resilience_2
+																	}
+																	10 = {
+																		add_trait = majesty_5
+																		add_trait = dominate_1
+																		add_trait = resilience_1
+																	}
+																	10 = {
+																		add_trait = majesty_1
+																		add_trait = dominate_5
+																		add_trait = resilience_1
+																	}
+																	10 = {
+																		add_trait = majesty_1
+																		add_trait = dominate_1
+																		add_trait = resilience_5
+																	}
+																	}
+																}
+															if = {
+																limit = 
+																	{
+																	trait = "ventrue"
+																	trait = "elder"
+																	}
+																	random_list = {
+																					40 = {
+																						add_trait = majesty_3
+																						add_trait = dominate_5
+																						add_trait = resilience_3
+																					}
+																					30 = {
+																						add_trait = majesty_5
+																						add_trait = dominate_3
+																						add_trait = resilience_3
+																					}
+																					30 = {
+																						add_trait = majesty_3
+																						add_trait = dominate_3
+																						add_trait = resilience_5
+																					}
+																				}
+																}	
+																
+																			
+								}
+
+								
+															
+															
+							}
+
+
+
+				# kill random noble vampire supe
+					death = "yes"			
+							
+				}
+
+			}
+			
+		}		
+	}
+		
+	

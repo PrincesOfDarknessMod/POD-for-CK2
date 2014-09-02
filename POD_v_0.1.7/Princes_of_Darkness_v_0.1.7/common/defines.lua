@@ -954,12 +954,12 @@ NMilitary = {
 },
 
 NTechnology = {
-	POINTS_PER_ATTRIBUTE = 0.04,
+	POINTS_PER_ATTRIBUTE = 0.09,
 
-	BASE_NEIGHBOUR_SPREAD_BONUS = 0.03, 		-- bonus for each neighbour with the tech
-	NEIGHBOUR_SAME_RELIGON_GROUP_MULT = 2.0, 	-- multiplier to the above bonus if neighbour is of your religious group
-	BASE_DEMESNE_SPREAD_BONUS = 0.06, 			-- bonus for each other province in demesne with the tech
-	MAX_DEMESNE_BONUS = 0.3, 					-- maximum bonus from demesne
+	BASE_NEIGHBOUR_SPREAD_BONUS = 0.09, 		-- bonus for each neighbour with the tech
+	NEIGHBOUR_SAME_RELIGON_GROUP_MULT = 3.0, 	-- multiplier to the above bonus if neighbour is of your religious group
+	BASE_DEMESNE_SPREAD_BONUS = 0.09, 			-- bonus for each other province in demesne with the tech
+	MAX_DEMESNE_BONUS = 0.9, 					-- maximum bonus from demesne
 	FOCUS_BONUS = 2.0, 							-- bonus for the tech in each group set as the focus
 	TRADEPOST_SPREAD_BONUS = 0.002, 			-- Spread from trade posts
 	SPYACTION_SPREAD_BONUS = 0.006,				-- Spread from the target of the study technology spymaster action
@@ -994,12 +994,12 @@ NTechnology = {
 	END_MIL_INDIAN   	= 0.0,
 	END_ECO_INDIAN    	= 0.0,
 	END_CUL_INDIAN    	= 0.0,
-	START_MIL_OTHER     = 0.0,
-	START_ECO_OTHER     = 0.0,
-	START_CUL_OTHER     = 0.0,
-	END_MIL_OTHER       = 0.0,
-	END_ECO_OTHER       = 0.0,
-	END_CUL_OTHER       = 0.0,
+	START_MIL_OTHER     = 1.0,
+	START_ECO_OTHER     = 1.0,
+	START_CUL_OTHER     = 1.0,
+	END_MIL_OTHER       = 1.0,
+	END_ECO_OTHER       = 1.0,
+	END_CUL_OTHER       = 1.0,
 	START_MIL_BYZANTIUM = 0.0,
 	START_ECO_BYZANTIUM = 0.0,
 	START_CUL_BYZANTIUM = 0.0,

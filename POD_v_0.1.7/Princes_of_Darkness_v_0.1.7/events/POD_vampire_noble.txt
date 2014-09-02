@@ -41,6 +41,229 @@ character_event = {
 				add_trait = elder
 				add_trait = bloodpotency_5
 
+# Requiem for Rome
+						if = { 
+								limit = { 
+											has_global_flag = bookmark232
+											has_global_flag = bookmark412
+											religion_group = camarilla_group
+											trait = vampire
+											NOT = { trait = daeva }
+											NOT = { trait = gangrel }
+											NOT = { trait = mekhet }
+											NOT = { trait = nosferatu }
+											NOT = { trait = ventrue }
+											NOT = { trait = julii }
+											NOT = { trait = akhud }
+											NOT = { trait = petrovnavich }
+											NOT = { trait = semeonovic }
+											NOT = { trait = alexander }
+											NOT = { trait = grigorovich }
+											NOT = { trait = irinavici }
+											NOT = { trait = marisovich }
+											NOT = { trait = dubrov }											
+									} 
+						if = { 
+								limit = { ROOT = {
+											primary_title = { holding_type = temple	}	
+											religion_group = camarilla
+											tier = BARON
+										}
+									}
+										
+								if = { 
+										limit = {
+												 	has_global_flag = bookmark232
+											}
+										random_list = {
+												75 = { religion = cult_of_augurs }
+												25 = { religion = lancea_sanctum }
+											}										
+									}
+								if = { 
+										limit = {
+												 	has_global_flag = bookmark412
+											}
+										random_list = {
+												25 = { religion = cult_of_augurs }
+												75 = { religion = lancea_sanctum }
+											}											
+									}																								
+							}
+													
+						if = { 
+								limit = { ROOT = {
+											primary_title = { holding_type = castle	}	
+											tier = BARON
+											religion_group = camarilla
+										}
+									}
+
+										random_list = {
+												75 = { religion = legio_mortuum }
+												25 = { religion = peregrine_collegia }
+											}										
+							}
+							
+						if = { 
+								limit = { ROOT = {
+											primary_title = { holding_type = city	}	
+											tier = BARON
+											religion_group = camarilla
+										}
+									}
+
+										random_list = {
+												75 = { religion = sennex }
+												25 = { religion = peregrine_collegia }
+											}										
+							}
+										
+								if = { 
+									limit = { 
+												religion = sennex 
+												culture = roman
+										} 	
+										random_list = {
+												40 = { 
+												add_trait = daeva 
+												}
+												54 = { 
+												add_trait = julii 
+												}												
+												3 = { 
+												add_trait = nosferatu 
+												}
+												2 = { 
+												add_trait = mekhet 
+												}
+												1 = { 
+												add_trait = gangrel 
+												}	
+											}
+									}
+								if = { 
+									limit = { 
+												religion = sennex
+												NOT = { culture = roman }
+											}
+										religion = peregrine_collegia	
+									}
+								if = { 
+									limit = { religion = cult_of_augurs }
+									random_list = {
+												30 = { 
+												add_trait = daeva 
+												}
+												40 = { 
+												add_trait = mekhet 
+												}
+												10 = { 
+												add_trait = julii 
+												}
+												10 = { 
+												add_trait = gangrel 
+												}
+												10 = { 
+												add_trait = nosferatu 
+												}
+											}
+								}
+								if = { 
+									limit = { religion = legio_mortuum }
+									random_list = {
+												50 = { 
+												add_trait = gangrel 
+												}
+												20 = { 
+												add_trait = julii 
+												}
+												20 = { 
+												add_trait = nosferatu 
+												}
+												5 = { 
+												add_trait = mekhet 
+												}
+												5 = { 
+												add_trait = daeva 
+												}
+										}
+									}
+								if = { 
+									limit = { religion = peregrine_collegia }
+									random_list = {
+												10 = { 
+												add_trait = gangrel 
+												}
+												1 = { 
+												add_trait = julii 
+												}
+												30 = { 
+												add_trait = nosferatu 
+												}
+												19 = { 
+												add_trait = mekhet 
+												}
+												40 = { 
+												add_trait = daeva 
+												}
+										}
+									}	
+							}	
+
+						if = { 
+								limit = { ROOT = {
+											primary_title = { holding_type = temple}	
+											tier = BARON
+											religion = aka_manah
+											trait = vampire
+											NOT = { trait = daeva }
+											NOT = { trait = gangrel }
+											NOT = { trait = mekhet }
+											NOT = { trait = nosferatu }
+											NOT = { trait = ventrue }
+											NOT = { trait = julii }
+											NOT = { trait = akhud }
+											NOT = { trait = petrovnavich }
+											NOT = { trait = semeonovic }
+											NOT = { trait = alexander }
+											NOT = { trait = grigorovich }
+											NOT = { trait = irinavici }
+											NOT = { trait = marisovich }
+											NOT = { trait = dubrov }												
+										}
+									}
+								add_trait = daeva
+							}
+							
+						if = { 
+								limit = { ROOT = {
+											trait = vampire
+											NOT = { trait = daeva }
+											NOT = { trait = gangrel }
+											NOT = { trait = mekhet }
+											NOT = { trait = nosferatu }
+											NOT = { trait = ventrue }
+											NOT = { trait = julii }
+											NOT = { trait = akhud }
+											NOT = { trait = petrovnavich }
+											NOT = { trait = semeonovic }
+											NOT = { trait = alexander }
+											NOT = { trait = grigorovich }
+											NOT = { trait = irinavici }
+											NOT = { trait = marisovich }
+											NOT = { trait = dubrov }
+											religion = aka_manah
+										}
+									}
+								random_list = {
+												55 = { add_trait = daeva }
+												15 = { add_trait = mekhet }
+												15 = { add_trait = gangrel }
+												15 = { add_trait = nosferatu }
+											}
+							}							
+						
 # assign Vampire clan
 
 						if = { limit = {  
@@ -242,38 +465,23 @@ character_event = {
 													}
 										 trait = vampire }
 								random_list = {
-											30 = { dynasty = 8000028 }
-											70 = { set_character_flag = POD_vampire_forsworn_NOT_Therion_dynasty}
+											20 = { dynasty = 8000028 }
+											80 = { set_character_flag = POD_vampire_forsworn_NOT_Therion_dynasty}
 											}				
 
 							}		
 
 							
-			if = { limit = {		trait = vampire
-												NOT = { trait = daeva }
-												NOT = { trait = gangrel }
-												NOT = { trait = mekhet }
-												NOT = { trait = nosferatu }
-												NOT = { trait = ventrue }
-												NOT = { trait = petrovnavich }
-												NOT = { trait = semeonovic }
-												NOT = { trait = alexander }
-												NOT = { trait = grigorovich }
-												NOT = { trait = irinavici }
-												NOT = { trait = marisovich }
-												NOT = { trait = dubrov }
-										 }
-				random_list = {
-				
-									2 = {
-											add_trait = "vii"
-											if = { limit = {		
+			if = { 
+				limit = {		
 												trait = vampire
 												NOT = { trait = daeva }
 												NOT = { trait = gangrel }
 												NOT = { trait = mekhet }
 												NOT = { trait = nosferatu }
 												NOT = { trait = ventrue }
+												NOT = { trait = julii }
+												NOT = { trait = akhud }
 												NOT = { trait = petrovnavich }
 												NOT = { trait = semeonovic }
 												NOT = { trait = alexander }
@@ -281,6 +489,60 @@ character_event = {
 												NOT = { trait = irinavici }
 												NOT = { trait = marisovich }
 												NOT = { trait = dubrov }
+					}
+				random_list = {
+				
+									2 = {
+											add_trait = "vii"
+											if = { 
+												limit = {
+																		trait = vampire
+																		NOT = { trait = daeva }
+																		NOT = { trait = gangrel }
+																		NOT = { trait = mekhet }
+																		NOT = { trait = nosferatu }
+																		NOT = { trait = ventrue }
+																		NOT = { trait = julii }
+																		NOT = { trait = akhud }
+																		NOT = { trait = petrovnavich }
+																		NOT = { trait = semeonovic }
+																		NOT = { trait = alexander }
+																		NOT = { trait = grigorovich }
+																		NOT = { trait = irinavici }
+																		NOT = { trait = marisovich }
+																		NOT = { trait = dubrov }											
+																		OR = {
+																			has_global_flag = bookmark232
+																			has_global_flag = bookmark412
+																			has_global_flag = bookmark480
+																			has_global_flag = bookmark543
+																			has_global_flag = bookmark947
+																			}
+														}
+													add_trait = akhud
+												}	
+									
+											if = { 
+												limit = {		
+												trait = vampire
+												NOT = { trait = daeva }
+												NOT = { trait = gangrel }
+												NOT = { trait = mekhet }
+												NOT = { trait = nosferatu }
+												NOT = { trait = ventrue }
+												NOT = { trait = julii }
+												NOT = { trait = akhud }
+												NOT = { trait = petrovnavich }
+												NOT = { trait = semeonovic }
+												NOT = { trait = alexander }
+												NOT = { trait = grigorovich }
+												NOT = { trait = irinavici }
+												NOT = { trait = marisovich }
+												NOT = { trait = dubrov }
+												OR = {
+														has_global_flag = bookmark1142
+														has_global_flag = bookmark1250
+												}
 											}
 											if = { limit = { culture = italian }
 													add_trait = "irinavici"
@@ -404,13 +666,16 @@ character_event = {
 																   dynasty = 1042648 }					   
 											}
 																   
-											if = { limit = {		
+											if = { 
+												limit = {		
 												trait = vampire
 												NOT = { trait = daeva }
 												NOT = { trait = gangrel }
 												NOT = { trait = mekhet }
 												NOT = { trait = nosferatu }
 												NOT = { trait = ventrue }
+												NOT = { trait = julii }
+												NOT = { trait = akhud }
 												NOT = { trait = petrovnavich }
 												NOT = { trait = semeonovic }
 												NOT = { trait = alexander }
@@ -418,6 +683,10 @@ character_event = {
 												NOT = { trait = irinavici }
 												NOT = { trait = marisovich }
 												NOT = { trait = dubrov }
+												OR = {
+														has_global_flag = bookmark1142
+														has_global_flag = bookmark1250
+												}												
 											}
 											
 											random_list = {
@@ -441,25 +710,42 @@ character_event = {
 									}
 									
 									20 = {
-											add_trait = "daeva"
-											
+											add_trait = "daeva"	
 									}
-									
 									10 = {
 											add_trait = "gangrel"
-											
 									}
 									20 = {
-											add_trait = "mekhet"
-											
+											add_trait = "mekhet"	
 									}		
-									
-									15 = { add_trait = "nosferatu"
-											
+									15 = { add_trait = "nosferatu"		
 									}
-									
 									33 = { 
 											add_trait = "ventrue"
+											if = { limit = {
+															has_global_flag = bookmark232
+															has_global_flag = bookmark412														
+														}
+												random_list = {
+																20 = {
+																		remove_trait = ventrue
+																		add_trait = gangrel
+																}
+																20 = {
+																		remove_trait = ventrue
+																		add_trait = daeva
+																}
+																20 = { 
+																		remove_trait = ventrue
+																		add_trait = mekhet
+																}
+																20 = {
+																		remove_trait = ventrue
+																		add_trait = nosferatu
+																}
+														}
+												}
+											
 											
 									}
 									
@@ -473,11 +759,10 @@ character_event = {
 													age = 1
 													is_adult = yes
 													trait = vampire
-#													NOT = { trait = daeva }
-#													NOT = { trait = gangrel }
-#													NOT = { trait = mekhet }
-#													NOT = { trait = nosferatu }
-#													NOT = { trait = ventrue }
+													OR = {
+															has_global_flag = bookmark1142	
+															has_global_flag = bookmark1250	
+														}
 													}
 													
 # CHRISTIAN ZOMBIE VAMPIRES! I AM THE FATHER! THE FATHER OF NOTHING!
@@ -485,6 +770,7 @@ character_event = {
 													if = { 
 														limit = { ROOT = {
 																	religion = lancea_sanctum 
+																	primary_title = { holding_type = temple	}
 																	NOT = { is_feudal = yes } 
 																	NOT = { is_patrician = yes }
 																	NOT = { mercenary = yes }
@@ -538,9 +824,7 @@ character_event = {
 													if = { 
 														limit = { ROOT = {
 																	religion = invictus 
-																	OR = {
-																	is_feudal =  yes 
-																	is_patrician = yes  }
+																	NOT = { primary_title = { holding_type = temple	} }
 																	NOT = { mercenary = yes }
 																	NOT = { holy_order = yes }																	
 																	
@@ -564,10 +848,7 @@ character_event = {
 													if = { 
 														limit = { ROOT = {
 																	religion = invictus 
-																	NOT = { is_feudal = yes } 
-																	NOT = { is_patrician = yes }
-																	NOT = { mercenary = yes }
-																	NOT = { holy_order = yes }																	
+																	primary_title = { holding_type = temple	}																	
 																	}
 																}
 																	random_list = {
@@ -641,6 +922,7 @@ character_event = {
 													if = { 
 														limit = { ROOT = {
 																	religion = circle_of_the_crone 
+																	primary_title = { holding_type = temple	} 
 																	NOT = { is_feudal = yes } 
 																	NOT = { is_patrician = yes }
 																	NOT = { mercenary = yes }
@@ -667,8 +949,7 @@ character_event = {
 													if = { 
 														limit = { ROOT = {
 																	religion = circle_of_the_crone 
-																	OR = { is_feudal = yes 
-																	 is_patrician = yes }
+																	NOT = { primary_title = { holding_type = temple	} }
 																	NOT = { mercenary = yes }
 																	NOT = { holy_order = yes }																		
 																} 
@@ -693,8 +974,7 @@ character_event = {
 													if = { 
 														limit = { ROOT = {
 																	religion = banu_shaitan 
-																	OR = { is_feudal = yes 
-																	 is_patrician = yes }
+																	NOT = { primary_title = { holding_type = temple	} }
 																	NOT = { mercenary = yes }
 																	NOT = { holy_order = yes }																		
 																	} 
@@ -714,8 +994,7 @@ character_event = {
 													if = { 
 														limit = { ROOT = {
 																	religion = banu_shaitan 
-																	NOT = { is_feudal = yes } 
-																	NOT = { is_patrician = yes }
+																	primary_title = { holding_type = temple	}
 																	NOT = { mercenary = yes }
 																	NOT = { holy_order = yes }																	
 																	}
@@ -734,8 +1013,7 @@ character_event = {
 													if = { 
 														limit = { ROOT = {
 																	religion = al-amin 
-																	NOT = { is_feudal = yes } 
-																	NOT = { is_patrician = yes }
+																	primary_title = { holding_type = temple	}
 																	NOT = { mercenary = yes }
 																	NOT = { holy_order = yes }																	
 																	
@@ -757,8 +1035,7 @@ character_event = {
 													if = { 
 														limit = { ROOT = {
 																	religion = al-amin 
-																	OR = { is_feudal = yes 
-																	is_patrician = yes }
+																	NOT = { primary_title = { holding_type = temple	} }
 																	NOT = { mercenary = yes }
 																	NOT = { holy_order = yes }																	
 																	}
@@ -3810,7 +4087,62 @@ if = { limit = { culture = kannada }
 																					}
 																				}
 																	}
-				
+
+
+# Julii vampire discipline assignment
+
+															if = {
+																limit = 
+																	{
+																	trait = "elder"
+																	trait = "julii"
+																	}
+																	random_list = {
+																					40 = {
+																						add_trait = animalism_3
+																						add_trait = dominate_5
+																						add_trait = resilience_3
+																					}
+																					30 = {
+																						add_trait = animalism_5
+																						add_trait = dominate_3
+																						add_trait = resilience_3
+																					}
+																					30 = {
+																						add_trait = animalism_3
+																						add_trait = dominate_3
+																						add_trait = resilience_5
+																					}
+																				}
+																	}	
+
+# Akhud vampire discipline assignment
+
+															if = {
+																limit = 
+																	{
+																	trait = "elder"
+																	trait = "akhud"
+																	}
+																	random_list = {
+																					40 = {
+																						add_trait = celerity_3
+																						add_trait = praestantia_5
+																						add_trait = obfuscate_3
+																					}
+																					30 = {
+																						add_trait = celerity_5
+																						add_trait = praestantia_3
+																						add_trait = obfuscate_3
+																					}
+																					30 = {
+																						add_trait = celerity_3
+																						add_trait = praestantia_3
+																						add_trait = obfuscate_5
+																					}
+																				}
+																	}	
+																	
 # Unique Forsworn/Belial's Brood bloodline
 
 if = {
@@ -3957,9 +4289,17 @@ if = {
 													NOT = { trait = "mekhet" }
 													NOT = { trait = "nosferatu" }
 													NOT = { trait = "ventrue" }
+													NOT = { trait = "julii" }
+													NOT = { trait = akhud }
+													NOT = { trait = petrovnavich }
+													NOT = { trait = semeonovic }
+													NOT = { trait = alexander }
+													NOT = { trait = grigorovich }
+													NOT = { trait = irinavici }
+													NOT = { trait = marisovich }
+													NOT = { trait = dubrov }													
 													}
-													
-													
+
 													# indian vampires inherit caste
 														if = { limit = { father = { trait = kshatriya } }
 															add_trait = kshatriya
@@ -3967,7 +4307,15 @@ if = {
 														if = { limit = { father = { trait = brahmin } }
 															add_trait = brahmin
 															}
-													# vampires inherit sire's clan		
+													# vampires inherit sire's clan	
+														if = { limit = { ROOT = { trait = julii } }
+															add_trait = julii
+															}
+															
+														if = { limit = { ROOT = { trait = akhud } }
+															add_trait = akhud
+															}
+															
 														if = { limit = { ROOT = { trait = daeva } }
 															add_trait = daeva
 															
@@ -4372,6 +4720,115 @@ if = {
 																					}
 																				}
 																}	
+																
+															if = {
+																limit = 
+																	{
+																	trait = "julii"
+																	trait = "ancilla"
+																	}
+																	random_list = {
+																	70 = {
+																		add_trait = animalism_2
+																		add_trait = dominate_3
+																		add_trait = resilience_2
+																	}
+																	10 = {
+																		add_trait = animalism_5
+																		add_trait = dominate_1
+																		add_trait = resilience_1
+																	}
+																	10 = {
+																		add_trait = animalism_1
+																		add_trait = dominate_5
+																		add_trait = resilience_1
+																	}
+																	10 = {
+																		add_trait = animalism_1
+																		add_trait = dominate_1
+																		add_trait = resilience_5
+																	}
+																	}
+																}
+															if = {
+																limit = 
+																	{
+																	trait = "julii"
+																	trait = "elder"
+																	}
+																	random_list = {
+																					40 = {
+																						add_trait = animalism_3
+																						add_trait = dominate_5
+																						add_trait = resilience_3
+																					}
+																					30 = {
+																						add_trait = animalism_5
+																						add_trait = dominate_3
+																						add_trait = resilience_3
+																					}
+																					30 = {
+																						add_trait = animalism_3
+																						add_trait = dominate_3
+																						add_trait = resilience_5
+																					}
+																				}
+																}	
+
+															if = {
+																limit = 
+																	{
+																	trait = "akhud"
+																	trait = "ancilla"
+																	}
+																	random_list = {
+																	70 = {
+																		add_trait = celerity_2
+																		add_trait = auspex_3
+																		add_trait = obfuscate_2
+																	}
+																	10 = {
+																		add_trait = celerity_5
+																		add_trait = auspex_1
+																		add_trait = obfuscate_1
+																	}
+																	10 = {
+																		add_trait = celerity_1
+																		add_trait = auspex_5
+																		add_trait = obfuscate_1
+																	}
+																	10 = {
+																		add_trait = celerity_1
+																		add_trait = auspex_1
+																		add_trait = obfuscate_5
+																	}
+																	}
+																}
+															if = {
+																limit = 
+																	{
+																	trait = "akhud"
+																	trait = "elder"
+																	}
+																	random_list = {
+																					40 = {
+																						add_trait = celerity_3
+																						add_trait = auspex_5
+																						add_trait = obfuscate_3
+																					}
+																					30 = {
+																						add_trait = celerity_5
+																						add_trait = auspex_3
+																						add_trait = obfuscate_3
+																					}
+																					30 = {
+																						add_trait = celerity_3
+																						add_trait = auspex_3
+																						add_trait = obfuscate_5
+																					}
+																				}
+																}																	
+																
 															if = {
 																limit = 
 																	{

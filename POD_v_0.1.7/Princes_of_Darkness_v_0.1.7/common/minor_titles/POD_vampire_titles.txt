@@ -21,7 +21,6 @@ title_embrace_mortal = {
 		FROM = {
 			 trait = vampire
 			 NOT = { num_of_children = 5 }
-			 wealth = 100	
 			 NOT = { ai = yes }
 		}
 	}
@@ -33,7 +32,7 @@ title_embrace_mortal = {
 							set_mother = 0
 						}
 				if = { limit = { FROM = { is_female = yes } }
-							set_father = NULL
+							set_father = 0
 							set_mother = FROM
 						}	
     	dynasty = FROM
@@ -87,7 +86,6 @@ title_ghoul = {
 				}
 		FROM = {
 			 trait = vampire
-			wealth = 10
 			check_variable = { 
 				which = "vitae"
 				value = 2

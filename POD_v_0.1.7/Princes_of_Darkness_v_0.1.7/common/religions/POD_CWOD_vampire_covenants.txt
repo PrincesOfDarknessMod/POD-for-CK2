@@ -1,0 +1,1901 @@
+# Vampire the Masquerade covenants
+#Reformed religions must be listed before their unreformed versions.
+vampire_high_clans_group = {
+	has_coa_on_barony_only = yes
+	graphical_culture = westerngfx
+	crusade_cb = crusade
+	playable = yes
+
+	ai_peaceful = yes # Will make Hordes lose their super aggressiveness
+	
+	ai_convert_same_group = 0 # never try to convert
+	ai_convert_other_group = 2 # always try to convert
+	
+vampire_high_clans = {
+		graphical_culture = westerngfx
+
+		icon = 49
+		heresy_icon = 49
+		
+		color = { 0.8 0.0 0.0 }
+		crusade_name = COVENANT_WAR
+		scripture_name = TESTAMENT_OF_LOGINUS
+		priest_title = OATHKEEPER
+		
+		god_names = {
+			GOD_LONGINUS
+		}
+		evil_god_names = {
+			GOD_THE_ADVERSARY
+		}
+		
+		unit_modifier = {		
+			garrison_size = 0.3
+			levy_size = 0.1
+			
+			key = "DEF_RELIGION"
+		}
+		unit_home_modifier = {
+			land_morale = 0.8
+			light_infantry_defensive = 0.8
+			heavy_infantry_defensive = 0.8
+			pikemen_defensive = 0.8
+			light_cavalry_defensive = 0.8
+			knights_defensive = 0.8
+			archers_defensive = 0.8
+			horse_archers_defensive = 0.8
+			
+			garrison_size = 0.4
+			
+			key = "DEF_RELIGION_HOME_TERRITORY"
+		}
+		
+		priests_can_marry = yes
+		can_grant_divorce = yes
+		can_hold_temples = yes
+		priests_can_inherit = yes
+		
+		female_temple_holders = yes
+		feminist = yes      # Nullifies the negative opinion modifier that vassals normally get if ruler is female or has female heir
+
+		defensive_attrition = yes
+		allow_looting = yes
+		
+		max_consorts = 3
+		
+		independence_war_score_bonus = 30 # Overrides define CONTESTED_TITLE_OCCUPIED_WARSCORE_BONUS_INDEP
+		 
+		
+		short_reign_opinion_year_mult = 4 # The default is 2
+		intermarry = ashirra
+		intermarry = masquerade_camarilla
+		intermarry = inconnu
+	}	
+
+revenant_high_clans = {
+		graphical_culture = westerngfx
+
+		icon = 49
+		heresy_icon = 49
+		
+		color = { 0.8 0.0 0.0 }
+		crusade_name = CRUSADE
+		scripture_name = TESTAMENT_OF_LOGINUS
+		priest_title = PRIEST
+		
+		god_names = {
+			GOD_LONGINUS
+		}
+		evil_god_names = {
+			GOD_THE_ADVERSARY
+		}
+		
+		unit_modifier = {		
+			garrison_size = 0.3
+			levy_size = 0.1
+			
+			key = "DEF_RELIGION"
+		}
+		unit_home_modifier = {
+			land_morale = 0.8
+			light_infantry_defensive = 0.8
+			heavy_infantry_defensive = 0.8
+			pikemen_defensive = 0.8
+			light_cavalry_defensive = 0.8
+			knights_defensive = 0.8
+			archers_defensive = 0.8
+			horse_archers_defensive = 0.8
+			
+			garrison_size = 0.4
+			
+			key = "DEF_RELIGION_HOME_TERRITORY"
+		}
+		
+		priests_can_marry = yes
+		can_grant_divorce = yes
+		can_hold_temples = yes
+		priests_can_inherit = yes
+		
+		female_temple_holders = yes
+		feminist = yes      # Nullifies the negative opinion modifier that vassals normally get if ruler is female or has female heir
+
+		defensive_attrition = yes
+		allow_looting = yes
+		
+		max_consorts = 3
+		
+		independence_war_score_bonus = 30 # Overrides define CONTESTED_TITLE_OCCUPIED_WARSCORE_BONUS_INDEP
+		 
+		
+		short_reign_opinion_year_mult = 4 # The default is 2
+		
+		intermarry = revenant_ashirra
+		intermarry = revenant_low_clans
+		intermarry = revenant_sabbat
+		intermarry = revenant_inconnu
+		intermarry = revenant_masquerade_camarilla
+		intermarry = revenant_anarch
+		}		
+	}	
+	
+ashirra_vampire_group = {
+	has_coa_on_barony_only = yes
+	graphical_culture = muslimgfx
+	crusade_cb = crusade
+	playable = yes
+	hostile_within_group = no
+
+	ai_peaceful = yes # Will make Hordes lose their super aggressiveness
+	
+	ai_convert_same_group = 0 # never try to convert
+	ai_convert_other_group = 2 # always try to convert	
+	
+ashirra = {
+#Muslim
+		graphical_culture = muslimgfx
+
+		icon = 9
+		heresy_icon = 9
+		
+		color = { 1.0 0.7 0.4 }
+		crusade_name = JYHAD
+		scripture_name = THE_LEGENDS
+		priest_title = IMAM_PRIEST
+		
+		god_names = {
+			IBLIS
+		}
+		evil_god_names = {
+			GOD_ALLAH
+		}
+		
+		unit_modifier = {		
+			garrison_size = 0.3
+			levy_size = 0.1
+			
+			key = "DEF_RELIGION"
+		}
+		unit_home_modifier = {
+			land_morale = 0.8
+			light_infantry_defensive = 0.8
+			heavy_infantry_defensive = 0.8
+			pikemen_defensive = 0.8
+			light_cavalry_defensive = 0.8
+			knights_defensive = 0.8
+			archers_defensive = 0.8
+			horse_archers_defensive = 0.8
+			
+			garrison_size = 0.4
+			
+			key = "DEF_RELIGION_HOME_TERRITORY"
+		}
+		
+		priests_can_marry = yes
+		can_grant_divorce = yes
+		can_hold_temples = yes
+		priests_can_inherit = yes
+		
+		female_temple_holders = yes
+		feminist = yes      # Nullifies the negative opinion modifier that vassals normally get if ruler is female or has female heir
+
+		defensive_attrition = yes
+		allow_looting = yes
+		
+		max_consorts = 3
+		
+		independence_war_score_bonus = 30 # Overrides define CONTESTED_TITLE_OCCUPIED_WARSCORE_BONUS_INDEP
+
+		intermarry = vampire_high_clans
+		intermarry = vampire_low_clans
+		intermarry = sabbat
+		intermarry = anarchs
+		intermarry = masquerade_camarilla
+		intermarry = inconnu		
+		
+		short_reign_opinion_year_mult = 4 # The default is 2
+
+	}
+
+revenant_ashirra = {
+#Muslim
+		graphical_culture = muslimgfx
+
+		icon = 9
+		heresy_icon = 9
+		
+		color = { 1.0 0.7 0.4 }
+		crusade_name = JYHAD
+		scripture_name = THE_LEGENDS
+		priest_title = IMAM_PRIEST
+		
+		god_names = {
+			IBLIS SHAYTAN
+		}
+		evil_god_names = {
+			GOD_ALLAH
+		}
+		
+		unit_modifier = {		
+			garrison_size = 0.3
+			levy_size = 0.1
+			
+			key = "DEF_RELIGION"
+		}
+		unit_home_modifier = {
+			land_morale = 0.8
+			light_infantry_defensive = 0.8
+			heavy_infantry_defensive = 0.8
+			pikemen_defensive = 0.8
+			light_cavalry_defensive = 0.8
+			knights_defensive = 0.8
+			archers_defensive = 0.8
+			horse_archers_defensive = 0.8
+			
+			garrison_size = 0.4
+			
+			key = "DEF_RELIGION_HOME_TERRITORY"
+		}
+		
+		priests_can_marry = yes
+		can_grant_divorce = yes
+		can_hold_temples = yes
+		priests_can_inherit = yes
+		
+		female_temple_holders = yes
+		feminist = yes      # Nullifies the negative opinion modifier that vassals normally get if ruler is female or has female heir
+
+		defensive_attrition = yes
+		allow_looting = yes
+		
+		max_consorts = 3
+		
+		independence_war_score_bonus = 30 # Overrides define CONTESTED_TITLE_OCCUPIED_WARSCORE_BONUS_INDEP
+		 
+		
+		short_reign_opinion_year_mult = 4 # The default is 2
+
+		intermarry = revenant_high_clans
+		intermarry = revenant_low_clans
+		intermarry = revenant_sabbat
+		intermarry = revenant_inconnu
+		intermarry = revenant_masquerade_camarilla
+		intermarry = revenant_anarch
+		
+	}
+
+assamites = {
+		graphical_culture = westerngfx
+
+		icon = 16
+		heresy_icon = 16
+		
+		color = { 0.4 0.0 0.2 }
+		crusade_name = GREAT_HOLY_WAR
+		scripture_name = THE_LEGENDS
+		priest_title = PRIEST
+		
+		god_names = {
+			GOD_GOD
+		}
+		evil_god_names = {
+			DEVIL
+		}
+		
+		unit_modifier = {		
+			garrison_size = 0.3
+			levy_size = 0.1
+			
+			key = "DEF_RELIGION"
+		}
+		unit_home_modifier = {
+			land_morale = 0.8
+			light_infantry_defensive = 0.8
+			heavy_infantry_defensive = 0.8
+			pikemen_defensive = 0.8
+			light_cavalry_defensive = 0.8
+			knights_defensive = 0.8
+			archers_defensive = 0.8
+			horse_archers_defensive = 0.8
+			
+			garrison_size = 0.4
+			
+			key = "DEF_RELIGION_HOME_TERRITORY"
+		}
+		
+		priests_can_marry = yes
+		can_grant_divorce = yes
+		can_hold_temples = yes
+		priests_can_inherit = yes
+		
+		female_temple_holders = yes
+		feminist = yes      # Nullifies the negative opinion modifier that vassals normally get if ruler is female or has female heir
+
+		defensive_attrition = yes
+		allow_looting = yes
+		
+		max_consorts = 3
+		
+		independence_war_score_bonus = 30 # Overrides define CONTESTED_TITLE_OCCUPIED_WARSCORE_BONUS_INDEP
+		 
+		intermarry = ashirra
+		intermarry = inconnu
+		intermarry = vampire_high_clans
+		intermarry = vampire_low_clans
+		intermarry = autarkis
+		intermarry = anarchs
+		intermarry = furores		
+		
+		short_reign_opinion_year_mult = 4 # The default is 2
+	}	
+
+revenant_assamites = {
+		graphical_culture = westerngfx
+
+		icon = 15
+		heresy_icon = 15
+		
+		color = { 0.4 0.0 0.2 }
+		crusade_name = GREAT_HOLY_WAR
+		scripture_name = THE_LEGENDS
+		priest_title = PRIEST
+		
+		god_names = {
+			GOD_PLUTO
+		}
+		evil_god_names = {
+			GOD_SOL_INVICTUS
+		}
+		
+		unit_modifier = {		
+			garrison_size = 0.3
+			levy_size = 0.1
+			
+			key = "DEF_RELIGION"
+		}
+		unit_home_modifier = {
+			land_morale = 0.8
+			light_infantry_defensive = 0.8
+			heavy_infantry_defensive = 0.8
+			pikemen_defensive = 0.8
+			light_cavalry_defensive = 0.8
+			knights_defensive = 0.8
+			archers_defensive = 0.8
+			horse_archers_defensive = 0.8
+			
+			garrison_size = 0.4
+			
+			key = "DEF_RELIGION_HOME_TERRITORY"
+		}
+		
+		priests_can_marry = yes
+		can_grant_divorce = yes
+		can_hold_temples = yes
+		priests_can_inherit = yes
+		
+		female_temple_holders = yes
+		feminist = yes      # Nullifies the negative opinion modifier that vassals normally get if ruler is female or has female heir
+
+		defensive_attrition = yes
+		allow_looting = yes
+		
+		max_consorts = 3
+		
+		independence_war_score_bonus = 30 # Overrides define CONTESTED_TITLE_OCCUPIED_WARSCORE_BONUS_INDEP
+		 
+		
+		short_reign_opinion_year_mult = 4 # The default is 2	
+	}		
+
+	
+	}
+
+vampire_low_clans_group = {
+	has_coa_on_barony_only = yes
+	graphical_culture = norsegfx
+	crusade_cb = crusade
+	playable = yes
+	hostile_within_group = yes
+
+	ai_peaceful = yes # Will make Hordes lose their super aggressiveness
+	
+	ai_convert_same_group = 0 # never try to convert
+	ai_convert_other_group = 2 # always try to convert	
+	
+vampire_low_clans = {
+		graphical_culture = norsegfx
+
+		icon = 50
+		heresy_icon = 50
+		
+		color = { 0.4 0.4 0.0 }
+		crusade_name = GREAT_HOLY_WAR
+		scripture_name = THE_SAGAS
+		priest_title = GODI
+		
+		god_names = {
+			HEL
+		}
+		evil_god_names = {
+			GOD_THOR GOD_THE_THUNDERER GOD_THE_ALLFATHER GOD_THE_ODIN GOD_FREY GOD_TYR
+		}
+		
+		unit_modifier = {		
+			garrison_size = 0.3
+			levy_size = 0.1
+			
+			key = "DEF_RELIGION"
+		}
+		unit_home_modifier = {
+			land_morale = 0.8
+			light_infantry_defensive = 0.8
+			heavy_infantry_defensive = 0.8
+			pikemen_defensive = 0.8
+			light_cavalry_defensive = 0.8
+			knights_defensive = 0.8
+			archers_defensive = 0.8
+			horse_archers_defensive = 0.8
+			
+			garrison_size = 0.4
+			
+			key = "DEF_RELIGION_HOME_TERRITORY"
+		}
+		
+		priests_can_marry = yes
+		can_grant_divorce = yes
+		can_hold_temples = yes
+		priests_can_inherit = yes
+		
+		female_temple_holders = yes
+		feminist = yes      # Nullifies the negative opinion modifier that vassals normally get if ruler is female or has female heir
+
+		defensive_attrition = yes
+		allow_looting = yes
+		
+		max_consorts = 3
+		
+		independence_war_score_bonus = 30 # Overrides define CONTESTED_TITLE_OCCUPIED_WARSCORE_BONUS_INDEP
+		 
+		
+		short_reign_opinion_year_mult = 4 # The default is 2
+		
+		religious_clothing_head = 3
+		religious_clothing_priest = 3
+		
+		intermarry = ashirra
+		intermarry = sabbat
+		intermarry = anarchs
+		
+	}	
+	
+anarchs = {
+		graphical_culture = westerngfx
+
+		icon = 51
+		heresy_icon = 51
+		
+		color = { 0.4 0.4 0.4 }
+		crusade_name = JYHAD
+		scripture_name = THE_LEGENDS
+		priest_title = PRIEST
+		
+		god_names = {
+			THE_REVOLUTION
+		}
+		evil_god_names = {
+			THE_MAN
+		}
+		
+		unit_modifier = {		
+			garrison_size = 0.3
+			levy_size = 0.1
+			
+			key = "DEF_RELIGION"
+		}
+		unit_home_modifier = {
+			land_morale = 0.8
+			light_infantry_defensive = 0.8
+			heavy_infantry_defensive = 0.8
+			pikemen_defensive = 0.8
+			light_cavalry_defensive = 0.8
+			knights_defensive = 0.8
+			archers_defensive = 0.8
+			horse_archers_defensive = 0.8
+			
+			garrison_size = 0.4
+			
+			key = "DEF_RELIGION_HOME_TERRITORY"
+		}
+		
+		priests_can_marry = yes
+		can_grant_divorce = yes
+		can_hold_temples = yes
+		priests_can_inherit = yes
+		
+		female_temple_holders = yes
+		feminist = yes      # Nullifies the negative opinion modifier that vassals normally get if ruler is female or has female heir
+
+		defensive_attrition = yes
+		allow_looting = yes
+		
+		max_consorts = 3
+		
+		independence_war_score_bonus = 30 # Overrides define CONTESTED_TITLE_OCCUPIED_WARSCORE_BONUS_INDEP
+		 
+		
+		short_reign_opinion_year_mult = 4 # The default is 2
+		
+		religious_clothing_head = 0
+		religious_clothing_priest = 1
+		
+		intermarry = ashirra
+		intermarry = sabbat
+		intermarry = vampire_low_clans
+	}
+	
+revenant_anarchs = {
+		graphical_culture = norsegfx
+
+		icon = 51
+		heresy_icon = 51
+		
+		color = { 0.4 0.4 0.0 }
+		crusade_name = JYHAD
+		scripture_name = THE_LEGENDS
+		priest_title = PRIEST
+		
+		god_names = {
+			GOD_LONGINUS
+		}
+		evil_god_names = {
+			GOD_THE_ADVERSARY
+		}
+		
+		unit_modifier = {		
+			garrison_size = 0.3
+			levy_size = 0.1
+			
+			key = "DEF_RELIGION"
+		}
+		unit_home_modifier = {
+			land_morale = 0.8
+			light_infantry_defensive = 0.8
+			heavy_infantry_defensive = 0.8
+			pikemen_defensive = 0.8
+			light_cavalry_defensive = 0.8
+			knights_defensive = 0.8
+			archers_defensive = 0.8
+			horse_archers_defensive = 0.8
+			
+			garrison_size = 0.4
+			
+			key = "DEF_RELIGION_HOME_TERRITORY"
+		}
+		
+		priests_can_marry = yes
+		can_grant_divorce = yes
+		can_hold_temples = yes
+		priests_can_inherit = yes
+		
+		female_temple_holders = yes
+		feminist = yes      # Nullifies the negative opinion modifier that vassals normally get if ruler is female or has female heir
+
+		defensive_attrition = yes
+		allow_looting = yes
+		
+		max_consorts = 3
+		
+		independence_war_score_bonus = 30 # Overrides define CONTESTED_TITLE_OCCUPIED_WARSCORE_BONUS_INDEP
+		 
+		
+		short_reign_opinion_year_mult = 4 # The default is 2
+		
+		religious_clothing_head = 3
+		religious_clothing_priest = 3
+		
+		intermarry = revenant_ashirra
+		intermarry = revenant_sabbat
+		intermarry = revenant_low_clans		
+		
+	}	
+
+autarkis = {
+		graphical_culture = westerngfx
+
+		icon = 51
+		heresy_icon = 51
+		
+		color = { 0.4 0.4 0.4 }
+		crusade_name = JYHAD
+		scripture_name = THE_LEGENDS
+		priest_title = PRIEST
+		
+		god_names = {
+			THE_REVOLUTION
+		}
+		evil_god_names = {
+			THE_MAN
+		}
+		
+		unit_modifier = {		
+			garrison_size = 0.3
+			levy_size = 0.1
+			
+			key = "DEF_RELIGION"
+		}
+		unit_home_modifier = {
+			land_morale = 0.8
+			light_infantry_defensive = 0.8
+			heavy_infantry_defensive = 0.8
+			pikemen_defensive = 0.8
+			light_cavalry_defensive = 0.8
+			knights_defensive = 0.8
+			archers_defensive = 0.8
+			horse_archers_defensive = 0.8
+			
+			garrison_size = 0.4
+			
+			key = "DEF_RELIGION_HOME_TERRITORY"
+		}
+		
+		priests_can_marry = yes
+		can_grant_divorce = yes
+		can_hold_temples = yes
+		priests_can_inherit = yes
+		
+		female_temple_holders = yes
+		feminist = yes      # Nullifies the negative opinion modifier that vassals normally get if ruler is female or has female heir
+
+		defensive_attrition = yes
+		allow_looting = yes
+		
+		max_consorts = 3
+		
+		independence_war_score_bonus = 30 # Overrides define CONTESTED_TITLE_OCCUPIED_WARSCORE_BONUS_INDEP
+		 
+		
+		short_reign_opinion_year_mult = 4 # The default is 2
+		
+		religious_clothing_head = 0
+		religious_clothing_priest = 1
+		
+		intermarry = ashirra
+		intermarry = sabbat
+		intermarry = anarchs
+		intermarry = vampire_low_clans
+	}
+	
+revenant_autarkis = {
+		graphical_culture = norsegfx
+
+		icon = 51
+		heresy_icon = 51
+		
+		color = { 0.4 0.4 0.0 }
+		crusade_name = JYHAD
+		scripture_name = THE_LEGENDS
+		priest_title = PRIEST
+		
+		god_names = {
+			GOD_LONGINUS
+		}
+		evil_god_names = {
+			GOD_THE_ADVERSARY
+		}
+		
+		unit_modifier = {		
+			garrison_size = 0.3
+			levy_size = 0.1
+			
+			key = "DEF_RELIGION"
+		}
+		unit_home_modifier = {
+			land_morale = 0.8
+			light_infantry_defensive = 0.8
+			heavy_infantry_defensive = 0.8
+			pikemen_defensive = 0.8
+			light_cavalry_defensive = 0.8
+			knights_defensive = 0.8
+			archers_defensive = 0.8
+			horse_archers_defensive = 0.8
+			
+			garrison_size = 0.4
+			
+			key = "DEF_RELIGION_HOME_TERRITORY"
+		}
+		
+		priests_can_marry = yes
+		can_grant_divorce = yes
+		can_hold_temples = yes
+		priests_can_inherit = yes
+		
+		female_temple_holders = yes
+		feminist = yes      # Nullifies the negative opinion modifier that vassals normally get if ruler is female or has female heir
+
+		defensive_attrition = yes
+		allow_looting = yes
+		
+		max_consorts = 3
+		
+		independence_war_score_bonus = 30 # Overrides define CONTESTED_TITLE_OCCUPIED_WARSCORE_BONUS_INDEP
+		 
+		
+		short_reign_opinion_year_mult = 4 # The default is 2
+		
+		religious_clothing_head = 3
+		religious_clothing_priest = 3
+		
+		intermarry = revenant_ashirra
+		intermarry = revenant_anarchs
+		intermarry = revenant_sabbat
+		intermarry = revenant_low_clans		
+		
+	}		
+	
+furores = {
+		graphical_culture = westerngfx
+
+		icon = 51
+		heresy_icon = 51
+		
+		color = { 0.4 0.4 0.4 }
+		crusade_name = JYHAD
+		scripture_name = THE_LEGENDS
+		priest_title = PRIEST
+		
+		god_names = {
+			THE_REVOLUTION
+		}
+		evil_god_names = {
+			THE_MAN
+		}
+		
+		unit_modifier = {		
+			garrison_size = 0.3
+			levy_size = 0.1
+			
+			key = "DEF_RELIGION"
+		}
+		unit_home_modifier = {
+			land_morale = 0.8
+			light_infantry_defensive = 0.8
+			heavy_infantry_defensive = 0.8
+			pikemen_defensive = 0.8
+			light_cavalry_defensive = 0.8
+			knights_defensive = 0.8
+			archers_defensive = 0.8
+			horse_archers_defensive = 0.8
+			
+			garrison_size = 0.4
+			
+			key = "DEF_RELIGION_HOME_TERRITORY"
+		}
+		
+		priests_can_marry = yes
+		can_grant_divorce = yes
+		can_hold_temples = yes
+		priests_can_inherit = yes
+		
+		female_temple_holders = yes
+		feminist = yes      # Nullifies the negative opinion modifier that vassals normally get if ruler is female or has female heir
+
+		defensive_attrition = yes
+		allow_looting = yes
+		
+		max_consorts = 3
+		
+		independence_war_score_bonus = 30 # Overrides define CONTESTED_TITLE_OCCUPIED_WARSCORE_BONUS_INDEP
+		 
+		
+		short_reign_opinion_year_mult = 4 # The default is 2
+		
+		religious_clothing_head = 0
+		religious_clothing_priest = 1
+		
+		intermarry = ashirra
+		intermarry = autarkis
+		intermarry = sabbat
+		intermarry = anarchs
+		intermarry = vampire_low_clans
+	}
+	
+revenant_furores = {
+		graphical_culture = norsegfx
+
+		icon = 51
+		heresy_icon = 51
+		
+		color = { 0.4 0.4 0.0 }
+		crusade_name = JYHAD
+		scripture_name = THE_LEGENDS
+		priest_title = PRIEST
+		
+		god_names = {
+			GOD_LONGINUS
+		}
+		evil_god_names = {
+			GOD_THE_ADVERSARY
+		}
+		
+		unit_modifier = {		
+			garrison_size = 0.3
+			levy_size = 0.1
+			
+			key = "DEF_RELIGION"
+		}
+		unit_home_modifier = {
+			land_morale = 0.8
+			light_infantry_defensive = 0.8
+			heavy_infantry_defensive = 0.8
+			pikemen_defensive = 0.8
+			light_cavalry_defensive = 0.8
+			knights_defensive = 0.8
+			archers_defensive = 0.8
+			horse_archers_defensive = 0.8
+			
+			garrison_size = 0.4
+			
+			key = "DEF_RELIGION_HOME_TERRITORY"
+		}
+		
+		priests_can_marry = yes
+		can_grant_divorce = yes
+		can_hold_temples = yes
+		priests_can_inherit = yes
+		
+		female_temple_holders = yes
+		feminist = yes      # Nullifies the negative opinion modifier that vassals normally get if ruler is female or has female heir
+
+		defensive_attrition = yes
+		allow_looting = yes
+		
+		max_consorts = 3
+		
+		independence_war_score_bonus = 30 # Overrides define CONTESTED_TITLE_OCCUPIED_WARSCORE_BONUS_INDEP
+		 
+		
+		short_reign_opinion_year_mult = 4 # The default is 2
+		
+		religious_clothing_head = 3
+		religious_clothing_priest = 3
+		
+		intermarry = revenant_ashirra
+		intermarry = revenant_autarkis
+		intermarry = revenant_anarchs
+		intermarry = revenant_sabbat
+		intermarry = revenant_low_clans		
+		
+	}	
+	
+revenant_low_clans = {
+		graphical_culture = norsegfx
+
+		icon = 51
+		heresy_icon = 51
+		
+		color = { 0.4 0.4 0.0 }
+		crusade_name = JYHAD
+		scripture_name = THE_LEGENDS
+		priest_title = PRIEST
+		
+		god_names = {
+			GOD_LONGINUS
+		}
+		evil_god_names = {
+			GOD_THE_ADVERSARY
+		}
+		
+		unit_modifier = {		
+			garrison_size = 0.3
+			levy_size = 0.1
+			
+			key = "DEF_RELIGION"
+		}
+		unit_home_modifier = {
+			land_morale = 0.8
+			light_infantry_defensive = 0.8
+			heavy_infantry_defensive = 0.8
+			pikemen_defensive = 0.8
+			light_cavalry_defensive = 0.8
+			knights_defensive = 0.8
+			archers_defensive = 0.8
+			horse_archers_defensive = 0.8
+			
+			garrison_size = 0.4
+			
+			key = "DEF_RELIGION_HOME_TERRITORY"
+		}
+		
+		priests_can_marry = yes
+		can_grant_divorce = yes
+		can_hold_temples = yes
+		priests_can_inherit = yes
+		
+		female_temple_holders = yes
+		feminist = yes      # Nullifies the negative opinion modifier that vassals normally get if ruler is female or has female heir
+
+		defensive_attrition = yes
+		allow_looting = yes
+		
+		max_consorts = 3
+		
+		independence_war_score_bonus = 30 # Overrides define CONTESTED_TITLE_OCCUPIED_WARSCORE_BONUS_INDEP
+		 
+		
+		short_reign_opinion_year_mult = 4 # The default is 2
+		
+		religious_clothing_head = 3
+		religious_clothing_priest = 3
+		
+		intermarry = revenant_ashirra
+		intermarry = revenant_sabbat
+		intermarry = revenant_anarchs	
+		intermarry = revenant_autarkis
+		intermarry = revenant_furores
+		
+	}		
+	
+	}
+
+
+baali_group = {
+# Baali
+	has_coa_on_barony_only = yes
+	graphical_culture = westerngfx
+	crusade_cb = jyhad
+	playable = yes
+	hostile_within_group = yes
+
+	ai_peaceful = no # Will NOT make Hordes lose their super aggressiveness
+	
+	ai_convert_same_group = 0 # never try to convert
+	ai_convert_other_group = 2 # always try to convert	
+
+baali = {
+		graphical_culture = westerngfx
+
+		icon = 52
+		heresy_icon = 52
+		
+		color = { 0.0 0.0 0.0 }
+		crusade_name = JYHAD
+		scripture_name = THE_LEGENDS
+		priest_title = PRIEST
+		
+		god_names = {
+			BAAL
+		}
+		evil_god_names = {
+			GOD_THE_ADVERSARY
+		}
+		
+		unit_modifier = {		
+			garrison_size = 0.3
+			levy_size = 0.1
+			
+			key = "DEF_RELIGION"
+		}
+		unit_home_modifier = {
+			land_morale = 0.8
+			light_infantry_defensive = 0.8
+			heavy_infantry_defensive = 0.8
+			pikemen_defensive = 0.8
+			light_cavalry_defensive = 0.8
+			knights_defensive = 0.8
+			archers_defensive = 0.8
+			horse_archers_defensive = 0.8
+			
+			garrison_size = 0.4
+			
+			key = "DEF_RELIGION_HOME_TERRITORY"
+		}
+		
+		priests_can_marry = yes
+		can_grant_divorce = yes
+		can_hold_temples = yes
+		priests_can_inherit = yes
+		
+		female_temple_holders = yes
+		feminist = yes      # Nullifies the negative opinion modifier that vassals normally get if ruler is female or has female heir
+
+		defensive_attrition = yes
+		allow_looting = yes
+		
+		max_consorts = 3
+		
+		independence_war_score_bonus = 30 # Overrides define CONTESTED_TITLE_OCCUPIED_WARSCORE_BONUS_INDEP
+		 
+		short_reign_opinion_year_mult = 4 # The default is 2
+		
+		religious_clothing_head = 0
+		religious_clothing_priest = 1
+	}
+	
+revenant_baali = {
+		graphical_culture = westerngfx
+
+		icon = 52
+		heresy_icon = 52
+		
+		color = { 0.0 0.0 0.0 }
+		crusade_name = JYHAD
+		scripture_name = THE_LEGENDS
+		priest_title = PRIEST
+		
+		god_names = {
+			GOD_LONGINUS
+		}
+		evil_god_names = {
+			GOD_THE_ADVERSARY
+		}
+		
+		unit_modifier = {		
+			garrison_size = 0.3
+			levy_size = 0.1
+			
+			key = "DEF_RELIGION"
+		}
+		unit_home_modifier = {
+			land_morale = 0.8
+			light_infantry_defensive = 0.8
+			heavy_infantry_defensive = 0.8
+			pikemen_defensive = 0.8
+			light_cavalry_defensive = 0.8
+			knights_defensive = 0.8
+			archers_defensive = 0.8
+			horse_archers_defensive = 0.8
+			
+			garrison_size = 0.4
+			
+			key = "DEF_RELIGION_HOME_TERRITORY"
+		}
+		
+		priests_can_marry = yes
+		can_grant_divorce = yes
+		can_hold_temples = yes
+		priests_can_inherit = yes
+		
+		female_temple_holders = yes
+		feminist = yes      # Nullifies the negative opinion modifier that vassals normally get if ruler is female or has female heir
+
+		defensive_attrition = yes
+		allow_looting = yes
+		
+		max_consorts = 3
+		
+		independence_war_score_bonus = 30 # Overrides define CONTESTED_TITLE_OCCUPIED_WARSCORE_BONUS_INDEP
+		 
+		
+		short_reign_opinion_year_mult = 4 # The default is 2
+		
+		religious_clothing_head = 3
+		religious_clothing_priest = 3
+		
+	}	
+}	
+
+masquerade_camarilla_group = {
+# 
+	has_coa_on_barony_only = yes
+	graphical_culture = westerngfx
+	crusade_cb = crusade
+	playable = yes
+	hostile_within_group = no
+	ai_peaceful = yes # Will make Hordes lose their super aggressiveness
+	
+	ai_convert_same_group = 1 # try to convert if zealous
+	ai_convert_other_group = 2 # always try to convert	
+	
+masquerade_camarilla = {
+		graphical_culture = westerngfx
+
+		icon = 16
+		heresy_icon = 16
+		
+		color = { 0.8 0.0 0.0 }
+		crusade_name = GREAT_HOLY_WAR
+		scripture_name = THE_LEGENDS
+		priest_title = PRIEST
+		
+		god_names = {
+			GOD_GOD
+		}
+		evil_god_names = {
+			DEVIL
+		}
+		
+		unit_modifier = {		
+			garrison_size = 0.3
+			levy_size = 0.1
+			
+			key = "DEF_RELIGION"
+		}
+		unit_home_modifier = {
+			land_morale = 0.8
+			light_infantry_defensive = 0.8
+			heavy_infantry_defensive = 0.8
+			pikemen_defensive = 0.8
+			light_cavalry_defensive = 0.8
+			knights_defensive = 0.8
+			archers_defensive = 0.8
+			horse_archers_defensive = 0.8
+			
+			garrison_size = 0.4
+			
+			key = "DEF_RELIGION_HOME_TERRITORY"
+		}
+		
+		priests_can_marry = yes
+		can_grant_divorce = yes
+		can_hold_temples = yes
+		priests_can_inherit = yes
+		
+		female_temple_holders = yes
+		feminist = yes      # Nullifies the negative opinion modifier that vassals normally get if ruler is female or has female heir
+
+		defensive_attrition = yes
+		allow_looting = yes
+		
+		max_consorts = 3
+		
+		independence_war_score_bonus = 30 # Overrides define CONTESTED_TITLE_OCCUPIED_WARSCORE_BONUS_INDEP
+		 
+		intermarry = ashirra
+		intermarry = inconnu
+		intermarry = vampire_high_clans
+		intermarry = vampire_low_clans
+		
+		short_reign_opinion_year_mult = 4 # The default is 2
+	}	
+
+revenant_masquerade_camarilla = {
+		graphical_culture = westerngfx
+
+		icon = 15
+		heresy_icon = 15
+		
+		color = { 0.8 0.0 0.0 }
+		crusade_name = GREAT_HOLY_WAR
+		scripture_name = THE_LEGENDS
+		priest_title = PRIEST
+		
+		god_names = {
+			GOD_PLUTO
+		}
+		evil_god_names = {
+			GOD_SOL_INVICTUS
+		}
+		
+		unit_modifier = {		
+			garrison_size = 0.3
+			levy_size = 0.1
+			
+			key = "DEF_RELIGION"
+		}
+		unit_home_modifier = {
+			land_morale = 0.8
+			light_infantry_defensive = 0.8
+			heavy_infantry_defensive = 0.8
+			pikemen_defensive = 0.8
+			light_cavalry_defensive = 0.8
+			knights_defensive = 0.8
+			archers_defensive = 0.8
+			horse_archers_defensive = 0.8
+			
+			garrison_size = 0.4
+			
+			key = "DEF_RELIGION_HOME_TERRITORY"
+		}
+		
+		priests_can_marry = yes
+		can_grant_divorce = yes
+		can_hold_temples = yes
+		priests_can_inherit = yes
+		
+		female_temple_holders = yes
+		feminist = yes      # Nullifies the negative opinion modifier that vassals normally get if ruler is female or has female heir
+
+		defensive_attrition = yes
+		allow_looting = yes
+		
+		max_consorts = 3
+		
+		independence_war_score_bonus = 30 # Overrides define CONTESTED_TITLE_OCCUPIED_WARSCORE_BONUS_INDEP
+		 
+		
+		short_reign_opinion_year_mult = 4 # The default is 2
+		
+		intermarry = revenant_inconnu
+		intermarry = revenant_anarchs
+		intermarry = revenant_high_clans
+		intermarry = revenant_low_clans
+		intermarry = revenant_ashirra
+	}	
+	
+	}
+
+sabbat_group = {
+# CHRISTIAN ZOMBIE VAMPIRES! I AM THE FATHER! THE FATHER OF NOTHING!
+	has_coa_on_barony_only = yes
+	graphical_culture = westerngfx
+	crusade_cb = crusade
+	playable = yes
+
+	ai_peaceful = yes # Will make Hordes lose their super aggressiveness
+	
+	ai_convert_same_group = 0 # never try to convert
+	ai_convert_other_group = 2 # always try to convert
+	
+sabbat = {
+		graphical_culture = holygfx
+
+		icon = 48
+		heresy_icon = 48
+		
+		color = { 0.4 0.1 0.1 }
+		crusade_name = CRUSADE
+		scripture_name = BOOK_OF_CAINE
+		priest_title = PRIEST
+		
+		god_names = {
+			GOD_LONGINUS
+		}
+		evil_god_names = {
+			GOD_THE_ADVERSARY
+		}
+		
+		unit_modifier = {		
+			garrison_size = 0.3
+			levy_size = 0.1
+			
+			key = "DEF_RELIGION"
+		}
+		unit_home_modifier = {
+			land_morale = 0.8
+			light_infantry_defensive = 0.8
+			heavy_infantry_defensive = 0.8
+			pikemen_defensive = 0.8
+			light_cavalry_defensive = 0.8
+			knights_defensive = 0.8
+			archers_defensive = 0.8
+			horse_archers_defensive = 0.8
+			
+			garrison_size = 0.4
+			
+			key = "DEF_RELIGION_HOME_TERRITORY"
+		}
+		
+		priests_can_marry = yes
+		can_grant_divorce = yes
+		can_hold_temples = yes
+		priests_can_inherit = yes
+		
+		
+		female_temple_holders = yes
+		feminist = yes      # Nullifies the negative opinion modifier that vassals normally get if ruler is female or has female heir
+
+		defensive_attrition = yes
+		allow_looting = yes
+		
+		max_consorts = 3
+		
+		independence_war_score_bonus = 30 # Overrides define CONTESTED_TITLE_OCCUPIED_WARSCORE_BONUS_INDEP
+		 
+		
+		short_reign_opinion_year_mult = 4 # The default is 2
+		
+		religious_clothing_head = 0
+		religious_clothing_priest = 1
+		
+		intermarry = ashirra
+		intermarry = vampire_low_clans
+		intermarry = anarchs	
+		intermarry = autarkis
+		intermarry = furores
+
+	}
+
+revenant_sabbat = {
+		graphical_culture = westerngfx
+
+		icon = 49
+		heresy_icon = 49
+		
+		color = { 0.4 0.1 0.1 }
+		crusade_name = CRUSADE
+		scripture_name = BOOK_OF_CAINE
+		priest_title = PRIEST
+		
+		god_names = {
+			GOD_LONGINUS
+		}
+		evil_god_names = {
+			GOD_THE_ADVERSARY
+		}
+		
+		unit_modifier = {		
+			garrison_size = 0.3
+			levy_size = 0.1
+			
+			key = "DEF_RELIGION"
+		}
+		unit_home_modifier = {
+			land_morale = 0.8
+			light_infantry_defensive = 0.8
+			heavy_infantry_defensive = 0.8
+			pikemen_defensive = 0.8
+			light_cavalry_defensive = 0.8
+			knights_defensive = 0.8
+			archers_defensive = 0.8
+			horse_archers_defensive = 0.8
+			
+			garrison_size = 0.4
+			
+			key = "DEF_RELIGION_HOME_TERRITORY"
+		}
+		
+		priests_can_marry = yes
+		can_grant_divorce = yes
+		can_hold_temples = yes
+		priests_can_inherit = yes
+		
+		female_temple_holders = yes
+		feminist = yes      # Nullifies the negative opinion modifier that vassals normally get if ruler is female or has female heir
+
+		defensive_attrition = yes
+		allow_looting = yes
+		
+		max_consorts = 3
+		
+		independence_war_score_bonus = 30 # Overrides define CONTESTED_TITLE_OCCUPIED_WARSCORE_BONUS_INDEP
+		 
+		
+		short_reign_opinion_year_mult = 4 # The default is 2
+		
+		intermarry = revenant_ashirra
+		intermarry = revenant_low_clans
+		intermarry = revenant_anarchs	
+		intermarry = revenant_autarkis
+		intermarry = revenant_furores
+		}		
+	}		
+	
+inconnu_group = {
+# 
+	has_coa_on_barony_only = yes
+	graphical_culture = westerngfx
+	crusade_cb = crusade
+	playable = yes
+	hostile_within_group = no
+	ai_peaceful = yes # Will make Hordes lose their super aggressiveness
+	
+	ai_convert_same_group = 1 # try to convert if zealous
+	ai_convert_other_group = 2 # always try to convert	
+	
+	
+inconnu = {
+		graphical_culture = westerngfx
+
+		icon = 16
+		heresy_icon = 16
+		
+		color = { 0.4 0.0 0.2 }
+		crusade_name = GREAT_HOLY_WAR
+		scripture_name = THE_LEGENDS
+		priest_title = PRIEST
+		
+		god_names = {
+			GOD_GOD
+		}
+		evil_god_names = {
+			DEVIL
+		}
+		
+		unit_modifier = {		
+			garrison_size = 0.3
+			levy_size = 0.1
+			
+			key = "DEF_RELIGION"
+		}
+		unit_home_modifier = {
+			land_morale = 0.8
+			light_infantry_defensive = 0.8
+			heavy_infantry_defensive = 0.8
+			pikemen_defensive = 0.8
+			light_cavalry_defensive = 0.8
+			knights_defensive = 0.8
+			archers_defensive = 0.8
+			horse_archers_defensive = 0.8
+			
+			garrison_size = 0.4
+			
+			key = "DEF_RELIGION_HOME_TERRITORY"
+		}
+		
+		priests_can_marry = yes
+		can_grant_divorce = yes
+		can_hold_temples = yes
+		priests_can_inherit = yes
+		
+		female_temple_holders = yes
+		feminist = yes      # Nullifies the negative opinion modifier that vassals normally get if ruler is female or has female heir
+
+		defensive_attrition = yes
+		allow_looting = yes
+		
+		max_consorts = 3
+		
+		independence_war_score_bonus = 30 # Overrides define CONTESTED_TITLE_OCCUPIED_WARSCORE_BONUS_INDEP
+		 
+		intermarry = ashirra
+		intermarry = inconnu
+		intermarry = masquerade_camarilla
+		intermarry = vampire_high_clans
+		intermarry = vampire_low_clans
+		
+		short_reign_opinion_year_mult = 4 # The default is 2
+	}	
+
+revenant_inconnu = {
+		graphical_culture = westerngfx
+
+		icon = 15
+		heresy_icon = 15
+		
+		color = { 0.4 0.0 0.2 }
+		crusade_name = GREAT_HOLY_WAR
+		scripture_name = THE_LEGENDS
+		priest_title = PRIEST
+		
+		god_names = {
+			GOD_PLUTO
+		}
+		evil_god_names = {
+			GOD_SOL_INVICTUS
+		}
+		
+		unit_modifier = {		
+			garrison_size = 0.3
+			levy_size = 0.1
+			
+			key = "DEF_RELIGION"
+		}
+		unit_home_modifier = {
+			land_morale = 0.8
+			light_infantry_defensive = 0.8
+			heavy_infantry_defensive = 0.8
+			pikemen_defensive = 0.8
+			light_cavalry_defensive = 0.8
+			knights_defensive = 0.8
+			archers_defensive = 0.8
+			horse_archers_defensive = 0.8
+			
+			garrison_size = 0.4
+			
+			key = "DEF_RELIGION_HOME_TERRITORY"
+		}
+		
+		priests_can_marry = yes
+		can_grant_divorce = yes
+		can_hold_temples = yes
+		priests_can_inherit = yes
+		
+		female_temple_holders = yes
+		feminist = yes      # Nullifies the negative opinion modifier that vassals normally get if ruler is female or has female heir
+
+		defensive_attrition = yes
+		allow_looting = yes
+		
+		max_consorts = 3
+		
+		independence_war_score_bonus = 30 # Overrides define CONTESTED_TITLE_OCCUPIED_WARSCORE_BONUS_INDEP
+		 
+		
+		short_reign_opinion_year_mult = 4 # The default is 2
+		
+		intermarry = revenant_masquerade_camarilla
+		intermarry = revenant_anarchs
+		intermarry = revenant_high_clans
+		intermarry = revenant_low_clans
+		intermarry = revenant_ashirra
+	}	
+	
+	}
+
+masquerade_independent_group = {
+# 
+	has_coa_on_barony_only = yes
+	graphical_culture = westerngfx
+	crusade_cb = crusade
+	playable = yes
+	hostile_within_group = no
+	ai_peaceful = yes # Will make Hordes lose their super aggressiveness
+	
+	ai_convert_same_group = 1 # try to convert if zealous
+	ai_convert_other_group = 2 # always try to convert	
+	
+	
+giovanni = {
+		graphical_culture = westerngfx
+
+		icon = 16
+		heresy_icon = 16
+		
+		color = { 0.4 0.0 0.2 }
+		crusade_name = GREAT_HOLY_WAR
+		scripture_name = THE_LEGENDS
+		priest_title = PRIEST
+		
+		god_names = {
+			GOD_GOD
+		}
+		evil_god_names = {
+			DEVIL
+		}
+		
+		unit_modifier = {		
+			garrison_size = 0.3
+			levy_size = 0.1
+			
+			key = "DEF_RELIGION"
+		}
+		unit_home_modifier = {
+			land_morale = 0.8
+			light_infantry_defensive = 0.8
+			heavy_infantry_defensive = 0.8
+			pikemen_defensive = 0.8
+			light_cavalry_defensive = 0.8
+			knights_defensive = 0.8
+			archers_defensive = 0.8
+			horse_archers_defensive = 0.8
+			
+			garrison_size = 0.4
+			
+			key = "DEF_RELIGION_HOME_TERRITORY"
+		}
+		
+		priests_can_marry = yes
+		can_grant_divorce = yes
+		can_hold_temples = yes
+		priests_can_inherit = yes
+		
+		female_temple_holders = yes
+		feminist = yes      # Nullifies the negative opinion modifier that vassals normally get if ruler is female or has female heir
+
+		defensive_attrition = yes
+		allow_looting = yes
+		
+		max_consorts = 3
+		
+		independence_war_score_bonus = 30 # Overrides define CONTESTED_TITLE_OCCUPIED_WARSCORE_BONUS_INDEP
+		
+		short_reign_opinion_year_mult = 4 # The default is 2
+	}	
+
+revenant_giovanni = {
+		graphical_culture = westerngfx
+
+		icon = 15
+		heresy_icon = 15
+		
+		color = { 0.4 0.0 0.2 }
+		crusade_name = GREAT_HOLY_WAR
+		scripture_name = THE_LEGENDS
+		priest_title = PRIEST
+		
+		god_names = {
+			GOD_PLUTO
+		}
+		evil_god_names = {
+			GOD_SOL_INVICTUS
+		}
+		
+		unit_modifier = {		
+			garrison_size = 0.3
+			levy_size = 0.1
+			
+			key = "DEF_RELIGION"
+		}
+		unit_home_modifier = {
+			land_morale = 0.8
+			light_infantry_defensive = 0.8
+			heavy_infantry_defensive = 0.8
+			pikemen_defensive = 0.8
+			light_cavalry_defensive = 0.8
+			knights_defensive = 0.8
+			archers_defensive = 0.8
+			horse_archers_defensive = 0.8
+			
+			garrison_size = 0.4
+			
+			key = "DEF_RELIGION_HOME_TERRITORY"
+		}
+		
+		priests_can_marry = yes
+		can_grant_divorce = yes
+		can_hold_temples = yes
+		priests_can_inherit = yes
+		
+		female_temple_holders = yes
+		feminist = yes      # Nullifies the negative opinion modifier that vassals normally get if ruler is female or has female heir
+
+		defensive_attrition = yes
+		allow_looting = yes
+		
+		max_consorts = 3
+		
+		independence_war_score_bonus = 30 # Overrides define CONTESTED_TITLE_OCCUPIED_WARSCORE_BONUS_INDEP
+		 
+		
+		short_reign_opinion_year_mult = 4 # The default is 2	
+	}	
+
+settite = {
+		graphical_culture = westerngfx
+
+		icon = 16
+		heresy_icon = 16
+		
+		color = { 0.4 0.0 0.2 }
+		crusade_name = GREAT_HOLY_WAR
+		scripture_name = THE_LEGENDS
+		priest_title = PRIEST
+		
+		god_names = {
+			GOD_GOD
+		}
+		evil_god_names = {
+			DEVIL
+		}
+		
+		unit_modifier = {		
+			garrison_size = 0.3
+			levy_size = 0.1
+			
+			key = "DEF_RELIGION"
+		}
+		unit_home_modifier = {
+			land_morale = 0.8
+			light_infantry_defensive = 0.8
+			heavy_infantry_defensive = 0.8
+			pikemen_defensive = 0.8
+			light_cavalry_defensive = 0.8
+			knights_defensive = 0.8
+			archers_defensive = 0.8
+			horse_archers_defensive = 0.8
+			
+			garrison_size = 0.4
+			
+			key = "DEF_RELIGION_HOME_TERRITORY"
+		}
+		
+		priests_can_marry = yes
+		can_grant_divorce = yes
+		can_hold_temples = yes
+		priests_can_inherit = yes
+		
+		female_temple_holders = yes
+		feminist = yes      # Nullifies the negative opinion modifier that vassals normally get if ruler is female or has female heir
+
+		defensive_attrition = yes
+		allow_looting = yes
+		
+		max_consorts = 3
+		
+		independence_war_score_bonus = 30 # Overrides define CONTESTED_TITLE_OCCUPIED_WARSCORE_BONUS_INDEP
+		 
+		intermarry = ashirra
+		intermarry = inconnu
+		intermarry = vampire_high_clans
+		intermarry = vampire_low_clans
+		intermarry = autarkis
+		intermarry = anarchs
+		intermarry = furores
+		
+		short_reign_opinion_year_mult = 4 # The default is 2
+	}	
+
+revenant_settite = {
+		graphical_culture = westerngfx
+
+		icon = 15
+		heresy_icon = 15
+		
+		color = { 0.4 0.0 0.2 }
+		crusade_name = GREAT_HOLY_WAR
+		scripture_name = THE_LEGENDS
+		priest_title = PRIEST
+		
+		god_names = {
+			GOD_PLUTO
+		}
+		evil_god_names = {
+			GOD_SOL_INVICTUS
+		}
+		
+		unit_modifier = {		
+			garrison_size = 0.3
+			levy_size = 0.1
+			
+			key = "DEF_RELIGION"
+		}
+		unit_home_modifier = {
+			land_morale = 0.8
+			light_infantry_defensive = 0.8
+			heavy_infantry_defensive = 0.8
+			pikemen_defensive = 0.8
+			light_cavalry_defensive = 0.8
+			knights_defensive = 0.8
+			archers_defensive = 0.8
+			horse_archers_defensive = 0.8
+			
+			garrison_size = 0.4
+			
+			key = "DEF_RELIGION_HOME_TERRITORY"
+		}
+		
+		priests_can_marry = yes
+		can_grant_divorce = yes
+		can_hold_temples = yes
+		priests_can_inherit = yes
+		
+		female_temple_holders = yes
+		feminist = yes      # Nullifies the negative opinion modifier that vassals normally get if ruler is female or has female heir
+
+		defensive_attrition = yes
+		allow_looting = yes
+		
+		max_consorts = 3
+		
+		independence_war_score_bonus = 30 # Overrides define CONTESTED_TITLE_OCCUPIED_WARSCORE_BONUS_INDEP
+		 
+		
+		short_reign_opinion_year_mult = 4 # The default is 2	
+	}	
+
+mayaparisataya = {
+		graphical_culture = westerngfx
+
+		icon = 16
+		heresy_icon = 16
+		
+		color = { 0.4 0.0 0.2 }
+		crusade_name = GREAT_HOLY_WAR
+		scripture_name = THE_LEGENDS
+		priest_title = PRIEST
+		
+		god_names = {
+			GOD_GOD
+		}
+		evil_god_names = {
+			DEVIL
+		}
+		
+		unit_modifier = {		
+			garrison_size = 0.3
+			levy_size = 0.1
+			
+			key = "DEF_RELIGION"
+		}
+		unit_home_modifier = {
+			land_morale = 0.8
+			light_infantry_defensive = 0.8
+			heavy_infantry_defensive = 0.8
+			pikemen_defensive = 0.8
+			light_cavalry_defensive = 0.8
+			knights_defensive = 0.8
+			archers_defensive = 0.8
+			horse_archers_defensive = 0.8
+			
+			garrison_size = 0.4
+			
+			key = "DEF_RELIGION_HOME_TERRITORY"
+		}
+		
+		priests_can_marry = yes
+		can_grant_divorce = yes
+		can_hold_temples = yes
+		priests_can_inherit = yes
+		
+		female_temple_holders = yes
+		feminist = yes      # Nullifies the negative opinion modifier that vassals normally get if ruler is female or has female heir
+
+		defensive_attrition = yes
+		allow_looting = yes
+		
+		max_consorts = 3
+		
+		independence_war_score_bonus = 30 # Overrides define CONTESTED_TITLE_OCCUPIED_WARSCORE_BONUS_INDEP
+		 
+		intermarry = ashirra
+		intermarry = inconnu
+		intermarry = vampire_high_clans
+		intermarry = vampire_low_clans
+		intermarry = autarkis
+		intermarry = anarchs
+		intermarry = furores
+		
+		short_reign_opinion_year_mult = 4 # The default is 2
+	}	
+
+revenant_mayaparisataya = {
+		graphical_culture = westerngfx
+
+		icon = 15
+		heresy_icon = 15
+		
+		color = { 0.4 0.0 0.2 }
+		crusade_name = GREAT_HOLY_WAR
+		scripture_name = THE_LEGENDS
+		priest_title = PRIEST
+		
+		god_names = {
+			GOD_PLUTO
+		}
+		evil_god_names = {
+			GOD_SOL_INVICTUS
+		}
+		
+		unit_modifier = {		
+			garrison_size = 0.3
+			levy_size = 0.1
+			
+			key = "DEF_RELIGION"
+		}
+		unit_home_modifier = {
+			land_morale = 0.8
+			light_infantry_defensive = 0.8
+			heavy_infantry_defensive = 0.8
+			pikemen_defensive = 0.8
+			light_cavalry_defensive = 0.8
+			knights_defensive = 0.8
+			archers_defensive = 0.8
+			horse_archers_defensive = 0.8
+			
+			garrison_size = 0.4
+			
+			key = "DEF_RELIGION_HOME_TERRITORY"
+		}
+		
+		priests_can_marry = yes
+		can_grant_divorce = yes
+		can_hold_temples = yes
+		priests_can_inherit = yes
+		
+		female_temple_holders = yes
+		feminist = yes      # Nullifies the negative opinion modifier that vassals normally get if ruler is female or has female heir
+
+		defensive_attrition = yes
+		allow_looting = yes
+		
+		max_consorts = 3
+		
+		independence_war_score_bonus = 30 # Overrides define CONTESTED_TITLE_OCCUPIED_WARSCORE_BONUS_INDEP
+		 
+		
+		short_reign_opinion_year_mult = 4 # The default is 2	
+	}	
+
+
+	
+}		
+	
