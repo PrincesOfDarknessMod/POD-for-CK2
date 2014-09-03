@@ -1991,6 +1991,62 @@ character_event = {
 
 #dynasty = culture
 
+# giovanni vampire dynasty reassignment
+
+if = {
+		limit = {
+					trait = giovanni
+					NOT = { is_patrician = yes }
+				}
+
+random_list = {
+		25 = { set_character_flag = POD_vampire_independent_dynasty }
+		50 = {
+
+if = { limit = { culture = italian }
+		
+		random_list = {
+			20 = { ROOT = { dynasty = 2500000 } }
+			20 = { ROOT = { dynasty = 2500001 } } 
+			20 = { ROOT = { dynasty = 2500002 } } 
+			20 = { ROOT = { dynasty = 2500008 } }
+			20 = { ROOT = { dynasty = 2500009 } }
+		}	
+	}
+	
+if = { limit = { culture = scottish }
+		ROOT = { dynasty = 2500003 }
+	}		
+	
+if = { limit = { culture = dutch }
+		ROOT = { dynasty = 2500004 }
+	}
+
+if = { limit = { culture = castillan }
+		ROOT = { dynasty = 2500005 }
+	}
+
+if = { limit = { culture = portuguese }
+		ROOT = { dynasty = 2500006 }
+	}
+
+if = { limit = { culture = catalan }
+		ROOT = { dynasty = 2500007 }
+	}
+
+if = { limit = { culture = german }
+		ROOT = { dynasty = 2500010 }
+	}	
+
+if = { limit = { culture = english }
+		ROOT = { dynasty = 2500011 }
+		}
+	}		
+}
+
+}
+
+
 # toreador vampire dynasty reassignment
 
 		
@@ -2005,14 +2061,13 @@ if = {
 random_list = {
 
 	50 = {
-set_character_flag = nwod_vampire_independent_dynasty	
+set_character_flag = POD_vampire_independent_dynasty	
 		}
 		
 	50 = {				
 
 if = { limit = { culture = norwegian }
-		ROOT = { dynasty = 2000001 }
-		
+		ROOT = { dynasty = 2000001 }	
 	}
 
 
@@ -2568,7 +2623,7 @@ if = {
 random_list = {
 
 	50 = {
-set_character_flag = nwod_vampire_independent_dynasty	
+set_character_flag = POD_vampire_independent_dynasty	
 		}
 		
 	50 = {	
@@ -2649,31 +2704,6 @@ if = { limit = { culture = roman }
 		ROOT = { dynasty = 3000013 }
 		
 	}
-
-
-if = { limit = { culture = basque }
-		ROOT = { dynasty = 3000014 }
-		
-	}
-
-
-if = { limit = { culture = castillan }
-		ROOT = { dynasty = 3000015 }
-		
-	}
-
-
-if = { limit = { culture = portuguese }
-		ROOT = { dynasty = 3000016 }
-		
-	}
-
-
-if = { limit = { culture = catalan }
-		ROOT = { dynasty = 3000017 }
-		
-	}
-
 
 if = { limit = { culture = armenian }
 		ROOT = { dynasty = 3000018 }
@@ -3128,7 +3158,7 @@ if = {
 random_list = {
 
 	50 = {
-set_character_flag = nwod_vampire_independent_dynasty	
+set_character_flag = POD_vampire_independent_dynasty	
 		}
 		
 	50 = {		
@@ -3683,7 +3713,7 @@ if = {
 random_list = {
 
 	50 = {
-set_character_flag = nwod_vampire_independent_dynasty	
+set_character_flag = POD_vampire_independent_dynasty	
 		}
 		
 	50 = {					
@@ -4248,7 +4278,7 @@ if = {
 				random_list = {
 
 	50 = {
-set_character_flag = nwod_vampire_independent_dynasty	
+set_character_flag = POD_vampire_independent_dynasty	
 		}
 		
 	50 = {	
