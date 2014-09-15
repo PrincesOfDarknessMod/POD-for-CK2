@@ -19,24 +19,324 @@ decisions = {
 			NOT = { trait = demon }	
 			NOT = { trait = mortal }
 			OR = {
+			
 				AND = { 
 						trait = vampire
+						trait = julii 
+						has_global_flag = bookmark232
+						has_global_flag = bookmark412
 						liege = {
 									NOT = { religion = revenant_longinus }
 									NOT = { religion = revenant_abrahamic }
 									NOT = { religion = revenant_unaligned }
 									NOT = { religion = revenant-dharma }
-									NOT = { religion = revenant_duolosi }					
+									NOT = { religion = revenant_duolosi }	
+									OR = { 
+											religion_group = pagan_vampire_group
+											religion_group = forsworn_vampire_group
+											religion_group = camarilla_group
+									}
+								}
+					}	
+					
+				AND = { 
+						trait = vampire
+						NOT = { trait = julii }
+						has_global_flag = bookmark1142
+						has_global_flag = bookmark1250
+						liege = {
+									NOT = { religion = revenant_longinus }
+									NOT = { religion = revenant_abrahamic }
+									NOT = { religion = revenant_unaligned }
+									NOT = { religion = revenant-dharma }
+									NOT = { religion = revenant_duolosi }	
 									OR = { 
 											religion_group = longinus_group
 											religion_group = abrahamic_vampire_group
 											religion_group = pagan_vampire_group
 											religion_group = forsworn_vampire_group
 											religion_group = camarilla_group
-											religion_group = dharmic_vampire_group
+											religion_group = dharmic_vampire_group		
 									}
 								}
 					}
+
+				AND = { 
+						has_global_flag = bookmark1230
+						has_global_flag = bookmark1500
+						OR = { 
+								trait = brujah
+								trait = brujahantitribu
+							}
+						liege = {
+									OR = {
+											religion = ashirra
+											religion = baali
+											religion = sabbat
+											religion = inconnu
+											religion = furores
+											religion = anarchs
+											religion = autarkis
+											religion = brujahcamarilla
+											religion = vampire_high_clans
+									}
+								}
+						}				
+
+				AND = { 
+						has_global_flag = bookmark1230
+						has_global_flag = bookmark1500
+						OR = { 
+								trait = gangrel
+								trait = gangrelantitribu
+							}
+						liege = {
+									OR = {
+											religion = ashirra
+											religion = baali
+											religion = sabbat
+											religion = inconnu
+											religion = furores
+											religion = anarchs
+											religion = autarkis
+											religion = gangrelcamarilla
+											religion = vampire_low_clans
+									}
+								}
+						}
+
+				AND = { 
+						has_global_flag = bookmark1230
+						has_global_flag = bookmark1500
+						OR = { 
+								trait = malkavian
+								trait = malkavianantitribu
+							}
+						liege = {
+									OR = {
+											religion = ashirra
+											religion = baali
+											religion = sabbat
+											religion = inconnu
+											religion = furores
+											religion = anarchs
+											religion = autarkis
+											religion = malkaviancamarilla
+											religion = vampire_low_clans
+									}
+								}
+						}	
+						
+				AND = { 
+						has_global_flag = bookmark1230
+						has_global_flag = bookmark1500
+						OR = { 
+								trait = nosferatu
+								trait = nosferatuantitribu
+							}
+						liege = {
+									OR = {
+											religion = ashirra
+											religion = baali
+											religion = sabbat
+											religion = inconnu
+											religion = furores
+											religion = anarchs
+											religion = autarkis
+											religion = nosferatucamarilla
+											religion = vampire_low_clans
+									}
+								}
+						}	
+
+				AND = { 
+						has_global_flag = bookmark1230
+						has_global_flag = bookmark1500
+						OR = { 
+								trait = toreador
+								trait = toreadorantitribu
+							}
+						liege = {
+									OR = {
+											religion = ashirra
+											religion = baali
+											religion = sabbat
+											religion = inconnu
+											religion = furores
+											religion = anarchs
+											religion = autarkis
+											religion = toreadorcamarilla
+											religion = vampire_high_clans
+									}
+								}
+						}	
+											
+				AND = { 
+						has_global_flag = bookmark1230
+						has_global_flag = bookmark1500
+						OR = { 
+								trait = tremere
+								trait = tremereantitribu
+							}
+						liege = {
+									OR = {
+											religion = ashirra
+											religion = baali
+											religion = sabbat
+											religion = inconnu
+											religion = furores
+											religion = anarchs
+											religion = autarkis
+											religion = tremerecamarilla
+											religion = vampire_low_clans
+									}
+								}
+						}	
+
+				AND = { 
+						has_global_flag = bookmark1230
+						has_global_flag = bookmark1500
+						OR = { 
+								trait = ventrue
+								trait = ventrueantitribu
+							}
+						liege = {
+									OR = {
+											religion = ashirra
+											religion = baali
+											religion = sabbat
+											religion = inconnu
+											religion = furores
+											religion = anarchs
+											religion = autarkis
+											religion = ventruecamarilla
+											religion = vampire_high_clans
+									}
+								}
+						}	
+
+				AND = { 
+						has_global_flag = bookmark1230
+						has_global_flag = bookmark1500
+						trait = giovanni
+						liege = {
+									OR = {
+											religion = baali
+											religion = sabbat
+											religion = inconnu
+											religion = furores
+											religion = anarchs
+											religion = autarkis
+											religion = giovanni
+											religion = masquerade_camarilla
+									}
+								}
+						}							
+
+				AND = { 
+						has_global_flag = bookmark1230
+						has_global_flag = bookmark1500
+						OR = { 
+								trait = followerofset
+								trait = followerofsetantitribu
+							}
+						liege = {
+									OR = {
+											religion = ashirra
+											religion = baali
+											religion = sabbat
+											religion = inconnu
+											religion = furores
+											religion = anarchs
+											religion = autarkis
+											religion = settite
+											religion = masquerade_camarilla											
+									}
+								}
+						}	
+
+				AND = { 
+						has_global_flag = bookmark1230
+						has_global_flag = bookmark1500
+						trait = cappodocian
+						liege = {
+									OR = {
+											religion = ashirra
+											religion = baali
+											religion = sabbat
+											religion = inconnu
+											religion = furores
+											religion = anarchs
+											religion = autarkis
+											religion = masquerade_camarilla
+											religion = vampire_high_clans
+									}
+								}
+						}							
+
+				AND = { 
+						has_global_flag = bookmark1230
+						has_global_flag = bookmark1500
+						trait = salubri
+						liege = {
+									OR = {
+											religion = ashirra
+											religion = inconnu
+											religion = furores
+											religion = anarchs
+											religion = autarkis
+											religion = vampire_high_clans
+									}
+								}
+						}
+						
+				AND = { 
+						has_global_flag = bookmark1230
+						has_global_flag = bookmark1500
+						OR = { 
+								trait = ravnos
+								trait = ravnosantitribu
+							}
+						liege = {
+									OR = {
+											religion = ashirra
+											religion = baali
+											religion = sabbat
+											religion = inconnu
+											religion = furores
+											religion = anarchs
+											religion = autarkis
+											religion = mayaparisataya
+											religion = masquerade_camarilla
+									}
+								}
+						}			
+
+						
+				
+				AND = { 
+						has_global_flag = bookmark1230
+						has_global_flag = bookmark1500
+						OR = { 
+								trait = assamite
+								trait = assamiteantitribu
+							}
+						liege = {
+									OR = {
+											religion = ashirra
+											religion = assamites
+											religion = baali
+											religion = sabbat
+											religion = inconnu
+											religion = furores
+											religion = anarchs
+											religion = autarkis
+											religion = masquerade_camarilla
+									}
+								}
+						}
+						
+						
 				AND = { 
 						trait = werewolf
 						liege = {
@@ -44,6 +344,8 @@ decisions = {
 								religion_group = pure_group
 								religion_group = forsaken_group
 								religion_group = bale_hounds_group
+								religion_group = garou_group
+								religion_group = wyrm_group
 							}
 						}
 					}	
@@ -57,6 +359,14 @@ decisions = {
 								religion_group = forsworn_vampire_group
 								religion_group = camarilla_group
 								religion_group = dharmic_vampire_group
+								religion_group = vampire_high_clans_group
+								religion_group = vampire_low_clans_group
+								religion_group = ashirra_vampire_group
+								religion_group = baali_group
+								religion_group = masquerade_camarilla_group
+								religion_group = sabbat_group
+								religion_group = inconnu_group
+								religion_group = masquerade_independent_group
 							}	
 						}
 					}					
@@ -287,24 +597,322 @@ decisions = {
 			NOT = { trait = demon }	
 			NOT = { trait = mortal }
 			OR = {
+			
 				AND = { 
 						trait = vampire
+						trait = julii 
+						has_global_flag = bookmark232
+						has_global_flag = bookmark412
 						capital_scope = {
 									NOT = { religion = revenant_longinus }
 									NOT = { religion = revenant_abrahamic }
 									NOT = { religion = revenant_unaligned }
 									NOT = { religion = revenant-dharma }
-									NOT = { religion = revenant_duolosi }					
+									NOT = { religion = revenant_duolosi }	
+									OR = { 
+											religion_group = pagan_vampire_group
+											religion_group = forsworn_vampire_group
+											religion_group = camarilla_group
+									}
+								}
+					}	
+			
+				AND = { 
+						trait = vampire
+						NOT = { trait = julii }
+						has_global_flag = bookmark1142
+						has_global_flag = bookmark1250
+						capital_scope = {
+									NOT = { religion = revenant_longinus }
+									NOT = { religion = revenant_abrahamic }
+									NOT = { religion = revenant_unaligned }
+									NOT = { religion = revenant-dharma }
+									NOT = { religion = revenant_duolosi }	
 									OR = { 
 											religion_group = longinus_group
 											religion_group = abrahamic_vampire_group
 											religion_group = pagan_vampire_group
 											religion_group = forsworn_vampire_group
 											religion_group = camarilla_group
-											religion_group = dharmic_vampire_group
+											religion_group = dharmic_vampire_group		
 									}
 								}
 					}
+
+				AND = { 
+						has_global_flag = bookmark1230
+						has_global_flag = bookmark1500
+						OR = { 
+								trait = brujah
+								trait = brujahantitribu
+							}
+						capital_scope = {
+									OR = {
+											religion = ashirra
+											religion = baali
+											religion = sabbat
+											religion = inconnu
+											religion = furores
+											religion = anarchs
+											religion = autarkis
+											religion = brujahcamarilla
+											religion = vampire_high_clans
+									}
+								}
+						}				
+
+				AND = { 
+						has_global_flag = bookmark1230
+						has_global_flag = bookmark1500
+						OR = { 
+								trait = gangrel
+								trait = gangrelantitribu
+							}
+						capital_scope = {
+									OR = {
+											religion = ashirra
+											religion = baali
+											religion = sabbat
+											religion = inconnu
+											religion = furores
+											religion = anarchs
+											religion = autarkis
+											religion = gangrelcamarilla
+											religion = vampire_low_clans
+									}
+								}
+						}
+
+				AND = { 
+						has_global_flag = bookmark1230
+						has_global_flag = bookmark1500
+						OR = { 
+								trait = malkavian
+								trait = malkavianantitribu
+							}
+						capital_scope = {
+									OR = {
+											religion = ashirra
+											religion = baali
+											religion = sabbat
+											religion = inconnu
+											religion = furores
+											religion = anarchs
+											religion = autarkis
+											religion = malkaviancamarilla
+											religion = vampire_low_clans
+									}
+								}
+						}	
+						
+				AND = { 
+						has_global_flag = bookmark1230
+						has_global_flag = bookmark1500
+						OR = { 
+								trait = nosferatu
+								trait = nosferatuantitribu
+							}
+						capital_scope = {
+									OR = {
+											religion = ashirra
+											religion = baali
+											religion = sabbat
+											religion = inconnu
+											religion = furores
+											religion = anarchs
+											religion = autarkis
+											religion = nosferatucamarilla
+											religion = vampire_low_clans
+									}
+								}
+						}	
+
+				AND = { 
+						has_global_flag = bookmark1230
+						has_global_flag = bookmark1500
+						OR = { 
+								trait = toreador
+								trait = toreadorantitribu
+							}
+						capital_scope = {
+									OR = {
+											religion = ashirra
+											religion = baali
+											religion = sabbat
+											religion = inconnu
+											religion = furores
+											religion = anarchs
+											religion = autarkis
+											religion = toreadorcamarilla
+											religion = vampire_high_clans
+									}
+								}
+						}	
+											
+				AND = { 
+						has_global_flag = bookmark1230
+						has_global_flag = bookmark1500
+						OR = { 
+								trait = tremere
+								trait = tremereantitribu
+							}
+						capital_scope = {
+									OR = {
+											religion = ashirra
+											religion = baali
+											religion = sabbat
+											religion = inconnu
+											religion = furores
+											religion = anarchs
+											religion = autarkis
+											religion = tremerecamarilla
+											religion = vampire_low_clans
+									}
+								}
+						}	
+
+				AND = { 
+						has_global_flag = bookmark1230
+						has_global_flag = bookmark1500
+						OR = { 
+								trait = ventrue
+								trait = ventrueantitribu
+							}
+						capital_scope = {
+									OR = {
+											religion = ashirra
+											religion = baali
+											religion = sabbat
+											religion = inconnu
+											religion = furores
+											religion = anarchs
+											religion = autarkis
+											religion = ventruecamarilla
+											religion = vampire_high_clans
+									}
+								}
+						}	
+
+				AND = { 
+						has_global_flag = bookmark1230
+						has_global_flag = bookmark1500
+						trait = giovanni
+						capital_scope = {
+									OR = {
+											religion = baali
+											religion = sabbat
+											religion = inconnu
+											religion = furores
+											religion = anarchs
+											religion = autarkis
+											religion = giovanni
+											religion = masquerade_camarilla
+									}
+								}
+						}							
+
+				AND = { 
+						has_global_flag = bookmark1230
+						has_global_flag = bookmark1500
+						OR = { 
+								trait = followerofset
+								trait = followerofsetantitribu
+							}
+						capital_scope = {
+									OR = {
+											religion = ashirra
+											religion = baali
+											religion = sabbat
+											religion = inconnu
+											religion = furores
+											religion = anarchs
+											religion = autarkis
+											religion = settite
+											religion = masquerade_camarilla											
+									}
+								}
+						}	
+
+				AND = { 
+						has_global_flag = bookmark1230
+						has_global_flag = bookmark1500
+						trait = cappodocian
+						capital_scope = {
+									OR = {
+											religion = ashirra
+											religion = baali
+											religion = sabbat
+											religion = inconnu
+											religion = furores
+											religion = anarchs
+											religion = autarkis
+											religion = masquerade_camarilla
+											religion = vampire_high_clans
+									}
+								}
+						}							
+
+				AND = { 
+						has_global_flag = bookmark1230
+						has_global_flag = bookmark1500
+						trait = salubri
+						capital_scope = {
+									OR = {
+											religion = ashirra
+											religion = inconnu
+											religion = furores
+											religion = anarchs
+											religion = autarkis
+											religion = vampire_high_clans
+									}
+								}
+						}
+						
+				AND = { 
+						has_global_flag = bookmark1230
+						has_global_flag = bookmark1500
+						OR = { 
+								trait = ravnos
+								trait = ravnosantitribu
+							}
+						capital_scope = {
+									OR = {
+											religion = ashirra
+											religion = baali
+											religion = sabbat
+											religion = inconnu
+											religion = furores
+											religion = anarchs
+											religion = autarkis
+											religion = mayaparisataya
+											religion = masquerade_camarilla
+									}
+								}
+						}			
+
+						
+				
+				AND = { 
+						has_global_flag = bookmark1230
+						has_global_flag = bookmark1500
+						OR = { 
+								trait = assamite
+								trait = assamiteantitribu
+							}
+						capital_scope = {
+									OR = {
+											religion = ashirra
+											religion = assamites
+											religion = baali
+											religion = sabbat
+											religion = inconnu
+											religion = furores
+											religion = anarchs
+											religion = autarkis
+											religion = masquerade_camarilla
+									}
+								}
+						}
 				AND = { 
 						trait = werewolf
 						capital_scope = {
@@ -312,6 +920,8 @@ decisions = {
 								religion_group = pure_group
 								religion_group = forsaken_group
 								religion_group = bale_hounds_group
+								religion_group = garou_group
+								religion_group = wyrm_group
 							}
 						}
 					}	
@@ -325,6 +935,14 @@ decisions = {
 								religion_group = forsworn_vampire_group
 								religion_group = camarilla_group
 								religion_group = dharmic_vampire_group
+								religion_group = vampire_high_clans_group
+								religion_group = vampire_low_clans_group
+								religion_group = ashirra_vampire_group
+								religion_group = baali_group
+								religion_group = masquerade_camarilla_group
+								religion_group = sabbat_group
+								religion_group = inconnu_group
+								religion_group = masquerade_independent_group									
 							}	
 						}
 					}					

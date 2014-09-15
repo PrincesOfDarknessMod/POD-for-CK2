@@ -187,9 +187,12 @@ character_event = {
 					NOT = { trait = demon }
 					NOT = { trait = revenant }
 					OR = {
-							religion_group = pure_group
-							religion_group = forsaken_group
-							religion_group = bale_hounds_group
+						has_global_flag = bookmark1230
+						has_global_flag = bookmark1500
+						}
+					OR = {
+						religion_group = garou_group
+						religion_group = wyrm_group
 						}
 					OR = {		
 						is_landed = yes
@@ -201,7 +204,7 @@ character_event = {
 					}
 							# make werewolf ruler
 							add_trait = werewolf
-							character_event = { id = werewolf_noble.1 }		
+							character_event = { id = CWOD_werewolf_noble.1 }		
 				}				
 				
 # Mage nobles				
@@ -444,9 +447,20 @@ if = { limit = {
 							religion_group = forsworn_vampire_group
 							religion_group = camarilla_group
 							religion_group = dharmic_vampire_group
+							religion_group = vampire_high_clans_group
+							religion_group = vampire_low_clans_group
+							religion_group = ashirra_vampire_group
+							religion_group = baali_group
+							religion_group = masquerade_camarilla_group
+							religion_group = sabbat_group
+							religion_group = inconnu_group
+							religion_group = masquerade_independent_group
+							religion = laibon
 							religion_group = pure_group
 							religion_group = forsaken_group
 							religion_group = bale_hounds_group
+							religion_group = garou_group
+							religion_group = wyrm_group
 							religion_group = mage_group			
 							religion_group = hunter_group
 							religion_group = promethean_group
@@ -454,7 +468,7 @@ if = { limit = {
 							religion_group = mummy_group
 							religion_group = geist_group
 							religion_group = demon_group
-							religion_group = innocent_group							
+							religion_group = innocent_group		
 						}
 					}
 			}	
