@@ -2,6 +2,16 @@ vassal_decisions = {
 	drain_mortal_prisoner_decision = {
 		from_potential = {
 			trait = vampire
+			OR = { 
+			ai = yes 
+			NOT = { 
+			OR = { 
+			has_character_flag = gifts_menu_open  
+			has_character_flag = disciplines_menu_open  
+			has_character_flag = abilities_menu_open
+			} 
+			} 
+			}
 		}
 	
 		potential = {
@@ -25,9 +35,126 @@ vassal_decisions = {
 				killer = FROM
 			}
 			FROM = {
-				set_variable = {
-					which = vitae
-					which = maxvitae
+				
+				if = { 
+					limit = { 
+						is_variable_equal = {
+							which = "maxvitae"
+							value = 1
+						}
+					}
+						set_variable = {
+							which = "vitae"
+							value = 1
+						}
+				}
+				if = { 
+					limit = { 
+						is_variable_equal = {
+							which = "maxvitae"
+							value = 2
+						}
+					}
+						set_variable = {
+							which = "vitae"
+							value = 2
+						}
+				}
+				if = { 
+					limit = { 
+						is_variable_equal = {
+							which = "maxvitae"
+							value = 3
+						}
+					}
+						set_variable = {
+							which = "vitae"
+							value = 3
+						}
+				}
+				if = { 
+					limit = { 
+						is_variable_equal = {
+							which = "maxvitae"
+							value = 4
+						}
+					}
+						set_variable = {
+							which = "vitae"
+							value = 4
+						}
+				}
+				if = { 
+					limit = { 
+						is_variable_equal = {
+							which = "maxvitae"
+							value = 5
+						}
+					}
+						set_variable = {
+							which = "vitae"
+							value = 5
+						}
+				}
+				if = { 
+					limit = { 
+						is_variable_equal = {
+							which = "maxvitae"
+							value = 6
+						}
+					}
+						set_variable = {
+							which = "vitae"
+							value = 6
+						}
+				}
+				if = { 
+					limit = { 
+						is_variable_equal = {
+							which = "maxvitae"
+							value = 7
+						}
+					}
+						set_variable = {
+							which = "vitae"
+							value = 7
+						}
+				}
+				if = { 
+					limit = { 
+						is_variable_equal = {
+							which = "maxvitae"
+							value = 8
+						}
+					}
+						set_variable = {
+							which = "vitae"
+							value = 8
+						}
+				}
+				if = { 
+					limit = { 
+						is_variable_equal = {
+							which = "maxvitae"
+							value = 9
+						}
+					}
+						set_variable = {
+							which = "vitae"
+							value = 9
+						}
+				}
+				if = { 
+					limit = { 
+						is_variable_equal = {
+							which = "maxvitae"
+							value = 10
+						}
+					}
+						set_variable = {
+							which = "vitae"
+							value = 10
+						}
 				}
 				piety = -50
 			}
@@ -82,6 +209,14 @@ vassal_decisions = {
 	diabolize_vampire_prisoner_decision = {
 		from_potential = {
 			trait = vampire
+			OR = { 
+				ai = yes 
+				NOT = { 
+					OR = { 
+						has_character_flag = gifts_menu_open  
+						has_character_flag = disciplines_menu_open  
+						has_character_flag = abilities_menu_open
+			} } }
 		}
 	
 		potential = {
@@ -111,26 +246,163 @@ vassal_decisions = {
 				killer = FROM
 			}
 			FROM = {
-				vassal_opinion = {
-					who = PREV
-					modifier = opinion_tyrant
-					multiplier = 2
-					months = 60
-				}
-				add_trait = diabolist
-				piety = -100
-				if = { 
-					LIMIT = { 
-						trait = bloodpotency_9 
-						ROOT = { trait = bloodpotency_10 }
+							vassal_opinion = {
+												who = PREV
+												modifier = opinion_tyrant
+												multiplier = 2
+												months = 60
+											}
+							add_trait = diabolist
+							wealth = 200
+							piety = -100
+
+if = {
+		OR = {
+			has_global_flag = bookmark1230
+			has_global_flag = bookmark1500
+		}
+							
+				if = { LIMIT = { vampgeneration15 
+								ROOT = { trait = vampgeneration14 }
+								ROOT = { trait = vampgeneration13 }
+								ROOT = { trait = vampgeneration12 }
+								ROOT = { trait = vampgeneration11 }
+								ROOT = { trait = vampgeneration10 }
+								ROOT = { trait = vampgeneration9 }
+								ROOT = { trait = vampgeneration8 }
+								ROOT = { trait = vampgeneration7 }
+								ROOT = { trait = vampgeneration6 }
+								ROOT = { trait = vampgeneration5 }
+								ROOT = { trait = vampgeneration4 }
+							}
+					remove_trait = vampgeneration15
+					add_trait = vampgeneration14 		
 					}
+
+				if = { LIMIT = { vampgeneration14
+								ROOT = { trait = vampgeneration13 }
+								ROOT = { trait = vampgeneration12 }
+								ROOT = { trait = vampgeneration11 }
+								ROOT = { trait = vampgeneration10 }
+								ROOT = { trait = vampgeneration9 }
+								ROOT = { trait = vampgeneration8 }
+								ROOT = { trait = vampgeneration7 }
+								ROOT = { trait = vampgeneration6 }
+								ROOT = { trait = vampgeneration5 }
+								ROOT = { trait = vampgeneration4 }
+							}
+					remove_trait = vampgeneration14
+					add_trait = vampgeneration13 		
+					}					
+							
+				if = { LIMIT = { vampgeneration13
+								ROOT = { trait = vampgeneration12 }
+								ROOT = { trait = vampgeneration11 }
+								ROOT = { trait = vampgeneration10 }
+								ROOT = { trait = vampgeneration9 }
+								ROOT = { trait = vampgeneration8 }
+								ROOT = { trait = vampgeneration7 }
+								ROOT = { trait = vampgeneration6 }
+								ROOT = { trait = vampgeneration5 }
+								ROOT = { trait = vampgeneration4 }
+							}
+					remove_trait = vampgeneration13
+					add_trait = vampgeneration12		
+					}
+					
+				if = { LIMIT = { vampgeneration12
+								ROOT = { trait = vampgeneration11 }
+								ROOT = { trait = vampgeneration10 }
+								ROOT = { trait = vampgeneration9 }
+								ROOT = { trait = vampgeneration8 }
+								ROOT = { trait = vampgeneration7 }
+								ROOT = { trait = vampgeneration6 }
+								ROOT = { trait = vampgeneration5 }
+								ROOT = { trait = vampgeneration4 }
+							}
+					remove_trait = vampgeneration12
+					add_trait = vampgeneration11		
+					}
+
+				if = { LIMIT = { vampgeneration11
+								ROOT = { trait = vampgeneration10 }
+								ROOT = { trait = vampgeneration9 }
+								ROOT = { trait = vampgeneration8 }
+								ROOT = { trait = vampgeneration7 }
+								ROOT = { trait = vampgeneration6 }
+								ROOT = { trait = vampgeneration5 }
+								ROOT = { trait = vampgeneration4 }
+							}
+					remove_trait = vampgeneration11
+					add_trait = vampgeneration10		
+					}
+					
+				if = { LIMIT = { vampgeneration10
+								ROOT = { trait = vampgeneration9 }
+								ROOT = { trait = vampgeneration8 }
+								ROOT = { trait = vampgeneration7 }
+								ROOT = { trait = vampgeneration6 }
+								ROOT = { trait = vampgeneration5 }
+								ROOT = { trait = vampgeneration4 }
+							}
+					remove_trait = vampgeneration10
+					add_trait = vampgeneration9	
+					}					
+					
+				if = { LIMIT = { vampgeneration9
+								ROOT = { trait = vampgeneration8 }
+								ROOT = { trait = vampgeneration7 }
+								ROOT = { trait = vampgeneration6 }
+								ROOT = { trait = vampgeneration5 }
+								ROOT = { trait = vampgeneration4 }
+							}
+					remove_trait = vampgeneration9
+					add_trait = vampgeneration8
+					}	
+
+				if = { LIMIT = { vampgeneration8
+								ROOT = { trait = vampgeneration7 }
+								ROOT = { trait = vampgeneration6 }
+								ROOT = { trait = vampgeneration5 }
+								ROOT = { trait = vampgeneration4 }
+							}
+					remove_trait = vampgeneration8
+					add_trait = vampgeneration7
+					}	
+					
+				if = { LIMIT = { vampgeneration7
+								ROOT = { trait = vampgeneration6 }
+								ROOT = { trait = vampgeneration5 }
+								ROOT = { trait = vampgeneration4 }
+							}
+					remove_trait = vampgeneration7
+					add_trait = vampgeneration6
+					}					
+					
+				if = { LIMIT = { vampgeneration6
+								ROOT = { trait = vampgeneration5 }
+								ROOT = { trait = vampgeneration4 }
+							}
+					remove_trait = vampgeneration6
+					add_trait = vampgeneration5
+					}					
+
+				if = { LIMIT = { vampgeneration5
+								ROOT = { trait = vampgeneration4 }
+							}
+					remove_trait = vampgeneration5
+					add_trait = vampgeneration4
+					}						
+					
+	}		
+	
+				if = { LIMIT = { trait = bloodpotency_9
+									ROOT = { trait = bloodpotency_10 }
+											}
 							
 					add_trait = bloodpotency_10
 					remove_trait = bloodpotency_9
-					change_variable = {
-						which = maxvitae
-						value = 1
-					}
+					wealth = 1000
 				}
 				if = { LIMIT = { trait = bloodpotency_8 
 								OR = { 	
@@ -140,10 +412,7 @@ vassal_decisions = {
 							}
 					add_trait = bloodpotency_9
 					remove_trait = bloodpotency_8
-					change_variable = {
-						which = maxvitae
-						value = 1
-					}
+					wealth = 900
 				}
 				if = { LIMIT = { trait = bloodpotency_7
 								OR = { 	
@@ -154,10 +423,7 @@ vassal_decisions = {
 							}
 					add_trait = bloodpotency_8
 					remove_trait = bloodpotency_7
-					change_variable = {
-						which = maxvitae
-						value = 1
-					}
+					wealth = 800
 				}
 				if = { LIMIT = { trait = bloodpotency_6
 								OR = { 	
@@ -169,10 +435,7 @@ vassal_decisions = {
 							}
 					add_trait = bloodpotency_7
 					remove_trait = bloodpotency_6
-					change_variable = {
-						which = maxvitae
-						value = 1
-					}
+					wealth = 700
 				}
 				if = { LIMIT = { trait = bloodpotency_5
 								OR = { 	
@@ -185,10 +448,7 @@ vassal_decisions = {
 							}
 					add_trait = bloodpotency_6
 					remove_trait = bloodpotency_5
-					change_variable = {
-						which = maxvitae
-						value = 1
-					}
+					wealth = 600
 				}
 				if = { LIMIT = { trait = bloodpotency_4
 								OR = { 	
@@ -202,6 +462,7 @@ vassal_decisions = {
 							}
 					add_trait = bloodpotency_5
 					remove_trait = bloodpotency_4
+					wealth = 500
 				}
 				if = { LIMIT = { trait = bloodpotency_3
 								OR = { 	
@@ -216,6 +477,7 @@ vassal_decisions = {
 							}
 					add_trait = bloodpotency_4
 					remove_trait = bloodpotency_3
+					wealth = 400
 				}
 				if = { LIMIT = { trait = bloodpotency_2
 								OR = { 	
@@ -231,6 +493,7 @@ vassal_decisions = {
 							}
 					add_trait = bloodpotency_3
 					remove_trait = bloodpotency_2
+					wealth = 300
 				}
 				if = { LIMIT = { trait = bloodpotency_1
 								OR = { 	ROOT = { trait = bloodpotency_2 }
@@ -246,6 +509,7 @@ vassal_decisions = {
 							}
 					add_trait = bloodpotency_2
 					remove_trait = bloodpotency_1
+					wealth = 200
 				}
 
 			}
@@ -379,6 +643,16 @@ vassal_decisions = {
 	bloodbind_vampire_prisoner_decision = {
 		from_potential = {
 			trait = vampire
+			OR = { 
+			ai = yes 
+			NOT = { 
+			OR = { 
+			has_character_flag = gifts_menu_open  
+			has_character_flag = disciplines_menu_open  h
+			as_character_flag = abilities_menu_open
+			} 
+			} 
+			}
 		}
 	
 		potential = {
@@ -397,10 +671,16 @@ vassal_decisions = {
 			prisoner = yes
 		}
 		effect = {
-					change_variable = {
-						which = maxvitae
-						value = -2
-					}	
+		FROM = {
+			change_variable = { 
+				which = "maxvitae"
+				value = -2
+			}
+			change_variable = { 
+				which = "vitae"
+				value = -2
+			}
+		}
 					opinion = {
 									modifier = opinion_blood_bond_to_domitor
 									who = FROM

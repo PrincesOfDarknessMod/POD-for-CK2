@@ -158,3 +158,259 @@ character_event = {
 			
 	}
 }
+
+# Storyteller bookmark dead wood character clean up
+character_event = {
+	id = storyteller.2	
+	picture = "GFX_evt_comet"
+	hide_window = yes	
+
+	trigger = {
+		is_alive = yes
+		NOT = { trait = storyteller } 
+		OR = {
+		trait = bookmark232 
+		trait = bookmark412 
+		trait = bookmark480 
+		trait = bookmark543 
+		trait = bookmark757 
+		trait = bookmark947 
+		trait = bookmark990 
+		trait = bookmark1096 
+		trait = bookmark1142 
+		trait = bookmark1202 
+		trait = bookmark1230 
+		trait = bookmark1250 
+		trait = bookmark1325 
+		trait = bookmark1466 
+		trait = bookmark1500 
+		trait = bookmark1666 			
+		}		
+		OR = {
+		has_global_flag = bookmark232 
+		has_global_flag = bookmark412 
+		has_global_flag = bookmark480 
+		has_global_flag = bookmark543 
+		has_global_flag = bookmark757 
+		has_global_flag = bookmark947 
+		has_global_flag = bookmark990 
+		has_global_flag = bookmark1096 
+		has_global_flag = bookmark1142 
+		has_global_flag = bookmark1202 
+		has_global_flag = bookmark1230 
+		has_global_flag = bookmark1250 
+		has_global_flag = bookmark1325 
+		has_global_flag = bookmark1466 
+		has_global_flag = bookmark1500 
+		has_global_flag = bookmark1666 	
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		modifier = {
+		factor = 0.1 
+		adult = yes
+		}		
+	}
+	
+	immediate = {
+
+
+	
+		if = { 
+			limit = {
+						 has_global_flag = bookmark1142
+				}
+				
+				if = { limit = {
+								NOT = { trait = bookmark1142 }
+								OR = {
+									trait = bookmark232 
+									trait = bookmark412 
+									trait = bookmark480 
+									trait = bookmark543 
+									trait = bookmark757 
+									trait = bookmark947 
+									trait = bookmark990 
+									trait = bookmark1096 
+									trait = bookmark1202 
+									trait = bookmark1230 
+									trait = bookmark1250 
+									trait = bookmark1325 
+									trait = bookmark1466 
+									trait = bookmark1500
+									trait = bookmark1666 								
+								}
+							}
+						remove_trait = bookmark232 
+						remove_trait = bookmark412 
+						remove_trait = bookmark480 
+						remove_trait = bookmark543 
+						remove_trait = bookmark757 
+						remove_trait = bookmark947 
+						remove_trait = bookmark990 
+						remove_trait = bookmark1096 
+						remove_trait = bookmark1202 
+						remove_trait = bookmark1230 
+						remove_trait = bookmark1250 
+						remove_trait = bookmark1325 
+						remove_trait = bookmark1466 
+						remove_trait = bookmark1500
+						remove_trait = bookmark1666 
+						death = "yes"	
+				}
+				
+				if = { limit = { trait = bookmark1142 }
+						 remove_trait = bookmark1142
+						 }				
+			}		
+
+		if = { 
+			limit = {
+						 has_global_flag = bookmark1230
+				}
+				
+				if = { limit = {
+								NOT = { trait = bookmark1230 }
+								OR = {
+									trait = bookmark232 
+									trait = bookmark412 
+									trait = bookmark480 
+									trait = bookmark543 
+									trait = bookmark757 
+									trait = bookmark947 
+									trait = bookmark990 
+									trait = bookmark1096 
+									trait = bookmark1142
+									trait = bookmark1202 
+									trait = bookmark1250 
+									trait = bookmark1325 
+									trait = bookmark1466 
+									trait = bookmark1500
+									trait = bookmark1666 								
+								}
+							}
+						remove_trait = bookmark232 
+						remove_trait = bookmark412 
+						remove_trait = bookmark480 
+						remove_trait = bookmark543 
+						remove_trait = bookmark757 
+						remove_trait = bookmark947 
+						remove_trait = bookmark990 
+						remove_trait = bookmark1096 
+						remove_trait = bookmark1142 
+						remove_trait = bookmark1202 
+						remove_trait = bookmark1250 
+						remove_trait = bookmark1325 
+						remove_trait = bookmark1466 
+						remove_trait = bookmark1500
+						remove_trait = bookmark1666 
+						death = "yes"	
+				}
+				
+				if = { limit = { trait = bookmark1230 }
+						 remove_trait = bookmark1230
+						 }				
+			}	
+
+		if = { 
+			limit = {
+						 has_global_flag = bookmark1250
+				}
+				
+				if = { limit = {
+								NOT = { trait = bookmark1250 }
+								OR = {
+									trait = bookmark232 
+									trait = bookmark412 
+									trait = bookmark480 
+									trait = bookmark543 
+									trait = bookmark757 
+									trait = bookmark947 
+									trait = bookmark990 
+									trait = bookmark1096 
+									trait = bookmark1142
+									trait = bookmark1202 
+									trait = bookmark1230 
+									trait = bookmark1325 
+									trait = bookmark1466 
+									trait = bookmark1500
+									trait = bookmark1666 								
+								}
+							}
+						remove_trait = bookmark232 
+						remove_trait = bookmark412 
+						remove_trait = bookmark480 
+						remove_trait = bookmark543 
+						remove_trait = bookmark757 
+						remove_trait = bookmark947 
+						remove_trait = bookmark990 
+						remove_trait = bookmark1096 
+						remove_trait = bookmark1142 
+						remove_trait = bookmark1202 
+						remove_trait = bookmark1230 
+						remove_trait = bookmark1325 
+						remove_trait = bookmark1466 
+						remove_trait = bookmark1500
+						remove_trait = bookmark1666 
+						death = "yes"	
+				}
+				
+				if = { limit = { trait = bookmark1250 }
+						 remove_trait = bookmark1250
+						 }				
+			}				
+			
+		if = { 
+			limit = {
+						 has_global_flag = bookmark1500
+				}
+				
+				if = { limit = {
+								NOT = { trait = bookmark1500 }
+								OR = {
+									trait = bookmark232 
+									trait = bookmark412 
+									trait = bookmark480 
+									trait = bookmark543 
+									trait = bookmark757 
+									trait = bookmark947 
+									trait = bookmark990 
+									trait = bookmark1096 
+									trait = bookmark1142 
+									trait = bookmark1202 
+									trait = bookmark1230 
+									trait = bookmark1250 
+									trait = bookmark1325 
+									trait = bookmark1466 
+									trait = bookmark1666 								
+								}
+							}
+						remove_trait = bookmark232 
+						remove_trait = bookmark412 
+						remove_trait = bookmark480 
+						remove_trait = bookmark543 
+						remove_trait = bookmark757 
+						remove_trait = bookmark947 
+						remove_trait = bookmark990 
+						remove_trait = bookmark1096 
+						remove_trait = bookmark1142 
+						remove_trait = bookmark1202 
+						remove_trait = bookmark1230 
+						remove_trait = bookmark1250 
+						remove_trait = bookmark1325 
+						remove_trait = bookmark1466 
+						remove_trait = bookmark1666 
+						death = "yes"	
+				}
+
+				if = { limit = { trait = bookmark1500 }
+						 remove_trait = bookmark1500
+						 }				
+			}	
+
+
+			
+		}			
+	}

@@ -83,7 +83,18 @@ immediate = {
 			limit = {
 						trait = bloodpotency_9
 						age = 450 
-						
+						NOT = vampgeneration_15
+						NOT = vampgeneration_14
+						NOT = vampgeneration_13
+						NOT = vampgeneration_12
+						NOT = vampgeneration_11
+						NOT = vampgeneration_10
+						NOT = vampgeneration_9
+						NOT = vampgeneration_8
+						NOT = vampgeneration_7
+						NOT = vampgeneration_6
+						NOT = vampgeneration_5
+						NOT = vampgeneration_4	
 					}
 				remove_trait = bloodpotency_9
 				add_trait = bloodpotency_10
@@ -93,7 +104,17 @@ immediate = {
 			limit = {
 						trait = bloodpotency_8
 						age = 400
-						
+						NOT = vampgeneration_15
+						NOT = vampgeneration_14
+						NOT = vampgeneration_13
+						NOT = vampgeneration_12
+						NOT = vampgeneration_11
+						NOT = vampgeneration_10
+						NOT = vampgeneration_9
+						NOT = vampgeneration_8
+						NOT = vampgeneration_7
+						NOT = vampgeneration_6
+						NOT = vampgeneration_5						
 					}
 				remove_trait = bloodpotency_8
 				add_trait = bloodpotency_9
@@ -103,6 +124,16 @@ immediate = {
 			limit = {
 						trait = bloodpotency_7
 						age = 350
+						NOT = vampgeneration_15
+						NOT = vampgeneration_14
+						NOT = vampgeneration_13
+						NOT = vampgeneration_12
+						NOT = vampgeneration_11
+						NOT = vampgeneration_10
+						NOT = vampgeneration_9
+						NOT = vampgeneration_8
+						NOT = vampgeneration_7
+						NOT = vampgeneration_6
 						
 					}
 				remove_trait = bloodpotency_7
@@ -113,6 +144,15 @@ immediate = {
 			limit = {
 						trait = bloodpotency_6
 						age = 300
+						NOT = vampgeneration_15
+						NOT = vampgeneration_14
+						NOT = vampgeneration_13
+						NOT = vampgeneration_12
+						NOT = vampgeneration_11
+						NOT = vampgeneration_10
+						NOT = vampgeneration_9
+						NOT = vampgeneration_8
+						NOT = vampgeneration_7					
 						
 					}
 				remove_trait = bloodpotency_6
@@ -123,7 +163,14 @@ immediate = {
 			limit = {
 						trait = bloodpotency_5
 						age = 250
-				
+						NOT = vampgeneration_15
+						NOT = vampgeneration_14
+						NOT = vampgeneration_13
+						NOT = vampgeneration_12
+						NOT = vampgeneration_11
+						NOT = vampgeneration_10
+						NOT = vampgeneration_9
+						NOT = vampgeneration_8									
 					}
 				remove_trait = bloodpotency_5
 				add_trait = bloodpotency_6
@@ -133,7 +180,13 @@ immediate = {
 			limit = {
 						trait = bloodpotency_4
 						age = 200
-						
+						NOT = vampgeneration_15
+						NOT = vampgeneration_14
+						NOT = vampgeneration_13
+						NOT = vampgeneration_12
+						NOT = vampgeneration_11
+						NOT = vampgeneration_10
+						NOT = vampgeneration_9						
 					}
 				remove_trait = bloodpotency_4
 				add_trait = bloodpotency_5
@@ -143,7 +196,12 @@ immediate = {
 			limit = {
 						trait = bloodpotency_3
 						age = 150
-						
+						NOT = vampgeneration_15
+						NOT = vampgeneration_14
+						NOT = vampgeneration_13
+						NOT = vampgeneration_12
+						NOT = vampgeneration_11
+						NOT = vampgeneration_10						
 					}
 				remove_trait = bloodpotency_3
 				add_trait = bloodpotency_4
@@ -153,6 +211,11 @@ immediate = {
 			limit = {
 						trait = bloodpotency_2
 						age = 100 
+						NOT = vampgeneration_15
+						NOT = vampgeneration_14
+						NOT = vampgeneration_13
+						NOT = vampgeneration_12
+						NOT = vampgeneration_11					
 					}
 				remove_trait = bloodpotency_2
 				add_trait = bloodpotency_3
@@ -162,6 +225,10 @@ immediate = {
 			limit = {
 						trait = bloodpotency_1
 						age = 50 
+						NOT = vampgeneration_15
+						NOT = vampgeneration_14
+						NOT = vampgeneration_13
+						NOT = vampgeneration_12						
 					}
 				remove_trait = bloodpotency_1
 				add_trait = bloodpotency_2
@@ -282,6 +349,9 @@ character_event = {
 	trigger = {
 		trait = vampire
 		trait = torpor
+		NOT = { trait = vampgeneration3 }
+		NOT = { trait = vampgeneration2 }
+		NOT = { trait = vampgeneration1 }
 	}
 	
 	mean_time_to_happen = {
@@ -343,7 +413,6 @@ character_event = {
 		remove_trait = wounded
 		remove_trait = maimed
 		remove_trait = blinded
-		wealth = 10
 		remove_trait = torpor
 		set_character_flag = FLAG_vampire_aging_events_VAMPIRE_TORPOR_AWAKEN 
 		}
