@@ -2,7 +2,7 @@ d_black_furies = {
 	color={ 200 0 0 }
 	color2={ 255 255 255 }
 	
-	graphical_culture = orthodoxholygfx
+	graphical_culture = byzantinegfx
 	
 	capital = 746 # Ephesos  Temple of Artemis
 	
@@ -18,6 +18,12 @@ d_black_furies = {
 	
 	# Parent Religion 
 	religion = hunters_in_darkness
+	
+	allow = {
+				OR = { 
+						religion = huntes_in_darkness
+						religion = black_furies }
+						}
 	
 	# Cannot be held as a secondary title
 	primary = yes
@@ -37,13 +43,14 @@ d_bonegnawers = {
 
 	# Always exists
 	landless = yes
-	
+	graphical_culture = byzantinegfx
 	mercenary = yes
 
 	# Hire Trigger
 	allow = {
 			NOT = { religion_group = pure_group }
 			NOT = { religion_group = bale_hounds_group }	
+			NOT = { religion_grouo = wyrm_group }
 	}
 	
 	culture = greek
@@ -70,7 +77,9 @@ d_get_of_fenris = {
 
 	# Hire Trigger
 	allow = {
+			OR = {
 			religion_group = forsaken_group
+			religion = get_of_fenris }
 	}
 
 	# Always exists
@@ -96,7 +105,7 @@ d_fianna = {
 	color={ 200 0 0 }
 	color2={ 255 255 255 }
 	
-	graphical_culture = holygfx
+	graphical_culture = celticgfx
 	
 	capital = 9 # Connacht
 	
@@ -112,6 +121,12 @@ d_fianna = {
 	
 	# Parent Religion 
 	religion = bone_shadows
+	
+	allow = {
+		OR = { 
+		religion = fianna
+		religion = bone_shadows }
+	}
 	
 	# Cannot be held as a secondary title
 	primary = yes
@@ -140,6 +155,14 @@ d_glass_walkers = {
 	# Parent Religion 
 	religion = iron_masters
 	
+	allow = { 
+			OR = {
+			religion = iron_masters
+			religion = glass_walkers
+			religion = warders_of_men
+			}
+			}
+	
 	# Cannot be held as a secondary title
 	primary = yes
 
@@ -163,6 +186,7 @@ d_lodge_of_arms = {
 	allow = {
 			NOT = { religion_group = pure_group }
 			NOT = { religion_group = bale_hounds_group }
+			NOT = { religion_group = wyrm_group }
 	}	
 	
 	culture = castillian
@@ -195,6 +219,10 @@ d_shadowlords = {
 	
 	# Parent Religion 
 	religion = storm_lords
+	allow = {
+				OR = { religion = storm_lords
+						religion = shadow_lords }
+						}
 	
 	# Cannot be held as a secondary title
 	primary = yes
@@ -205,6 +233,8 @@ d_shadowlords = {
 d_silent_striders = {
 	color={ 200 0 0 }
 	color2={ 255 255 255 }
+	
+	graphical_culture = africangfx
 
 	mercenary = yes	
 	# Hire Trigger
@@ -213,6 +243,7 @@ d_silent_striders = {
 			OR = {
 					religion_group = forsaken_group
 					trait = gangrel
+					religion = silent_striders
 			}
 			NOT = { religion_group = pure_group }
 			NOT = { religion_group = bale_hounds_group }
@@ -239,7 +270,9 @@ d_silent_striders = {
 
 d_silver_fangs = {
 	color={ 200 0 0 }
-	color2={ 255 255 255 }
+	color2={ 255 255 255 
+	
+	graphical_culture = easternslavicgfx
 
 	mercenary = yes	
 	# Hire Trigger
@@ -265,6 +298,11 @@ d_silver_fangs = {
 	# Parent Religion 
 	religion = ivory_claws
 	
+	allow = { OR = {
+		religion = ivory_claws
+		religion = silver_fangs
+		}
+	
 	# Cannot be held as a secondary title
 	primary = yes
 
@@ -275,6 +313,8 @@ d_stargazers = {
 	color={ 200 0 0 }
 	color2={ 255 255 255 }
 
+	graphical_culture = indiangfx	
+	
 	holy_ordedr = yes	
 	
 	capital = 1198 # Vatapi
@@ -289,6 +329,13 @@ d_stargazers = {
 	
 	# Parent Religion 
 	religion = ivory_claws
+	
+	allow = { 
+				OR = { 
+						religion = ivory_claws
+						religion = stargazers
+						}
+						}
 	
 	# Cannot be held as a secondary title
 	primary = yes
@@ -305,9 +352,11 @@ d_white_howlers = {
 			OR = {
 					religion_group = forsaken_group
 					trait = gangrel
+					religion = white_howlers
 			}
 			NOT = { religion_group = pure_group }
 			NOT = { religion_group = bale_hounds_group }
+			NOT = { religion_group = wyrm_group }
 		
 	}
 	
@@ -340,6 +389,7 @@ d_black_spiral_dancers = {
 					religion_group = bale_hounds_group
 					trait = gangrel
 					religion_group = forsworn_vampire_group
+					religion_group = wyrm_group
 			}
 			NOT = { religion_group = pure_group }
 			NOT = { religion_group = forsaken_group }

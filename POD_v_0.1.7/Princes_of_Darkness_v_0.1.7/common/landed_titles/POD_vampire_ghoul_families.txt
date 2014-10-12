@@ -12,8 +12,12 @@ d_crassus = {
 
 	# Hire Trigger
 	allow = {
+		OR = {
 		religion_group = longinus_group
-		NOT = { religion = revenant_longinus }
+		religion_group = vampire_high_clans_group
+		religion_group = masquerade_camarilla_group
+		}
+		trait = vampire
 	}	
 	
 	mercenary = yes
@@ -38,10 +42,15 @@ d_asmundarson = {
 	color2 = { 255 255 255 }
 	capital = 1 # Bjarg, Miðfjörður, Vestisland, Iceland
 	
+	graphical_culture = norsegfx
+	
 	# Parent Religion 
 	religion = revenant_unaligned
 	allow = {
+		trait = vampire
+		OR = {
 		religion_group = pagan_vampire_group
+		religion = followerofset }
 		NOT = { religion = revenant_unaligned }
 	}	
 	culture = norse
@@ -71,8 +80,12 @@ d_nirriti = {
 	# Parent Religion 
 	religion = revenant-dharma
 	allow = {
+		trait = vampire
+		OR = { 
 		religion_group = dharmic_vampire_group
-		NOT = { religion = revenant-dharma }
+		culture_group = indo-aryan
+		culture_group = dravidian
+		}
 	}
 	culture = kannada
 	
@@ -100,11 +113,17 @@ d_bratovitch = {
 	color2 = { 255 255 255 }
 	capital = 532 # Sacz, Lesser Poland, Poland
 	
+	graphical_culture = balticholygfx
+	
 	# Parent Religion 
 	religion = revenant_unaligned
 	allow = {
+		OR = {
 		religion_group = pagan_vampire_group
-		NOT = { religion = revenant_unaligned }
+		religion = sabbat
+		trait = tzimisce
+		}
+		trait = vampire
 	}
 	culture = polish
 	
@@ -134,8 +153,10 @@ d_grimaldi = {
 	# Parent Religion 
 	religion = revenant_longinus
 	allow = {
+		OR = {
 		religion_group = longinus_group
-		NOT = { religion = revenant_longinus }
+		religion = sabbat }
+		trait = vampire	
 	}	
 	culture = italian
 	
@@ -159,14 +180,20 @@ d_grimaldi = {
 d_szantovich = {
 	color = { 0 0 0 }
 	color2 = { 255 255 255 }
+	graphical_culture = slavicholygfx
+	
 	capital = 442 # Trencin, Nyitra, Hungary, Carpathia
 	
 	# Parent Religion 
 	religion = revenant_longinus
 	allow = {
-		NOT = { religion = revenant_longinus }
-		NOT = { religion = revenant_unaligned }
-		NOT = { religion = revenant_duolosi }
+		trait = vampire
+		OR = {
+		religion_group = longinus_group
+		religion_group = pagan_vampire_group
+		religion = sabbat
+		trait = tzimisce
+		}
 	}
 	culture = hungarian
 	
@@ -195,8 +222,11 @@ d_obertus = {
 	# Parent Religion 
 	religion = revenant_longinus
 	allow = {
+		OR = { 
 		religion = lancea_sanctum
-		NOT = { religion = revenant_longinus }
+		trait = tzimisce
+		religion = sabbat }
+		trait = vampire
 	}	
 	culture = greek
 	
@@ -222,11 +252,16 @@ d_vlaszy = {
 	color2 = { 255 255 255 }
 	capital = 523 # Heves, Hungary
 	
+	graphical_culture = turkishgfx
+	
 	# Parent Religion 
 	religion = revenant_unaligned
 	allow = {
+		OR = {
 		religion_group = pagan_vampire_group
-		NOT = { religion = revenant_unaligned }
+		religion = sabbat
+		trait = tzimisce }
+		trait = vampire
 	}
 	culture = hungarian
 	
@@ -250,13 +285,19 @@ d_vlaszy = {
 d_basarab = {
 	color = { 0 0 0 }
 	color2 = { 255 255 255 }
+	
+	graphical_culture = slavicholygfx
+	
 	capital = 516 # Severin, Wallachia, Carpathia
 	# Basarb I, King of Wallatchia, 1310 CE; < Thocomerius < Bărbat < Litovoi 
 	# Parent Religion 
 	religion = revenant_unaligned
 	allow = {
+		OR = {
 		religion_group = pagan_vampire_group
-		NOT = { religion = revenant_unaligned }
+		religion = sabbat
+		trait = tzimisce }
+		trait = vampire
 	}
 	culture = romanian
 	
@@ -282,11 +323,16 @@ d_danislaw = {
 	color2 = { 255 255 255 }
 	capital = 540 # Szekelyfold, Transylvannia
 	
+	graphical_culture = norseholygfx
+	
 	# Parent Religion 
 	religion = revenant_unaligned
 	allow = {
+		OR = {
 		religion_group = pagan_vampire_group
-		NOT = { religion = revenant_unaligned }
+		religion = sabbat 
+		trait = tzimisce }
+		trait = vampire
 	}
 	culture = romanian
 	
@@ -312,11 +358,16 @@ d_khazi = {
 	color2 = { 255 255 255 }
 	capital = 424 # Priypat Marshes, Jacwiez, Grodono, Lithuania
 	
+	graphical_culture = balticholygfx
+	
 	# Parent Religion 
 	religion = revenant_unaligned
 	allow = {
+		OR = {
 		religion_group = pagan_vampire_group
-		NOT = { religion = revenant_unaligned }
+		religion = sabbat
+		trait = tzimisce }
+		trait = vampire
 	}
 	culture = lithuanian
 	
@@ -340,12 +391,19 @@ d_khazi = {
 d_krevcheski = {
 	color = { 0 0 0 }
 	color2 = { 255 255 255 }
+	
+	graphical_culture = slavicholygfx
+	
 	capital = 361 # Niederbayern, Bavaria
 	
 	# Parent Religion 
 	religion = revenant_unaligned
 	allow = {
-		NOT = { religion = revenant_unaligned }
+		trait = vampire
+		OR = { religion_group = longinus_group
+				religion_group = pagan_vampire_group
+				religion = tremerecamarilla
+				}
 	}
 	culture = german
 	
@@ -374,8 +432,12 @@ d_oprichniki = {
 	# Parent Religion 
 	religion = revenant_unaligned
 	allow = {
+		OR = {
 		religion_group = pagan_vampire_group
-		NOT = { religion = revenant_unaligned }
+		religion = sabbat 
+		trait = tzimisce }
+		
+		trait = vampire
 	}	
 
 	culture = russian
@@ -399,14 +461,19 @@ d_oprichniki = {
 
 d_premysl = {
 	color = { 0 0 0 }
-	color2 = { 255 255 255 }
+	color2 = { 255 255 255 
+	graphical_culture = slavicholygfx
 	capital = 437 # Praha, Bohemia
 	
 	# Parent Religion 
 	religion = revenant_unaligned	
 	allow = {
+		OR = {
 		religion_group = pagan_vampire_group
-		NOT = { religion = revenant_unaligned }
+		religion = sabbat
+		trait = tzimisce }
+		
+		trait = vampire
 	}
 	culture = bohemian
 	
@@ -430,13 +497,17 @@ d_premysl = {
 d_narov = {
 	color = { 0 0 0 }
 	color2 = { 255 255 255 }
+	graphical_culture = finnishholygfx
 	capital = 592 # Saratov, Burtasy
 	
 	# Parent Religion 
 	religion = revenant_unaligned	
 	allow = {
+		OR = {
 		religion_group = pagan_vampire_group
-		NOT = { religion = revenant_unaligned }
+		religion = sabbat
+		trait = tzimisce }
+		trait = vampire
 	}
 	culture = mordvin
 	
@@ -460,13 +531,17 @@ d_narov = {
 d_rustovitch = {
 	color = { 0 0 0 }
 	color2 = { 255 255 255 }
+	graphical_culture = slavicholygfx
 	capital = 539 # Bistritz, Marmaros, Ungvar, Hungary 
 	
 	# Parent Religion 
 	religion = revenant_unaligned	
 	allow = {
+		OR = {
 		religion_group = pagan_vampire_group
-		NOT = { religion = revenant_unaligned }
+		religion = sabbat
+		trait = tzimisce }
+		trait = vampire
 	}
 
 	culture = romanian
@@ -491,13 +566,17 @@ d_rustovitch = {
 d_ruthvenski = {
 	color = { 0 0 0 }
 	color2 = { 255 255 255 }
+	graphical_culture = slavicholygfx
 	capital = 519 #  Sarmizegetusa, Hunedoara, Feher
 	
 	# Parent Religion 
 	religion = revenant_unaligned
 	allow = {
+		OR = {
 		religion_group = pagan_vampire_group
-		NOT = { religion = revenant_unaligned }
+		religion = sabbat
+		trait = tzimisce }
+		trait = vampire
 	}
 	culture = romanian
 	
@@ -624,8 +703,10 @@ d_dhabi = {
 
 	# Hire Trigger
 	allow = {
+		OR = {
 		religion_group = forsworn_vampire_group
-		NOT = { religion = revenant_duolosi }		
+		religion = baali }
+		trait = vampire		
 	}
 	
 	mercenary = yes

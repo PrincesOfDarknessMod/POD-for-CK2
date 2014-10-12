@@ -240,7 +240,7 @@ d_ashirra  = {
 	color2 = { 255 255 255 }
 
 	capital = 693 # Baghdad
-	graphical_culture = hashshashingfx	
+	graphical_culture = bektashigfx
 	# Hire Trigger
 	allow = {
 		OR = {
@@ -252,6 +252,11 @@ d_ashirra  = {
 	# Parent Religion 
 	religion = al-amin
 	culture = levantine_arabic
+	
+	allow =  { OR = { 
+		religion = al-amin
+		religion = ashirra }
+		}
 	
 	mercenary = yes
 
@@ -316,6 +321,7 @@ d_banu_haqim = {
 		OR = {
 			religion = al-amin
 			religion = banu_shaitan
+			religion = assamites
 		}
 	}	
 	
@@ -351,6 +357,8 @@ d_bayt_majnoon = {
 		OR = {
 			religion = al-amin
 			religion = banu_shaitan
+			AND = { religion = ashirra
+					trait = malkavian }
 		}
 	}	
 	
@@ -380,12 +388,14 @@ d_bayt_muirim = {
 	color2 = { 255 255 255 }
 
 	capital = 646 # Esfahan, Persia
-	graphical_culture = hashshashingfx	
+	graphical_culture = indiangfx	
 	# Hire Trigger
 	allow = {
 		OR = {
 			religion = al-amin
 			religion = banu_shaitan
+			religion = ashirra
+			trait = ravnos
 		}
 	}	
 	
@@ -414,6 +424,8 @@ d_bayt_mushakis = {
 	color = { 100 100 0 }
 	color2 = { 255 255 255 }
 
+	graphical_culture = bektashigfx
+	
 	capital = 118 # Cordoba, Andalusia, Spain
 
 	# Hire Trigger
@@ -421,6 +433,8 @@ d_bayt_mushakis = {
 		OR = {
 			religion = al-amin
 			religion = banu_shaitan
+			AND = { religion = ashirra
+					trait = brujah }
 		}
 	}	
 	
@@ -456,6 +470,7 @@ d_bayt_mutasharid = {
 		OR = {
 			religion = al-amin
 			religion = banu_shaitan
+			trait = nosferatu
 		}
 	}	
 	
@@ -491,11 +506,15 @@ d_qabilat_al-khayal = {
 		OR = {
 			religion = al-amin
 			religion = banu_shaitan
+			AND = { religion = ashirra
+					OR = { trait = lasombraantitribu 
+						   trait = lasombra }
+					}
 		}
 	}	
 	
 	# Parent Religion 
-	religion = banu_shaitan
+	religion = ashirra
 	culture = levantine_arabic
 	
 	mercenary = yes
@@ -526,11 +545,12 @@ d_qabilat_al-mawt = {
 		OR = {
 			religion = al-amin
 			religion = banu_shaitan
+			trait = cappadocian
 		}
 	}	
 	
 	# Parent Religion 
-	religion = banu_shaitan
+	religion = ashirra
 	culture = maghreb_arabic
 	
 	mercenary = yes
@@ -561,6 +581,8 @@ d_rayeen_al-fen = {
 		OR = {
 			religion = al-amin
 			religion = banu_shaitan
+			AND = { religion = ashirra
+					trait = toreador }
 		}
 	}	
 	
@@ -593,8 +615,10 @@ d_wahsheen = {
 	graphical_culture = africangfx	
 	# Hire Trigger
 	allow = {
+				OR = {
 				trait = vampire
 				trait = werewolf
+				}
 	}	
 	
 	# Parent Religion 
@@ -626,11 +650,13 @@ d_walid_set = {
 	graphical_culture = westafricanholygfx	
 	# Hire Trigger
 	allow = {
+			OR = {
 			religion_group = pagan_vampire_group
+			religion = settite }
 	}
 	
 	# Parent Religion 
-	religion = al-amin
+	religion = settite
 	culture = egyptiane_arabic
 	
 	mercenary = yes
@@ -824,7 +850,8 @@ d_carnival = {
 	
 	# Hire Trigger
 	allow = {
-		trait = daeva
+		OR = { trait = daeva
+			   trait = toreador }
 	}		
 
 	culture = bohemian
@@ -892,7 +919,9 @@ d_angustri = {
 	
 	# Hire Trigger
 	allow = {
-		trait = mekhet
+		OR = { trait = mekhet
+			   trait = ravnos
+			   }
 	}		
 
 	culture = italian
@@ -1219,7 +1248,9 @@ d_baali  = {
 	
 	# Hire Trigger
 	allow = {
+		OR = { 
 		religion_group = forsworn_vampire_group
+		religion = baali }
 	}		
 	
 	# Cannot be held as a secondary title

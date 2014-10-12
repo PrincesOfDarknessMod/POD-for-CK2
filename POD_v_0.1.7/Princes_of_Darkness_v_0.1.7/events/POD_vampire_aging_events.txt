@@ -49,6 +49,50 @@ character_event = {
 
 character_event = {
 	id = vampire_aging_events.3
+	#desc = "vampire_aging_events_VAMPIRE_AGING_ANCIENT_DESC"
+	picture = GFX_evt_comet
+	hide_window = yes
+	min_age = 500
+	
+	trigger = {
+		trait = vampire
+		trait = elder
+		NOT = { trait = ancient}
+	}
+	
+	mean_time_to_happen = {
+		days = 3650
+      }
+	immediate = {	
+		remove_trait = elder
+		add_trait = ancient
+		}
+}
+
+character_event = {
+	id = vampire_aging_events.4
+	#desc = "vampire_aging_events_VAMPIRE_AGING_METHUSELAH_DESC"
+	picture = GFX_evt_comet
+	hide_window = yes
+	min_age = 1000
+	
+	trigger = {
+		trait = vampire
+		trait = ancient
+		NOT = { trait = methuselah }
+	}
+	
+	mean_time_to_happen = {
+		days = 3650
+      }
+	immediate = {	
+		remove_trait = ancient
+		add_trait = methuselah
+		}
+}
+
+character_event = {
+	id = vampire_aging_events.5
 	#desc = "vampire_aging_events_VAMPIRE_BLOOD_POTENCY_INCREASING_DESC"
 	picture = GFX_evt_comet
 	hide_window = yes
@@ -239,7 +283,7 @@ immediate = {
 }
 
 character_event = {
-	id = vampire_aging_events.4
+	id = vampire_aging_events.6
 	#desc = "vampire_aging_events_VAMPIRE_BLOOD_POTENCY_DECREASING_DESC"
 	picture = GFX_evt_comet
 	hide_window = yes
@@ -340,7 +384,7 @@ immediate = {
 }
 
 character_event = {
-	id = vampire_aging_events.5
+	id = vampire_aging_events.7
 	#desc = "vampire_aging_events_VAMPIRE_TORPOR_AWAKEN_DESC"
 	picture = GFX_evt_comet
 	hide_window = yes

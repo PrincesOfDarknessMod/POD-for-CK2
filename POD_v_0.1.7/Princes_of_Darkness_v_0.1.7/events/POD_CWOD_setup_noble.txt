@@ -76,7 +76,6 @@ character_event = {
 								if = { limit = {
 												ROOT = {
 														primary_title = { holding_type = temple	}
-														tier = BARON 
 												}
 												OR = { 	culture = bengali
 														culture = oriya
@@ -97,11 +96,12 @@ character_event = {
 									}	
 
 								if = { limit = { 
-												 NOT = { ROOT = {
-														primary_title = { holding_type = temple	}
-														tier = BARON 
-															} 
-														}		
+												OR = {
+												ROOT = { primary_title = { holding_type = castle } } 
+												mercenary = yes
+												holy_order = yes
+												is_patrician = yes 
+												}
 												OR = { 	culture = bengali
 														culture = oriya
 														culture = assamese
@@ -116,10 +116,33 @@ character_event = {
 														culture = telugu
 														culture = kannada 
 													}												 
-												}
-											
+												}											
 										add_trait = kshatriya
-									}					
+									}	
+
+								if = { limit = {
+												OR = {
+												ROOT = { primary_title = { holding_type = city } }
+												is_patrician = yes																		
+												}
+												OR = { 	culture = bengali
+														culture = oriya
+														culture = assamese
+														culture = hindustani
+														culture = gujurati
+														culture = panjabi
+														culture = rajput
+														culture = sindhi
+														culture = marathi
+														culture = sinhala
+														culture = tamil
+														culture = telugu
+														culture = kannada 
+													}												 
+												}											
+										add_trait = vaishya
+									}										
+									
 					
 					
 			if = {

@@ -4,6 +4,7 @@
 decisions = {
 
 open_discipline_training_menu = {
+	is_high_prio = yes
 	potential = {
 			trait = vampire 
 			NOT = { 
@@ -15,11 +16,9 @@ open_discipline_training_menu = {
 			ai = no
 	}
 	allow = {
-		age = 50 
- 
-
+		age = 16
 	}
-	effect = {  set_character_flag = disciplines_menu_open }
+	effect = { set_character_flag = disciplines_menu_open }
 	ai_will_do = { factor = 0 }
 }
 
@@ -30,18 +29,15 @@ close_discipline_training_menu = {
 			NOT = { 
 				OR = {  
 				has_character_flag = gifts_menu_open   
-				has_character_flag = abilities_menu_open} }
-			 
+				has_character_flag = abilities_menu_open
+				 } }
 				has_character_flag = disciplines_menu_open 
-			ai = no
+				ai = no
 	}
 	allow = {
-		age = 50 
- 
-
+		age = 16 
 	}
-	effect = {  
-				clr_character_flag = disciplines_menu_open }
+	effect = { clr_character_flag = disciplines_menu_open }
 	ai_will_do = { factor = 0 }
 }
 
@@ -50,7 +46,7 @@ train_animalism_1_decision = {
 			OR = { 
 				ai = yes  
 				has_character_flag = disciplines_menu_open }
-			age = 50 
+			age = 18 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -68,7 +64,9 @@ train_animalism_1_decision = {
 		prestige = 200
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		set_character_flag = train_animalism_1
 		prestige = -200
 		# in clan bonus
@@ -76,7 +74,16 @@ train_animalism_1_decision = {
 						trait = gangrel 
 						trait = ventrue
 						trait = julii
+						trait = nosferatu
+						trait = ravnos
+						trait = gangreantitribu
+						trait = nosferatuantitribu
+						trait = ravnosantitribu
+						trait = tzimisce
+						trait = tzimisceantitriub
+						trait = ventrueantitribu
 						}}
+						
 				prestige = 100
 				}
 	}
@@ -93,7 +100,15 @@ train_animalism_1_decision = {
 					OR = {
 							trait = gangrel
 							trait = ventrue
-						trait = julii
+							trait = julii
+						trait = nosferatu
+						trait = ravnos
+						trait = gangreantitribu
+						trait = nosferatuantitribu
+						trait = ravnosantitribu
+						trait = tzimisce
+						trait = tzimisceantitriub
+						trait = ventrueantitribu							
 						}
 				}
 									modifier = {
@@ -113,7 +128,7 @@ train_animalism_2_decision = {
 			OR = { 
 				ai = yes  
 				has_character_flag = disciplines_menu_open }
-			age = 50 
+			age = 18 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -127,14 +142,24 @@ train_animalism_2_decision = {
 		prestige = 400	
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		prestige = -400
 		set_character_flag = train_animalism_2
 		# in clan bonus
 		if = { limit = { OR = {
 						trait = gangrel 
 						trait = ventrue
-						trait = julii } }
+						trait = julii
+						trait = nosferatu
+						trait = ravnos
+						trait = gangreantitribu
+						trait = nosferatuantitribu
+						trait = ravnosantitribu
+						trait = tzimisce
+						trait = tzimisceantitriub
+						trait = ventrueantitribu						} }
 				prestige = 200
 				}
 	}
@@ -168,8 +193,10 @@ train_animalism_2_decision = {
 }
 
 train_animalism_3_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    OR = { 
+				ai = yes  
+				has_character_flag = disciplines_menu_open }
+			age = 18 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -183,14 +210,24 @@ train_animalism_3_decision = {
 		prestige = 600
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		prestige = -600
 		set_character_flag = train_animalism_3
 		# in clan bonus
 		if = { limit = { OR = {
 						trait = gangrel 
 						trait = ventrue
-						trait = julii } }
+						trait = julii 
+						trait = nosferatu
+						trait = ravnos
+						trait = gangreantitribu
+						trait = nosferatuantitribu
+						trait = ravnosantitribu
+						trait = tzimisce
+						trait = tzimisceantitriub
+						trait = ventrueantitribu						} }
 				prestige = 300
 				}
 	}
@@ -223,8 +260,11 @@ train_animalism_3_decision = {
 }
 
 train_animalism_4_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = { 
+				ai = yes  
+				has_character_flag = disciplines_menu_open }
+			age = 18 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -238,14 +278,24 @@ train_animalism_4_decision = {
 		prestige = 800
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		prestige = -800
 		set_character_flag = train_animalism_4
 		# in clan bonus
 		if = { limit = { OR = {
 						trait = gangrel 
 						trait = ventrue
-						trait = julii } }
+						trait = julii
+						trait = nosferatu
+						trait = ravnos
+						trait = gangreantitribu
+						trait = nosferatuantitribu
+						trait = ravnosantitribu
+						trait = tzimisce
+						trait = tzimisceantitriub
+						trait = ventrueantitribu						} }
 				prestige = 400
 				}
 			}
@@ -264,14 +314,48 @@ train_animalism_4_decision = {
 							trait = gangrel
 							trait = ventrue
 						trait = julii
+						trait = nosferatu
+						trait = ravnos
+						trait = gangreantitribu
+						trait = nosferatuantitribu
+						trait = ravnosantitribu
+						trait = tzimisce
+						trait = tzimisceantitriub
+						trait = ventrueantitribu	
 						}
 				}
 			modifier = {
 					factor = 0
 					OR = {
+							trait = akhud
 							trait = daeva
-							trait = nosferatu
 							trait = mekhet
+							trait = alexander
+							trait = dubrov
+							trait = grigorovich
+							trait = irinavici
+							trait = marisovich
+							trait = petrovnavich
+							trait = semeonovic
+							trait = assamite
+							trait = assamiteantitribu
+							trait = baali
+							trait = brujah
+							trait = brujahantitribu	
+							trait = cappadocian
+							trait = followerofset
+							trait = serpentoflight							
+							trait = giovanni
+							trait = lasombra
+							trait = lasombraantitribu
+							trait = malkavian
+							trait = malkavianantribu
+							trait = salubri
+							trait = trereme
+							trait = tremereantitribu
+							trait = toreador
+							trait = toreadorantitribu
+	
 						}
 				}				
 									modifier = {
@@ -287,8 +371,11 @@ train_animalism_4_decision = {
 	}
 
 train_animalism_5_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = { 
+				ai = yes  
+				has_character_flag = disciplines_menu_open }
+			age = 18 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -302,14 +389,24 @@ train_animalism_5_decision = {
 		prestige = 1200
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		prestige = -1200
 		set_character_flag = train_animalism_5
 		# in clan bonus
 		if = { limit = { OR = {
 						trait = gangrel 
 						trait = ventrue
-						trait = julii } }
+						trait = julii
+						trait = nosferatu
+						trait = ravnos
+						trait = gangreantitribu
+						trait = nosferatuantitribu
+						trait = ravnosantitribu
+						trait = tzimisce
+						trait = tzimisceantitriub
+						trait = ventrueantitribu} }
 				prestige = 600
 				}
 	}
@@ -327,7 +424,15 @@ train_animalism_5_decision = {
 					OR = {
 							trait = gangrel
 							trait = ventrue
-						trait = julii
+							trait = julii
+							trait = nosferatu
+						trait = ravnos
+						trait = gangreantitribu
+						trait = nosferatuantitribu
+						trait = ravnosantitribu
+						trait = tzimisce
+						trait = tzimisceantitriub
+						trait = ventrueantitribu
 						}
 				}
 			modifier = {
@@ -336,6 +441,14 @@ train_animalism_5_decision = {
 							trait = daeva
 							trait = nosferatu
 							trait = mekhet
+							trait = nosferatu
+						trait = ravnos
+						trait = gangreantitribu
+						trait = nosferatuantitribu
+						trait = ravnosantitribu
+						trait = tzimisce
+						trait = tzimisceantitriub
+						trait = ventrueantitribu
 						}
 				}					
 									modifier = {
@@ -351,16 +464,32 @@ train_animalism_5_decision = {
 	}
 
 train_auspex_1_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = { 
+				ai = yes  
+				has_character_flag = disciplines_menu_open }
+			age = 18 
 			trait = vampire 
 			NOT = { 
 				OR = {  
 				has_character_flag = gifts_menu_open   
-				has_character_flag = abilities_menu_open} }
+				has_character_flag = abilities_menu_open } }
 			trait = mekhet
-			NOT = {  
-				has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
+		trait = irinavici
+		trait = petrovnavich
+		trait = semeonovic
+		trait = marisovich
+		trait = cappodocian
+		trait = malkavian
+		trait = malkavianantitribu
+		trait = salubri
+		trait = toreador
+		trait = toreadorantitribu
+		trait = tremere
+		trait = tremereantitribu
+		trait = tzimisce
+		trait = tzimisceantitribu			
+			NOT = { has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			NOT = { trait = auspex_1 }
 			NOT = { trait = auspex_2 }
 			NOT = { trait = auspex_3 }
@@ -371,11 +500,30 @@ train_auspex_1_decision = {
 		prestige = 200	
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		prestige = -200
 		set_character_flag = train_auspex_1
 		# in clan bonus
-		if = { limit = { trait = mekhet }
+		if = { limit = { 
+		trait = mekhet 
+		trait = irinavici
+		trait = petrovnavich
+		trait = semeonovic
+		trait = marisovich
+		trait = cappodocian
+		trait = malkavian
+		trait = malkavianantitribu
+		trait = salubri
+		trait = toreador
+		trait = toreadorantitribu
+		trait = tremere
+		trait = tremereantitribu
+		trait = tzimisce
+		trait = tzimisceantitribu
+		
+		}
 				prestige = 100
 				}
 	}
@@ -391,6 +539,20 @@ train_auspex_1_decision = {
 			modifier = {
 					factor = 1.5
 					trait = mekhet
+					trait = irinavici
+		trait = petrovnavich
+		trait = semeonovic
+		trait = marisovich
+		trait = cappodocian
+		trait = malkavian
+		trait = malkavianantitribu
+		trait = salubri
+		trait = toreador
+		trait = toreadorantitribu
+		trait = tremere
+		trait = tremereantitribu
+		trait = tzimisce
+		trait = tzimisceantitribu
 				}
 									modifier = {
 										factor = 1.5
@@ -405,8 +567,11 @@ train_auspex_1_decision = {
 			}
 
 train_auspex_2_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = { 
+				ai = yes  
+				has_character_flag = disciplines_menu_open }
+			age = 18 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -420,11 +585,27 @@ train_auspex_2_decision = {
 		prestige = 400
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		prestige = -400
 		set_character_flag = train_auspex_2
 		# in clan bonus
-		if = { limit = { trait = mekhet }
+		if = { limit = { trait = mekhet
+		trait = irinavici
+		trait = petrovnavich
+		trait = semeonovic
+		trait = marisovich
+		trait = cappodocian
+		trait = malkavian
+		trait = malkavianantitribu
+		trait = salubri
+		trait = toreador
+		trait = toreadorantitribu
+		trait = tremere
+		trait = tremereantitribu
+		trait = tzimisce
+		trait = tzimisceantitribu		}
 				prestige = 200
 				}
 	}
@@ -439,6 +620,20 @@ train_auspex_2_decision = {
 			modifier = {
 					factor = 1.5
 					trait = mekhet
+							trait = irinavici
+		trait = petrovnavich
+		trait = semeonovic
+		trait = marisovich
+		trait = cappodocian
+		trait = malkavian
+		trait = malkavianantitribu
+		trait = salubri
+		trait = toreador
+		trait = toreadorantitribu
+		trait = tremere
+		trait = tremereantitribu
+		trait = tzimisce
+		trait = tzimisceantitribu
 				}
 								modifier = {
 										factor = 1.5
@@ -453,8 +648,11 @@ train_auspex_2_decision = {
 }
 
 train_auspex_3_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = { 
+				ai = yes  
+				has_character_flag = disciplines_menu_open }
+			age = 18 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -468,11 +666,27 @@ train_auspex_3_decision = {
 		prestige = 600
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		prestige = -600
 		set_character_flag = train_auspex_3
 		# in clan bonus
-		if = { limit = { trait = mekhet }
+		if = { limit = { trait = mekhet
+		trait = irinavici
+		trait = petrovnavich
+		trait = semeonovic
+		trait = marisovich
+		trait = cappodocian
+		trait = malkavian
+		trait = malkavianantitribu
+		trait = salubri
+		trait = toreador
+		trait = toreadorantitribu
+		trait = tremere
+		trait = tremereantitribu
+		trait = tzimisce
+		trait = tzimisceantitribu		}
 				prestige = 300
 				}
 	}
@@ -488,6 +702,20 @@ train_auspex_3_decision = {
 			modifier = {
 					factor = 1.5
 					trait = mekhet
+							trait = irinavici
+		trait = petrovnavich
+		trait = semeonovic
+		trait = marisovich
+		trait = cappodocian
+		trait = malkavian
+		trait = malkavianantitribu
+		trait = salubri
+		trait = toreador
+		trait = toreadorantitribu
+		trait = tremere
+		trait = tremereantitribu
+		trait = tzimisce
+		trait = tzimisceantitribu
 				}
 								modifier = {
 										factor = 1.5
@@ -502,8 +730,11 @@ train_auspex_3_decision = {
 }
 
 train_auspex_4_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = { 
+				ai = yes  
+				has_character_flag = disciplines_menu_open }
+			age = 18 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -517,11 +748,27 @@ train_auspex_4_decision = {
 		prestige = 800
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		prestige = -800
 		set_character_flag = train_auspex_4
 		# in clan bonus
-		if = { limit = { trait = mekhet }
+		if = { limit = { trait = mekhet
+		trait = irinavici
+		trait = petrovnavich
+		trait = semeonovic
+		trait = marisovich
+		trait = cappodocian
+		trait = malkavian
+		trait = malkavianantitribu
+		trait = salubri
+		trait = toreador
+		trait = toreadorantitribu
+		trait = tremere
+		trait = tremereantitribu
+		trait = tzimisce
+		trait = tzimisceantitribu		}
 				prestige = 400
 				}
 	}
@@ -537,7 +784,48 @@ train_auspex_4_decision = {
 			modifier = {
 					factor = 1.5
 					trait = mekhet
+							trait = irinavici
+		trait = petrovnavich
+		trait = semeonovic
+		trait = marisovich
+		trait = cappodocian
+		trait = malkavian
+		trait = malkavianantitribu
+		trait = salubri
+		trait = toreador
+		trait = toreadorantitribu
+		trait = tremere
+		trait = tremereantitribu
+		trait = tzimisce
+		trait = tzimisceantitribu
 				}
+			modifier = {
+					factor = 0
+					OR = {
+							trait = akhud
+							trait = daeva
+							trait = gangrel
+							trait = nosferatu
+							trait = ventrue
+							trait = alexander
+							trait = dubrov
+							trait = grigorovich
+							trait = assamite
+							trait = assamiteantitribu
+							trait = baali
+							trait = brujah
+							trait = brujahantitribu	
+							trait = followerofset
+							trait = serpentoflight							
+							trait = giovanni
+							trait = gangrelantitribu
+							trait = lasombra
+							trait = lasombraantitribu
+							trait = nosferatuantitribu
+							trait = ventrueantitribu
+	
+						}
+				}					
 								modifier = {
 										factor = 1.5
 										OR = {
@@ -551,8 +839,11 @@ train_auspex_4_decision = {
 		}
 
 train_auspex_5_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {   
+			OR = { 
+				ai = yes  
+				has_character_flag = disciplines_menu_open }
+			age = 18 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -566,11 +857,27 @@ train_auspex_5_decision = {
 		prestige = 1200	
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		prestige = -1200
 		set_character_flag = train_auspex_5
 		# in clan bonus
-		if = { limit = { trait = mekhet }
+		if = { limit = { trait = mekhet
+		trait = irinavici
+		trait = petrovnavich
+		trait = semeonovic
+		trait = marisovich
+		trait = cappodocian
+		trait = malkavian
+		trait = malkavianantitribu
+		trait = salubri
+		trait = toreador
+		trait = toreadorantitribu
+		trait = tremere
+		trait = tremereantitribu
+		trait = tzimisce
+		trait = tzimisceantitribu		}
 				prestige = 600
 				}
 	}
@@ -586,6 +893,20 @@ train_auspex_5_decision = {
 			modifier = {
 					factor = 1.5
 					trait = mekhet
+							trait = irinavici
+		trait = petrovnavich
+		trait = semeonovic
+		trait = marisovich
+		trait = cappodocian
+		trait = malkavian
+		trait = malkavianantitribu
+		trait = salubri
+		trait = toreador
+		trait = toreadorantitribu
+		trait = tremere
+		trait = tremereantitribu
+		trait = tzimisce
+		trait = tzimisceantitribu
 				}
 								modifier = {
 										factor = 1.5
@@ -600,8 +921,11 @@ train_auspex_5_decision = {
 	}
 
 train_celerity_1_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {   
+			OR = { 
+				ai = yes  
+				has_character_flag = disciplines_menu_open }
+			age = 18 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -619,13 +943,23 @@ train_celerity_1_decision = {
 		prestige = 200
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		prestige = -200
 		set_character_flag = train_celerity_1
 		# in clan bonus
 		if = { limit = { OR = {
+						trait = akhud
 						trait = daeva 
 						trait = mekhet
+						trait = grigorovich 
+						trait = brujah
+						trait = brujahantitribu
+						trait = assamite
+						trait = assamiteantitribu
+						trait = toreador
+						trait = toreadorantitribu
 						} }
 				prestige = 100
 				}
@@ -642,8 +976,16 @@ train_celerity_1_decision = {
 			modifier = {
 					factor = 1.5
 					OR = {
-							trait = daeva
-							trait = mekhet
+						trait = akhud
+						trait = daeva 
+						trait = mekhet
+						trait = grigorovich 
+						trait = brujah
+						trait = brujahantitribu
+						trait = assamite
+						trait = assamiteantitribu
+						trait = toreador
+						trait = toreadorantitribu
 						}
 				}
 									modifier = {
@@ -660,8 +1002,11 @@ train_celerity_1_decision = {
 	}
 
 train_celerity_2_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = { 
+				ai = yes  
+				has_character_flag = disciplines_menu_open }
+			age = 18 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -675,13 +1020,23 @@ train_celerity_2_decision = {
 		prestige = 400
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		prestige = -400
 		set_character_flag = train_celerity_2
 		# in clan bonus
 		if = { limit = { OR = {
+						trait = akhud
 						trait = daeva 
 						trait = mekhet
+						trait = grigorovich 
+						trait = brujah
+						trait = brujahantitribu
+						trait = assamite
+						trait = assamiteantitribu
+						trait = toreador
+						trait = toreadorantitribu
 						} }
 				prestige = 200
 				}
@@ -698,8 +1053,16 @@ train_celerity_2_decision = {
 			modifier = {
 					factor = 1.5
 					OR = {
-							trait = daeva
-							trait = mekhet
+						trait = akhud
+						trait = daeva 
+						trait = mekhet
+						trait = grigorovich 
+						trait = brujah
+						trait = brujahantitribu
+						trait = assamite
+						trait = assamiteantitribu
+						trait = toreador
+						trait = toreadorantitribu
 						}
 					}
 									modifier = {
@@ -716,8 +1079,11 @@ train_celerity_2_decision = {
 }
 
 train_celerity_3_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = { 
+				ai = yes  
+				has_character_flag = disciplines_menu_open }
+			age = 18 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -731,13 +1097,23 @@ train_celerity_3_decision = {
 		prestige = 600
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		prestige = -600
 		set_character_flag = train_celerity_3
 		# in clan bonus
 		if = { limit = { OR = {
+						trait = akhud
 						trait = daeva 
 						trait = mekhet
+						trait = grigorovich 
+						trait = brujah
+						trait = brujahantitribu
+						trait = assamite
+						trait = assamiteantitribu
+						trait = toreador
+						trait = toreadorantitribu
 						} }
 				prestige = 300
 				}
@@ -754,8 +1130,16 @@ train_celerity_3_decision = {
 			modifier = {
 					factor = 1.5
 					OR = {
-							trait = daeva
-							trait = mekhet
+						trait = akhud
+						trait = daeva 
+						trait = mekhet
+						trait = grigorovich 
+						trait = brujah
+						trait = brujahantitribu
+						trait = assamite
+						trait = assamiteantitribu
+						trait = toreador
+						trait = toreadorantitribu
 						}
 				}
 									modifier = {
@@ -772,8 +1156,11 @@ train_celerity_3_decision = {
 }
 
 train_celerity_4_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = { 
+				ai = yes  
+				has_character_flag = disciplines_menu_open }
+			age = 18 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -787,13 +1174,23 @@ train_celerity_4_decision = {
 		prestige = 800 
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		prestige = -800
 		set_character_flag = train_celerity_4
 		# in clan bonus
 		if = { limit = { OR = {
+						trait = akhud
 						trait = daeva 
 						trait = mekhet
+						trait = grigorovich 
+						trait = brujah
+						trait = brujahantitribu
+						trait = assamite
+						trait = assamiteantitribu
+						trait = toreador
+						trait = toreadorantitribu
 						} }
 				prestige = 400
 				}
@@ -810,17 +1207,49 @@ train_celerity_4_decision = {
 			modifier = {
 					factor = 1.5
 					OR = {
-							trait = daeva
-							trait = mekhet
+						trait = akhud
+						trait = daeva 
+						trait = mekhet
+						trait = grigorovich 
+						trait = brujah
+						trait = brujahantitribu
+						trait = assamite
+						trait = assamiteantitribu
+						trait = toreador
+						trait = toreadorantitribu
 						}
 					}
 			modifier = {
 					factor = 0
 					OR = {
+							trait = alexander
+							trait = baali
+							trait = dubrov
+							trait = cappadocian
+							trait = followerofset
+							trait = serpentoflight
 							trait = gangrel
+							trait = gangrelantitribu
+							trait = giovanni
+							trait = irinavici
+							trait = julii
+							trait = lasombra
+							trait = lasombraantitribu
+							trait = malkavian
+							trait = malkavianantribu
+							trait = marisovich
+							trait = petrovnavich
 							trait = nosferatu
+							trait = nosferatuantitribu
+							trait = salubri
+							trait = semeonovic
+							trait = trereme
+							trait = tremereantitribu
+							trait = tzimisce
+							trait = tzimisceantitribu
 							trait = ventrue
-						trait = julii
+							trait = ventrueantitribu
+							
 						}
 				}				
 									modifier = {
@@ -837,8 +1266,11 @@ train_celerity_4_decision = {
 		}
 
 train_celerity_5_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = { 
+				ai = yes  
+				has_character_flag = disciplines_menu_open }
+			age = 18 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -852,13 +1284,23 @@ train_celerity_5_decision = {
 		prestige = 1200
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		prestige = -1200
 		set_character_flag = train_celerity_5
 		# in clan bonus
 		if = { limit = { OR = {
+						trait = akhud
 						trait = daeva 
 						trait = mekhet
+						trait = grigorovich 
+						trait = brujah
+						trait = brujahantitribu
+						trait = assamite
+						trait = assamiteantitribu
+						trait = toreador
+						trait = toreadorantitribu
 						} }
 				prestige = 600
 				}
@@ -875,8 +1317,16 @@ train_celerity_5_decision = {
 			modifier = {
 					factor = 1.5
 					OR = {
-							trait = daeva
-							trait = mekhet
+						trait = akhud
+						trait = daeva 
+						trait = mekhet
+						trait = grigorovich 
+						trait = brujah
+						trait = brujahantitribu
+						trait = assamite
+						trait = assamiteantitribu
+						trait = toreador
+						trait = toreadorantitribu
 						}
 				}
 			modifier = {
@@ -902,15 +1352,28 @@ train_celerity_5_decision = {
 	}
 
 train_dominate_1_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = { 
+				ai = yes  
+				has_character_flag = disciplines_menu_open }
+			age = 18 
 			trait = vampire 
 			NOT = { 
 				OR = {  
 				has_character_flag = gifts_menu_open   
-				has_character_flag = abilities_menu_open} }
-			trait = ventrue
-						trait = julii
+				has_character_flag = abilities_menu_open
+				ai = yes } }						
+							trait = giovanni
+							trait = julii
+							trait = lasombra
+							trait = lasombraantitribu
+							trait = malkavian
+							trait = marisovich
+							trait = petrovnavich
+							trait = trereme
+							trait = tremereantitribu
+							trait = ventrue
+							trait = ventrueantitribu
 			NOT = {  
 				has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			NOT = { trait = dominate_1 }
@@ -923,12 +1386,23 @@ train_dominate_1_decision = {
 		prestige = 200
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		prestige = -200
 		set_character_flag = train_dominate_1
 		# in clan bonus
-		if = { limit = { trait = ventrue
-						trait = julii }
+		if = { limit = { 							trait = giovanni
+							trait = julii
+							trait = lasombra
+							trait = lasombraantitribu
+							trait = malkavian
+							trait = marisovich
+							trait = petrovnavich
+							trait = trereme
+							trait = tremereantitribu
+							trait = ventrue
+							trait = ventrueantitribu }
 				prestige = 100
 				}
 	}
@@ -942,8 +1416,17 @@ train_dominate_1_decision = {
 				}
 			modifier = {
 					factor = 1.5
-					trait = ventrue
-						trait = julii
+												trait = giovanni
+							trait = julii
+							trait = lasombra
+							trait = lasombraantitribu
+							trait = malkavian
+							trait = marisovich
+							trait = petrovnavich
+							trait = trereme
+							trait = tremereantitribu
+							trait = ventrue
+							trait = ventrueantitribu
 				}
 								modifier = {
 										factor = 1.5
@@ -958,8 +1441,11 @@ train_dominate_1_decision = {
 }
 
 train_dominate_2_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = { 
+				ai = yes  
+				has_character_flag = disciplines_menu_open }
+			age = 18 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -973,12 +1459,23 @@ train_dominate_2_decision = {
 		prestige = 400
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		prestige = -400
 		set_character_flag = train_dominate_2
 		# in clan bonus
-		if = { limit = { trait = ventrue
-						trait = julii }
+		if = { limit = { 							trait = giovanni
+							trait = julii
+							trait = lasombra
+							trait = lasombraantitribu
+							trait = malkavian
+							trait = marisovich
+							trait = petrovnavich
+							trait = trereme
+							trait = tremereantitribu
+							trait = ventrue
+							trait = ventrueantitribu }
 				prestige = 200
 				}
 	}
@@ -992,8 +1489,17 @@ train_dominate_2_decision = {
 				}
 			modifier = {
 					factor = 1.5
-					trait = ventrue
-						trait = julii
+												trait = giovanni
+							trait = julii
+							trait = lasombra
+							trait = lasombraantitribu
+							trait = malkavian
+							trait = marisovich
+							trait = petrovnavich
+							trait = trereme
+							trait = tremereantitribu
+							trait = ventrue
+							trait = ventrueantitribu
 				}
 								modifier = {
 										factor = 1.5
@@ -1008,8 +1514,11 @@ train_dominate_2_decision = {
 	}
 
 train_dominate_3_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = { 
+				ai = yes  
+				has_character_flag = disciplines_menu_open }
+			age = 18 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -1023,12 +1532,23 @@ train_dominate_3_decision = {
 		prestige = 600		
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		prestige = -600
 		set_character_flag = train_dominate_3
 		# in clan bonus
-		if = { limit = { trait = ventrue
-						trait = julii }
+		if = { limit = { 							trait = giovanni
+							trait = julii
+							trait = lasombra
+							trait = lasombraantitribu
+							trait = malkavian
+							trait = marisovich
+							trait = petrovnavich
+							trait = trereme
+							trait = tremereantitribu
+							trait = ventrue
+							trait = ventrueantitribu }
 				prestige = 300
 				}
 	}
@@ -1042,8 +1562,17 @@ train_dominate_3_decision = {
 				}
 			modifier = {
 					factor = 1.5
-					trait = ventrue
-						trait = julii
+												trait = giovanni
+							trait = julii
+							trait = lasombra
+							trait = lasombraantitribu
+							trait = malkavian
+							trait = marisovich
+							trait = petrovnavich
+							trait = trereme
+							trait = tremereantitribu
+							trait = ventrue
+							trait = ventrueantitribu
 				}
 								modifier = {
 										factor = 1.5
@@ -1058,8 +1587,11 @@ train_dominate_3_decision = {
 }
 
 train_dominate_4_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = { 
+				ai = yes  
+				has_character_flag = disciplines_menu_open }
+			age = 18 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -1073,12 +1605,23 @@ train_dominate_4_decision = {
 		prestige = 800
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		prestige = -800
 		set_character_flag = train_dominate_4
 		# in clan bonus
-		if = { limit = { trait = ventrue
-						trait = julii }
+		if = { limit = { 							trait = giovanni
+							trait = julii
+							trait = lasombra
+							trait = lasombraantitribu
+							trait = malkavian
+							trait = marisovich
+							trait = petrovnavich
+							trait = trereme
+							trait = tremereantitribu
+							trait = ventrue
+							trait = ventrueantitribu }
 				prestige = 400
 				}
 	}
@@ -1092,9 +1635,52 @@ train_dominate_4_decision = {
 				}
 			modifier = {
 					factor = 1.5
-					trait = ventrue
-						trait = julii
+							trait = giovanni
+							trait = julii
+							trait = lasombra
+							trait = lasombraantitribu
+							trait = malkavian
+							trait = marisovich
+							trait = petrovnavich
+							trait = trereme
+							trait = tremereantitribu
+							trait = ventrue
+							trait = ventrueantitribu
 				}
+				
+			modifier = {
+					factor = 0
+					OR = {
+							trait = akhud
+							trait = alexander
+							trait = assamite
+							trait = assamiteantitribu
+							trait = baali
+							trait = brujah
+							trait = brujahantitribu	
+							trait = daeva
+							trait = dubrov
+							trait = cappadocian
+							trait = followerofset
+							trait = serpentoflight
+							trait = gangrel
+							trait = gangrelantitribu
+							trait = grigorovich
+							trait = irinavici
+							trait = malkavianantribu
+							trait = mekhet
+							trait = nosferatu
+							trait = nosferatuantitribu
+							trait = ravnos
+							trait = ravnosantitribu
+							trait = salubri
+							trait = semeonovic
+							trait = toreador
+							trait = toreadorantitribu
+							trait = tzimisce
+							trait = tzimisceantitribu							
+						}
+				}				
 								modifier = {
 										factor = 1.5
 										OR = {
@@ -1108,8 +1694,11 @@ train_dominate_4_decision = {
 }
 
 train_dominate_5_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = { 
+				ai = yes  
+				has_character_flag = disciplines_menu_open }
+			age = 18 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -1123,12 +1712,24 @@ train_dominate_5_decision = {
 		prestige = 1200
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		prestige = -1200
 		set_character_flag = train_dominate_5
 		# in clan bonus
-		if = { limit = { trait = ventrue
-						trait = julii }
+		if = { limit = { 							
+							trait = giovanni
+							trait = julii
+							trait = lasombra
+							trait = lasombraantitribu
+							trait = malkavian
+							trait = marisovich
+							trait = petrovnavich
+							trait = trereme
+							trait = tremereantitribu
+							trait = ventrue
+							trait = ventrueantitribu }
 				prestige = 600
 				}
 	}
@@ -1143,8 +1744,17 @@ train_dominate_5_decision = {
 				}
 			modifier = {
 					factor = 1.5
-					trait = ventrue
-						trait = julii
+							trait = giovanni
+							trait = julii
+							trait = lasombra
+							trait = lasombraantitribu
+							trait = malkavian
+							trait = marisovich
+							trait = petrovnavich
+							trait = trereme
+							trait = tremereantitribu
+							trait = ventrue
+							trait = ventrueantitribu
 				}
 								modifier = {
 										factor = 1.5
@@ -1159,14 +1769,29 @@ train_dominate_5_decision = {
 }
 
 train_majesty_1_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = {
+				ai = yes
+				has_character_flag = disciplines_menu_open }
+			age = 18 
 			trait = vampire 
 			NOT = { 
 				OR = {  
 				has_character_flag = gifts_menu_open   
 				has_character_flag = abilities_menu_open} }
-			trait = daeva
+							trait = baali
+							trait = brujah
+							trait = brujahantitribu	
+							trait = daeva
+							trait = followerofset
+							trait = serpentoflight
+							trait = irinavici
+							trait = mekhet
+							trait = semeonovic
+							trait = toreador
+							trait = toreadorantitribu
+							trait = ventrue
+							trait = ventrueantitribu
 			NOT = {  
 				has_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE }
 			NOT = { trait = majesty_1 }
@@ -1179,11 +1804,25 @@ train_majesty_1_decision = {
 		prestige = 200
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		prestige = -200
 		set_character_flag = train_majesty_1
 		# in clan bonus
-		if = { limit = { trait = daeva } 
+		if = { limit = { 							trait = baali
+							trait = brujah
+							trait = brujahantitribu	
+							trait = daeva
+							trait = followerofset
+							trait = serpentoflight
+							trait = irinavici
+							trait = mekhet
+							trait = semeonovic
+							trait = toreador
+							trait = toreadorantitribu
+							trait = ventrue
+							trait = ventrueantitribu } 
 				prestige = 100
 				}
 	}
@@ -1197,7 +1836,19 @@ train_majesty_1_decision = {
 				}
 			modifier = {
 					factor = 1.5
-					trait = daeva
+												trait = baali
+							trait = brujah
+							trait = brujahantitribu	
+							trait = daeva
+							trait = followerofset
+							trait = serpentoflight
+							trait = irinavici
+							trait = mekhet
+							trait = semeonovic
+							trait = toreador
+							trait = toreadorantitribu
+							trait = ventrue
+							trait = ventrueantitribu
 				}
 								modifier = {
 										factor = 1.5
@@ -1212,8 +1863,11 @@ train_majesty_1_decision = {
 }
 
 train_majesty_2_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = {
+				ai = yes
+				has_character_flag = disciplines_menu_open }
+			age = 18 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -1227,11 +1881,25 @@ train_majesty_2_decision = {
 		prestige = 400
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		prestige = -400
 		set_character_flag = train_majesty_2
 		# in clan bonus
-		if = { limit = { trait = daeva }
+		if = { limit = { 							trait = baali
+							trait = brujah
+							trait = brujahantitribu	
+							trait = daeva
+							trait = followerofset
+							trait = serpentoflight
+							trait = irinavici
+							trait = mekhet
+							trait = semeonovic
+							trait = toreador
+							trait = toreadorantitribu
+							trait = ventrue
+							trait = ventrueantitribu }
 				prestige = 200
 				}
 	}
@@ -1246,7 +1914,19 @@ train_majesty_2_decision = {
 				}
 			modifier = {
 					factor = 1.5
-					trait = daeva
+												trait = baali
+							trait = brujah
+							trait = brujahantitribu	
+							trait = daeva
+							trait = followerofset
+							trait = serpentoflight
+							trait = irinavici
+							trait = mekhet
+							trait = semeonovic
+							trait = toreador
+							trait = toreadorantitribu
+							trait = ventrue
+							trait = ventrueantitribu
 				}
 								modifier = {
 										factor = 1.5
@@ -1261,8 +1941,11 @@ train_majesty_2_decision = {
 }
 
 train_majesty_3_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = {
+				ai = yes
+				has_character_flag = disciplines_menu_open }
+			age = 18 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -1276,11 +1959,25 @@ train_majesty_3_decision = {
 		prestige = 600
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		prestige = -600
 		set_character_flag = train_majesty_3
 		# in clan bonus
-		if = { limit = { trait = daeva }
+		if = { limit = { 							trait = baali
+							trait = brujah
+							trait = brujahantitribu	
+							trait = daeva
+							trait = followerofset
+							trait = serpentoflight
+							trait = irinavici
+							trait = mekhet
+							trait = semeonovic
+							trait = toreador
+							trait = toreadorantitribu
+							trait = ventrue
+							trait = ventrueantitribu }
 				prestige = 200
 				}
 	}
@@ -1294,7 +1991,19 @@ train_majesty_3_decision = {
 				}
 			modifier = {
 					factor = 1.5
-					trait = daeva
+												trait = baali
+							trait = brujah
+							trait = brujahantitribu	
+							trait = daeva
+							trait = followerofset
+							trait = serpentoflight
+							trait = irinavici
+							trait = mekhet
+							trait = semeonovic
+							trait = toreador
+							trait = toreadorantitribu
+							trait = ventrue
+							trait = ventrueantitribu
 				}
 								modifier = {
 										factor = 1.5
@@ -1309,8 +2018,11 @@ train_majesty_3_decision = {
 }
 
 train_majesty_4_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = {
+				ai = yes
+				has_character_flag = disciplines_menu_open }
+			age = 18 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -1324,11 +2036,25 @@ train_majesty_4_decision = {
 		prestige = 800	
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		prestige = -800
 		set_character_flag = train_majesty_4
 		# in clan bonus
-		if = { limit = { trait = daeva }
+		if = { limit = { 							trait = baali
+							trait = brujah
+							trait = brujahantitribu	
+							trait = daeva
+							trait = followerofset
+							trait = serpentoflight
+							trait = irinavici
+							trait = mekhet
+							trait = semeonovic
+							trait = toreador
+							trait = toreadorantitribu
+							trait = ventrue
+							trait = ventrueantitribu }
 				prestige = 400
 				}
 	}
@@ -1342,8 +2068,50 @@ train_majesty_4_decision = {
 				}
 			modifier = {
 					factor = 1.5
-					trait = daeva
+												trait = baali
+							trait = brujah
+							trait = brujahantitribu	
+							trait = daeva
+							trait = followerofset
+							trait = serpentoflight
+							trait = irinavici
+							trait = semeonovic
+							trait = toreador
+							trait = toreadorantitribu
+							trait = ventrue
+							trait = ventrueantitribu
 				}
+			modifier = {
+					factor = 0
+					OR = {
+							trait = akhud
+							trait = alexander
+							trait = assamite
+							trait = assamiteantitribu
+							trait = dubrov
+							trait = cappadocian
+							trait = gangrel
+							trait = gangrelantitribu
+							trait = giovanni
+							trait = grigorovich
+							trait = lasombra
+							trait = lasombraantitribu
+							trait = malkavian
+							trait = malkavianantribu
+							trait = mekhet
+							trait = marisovich
+							trait = petrovnavich
+							trait = nosferatu
+							trait = nosferatuantitribu
+							trait = ravnos
+							trait = ravnosantitribu
+							trait = salubri
+							trait = trereme
+							trait = tremereantitribu
+							trait = tzimisce
+							trait = tzimisceantitribu							
+						}
+				}				
 								modifier = {
 										factor = 1.5
 										OR = {	
@@ -1357,8 +2125,11 @@ train_majesty_4_decision = {
 }
 
 train_majesty_5_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = {
+				ai = yes
+				has_character_flag = disciplines_menu_open }
+			age = 18 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -1372,11 +2143,25 @@ train_majesty_5_decision = {
 		prestige = 1200	
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		prestige = -1200
 		set_character_flag = train_majesty_5
 		# in clan bonus
-		if = { limit = { trait = daeva }
+		if = { limit = { 							trait = baali
+							trait = brujah
+							trait = brujahantitribu	
+							trait = daeva
+							trait = followerofset
+							trait = serpentoflight
+							trait = irinavici
+							trait = mekhet
+							trait = semeonovic
+							trait = toreador
+							trait = toreadorantitribu
+							trait = ventrue
+							trait = ventrueantitribu }
 				prestige = 600
 				}
 	}
@@ -1390,7 +2175,19 @@ train_majesty_5_decision = {
 				}
 			modifier = {
 					factor = 1.5
-					trait = daeva
+												trait = baali
+							trait = brujah
+							trait = brujahantitribu	
+							trait = daeva
+							trait = followerofset
+							trait = serpentoflight
+							trait = irinavici
+							trait = mekhet
+							trait = semeonovic
+							trait = toreador
+							trait = toreadorantitribu
+							trait = ventrue
+							trait = ventrueantitribu
 				}
 								modifier = {
 										factor = 1.5
@@ -1405,8 +2202,11 @@ train_majesty_5_decision = {
 }
 
 train_nightmare_1_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = {
+				ai = yes
+				has_character_flag = disciplines_menu_open }
+			age = 18 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -1425,11 +2225,17 @@ train_nightmare_1_decision = {
 		prestige = 200		
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		prestige = -200
 		set_character_flag = train_nightmare_1
 		# in clan bonus
-		if = { limit = { trait = nosferatu }
+		if = { limit = { 
+					trait = nosferatu
+					trait = alexander
+					trait = irinavici
+					}
 				prestige = 100
 				}
 	}
@@ -1445,6 +2251,8 @@ train_nightmare_1_decision = {
 			modifier = {
 					factor = 1.5
 					trait = nosferatu
+					trait = alexander
+					trait = irinavici
 				}
 									modifier = {
 										factor = 1.5
@@ -1460,8 +2268,11 @@ train_nightmare_1_decision = {
 }
 
 train_nightmare_2_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = {
+				ai = yes
+				has_character_flag = disciplines_menu_open }
+			age = 18 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -1475,11 +2286,15 @@ train_nightmare_2_decision = {
 		prestige = 400	
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		prestige = -400
 		set_character_flag = train_nightmare_2
 		# in clan bonus
-		if = { limit = { trait = nosferatu }
+		if = { limit = { trait = nosferatu
+					trait = alexander
+					trait = irinavici }
 				prestige = 200
 				}
 	}
@@ -1494,6 +2309,8 @@ train_nightmare_2_decision = {
 			modifier = {
 					factor = 1.5
 					trait = nosferatu
+					trait = alexander
+					trait = irinavici
 				}
 									modifier = {
 										factor = 1.5
@@ -1509,8 +2326,11 @@ train_nightmare_2_decision = {
 }
 
 train_nightmare_3_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = {
+				ai = yes
+				has_character_flag = disciplines_menu_open }
+			age = 18 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -1524,11 +2344,15 @@ train_nightmare_3_decision = {
 		prestige = 600
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		prestige = -600
 		set_character_flag = train_nightmare_3
 		# in clan bonus
-		if = { limit = { trait = nosferatu }
+		if = { limit = { trait = nosferatu
+					trait = alexander
+					trait = irinavici }
 				prestige = 300
 				}
 	}
@@ -1543,6 +2367,8 @@ train_nightmare_3_decision = {
 			modifier = {
 					factor = 1.5
 					trait = nosferatu
+					trait = alexander
+					trait = irinavici
 				}
 									modifier = {
 										factor = 1.5
@@ -1558,8 +2384,11 @@ train_nightmare_3_decision = {
 }
 
 train_nightmare_4_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = {
+				ai = yes
+				has_character_flag = disciplines_menu_open }
+			age = 18 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -1573,11 +2402,15 @@ train_nightmare_4_decision = {
 		prestige = 800	
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		prestige = -800
 		set_character_flag = train_nightmare_4
 		# in clan bonus
-		if = { limit = { trait = nosferatu }
+		if = { limit = { trait = nosferatu
+					trait = alexander
+					trait = irinavici }
 				prestige = 200
 				}
 	}
@@ -1592,7 +2425,49 @@ train_nightmare_4_decision = {
 			modifier = {
 					factor = 1.5
 					trait = nosferatu
+					trait = alexander
+					trait = irinavici
 				}
+			modifier = {
+					factor = 0
+					OR = {
+							trait = akhud
+							trait = assamite
+							trait = assamiteantitribu
+							trait = baali
+							trait = brujah
+							trait = brujahantitribu	
+							trait = daeva
+							trait = dubrov
+							trait = cappadocian
+							trait = followerofset
+							trait = serpentoflight
+							trait = gangrel
+							trait = gangrelantitribu
+							trait = giovanni
+							trait = grigorovich
+							trait = lasombra
+							trait = lasombraantitribu
+							trait = malkavian
+							trait = malkavianantribu
+							trait = marisovich
+							trait = mekhet
+							trait = petrovnavich
+							trait = nosferatuantitribu
+							trait = ravnos
+							trait = ravnosantitribu
+							trait = salubri
+							trait = semeonovic
+							trait = trereme
+							trait = tremereantitribu
+							trait = toreador
+							trait = toreadorantitribu
+							trait = tzimisce
+							trait = tzimisceantitribu
+							trait = ventrue
+							trait = ventrueantitribu							
+						}
+				}				
 									modifier = {
 										factor = 1.5
 										OR = {
@@ -1607,8 +2482,11 @@ train_nightmare_4_decision = {
 }
 
 train_nightmare_5_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50  
+	potential = {    
+			OR = {
+				ai = yes
+				has_character_flag = disciplines_menu_open }
+			age = 18  
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -1622,11 +2500,15 @@ train_nightmare_5_decision = {
 		prestige = 1200
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		prestige = -1200
 		set_character_flag = train_nightmare_5
 		# in clan bonus
-		if = { limit = { trait = nosferatu }
+		if = { limit = { trait = nosferatu
+					trait = alexander
+					trait = irinavici }
 				prestige = 600
 				}
 	}
@@ -1642,6 +2524,8 @@ train_nightmare_5_decision = {
 			modifier = {
 					factor = 1.5
 					trait = nosferatu
+					trait = alexander
+					trait = irinavici
 				}
 									modifier = {
 										factor = 1.5
@@ -1657,8 +2541,11 @@ train_nightmare_5_decision = {
 }
 
 train_obfuscate_1_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50  
+	potential = {    
+			OR = {
+				ai = yes
+				has_character_flag = disciplines_menu_open }
+			age = 18  
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -1676,12 +2563,29 @@ train_obfuscate_1_decision = {
 		prestige = 200	
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		prestige = -200
 		set_character_flag = train_obfuscate_1
 		# in clan bonus
-		if = { limit = { OR = { trait = nosferatu
-								trait = mekhet } }
+		if = { limit = { OR = { 							
+							trait = akhud
+							trait = assamite
+							trait = assamiteantitribu
+							trait = baali
+							trait = dubrov
+							trait = followerofset
+							trait = serpentoflight
+							trait = grigorovich
+							trait = malkavian
+							trait = malkavianantribu
+							trait = marisovich
+							trait = mekhet
+							trait = petrovnavich
+							trait = nosferatu
+							trait = nosferatuantitribu
+							} }
 				prestige = 100
 				}
 	}
@@ -1696,8 +2600,21 @@ train_obfuscate_1_decision = {
 			modifier = {
 					factor = 1.5
 					OR = {
-							trait = nosferatu
+							trait = akhud
+							trait = assamite
+							trait = assamiteantitribu
+							trait = baali
+							trait = dubrov
+							trait = followerofset
+							trait = serpentoflight
+							trait = grigorovich
+							trait = malkavian
+							trait = malkavianantribu
+							trait = marisovich
 							trait = mekhet
+							trait = petrovnavich
+							trait = nosferatu
+							trait = nosferatuantitribu
 						}
 				}		
 								modifier = {
@@ -1713,8 +2630,11 @@ train_obfuscate_1_decision = {
 }
 
 train_obfuscate_2_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = {
+				ai = yes
+				has_character_flag = disciplines_menu_open }
+			age = 18 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -1728,12 +2648,27 @@ train_obfuscate_2_decision = {
 		prestige = 400	
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		prestige = -400
 		set_character_flag = train_obfuscate_2
 		# in clan bonus
-		if = { limit = { OR = { trait = mekhet
-								trait = nosferatu }}
+		if = { limit = { OR = { trait = akhud
+							trait = assamite
+							trait = assamiteantitribu
+							trait = baali
+							trait = dubrov
+							trait = followerofset
+							trait = serpentoflight
+							trait = grigorovich
+							trait = malkavian
+							trait = malkavianantribu
+							trait = marisovich
+							trait = mekhet
+							trait = petrovnavich
+							trait = nosferatu
+							trait = nosferatuantitribu }}
 				prestige = 200
 				}
 	}
@@ -1749,8 +2684,21 @@ train_obfuscate_2_decision = {
 			modifier = {
 					factor = 1.5
 					OR = {
-							trait = nosferatu
+							trait = akhud
+							trait = assamite
+							trait = assamiteantitribu
+							trait = baali
+							trait = dubrov
+							trait = followerofset
+							trait = serpentoflight
+							trait = grigorovich
+							trait = malkavian
+							trait = malkavianantribu
+							trait = marisovich
 							trait = mekhet
+							trait = petrovnavich
+							trait = nosferatu
+							trait = nosferatuantitribu
 						}
 				}	
 								modifier = {
@@ -1766,8 +2714,11 @@ train_obfuscate_2_decision = {
 }
 
 train_obfuscate_3_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = {
+				ai = yes
+				has_character_flag = disciplines_menu_open }
+			age = 18 
 
 			trait = vampire 
 			NOT = { 
@@ -1782,12 +2733,27 @@ train_obfuscate_3_decision = {
 		prestige = 600	
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		prestige = -600
 		set_character_flag = train_obfuscate_3
 		# in clan bonus
-		if = { limit = { OR = { trait = mekhet
-								trait = nosferatu } }
+		if = { limit = { OR = { trait = akhud
+							trait = assamite
+							trait = assamiteantitribu
+							trait = baali
+							trait = dubrov
+							trait = followerofset
+							trait = serpentoflight
+							trait = grigorovich
+							trait = malkavian
+							trait = malkavianantribu
+							trait = marisovich
+							trait = mekhet
+							trait = petrovnavich
+							trait = nosferatu
+							trait = nosferatuantitribu } }
 				prestige = 300
 				}
 	}
@@ -1803,8 +2769,21 @@ train_obfuscate_3_decision = {
 			modifier = {
 					factor = 1.5
 					OR = {
-							trait = nosferatu
+							trait = akhud
+							trait = assamite
+							trait = assamiteantitribu
+							trait = baali
+							trait = dubrov
+							trait = followerofset
+							trait = serpentoflight
+							trait = grigorovich
+							trait = malkavian
+							trait = malkavianantribu
+							trait = marisovich
 							trait = mekhet
+							trait = petrovnavich
+							trait = nosferatu
+							trait = nosferatuantitribu
 						}
 				}	
 								modifier = {
@@ -1820,8 +2799,11 @@ train_obfuscate_3_decision = {
 }
 
 train_obfuscate_4_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = {
+				ai = yes
+				has_character_flag = disciplines_menu_open }
+			age = 18 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -1835,12 +2817,27 @@ train_obfuscate_4_decision = {
 		prestige = 800
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		prestige = -800
 		set_character_flag = train_obfuscate_4
 		# in clan bonus
-		if = { limit = { OR = { trait = mekhet
-								trait = nosferatu } }
+		if = { limit = { OR = { trait = akhud
+							trait = assamite
+							trait = assamiteantitribu
+							trait = baali
+							trait = dubrov
+							trait = followerofset
+							trait = serpentoflight
+							trait = grigorovich
+							trait = malkavian
+							trait = malkavianantribu
+							trait = marisovich
+							trait = mekhet
+							trait = petrovnavich
+							trait = nosferatu
+							trait = nosferatuantitribu } }
 				prestige = 400
 				}
 	}
@@ -1855,19 +2852,54 @@ train_obfuscate_4_decision = {
 			modifier = {
 					factor = 1.5
 					OR = {
-							trait = nosferatu
+							trait = akhud
+							trait = assamite
+							trait = assamiteantitribu
+							trait = baali
+							trait = dubrov
+							trait = followerofset
+							trait = serpentoflight
+							trait = grigorovich
+							trait = malkavian
+							trait = malkavianantribu
+							trait = marisovich
 							trait = mekhet
+							trait = petrovnavich
+							trait = nosferatu
+							trait = nosferatuantitribu
 						}
 				}	
+
 			modifier = {
 					factor = 0
 					OR = {
-							trait = gangrel
+							trait = alexander
+							trait = brujah
+							trait = brujahantitribu	
 							trait = daeva
+							trait = cappadocian
+							trait = gangrel
+							trait = gangrelantitribu
+							trait = giovanni
+							trait = irinavici
+							trait = julii
+							trait = lasombra
+							trait = lasombraantitribu
+							trait = ravnos
+							trait = ravnosantitribu
+							trait = salubri
+							trait = semeonovic
+							trait = trereme
+							trait = tremereantitribu
+							trait = toreador
+							trait = toreadorantitribu
+							trait = tzimisce
+							trait = tzimisceantitribu
 							trait = ventrue
-						trait = julii
+							trait = ventrueantitribu							
 						}
-				}				
+				}
+				
 								modifier = {
 										factor = 1.5
 										OR = {
@@ -1881,8 +2913,11 @@ train_obfuscate_4_decision = {
 }
 
 train_obfuscate_5_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = {
+				ai = yes
+				has_character_flag = disciplines_menu_open }
+			age = 18 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -1896,12 +2931,27 @@ train_obfuscate_5_decision = {
 		prestige = 1200		
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		prestige = -1200
 		set_character_flag = train_obfuscate_5
 		# in clan bonus
-		if = { limit = { OR = { trait = mekhet
-								trait = nosferatu } }
+		if = { limit = { OR = { trait = akhud
+							trait = assamite
+							trait = assamiteantitribu
+							trait = baali
+							trait = dubrov
+							trait = followerofset
+							trait = serpentoflight
+							trait = grigorovich
+							trait = malkavian
+							trait = malkavianantribu
+							trait = marisovich
+							trait = mekhet
+							trait = petrovnavich
+							trait = nosferatu
+							trait = nosferatuantitribu } }
 				prestige = 600
 				}
 	}
@@ -1916,19 +2966,23 @@ train_obfuscate_5_decision = {
 			modifier = {
 					factor = 1.5
 					OR = {
+							trait = akhud
+							trait = assamite
+							trait = assamiteantitribu
+							trait = baali
+							trait = dubrov
+							trait = followerofset
+							trait = serpentoflight
+							trait = grigorovich
+							trait = malkavian
+							trait = malkavianantribu
+							trait = marisovich
 							trait = mekhet
+							trait = petrovnavich
 							trait = nosferatu
+							trait = nosferatuantitribu
 						}
-				}
-			modifier = {
-					factor = 0
-					OR = {
-							trait = gangrel
-							trait = daeva
-							trait = ventrue
-						trait = julii
-						}
-				}					
+				}				
 								modifier = {
 										factor = 1.5
 										OR = {
@@ -1942,8 +2996,11 @@ train_obfuscate_5_decision = {
 }
 
 train_protean_1_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = {
+				ai = yes
+				has_character_flag = disciplines_menu_open }
+			age = 18 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -1962,12 +3019,18 @@ train_protean_1_decision = {
 		prestige = 200	
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		prestige = -200
 		set_character_flag = train_protean_1
 		# in clan bonus
-		if = { limit = { OR = { trait = mekhet
-								trait = nosferatu } }
+		if = { limit = { OR = { trait = gangrel
+								trait = gangrelantitribu
+								trait = dubrov
+								trait = grigorovich
+								trait = alexander
+			} }
 				prestige = 100
 				}
 	}
@@ -1982,6 +3045,10 @@ train_protean_1_decision = {
 			modifier = {
 					factor = 1.5
 					trait = gangrel
+								trait = gangrelantitribu
+								trait = dubrov
+								trait = grigorovich
+								trait = alexander
 				}
 								modifier = {
 										factor = 1.5
@@ -2001,8 +3068,11 @@ train_protean_1_decision = {
 }
 
 train_protean_2_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = {
+				ai = yes
+				has_character_flag = disciplines_menu_open }
+			age = 18 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -2016,11 +3086,17 @@ train_protean_2_decision = {
 		prestige = 400
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		prestige = -400
 		set_character_flag = train_protean_2
 		# in clan bonus
-		if = { limit = { trait = gangrel }
+		if = { limit = { trait = gangrel
+								trait = gangrelantitribu
+								trait = dubrov
+								trait = grigorovich
+								trait = alexander }
 				prestige = 200
 				}
 	}
@@ -2036,6 +3112,10 @@ train_protean_2_decision = {
 			modifier = {
 					factor = 1.5
 					trait = gangrel
+								trait = gangrelantitribu
+								trait = dubrov
+								trait = grigorovich
+								trait = alexander
 				}
 								modifier = {
 										factor = 1.5
@@ -2055,8 +3135,11 @@ train_protean_2_decision = {
 }
 
 train_protean_3_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = {
+				ai = yes
+				has_character_flag = disciplines_menu_open }
+			age = 18 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -2070,11 +3153,17 @@ train_protean_3_decision = {
 		prestige = 600
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		prestige = -600
 		set_character_flag = train_protean_3
 		# in clan bonus
-		if = { limit = { trait = gangrel }
+		if = { limit = { trait = gangrel
+								trait = gangrelantitribu
+								trait = dubrov
+								trait = grigorovich
+								trait = alexander }
 				prestige = 300
 				}
 	}
@@ -2089,6 +3178,10 @@ train_protean_3_decision = {
 			modifier = {
 					factor = 1.5
 					trait = gangrel
+								trait = gangrelantitribu
+								trait = dubrov
+								trait = grigorovich
+								trait = alexander
 				}
 								modifier = {
 										factor = 1.5
@@ -2108,8 +3201,11 @@ train_protean_3_decision = {
 }
 
 train_protean_4_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = {
+				ai = yes
+				has_character_flag = disciplines_menu_open }
+			age = 18 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -2124,11 +3220,17 @@ train_protean_4_decision = {
 			trait = protean_3	
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		prestige = -800
 		set_character_flag = train_protean_4
 		# in clan bonus
-		if = { limit = { trait = gangrel }
+		if = { limit = { trait = gangrel
+								trait = gangrelantitribu
+								trait = dubrov
+								trait = grigorovich
+								trait = alexander }
 				prestige = 400
 				}
 	}
@@ -2143,7 +3245,50 @@ train_protean_4_decision = {
 			modifier = {
 					factor = 1.5
 					trait = gangrel
+								trait = gangrelantitribu
+								trait = dubrov
+								trait = grigorovich
+								trait = alexander
 				}
+			modifier = {
+					factor = 0
+					OR = {
+							trait = akhud
+							trait = assamite
+							trait = assamiteantitribu
+							trait = baali
+							trait = brujah
+							trait = brujahantitribu	
+							trait = daeva
+							trait = cappadocian
+							trait = followerofset
+							trait = serpentoflight
+							trait = giovanni
+							trait = irinavici
+							trait = julii
+							trait = lasombra
+							trait = lasombraantitribu
+							trait = malkavian
+							trait = malkavianantribu
+							trait = marisovich
+							trait = mekhet
+							trait = petrovnavich
+							trait = nosferatu
+							trait = nosferatuantitribu
+							trait = ravnos
+							trait = ravnosantitribu
+							trait = salubri
+							trait = semeonovic
+							trait = trereme
+							trait = tremereantitribu
+							trait = toreador
+							trait = toreadorantitribu
+							trait = tzimisce
+							trait = tzimisceantitribu
+							trait = ventrue
+							trait = ventrueantitribu							
+						}
+				}				
 								modifier = {
 										factor = 1.5
 										OR = {
@@ -2162,8 +3307,11 @@ train_protean_4_decision = {
 }
 
 train_protean_5_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = {
+				ai = yes
+				has_character_flag = disciplines_menu_open }
+			age = 18 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -2177,11 +3325,17 @@ train_protean_5_decision = {
 		prestige = 1200
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		prestige = -1200
 		set_character_flag = train_protean_5
 		# in clan bonus
-		if = { limit = { trait = gangrel }
+		if = { limit = { trait = gangrel
+								trait = gangrelantitribu
+								trait = dubrov
+								trait = grigorovich
+								trait = alexander }
 				prestige = 600
 				}
 	}
@@ -2196,6 +3350,10 @@ train_protean_5_decision = {
 			modifier = {
 					factor = 1.5
 					trait = gangrel
+								trait = gangrelantitribu
+								trait = dubrov
+								trait = grigorovich
+								trait = alexander
 				}
 								modifier = {
 										factor = 1.5
@@ -2215,8 +3373,11 @@ train_protean_5_decision = {
 }
 
 train_resilience_1_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = {
+				ai = yes
+				has_character_flag = disciplines_menu_open }
+			age = 18 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -2234,13 +3395,26 @@ train_resilience_1_decision = {
 		prestige = 200
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		prestige = -200
 		set_character_flag = train_resilience_1
 		# in clan bonus
-		if = { limit = { OR = { trait = gangrel
-								trait = ventrue
-						trait = julii } }
+		if = { limit = { OR = { 
+							trait = baali
+							trait = dubrov
+							trait = cappadocian
+							trait = gangrel
+							trait = gangrelantitribu
+							trait = julii
+							trait = ravnos
+							trait = ravnosantitribu
+							trait = salubri
+							trait = semeonovic
+							trait = ventrue
+							trait = ventrueantitribu	
+						} }
 				prestige = 100
 				}
 	}
@@ -2255,9 +3429,18 @@ train_resilience_1_decision = {
 			modifier = {
 					factor = 1.5
 					OR = {
+							trait = baali
+							trait = dubrov
+							trait = cappadocian
 							trait = gangrel
+							trait = gangrelantitribu
+							trait = julii
+							trait = ravnos
+							trait = ravnosantitribu
+							trait = salubri
+							trait = semeonovic
 							trait = ventrue
-						trait = julii
+							trait = ventrueantitribu	
 						}
 				}	
 									modifier = {
@@ -2274,8 +3457,11 @@ train_resilience_1_decision = {
 }
 
 train_resilience_2_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = {
+				ai = yes
+				has_character_flag = disciplines_menu_open }
+			age = 18 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -2289,13 +3475,24 @@ train_resilience_2_decision = {
 		prestige = 400		
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		prestige = -400
 		set_character_flag = train_resilience_2
 		# in clan bonus
-		if = { limit = { OR = { trait = gangrel
-								trait = ventrue
-						trait = julii } }
+		if = { limit = { OR = { 							trait = baali
+							trait = dubrov
+							trait = cappadocian
+							trait = gangrel
+							trait = gangrelantitribu
+							trait = julii
+							trait = ravnos
+							trait = ravnosantitribu
+							trait = salubri
+							trait = semeonovic
+							trait = ventrue
+							trait = ventrueantitribu	} }
 				prestige = 200
 				}
 	}
@@ -2310,9 +3507,18 @@ train_resilience_2_decision = {
 			modifier = {
 					factor = 1.5
 					OR = {
+							trait = baali
+							trait = dubrov
+							trait = cappadocian
 							trait = gangrel
+							trait = gangrelantitribu
+							trait = julii
+							trait = ravnos
+							trait = ravnosantitribu
+							trait = salubri
+							trait = semeonovic
 							trait = ventrue
-						trait = julii
+							trait = ventrueantitribu	
 						}
 				}	
 									modifier = {
@@ -2329,8 +3535,11 @@ train_resilience_2_decision = {
 }
 
 train_resilience_3_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = {
+				ai = yes
+				has_character_flag = disciplines_menu_open }
+			age = 18 
 			trait = vampire 
 			NOT = { 
 				OR = {  
@@ -2344,13 +3553,24 @@ train_resilience_3_decision = {
 		prestige = 600
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		prestige = -600
 		set_character_flag = train_resilience_3
 		# in clan bonus
-		if = { limit = { OR = { trait = gangrel
-								trait = ventrue
-						trait = julii } }
+		if = { limit = { OR = { 							trait = baali
+							trait = dubrov
+							trait = cappadocian
+							trait = gangrel
+							trait = gangrelantitribu
+							trait = julii
+							trait = ravnos
+							trait = ravnosantitribu
+							trait = salubri
+							trait = semeonovic
+							trait = ventrue
+							trait = ventrueantitribu	 } }
 				prestige = 300
 				}
 	}
@@ -2365,9 +3585,18 @@ train_resilience_3_decision = {
 			modifier = {
 					factor = 1.5
 					OR = {
+							trait = baali
+							trait = dubrov
+							trait = cappadocian
 							trait = gangrel
+							trait = gangrelantitribu
+							trait = julii
+							trait = ravnos
+							trait = ravnosantitribu
+							trait = salubri
+							trait = semeonovic
 							trait = ventrue
-						trait = julii
+							trait = ventrueantitribu	
 						}
 				}	
 									modifier = {
@@ -2384,8 +3613,11 @@ train_resilience_3_decision = {
 }
 
 train_resilience_4_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = {
+				ai = yes
+				has_character_flag = disciplines_menu_open }
+			age = 18 
  
 
 			trait = vampire 
@@ -2401,13 +3633,24 @@ train_resilience_4_decision = {
 		prestige = 800
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		prestige = -800
 		set_character_flag = train_resilience_4
 		# in clan bonus
-		if = { limit = { OR = { trait = gangrel
-								trait = ventrue
-						trait = julii } }
+		if = { limit = { OR = { 							trait = baali
+							trait = dubrov
+							trait = cappadocian
+							trait = gangrel
+							trait = gangrelantitribu
+							trait = julii
+							trait = ravnos
+							trait = ravnosantitribu
+							trait = salubri
+							trait = semeonovic
+							trait = ventrue
+							trait = ventrueantitribu	 } }
 				prestige = 400
 				}
 	}
@@ -2422,17 +3665,50 @@ train_resilience_4_decision = {
 			modifier = {
 					factor = 1.5
 					OR = {
+							trait = baali
+							trait = dubrov
+							trait = cappadocian
 							trait = gangrel
+							trait = gangrelantitribu
+							trait = julii
+							trait = ravnos
+							trait = ravnosantitribu
+							trait = salubri
+							trait = semeonovic
 							trait = ventrue
-						trait = julii
+							trait = ventrueantitribu	
 						}
 				}	
 			modifier = {
 					factor = 0 
 					OR = {
-							trait = daeva 
+							trait = akhud
+							trait = alexander
+							trait = assamite
+							trait = assamiteantitribu
+							trait = brujah
+							trait = brujahantitribu	
+							trait = daeva
+							trait = followerofset
+							trait = serpentoflight
+							trait = giovanni
+							trait = grigorovich
+							trait = irinavici
+							trait = lasombra
+							trait = lasombraantitribu
+							trait = malkavian
+							trait = malkavianantribu
+							trait = marisovich
 							trait = mekhet
+							trait = petrovnavich
 							trait = nosferatu
+							trait = nosferatuantitribu
+							trait = trereme
+							trait = tremereantitribu
+							trait = toreador
+							trait = toreadorantitribu
+							trait = tzimisce
+							trait = tzimisceantitribu	
 						}
 				}					
 									modifier = {
@@ -2449,8 +3725,11 @@ train_resilience_4_decision = {
 }
 
 train_resilience_5_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = {
+				ai = yes
+				has_character_flag = disciplines_menu_open }
+			age = 18 
  
 
 			trait = vampire 
@@ -2466,13 +3745,24 @@ train_resilience_5_decision = {
 		prestige = 1200		
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		prestige = -1200
 		set_character_flag = train_resilience_5
 		# in clan bonus
-		if = { limit = { OR = { trait = gangrel
-								trait = ventrue
-						trait = julii } }
+		if = { limit = { OR = { 							trait = baali
+							trait = dubrov
+							trait = cappadocian
+							trait = gangrel
+							trait = gangrelantitribu
+							trait = julii
+							trait = ravnos
+							trait = ravnosantitribu
+							trait = salubri
+							trait = semeonovic
+							trait = ventrue
+							trait = ventrueantitribu	 } }
 				prestige = 600
 				}
 	}
@@ -2487,19 +3777,21 @@ train_resilience_5_decision = {
 			modifier = {
 					factor = 1.5
 					OR = {
+							trait = baali
+							trait = dubrov
+							trait = cappadocian
 							trait = gangrel
+							trait = gangrelantitribu
+							trait = julii
+							trait = ravnos
+							trait = ravnosantitribu
+							trait = salubri
+							trait = semeonovic
 							trait = ventrue
-						trait = julii
+							trait = ventrueantitribu	
 						}
 				}	
-			modifier = {
-					factor = 0 
-					OR = {
-							trait = daeva 
-							trait = mekhet
-							trait = nosferatu
-						}
-				}					
+					
 									modifier = {
 										factor = 1.5
 										OR = {
@@ -2514,8 +3806,11 @@ train_resilience_5_decision = {
 }
 
 train_vigor_1_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = {
+				ai = yes
+				has_character_flag = disciplines_menu_open }
+			age = 18 
  
 
 			trait = vampire 
@@ -2535,12 +3830,23 @@ train_vigor_1_decision = {
 		prestige = 200	
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		prestige = -200
 		set_character_flag = train_vigor_1
 		# in clan bonus
-		if = { limit = { OR = { trait = daeva
-								trait = nosferatu } }
+		if = { limit = { OR = { 			
+							trait = alexander
+							trait = brujah
+							trait = brujahantitribu	
+							trait = daeva
+							trait = giovanni
+							trait = lasombra
+							trait = lasombraantitribu
+							trait = petrovnavich
+							trait = nosferatu
+							trait = nosferatuantitribu } }
 				prestige = 100
 				}
 	}
@@ -2555,8 +3861,16 @@ train_vigor_1_decision = {
 			modifier = {
 					factor = 1.5
 					OR = {
+trait = alexander
+							trait = brujah
+							trait = brujahantitribu	
 							trait = daeva
+							trait = giovanni
+							trait = lasombra
+							trait = lasombraantitribu
+							trait = petrovnavich
 							trait = nosferatu
+							trait = nosferatuantitribu
 						}
 				}	
 									modifier = {
@@ -2573,8 +3887,11 @@ train_vigor_1_decision = {
 }
 
 train_vigor_2_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = {
+				ai = yes
+				has_character_flag = disciplines_menu_open }
+			age = 18 
  
 
 			trait = vampire 
@@ -2590,12 +3907,22 @@ train_vigor_2_decision = {
 		prestige = 400		
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		prestige = -400
 		set_character_flag = train_vigor_2
 		# in clan bonus
-		if = { limit = { OR = { trait = daeva
-								trait = nosferatu } }
+		if = { limit = { OR = { trait = alexander
+							trait = brujah
+							trait = brujahantitribu	
+							trait = daeva
+							trait = giovanni
+							trait = lasombra
+							trait = lasombraantitribu
+							trait = petrovnavich
+							trait = nosferatu
+							trait = nosferatuantitribu } }
 				prestige = 200
 				}
 	}
@@ -2610,8 +3937,16 @@ train_vigor_2_decision = {
 			modifier = {
 					factor = 1.5
 					OR = {
+							trait = alexander
+							trait = brujah
+							trait = brujahantitribu	
 							trait = daeva
+							trait = giovanni
+							trait = lasombra
+							trait = lasombraantitribu
+							trait = petrovnavich
 							trait = nosferatu
+							trait = nosferatuantitribuu
 						}
 				}
 									modifier = {
@@ -2628,8 +3963,11 @@ train_vigor_2_decision = {
 }
 
 train_vigor_3_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = {
+				ai = yes
+				has_character_flag = disciplines_menu_open }
+			age = 18 
  
 
 			trait = vampire 
@@ -2645,12 +3983,22 @@ train_vigor_3_decision = {
 		prestige = 600	
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		prestige = -600
 		set_character_flag = train_vigor_3
 		# in clan bonus
-		if = { limit = { OR = { trait = daeva
-								trait = nosferatu } }
+		if = { limit = { OR = { trait = alexander
+							trait = brujah
+							trait = brujahantitribu	
+							trait = daeva
+							trait = giovanni
+							trait = lasombra
+							trait = lasombraantitribu
+							trait = petrovnavich
+							trait = nosferatu
+							trait = nosferatuantitribu } }
 				prestige = 300
 				}
 	}
@@ -2665,8 +4013,16 @@ train_vigor_3_decision = {
 			modifier = {
 					factor = 1.5
 					OR = {
+							trait = alexander
+							trait = brujah
+							trait = brujahantitribu	
 							trait = daeva
+							trait = giovanni
+							trait = lasombra
+							trait = lasombraantitribu
+							trait = petrovnavich
 							trait = nosferatu
+							trait = nosferatuantitribu
 						}
 				}
 									modifier = {
@@ -2684,8 +4040,11 @@ train_vigor_3_decision = {
 }
 
 train_vigor_4_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = {
+				ai = yes
+				has_character_flag = disciplines_menu_open }
+			age = 18 
  
 
 			trait = vampire 
@@ -2701,12 +4060,22 @@ train_vigor_4_decision = {
 		prestige = 800
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		prestige = -800
 		set_character_flag = train_vigor_4
 		# in clan bonus
-		if = { limit = { OR = { trait = daeva
-								trait = nosferatu } }
+		if = { limit = { OR = { trait = alexander
+							trait = brujah
+							trait = brujahantitribu	
+							trait = daeva
+							trait = giovanni
+							trait = lasombra
+							trait = lasombraantitribu
+							trait = petrovnavich
+							trait = nosferatu
+							trait = nosferatuantitribu } }
 				prestige = 400
 				}
 	}
@@ -2721,17 +4090,50 @@ train_vigor_4_decision = {
 			modifier = {
 					factor = 1.5
 					OR = {
+							trait = alexander
+							trait = brujah
+							trait = brujahantitribu	
 							trait = daeva
+							trait = giovanni
+							trait = lasombra
+							trait = lasombraantitribu
+							trait = petrovnavich
 							trait = nosferatu
+							trait = nosferatuantitribu
 						}
 				}	
 			modifier = {
 					factor = 0
 					OR = {
+							trait = akhud
+							trait = assamite
+							trait = assamiteantitribu
+							trait = baali
+							trait = dubrov
+							trait = cappadocian
+							trait = followerofset
+							trait = serpentoflight
 							trait = gangrel
+							trait = gangrelantitribu
+							trait = grigorovich
+							trait = irinavici
+							trait = julii
+							trait = malkavian
+							trait = malkavianantribu
+							trait = marisovich
 							trait = mekhet
+							trait = ravnos
+							trait = ravnosantitribu
+							trait = salubri
+							trait = semeonovic
+							trait = trereme
+							trait = tremereantitribu
+							trait = toreador
+							trait = toreadorantitribu
+							trait = tzimisce
+							trait = tzimisceantitribu
 							trait = ventrue
-						trait = julii
+							trait = ventrueantitribu		
 						}
 				}					
 									modifier = {
@@ -2748,8 +4150,11 @@ train_vigor_4_decision = {
 }
 
 train_vigor_5_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = {
+				ai = yes
+				has_character_flag = disciplines_menu_open }
+			age = 18 
  
 
 			trait = vampire 
@@ -2765,12 +4170,22 @@ train_vigor_5_decision = {
 		prestige = 1200
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		prestige = -1200
 		set_character_flag = train_vigor_5
 		# in clan bonus
-		if = { limit = { OR = { trait = daeva
-								trait = nosferatu } }
+		if = { limit = { OR = { trait = alexander
+							trait = brujah
+							trait = brujahantitribu	
+							trait = daeva
+							trait = giovanni
+							trait = lasombra
+							trait = lasombraantitribu
+							trait = petrovnavich
+							trait = nosferatu
+							trait = nosferatuantitribuu } }
 				prestige = 600
 				}
 	}
@@ -2781,19 +4196,19 @@ train_vigor_5_decision = {
 			modifier = {
 					factor = 1.5
 					OR = {
+							trait = alexander
+							trait = brujah
+							trait = brujahantitribu	
 							trait = daeva
+							trait = giovanni
+							trait = lasombra
+							trait = lasombraantitribu
+							trait = petrovnavich
 							trait = nosferatu
+							trait = nosferatuantitribu
 						}
 				}
-			modifier = {
-					factor = 0
-					OR = {
-							trait = gangrel
-							trait = mekhet
-							trait = ventrue
-						trait = julii
-						}
-				}					
+				
 									modifier = {
 										factor = 1.5
 										OR = {
@@ -2808,8 +4223,11 @@ train_vigor_5_decision = {
 }
 
 train_constance_1_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = {
+				ai = yes
+				has_character_flag = disciplines_menu_open }
+			age = 18 
  
 
 			trait = vampire 
@@ -2830,7 +4248,9 @@ train_constance_1_decision = {
 		prestige = 200		
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		prestige = -200
 		set_character_flag = train_constance_1
 		# in clan bonus
@@ -2859,8 +4279,11 @@ train_constance_1_decision = {
 }
 
 train_constance_2_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = {
+				ai = yes
+				has_character_flag = disciplines_menu_open }
+			age = 18 
  
 
 			trait = vampire 
@@ -2876,7 +4299,9 @@ train_constance_2_decision = {
 		prestige = 400	
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		prestige = -400
 		set_character_flag = train_constance_2
 		# in clan bonus
@@ -2905,8 +4330,11 @@ train_constance_2_decision = {
 }
 
 train_constance_3_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = {
+				ai = yes
+				has_character_flag = disciplines_menu_open }
+			age = 18 
  
 
 			trait = vampire 
@@ -2922,7 +4350,9 @@ train_constance_3_decision = {
 		prestige = 600		
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		prestige = -600
 		set_character_flag = train_constance_3
 		# in clan bonus
@@ -2951,8 +4381,11 @@ train_constance_3_decision = {
 }
 
 train_constance_4_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = {
+				ai = yes
+				has_character_flag = disciplines_menu_open }
+			age = 18 
  
 
 			trait = vampire 
@@ -2966,7 +4399,7 @@ train_constance_4_decision = {
 	}
 	allow = {
 		prestige = 800
-			age = 50 
+			age = 18 
  
 
 			trait = vampire 
@@ -2979,7 +4412,9 @@ train_constance_4_decision = {
 			trait = constance_3
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		prestige = -800
 		set_character_flag = train_constance_4
 		# in clan bonus
@@ -3008,8 +4443,11 @@ train_constance_4_decision = {
 }
 
 train_constance_5_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = {
+				ai = yes
+				has_character_flag = disciplines_menu_open }
+			age = 18 
  
 
 			trait = vampire 
@@ -3025,7 +4463,9 @@ train_constance_5_decision = {
 		prestige = 1200		
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		prestige = -1200
 		set_character_flag = train_constance_5
 		# in clan bonus
@@ -3054,8 +4494,11 @@ train_constance_5_decision = {
 	}
 
 train_courtoisie_1_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = {
+				ai = yes
+				has_character_flag = disciplines_menu_open }
+			age = 18 
  
 
 			trait = vampire 
@@ -3076,7 +4519,9 @@ train_courtoisie_1_decision = {
 		prestige = 200
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		prestige = -200
 		set_character_flag = train_courtoisie_1
 		# in clan bonus
@@ -3106,8 +4551,11 @@ train_courtoisie_1_decision = {
 }
 
 train_courtoisie_2_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = {
+				ai = yes
+				has_character_flag = disciplines_menu_open }
+			age = 18 
  
 
 			trait = vampire 
@@ -3123,7 +4571,9 @@ train_courtoisie_2_decision = {
 		prestige = 400	
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		prestige = -400
 		set_character_flag = train_courtoisie_2
 		# in clan bonus
@@ -3153,8 +4603,11 @@ train_courtoisie_2_decision = {
 }
 
 train_courtoisie_3_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = {
+				ai = yes
+				has_character_flag = disciplines_menu_open }
+			age = 18 
  
 
 			trait = vampire 
@@ -3170,7 +4623,9 @@ train_courtoisie_3_decision = {
 		prestige = 600	
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		prestige = -600
 		set_character_flag = train_courtoisie_3
 		# in clan bonus
@@ -3200,8 +4655,11 @@ train_courtoisie_3_decision = {
 }
 
 train_courtoisie_4_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = {
+				ai = yes
+				has_character_flag = disciplines_menu_open }
+			age = 18 
  
 
 			trait = vampire 
@@ -3217,7 +4675,9 @@ train_courtoisie_4_decision = {
 		prestige = 800	
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		prestige = -800
 		set_character_flag = train_courtoisie_4
 		# in clan bonus
@@ -3247,8 +4707,11 @@ train_courtoisie_4_decision = {
 }
 
 train_courtoisie_5_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = {
+				ai = yes
+				has_character_flag = disciplines_menu_open }
+			age = 18 
  
 
 			trait = vampire 
@@ -3264,7 +4727,9 @@ train_courtoisie_5_decision = {
 		prestige = 1200
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		prestige = -1200
 		set_character_flag = train_courtoisie_5
 		# in clan bonus
@@ -3294,8 +4759,11 @@ train_courtoisie_5_decision = {
 	}
 
 train_theban_1_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = {
+				ai = yes
+				has_character_flag = disciplines_menu_open }
+			age = 18 
  
 
 			trait = vampire 
@@ -3321,7 +4789,9 @@ train_theban_1_decision = {
 		piety = 200
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		piety = -200
 		set_character_flag = train_theban_1
 	}
@@ -3342,8 +4812,11 @@ train_theban_1_decision = {
 }
 
 train_theban_2_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = {
+				ai = yes
+				has_character_flag = disciplines_menu_open }
+			age = 18 
  
 
 			trait = vampire 
@@ -3360,7 +4833,9 @@ train_theban_2_decision = {
 			learning = 5
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		piety = -400
 		set_character_flag = train_theban_2
 	}
@@ -3381,8 +4856,11 @@ train_theban_2_decision = {
 }
 
 train_theban_3_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = {
+				ai = yes
+				has_character_flag = disciplines_menu_open }
+			age = 18 
  
 
 			trait = vampire 
@@ -3399,7 +4877,9 @@ train_theban_3_decision = {
 			learning = 5
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		piety = -600
 		set_character_flag = train_theban_3
 	}
@@ -3420,8 +4900,11 @@ train_theban_3_decision = {
 }
 
 train_theban_4_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = {
+				ai = yes
+				has_character_flag = disciplines_menu_open }
+			age = 18 
  
 
 			trait = vampire 
@@ -3438,7 +4921,9 @@ train_theban_4_decision = {
 			learning = 5
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		piety = -800
 		set_character_flag = train_theban_4
 	}
@@ -3459,8 +4944,11 @@ train_theban_4_decision = {
 }
 
 train_theban_5_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = {
+				ai = yes
+				has_character_flag = disciplines_menu_open }
+			age = 18 
  
 
 			trait = vampire 
@@ -3477,7 +4965,9 @@ train_theban_5_decision = {
 			learning = 5
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		piety = -1200
 		set_character_flag = train_theban_5
 	}
@@ -3498,8 +4988,11 @@ train_theban_5_decision = {
 	}
 
 train_cruac_1_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = {
+				ai = yes
+				has_character_flag = disciplines_menu_open }
+			age = 18 
  
 
 			trait = vampire 
@@ -3523,7 +5016,9 @@ religion = livian }
 			learning = 5
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		piety = -200
 		set_character_flag = train_cruac_1
 	}
@@ -3544,8 +5039,11 @@ religion = livian }
 }
 
 train_cruac_2_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = {
+				ai = yes
+				has_character_flag = disciplines_menu_open }
+			age = 18 
  
 
 			trait = vampire 
@@ -3562,7 +5060,9 @@ train_cruac_2_decision = {
 			learning = 5		
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		piety = -400
 		set_character_flag = train_cruac_2
 	}
@@ -3583,8 +5083,11 @@ train_cruac_2_decision = {
 }
 
 train_cruac_3_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = {
+				ai = yes
+				has_character_flag = disciplines_menu_open }
+			age = 18 
  
 
 			trait = vampire 
@@ -3601,7 +5104,9 @@ train_cruac_3_decision = {
 			learning = 5		
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		piety = -600
 		set_character_flag = train_cruac_3
 	}
@@ -3622,8 +5127,11 @@ train_cruac_3_decision = {
 }
 
 train_cruac_4_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = {
+				ai = yes
+				has_character_flag = disciplines_menu_open }
+			age = 18 
  
 
 			trait = vampire 
@@ -3640,7 +5148,9 @@ train_cruac_4_decision = {
 			learning = 5	
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		piety = -800
 		set_character_flag = train_cruac_4
 			}
@@ -3661,8 +5171,11 @@ train_cruac_4_decision = {
 }
 
 train_cruac_5_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = {
+				ai = yes
+				has_character_flag = disciplines_menu_open }
+			age = 18 
  
 
 			trait = vampire 
@@ -3679,7 +5192,9 @@ train_cruac_5_decision = {
 			learning = 5		
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		piety = -1200
 		set_character_flag = train_cruac_5
 	}
@@ -3699,8 +5214,11 @@ train_cruac_5_decision = {
 			}
 	}		
 train_coils_1_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = {
+				ai = yes
+				has_character_flag = disciplines_menu_open }
+			age = 18 
  
 
 			trait = vampire 
@@ -3724,7 +5242,9 @@ train_coils_1_decision = {
 			learning = 5
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		piety = -200
 		set_character_flag = train_coils_1
 	}
@@ -3745,8 +5265,11 @@ train_coils_1_decision = {
 }
 
 train_coils_2_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = {
+				ai = yes
+				has_character_flag = disciplines_menu_open }
+			age = 18 
  
 
 			trait = vampire 
@@ -3767,7 +5290,9 @@ train_coils_2_decision = {
 			learning = 5	
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		piety = -400
 		set_character_flag = train_coils_2
 	}
@@ -3788,8 +5313,11 @@ train_coils_2_decision = {
 }
 
 train_coils_3_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = {
+				ai = yes
+				has_character_flag = disciplines_menu_open }
+			age = 18 
  
 
 			trait = vampire 
@@ -3806,7 +5334,9 @@ train_coils_3_decision = {
 			learning = 5	
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		piety = -600
 		set_character_flag = train_coils_3
 	}
@@ -3829,8 +5359,11 @@ train_coils_3_decision = {
 }
 
 train_coils_4_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = {
+				ai = yes
+				has_character_flag = disciplines_menu_open }
+			age = 18 
  
 
 			trait = vampire 
@@ -3847,7 +5380,9 @@ train_coils_4_decision = {
 			learning = 5
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		piety = -800
 		set_character_flag = train_coils_4
 	}
@@ -3868,8 +5403,11 @@ train_coils_4_decision = {
 }
 
 train_coils_5_decision = {
-	potential = {    has_character_flag =disciplines_menu_open
-			age = 50 
+	potential = {    
+			OR = {
+				ai = yes
+				has_character_flag = disciplines_menu_open }
+			age = 18 
  
 
 			trait = vampire 
@@ -3886,7 +5424,9 @@ train_coils_5_decision = {
 			learning = 5	
 	}
 	effect = { 
- set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+ 
+		#set_character_flag = POD_TRAINING_VAMPIRE_DISCIPLINE
+
 		piety = -1200
 		set_character_flag = train_coils_5
 	}

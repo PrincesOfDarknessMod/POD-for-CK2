@@ -35,20 +35,22 @@ character_event = {
 							primary_title = { title = e_ivory_claws }
 							primary_title = { title = e_predator_kings }
 							primary_title = { title = e_bale_hounds }
-							primary_title = { title = k_fiefs_of_the_black_cross }
-							primary_title = { title = k_brujahcamarilla }
-							primary_title = { title = k_gangrelcamarilla }
-							primary_title = { title = k_malkaviancamarilla }
-							primary_title = { title = k_nosferatucamarilla }
-							primary_title = { title = k_toreadorcamarilla }
-							primary_title = { title = k_tremerecamarilla }
-							primary_title = { title = k_ventruecamarilla }
+							primary_title = { title = e_fiefs_of_the_black_cross }
+							primary_title = { title = e_brujahcamarilla }
+							primary_title = { title = e_gangrelcamarilla }
+							primary_title = { title = e_malkaviancamarilla }
+							primary_title = { title = e_nosferatucamarilla }
+							primary_title = { title = e_toreadorcamarilla }
+							primary_title = { title = e_tremerecamarilla }
+							primary_title = { title = e_ventruecamarilla }
 							primary_title = { title = e_sabbat }
-							primary_title = { title = k_ashirra }
-							primary_title = { title = k_iconnu }
-							primary_title = { title = k_oradealeague }
-							primary_title = { title = k_assamites }
-							primary_title = { title = k_giovanni }
+							primary_title = { title = e_ashirra }
+							primary_title = { title = e_iconnu }
+							primary_title = { title = e_oradealeague }
+							primary_title = { title = e_assamites }
+							primary_title = { title = e_giovanni }
+							primary_title = { title = k_lasombra }
+							primary_title = { title = k_tzimisce }
 						}
 												
 							
@@ -311,7 +313,7 @@ character_event = {
 
 			if = {
 					limit = {
-								primary_title = { title =  k_fiefs_of_the_black_cross }
+								primary_title = { title =  e_fiefs_of_the_black_cross }
 								OR = {
 										NOT = { trait = vampire }
 										NOT = { religion = vampire_high_clans }
@@ -320,12 +322,12 @@ character_event = {
 										NOT = { culture = german }
 								}
 					}
-					k_fiefs_of_the_black_cross = { destroy_landed_title = THIS }					
+					e_fiefs_of_the_black_cross = { destroy_landed_title = THIS }					
 				}			
 
 				if = {
 					limit = {
-								primary_title = { title =  k_brujahcamarilla }
+								primary_title = { title =  e_brujahcamarilla }
 								OR = {
 										NOT = { trait = vampire }
 										NOT = { religion = brujahcamarilla }
@@ -333,12 +335,12 @@ character_event = {
 										NOT = { trait = brujah }
 								}
 					}
-					k_brujahcamarilla = { destroy_landed_title = THIS }					
+					e_brujahcamarilla = { destroy_landed_title = THIS }					
 				}		
 
 				if = {
 					limit = {
-								primary_title = { title =  k_gangrelcamarilla }
+								primary_title = { title =  e_gangrelcamarilla }
 								OR = {
 										NOT = { trait = vampire }
 										NOT = { religion = gangrelcamarilla }
@@ -346,12 +348,12 @@ character_event = {
 										NOT = { trait = gangrel }
 								}
 					}
-					k_gangrelcamarilla = { destroy_landed_title = THIS }					
+					e_gangrelcamarilla = { destroy_landed_title = THIS }					
 				}
 
 				if = {
 					limit = {
-								primary_title = { title =  k_malkaviancamarilla }
+								primary_title = { title =  e_malkaviancamarilla }
 								OR = {
 										NOT = { trait = vampire }
 										NOT = { religion = malkaviancamarilla }
@@ -359,12 +361,12 @@ character_event = {
 										NOT = { trait = malkavian }
 								}
 					}
-					k_malkaviancamarilla = { destroy_landed_title = THIS }					
+					e_malkaviancamarilla = { destroy_landed_title = THIS }					
 				}
 
 				if = {
 					limit = {
-								primary_title = { title =  k_nosferatucamarilla }
+								primary_title = { title =  e_nosferatucamarilla }
 								OR = {
 										NOT = { trait = vampire }
 										NOT = { religion = nosferatucamarilla }
@@ -372,12 +374,12 @@ character_event = {
 										NOT = { trait = nosferatu }
 								}
 					}
-					k_nosferatucamarilla = { destroy_landed_title = THIS }					
+					e_nosferatucamarilla = { destroy_landed_title = THIS }					
 				}
 
 				if = {
 					limit = {
-								primary_title = { title =  k_toreadorcamarilla }
+								primary_title = { title =  e_toreadorcamarilla }
 								OR = {
 										NOT = { trait = vampire }
 										NOT = { religion = toreadorcamarilla }
@@ -385,12 +387,12 @@ character_event = {
 										NOT = { trait = toreador }
 								}
 					}
-					k_toreadorcamarilla = { destroy_landed_title = THIS }					
+					e_toreadorcamarilla = { destroy_landed_title = THIS }					
 				}
 
 				if = {
 					limit = {
-								primary_title = { title =  k_tremerecamarilla }
+								primary_title = { title =  e_tremerecamarilla }
 								OR = {
 										NOT = { trait = vampire }
 										NOT = { religion = tremerecamarilla }
@@ -398,12 +400,12 @@ character_event = {
 										NOT = { trait = tremere }
 								}
 					}
-					k_tremerecamarilla = { destroy_landed_title = THIS }					
+					e_tremerecamarilla = { destroy_landed_title = THIS }					
 				}
 
 				if = {
 					limit = {
-								primary_title = { title =  k_ventruecamarilla }
+								primary_title = { title =  e_ventruecamarilla }
 								OR = {
 										NOT = { trait = vampire }
 										NOT = { religion = ventruecamarilla }
@@ -411,7 +413,7 @@ character_event = {
 										NOT = { trait = ventrue }
 								}
 					}
-					k_ventruecamarilla = { destroy_landed_title = THIS }					
+					e_ventruecamarilla = { destroy_landed_title = THIS }					
 				}				
 				
 				if = {
@@ -428,19 +430,19 @@ character_event = {
 
 				if = {
 					limit = {
-								primary_title = { title =  k_ashirra }
+								primary_title = { title =  e_ashirra }
 								OR = {
 										NOT = { trait = vampire }
 										NOT = { religion = ashirra }
 										NOT = { realm_size = 10 }
 								}
 					}
-					k_ashirra = { destroy_landed_title = THIS }					
+					e_ashirra = { destroy_landed_title = THIS }					
 				}
 				
 				if = {
 					limit = {
-								primary_title = { title =  k_giovanni }
+								primary_title = { title =  e_giovanni }
 								OR = {
 										NOT = { trait = vampire }
 										NOT = { religion = giovanni }
@@ -448,12 +450,38 @@ character_event = {
 										NOT = { trait = giovanni }
 								}
 					}
-					k_giovanni = { destroy_landed_title = THIS }					
+					e_giovanni = { destroy_landed_title = THIS }					
+				}
+
+				if = {
+					limit = {
+								primary_title = { title =  e_ravnos }
+								OR = {
+										NOT = { trait = vampire }
+										NOT = { religion = ravnos }
+										NOT = { realm_size = 10 }
+										NOT = { trait = ravnos }
+								}
+					}
+					e_ravnos = { destroy_landed_title = THIS }					
 				}
 				
 				if = {
 					limit = {
-								primary_title = { title =  k_assamites }
+								primary_title = { title =  e_settite }
+								OR = {
+										NOT = { trait = vampire }
+										NOT = { religion = settite }
+										NOT = { realm_size = 10 }
+										NOT = { trait = followerofset }
+								}
+					}
+					e_settite = { destroy_landed_title = THIS }					
+				}				
+				
+				if = {
+					limit = {
+								primary_title = { title =  e_assamites }
 								OR = {
 										NOT = { trait = vampire }
 										NOT = { religion = assamites }
@@ -461,36 +489,63 @@ character_event = {
 										NOT = { trait = assamite }
 								}
 					}
-					k_assamites = { destroy_landed_title = THIS }					
+					e_assamites = { destroy_landed_title = THIS }					
 				}
 				
 				if = {
 					limit = {
-								primary_title = { title =  k_inconnu }
+								primary_title = { title =  e_inconnu }
 								OR = {
 										NOT = { trait = vampire }
 										NOT = { religion = inconnu }
 										NOT = { realm_size = 10 }
-										NOT = { trait = elder }
+										trait = "ancilla"
+										trait = "neonate"
 								}
 					}
-					k_inconnu = { destroy_landed_title = THIS }					
+					e_inconnu = { destroy_landed_title = THIS }					
 				}
 
 				if = {
 					limit = {
-								primary_title = { title =  k_oradealeague }
+								primary_title = { title =  e_oradealeague }
 								OR = {
 										NOT = { trait = vampire }
 										NOT = { religion = oradealeague }
 										NOT = { realm_size = 10 }
-										NOT = { trait = elder }
-										NOT = { trait = tzimisceantitribu }
+										NOT = { trait = "tzimisceantitribu" }
+										trait = "neonate"
+										trait = "ancilla"
 								}
 					}
-					k_oradealeague = { destroy_landed_title = THIS }					
+					e_oradealeague = { destroy_landed_title = THIS }					
 				}
 				
+				if = {
+					limit = {
+								primary_title = { title =  k_lasombra }
+								OR = {
+										NOT = { trait = vampire }
+										NOT = { religion = lasombra }
+										NOT = { realm_size = 10 }
+										NOT = { trait = lasombra }
+								}
+					}
+					e_lasombra = { destroy_landed_title = THIS }					
+				}				
+				
+				if = {
+					limit = {
+								primary_title = { title =  k_tzimisce }
+								OR = {
+										NOT = { trait = vampire }
+										NOT = { religion = tzimisce }
+										NOT = { realm_size = 10 }
+										NOT = { trait = tzimisce }
+								}
+					}
+					e_tzimisce = { destroy_landed_title = THIS }					
+				}				
 				
 			}
 		}

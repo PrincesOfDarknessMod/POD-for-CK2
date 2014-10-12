@@ -6,15 +6,19 @@ e_fiefs_of_the_black_cross = {
 		culture = german	
 		dignity = 100
 		short_name = yes
+		title = "Elder"
+		title_female = "Elder"			
 		allow = {
 			trait = venture	
 			culture = german
 			religion = vampire_high_clans
 			trait = vampire
+			NOT = { trait = neonate }
+			NOT = { trait = ancilla }			
 			NOT = { trait = werewolf }
 			prestige = 500
 			piety = 500
-			realm_size = 50		
+			realm_size = 50	
 			has_global_flag = bookmark1230
 		}
 		gain_effect = {
@@ -29,6 +33,8 @@ e_ashirra = {
 		controls_religion = ashirra			
 		short_name = yes
 		dignity = 100		
+		title = "Caliph"
+		title_female = "Calipha"			
 		allow = {
 			religion = ashirra
 			trait = vampire
@@ -36,6 +42,8 @@ e_ashirra = {
 			prestige = 500
 			piety = 500
 			realm_size = 15		
+			NOT = { trait = neonate }
+			NOT = { trait = ancilla }			
 			OR = {
 					has_global_flag = bookmark1230
 					has_global_flag = bookmark1500
@@ -53,9 +61,13 @@ e_inconnu= {
 		caliphate = yes			
 		controls_religion = inconnu		
 		dignity = 100
+		title = "Prince"
+		title_female = "Prince"
 		allow = {
 			religion = inconnu
 			trait = vampire
+			NOT = { trait = neonate }
+			NOT = { trait = ancilla }
 			NOT = { trait = werewolf }
 			prestige = 500
 			piety = 500
@@ -77,11 +89,15 @@ e_oradealeague= {
 		culture = romanian
 		short_name = yes
 		caliphate = yes			
-		controls_religion = oradaeleague	
+		controls_religion = oradaeleague
+		title = "Voivode"
+		title_female = "Voivode"			
 		dignity = 100		
 		allow = {
 			religion = oradaeleague
 			trait = tzimisceantitribu
+			NOT = { trait = neonate }
+			NOT = { trait = ancilla }			
 			trait = vampire
 			NOT = { trait = werewolf }
 			prestige = 500
@@ -101,10 +117,13 @@ e_assamites = {
 		controls_religion = assamites		
 		short_name = yes
 		dignity = 100
+		title = "Eldest"
+		title_female = "Eldest"			
 		allow = {
 			religion = assamites
 			trait = assamite 
-			trait = elder
+			NOT = { trait = neonate }
+			NOT = { trait = ancilla }
 			trait = vampire
 			NOT = { trait = werewolf }
 			prestige = 500
@@ -124,14 +143,17 @@ e_giovanni = {
 		capital = 356 # Venezia, Italy
 		culture = italian
 		caliphate = yes			
-		controls_religion = giovanni		
+		controls_religion = giovanni
+		title = "Patriarch"
+		title_female = "Matriarch"			
 		short_name = yes
 		dignity = 100
 		allow = {
 			religion = giovanni
 			trait = giovanni 
 			culture = italian
-			trait = elder
+			NOT = { trait = neonate }
+			NOT = { trait = ancilla }
 			trait = vampire
 			NOT = { trait = werewolf }
 			prestige = 500
@@ -142,6 +164,55 @@ e_giovanni = {
 		gain_effect = {
 		}
 }
+
+e_ravnos = {
+		color = { 25 25 25 }
+		culture = hindustani
+		caliphate = yes			
+		controls_religion = mayaparisataya		
+		short_name = yes
+		dignity = 100
+		allow = {
+			religion = mayaparisataya
+			trait = ravnos 
+			NOT = { trait = ancilla }
+			NOT = { trait = neonate }
+			trait = vampire
+			NOT = { trait = werewolf }
+			prestige = 500
+			piety = 500
+			realm_size = 10			
+			has_global_flag = bookmark1500
+		}
+		gain_effect = {
+		}
+}
+
+e_settite = {
+		color = { 0 0 0 }
+		culture = egyptian_arabic
+		caliphate = yes			
+		controls_religion = settites		
+		short_name = yes
+		dignity = 100
+		title = "Pharaoh"
+		title_female = "Queen"			
+		allow = {
+			religion = settites
+			trait = followerofset
+			NOT = { trait = ancilla }
+			NOT = { trait = neonate }
+			trait = vampire
+			NOT = { trait = werewolf }
+			prestige = 500
+			piety = 500
+			realm_size = 10			
+			has_global_flag = bookmark1500
+		}
+		gain_effect = {
+		}
+}
+
 
 
 # Vampire the Masquerade, 1500 Convention of Thorns, Camarilla vs. Sabbat
@@ -159,7 +230,8 @@ e_brujahcamarilla= {
 		allow = {
 			trait = brujah
 			religion = brujahcamarilla
-			trait = elder
+			NOT = { trait = neonate }
+			NOT = { trait = ancilla }
 			trait = vampire
 			NOT = { trait = werewolf }
 			prestige = 500
@@ -184,7 +256,8 @@ e_gangrelcamarilla= {
 		allow = {
 			trait = gangrel
 			religion = gangrelcamarilla
-			trait = elder
+			NOT = { trait = neonate }
+			NOT = { trait = ancilla }
 			trait = vampire
 			NOT = { trait = werewolf }
 			prestige = 500
@@ -209,7 +282,8 @@ e_malkaviancamarilla= {
 		allow = {
 			trait = malkavian
 			religion = malkaviancamarilla
-			trait = elder
+			NOT = { trait = neonate }
+			NOT = { trait = ancilla }
 			trait = vampire
 			NOT = { trait = werewolf }
 			prestige = 500
@@ -234,7 +308,8 @@ e_nosferatucamarilla= {
 		allow = {
 			trait = nosferatu
 			religion = nosferatucamarilla
-			trait = elder
+			NOT = { trait = neonate }
+			NOT = { trait = ancilla }
 			trait = vampire
 			NOT = { trait = werewolf }
 			prestige = 500
@@ -259,7 +334,8 @@ e_tremerecamarilla= {
 		allow = {
 			trait = tremere
 			religion = tremerecamarilla
-			trait = elder
+			NOT = { trait = neonate }
+			NOT = { trait = ancilla }
 			trait = vampire
 			NOT = { trait = werewolf }
 			prestige = 500
@@ -284,7 +360,8 @@ e_toreadorcamarilla= {
 		allow = {
 			trait = toreador
 			religion = toreadorcamarilla
-			trait = elder
+			NOT = { trait = neonate }
+			NOT = { trait = ancilla }
 			trait = vampire
 			NOT = { trait = werewolf }
 			prestige = 500
@@ -309,7 +386,8 @@ e_ventruecamarilla= {
 		allow = {
 			trait = ventrue	
 			religion = ventruecamarilla
-			trait = elder
+			NOT = { trait = neonate }
+			NOT = { trait = ancilla }
 			trait = vampire
 			NOT = { trait = werewolf }
 			prestige = 500
@@ -353,7 +431,7 @@ e_ventruecamarilla= {
 #}
 
 e_sabbat = {
-		color = { 178 0 127 }
+		color = { 102 25 25 }
 		capital = 204 # Barcelona	Barcelona	Aragon	Hispania
 		culture = castillan 
 		title = "Regent"
@@ -374,12 +452,59 @@ e_sabbat = {
 					trait = ventrueantitribu
 				}
 			religion = sabbat
-			trait = elder
+			NOT = { trait = neonate }
+			NOT = { trait = ancilla }
 			trait = vampire
 			NOT = { trait = werewolf }
 			prestige = 1000
 			piety = 1000
 			realm_size = 15		
+			has_global_flag = bookmark1500			
+		}
+		gain_effect = {
+		}
+}
+
+k_lasombra = {
+		color = { 102 25 25 }
+		culture = castillan 
+		title = "Amici Noctis"
+		title_female = "Amici Noctis"					
+		short_name = yes
+		dignity = 100
+		allow = {
+			trait = lasombra
+			religion = sabbat
+			NOT = { trait = neonate }
+			NOT = { trait = ancilla }
+			trait = vampire
+			NOT = { trait = werewolf }
+			prestige = 1000
+			piety = 1000
+			realm_size = 5	
+			has_global_flag = bookmark1500			
+		}
+		gain_effect = {
+		}
+}
+
+k_tzimisce = {
+		color = { 102 25 25 }
+		culture = romanian
+		title = "Voivode of Voivodes"
+		title_female = "Voivode of Voivodes"					
+		short_name = yes
+		dignity = 100
+		allow = {
+			trait = tzimisce
+			religion = sabbat
+			NOT = { trait = neonate }
+			NOT = { trait = ancilla }
+			trait = vampire
+			NOT = { trait = werewolf }
+			prestige = 1000
+			piety = 1000
+			realm_size = 5		
 			has_global_flag = bookmark1500			
 		}
 		gain_effect = {

@@ -36,11 +36,7 @@ torpor = {
 	random = no 
 	customizer = no
 	incapacitating = yes # Will need a regent
-	diplomacy = -30
-	intrigue = -30
-	stewardship = -30
-	martial = -30
-	learning = -30
+
 }
 
 diabolist = {
@@ -650,6 +646,46 @@ followerofset = {
 		baali
 		gangrelantitribu
 		brujahantitribu
+		followerofsetantitribu
+		nosferatuantitribu
+		malkavianantitribu
+		ventrueantitribu
+		lasombraantitribu
+		ravnosantitribu
+		toreadorantitribu
+		tzimisceantitribu
+		assamiteantitribu
+		caitiff	
+		}
+	inherit_chance = 0 
+	intrigue = 1
+	# obfucate, majesty, serpentis
+	customizer = no
+	same_opinion = 10
+	opposite_opinion = -5
+	random = no
+}
+
+followerofsetantitribu = {
+	opposites =  {
+		assasmite
+		brujah
+		cappadocian
+		followerofset
+		gangrel
+		giovanni
+		lasombra
+		malkavian
+		nosferatu
+		ravnos
+		salubri
+		toreador
+		tremere
+		tzimisce
+		ventrue		
+		baali
+		gangrelantitribu
+		brujahantitribu
 		nosferatuantitribu
 		malkavianantitribu
 		ventrueantitribu
@@ -912,6 +948,46 @@ tremere = {
 		ravnos
 		salubri
 		toreador
+		tzimisce
+		ventrue	
+		baali
+		gangrelantitribu
+		brujahantitribu
+		nosferatuantitribu
+		malkavianantitribu
+		ventrueantitribu
+		lasombraantitribu
+		ravnosantitribu
+		toreadorantitribu
+		tremereantitribu
+		tzimisceantitribu
+		assamiteantitribu
+		caitiff			
+		}
+	inherit_chance = 0 
+	learning = 1
+	# auspex, dominate, thaumaturgy
+	customizer = no
+	same_opinion = 10
+	opposite_opinion = -5
+	random = no
+}
+
+tremereantitribu = {
+	opposites =  {
+		assasmite
+		brujah
+		cappadocian
+		gangrel
+		followerofset
+		giovanni
+		lasombra
+		malkavian
+		nosferatu
+		ravnos
+		salubri
+		toreador
+		tremere
 		tzimisce
 		ventrue	
 		baali
@@ -1415,6 +1491,9 @@ neonate = {
 		fledgling
 		ancilla
 		elder
+		ancient
+		methuselah
+		antediluvian		
 	}
 	# less than 50 years as a vampire
 	# 3 discipline dots
@@ -1433,6 +1512,9 @@ ancilla = {
 		fledgling
 		neonate
 		elder
+		ancient
+		methuselah
+		antediluvian
 	}	
 	# vampire for 50 to 150 years
 	# 7 discipline dots
@@ -1451,6 +1533,9 @@ elder = {
 		fledgling
 		ancilla
 		neonate
+		ancient
+		methuselah
+		antediluvian
 	}
 	# more than 150 years as a vampire
 	# 11 discipline dots
@@ -1464,6 +1549,90 @@ elder = {
 	monthly_character_piety = -0.5
 	same_opinion = -20
 	opposite_opinion = -5
+	ai_rationality = -10
+	# prestige gain
+	# piety loss
+	  random = no
+}
+
+ancient = {
+	opposites =  {
+		fledgling
+		ancilla
+		neonate
+		elder
+		methuselah
+		antediluvian
+	}
+	# more than 150 years as a vampire
+	# 11 discipline dots
+	inherit_chance = 0 
+	customizer = yes
+	immortal = yes
+	martial = 4
+	intrigue = 4
+	learning = 3
+	diplomacy = 1
+	monthly_character_prestige = 1
+	monthly_character_piety = -0.5
+	same_opinion = -20
+	opposite_opinion = -10
+	ai_rationality = -10
+	# prestige gain
+	# piety loss
+	  random = no
+}
+
+methuselah = {
+	opposites =  {
+		fledgling
+		ancilla
+		neonate
+		elder
+		methuselah
+		antediluvian
+	}
+	# more than 150 years as a vampire
+	# 11 discipline dots
+	inherit_chance = 0 
+	customizer = yes
+	immortal = yes
+	martial = 5
+	intrigue = 5
+	learning = 4
+	diplomacy = 2
+	monthly_character_prestige = 1
+	monthly_character_piety = -0.5
+	same_opinion = -20
+	opposite_opinion = -15
+	ai_rationality = -10
+	# prestige gain
+	# piety loss
+	  random = no
+}
+
+antediluvian = {
+	opposites =  {
+		fledgling
+		ancilla
+		neonate
+		elder
+		ancient
+		methuselah
+	}
+	# more than 150 years as a vampire
+	# 11 discipline dots
+	inherit_chance = 0 
+	customizer = yes
+	immortal = yes
+	martial = 6
+	intrigue = 6
+	learning = 4
+	diplomacy = 3
+	monthly_character_prestige = 1
+	monthly_character_piety = -0.5
+	same_opinion = -20
+	opposite_opinion = -20
 	ai_rationality = -10
 	# prestige gain
 	# piety loss
