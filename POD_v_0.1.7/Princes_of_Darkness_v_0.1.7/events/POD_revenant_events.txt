@@ -4,7 +4,7 @@ namespace = revenant_noble
 
 character_event = {
 	id = revenant_noble.1
-	#desc = "NWOD_REVENANT_CHILDREN_DESC"
+	#desc = "POD_REVENANT_CHILDREN_DESC"
 	picture = GFX_evt_comet
 	hide_window = yes
 	max_age = 5
@@ -13,7 +13,7 @@ character_event = {
 	trigger = {
 		trait = mortal
 		NOT = { trait = revenant }
-		NOT = { has_character_flag = flag_nwod_revenant_check_event_fired }
+		NOT = { has_character_flag = FLAG_POD_REVENANT_CHECK_EVENT_FIRED }
 		OR =  {
 				mother = { trait = revenant }
 				father = { trait = revenant } 
@@ -24,7 +24,11 @@ character_event = {
 	mean_time_to_happen = {
 		years = 5
 		
-		 modifier = {
+		modifier = {
+			factor = 1.5
+		}
+		
+		modifier = {
 			factor = 0.8
 			father = { trait = ghoul }
 		}
@@ -47,10 +51,10 @@ character_event = {
 
 	immediate = {
 		random_list = { 
-						50 = {  set_character_flag = flag_nwod_revenant_check_event_fired 
-								set_character_flag = flag_nwod_never_revenant
+						50 = {  set_character_flag = FLAG_POD_REVENANT_CHECK_EVENT_FIRED 
+								set_character_flag = FLAG_POD_NEVER_REVENANT
 							}
-						50 = { 	set_character_flag = flag_nwod_werewolf_check_event_fired 
+						50 = { 	set_character_flag = FLAG_POD_REVENANT_CHECK_EVENT_FIRED  
 								remove_trait = mortal
 								add_trait = revenant	
 							}
@@ -59,3 +63,36 @@ character_event = {
 		}
 
 	}	
+
+character_event = {
+	id = revenant_noble.2
+	#desc = "POD_REVENANT_DEATH_DESC"
+	picture = GFX_evt_comet
+	hide_window = yes
+	min_age = 220
+	
+	trigger = {
+		OR = {
+			trait = revenant 
+			trait = ghoul 
+			}	
+ 		}
+			
+	mean_time_to_happen = {
+		years = 30	
+	
+	modifier = {
+			factor = 1.5
+			trait = ghoul 
+			}	
+	
+	modifier = {
+			factor = 0.5
+			trait = wolf-blooded
+			}
+		}
+	
+	immediate = {
+			death = "yes"
+		}
+	}

@@ -1,0 +1,83 @@
+christian = {
+	catholic_heresy = {
+		color = { 0.8 0.8 0 }
+		allowed_conversion = {
+			reformed
+			protestant
+		}
+		country = {
+			tolerance_own = 1
+			tolerance_heretic = -1
+		}
+		
+		on_convert = {
+			change_religion = catholic_heresy
+			add_stability = -3
+		}
+	}
+	
+	orthodox_heresy = {
+		color = { 0.7 0.5 0 }
+		country = {
+			stability_cost_modifier = -0.1
+			tolerance_own = 1
+		}
+		province = {
+			local_missionary_strength = -0.01
+		}
+		
+		has_patriarchs = yes		# Uses patriarch authority
+		misguided_heretic = yes		#other christians hate them less
+	}
+}
+
+muslim = {
+	sunni_heresy = {
+		color = { 0 0.6 0 }
+		province = {
+			local_missionary_strength = -0.02
+		}
+		country = {
+			tolerance_own = 1
+			heir_chance = 1.0
+		}
+		
+		uses_piety = yes				# Uses piety mechanics
+	}
+
+	shiite_heresy = {
+		color = { 0 0.8 0 }
+		province = {
+			local_missionary_strength = -0.02
+		}
+		country = {
+			heir_chance = 1.0
+			land_morale = 0.10
+		}
+		
+		uses_piety = yes				# Uses piety mechanics
+	}
+}
+
+zoroastrian_group = {
+	zoroastrian_heresy = {
+		color = { 0.5 0.7 0.2 }
+		province = {
+			local_missionary_strength = 0.10
+		}
+		country = {
+			tolerance_own = 1
+			heir_chance = 0.5
+		}
+	}
+}
+
+jewish_group = {
+	jewish_heresy = {
+		color = { 0.6 0.1 0.1 }
+		country = {
+			tolerance_own = 1
+			tolerance_heathens = -1
+		}
+	}
+}

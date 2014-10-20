@@ -134,7 +134,9 @@ character_event = {
 										NOT = { trait = vampire }
 										NOT = { trait = gangrel }
 										NOT = { culture_group = north_germanic }
-										NOT = { realm_size = 25 }										
+										NOT = { realm_size = 5 }		
+										NOT = { religion = einherjhar }
+										NOT = { religion = circle_of_the_crone }
 								}
 					}
 					e_midgard = { destroy_landed_title = THIS }
@@ -144,14 +146,15 @@ character_event = {
 					limit = {
 								primary_title = { title =  e_voivodate }
 								OR = {
-										NOT = { trait = vampire }
-										NOT = { religion = circle_of_the_crone }										
+								NOT = { realm_size = 5 }
+								NOT = { trait = vampire }
+								AND = { NOT = { religion = circle_of_the_crone }
+										NOT = { trait = ventrue }
 								}
-								#AND = {
-										NOT = { culture_group = west_slavic }
-										NOT = { culture_group = east_slavic }
-										NOT = { culture_group = south_slavic }
-								#}# comented out due to redundancy: statements inside if = {}count as in inside if = { and = {}}
+								AND = { NOT = { religion = koldun }
+										NOT = { trait = tzimisce
+										}
+								}
 					}
 					e_voivodate = { destroy_landed_title = THIS }
 				}	
@@ -317,7 +320,7 @@ character_event = {
 								OR = {
 										NOT = { trait = vampire }
 										NOT = { religion = vampire_high_clans }
-										NOT = { realm_size = 50 }
+										NOT = { realm_size = 25 }
 										NOT = { trait = ventrue }
 										NOT = { culture = german }
 								}
@@ -499,8 +502,6 @@ character_event = {
 										NOT = { trait = vampire }
 										NOT = { religion = inconnu }
 										NOT = { realm_size = 10 }
-										trait = "ancilla"
-										trait = "neonate"
 								}
 					}
 					e_inconnu = { destroy_landed_title = THIS }					
@@ -514,8 +515,6 @@ character_event = {
 										NOT = { religion = oradealeague }
 										NOT = { realm_size = 10 }
 										NOT = { trait = "tzimisceantitribu" }
-										trait = "neonate"
-										trait = "ancilla"
 								}
 					}
 					e_oradealeague = { destroy_landed_title = THIS }					
@@ -526,7 +525,7 @@ character_event = {
 								primary_title = { title =  k_lasombra }
 								OR = {
 										NOT = { trait = vampire }
-										NOT = { religion = lasombra }
+										NOT = { religion = sabbat }
 										NOT = { realm_size = 10 }
 										NOT = { trait = lasombra }
 								}
@@ -539,7 +538,7 @@ character_event = {
 								primary_title = { title =  k_tzimisce }
 								OR = {
 										NOT = { trait = vampire }
-										NOT = { religion = tzimisce }
+										NOT = { religion = sabbat }
 										NOT = { realm_size = 10 }
 										NOT = { trait = tzimisce }
 								}

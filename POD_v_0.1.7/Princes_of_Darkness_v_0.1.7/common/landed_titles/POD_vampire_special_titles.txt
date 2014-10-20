@@ -81,7 +81,10 @@ e_midgard = {
 			trait = gangrel
 			trait = vampire
 			NOT = { trait = werewolf }
+			OR = {
 			religion = circle_of_the_crone
+			religion = einherjhar
+			}
 			prestige = 1000
 			piety = 1000	
 			realm_size = 50				
@@ -110,10 +113,16 @@ e_voivodate	= {
 					culture = russian
 					culture = polish
 			}
-#			trait = ventrue
 			trait = vampire
 			NOT = { trait = werewolf }
-			religion = circle_of_the_crone
+			OR = {
+					AND = { religion = koldun
+							trait = tzimisce
+							has_global_flag = bookmark1230 }
+					AND = {
+							religion = circle_of_the_crone
+							trait = ventrue }
+				}
 			prestige = 1000
 			piety = 1000	
 			realm_size = 50				
@@ -131,7 +140,13 @@ e_sea_of_shadows = {
 		capital = 343 # Syrakousa, Sicily
 		culture = italian
 		allow = {
-			trait = ventrue
+			OR = { trait = lasombra
+				   AND = { trait = ventrue
+						   OR =  { has_global_flag = bookmark1142
+								   has_global_flag = bookmark1250
+						   }
+						}
+				   }
 			trait = vampire
 			NOT = { trait = werewolf }
 			prestige = 1000
@@ -155,8 +170,9 @@ e_avalon = {
 					trait = daeva
 					trait = venture
 					trait = mekhet
+					trait = toreador
+					trait = lasombra
 				}		
-			trait = ventrue
 			trait = vampire
 			NOT = { trait = werewolf }
 			prestige = 1000
@@ -179,6 +195,8 @@ e_love = {
 					trait = daeva
 					trait = venture
 					trait = mekhet
+					trait = toreador
+					trait = lasombra
 				}
 			trait = vampire
 			NOT = { trait = werewolf }

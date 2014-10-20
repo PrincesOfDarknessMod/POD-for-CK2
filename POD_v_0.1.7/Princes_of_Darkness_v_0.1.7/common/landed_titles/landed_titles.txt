@@ -328,6 +328,8 @@ d_shiite = {
 e_golden_horde = {
 	color = { 243 180 17 }
 	
+	short_name = yes
+	
 	capital = 619 # Saray
 	
 	# Always exists
@@ -337,7 +339,7 @@ e_golden_horde = {
 		always = no
 	}
 	
-	tribe = yes
+#	tribe = yes
 	
 	culture = mongol
 	religion = tengri_pagan
@@ -345,6 +347,8 @@ e_golden_horde = {
 
 e_il-khanate = {
 	color = { 140 180 20 }
+	
+	short_name = yes
 	
 	capital = 646 # Esfahan
 	
@@ -355,22 +359,24 @@ e_il-khanate = {
 		always = no
 	}
 	
-	tribe = yes
+#	tribe = yes
 	
 	culture = mongol
 	religion = tengri_pagan
 }
 
 e_mongol_empire = {
-	color = { 255 255 255 }
+	color = { 130 180 240 }
 	color2 = { 255 20 20 }
+	
+	short_name = yes
 	
 	capital = 903 # Samarkand
 	
 	# Always exists
 	landless = yes
 	
-	tribe = yes
+#	tribe = yes
 	
 	allow = {
 		always = no
@@ -383,6 +389,8 @@ e_mongol_empire = {
 e_timurids = {
 	color = { 120 20 20 }
 	
+	short_name = yes
+	
 	capital = 646 # Esfahan
 	
 	allow = {
@@ -392,7 +400,7 @@ e_timurids = {
 	# Always exists
 #	landless = yes
 	
-	tribe = yes
+#	tribe = yes
 	
 	culture = mongol
 	religion = sunni
@@ -545,6 +553,40 @@ d_bektashi = {
 	
 	# Parent Religion 
 	religion = sunni
+	
+	# Cannot be held as a secondary title
+	primary = yes
+		
+	# Cannot be vassalized
+	independent = yes
+	
+	# Extra income due to donations, etc
+	monthly_income = 6 # (Must be an integer between 1 and 512)
+
+	mercenary_type = bektashi_composition
+}
+
+d_haruriyyah = {
+
+	color={ 150 200 80 }
+	color2={ 255 255 255 }
+	
+	graphical_culture = bektashigfx
+	
+	capital = 693 # Bagdad
+	
+	title = "DEDEBABA"
+	foa = "GRANDHEADMASTER_FOA"
+	
+	holy_order = yes
+
+	# Always exists
+	landless = yes
+	
+	culture = bedouin_arabic
+	
+	# Parent Religion 
+	religion = ibadi
 	
 	# Cannot be held as a secondary title
 	primary = yes
@@ -1061,19 +1103,1818 @@ d_bulls_rishabha = {
 	mercenary_type = bulls_rishabha_composition
 }
 
+d_zun_warriors = {
 
+	color = { 230 255 0 }
+	
+	capital = 1185 # Kabul
+
+	title = "GRANDMASTER"
+	foa = "GRANDMASTER_FOA"
+	
+	# Always exists
+	landless = yes
+	
+	holy_order = yes
+	
+	culture = afghan
+	
+	# Parent Religion 
+	religion = zun_pagan_reformed
+	
+	# Cannot be held as a secondary title
+	primary = yes
+	
+	# Extra income due to donations, etc
+	monthly_income = 2 # (Must be an integer between 1 and 512)
+
+	mercenary_type = zun_warriors_composition
+}
+
+# MERCS
+
+#d_sunni_turkic_company = {
+#	color = { 130 173 70 }
+#	color2 = { 255 255 255 }
+#
+#	capital = 621 # Kangly
+#	
+#	# Parent Religion 
+#	religion = sunni
+#	culture = turkish
+#	
+#	mercenary = yes
+#
+#	title = "CAPTAIN"
+#	foa = "CAPTAIN_FOA"
+#
+#	# Always exists
+#	landless = yes
+#	
+#	# Cannot be held as a secondary title
+#	primary = yes
+#	
+#	# Cannot be vassalized
+#	independent = yes
+#	
+#	strength_growth_per_century = 1.00
+#	
+#	mercenary_type = muslim_turkic_company_composition
+#}
+#
+#d_sunni_cuman_company = {
+#	color = { 134 155 30 }
+#	color2 = { 255 255 255 }
+#
+#	capital = 616 # Yaik
+#	
+#	# Hire Trigger
+#	allow = {
+#		OR = {
+#			religion_group = muslim
+#			religion_group = zoroastrian_group
+#		}
+#	}
+#	
+#	# Parent Religion 
+#	religion = sunni
+#	culture = cuman
+#	
+#	mercenary = yes
+#
+#	title = "CAPTAIN"
+#	foa = "CAPTAIN_FOA"
+#
+#	# Always exists
+#	landless = yes
+#	
+#	# Cannot be held as a secondary title
+#	primary = yes
+#	
+#	# Cannot be vassalized
+#	independent = yes
+#	
+#	strength_growth_per_century = 1.00
+#	
+#	mercenary_type = muslim_cuman_company_composition
+#}
+#
+#d_sunni_berber_company = {
+#	color = { 85 155 33 }
+#	color2 = { 255 255 255 }
+#
+#	capital = 833 # Atlas
+#	
+#	# Hire Trigger
+#	allow = {
+#		OR = {
+#			religion_group = muslim
+#			religion_group = zoroastrian_group
+#		}
+#	}
+#	
+#	# Parent Religion 
+#	religion = sunni
+#	culture = maghreb_arabic
+#	
+#	mercenary = yes
+#
+#	title = "CAPTAIN"
+#	foa = "CAPTAIN_FOA"
+#
+#	# Always exists
+#	landless = yes
+#	
+#	# Cannot be held as a secondary title
+#	primary = yes
+#	
+#	# Cannot be vassalized
+#	independent = yes
+#	
+#	strength_growth_per_century = 1.00
+#	
+#	mercenary_type = berber_company_composition
+#}
+#
+#d_sunni_bedouin_company = {
+#	color = { 45 155 35 }
+#	color2 = { 255 255 255 }
+#
+#	capital = 862 # Halaban
+#	
+#	# Hire Trigger
+#	allow = {
+#		OR = {
+#			religion_group = muslim
+#			religion_group = zoroastrian_group
+#		}
+#	}
+#	
+#	# Parent Religion 
+#	religion = sunni
+#	culture = bedouin_arabic
+#	
+#	mercenary = yes
+#
+#	title = "CAPTAIN"
+#	foa = "CAPTAIN_FOA"
+#
+#	# Always exists
+#	landless = yes
+#	
+#	# Cannot be held as a secondary title
+#	primary = yes
+#	
+#	# Cannot be vassalized
+#	independent = yes
+#	
+#	strength_growth_per_century = 1.00
+#	
+#	mercenary_type = bedouin_company_composition
+#}
+#
+#
+#d_shiite_turkic_company = {
+#	color = { 135 170 60 }
+#	color2 = { 255 255 255 }
+#
+#	capital = 621 # Kangly
+#	
+#	# Parent Religion 
+#	religion = shiite
+#	culture = turkish
+#	
+#	mercenary = yes
+#
+#	title = "CAPTAIN"
+#	foa = "CAPTAIN_FOA"
+#
+#	# Always exists
+#	landless = yes
+#	
+#	# Cannot be held as a secondary title
+#	primary = yes
+#	
+#	# Cannot be vassalized
+#	independent = yes
+#	
+#	strength_growth_per_century = 1.00
+#	
+#	mercenary_type = muslim_turkic_company_composition
+#}
+#
+#d_shiite_cuman_company = {
+#	color = { 130 150 30 }
+#	color2 = { 255 255 255 }
+#
+#	capital = 616 # Yaik
+#	
+#	# Hire Trigger
+#	allow = {
+#		OR = {
+#			religion_group = muslim
+#			religion_group = zoroastrian_group
+#		}
+#	}
+#	
+#	# Parent Religion 
+#	religion = shiite
+#	culture = cuman
+#	
+#	mercenary = yes
+#
+#	title = "CAPTAIN"
+#	foa = "CAPTAIN_FOA"
+#
+#	# Always exists
+#	landless = yes
+#	
+#	# Cannot be held as a secondary title
+#	primary = yes
+#	
+#	# Cannot be vassalized
+#	independent = yes
+#	
+#	strength_growth_per_century = 1.00
+#	
+#	mercenary_type = muslim_cuman_company_composition
+#}
+#
+#d_shiite_berber_company = {
+#	color = { 90 150 30 }
+#	color2 = { 255 255 255 }
+#
+#	capital = 833 # Atlas
+#	
+#	# Hire Trigger
+#	allow = {
+#		OR = {
+#			religion_group = muslim
+#			religion_group = zoroastrian_group
+#		}
+#	}
+#	
+#	# Parent Religion 
+#	religion = shiite
+#	culture = maghreb_arabic
+#	
+#	mercenary = yes
+#
+#	title = "CAPTAIN"
+#	foa = "CAPTAIN_FOA"
+#
+#	# Always exists
+#	landless = yes
+#	
+#	# Cannot be held as a secondary title
+#	primary = yes
+#	
+#	# Cannot be vassalized
+#	independent = yes
+#	
+#	strength_growth_per_century = 1.00
+#	
+#	mercenary_type = berber_company_composition
+#}
+#
+#d_shiite_bedouin_company = {
+#	color = { 40 150 30 }
+#	color2 = { 255 255 255 }
+#
+#	capital = 862 # Halaban
+#	
+#	# Hire Trigger
+#	allow = {
+#		OR = {
+#			religion_group = muslim
+#			religion_group = zoroastrian_group
+#		}
+#	}
+#	
+#	# Parent Religion 
+#	religion = shiite
+#	culture = bedouin_arabic
+#	
+#	mercenary = yes
+#
+#	title = "CAPTAIN"
+#	foa = "CAPTAIN_FOA"
+#
+#	# Always exists
+#	landless = yes
+#	
+#	# Cannot be held as a secondary title
+#	primary = yes
+#	
+#	# Cannot be vassalized
+#	independent = yes
+#	
+#	strength_growth_per_century = 1.00
+#	
+#	mercenary_type = bedouin_company_composition
+#}
+#
+#d_white_company = {
+#	color={ 235 235 235 }
+#	color2={ 255 255 255 }
+#
+#	capital = 72 # Essex
+#	
+#	# Hire Trigger
+#	allow = {
+#		religion_group = christian
+#	}
+#	
+#	# Parent Religion 
+#	religion = catholic
+#	
+#	mercenary = yes
+#
+#	title = "CAPTAIN"
+#	foa = "CAPTAIN_FOA"
+#
+#	# Always exists
+#	landless = yes
+#	
+#	# Cannot be held as a secondary title
+#	primary = yes
+#		
+#	# Cannot be vassalized
+#	independent = yes
+#	
+#	strength_growth_per_century = 1.0
+#
+#	mercenary_type = white_company_composition
+#	
+#}
+#
+#d_great_company = {
+#	color={ 100 100 100 }
+#	color2={ 255 255 255 }
+#
+#	capital = 361 # Niederbayern
+#	
+#	# Hire Trigger
+#	allow = {
+#		religion_group = christian
+#	}
+#	
+#	# Parent Religion 
+#	religion = catholic
+#	
+#	mercenary = yes
+#
+#	title = "CAPTAIN"
+#	foa = "CAPTAIN_FOA"
+#
+#	# Always exists
+#	landless = yes
+#	
+#	# Cannot be held as a secondary title
+#	primary = yes
+#	
+#	# Cannot be vassalized
+#	independent = yes
+#	
+#	strength_growth_per_century = 1.0
+#
+#	mercenary_type = great_company_composition
+#}
+#
+#d_company_of_st_george = {
+#	color={ 50 50 200 }
+#	color2={ 255 255 255 }
+#
+#	capital = 235 # Lombardia
+#	
+#	# Hire Trigger
+#	allow = {
+#		religion_group = christian
+#	}
+#	
+#	# Parent Religion 
+#	religion = catholic
+#	
+#	mercenary = yes
+#
+#	title = "CONDOTTIERO"
+#	foa = "CONDOTTIERO_FOA"
+#
+#	# Always exists
+#	landless = yes
+#	
+#	# Cannot be held as a secondary title
+#	primary = yes
+#	
+#	# Cannot be vassalized
+#	independent = yes
+#	
+#	strength_growth_per_century = 1.0
+#
+#	mercenary_type = company_of_st_george_composition
+#}
+#
+#d_star_company = {
+#	color={ 200 80 200 }
+#	color2={ 255 255 255 }
+#
+#	capital = 353 # Ferrara
+#	
+#	# Hire Trigger
+#	allow = {
+#		religion_group = christian
+#	}
+#	
+#	# Parent Religion 
+#	religion = catholic
+#	
+#	mercenary = yes
+#
+#	title = "CONDOTTIERO"
+#	foa = "CONDOTTIERO_FOA"
+#
+#	# Always exists
+#	landless = yes
+#	
+#	# Cannot be held as a secondary title
+#	primary = yes
+#		
+#	# Cannot be vassalized
+#	independent = yes
+#	
+#	strength_growth_per_century = 1.0
+#
+#	mercenary_type = star_company_composition
+#}
+#
+#d_little_hat_company = {
+#	color={ 100 200 80 }
+#	color2={ 255 255 255 }
+#
+#	capital = 354 # mantua
+#	
+#	# Hire Trigger
+#	allow = {
+#		religion_group = christian
+#	}
+#	
+#	# Parent Religion 
+#	religion = catholic
+#	
+#	mercenary = yes
+#
+#	title = "CONDOTTIERO"
+#	foa = "CONDOTTIERO_FOA"
+#
+#	# Always exists
+#	landless = yes
+#	
+#	# Cannot be held as a secondary title
+#	primary = yes
+#		
+#	# Cannot be vassalized
+#	independent = yes
+#	
+#	strength_growth_per_century = 1.0
+#
+#	mercenary_type = little_hat_company_composition
+#}
+#
+#d_rose_company = {
+#	color={ 230 150 150 }
+#	color2={ 255 255 255 }
+#
+#	capital = 355 # Padua
+#	
+#	# Hire Trigger
+#	allow = {
+#		religion_group = christian
+#	}
+#	
+#	# Parent Religion 
+#	religion = catholic
+#	
+#	mercenary = yes
+#
+#	title = "CONDOTTIERO"
+#	foa = "CONDOTTIERO_FOA"
+#
+#	# Always exists
+#	landless = yes
+#	
+#	# Cannot be held as a secondary title
+#	primary = yes
+#	
+#	# Cannot be vassalized
+#	independent = yes
+#	
+#	strength_growth_per_century = 1.0
+#
+#	mercenary_type = rose_company_composition
+#}
+#
+#d_catalan_company = {
+#	color={ 230 100 100 }
+#	color2={ 255 255 255 }
+#
+#	capital = 204 # Barcelona
+#	
+#	mercenary = yes
+#	
+#	# Hire Trigger
+#	allow = {
+#		religion_group = christian
+#	}
+#	
+#	# Parent Religion 
+#	religion = catholic
+#	culture = catalan
+#
+#	title = "CONDOTTIERO"
+#	foa = "CONDOTTIERO_FOA"
+#
+#	# Always exists
+#	landless = yes
+#	
+#	# Cannot be held as a secondary title
+#	primary = yes
+#	
+#	# Cannot be vassalized
+#	independent = yes
+#	
+#	strength_growth_per_century = 1.0
+#
+#	mercenary_type = catalan_company_composition
+#}
+#
+#d_navarrese_company = {
+#	color={ 150 150 100 }
+#	color2={ 255 255 255 }
+#	
+#	title = "CONDOTTIERO"
+#	foa = "CONDOTTIERO_FOA"
+#
+#	capital = 152 # Navarre
+#	
+#	mercenary = yes
+#	
+#	# Hire Trigger
+#	allow = {
+#		religion_group = christian
+#	}
+#	
+#	# Parent Religion 
+#	religion = catholic
+#	culture = basque
+#
+#	# Always exists
+#	landless = yes
+#	
+#	# Cannot be held as a secondary title
+#	primary = yes
+#		
+#	# Cannot be vassalized
+#	independent = yes
+#	
+#	strength_growth_per_century = 1.0
+#
+#	mercenary_type = navarrese_company_composition
+#}
+#
+#d_swiss_company = {
+#	color={ 150 40 40 }
+#	color2={ 255 255 255 }
+#
+#	capital = 239 # Geneve
+#	
+#	# Hire Trigger
+#	allow = {
+#		religion_group = christian
+#	}
+#	
+#	# Parent Religion 
+#	religion = catholic
+#	
+#	mercenary = yes
+#
+#	title = "CAPTAIN"
+#	foa = "CAPTAIN_FOA"
+#
+#	# Always exists
+#	landless = yes
+#	
+#	# Cannot be held as a secondary title
+#	primary = yes
+#		
+#	# Cannot be vassalized
+#	independent = yes
+#	
+#	strength_growth_per_century = 1.0
+#
+#	mercenary_type = swiss_company_composition
+#}
+#
+#d_breton_company = {
+#	color={ 150 40 40 }
+#	color2={ 255 255 255 }
+#
+#	capital = 102 # Penthievre
+#	
+#	# Hire Trigger
+#	allow = {
+#		religion_group = christian
+#	}
+#	
+#	# Parent Religion 
+#	religion = catholic
+#	culture = breton
+#	
+#	mercenary = yes
+#
+#	title = "CAPTAIN"
+#	foa = "CAPTAIN_FOA"
+#
+#	# Always exists
+#	landless = yes
+#	
+#	# Cannot be held as a secondary title
+#	primary = yes
+#	
+#	# Cannot be vassalized
+#	independent = yes
+#	
+#	strength_growth_per_century = 1.0
+#
+#	mercenary_type = breton_company_composition
+#}
+#
+#d_victual_brothers = {
+#	color={ 160 160 160 }
+#	color2={ 255 255 255 }
+#	
+#	capital = 370 # Marienburg
+#	
+#	# Hire Trigger
+#	allow = {
+#		OR = {
+#			religion = norse_pagan
+#			religion = norse_pagan_reformed
+#			religion = baltic_pagan
+#			religion = baltic_pagan_reformed
+#			religion = finnish_pagan
+#			religion = finnish_pagan_reformed
+#			religion_group = christian
+#		}
+#	}
+#	
+#	# Parent Religion 
+#	religion = catholic
+#	
+#	mercenary = yes
+#	mercenary_type = victual_brothers_composition
+#
+#	title = "CAPTAIN"
+#	foa = "CAPTAIN_FOA"
+#
+#	# Always exists
+#	landless = yes
+#	
+#	# Cannot be held as a secondary title
+#	primary = yes
+#	
+#	# Cannot be vassalized
+#	independent = yes
+#	
+#	strength_growth_per_century = 0.25
+#}
+#
+#d_varangian_guard = {
+#	color={ 180 180 180 }
+#	color2={ 255 255 255 }
+#	
+#	graphical_culture = orthodoxholygfx
+#
+#	capital = 290 # Uppland
+#	
+#	# Parent Religion 
+#	religion = orthodox
+#	
+#	culture = norse
+#	
+#	mercenary = yes
+#
+#	title = "CAPTAIN"
+#	foa = "CAPTAIN_FOA"
+#
+#	# Always exists
+#	landless = yes
+#	
+#	# Cannot be held as a secondary title
+#	primary = yes
+#	
+#	strength_growth_per_century = 0.10
+#	
+#	mercenary_type = varangian_guard_composition
+#}
+#
+#d_cuman_company = {
+#	color = { 160 160 80 }
+#	color2 = { 255 255 255 }
+#
+#	capital = 616 # Yaik
+#	
+#	# Parent Religion 
+#	religion = orthodox
+#	culture = cuman
+#	
+#	mercenary = yes
+#
+#	title = "CAPTAIN"
+#	foa = "CAPTAIN_FOA"
+#
+#	# Always exists
+#	landless = yes
+#	
+#	# Cannot be held as a secondary title
+#	primary = yes
+#	
+#	# Cannot be vassalized
+#	independent = yes
+#	
+#	strength_growth_per_century = 1.0
+#	
+#	mercenary_type = cuman_company_composition
+#}
+#
+#d_rus_company = {
+#	color = { 80 80 160 }
+#	color2 = { 255 255 255 }
+#
+#	capital = 547 # Kiev
+#	
+#	# Hire Trigger
+#	allow = {
+#		OR = {
+#			religion_group = pagan_group
+#			religion_group = christian
+#		}
+#	}
+#	
+#	# Parent Religion 
+#	religion = orthodox
+#	
+#	culture = russian
+#	
+#	mercenary = yes
+#
+#	title = "CAPTAIN"
+#	foa = "CAPTAIN_FOA"
+#
+#	# Always exists
+#	landless = yes
+#	
+#	# Cannot be held as a secondary title
+#	primary = yes
+#	
+#	# Cannot be vassalized
+#	independent = yes
+#	
+#	strength_growth_per_century = 1.0
+#	
+#	mercenary_type = rus_company_composition
+#}
+#
+#d_pecheneg_company = {
+#	color = { 100 100 30 }
+#	color2 = { 255 255 255 }
+#
+#	capital = 542 # Olvia
+#	
+#	# Parent Religion 
+#	religion = orthodox
+#	
+#	culture = pecheneg
+#	
+#	mercenary = yes
+#
+#	title = "CAPTAIN"
+#	foa = "CAPTAIN_FOA"
+#
+#	# Always exists
+#	landless = yes
+#	
+#	# Cannot be held as a secondary title
+#	primary = yes
+#	
+#	# Cannot be vassalized
+#	independent = yes
+#	
+#	strength_growth_per_century = 1.0
+#	
+#	mercenary_type = pecheneg_company_composition
+#}
+#
+#d_bulgarian_company = {
+#	color = { 100 50 30 }
+#	color2 = { 255 255 255 }
+#
+#	capital = 508 # Dorostotum
+#	
+#	# Parent Religion 
+#	religion = orthodox
+#	
+#	culture = bulgarian
+#	
+#	mercenary = yes
+#
+#	title = "CAPTAIN"
+#	foa = "CAPTAIN_FOA"
+#
+#	# Always exists
+#	landless = yes
+#	
+#	# Cannot be held as a secondary title
+#	primary = yes
+#	
+#	# Cannot be vassalized
+#	independent = yes
+#	
+#	strength_growth_per_century = 1.0
+#	
+#	mercenary_type = bulgarian_company_composition
+#}
+#
+#d_turkic_company = {
+#	color = { 100 50 30 }
+#	color2 = { 255 255 255 }
+#
+#	capital = 621 # Kangly
+#	
+#	# Parent Religion 
+#	religion = orthodox
+#	
+#	culture = turkish
+#	
+#	mercenary = yes
+#
+#	title = "CAPTAIN"
+#	foa = "CAPTAIN_FOA"
+#
+#	# Always exists
+#	landless = yes
+#	
+#	# Cannot be held as a secondary title
+#	primary = yes
+#	
+#	# Cannot be vassalized
+#	independent = yes
+#	
+#	strength_growth_per_century = 1.0
+#	
+#	mercenary_type = turkic_company_composition
+#}
+#
+#d_lombard_band = {
+#	color={ 150 60 60 }
+#	color2={ 255 255 255 }
+#
+#	capital = 235 # Lombardia
+#	
+#	# Hire Trigger
+#	allow = {
+#		religion_group = christian
+#	}
+#	
+#	# Parent Religion 
+#	religion = catholic
+#	
+#	mercenary = yes
+#
+#	title = "CONDOTTIERO"
+#	foa = "CONDOTTIERO_FOA"
+#
+#	# Always exists
+#	landless = yes
+#	
+#	# Cannot be held as a secondary title
+#	primary = yes
+#		
+#	# Cannot be vassalized
+#	independent = yes
+#	
+#	strength_growth_per_century = 1.0
+#
+#	mercenary_type = lombard_band_composition
+#}
+#
+#d_swiss_band = {
+#	color={ 150 40 40 }
+#	color2={ 255 255 255 }
+#
+#	capital = 239 # Geneve
+#	
+#	# Hire Trigger
+#	allow = {
+#		religion_group = christian
+#	}
+#	
+#	# Parent Religion 
+#	religion = catholic
+#	
+#	mercenary = yes
+#
+#	title = "CAPTAIN"
+#	foa = "CAPTAIN_FOA"
+#
+#	# Always exists
+#	landless = yes
+#	
+#	# Cannot be held as a secondary title
+#	primary = yes
+#		
+#	# Cannot be vassalized
+#	independent = yes
+#	
+#	strength_growth_per_century = 1.0
+#
+#	mercenary_type = swiss_band_composition
+#}
+#
+#d_breton_band = {
+#	color={ 150 65 65 }
+#	color2={ 255 255 255 }
+#
+#	capital = 102 # Penthievre
+#	
+#	# Hire Trigger
+#	allow = {
+#		religion_group = christian
+#	}
+#	
+#	# Parent Religion 
+#	religion = catholic
+#	
+#	culture = breton
+#	
+#	mercenary = yes
+#
+#	title = "CAPTAIN"
+#	foa = "CAPTAIN_FOA"
+#
+#	# Always exists
+#	landless = yes
+#	
+#	# Cannot be held as a secondary title
+#	primary = yes
+#		
+#	# Cannot be vassalized
+#	independent = yes
+#	
+#	strength_growth_per_century = 1.0
+#
+#	mercenary_type = breton_band_composition
+#}
+#
+#d_catalan_band = {
+#	color={ 230 100 100 }
+#	color2={ 255 255 255 }
+#
+#	capital = 204 # Barcelona
+#	
+#	mercenary = yes
+#	
+#	# Hire Trigger
+#	allow = {
+#		religion_group = christian
+#	}
+#	
+#	# Parent Religion 
+#	religion = catholic
+#	
+#	culture = catalan
+#
+#	title = "CONDOTTIERO"
+#	foa = "CONDOTTIERO_FOA"
+#
+#	# Always exists
+#	landless = yes
+#	
+#	# Cannot be held as a secondary title
+#	primary = yes
+#	
+#	# Cannot be vassalized
+#	independent = yes
+#	
+#	strength_growth_per_century = 1.0
+#
+#	mercenary_type = catalan_band_composition
+#}
+#
+#d_saxon_band = {
+#	color={ 220 90 90 }
+#	color2={ 255 255 255 }
+#
+#	capital = 57 # York
+#	
+#	mercenary = yes
+#	
+#	# Hire Trigger
+#	allow = {
+#		religion_group = christian
+#	}
+#	
+#	# Parent Religion 
+#	religion = catholic
+#	
+#	culture = saxon
+#
+#	title = "CAPTAIN"
+#	foa = "CAPTAIN_FOA"
+#
+#	# Always exists
+#	landless = yes
+#	
+#	# Cannot be held as a secondary title
+#	primary = yes
+#	
+#	# Cannot be vassalized
+#	independent = yes
+#	
+#	strength_growth_per_century = 1.0
+#
+#	mercenary_type = saxon_band_composition
+#}
+#
+#d_cuman_band = {
+#	color = { 160 160 80 }
+#	color2 = { 255 255 255 }
+#
+#	capital = 616 # Yaik
+#	
+#	# Parent Religion 
+#	religion = orthodox
+#	
+#	culture = cuman
+#	
+#	mercenary = yes
+#
+#	title = "CAPTAIN"
+#	foa = "CAPTAIN_FOA"
+#
+#	# Always exists
+#	landless = yes
+#	
+#	# Cannot be held as a secondary title
+#	primary = yes
+#	
+#	# Cannot be vassalized
+#	independent = yes
+#	
+#	strength_growth_per_century = 1.0
+#	
+#	mercenary_type = cuman_band_composition
+#}
+#
+#d_rus_band = {
+#	color = { 80 80 160 }
+#	color2 = { 255 255 255 }
+#
+#	capital = 547 # Kiev
+#	
+#	# Hire Trigger
+#	allow = {
+#		OR = {
+#			religion_group = christian
+#			religion_group = pagan_group
+#		}
+#	}
+#	
+#	# Parent Religion 
+#	religion = orthodox
+#	
+#	culture = russian
+#	
+#	mercenary = yes
+#
+#	title = "CAPTAIN"
+#	foa = "CAPTAIN_FOA"
+#
+#	# Always exists
+#	landless = yes
+#	
+#	# Cannot be held as a secondary title
+#	primary = yes
+#	
+#	# Cannot be vassalized
+#	independent = yes
+#	
+#	strength_growth_per_century = 1.0
+#	
+#	mercenary_type = rus_band_composition
+#}
+#
+#d_finnish_band = {
+#	color = { 131 35 35 }
+#	color2 = { 255 255 255 }
+#
+#	capital = 383 # Häme
+#	
+#	# Hire Trigger
+#	allow = {
+#		OR = {
+#			religion_group = christian
+#			religion_group = pagan_group
+#		}
+#	}
+#	
+#	# Parent Religion 
+#	religion = finnish_pagan
+#	
+#	culture = finnish
+#	
+#	mercenary = yes
+#
+#	title = "CAPTAIN"
+#	foa = "CAPTAIN_FOA"
+#
+#	# Always exists
+#	landless = yes
+#	
+#	# Cannot be held as a secondary title
+#	primary = yes
+#	
+#	# Cannot be vassalized
+#	independent = yes
+#	
+#	strength_growth_per_century = 1.0
+#	
+#	mercenary_type = finnish_band_composition
+#}
+#
+#d_lappish_band = {
+#	color = { 101 69 30 }
+#	color2 = { 255 255 255 }
+#
+#	capital = 386 # Kemi
+#	
+#	# Hire Trigger
+#	allow = {
+#		OR = {
+#			religion_group = christian
+#			religion_group = pagan_group
+#		}
+#	}
+#	
+#	# Parent Religion 
+#	religion = finnish_pagan
+#	
+#	culture = lappish
+#	
+#	mercenary = yes
+#
+#	title = "CAPTAIN"
+#	foa = "CAPTAIN_FOA"
+#
+#	# Always exists
+#	landless = yes
+#	
+#	# Cannot be held as a secondary title
+#	primary = yes
+#	
+#	# Cannot be vassalized
+#	independent = yes
+#	
+#	strength_growth_per_century = 1.0
+#	
+#	mercenary_type = lappish_band_composition
+#}
+#
+#d_lithuanian_band = {
+#	color = { 169 90 95 }
+#	color2 = { 255 255 255 }
+#
+#	capital = 421 # Lietuva / Zhmud
+#	
+#	# Hire Trigger
+#	allow = {
+#		OR = {
+#			religion_group = christian
+#			religion_group = pagan_group
+#		}
+#	}
+#	
+#	# Parent Religion 
+#	religion = baltic_pagan
+#	
+#	culture = lithuanian
+#	
+#	mercenary = yes
+#
+#	title = "CAPTAIN"
+#	foa = "CAPTAIN_FOA"
+#
+#	# Always exists
+#	landless = yes
+#	
+#	# Cannot be held as a secondary title
+#	primary = yes
+#	
+#	# Cannot be vassalized
+#	independent = yes
+#	
+#	strength_growth_per_century = 1.0
+#	
+#	mercenary_type = lithuanian_band_composition
+#}
+#
+#d_abyssinian_band = {
+#	color={ 180 135 60 }
+#	color2 = { 255 255 255 }
+#
+#	capital = 875 # Axum
+#	
+#	# Hire Trigger
+#	allow = {
+#		OR = {
+#			religion_group = christian
+#			religion_group = jewish_group
+#		}
+#	}
+#	
+#	# Parent Religion 
+#	religion = miaphysite
+#	
+#	culture = ethiopian
+#	
+#	mercenary = yes
+#
+#	title = "CAPTAIN"
+#	foa = "CAPTAIN_FOA"
+#
+#	# Always exists
+#	landless = yes
+#	
+#	# Cannot be held as a secondary title
+#	primary = yes
+#	
+#	# Cannot be vassalized
+#	independent = yes
+#	
+#	strength_growth_per_century = 1.0
+#	
+#	mercenary_type = abyssinian_band_composition
+#}
+#
+#d_nubian_band = {
+#	color = { 155 165 80 }
+#	color2 = { 255 255 255 }
+#
+#	capital = 878 # Hayya
+#	
+#	# Hire Trigger
+#	allow = {
+#		OR = {
+#			religion_group = christian
+#			religion_group = jewish_group
+#		}
+#	}
+#	
+#	# Parent Religion 
+#	religion = miaphysite
+#	
+#	culture = nubian
+#	
+#	mercenary = yes
+#
+#	title = "CAPTAIN"
+#	foa = "CAPTAIN_FOA"
+#
+#	# Always exists
+#	landless = yes
+#	
+#	# Cannot be held as a secondary title
+#	primary = yes
+#	
+#	# Cannot be vassalized
+#	independent = yes
+#	
+#	strength_growth_per_century = 1.0
+#	
+#	mercenary_type = nubian_band_composition
+#}
+#
+#d_scottish_band = {
+#	color = { 30 90 182 }
+#	color2 = { 255 255 255 }
+#
+#	capital = 43 # Gowrie
+#	
+#	# Hire Trigger
+#	allow = {
+#		always = yes
+#	}
+#	
+#	# Parent Religion 
+#	religion = catholic
+#	
+#	culture = scottish
+#	
+#	mercenary = yes
+#
+#	title = "CAPTAIN"
+#	foa = "CAPTAIN_FOA"
+#
+#	# Always exists
+#	landless = yes
+#	
+#	# Cannot be held as a secondary title
+#	primary = yes
+#	
+#	# Cannot be vassalized
+#	independent = yes
+#	
+#	strength_growth_per_century = 1.0
+#	
+#	mercenary_type = scottish_band_composition
+#}
+#
+#d_irish_band = {
+#	color = { 112 255 70 }
+#	color2 = { 255 255 255 }
+#
+#	capital = 10 # Kildare
+#	
+#	# Hire Trigger
+#	allow = {
+#		always = yes
+#	}
+#	
+#	# Parent Religion 
+#	religion = catholic
+#	
+#	culture = irish
+#	
+#	mercenary = yes
+#
+#	title = "CAPTAIN"
+#	foa = "CAPTAIN_FOA"
+#
+#	# Always exists
+#	landless = yes
+#	
+#	# Cannot be held as a secondary title
+#	primary = yes
+#	
+#	# Cannot be vassalized
+#	independent = yes
+#	
+#	strength_growth_per_century = 1.0
+#	
+#	mercenary_type = irish_band_composition
+#}
+#
+#d_alan_band = {
+#	color = { 245 210 90 }
+#	color2 = { 255 255 255 }
+#
+#	capital = 603 # Alania
+#	
+#	# Hire Trigger
+#	allow = {
+#		always = yes
+#	}
+#	
+#	# Parent Religion 
+#	religion = orthodox
+#	
+#	culture = alan
+#	
+#	mercenary = yes
+#
+#	title = "CAPTAIN"
+#	foa = "CAPTAIN_FOA"
+#
+#	# Always exists
+#	landless = yes
+#	
+#	# Cannot be held as a secondary title
+#	primary = yes
+#	
+#	# Cannot be vassalized
+#	independent = yes
+#	
+#	strength_growth_per_century = 1.0
+#	
+#	mercenary_type = alan_band_composition
+#}
+#
+#d_pecheneg_band = {
+#	color = { 100 100 30 }
+#	color2 = { 255 255 255 }
+#
+#	capital = 542 # Olvia
+#	
+#	# Parent Religion 
+#	religion = orthodox
+#	
+#	culture = pecheneg
+#	
+#	mercenary = yes
+#
+#	title = "CAPTAIN"
+#	foa = "CAPTAIN_FOA"
+#
+#	# Always exists
+#	landless = yes
+#	
+#	# Cannot be held as a secondary title
+#	primary = yes
+#	
+#	# Cannot be vassalized
+#	independent = yes
+#	
+#	strength_growth_per_century = 1.0
+#	
+#	mercenary_type = pecheneg_band_composition
+#}
+#
+#d_bulgarian_band = {
+#	color = { 100 50 30 }
+#	color2 = { 255 255 255 }
+#
+#	capital = 508 # Dorostotum
+#	
+#	# Parent Religion 
+#	religion = orthodox
+#	
+#	culture = bulgarian
+#	
+#	mercenary = yes
+#
+#	title = "CAPTAIN"
+#	foa = "CAPTAIN_FOA"
+#
+#	# Always exists
+#	landless = yes
+#	
+#	# Cannot be held as a secondary title
+#	primary = yes
+#	
+#	# Cannot be vassalized
+#	independent = yes
+#	
+#	strength_growth_per_century = 1.0
+#	
+#	mercenary_type = bulgarian_band_composition
+#}
+#
+#d_turkic_band = {
+#	color = { 100 50 30 }
+#	color2 = { 255 255 255 }
+#
+#	capital = 621 # Kangly
+#	
+#	# Parent Religion 
+#	religion = orthodox
+#	
+#	culture = turkish
+#	
+#	mercenary = yes
+#
+#	title = "CAPTAIN"
+#	foa = "CAPTAIN_FOA"
+#
+#	# Always exists
+#	landless = yes
+#	
+#	# Cannot be held as a secondary title
+#	primary = yes
+#	
+#	# Cannot be vassalized
+#	independent = yes
+#	
+#	strength_growth_per_century = 1.0
+#	
+#	mercenary_type = turkic_band_composition
+#}
+#
+#d_mamluks = {
+#	color={ 80 160 80 }
+#	color2={ 255 255 255 }
+#	
+#	graphical_culture = bektashigfx
+#
+#	capital = 796 # Cairo
+#	
+#	# Hire Trigger
+#	allow = {
+#		religion_group = muslim
+#	}
+#	
+#	# Parent Religion 
+#	religion = shiite
+#	
+#	mercenary = yes
+#
+#	title = "CAPTAIN"
+#	foa = "CAPTAIN_FOA"
+#
+#	# Always exists
+#	landless = yes
+#	
+#	# Cannot be held as a secondary title
+#	primary = yes
+#	
+#	strength_growth_per_century = 1.0
+#	
+#	mercenary_type = mamluks_composition
+#}
+#
+#d_venetian_navy = { # Now "Adriatic Galleys"
+#	color = { 60  175  170 }
+#	color2={ 255 255 255 }
+#	
+#	short_name = yes
+#
+#	capital = 356 # Venice
+#	
+#	# Hire Trigger
+#	allow = {
+#		religion_group = christian
+#		year = 1066
+#	}
+#	
+#	# Parent Religion 
+#	religion = catholic
+#	
+#	mercenary = yes
+#
+#	title = "CAPTAIN"
+#	foa = "CAPTAIN_FOA"
+#
+#	# Always exists
+#	landless = yes
+#	
+#	# Cannot be held as a secondary title
+#	primary = yes
+#		
+#	# Cannot be vassalized
+#	independent = yes
+#
+#	mercenary_type = naval_merc_composition
+#}
+#
+#d_genoese_navy = { # Now "Ligurian Galleys"
+#	color={ 224 161 120 }
+#	color2={ 255 255 255 }
+#	
+#	short_name = yes
+#
+#	capital = 233 # Genoa
+#	
+#	# Hire Trigger
+#	allow = {
+#		religion_group = christian
+#		year = 1066
+#	}
+#	
+#	# Parent Religion 
+#	religion = catholic
+#	
+#	mercenary = yes
+#
+#	title = "CAPTAIN"
+#	foa = "CAPTAIN_FOA"
+#
+#	# Always exists
+#	landless = yes
+#	
+#	# Cannot be held as a secondary title
+#	primary = yes
+#		
+#	# Cannot be vassalized
+#	independent = yes
+#
+#	mercenary_type = naval_merc_composition
+#}
+#
+#d_hanseatic_navy = { # Now "Baltic Cogs"
+#	color={ 150 150 150 }
+#	color2={ 255 255 255 }
+#	
+#	short_name = yes
+#
+#	capital = 262 # Lübeck
+#	
+#	# Hire Trigger
+#	allow = {
+#		religion_group = christian
+#		year = 1066
+#	}
+#	
+#	# Parent Religion 
+#	religion = catholic
+#	
+#	mercenary = yes
+#
+#	title = "CAPTAIN"
+#	foa = "CAPTAIN_FOA"
+#
+#	# Always exists
+#	landless = yes
+#	
+#	# Cannot be held as a secondary title
+#	primary = yes
+#		
+#	# Cannot be vassalized
+#	independent = yes
+#
+#	mercenary_type = naval_merc_composition
+#}
+#
+#d_frisian_navy = { # Now "North Sea Cogs"
+#	color={ 245 80 20 }
+#	color2={ 255 255 255 }
+#	
+#	short_name = yes
+#
+#	capital = 80 # Holland
+#	
+#	# Hire Trigger
+#	allow = {
+#		religion_group = christian
+#		year = 1066
+#	}
+#	
+#	# Parent Religion 
+#	religion = catholic
+#	
+#	mercenary = yes
+#
+#	title = "CAPTAIN"
+#	foa = "CAPTAIN_FOA"
+#
+#	# Always exists
+#	landless = yes
+#	
+#	# Cannot be held as a secondary title
+#	primary = yes
+#		
+#	# Cannot be vassalized
+#	independent = yes
+#
+#	mercenary_type = naval_merc_composition
+#}
+#
+#d_maghreb_corsairs = {
+#	color={ 174 237 125 }
+#	color2={ 255 255 255 }
+#	
+#	short_name = yes
+#
+#	capital = 816 # Mahdia
+#	
+#	# Hire Trigger
+#	allow = {
+#		religion_group = muslim
+#		year = 1066
+#	}
+#	
+#	# Parent Religion 
+#	religion = sunni
+#	
+#	culture = maghreb_arabic
+#	
+#	mercenary = yes
+#
+#	title = "CAPTAIN"
+#	foa = "CAPTAIN_FOA"
+#
+#	# Always exists
+#	landless = yes
+#	
+#	# Cannot be held as a secondary title
+#	primary = yes
+#		
+#	# Cannot be vassalized
+#	independent = yes
+#
+#	mercenary_type = naval_merc_composition
+#}
+#
+#d_ghilman = {
+#	color={ 60 165 80 }
+#	color2={ 255 255 255 }
+#	
+#	graphical_culture = bektashigfx
+#
+#	capital = 627 # Kara-Kum
+#	
+#	# Hire Trigger
+#	allow = {
+#		religion_group = muslim
+#	}
+#	
+#	# Parent Religion 
+#	religion = sunni
+#	
+#	mercenary = yes
+#
+#	title = "CAPTAIN"
+#	foa = "CAPTAIN_FOA"
+#
+#	# Always exists
+#	landless = yes
+#	
+#	# Cannot be held as a secondary title
+#	primary = yes
+#	
+#	strength_growth_per_century = 1.0
+#	
+#	mercenary_type = ghilman_composition
+#}
+#
+#d_ghanan_band = {
+#	color = { 108 123 48 }
+#	color2 = { 255 255 255 }
+#
+#	capital = 913 # Ghana
+#	
+#	# Hire Trigger
+#	allow = {
+#		culture_group = west_african
+#	}
+#	
+#	# Parent Religion 
+#	religion = west_african_pagan
+#	
+#	culture = manden
+#	
+#	mercenary = yes
+#
+#	title = "CAPTAIN"
+#	foa = "CAPTAIN_FOA"
+#
+#	# Always exists
+#	landless = yes
+#	
+#	# Cannot be held as a secondary title
+#	primary = yes
+#	
+#	# Cannot be vassalized
+#	independent = yes
+#	
+#	strength_growth_per_century = 1.0
+#	
+#	mercenary_type = ghanan_band_composition
+#}
+#
 # EMPIRES
 
-e_hre = {
-
-	color={ 155 155 155 }
-	color2={ 220 220 20 }
+e_hre = {                      # Created by special decision only
+	color={ 250 250 250 }
+	color2={ 0 0 0 }
 	
 	capital = 90 # Jülich / Aachen
-	
-	religion=catholic
-	culture = german
+
 	short_name = yes
+	
+	allow = {
+		always = no # Only created through special decisions
+	}
+}
+
+e_germany = {
+
+	color={ 190 200 190 }
+	color2={ 220 220 20 }
+	
+	capital = 121 # Nassau
+	
+	culture = german
+	
+	allow = {
+		hidden_tooltip = {
+			OR = {
+				ai = no
+				culture_group = central_germanic
+				culture = old_saxon
+			}
+		}
+	}
+	
+	k_saxony = {
+		color={ 120 25 25 }
+		culture = old_saxon
+
+		capital = 310 # Anhalt
+
+		allow = {
+			culture = old_saxon
+		}
+		
+		catholic = 3000 # Crusade target weight
+	}
 	
 	k_frisia = {
 		color={ 245 100 20 }
@@ -1472,8 +3313,7 @@ e_hre = {
 	}
 	
 	k_lotharingia = {
-#		color={ 144 80 60 }
-		color={ 110 110 150 }
+		color={ 110 110 160 }
 		color2={ 220 220 20 }
 		
 		culture = frankish
@@ -1780,7 +3620,7 @@ e_hre = {
 	}
 	
 	k_bavaria = {
-		color={ 91 91 102 }
+		color={ 91 100 100 }
 		color2={ 220 220 20 }
 		
 		culture = german
@@ -2319,27 +4159,6 @@ e_hre = {
 				b_meppen = {
 				}
 			}
-			c_gottingen = {
-				color={ 210 210 210 }
-				color2={ 255 255 255 }
-				
-				b_gottingen = {
-				}
-				b_corvey = {
-				}
-				b_lippe = {
-				}
-				b_kassel = {
-				}
-				b_goslar = {
-				}
-				b_northeim = {
-				}
-				b_eisenach = {
-				}
-				b_detmold = {
-				}
-			}
 		}
 		d_thuringia = {
 			color={ 207 206 226 }
@@ -2389,6 +4208,27 @@ e_hre = {
 				b_isenburg = {
 				}
 			}
+			c_gottingen = {
+				color={ 210 210 210 }
+				color2={ 255 255 255 }
+				
+				b_gottingen = {
+				}
+				b_corvey = {
+				}
+				b_lippe = {
+				}
+				b_kassel = {
+				}
+				b_goslar = {
+				}
+				b_northeim = {
+				}
+				b_eisenach = {
+				}
+				b_detmold = {
+				}
+			}
 		}
 		d_koln = {
 			color={ 213 216 212 }
@@ -2402,6 +4242,86 @@ e_hre = {
 			
 				b_koln = {
 					holy_site = catholic
+					holy_site = lancea_sanctum
+					holy_site = invictus
+					holy_site = icarian
+					holy_site = gnostic
+					holy_site = livian
+					holy_site = die_nachteulen
+					holy_site = ordo_dracul
+					holy_site = revenant_longinus
+					holy_site = al-amin
+					holy_site = banu_shaitan
+					holy_site = dammitic
+					holy_site = revenant_abrahamic
+					holy_site = circle_of_the_crone
+					holy_site = unaligned
+					holy_site = laibon
+					holy_site = carthian
+					holy_site = revenant_unaligned
+					holy_site = nameless
+					holy_site = roaring_serpent
+					holy_site = pandaemonium
+					holy_site = mercy_seat
+					holy_site = smokeless_throne
+					holy_site = scarlet_rite
+					holy_site = corpus_delecti
+					holy_site = horned_hand
+					holy_site = teeth_of_yamatu
+					holy_site = revenant_duolosi
+					holy_site = asura-dharma
+					holy_site = mara-dharma
+					holy_site = prati-vasudeva-dharma
+					holy_site = revenant-dharma
+					holy_site = sennex
+					holy_site = legio_mortuum
+					holy_site = cult_of_augurs
+					holy_site = peregrine_collegia
+					holy_site = adamantes_athanatoi
+					holy_site = revenant_camarilla
+					holy_site = ivory_claws
+					holy_site = fire-touched
+					holy_site = predator_kings
+					holy_site = blood_talons
+					holy_site = bone_shadows
+					holy_site = hunters_in_darkness
+					holy_site = iron_masters
+					holy_site = storm_lords
+					holy_site = ghost_wolves
+					holy_site = bale_hounds
+					holy_site = magicka
+					holy_site = mummy
+					holy_site = changeling
+					holy_site = promethean
+					holy_site = demon
+					holy_site = geist
+					holy_site = aegis_kai_doru
+					holy_site = ascending_ones
+					holy_site = knights_of_saint_george
+					holy_site = les_mysteres
+					holy_site = malleus_maleficarum
+					holy_site = lucifuge
+					holy_site = ahl_al-jabal
+					holy_site = innocent
+					holy_site = insane
+					holy_site = criminal
+					holy_site = vampire_high_clans
+					holy_site = revenant_high_clans
+					holy_site = ashirra
+					holy_site = revenant_ashirra
+					holy_site = assamites
+					holy_site = revenant_assamites
+					holy_site = vampire_low_clans
+					holy_site = anarchs
+					holy_site = revenant_anarchs 
+					holy_site = autarkis
+					holy_site = revenant_autarkis
+					holy_site = furores
+					holy_site = vampire_promethean
+					holy_site = revenant_promethean
+					holy_site = revenant_furores
+					holy_site = revenant_low_clans
+					holy_site 
 				}
 				b_berg = {
 				}
@@ -2813,6 +4733,7 @@ e_byzantium = {
 				b_palodes = {
 				}
 				b_adapazari = {
+					greek = "Mesonesion"
 				}
 				b_malagina = {
 				}
@@ -3084,6 +5005,7 @@ e_byzantium = {
 				
 				b_gallipoli = {
 					turkish = "Gelibolu"
+					greek = "Kallipolis"
 				}
 				b_heraclea = {
 				}
@@ -3344,6 +5266,8 @@ e_byzantium = {
 				color2={ 255 255 20 }
 				
 				italian = "Durazzo"
+				serbian = "Ohrid"
+				bulgarian = "Ohrid"
 				
 				b_durazzo = {
 					greek = "Dyrrhachion"
@@ -3654,8 +5578,11 @@ e_byzantium = {
 				color={ 182 15 124 }
 				color2={ 255 255 20 }
 				
+				greek = Gortyn
+				italian = Gortyn
+				
 				b_iraklio = {
-					greek = "Megalokastron"
+					greek = "Gortyn"
 					italian = "Candia"
 					turkish = "Kandiye"
 					maghreb_arabic = "Khandaq"
@@ -5367,7 +7294,7 @@ e_byzantium = {
 	}
 	
 	k_sicily = {
-		color = { 235 205 95 }
+		color = { 180 160 80 }
 		color2={ 255 255 255 }
 		
 		capital = 334 #	Napoli
@@ -6234,7 +8161,7 @@ e_italy = {
 		}
 		
 		christian = 10000 # Crusade target weight
-	
+		
 		d_verona = {
 			color={ 170 255 170 }
 			color2={ 255 255 255 }
@@ -6901,10 +8828,6 @@ e_italy = {
 				b_roma = {
 					pentarchy = yes
 					holy_site = catholic
-					holy_site = aztec
-					holy_site = aztec_reformed
-					holy_site = hellenic_pagan	
-					holy_site = pagan
 					holy_site = lancea_sanctum
 					holy_site = invictus
 					holy_site = icarian
@@ -6984,46 +8907,11 @@ e_italy = {
 					holy_site = revenant_promethean
 					holy_site = revenant_furores
 					holy_site = revenant_low_clans
-					holy_site = anda
-					holy_site = einherjar
-					holy_site = noiad
-					holy_site = tremerelow
-					holy_site = koldun
-					holy_site = baali 
-					holy_site = revenant_baali
-					holy_site = masquerade_camarilla
-					holy_site = gangrelcamarilla
-					holy_site = brujahcamarilla
-					holy_site = malkaviancamarilla
-					holy_site = nosferatucamarilla
-					holy_site = toreadorcamarilla
-					holy_site = tremerecamarilla
-					holy_site = ventruecamarilla
-					holy_site = revenant_masquerade_camarilla
-					holy_site = sabbat
-					holy_site = revenant_sabbat
-					holy_site = inconnu
-					holy_site = revenant_inconnu
-					holy_site = giovanni 
-					holy_site = revenant_giovanni
-					holy_site = settite
-					holy_site = revenant_settite
-					holy_site = mayaparisataya
-					holy_site = revenant_mayaparisataya
-					holy_site = oradealeague 
-					holy_site = silver_fangs
-					holy_site = black_furies
-					holy_site = stargazers
-					holy_site = red_talons
-					holy_site = get_of_fenris
-					holy_site = fianna
-					holy_site = white_howlers
-					holy_site = silent_striders
-					holy_site = warders_of_men
-					holy_site = glass_walkers
-					holy_site = shadow_lords
-					holy_site = bone_gnawers
-					holy_site = black_spiral_dancers 
+					holy_site 
+					holy_site = aztec
+					holy_site = aztec_reformed
+					holy_site = hellenic_pagan
+					holy_site = pagan
 					used_for_dynasty_names = no
 				}
 				b_viterbo = {
@@ -7520,127 +9408,7 @@ e_scandinavia = {
 					danish = "Lødøse"
 				}
 				b_skara = {
-					
 					holy_site = pagan
-					holy_site = lancea_sanctum
-					holy_site = invictus
-					holy_site = icarian
-					holy_site = gnostic
-					holy_site = livian
-					holy_site = die_nachteulen
-					holy_site = ordo_dracul
-					holy_site = revenant_longinus
-					holy_site = al-amin
-					holy_site = banu_shaitan
-					holy_site = dammitic
-					holy_site = revenant_abrahamic
-					holy_site = circle_of_the_crone
-					holy_site = unaligned
-					holy_site = laibon
-					holy_site = carthian
-					holy_site = revenant_unaligned
-					holy_site = nameless
-					holy_site = roaring_serpent
-					holy_site = pandaemonium
-					holy_site = mercy_seat
-					holy_site = smokeless_throne
-					holy_site = scarlet_rite
-					holy_site = corpus_delecti
-					holy_site = horned_hand
-					holy_site = teeth_of_yamatu
-					holy_site = revenant_duolosi
-					holy_site = asura-dharma
-					holy_site = mara-dharma
-					holy_site = prati-vasudeva-dharma
-					holy_site = revenant-dharma
-					holy_site = sennex
-					holy_site = legio_mortuum
-					holy_site = cult_of_augurs
-					holy_site = peregrine_collegia
-					holy_site = adamantes_athanatoi
-					holy_site = revenant_camarilla
-					holy_site = ivory_claws
-					holy_site = fire-touched
-					holy_site = predator_kings
-					holy_site = blood_talons
-					holy_site = bone_shadows
-					holy_site = hunters_in_darkness
-					holy_site = iron_masters
-					holy_site = storm_lords
-					holy_site = ghost_wolves
-					holy_site = bale_hounds
-					holy_site = magicka
-					holy_site = mummy
-					holy_site = changeling
-					holy_site = promethean
-					holy_site = demon
-					holy_site = geist
-					holy_site = aegis_kai_doru
-					holy_site = ascending_ones
-					holy_site = knights_of_saint_george
-					holy_site = les_mysteres
-					holy_site = malleus_maleficarum
-					holy_site = lucifuge
-					holy_site = ahl_al-jabal
-					holy_site = innocent
-					holy_site = insane
-					holy_site = criminal
-					holy_site = vampire_high_clans
-					holy_site = revenant_high_clans
-					holy_site = ashirra
-					holy_site = revenant_ashirra
-					holy_site = assamites
-					holy_site = revenant_assamites
-					holy_site = vampire_low_clans
-					holy_site = anarchs
-					holy_site = revenant_anarchs 
-					holy_site = autarkis
-					holy_site = revenant_autarkis
-					holy_site = furores
-					holy_site = vampire_promethean
-					holy_site = revenant_promethean
-					holy_site = revenant_furores
-					holy_site = revenant_low_clans
-					holy_site = anda
-					holy_site = einherjar
-					holy_site = noiad
-					holy_site = tremerelow
-					holy_site = koldun
-					holy_site = baali 
-					holy_site = revenant_baali
-					holy_site = masquerade_camarilla
-					holy_site = gangrelcamarilla
-					holy_site = brujahcamarilla
-					holy_site = malkaviancamarilla
-					holy_site = nosferatucamarilla
-					holy_site = toreadorcamarilla
-					holy_site = tremerecamarilla
-					holy_site = ventruecamarilla
-					holy_site = revenant_masquerade_camarilla
-					holy_site = sabbat
-					holy_site = revenant_sabbat
-					holy_site = inconnu
-					holy_site = revenant_inconnu
-					holy_site = giovanni 
-					holy_site = revenant_giovanni
-					holy_site = settite
-					holy_site = revenant_settite
-					holy_site = mayaparisataya
-					holy_site = revenant_mayaparisataya
-					holy_site = oradealeague 
-					holy_site = silver_fangs
-					holy_site = black_furies
-					holy_site = stargazers
-					holy_site = red_talons
-					holy_site = get_of_fenris
-					holy_site = fianna
-					holy_site = white_howlers
-					holy_site = silent_striders
-					holy_site = warders_of_men
-					holy_site = glass_walkers
-					holy_site = shadow_lords
-					holy_site = bone_gnawers
-					holy_site = black_spiral_dancers 
 				}
 				b_falkoping = {
 					norwegian = "Falkøping"
@@ -7710,11 +9478,15 @@ e_scandinavia = {
 				}
 			}
 		}
-		d_norrland = { 
+		d_norrland = {
 			color={ 50 50 160 }
 			color2={ 255 255 255 }
+			
 			capital = 285 # Hälsingland
 			
+			finnish=Lappi
+			lappish=Sápmi
+
 			c_lappland = {
 				color={ 60 60 130 }
 				color2={ 255 255 255 }
@@ -8537,6 +10309,9 @@ e_scandinavia = {
 			capital = 36 # Orkney
 			
 			norse = "Norðreyjar"
+			pictish = "Insee Galeth"
+			welsh = "Ynysoedd Gogledd"
+			irish = "Innse Tuath"
 			
 			pagan_coa = {
 				template = 0
@@ -8556,22 +10331,49 @@ e_scandinavia = {
 				color2={ 255 255 255 }
 				
 				swedish = "Färöarna"
+				pictish = "Caliu"
+				welsh = "Ynysoedd Ceiliau"
+				irish = "Innse Caora"
 				
 				b_skansin = {
+					pictish = "Lam"
+					welsh = "Llam"
+					irish = "Leum"
 				}
 				b_torshavn = {
+					pictish = "Pirth Taran"
+					welsh = "Porth Taran"
+					irish = "Port Turenn"
 				}
 				b_kirkjubour = {
+					pictish = "Tathinauu"
+					welsh = "Tyddynaueglwys"
+					irish = "Tuathanaseaglais"
 				}
 				b_funningur = {
+					pictish = "Uenaeth"
+					welsh = "Gwynaidd"
+					irish = "Fionnach"
 				}
 				b_kvivik = {
+					pictish = "Culbachuu"
+					welsh = "Culbachwy"
+					irish = "Caolbati"
 				}
 				b_sandur = {
+					pictish = "Insee Tret"
+					welsh = "Ynys Traeth"
+					irish = "Eilean Tràigh"
 				}
 				b_klaksvik = {
+					pictish = "Insee Uun"
+					welsh = "Ynys Edn"
+					irish = "Innis Eun"
 				}
 				b_hov = {
+					pictish = "Icluasc"
+					welsh = "Eglwys"
+					irish = "Eaglais"
 				}
 			}
 			c_shetland = {
@@ -8582,26 +10384,53 @@ e_scandinavia = {
 				danish = "Hjaltland"
 				swedish = "Hjaltland"
 				norse = "Hjaltland"
+				pictish = "Insee Cait"
+				welsh = "Ynysoedd Cait"
+				irish = "Innse Catt"
 				
 				b_scalloway = {
+					pictish = "Bachuuon Maurt"
+					welsh = "Bachwyon Mawrty"
+					irish = "Batin Môrtaigh"
 				}
 				b_muness = {
+					pictish = "Muunis"
+					welsh = "Mwynis"
+					irish = "Mùnis"
 				}
 				b_tingwall = {
+					pictish = "Camanfalioth"
+					welsh = "Cymanfalleoedd"
+					irish = "Coinneamhionad"
 				}
 				b_cunningsburgh = {
 					norwegian = "Konungsborg"
 					danish = "Konungsborg"
 					swedish = "Konungsborg"
 					norse = "Konungsborg"
+					pictish = "Caer Rui"
+					welsh = "Caer Rhi"
+					irish = "Rìghdùn"
 				}
 				b_sumburgh = {
+					pictish = "Taranupin"
+					welsh = "Taranupenn"
+					irish = "Tàirneanachceann"
 				}
 				b_northmavine = {
+					pictish = "Goglethculder"
+					welsh = "Gogleddculdir"
+					irish = "Tuathcuing"
 				}
 				b_sound = {
+					pictish = "Cliaubae"
+					welsh = "Cleiaubae"
+					irish = "Crèadhbati"
 				}
 				b_yell = {
+					pictish = "Insee Uuan"
+					welsh = "Ynys Gwyn"
+					irish = "Innis Fionn"
 				}
 			}
 			c_orkney = {
@@ -8611,30 +10440,57 @@ e_scandinavia = {
 				swedish = "Orknö"
 				danish = "Orknø"
 				norse = "Orknö"
+				pictish = "Insee Orc"
+				welsh = "Ynysoedd Orc"
+				irish = "Innse Orc"
 				
 				b_kirkwall = {
 					norwegian = "Kirkuvåg"
 					danish = "Kyrkovik"
 					swedish = "Kyrkovik"
 					norse = "Kyrkovik"
+					pictish = "Icluasctreh"
+					welsh = "Eglwystref"
+					irish = "Baile na h-Eaglais"
 				}
 				b_birsay = {
 					norwegian = "Birgishærad"
 					danish = "Birgishærad"
 					swedish = "Birgishärad"
 					norse = "Birgishærad"
+					pictish = "Brideclauet"
+					welsh = "Ffraidclywed"
+					irish = "Brìghdechuala"
 				}
 				b_orphir = {
+					pictish = "Aerfur"
+					welsh = "Aerfwr"
+					irish = "Ayrfir"
 				}
 				b_westray = {
+					pictish = "Driduana"
+					welsh = "Driduana"
+					irish = "Triduana"
 				}
 				b_wyre = {
+					pictish = "Insee Ware"
+					welsh = "Ynys Wyre"
+					irish = "Innis Weir"
 				}
 				b_egilsay = {
+					pictish = "Insee Icluasc"
+					welsh = "Ynys Eglwys"
+					irish = "Innis Eaglais"
 				}
 				b_sanday = {
+					pictish = "Insee Tiuod"
+					welsh = "Ynys Tywod"
+					irish = "Innis Tràigh"
 				}
 				b_ronaldsay = {
+					pictish = "Insee Ninian"
+					welsh = "Ynys Ninian"
+					irish = "Innis Ronan"
 				}
 			}
 		}
@@ -9051,6 +10907,89 @@ e_scandinavia = {
 			}
 		}
 	
+		d_kola = {
+			color={ 194 171 117 }
+
+		#	tribe = yes
+	
+			culture = lappish
+			title = "HIGH_CHIEF"
+			foa = "HIGH_CHIEF_FOA"
+			title_prefix = "TRIBE_OF"
+	
+			c_kola = {
+				color={ 145 35 35 }
+				color2={ 255 255 255 }
+			
+				b_kola = {
+				}
+				b_mafelskoi = {
+				}
+				b_pechenga = {
+				}
+				b_waranger = {
+				}
+				b_tre = {
+				}
+				b_lovozero = {
+				}
+				b_molovskoi = {
+				}
+				b_jekanskoi = {
+				}
+			}
+			c_kandalax = {
+				color={ 135 60 60 }
+				color2={ 255 255 255 }
+				
+				swedish = "Kandalax"
+				norse = "Kandalax"
+				norwegian = "Kandalax"
+				danish = "Kandalax"
+			
+				b_kantalahti = {
+					swedish = "Kandalax"
+					norse = "Kandalax"
+					norwegian = "Kandalax"
+					danish = "Kandalax"
+				}
+				b_umba = {
+				}
+				b_varzuga = {
+				}
+				b_lekastrom = {
+				}
+				b_sarapo = {
+				}
+				b_kolsky = {
+				}
+				b_ponoy = {
+				}
+				b_pyaozero = {
+				}
+			}
+			c_kemi = {
+				color={ 130 65 55 }
+				color2={ 255 255 255 }
+			
+				b_kemi = {
+				}
+				b_neiden = {
+				}
+				b_rovaniemi = {
+				}
+				b_inari = {
+				}
+				b_tornio = {
+				}
+				b_kemijarvi = {
+				}
+				b_utsjoki = {
+				}
+				b_savukoski = {
+				}
+			}
+		}
 		d_esthonia = {
 			color={ 150 75 75 }
 			color2={ 255 255 255 }
@@ -9133,6 +11072,9 @@ e_scandinavia = {
 				
 				finnish = "Inkeri"
 				russian = "Ingriya"
+				ilmenian = "Ingriya"
+				severian = "Ingriya"
+				swedish = "Ingermanland"
 			
 				b_nyen = {
 					finnish = "Nevanlinna"
@@ -9182,6 +11124,48 @@ e_scandinavia = {
 			norwegian = "Karelen"
 			russian = "Kareliya"
 			
+			c_savolaks = {
+				color={ 120 10 10 }
+				color2={ 255 255 255 }
+				
+				swedish = "Savolax"
+				norse = "Savolax"
+				norwegian = "Savolax"
+				danish = "Savolax"
+			
+				b_olavinlinna = {
+					swedish = "Olofsborg"
+					norse = "Olofsborg"
+					norwegian = "Olavsborg"
+					danish = "Olavsborg"
+				}
+				b_mikkeli = {
+					swedish = "St Michel"
+					norse = "St Michel"
+					norwegian = "St Michel"
+					danish = "St Michel"
+				}
+				b_savitaipale = {
+				}
+				b_sotkamo = {
+				}
+				b_brahelinna = {
+					swedish = "Brahehus"
+					norse = "Brahehus"
+					norwegian = "Brahehus"
+					danish = "Brahehus"
+				}
+				b_iisalmi = {
+					swedish = "Idensalmi"
+					norse = "Idensalmi"
+					norwegian = "Idensalmi"
+					danish = "Idensalmi"
+				}
+				b_kuopio = {
+				}
+				b_sysma = {
+				}
+			}
 			c_onega = {
 				color={ 165 45 45 }
 				color2={ 255 255 255 }
@@ -9273,58 +11257,6 @@ e_scandinavia = {
 				b_taipale = {
 				}
 			}
-			
-			c_kola = {
-				color={ 145 35 35 }
-				color2={ 255 255 255 }
-			
-				b_kola = {
-				}
-				b_mafelskoi = {
-				}
-				b_pechenga = {
-				}
-				b_waranger = {
-				}
-				b_tre = {
-				}
-				b_lovozero = {
-				}
-				b_molovskoi = {
-				}
-				b_jekanskoi = {
-				}
-			}
-			c_kandalax = {
-				color={ 135 60 60 }
-				color2={ 255 255 255 }
-				
-				swedish = "Kandalax"
-				norse = "Kandalax"
-				norwegian = "Kandalax"
-				danish = "Kandalax"
-			
-				b_kantalahti = {
-					swedish = "Kandalax"
-					norse = "Kandalax"
-					norwegian = "Kandalax"
-					danish = "Kandalax"
-				}
-				b_umba = {
-				}
-				b_varzuga = {
-				}
-				b_lekastrom = {
-				}
-				b_sarapo = {
-				}
-				b_kolsky = {
-				}
-				b_ponoy = {
-				}
-				b_pyaozero = {
-				}
-			}
 		}
 		d_finland = {
 			color={ 131 108 26 }
@@ -9332,48 +11264,13 @@ e_scandinavia = {
 			
 			capital = 382 # Suomi
 			
-			c_savolaks = {
-				color={ 120 10 10 }
-				color2={ 255 255 255 }
-				
-				swedish = "Savolax"
-				norse = "Savolax"
-				norwegian = "Savolax"
-				danish = "Savolax"
-			
-				b_olavinlinna = {
-					swedish = "Olofsborg"
-					norse = "Olofsborg"
-					norwegian = "Olavsborg"
-					danish = "Olavsborg"
-				}
-				b_mikkeli = {
-					swedish = "St Michel"
-					norse = "St Michel"
-					norwegian = "St Michel"
-					danish = "St Michel"
-				}
-				b_savitaipale = {
-				}
-				b_sotkamo = {
-				}
-				b_brahelinna = {
-					swedish = "Brahehus"
-					norse = "Brahehus"
-					norwegian = "Brahehus"
-					danish = "Brahehus"
-				}
-				b_iisalmi = {
-					swedish = "Idensalmi"
-					norse = "Idensalmi"
-					norwegian = "Idensalmi"
-					danish = "Idensalmi"
-				}
-				b_kuopio = {
-				}
-				b_sysma = {
-				}
-			}
+			finnish = Satakunta
+			lappish = Satakunta
+			ugricbaltic = Satakunta
+			komi = Satakunta
+			samoyed = Satakunta
+			mordvin = Satakunta
+
 			c_nyland = {
 				color={ 185 65 65 }
 				color2={ 255 255 255 }
@@ -9557,27 +11454,6 @@ e_scandinavia = {
 				b_veteli = {
 				}
 			}
-			c_kemi = {
-				color={ 130 65 55 }
-				color2={ 255 255 255 }
-			
-				b_kemi = {
-				}
-				b_neiden = {
-				}
-				b_rovaniemi = {
-				}
-				b_inari = {
-				}
-				b_tornio = {
-				}
-				b_kemijarvi = {
-				}
-				b_utsjoki = {
-				}
-				b_savukoski = {
-				}
-			}
 		}
 	}
 }
@@ -9601,6 +11477,18 @@ e_wendish_empire = {
 	}
 	
 	short_name = yes
+
+	k_moravia = {
+		color={ 158 102 36 }
+		culture = bohemian
+	#	tribe = yes
+
+		capital = 441 # Brno
+	
+		allow = {
+			always = no
+		}
+	}
 
 	k_poland = {
 		color={ 150 23 23 }
@@ -10125,7 +12013,7 @@ e_wendish_empire = {
 			
 			capital = 260 #mecklemburg
 			
-			pommeranian = Weligrad
+			pommeranian = Obotritia
 
 			c_mecklemburg = {
 				color={ 207 207 207 }
@@ -10380,14 +12268,14 @@ e_wendish_empire = {
 		}
 		
 		d_saxony = {
-			color={ 164 162 162 }
+			color={ 70 70 70 }
 			color2={ 255 255 255 }
 			
 			capital = 310 #Anhalt
 			c_anhalt = {
 				color={ 184 184 184 }
 				color2={ 255 255 255 }
-
+				
 				pommeranian = Dolomici
 				
 				b_zerbst = {	
@@ -10471,7 +12359,7 @@ e_wendish_empire = {
 			
 			capital = 365 #Brandenburg
 
-			pommeranian = Brennaburg
+			pommeranian = "Sorbia" # Brennaburg
 		
 			c_altmark = {
 				color={ 189 189 189 }
@@ -10606,7 +12494,7 @@ e_wendish_empire = {
 			color={ 110 50 50 }
 			color2={ 255 255 255 }
 			
-			capital = 377 # Liivimaa
+			capital = 375 # Liivimaa
 			
 			pagan_coa = {
 				template = 0
@@ -10625,47 +12513,22 @@ e_wendish_empire = {
 				color={ 125 50 50 }
 				color2={ 255 255 255 }
 				
-				swedish = "Lettgallen"
-				norse = "Lettgallen"
-				danish = "Lettgallen"
-				norwegian = "Lettgallen"
-				german = "Lettgallen"
-			
-				b_jersika = {
-				}
-				b_erle = {
-				}
-				b_kreuzburg = {
-				}
-				b_kokenhusen = {
-				}
-				b_dungada = {
-				}
-				b_dignaja = {
-				}
-				b_linewerd = {
-				}
-				b_landau = {
-				}
-			}
-			c_livs = {
-				color={ 170 50 50 }
-				color2={ 255 255 255 }
-				
 				swedish = "Livland"
 				norse = "Livland"
 				danish = "Livland"
 				norwegian = "Livland"
 				german = "Livland"
 
-				b_wenden = {
+				b_gaujiena = {
+					ugricbaltic = Atsela
+					german = Adsel
+					lithuanian = Atzeles
 				}
-				b_lemisele = {
-					swedish = "Lemsal"
-					norse = "Lemsal"
-					danish = "Lemsal"
-					norwegian = "Lemsal"
-					german = "Lemsal"
+				b_kokenois = {
+					ugricbaltic = Koknese
+					german = Kokenhusen
+					polish = Koknese
+					lithuanian = Koknese
 				}
 				b_uxkull = { # Ikskila
 					swedish = "Yxkull"
@@ -10673,16 +12536,68 @@ e_wendish_empire = {
 					danish = "Yxkull"
 					norwegian = "Yxkull"
 					german = "Üxküll"
+					ugricbaltic = Ikškila
+					polish = Ikškile
+					lithuanian = Ikškile
 				}
-				b_cesis = {
-				}
-				b_salaspils = {
-				}
-				b_kokenois = {
-				}
-				b_seswegen = {
+				b_wenden = {
+					ugricbaltic = Võnnu
+					polish = Kies
+					lithuanian = Cesys
 				}
 				b_wolmer = {
+					ugricbaltic = Valmiera
+					german = Wolmar
+					polish = Valmiera
+					lithuanian = Valmiera
+				}
+				b_lemisele = {
+					swedish = "Lemsal"
+					norse = "Lemsal"
+					danish = "Lemsal"
+					norwegian = "Lemsal"
+					german = "Lemsal"
+					ugricbaltic = Lemsalu
+					german = Lemsal
+					polish = Limbaži
+					lithuanian = Limbažiai
+				}
+				b_seswegen = {
+					ugricbaltic = Cesvaine
+					german = Sesswegen
+					polish = Cesvaine
+					lithuanian = Cesvaine
+				}
+			}
+			c_livs = {
+				color={ 170 50 50 }
+				color2={ 255 255 255 }
+				
+				swedish = Lääne
+				danish = Lääne
+				
+				b_salaspils = {
+				}
+				b_haapsalu = {
+				}
+				b_lihula = {
+					german = Leal
+				}
+				b_parnu = {
+					ugricbaltic = Pärnu
+					german = Pernau
+					polish = Parnawa
+					lithuanian = Pernu
+				}
+				b_martna = {
+				}
+				b_kullamaa = {
+				}
+				b_karuse = {
+				}
+				b_pooravere = {
+				}
+				b_piirsalu = {
 				}
 			}
 			c_dorpat = {
@@ -10768,6 +12683,10 @@ e_wendish_empire = {
 			color2={ 255 255 255 }
 			
 			capital = 370 # Marienburg
+			
+			prussian = "Pruthenia"
+			lithuanian = "Pruthenia"
+			lettigallish = "Pruthenia"
 			
 			c_marienburg = {
 				color={ 185 90 90 }
@@ -10939,13 +12858,22 @@ e_wendish_empire = {
 				color={ 125 18 18 }
 				color2={ 255 255 255 }
 				
-				german = "Düna"
-				swedish = "Dyna"
-				norse = "Dyna"
-				danish = "Dyna"
-				norwegian = "Dyna"
-				russian = "Dvina"
+				swedish = "Lettgallen"
+				norse = "Lettgallen"
+				danish = "Lettgallen"
+				norwegian = "Lettgallen"
+				german = "Lettgallen"
 			
+				b_erle = {
+				}
+				b_jersika = {
+					german = Gerzika
+				}
+				b_kreuzburg = {
+					ugricbaltic = Krustpilsi
+					polish = Krzyzbork
+					lithuanian = Krustpils
+				}
 				b_daugavpils = {
 					german = "Dünaburg"
 					swedish = "Dynaborg"
@@ -10954,20 +12882,28 @@ e_wendish_empire = {
 					norwegian = "Dynaborg"
 					finnish = "Väinänlinna"
 					russian = "Dvinsk"
+					ugricbaltic = Väinalinn
+					polish = Dyneburg
+					lithuanian = Daugpilis
 				}
 				b_balvi = {
+					lithuanian = Balvai
 				}
 				b_rezekne = {
+					polish = Rzezyca
 				}
 				b_kraslava = {
+					polish = Kraslaw
 				}
 				b_vilaka = {
+					lithuanian = Viliaka
 				}
 				b_varakjani = {
+					ugricbaltic = Varaklani
+					german = Varaklani
 				}
 				b_ludza = {
-				}
-				b_vilani = {
+					polish = Lucyn
 				}
 			}
 		}
@@ -11042,9 +12978,8 @@ e_wendish_empire = {
 				}
 			}
 		}
-		
-		d_grodno = {
-			color={ 131 30 30 }
+		d_yatviags = {
+			color={ 149 97 97 }
 			color2={ 255 255 255 }
 			
 			capital = 424 # Grodno
@@ -11106,6 +13041,9 @@ e_wendish_empire = {
 			norse = "Kurland"
 			danish = "Kurland"
 			norwegian = "Kurland"
+			lettigallish = Curonia
+			lithuanian = Curonia
+			prussian = Curonia
 			
 			c_zemigalians = {
 				color={ 182 20 20 }
@@ -11161,6 +13099,8 @@ e_wendish_empire = {
 				b_bandava = {
 				}
 				b_ceklis = {
+				}
+				b_dungada = {
 				}
 			}
 		}
@@ -11619,27 +13559,6 @@ e_russia = {
 				b_zaytsevo = {
 				}
 			}
-			c_vologda = {
-				color={ 141 158 98 }
-				color2={ 255 255 255 }
-					
-				b_vologda = {
-				}
-				b_kadnikovskaya = {
-				}
-				b_sokol = {
-				}
-				b_uste = {
-				}
-				b_bolshayamurga = {
-				}
-				b_dvinitsa = {
-				}
-				b_motyn = {
-				}
-				b_staroye = {
-				}
-			}
 		}
 		d_novgorod = {
 			color={ 107 164 64 }
@@ -11651,6 +13570,15 @@ e_russia = {
 			norse = "Holmgarðr"
 			danish = "Holmgård"
 			norwegian = "Holmgård"
+			ilmenian = "Ilmen"
+			severian = "Ilmen"
+			mordvin = "Ilmen"
+			samoyed = "Ilmen"
+			finnish = "Ilmen"
+			lappish = "Ilmen"
+			ugricbaltic = "Ilmen"
+			komi = "Ilmen"
+			khanty = "Ilmen"
 			
 			pagan_coa = {
 				template = 0
@@ -11770,6 +13698,36 @@ e_russia = {
 				b_luga = {
 				}
 			}
+			c_toropets = {
+				color={ 157 173 113 }
+				color2={ 255 255 255 }
+						
+				b_staryarussa = {
+				}
+				b_valday = {
+				}
+				b_toropets = {
+				}
+				b_demyansk = {
+				}
+				b_shimsk = {
+				}
+				b_dno = {
+				}
+				b_lychkovo = {
+				}
+				b_kresttsy = {
+				}
+			}
+		}
+		d_pskov = {
+			color={ 140 130 62 }
+			color2={ 255 255 255 }
+			
+			capital = 413 # Pskov
+			
+			german = "Pleskau"
+
 			c_pskov = {
 				color={ 151 167 107 }
 				color2={ 255 255 255 }
@@ -11812,27 +13770,6 @@ e_russia = {
 				b_loknya = {
 				}
 				b_staryatoropa = {
-				}
-			}
-			c_toropets = {
-				color={ 157 173 113 }
-				color2={ 255 255 255 }
-						
-				b_staryarussa = {
-				}
-				b_valday = {
-				}
-				b_toropets = {
-				}
-				b_demyansk = {
-				}
-				b_shimsk = {
-				}
-				b_dno = {
-				}
-				b_lychkovo = {
-				}
-				b_kresttsy = {
 				}
 			}
 		}
@@ -11931,6 +13868,9 @@ e_russia = {
 			
 			capital = 570 # Tver
 			
+			ilmenian = "Vyatich"
+			severian = "Vyatich"
+			
 			c_tver = {
 				color={ 172 186 128 }
 				color2={ 255 255 255 }
@@ -11980,6 +13920,13 @@ e_russia = {
 			
 			capital = 572 # Yaroslavl
 			
+			finnish = Merya
+			lappish = Merya
+			ugricbaltic = Merya
+			komi = Merya
+			samoyed = Merya
+			mordvin = Merya
+			
 			c_kostroma = {
 				color={ 181 195 137 }
 				color2={ 255 255 255 }
@@ -12022,12 +13969,36 @@ e_russia = {
 				b_volgostroy = {
 				}
 			}
+			c_vologda = {
+				color={ 141 158 98 }
+				color2={ 255 255 255 }
+					
+				b_vologda = {
+				}
+				b_kadnikovskaya = {
+				}
+				b_sokol = {
+				}
+				b_uste = {
+				}
+				b_bolshayamurga = {
+				}
+				b_dvinitsa = {
+				}
+				b_motyn = {
+				}
+				b_staroye = {
+				}
+			}
 		}
 		d_vladimir = {
 			color={ 180 200 90 }
 			color2={ 255 255 255 }
 			
 			capital = 582 # Vladimir
+			
+			mordvin = "Murom"
+			samoyed = "Murom"
 	
 			c_galich_mersky = {
 				color={ 190 204 146 }
@@ -12171,6 +14142,8 @@ e_russia = {
 			
 			capital = 575 # Moskva
 			
+			mordvin = Mochkava
+			
 			c_mozhaysk = {
 				color={ 200 225 156 }
 				color2={ 255 255 255 }
@@ -12196,7 +14169,10 @@ e_russia = {
 				color={ 220 235 176 }
 				color2={ 255 255 255 }
 				
+				mordvin = Mochkava
+				
 				b_moskva = {
+					mordvin = Mochkava
 				}
 				b_rogozhi = {
 				}
@@ -12448,6 +14424,8 @@ e_russia = {
 			
 			capital = 552 # Turov
 			
+			ilmenian = "Dregovichia"
+			
 			c_turov = {
 				color={ 135 160 100 }
 				color2={ 255 255 255 }
@@ -12497,6 +14475,8 @@ e_russia = {
 			color2={ 255 255 255 }
 			
 			capital = 417 # Vitebsk
+			
+			ilmenian = Kryvia
 			
 			c_minsk = {
 				color={ 60 105 2 }
@@ -12569,6 +14549,9 @@ e_russia = {
 			
 			capital = 568 # Smolensk
 			
+			severian = "Radimichia"
+			ilmenian = "Radimichia"
+			
 			c_smolensk = {
 				color={ 229 244 185 }
 				color2={ 255 255 255 }
@@ -12635,6 +14618,10 @@ e_russia = {
 			color2={ 255 255 255 }
 			
 			capital = 554 # Chernigov
+			
+			severian = "Severia"
+			ilmenian = "Severia"
+			mordvin = "Severia"
 			
 			c_lyubech = {
 				color={ 238 253 194 }
@@ -12738,6 +14725,8 @@ e_russia = {
 			
 			capital = 580 # Ryazan
 			
+			mordvin = Meshchera
+
 			c_pronsk = {
 				color={ 101 110 45 }
 				color2={ 255 255 255 }
@@ -13092,27 +15081,6 @@ e_russia = {
 			
 			capital = 401 # Hlynov
 			
-			c_hlynov = {
-				color={ 116 131 71 }
-				color2={ 255 255 255 }
-				
-				b_hlynov = {
-				}
-				b_egra = {
-				}
-				b_glazkar = {
-				}
-				b_izkar = {
-				}
-				b_kambarka = {
-				}
-				b_sarapul = {
-				}
-				b_mozjga = {
-				}
-				b_wotka = {
-				}
-			}
 			c_zyriane = {
 				color={ 195 160 65 }
 				color2={ 255 255 255 }
@@ -13363,6 +15331,8 @@ e_tartaria = {
 			
 			capital = 620 # Itil
 		
+			pecheneg = "Pecheneg"
+
 			c_itil = {
 				color={ 155 122 34 }
 				color2={ 255 255 255 }
@@ -13498,27 +15468,6 @@ e_tartaria = {
 			
 			capital = 594 # Sarkel
 		
-			c_khopyor = {
-				color={ 238 202 107 }
-				color2={ 255 255 255 }
-			
-				b_khopyorsk = {
-				}
-				b_borisoglebsk = {
-				}
-				b_tambov = {
-				} 
-				b_uryupin = {
-				}
-				b_balashov = {
-				}
-				b_kirsanov = {
-				}
-				b_ustmedveditskaya = {
-				}
-				b_uvarovo = {
-				}
-			}
 			c_sugrov = {
 				color={ 240 204 109 }
 				color2={ 255 255 255 }
@@ -13809,6 +15758,8 @@ e_tartaria = {
 			
 			capital = 1430 # Kipchak
 			
+			pecheneg = "Pecheneg"
+			
 			c_kipchak = {
 				color={ 151 94 60 }
 				color2={ 255 255 255 }
@@ -13942,6 +15893,61 @@ e_tartaria = {
 			}
 		}
 	
+		d_maris = {
+			color = { 150 130 45 }
+			
+			capital = 588 # Mari
+			
+			allow = {
+				always = no
+			}
+			
+			culture = mordvin
+
+			c_merya = { # Actually Mari
+				
+				color={ 234 174 13 }
+				color2={ 255 255 255 }
+			
+				b_yoshkarola = {
+				}
+				b_volzhsk = {
+				}
+				b_lopatino = {
+				}
+				b_tsikma = {
+				}
+				b_provoi = {
+				}
+				b_kilemary = {
+				}
+				b_mariturek = {
+				}
+				b_morki = {
+				}
+			}
+			c_hlynov = {
+				color={ 116 131 71 }
+				color2={ 255 255 255 }
+				
+				b_hlynov = {
+				}
+				b_egra = {
+				}
+				b_glazkar = {
+				}
+				b_izkar = {
+				}
+				b_kambarka = {
+				}
+				b_sarapul = {
+				}
+				b_mozjga = {
+				}
+				b_wotka = {
+				}
+			}
+		}
 		d_bulgar = { 
 			color={ 193 158 63 }
 			color2={ 255 255 255 }
@@ -14081,28 +16087,6 @@ e_tartaria = {
 				b_alabuga = {
 				}
 			}
-			c_merya = { # Actually Mari
-				
-				color={ 234 174 13 }
-				color2={ 255 255 255 }
-			
-				b_yoshkarola = {
-				}
-				b_volzhsk = {
-				}
-				b_lopatino = {
-				}
-				b_tsikma = {
-				}
-				b_provoi = {
-				}
-				b_kilemary = {
-				}
-				b_mariturek = {
-				}
-				b_morki = {
-				}
-			}
 			c_chuvash = {
 				color={ 237 177 16 }
 				color2={ 255 255 255 }
@@ -14145,6 +16129,41 @@ e_tartaria = {
 				b_barysh = {
 				}
 			}
+		}
+		d_mordvins = {
+			color = { 148 165 45 }
+	
+			capital = 579 # Mordva
+	
+			#	tribe = yes
+	
+			allow = {
+				always = no
+			}
+	
+			culture = mordvin
+
+			c_mordva = {
+				color={ 246 186 25 }
+				color2={ 255 255 255 }
+			
+				b_saransk = {
+				}
+				b_insar = {
+				}
+				b_temnikow = {
+				}
+				b_ardatovo = {
+				}
+				b_krasnoslobodsk = {
+				}
+				b_yalga = {
+				}
+				b_penza = {
+				}
+				b_yavas = {
+				}
+			}
 			c_burtasy = {
 				color={ 243 183 22 }
 				color2={ 255 255 255 }
@@ -14166,25 +16185,25 @@ e_tartaria = {
 				b_rtishchevo = {
 				}
 			}
-			c_mordva = {
-				color={ 246 186 25 }
+			c_khopyor = {
+				color={ 238 202 107 }
 				color2={ 255 255 255 }
 			
-				b_saransk = {
+				b_khopyorsk = {
 				}
-				b_insar = {
+				b_borisoglebsk = {
 				}
-				b_temnikow = {
+				b_tambov = {
+				} 
+				b_uryupin = {
 				}
-				b_ardatovo = {
+				b_balashov = {
 				}
-				b_krasnoslobodsk = {
+				b_kirsanov = {
 				}
-				b_yalga = {
+				b_ustmedveditskaya = {
 				}
-				b_penza = {
-				}
-				b_yavas = {
+				b_uvarovo = {
 				}
 			}
 		}
@@ -14656,7 +16675,7 @@ e_tartaria = {
 		
 		tengri_pagan_reformed = 500
 		zoroastrian_group = 150 # Crusade target weight
-
+		
 		d_turkestan = {
 			color={ 224 170 24 }
 			color2={ 255 255 255 }
@@ -15845,6 +17864,8 @@ e_persia = {
 				color2={ 255 255 255 }
 				
 				b_kabul = {
+					holy_site = zun_pagan
+					holy_site = zun_pagan_reformed
 				}
 				b_adinapur = {
 				}
@@ -15924,6 +17945,8 @@ e_persia = {
 				b_kandahar = {
 				}
 				b_zamindawar = {
+					holy_site = zun_pagan
+					holy_site = zun_pagan_reformed
 				}
 				b_sangin = {
 				}
@@ -16676,6 +18699,8 @@ e_persia = {
 				b_bagdad = {
 					holy_site = sunni
 					holy_site = nestorian
+					holy_site = zun_pagan
+					holy_site = zun_pagan_reformed
 				}
 				b_hillah = {
 				}
@@ -17066,6 +19091,8 @@ e_carpathia = {
 			color2={ 255 255 255 }
 			
 			capital = 545 # Torki
+			
+			pecheneg = "Pecheneg"
 		
 			c_peresechen = {
 				color={ 225 204 147 }
@@ -17178,13 +19205,11 @@ e_carpathia = {
 	}
 
 	k_hungary = {
-		color={ 187 70 70 }
+		color={ 250 120 90 }
 		color2={ 255 255 255 }
 		
 		capital	= 444 # Esztergom
 
-		avar = Avar
-		
 		allow = {
 			OR = {
 				culture_group = magyar
@@ -18433,7 +20458,7 @@ e_france = {
 	}
 	
 	k_aquitaine = {
-		color={ 54 50 226 }
+		color={ 150 80 170 }
 		color2={ 255 255 20 }
 		capital = 149 # Bordaeux
 		
@@ -18989,6 +21014,9 @@ e_france = {
 		catholic = 300 # Crusade target weight
 		
 		norse = Bertangaland
+		welsh = Arymôr
+		irish = Bhriotáin
+		frankish = Bretagne
 		
 		allow = {
 			hidden_tooltip = {
@@ -19008,68 +21036,104 @@ e_france = {
 			culture = breton
 			
 			norse = Bertangaland
+			breton = Breizh
+			welsh = Llydaw
+			irish = Briotáine
+			frankish = Bretagne
 			
 			c_nantes = {
 				color={ 170 50 23 }
 				color2={ 255 255 255 }
 				
+				breton = Naoned
+				
 				b_nantes = {
+					breton = Naoned
 				}
 				b_chateaubriant = {
+					breton = Kastell-Briant
 				}
 				b_redon = {
+					breton = Ridined
 				}
 				b_guerande = {
+					breton = Gwennrann
 				}
 				b_clisson = {
+					breton = Klison
 				}
 				b_donges = {
+					breton = Dined
 				}
 				b_la_roche-bernard = {
+					breton = "Ar Roc'h-Bernez"
 				}
 				b_st_nazaire = {
+					breton = "Sant-Nazer"
 				}
 			}
 			c_vannes = {
 				color={ 140 30 13 }
 				color2={ 255 255 255 }
+
+				breton = Broërec
+				welsh = Guened
 				
 				b_vannes = {
+					breton = "Gwened"
+					welsh = "Guened"
 				}
 				b_josselin = {
+					breton = "Josilin"
 				}
 				b_st_gildas = {
+					breton = "Lokentaz"
 				}
 				b_locmine = {
+					breton = "Logunec'h"
 				}
 				b_hennebont = {
+					breton = "Henbont"
 				}
 				b_pontivy = {
+					breton = "Pondi"
 				}
 				b_auray = {
+					breton = "An Alre"
 				}
 				b_ploermel = {
+					breton = "Ploermael"
 				}
 			}
 			c_cornouaille = {
 				color={ 126 27 9 }
 				color2={ 255 255 255 }
 				
+				breton = "Kernev"
+				
 				b_quimper = {
+					breton = "Kemper"
 				}
 				b_carhaix = {
+					breton = "Karaez"
 				}
 				b_quimperle = {
+					breton = "Kemperle"
 				}
 				b_landevennec = {
+					breton = "Landevenneg"
 				}
 				b_corlay = {
+					breton = "Korle"
 				}
 				b_huelgoat = {
+					breton = "An Uhelgoad"
 				}
 				b_langonnet = {
+					breton = "Langoned"
 				}
 				b_lezergue = {
+					breton = "An Erge Vras"
 				}
 			}
 			c_french_leon = {
@@ -19079,58 +21143,78 @@ e_france = {
 				b_brest = {
 				}
 				b_guingamp = {
+					breton = "Gwengamp"
 				}
 				b_st_pol_de_leon = {
+					breton = "Kastell-Paol"
 				}
 				b_treguier = {
+					breton = "Landreger"
 				}
 				b_morlaix = {
+					breton = "Montroulez"
 				}
 				b_roscoff = {
+					breton = "Rosko"
 				}
 				b_plougonven = {
 				}
 				b_plourivo = {
+					breton = "Plourivoù"
 				}
 			}
 			c_penthievre = {
 				color={ 176 79 24 }
 				color2={ 255 255 255 }
 				
+				breton = "Domnonia"
+				
 				b_verdelet = {
+					breton = "Sentiles"
 				}
 				b_st_brieuc = {
+					breton = "Sant-Brieg"
 				}
 				b_monkontour = {
 				}
 				b_peran = {
+					breton = "Sant-Pêran"
 				}
 				b_loudeac = {
 				}
 				b_paimpol = {
 				}
 				b_chatelaudren = {
+					breton = "Kastellaodren"
 				}
 				b_quintin = {
+					breton = "Kintin"
 				}
 			}
 			c_rennes = {
 				color={ 106 42 8 }
 				color2={ 255 255 255 }
 				
+				breton = "Roazhon"
+				
 				b_rennes = {
+					breton = "Roazhon"
 				}
 				b_fougeres = {
+					breton = "Felger"
 				}
 				b_st_michel = {
+					breton = "Sant-Mikael"
 				}
 				b_st_malo = {
+					breton = "Sant-Maloù"
 				}
 				b_dol = {
 				}
 				b_dinan = {
 				}
 				b_st_meen = {
+					breton = "Sant-Méen"
 				}
 				b_porhoet = {
 				}
@@ -19589,7 +21673,7 @@ e_spain = {
 		color2={ 200 80 10 }
 		dignity = 2 # Counted as having 2 more counties than it does
 		
-		capital = 199 # Burgos
+		capital = 197 # Toledo
 		
 		culture = castillan
 		
@@ -20445,6 +22529,86 @@ e_spain = {
 				
 				b_santiago = {
 					holy_site = catholic
+					holy_site = lancea_sanctum
+					holy_site = invictus
+					holy_site = icarian
+					holy_site = gnostic
+					holy_site = livian
+					holy_site = die_nachteulen
+					holy_site = ordo_dracul
+					holy_site = revenant_longinus
+					holy_site = al-amin
+					holy_site = banu_shaitan
+					holy_site = dammitic
+					holy_site = revenant_abrahamic
+					holy_site = circle_of_the_crone
+					holy_site = unaligned
+					holy_site = laibon
+					holy_site = carthian
+					holy_site = revenant_unaligned
+					holy_site = nameless
+					holy_site = roaring_serpent
+					holy_site = pandaemonium
+					holy_site = mercy_seat
+					holy_site = smokeless_throne
+					holy_site = scarlet_rite
+					holy_site = corpus_delecti
+					holy_site = horned_hand
+					holy_site = teeth_of_yamatu
+					holy_site = revenant_duolosi
+					holy_site = asura-dharma
+					holy_site = mara-dharma
+					holy_site = prati-vasudeva-dharma
+					holy_site = revenant-dharma
+					holy_site = sennex
+					holy_site = legio_mortuum
+					holy_site = cult_of_augurs
+					holy_site = peregrine_collegia
+					holy_site = adamantes_athanatoi
+					holy_site = revenant_camarilla
+					holy_site = ivory_claws
+					holy_site = fire-touched
+					holy_site = predator_kings
+					holy_site = blood_talons
+					holy_site = bone_shadows
+					holy_site = hunters_in_darkness
+					holy_site = iron_masters
+					holy_site = storm_lords
+					holy_site = ghost_wolves
+					holy_site = bale_hounds
+					holy_site = magicka
+					holy_site = mummy
+					holy_site = changeling
+					holy_site = promethean
+					holy_site = demon
+					holy_site = geist
+					holy_site = aegis_kai_doru
+					holy_site = ascending_ones
+					holy_site = knights_of_saint_george
+					holy_site = les_mysteres
+					holy_site = malleus_maleficarum
+					holy_site = lucifuge
+					holy_site = ahl_al-jabal
+					holy_site = innocent
+					holy_site = insane
+					holy_site = criminal
+					holy_site = vampire_high_clans
+					holy_site = revenant_high_clans
+					holy_site = ashirra
+					holy_site = revenant_ashirra
+					holy_site = assamites
+					holy_site = revenant_assamites
+					holy_site = vampire_low_clans
+					holy_site = anarchs
+					holy_site = revenant_anarchs 
+					holy_site = autarkis
+					holy_site = revenant_autarkis
+					holy_site = furores
+					holy_site = vampire_promethean
+					holy_site = revenant_promethean
+					holy_site = revenant_furores
+					holy_site = revenant_low_clans
+					holy_site 
 				}
 				b_vigo = {
 				}
@@ -21501,7 +23665,8 @@ e_arabia = {
 			
 				b_medina = {
 					holy_site = sunni
-					holy_site = shiite				
+					holy_site = shiite
+					holy_site = ibadi
 				}
 				b_khaybar = {
 				}
@@ -21527,128 +23692,9 @@ e_arabia = {
 				b_mecca = {
 					holy_site = sunni
 					holy_site = shiite
-					
 					holy_site = pagan
-					holy_site = lancea_sanctum
-					holy_site = invictus
-					holy_site = icarian
-					holy_site = gnostic
-					holy_site = livian
-					holy_site = die_nachteulen
-					holy_site = ordo_dracul
-					holy_site = revenant_longinus
-					holy_site = al-amin
-					holy_site = banu_shaitan
-					holy_site = dammitic
-					holy_site = revenant_abrahamic
-					holy_site = circle_of_the_crone
-					holy_site = unaligned
-					holy_site = laibon
-					holy_site = carthian
-					holy_site = revenant_unaligned
-					holy_site = nameless
-					holy_site = roaring_serpent
-					holy_site = pandaemonium
-					holy_site = mercy_seat
-					holy_site = smokeless_throne
-					holy_site = scarlet_rite
-					holy_site = corpus_delecti
-					holy_site = horned_hand
-					holy_site = teeth_of_yamatu
-					holy_site = revenant_duolosi
-					holy_site = asura-dharma
-					holy_site = mara-dharma
-					holy_site = prati-vasudeva-dharma
-					holy_site = revenant-dharma
-					holy_site = sennex
-					holy_site = legio_mortuum
-					holy_site = cult_of_augurs
-					holy_site = peregrine_collegia
-					holy_site = adamantes_athanatoi
-					holy_site = revenant_camarilla
-					holy_site = ivory_claws
-					holy_site = fire-touched
-					holy_site = predator_kings
-					holy_site = blood_talons
-					holy_site = bone_shadows
-					holy_site = hunters_in_darkness
-					holy_site = iron_masters
-					holy_site = storm_lords
-					holy_site = ghost_wolves
-					holy_site = bale_hounds
-					holy_site = magicka
-					holy_site = mummy
-					holy_site = changeling
-					holy_site = promethean
-					holy_site = demon
-					holy_site = geist
-					holy_site = aegis_kai_doru
-					holy_site = ascending_ones
-					holy_site = knights_of_saint_george
-					holy_site = les_mysteres
-					holy_site = malleus_maleficarum
-					holy_site = lucifuge
-					holy_site = ahl_al-jabal
-					holy_site = innocent
-					holy_site = insane
-					holy_site = criminal
-					holy_site = vampire_high_clans
-					holy_site = revenant_high_clans
-					holy_site = ashirra
-					holy_site = revenant_ashirra
-					holy_site = assamites
-					holy_site = revenant_assamites
-					holy_site = vampire_low_clans
-					holy_site = anarchs
-					holy_site = revenant_anarchs 
-					holy_site = autarkis
-					holy_site = revenant_autarkis
-					holy_site = furores
-					holy_site = vampire_promethean
-					holy_site = revenant_promethean
-					holy_site = revenant_furores
-					holy_site = revenant_low_clans
-					holy_site = anda
-					holy_site = einherjar
-					holy_site = noiad
-					holy_site = tremerelow
-					holy_site = koldun
-					holy_site = baali 
-					holy_site = revenant_baali
-					holy_site = masquerade_camarilla
-					holy_site = gangrelcamarilla
-					holy_site = brujahcamarilla
-					holy_site = malkaviancamarilla
-					holy_site = nosferatucamarilla
-					holy_site = toreadorcamarilla
-					holy_site = tremerecamarilla
-					holy_site = ventruecamarilla
-					holy_site = revenant_masquerade_camarilla
-					holy_site = sabbat
-					holy_site = revenant_sabbat
-					holy_site = inconnu
-					holy_site = revenant_inconnu
-					holy_site = giovanni 
-					holy_site = revenant_giovanni
-					holy_site = settite
-					holy_site = revenant_settite
-					holy_site = mayaparisataya
-					holy_site = revenant_mayaparisataya
-					holy_site = oradealeague 
-					holy_site = silver_fangs
-					holy_site = black_furies
-					holy_site = stargazers
-					holy_site = red_talons
-					holy_site = get_of_fenris
-					holy_site = fianna
-					holy_site = white_howlers
-					holy_site = silent_striders
-					holy_site = warders_of_men
-					holy_site = glass_walkers
-					holy_site = shadow_lords
-					holy_site = bone_gnawers
-					holy_site = black_spiral_dancers 
 					holy_site = yazidi
+					holy_site = ibadi
 				}
 				b_jeddah = {
 				}
@@ -21852,6 +23898,7 @@ e_arabia = {
 				b_alhamra = {
 				}
 				b_nizwa = {
+					holy_site = ibadi
 				}
 				b_ibri = {
 				}
@@ -22337,6 +24384,8 @@ e_arabia = {
 				b_helwan = {
 				}
 				b_heliopolis = {
+					holy_site = zun_pagan
+					holy_site = zun_pagan_reformed
 				}
 				b_maadi = {
 				}
@@ -22572,8 +24621,12 @@ e_arabia = {
 		
 		# Creation Effect
 		gain_effect = {
-			prestige = 5000
-			piety = 2000
+			if = {
+				limit = { NOT = { has_character_flag = created_jerusalem } }
+				prestige = 5000
+				piety = 2000 
+				set_character_flag = created_jerusalem
+			}
 		}
 		
 		christian = 500 # Crusade target weight
@@ -22807,7 +24860,7 @@ e_arabia = {
 			}
 		}
 		d_jerusalem = {
-			color2={ 202 202 190 }
+			color={ 202 202 190 }
 			color2={ 255 255 255 }
 			
 			capital = 774 # Jerusalem
@@ -22816,7 +24869,7 @@ e_arabia = {
 			muslim = 250 # Crusade target weight
 		
 			c_jerusalem = {
-				color2={ 250 250 230 }
+				color={ 250 250 230 }
 				color2={ 255 255 255 }
 				
 				christian = 250 # Crusade target weight
@@ -22827,14 +24880,6 @@ e_arabia = {
 				b_jerusalem = {
 					pentarchy = yes
 					holy_site = catholic
-					holy_site = orthodox
-					holy_site = sunni
-					holy_site = shiite
-					holy_site = miaphysite
-					holy_site = monophysite
-					holy_site = nestorian
-					
-					holy_site = pagan
 					holy_site = lancea_sanctum
 					holy_site = invictus
 					holy_site = icarian
@@ -22914,50 +24959,19 @@ e_arabia = {
 					holy_site = revenant_promethean
 					holy_site = revenant_furores
 					holy_site = revenant_low_clans
-					holy_site = anda
-					holy_site = einherjar
-					holy_site = noiad
-					holy_site = tremerelow
-					holy_site = koldun
-					holy_site = baali 
-					holy_site = revenant_baali
-					holy_site = masquerade_camarilla
-					holy_site = gangrelcamarilla
-					holy_site = brujahcamarilla
-					holy_site = malkaviancamarilla
-					holy_site = nosferatucamarilla
-					holy_site = toreadorcamarilla
-					holy_site = tremerecamarilla
-					holy_site = ventruecamarilla
-					holy_site = revenant_masquerade_camarilla
-					holy_site = sabbat
-					holy_site = revenant_sabbat
-					holy_site = inconnu
-					holy_site = revenant_inconnu
-					holy_site = giovanni 
-					holy_site = revenant_giovanni
-					holy_site = settite
-					holy_site = revenant_settite
-					holy_site = mayaparisataya
-					holy_site = revenant_mayaparisataya
-					holy_site = oradealeague 
-					holy_site = silver_fangs
-					holy_site = black_furies
-					holy_site = stargazers
-					holy_site = red_talons
-					holy_site = get_of_fenris
-					holy_site = fianna
-					holy_site = white_howlers
-					holy_site = silent_striders
-					holy_site = warders_of_men
-					holy_site = glass_walkers
-					holy_site = shadow_lords
-					holy_site = bone_gnawers
-					holy_site = black_spiral_dancers 
+					holy_site 
+					holy_site = orthodox
+					holy_site = sunni
+					holy_site = shiite
+					holy_site = miaphysite
+					holy_site = monophysite
+					holy_site = nestorian
+					holy_site = pagan
 					holy_site = yazidi
 					holy_site = jewish
 					holy_site = samaritan
 					holy_site = karaite
+					holy_site = ibadi
 				}
 				b_nablus = {
 				}
@@ -22973,7 +24987,7 @@ e_arabia = {
 				}
 			}
 			c_acre = {
-				color2={ 230 190 154 }
+				color={ 230 190 154 }
 				color2={ 255 255 255 }
 		
 				b_acre = {
@@ -22994,7 +25008,7 @@ e_arabia = {
 				}
 			}
 			c_hebron = {
-				color2={ 200 210 160 }
+				color={ 200 210 160 }
 				color2={ 255 255 255 }
 		
 				b_hebron = {
@@ -23016,13 +25030,13 @@ e_arabia = {
 			}
 		}
 		d_galilee = {
-			color2={ 225 200 160 }
+			color={ 225 200 160 }
 			color2={ 255 255 255 }
 			
 			capital = 771 # Tyrus
 		
 			c_tiberias = {
-				color2={ 225 220 160 }
+				color={ 225 220 160 }
 				color2={ 255 255 255 }
 			
 				b_tiberias = {
@@ -23043,7 +25057,7 @@ e_arabia = {
 				}
 			}
 			c_tyrus = {
-				color2={ 245 245 200 }
+				color={ 245 245 200 }
 				color2={ 255 255 255 }
 				
 				bedouin_arabic = "Sur"
@@ -23075,7 +25089,7 @@ e_arabia = {
 				}
 			}
 			c_beirut = {
-				color2={ 255 245 190 }
+				color={ 255 245 190 }
 				color2={ 255 255 255 }
 			
 				b_beirut = {
@@ -23096,7 +25110,7 @@ e_arabia = {
 				}
 			}
 			c_safed = {
-				color2={ 230 250 190 }
+				color={ 230 250 190 }
 				color2={ 255 255 255 }
 			
 				b_safed = {
@@ -23951,6 +25965,7 @@ e_arabia = {
 				b_bordj = {
 					holy_site = west_african_pagan
 					holy_site = west_african_pagan_reformed
+					holy_site = ibadi
 				}
 				b_elyourh = {
 				}
@@ -25485,16 +27500,23 @@ e_britannia = {
 		norse_pagan_reformed = 200 # Crusade target weight
 		
 		culture = saxon
+
+		welsh = Lloegyr
+		irish = Sasana
 		
 		d_northumberland = {
 			color={ 255 0 0 }
 			color2={ 255 255 255 }
 			
 			capital = 52 # Northumberland
+
+			saxon = Northumbria
 			
 			c_northumberland = {
 				color={ 255 10 0 }
 				color2={ 255 255 255 }
+				
+				saxon = Northumbria
 			
 				b_morpeth = {
 				}
@@ -25735,27 +27757,6 @@ e_britannia = {
 					norse = "Kungsborg"
 				}
 			}
-			c_leicester = {
-				color={ 255 85 10 }
-				color2={ 255 255 255 }
-			
-				b_leicester = {
-				}
-				b_nottingham = {
-				}
-				b_southwell = {
-				}
-				b_newark = {
-				}
-				b_hucknall = {
-				}
-				b_tickhill = {
-				}
-				b_worksop = {
-				}
-				b_newstead = {
-				}
-			}
 			c_lincoln = {
 				color={ 255 90 20 }
 				color2={ 255 255 255 }
@@ -25937,53 +27938,32 @@ e_britannia = {
 			color={ 241 47 15 }
 			color2={ 255 255 255 }
 			
-			capital = 17 # Hereford
+			capital = 67 # Warwick
 			
 			dignity = 5
 			
-			norman = "Hereford"
-			english = "Hereford"
+			norman = "Warwick"
+			english = "Warwick"
 			
-			c_hereford = {
-				color={ 241 50 20 }
+			c_leicester = {
+				color={ 255 85 10 }
 				color2={ 255 255 255 }
 			
-				b_st_ethelberts = {
+				b_leicester = {
 				}
-				b_hereford = {
+				b_nottingham = {
 				}
-				b_leominster = {
+				b_southwell = {
 				}
-				b_archenfield = {
+				b_newark = {
 				}
-				b_ewyas_harold = {
+				b_hucknall = {
 				}
-				b_ledbury = {
+				b_tickhill = {
 				}
-				b_clifford = {
+				b_worksop = {
 				}
-				b_brobury = {
-				}
-			}
-			c_shrewsbury = {
-				color={ 241 55 25 }
-				color2={ 255 255 255 }
-			
-				b_shrewsbury = {
-				}
-				b_clun = {
-				}
-				b_wenlock = {
-				}
-				b_ludlow = {
-				}
-				b_whitchurch = {
-				}
-				b_bridgnorth = {
-				}
-				b_oswestry = {
-				}
-				b_chirk = {
+				b_newstead = {
 				}
 			}
 			c_warwick = {
@@ -26139,6 +28119,86 @@ e_britannia = {
 				}
 				b_canterbury = {
 					holy_site = catholic
+					holy_site = lancea_sanctum
+					holy_site = invictus
+					holy_site = icarian
+					holy_site = gnostic
+					holy_site = livian
+					holy_site = die_nachteulen
+					holy_site = ordo_dracul
+					holy_site = revenant_longinus
+					holy_site = al-amin
+					holy_site = banu_shaitan
+					holy_site = dammitic
+					holy_site = revenant_abrahamic
+					holy_site = circle_of_the_crone
+					holy_site = unaligned
+					holy_site = laibon
+					holy_site = carthian
+					holy_site = revenant_unaligned
+					holy_site = nameless
+					holy_site = roaring_serpent
+					holy_site = pandaemonium
+					holy_site = mercy_seat
+					holy_site = smokeless_throne
+					holy_site = scarlet_rite
+					holy_site = corpus_delecti
+					holy_site = horned_hand
+					holy_site = teeth_of_yamatu
+					holy_site = revenant_duolosi
+					holy_site = asura-dharma
+					holy_site = mara-dharma
+					holy_site = prati-vasudeva-dharma
+					holy_site = revenant-dharma
+					holy_site = sennex
+					holy_site = legio_mortuum
+					holy_site = cult_of_augurs
+					holy_site = peregrine_collegia
+					holy_site = adamantes_athanatoi
+					holy_site = revenant_camarilla
+					holy_site = ivory_claws
+					holy_site = fire-touched
+					holy_site = predator_kings
+					holy_site = blood_talons
+					holy_site = bone_shadows
+					holy_site = hunters_in_darkness
+					holy_site = iron_masters
+					holy_site = storm_lords
+					holy_site = ghost_wolves
+					holy_site = bale_hounds
+					holy_site = magicka
+					holy_site = mummy
+					holy_site = changeling
+					holy_site = promethean
+					holy_site = demon
+					holy_site = geist
+					holy_site = aegis_kai_doru
+					holy_site = ascending_ones
+					holy_site = knights_of_saint_george
+					holy_site = les_mysteres
+					holy_site = malleus_maleficarum
+					holy_site = lucifuge
+					holy_site = ahl_al-jabal
+					holy_site = innocent
+					holy_site = insane
+					holy_site = criminal
+					holy_site = vampire_high_clans
+					holy_site = revenant_high_clans
+					holy_site = ashirra
+					holy_site = revenant_ashirra
+					holy_site = assamites
+					holy_site = revenant_assamites
+					holy_site = vampire_low_clans
+					holy_site = anarchs
+					holy_site = revenant_anarchs 
+					holy_site = autarkis
+					holy_site = revenant_autarkis
+					holy_site = furores
+					holy_site = vampire_promethean
+					holy_site = revenant_promethean
+					holy_site = revenant_furores
+					holy_site = revenant_low_clans
+					holy_site 
 				}
 				b_faversham = {
 				}
@@ -26260,6 +28320,10 @@ e_britannia = {
 		
 		catholic = 300 # Crusade target weight
 		
+		welsh = "Brythoniaid"
+		breton = "Kembre"
+		irish = "Bhreatain Bheag"
+
 		allow = {
 			hidden_tooltip = {
 				OR = {
@@ -26320,6 +28384,11 @@ e_britannia = {
 				b_hawarden = {
 				}
 			}
+		}
+		d_powys = {
+			color={ 180 130 0 }
+			color2={ 255 255 255 }
+				
 			c_powys = {
 				color={ 175 90 20 }
 				color2={ 255 255 255 }
@@ -26339,6 +28408,53 @@ e_britannia = {
 				b_montgomery = {
 				}
 				b_rhayader = {
+				}
+			}
+			c_shrewsbury = {
+				color={ 241 55 25 }
+				color2={ 255 255 255 }
+				
+				welsh = Pengwern
+			
+				b_shrewsbury = {
+				}
+				b_clun = {
+				}
+				b_wenlock = {
+				}
+				b_ludlow = {
+				}
+				b_whitchurch = {
+				}
+				b_bridgnorth = {
+				}
+				b_oswestry = {
+				}
+				b_chirk = {
+				}
+			}
+			c_hereford = {
+				color={ 241 50 20 }
+				color2={ 255 255 255 }
+				
+				welsh = Ergyng
+			
+				b_st_ethelberts = {
+				}
+				b_hereford = {
+					welsh = "Din Aricon"
+				}
+				b_leominster = {
+				}
+				b_archenfield = {
+				}
+				b_ewyas_harold = {
+				}
+				b_ledbury = {
+				}
+				b_clifford = {
+				}
+				b_brobury = {
 				}
 			}
 		}
@@ -26481,9 +28597,10 @@ e_britannia = {
 		swedish = Skottland
 		danish = Skotland
 		norwegian = Skottland
-		welsh = Alba
+		welsh = Alban
 		irish = Alba
 		breton = Alba
+		pictish = Pictland
 		
 		d_galloway = {
 			color={ 77 116 208 }
@@ -26492,71 +28609,157 @@ e_britannia = {
 			capital = 50 # Galloway
 			
 			welsh = Strathclyde
+			pictish = "Nouantia"
+			irish = "Gall-Ghaidhealaibh"
 			
 			c_galloway = {
 				color={ 15 185 243 }
 				color2={ 255 255 255 }
 				
+				pictish = "Nouantia"
+				welsh = "Nofant"
+				irish = "Na Rannaibh"
+				
 				b_dumfries = {
+					pictish = "Dunrad"
+					welsh = "Dinrhyd"
+					irish = "Dùn Phris"
 				}
 				b_dunragit = {
+					pictish = "Dunreget"
+					welsh = "Din Rheged"
+					irish = "Dùn Reicheit"
 				}
 				b_whithorn = {
+					pictish = "Taiuuan"
+					welsh = "Tygwyn"
+					irish = "Taigh Mhàrtainn"
 				}
 				b_dunrod = {
+					pictish = "Dun Brin"
+					welsh = "Din Brenin"
+					irish = "Dùn Droighnein"
 				}
 				b_kirkcudbright = {
+					pictish = "Cuthberbatu"
+					welsh = "Cuddbertbetws"
+					irish = "Cill Chuithbeirt"
 				}
 				b_glenluce = {
+					pictish = "Ulanchuan"
+					welsh = "Glynchwyn"
+					irish = "Ghlinn Lus"
 				}
 				b_wigtown = {
+					pictish = "Betrah"
+					welsh = "Faetref"
+					irish = "Baile na h-Ùige"
 				}
 				b_threave = {
+					pictish = "Insee Datrah"
+					welsh = "Ynys Dytref"
+					irish = "Eilean na h-Uisge Dhè"
 				}
 			}
 			c_carrick = {
 				color={ 50 185 243 }
 				color2={ 255 255 255 }
 				
+				pictish = "Ueron"
+				welsh = "Aeron"
+				irish = "A' Charraig"
+				
 				b_turnberry = {
+					pictish = "Dun Ueron"
+					welsh = "Din Aeron"
+					irish = "Dùn Àir"
 				}
 				b_dunure = {
+					pictish = "Dunauen"
+					welsh = "Din Ywen"
+					irish = "Dùn Iùbhair"
 				}
 				b_maybole = {
+					pictish = "Maescanatan"
+					welsh = "Y Maes Ynfytyn"
+					irish = "Am Magh Baoghail"
 				}
 				b_crossraguel = {
+					pictish = "Crosc Ruagal"
+					welsh = "Croes Rhygal"
+					irish = "Crois Riagal"
 				}
 				b_loch_doon = {
+					scottish = "Balloch"
+					pictish = "Landun"
+					welsh = "Llyndin"
+					irish = "Loch Dhùin"
 				}
 				b_ballantrae = {
+					pictish = "Tretrah"
+					welsh = "Traethtref"
+					irish = "Baile na Tràgha"
 				}
 				b_culzean = {
+					pictish = "Pinaglan"
+					welsh = "Pennyglyn"
+					irish = "Ceann na Gleann"
 				}
 				b_greenan = {
+					pictish = "Abereron"
+					welsh = "Aberaeron"
+					irish = "Inbhir Àir"
 				}
 			}
 			c_clydesdale = {
 				color={ 5 140 240 }
 				color2={ 255 255 255 }
 				
+				pictish = "Damnunia"
+				welsh = "Alt Clut"
+				irish = "Dail Chluaidh"
+				
 				b_renfrew = {
+					pictish = "Bregurun"
+					welsh = "Brigffroen"
+					irish = "Rinn Friù"
 				}
 				b_st_kentigern = {
+					pictish = "Cantearn"
+					welsh = "Cyndeyrn Sant"
+					irish = "Cill Mungo"
 				}
 				b_glasgow = {
+					pictish = "Catuuris"
+					welsh = "Cathures"
+					irish = "Glaschu"
 				}
 				b_lanark = {
+					pictish = "Lanirc"
+					welsh = "Lanerc"
+					irish = "Lannraig"
 				}
 				b_cadzow = {
+					pictish = "Uuohan"
+					welsh = "Guofan"
+					irish = "Bàile Ghobhainn"
 				}
 				b_bothwell = {
+					pictish = "Mamuanon"
+					welsh = "Mamffynnon"
+					irish = "Tobar na Màthar"
 				}
 				b_lesmahagow = {
+					pictish = "Lanmahau"
+					welsh = "Llanmahagw"
+					irish = "Lios MoChuda"
 				}
 				b_dumbarton = {
+					pictish = "Alcluit"
+					welsh = "Alt Clut"
+					irish = "Dùn Breatainn"
 				}
 			}
-			
 		}
 		d_western_isles = {
 			color = { 6 42 127 }
@@ -26567,6 +28770,9 @@ e_britannia = {
 			danish = "Søreyar"
 			swedish = "Söröarna"
 			norse = "Suðreyjar"
+			pictish = "Insee Hilth"
+			welsh = "Ynysoedd Heledd"
+			irish = "Dál Riata"
 			
 			pagan_coa = {
 				template = 0
@@ -26589,30 +28795,58 @@ e_britannia = {
 				danish = "Søreyar"
 				swedish = "Söröarna"
 				norse = "Suðreyjar"
+				pictish = "Carnonac"
+				welsh = "Ynysoedd Heledd"
+				irish = "Innse Gall"
+				scottish = "Innse Gall"
 				
 				b_snizort = {
+					pictish = "Lantalarc"
+					welsh = "Llantalarican"
+					irish = "Cill Targhlain"
 				}
 				b_finlaggan = {
+					pictish = "Inseepirt"
+					welsh = "Ynysporth"
+					irish = "Port an Eilein"
 				}
 				b_iona = {
+					pictish = "Auenle"
+					welsh = "Ywenlle"
+					irish = "Ì Chaluim Chille"
 				}
 				b_stornoway = {
 					norwegian = "Stornavåg"
 					danish = "Stornavik"
 					swedish = "Stornavik"
 					norse = "Stornavik"
+					pictish = "Laueube"
+					welsh = "Llywiobae"
+					irish = "Steòrnabhagh"
 				}
 				b_laggan = {
+					pictish = "Nuuathuchel"
+					welsh = "Neuadduchel"
+					irish = "Àird Talla"
 				}
 				b_uig = {
 					norwegian = "Vik"
 					danish = "Vik"
 					swedish = "Vik"
 					norse = "Vik"
+					pictish = "Betret"
+					welsh = "Baetraeth"
+					irish = "Càrnais Ùige"
 				}
 				b_dunvegan = {
+					pictish = "Dun Bachain"
+					welsh = "Din Bychan"
+					irish = "Dùn Bheagain"
 				}
 				b_dunyveg = {
+					pictish = "Dun Galiuu"
+					welsh = "Din Galïau"
+					irish = "Dùn Naomhaig"
 				}
 			}
 			c_isle_of_man = {
@@ -26623,47 +28857,104 @@ e_britannia = {
 				danish = "Mann"
 				swedish = "Mann"
 				norse = "Mann"
+				pictish = "Insee Manu"
+				welsh = "Ynys Manaw"
+				irish = "Ellan Mhannin"
 				
 				b_peel = {
 					norwegian = "Pålø"
 					danish = "Pålø"
 					swedish = "Pålø"
 					norse = "Pålø"
+					pictish = "Pirtinsee"
+					welsh = "Porth Ynys"
+					irish = "Purt ny h-Inshey"
 				}
 				b_rushen = {
+					pictish = "Resan"
+					welsh = "Resyn"
+					irish = "Rosien"
 				}
 				b_maughold = {
+					pictish = "Mauugan"
+					welsh = "Mawgan Sant"
+					irish = "Macaille"
 				}
 				b_douglas = {
+					pictish = "Duunglasc"
+					welsh = "Duonglassafon"
+					irish = "Duboglassio"
 				}
 				b_kirk_michael = {
+					pictish = "Icluasc Mihagal"
+					welsh = "Eglwys Mihangel"
+					irish = "Cill Micheál"
 				}
 				b_sulby = {
+					pictish = "Drauuglan"
+					welsh = "Drywglyn"
+					irish = "Druígleann"
+					norwegian = "Sõlabyr"
+					danish = "Sõlabyr"
+					swedish = "Sõlabyr"
 				}
 				b_inis_patraic = {
+					pictish = "Inees Pedric"
+					welsh = "Ynys Padric"
+					irish = "Inis Pátraic"
 				}
 				b_laxey = {
+					pictish = "Ahonugad"
+					welsh = "Afoneogiaid"
+					irish = "Uisge Bradán"
 				}
 			}
 			c_argyll = {
 				color={ 15 150 240 }
 				color2={ 255 255 255 }
 				
+				pictish = "Ebithan"
+				welsh = "Epiddant"
+				irish = "Airer Goídel"
+				
 				b_st_moluag = {
+					pictish = "Malluoc"
+					welsh = "Malluoc Sant"
+					irish = "Naomh Moluóc"
 				}
 				b_dunollie = {
+					pictish = "Dun Ugastel"
+					welsh = "Din Ogystal"
+					irish = " Dùn Ollaigh"
 				}
 				b_loch_awe = {
+					pictish = "Lanahon"
+					welsh = "Llynafon"
+					irish = "Loch Obha"
 				}
 				b_sween = {
+					pictish = "Caer Sauunae"
+					welsh = "Caer Sywny"
+					irish = "Dùn Suibhne"
 				}
 				b_dunstaffnage = {
+					pictish = "Dun Stapan"
+					welsh = "Din Staffpentir"
+					irish = "Dùn Stafhainis"
 				}
 				b_ardchattan = {
+					pictish = "Uchdarcathan"
+					welsh = "Uchdercaddan"
 				}
 				b_kilmun = {
+					pictish = "Caer Muun"
+					welsh = "Caer Munn"
+					irish = "Cill Mhunna"
 				}
 				b_inverary = {
+					pictish = "Aberera"
+					welsh = "Aberaera"
+					irish = "Inbhir Aora"
 				}
 			}
 		}
@@ -26673,67 +28964,155 @@ e_britannia = {
 			
 			capital = 48 # Lothian
 			
+			pictish = "Lut"
+			welsh = "Gododdin"
+			irish = "Labhdaidh"
+			
 			c_lothian = {
 				color = { 16 62 160 }
 				color2={ 255 255 255 }
+				
+				pictish = "Lut"
+				welsh = "Lleuddiniawn"
+				irish = "Labhdaidh"
 	
 				b_edinburgh = {
+					pictish = "Dun Eidan"
+					welsh = "Din Eidyn"
+					irish = "Dùn Eideann"
 				}
 				b_stirling = {
+					pictish = "Iutheu"
+					welsh = "Iuddeu"
+					irish = "Sruighlea"
 				}
 				b_abercorn = {
+					pictish = "Abercarn"
+					welsh = "Abercarnedd"
+					irish = "Obar Chùirnidh"
 				}
 				b_linlithgow = {
+					pictish = "Glanaluu"
+					welsh = "Glynallwedd"
+					irish = "Gleann Iucha"
 				}
 				b_falkirk = {
+					pictish = "Ecclescbret"
+					welsh = "Ecclesbrith"
+					irish = "An Eaglais Bhreac"
 				}
 				b_stow_of_wedale = {
+					pictish = "Gallath"
+					welsh = "Galladd"
+					irish = "An Geal Àth"
 				}
 				b_leith = {
+					pictish = "Aberlath"
+					welsh = "Aberlydd"
+					irish = "Inverlìte"
 				}
 				b_torphichen = {
+					pictish = "Trehechan"
+					welsh = "Treffechan"
+					irish = "Tóir Féichín"
 				}
 			}
 			c_dunbar = {
 				color = { 30 69 172 }
 				color2={ 255 255 255 }
+				
+				pictish = "Utudina"
+				welsh = "Din Baer"
+				irish = "Dùn Bár"
 	
 				b_dunbar = {
+					pictish = "Dun Ber"
+					welsh = "Din Baer"
+					irish = "Dùn Bár"
 				}
 				b_berwick = {
+					pictish = "Caer Brinech"
+					welsh = "Caer Bryneich"
+					irish = "Bearaig"
 				}
 				b_thirlestane = {
+					pictish = "Lauuether"
+					welsh = "Lauwedder"
+					irish = "Labhdar"
 				}
 				b_tyninghame = {
+					pictish = "Pisctaltreh"
+					welsh = "Pistylltref"
+					irish = "Linnebaile"
 				}
 				b_gordon = {
+					pictish = "Gor Dun"
+					welsh = "Gor Din"
+					irish = "Gòr Dùn"
 				}
 				b_huntly = {
+					pictish = "Istrad Bach"
+					welsh = "Ystrath Bach"
+					irish = "Srath Bhalgaidh"
 				}
 				b_coldingham = {
+					pictish = "Lanbrin"
+					welsh = "Llanbryn"
+					irish = "Cillecnoc"
 				}
 				b_crichton = {
+					pictish = "Finuultreh"
+					welsh = "Ffinioltref"
+					irish = "Criochdún"
 				}
 			}
 			c_teviotdale = {
 				color = { 11 51 145 }
 				color2={ 255 255 255 }
 				
+				pictish = "Heluua"
+				welsh = "Calchfynydd"
+				irish = "Cealsaidh"
+				
 				b_jedburgh = {
+					pictish = "Dungod"
+					welsh = "Dingod"
+					irish = "Dùngot"
 				}
 				b_roxburgh = {
+					pictish = "Iaartreh"
+					welsh = "Iârtref"
+					irish = "Baile na h-Cearc"
 				}
 				b_peebles = {
+					pictish = "Peball"
+					welsh = "Pebyll"
+					irish = "Na Pùballan"
 				}
 				b_melrose = {
+					pictish = "Maelruusan"
+					welsh = "Mailrhosan"
+					irish = "Maol Ros"
 				}
 				b_kelso = {
+					pictish = "Calchanith"
+					welsh = "Calchfynydd"
+					irish = "Cealsaidh"
 				}
 				b_selkirk = {
+					pictish = "Halchraig"
+					welsh = "Halchraig"
+					irish = "Salcraig"
 				}
 				b_maxwell = {
+					pictish = "Mabfanon"
+					welsh = "Mabffynnon"
+					irish = "Tobar na Mac"
 				}
 				b_ednam = {
+					pictish = "Aethontreh"
+					welsh = "Aeddantref"
+					irish = "Baile na h-Aodhàn"
 				}
 			}
 		}
@@ -26743,88 +29122,201 @@ e_britannia = {
 			
 			capital = 43 # Gowrie
 			
+			pictish = "Alban"
+			welsh = "Alban"
+			irish = "Albanigh"
+			
 			c_gowrie = {
 				color={ 23 87 162 }
 				color2={ 255 255 255 }
 				
+				pictish = "Circinn"
+				welsh = "Caer Cinn"
+				irish = "Gobharaidh"
+				
 				b_scone = {
+					pictish = "Sguun"
+					welsh = "Sgon"
+					irish = "Sgoinde"
 				}
 				b_dunkeld = {
+					pictish = "Dun Celadon"
+					welsh = "Din Celyddon"
+					irish = "Dùn Chailleann"
 				}
 				b_perth = {
 				}
 				b_forteviot = {
+					pictish = "Nan Aruadocet"
+					welsh = "Nant Arwyddocâd"
+					irish = "Fothair Tabhaicht"
 				}
 				b_dundee = {
+					pictish = "Orrea"
+					welsh = "Dindân"
+					irish = "Dùn Dèagh"
 				}
 				b_abernethy = {
+					pictish = "Aber Naiton"
+					welsh = "Aber Neithon"
+					irish = "Obar Neithich"
 				}
 				b_clunie = {
+					pictish = "Luned"
+					welsh = "Llynaedd"
+					irish = "Cluainidh"
 				}
 				b_errol = {
+					pictish = "Landafan"
+					welsh = "Llandyffryn"
+					irish = "Lannfothir"
 				}
 			}
 			c_fife = {
 				color={ 20 80 152 }
 				color2={ 255 255 255 }
 				
+				pictish = "Fib"
+				welsh = "Gwidd"
+				irish = "Fìobha"
+				
 				b_dunfermline = {
+					pictish = "Dunfurlan"
+					welsh = "Dinfirllyn"
+					irish = "Dùn Phàrlain"
 				}
 				b_cupar = {
+					pictish = "Cafredun"
+					welsh = "Cyffredin"
+					irish = "Compàirt"
 				}
 				b_st_andrews = {
+					pictish = "Pinbed"
+					welsh = "Pennbaedd"
+					irish = "Cill Rígmonaid"
 				}
 				b_kirkcaldy = {
+					pictish = "Caercaled"
+					welsh = "Caer Caledin"
+					irish = "Cair Chaladain"
 				}
 				b_kinross = {
+					pictish = "Pinhadlen"
+					welsh = "Pennhadllin"
+					irish = "Ceann Rois"
 				}
 				b_leuchars = {
+					pictish = "Luchar"
+					welsh = "Brwyn"
+					irish = "Luachar"
 				}
 				b_lochore = {
+					pictish = "Laner"
+					welsh = "Llynaer"
+					irish = "Locháir"
 				}
 				b_falkland = {
+					pictish = "Maluen"
+					welsh = "Malfin"
+					irish = "Fháclainne"
 				}
 			}
 			c_strathearn = {
 				color={ 15 66 145 }
 				color2={ 255 255 255 }
 				
+				pictish = "Uuanun"
+				welsh = "Ystrad Iwerddon"
+				irish = "Srath Èireann"
+				
 				b_crieff = {
+					pictish = "Coiden"
+					welsh = "Coeden"
+					irish = "Craoibh"
 				}
 				b_dunblane = {
+					pictish = "Dul Blaan"
+					welsh = "Dinblyne"
+					irish = "Dùn Bhlàthain"
 				}
 				b_tullibardine = {
+					pictish = "Duunrud"
+					welsh = "Duonrhyd"
+					irish = "Dubhàth"
 				}
 				b_auchterarder = {
+					pictish = "Uchel"
+					welsh = "Hufenaruchel"
+					irish = "Uachdar Ardair"
 				}
 				b_madderty = {
+					pictish = "Pintu"
+					welsh = "Penndu"
+					irish = "Ceanndubh"
 				}
 				b_doune = {
+					pictish = "I Dun"
+					welsh = "Y Din"
+					irish = "An Dùn"
 				}
 				b_inchaffray = {
+					pictish = "Insee Ufirin"
+					welsh = "Ynys Offeren"
+					irish = "Innis Oifrend"
 				}
 				b_kenmore = {
+					pictish = "Bilauc"
+					welsh = "Belauc"
+					irish = "Bealach"
 				}
 			}
 			c_atholl = {
 				color={ 30 95 172 }
 				color2={ 255 255 255 }
 				
+				pictish = "Fotla"
+				welsh = "Focla"
+				irish = "Athfhotla"
+				
 				b_blair_atholl = {
+					pictish = "Athfocla"
+					welsh = "Brwydr Focla"
+					irish = "Blàr Athfhotla"
 				}
 				b_glen_dochart = {
+					pictish = "Lanuan"
+					welsh = "Llangwyn"
+					irish = "Cillefhinn"
 				}
 				b_pitlochry = {
+					pictish = "Moulin"
+					welsh = "Porth Craig"
+					irish = "Mhaothlinne"
 				}
 				b_fortingall = {
+					pictish = "Iuenlan"
+					welsh = "Ywenllan"
+					irish = "Iubharcille"
 				}
 				b_grandtully = {
+					pictish = "Uuag"
+					welsh = "Gwag y Rhwdfa"
+					irish = "Lag an Ratha"
 				}
 				b_rannoch = {
+					pictish = "Redan"
+					welsh = "Rhedyn"
+					irish = "Raineach"
 				}
 				b_strathardle = {
+					pictish = "Istrad Ardle"
+					welsh = "Ystrad Aerdôl"
+					irish = "Strath Àrdail"
 				}
 				b_struan = {
+					pictish = "Aberfel"
+					welsh = "Aberfelly"
+					irish = "Obar Pheallaidh"
 				}
 			}
 		}
@@ -26834,71 +29326,157 @@ e_britannia = {
 			
 			capital = 40 # Moray
 			
+			pictish = "Fortriu"
+			welsh = "Gwrturio"
+			irish = "Muireb"
+			
 			c_moray = {
 				color={ 20 85 243 }
 				color2={ 255 255 255 }
 				
+				pictish = "Fortriu"
+				welsh = "Gwrturio"
+				irish = "Muireb"
+				
 				b_forres = {
+					pictish = "Uerris"
+					welsh = "Gwerrys"
+					irish = "Farrais"
 				}
 				b_cawdor = {
+					pictish = "Caerdurn"
+					welsh = "Caerdwrn"
+					irish = "Caladar"
 				}
 				b_elgin = {
+					pictish = "Eruan"
+					welsh = "Aergwyn"
+					irish = "Ailgin"
 				}
 				b_nairn = {
+					pictish = "Abernard"
+					welsh = "Abernard"
+					irish = "Inbhir Narann"
 				}
 				b_inverness = {
+					pictish = "Abernis"
+					welsh = "Abernis"
+					irish = "Inbhir Nis"
 				}
 				b_lochindorb = {
+					pictish = "Lansildod"
+					welsh = "Llyn y Sildod"
+					irish = "Loch nan Doirb"
 				}
 				b_kinloss = {
+					pictish = "Canalosc"
+					welsh = "Cynyddullosg"
+					irish = "Cinnlois"
 				}
 				b_urquhart = {
+					pictish = "Urcarthen"
+					welsh = "Aercardden"
+					irish = "Airdchartdan"
 				}
 			}
 			c_ross = {
 				color={ 15 55 243 }
 				color2={ 255 255 255 }
 				
+				pictish = "Fidach"
+				welsh = "Gwidauc"
+				irish = "Ros"
+				
 				b_applecross = {
+					pictish = "Aporcrosan"
+					welsh = "Aporcrosan"
+					irish = "Obar Crosain"
 				}
 				b_dingwall = {
 					norwegian = "Tingvall"
 					danish = "Tingvall"
 					swedish = "Tingvall"
 					norse = "Tingvall"
+					pictish = "Aberpis"
+					welsh = "Aberpeffry"
+					irish = "Inbhir Pheofharain"
 				}
 				b_rosemarkie = {
+					pictish = "Rosanmairch"
+					welsh = "Rhosan Meirchnant"
+					irish = "Ros Mhaircnidh"
 				}
 				b_fortrose = {
+					pictish = "Caerrosan"
+					welsh = "Caerrhosan"
+					irish = "Dùnrois"
 				}
 				b_fearn = {
+					pictish = "Manech Rasan"
+					welsh = "Mynachdy Rhosan"
+					irish = "Manachainn Rois"
 				}
 				b_tain = {
+					welsh = "Duthactref"
+					irish = "Baile Dubhthaich"
 				}
 				b_cromarty = {
+					pictish = "Crucabachu"
+					welsh = "Crwcabachwy"
+					irish = "Crombati"
 				}
 				b_avoch = {
+					pictish = "Aberauc"
+					welsh = "Aberauc"
+					irish = "Abhach"
 				}
 			}
 			c_buchan = {
 				color={ 40 227 250 }
 				color2={ 255 255 255 }
 				
+				pictish = "Ce"
+				welsh = "Cai"
+				irish = "Beanaomh"
+				
 				b_aberdeen = {
+					welsh = "Aberdwyafon"
+					irish = "Obar Dabhuin"
 				}
 				b_banff = {
+					pictish = "Banaugluas"
+					welsh = "Benywglwys"
+					irish = "Beanaomh"
 				}
 				b_deer = {
+					pictish = "Ceiru"
+					welsh = "Ceirw"
+					irish = "Fiadh"
 				}
 				b_kintore = {
+					pictish = "Pintar"
+					welsh = "Penntyrau"
+					irish = "Ceann Tòrr"
 				}
 				b_inverurie = {
+					pictish = "Aberury"
+					welsh = "Aberury"
+					irish = "Inbhir Uraidh"
 				}
 				b_fyvie = {
+					pictish = "Carubran"
+					welsh = "Carwbryn"
+					irish = "Fiachein"
 				}
 				b_ellon = {
+					pictish = "Inseeol"
+					welsh = "Ynysol"
+					irish = "Eilean"
 				}
 				b_st_machar = {
+					pictish = "Mabaur"
+					welsh = "Mabfawr Sant"
+					irish = "Naomh Machar"
 				}
 			}
 			c_caithness = {
@@ -26909,34 +29487,61 @@ e_britannia = {
 				danish = "Katanæs"
 				swedish = "Katanäs"
 				norse = "Katanæs"
+				pictish = "Cait"
+				welsh = "Caitnys"
+				irish = "Cataibh"
 				
 				b_wick = {
 					norwegian = "Vik"
 					danish = "Vik"
 					swedish = "Vik"
 					norse = "Vik"
+					pictish = "Aberbachuu"
+					welsh = "Aberbachwy"
+					irish = "Inbhir Ùige"
 				}
 				b_dunbeath = {
+					pictish = "Dunbathac"
+					welsh = "Dinbyddag"
+					irish = "Dùn Beithe"
 				}
 				b_dornoch = {
+					pictish = "Dirnfeth"
+					welsh = "Dyrnfedd"
+					irish = "Dòrnach"
 				}
 				b_thurso = {
 					swedish = "Tjurså"
 					danish = "Tyrså"
 					norwegian = "Tyrså"
 					norse = "Tyrså"
+					pictish = "Aberteuafon"
+					welsh = "Abertaewafon"
+					irish = "Inbhir Tarbhainn"
 				}
 				b_dunrobin = {
+					pictish = "Dunrubert"
+					welsh = "Dinraibeart"
+					irish = "Dùnrhobert"
 				}
 				b_freswick = {
 					swedish = "Fresvik"
 					danish = "Fresvik"
 					norwegian = "Fresvik"
 					norse = "Fresvik"
+					pictish = "Aberfauur"
+					welsh = "Aberfawr"
+					irish = "Obar Àrdair"
 				}
 				b_latheron = {
+					pictish = "Lathaeron"
+					welsh = "Lladdaeron"
+					irish = "Latharan"
 				}
 				b_golspie = {
+					pictish = "Fostreh"
+					welsh = "Ffostref"
+					irish = "Goillspidh"
 				}
 			}
 		}
@@ -26957,6 +29562,10 @@ e_britannia = {
 		swedish = Irland
 		danish = Irland
 		norwegian = Irland
+		irish = Éire
+		pictish = Iuerthon
+		welsh = Iwerddon
+		breton = Iwerzhon
 		
 		d_ulster = {
 			color={ 5 222 31 }
@@ -26968,6 +29577,7 @@ e_britannia = {
 			swedish = Strangfjord
 			danish = Strangfjord
 			norse = Strangfjorðr
+			irish = Ulaidh
 			
 			c_ulster = {
 				color={ 25 230 35 }
@@ -26977,93 +29587,132 @@ e_britannia = {
 				swedish = Strangfjord
 				danish = Strangfjord
 				norse = Strangfjorðr
+				irish = Ulaidh
 			
 				b_downpatrick = {
 					norwegian = Strangfjord
 					swedish = Strangfjord
 					danish = Strangfjord
 					norse = Strangfjorðr
+					irish = "Dún Pádraig"
 				}
 				b_dunseverick = {
+					irish = "Dún Sobhairce"
 				}
 				b_bangor = {
+					irish = "Inbhear Beg"
 				}
 				b_carrickfergus = {
+					irish = "Carraig Fhearghais"
 				}
 				b_connor = {
+					irish = "Con Doire"
 				}
 				b_dromore = {
+					irish = "Druim Mór"
 				}
 				b_larne = {
+					irish = "Latharna"
 				}
 				b_dunluce = {
+					irish = "Dún Libhse"
 				}
 			}
 			c_oriel = {
 				color={ 30 180 45 }
 				color2={ 255 255 255 }
 	
+				irish = Airgíalla
+				
 				b_clones = {
+					irish = "Cluain Eois"
 				}
 				b_armagh = {
+					irish = "Ard Mhacha"
 				}
 				b_dundalk = {
 					norwegian = Kerlingfjord
 					swedish = Kerlingfjord
 					danish = Kerlingfjord
 					norse = Kerlingfjorðr
+					irish = "Dún Dealgan"
 				}
 				b_clogher = {
+					irish = "Clochar"
 				}
 				b_drogheda = {
+					irish = "Droichead Átha"
 				}
 				b_monaghan = {
+					irish = "Muineachán"
 				}
 				b_olouth = {
+					irish = "Lúghbhaidh"
 				}
 				b_ardee = {
+					irish = "Baile Átha Fhirdhia"
 				}
 			}
 			c_tyrone = {
 				color={ 66 157 22 }
 				color2={ 255 255 255 }
+				
+				irish = "Tír Eoghain"
 	
 				b_coleraine = {
+					irish = "Cúil Rathain"
 				}
 				b_dungannon = {
+					irish = "Dún Geanainn"
 				}
 				b_aileach = {
+					irish = "Ailech"
 				}
 				b_maghera = {
+					irish = "Machaire Rátha"
 				}
 				b_derry = {
+					irish = "Daire Coluimb Chille"
 				}
 				b_omagh = {
+					irish = "An Óghmaigh"
 				}
 				b_tullyhogue = {
+					irish = "Tulaigh Óg"
 				}
 				b_dungiven = {
+					irish = "Dún Geimhin"
 				}
 			}
 			c_tyrconnell = {
 				color={ 25 190 31 }
 				color2={ 255 255 255 }
+				
+				irish = "Tír Chonaill"
 			
 				b_gartan = {
+					irish = "Gartán"
 				}
 				b_moville = {
+					irish = "Magh Bhile"
 				}
 				b_raphoe = {
+					irish = "Ráth Bhoth"
 				}
 				b_fahan = {
+					irish = "Fathain"
 				}
 				b_donegal = {
+					irish = "Dún na nGall"
 				}
 				b_ballyshannon = {
+					irish = "Béal Átha Seanaidh"
 				}
 				b_kilmacrenan = {
+					irish = "Cill Mhic nEanain"
 				}
 				b_ballymacswiney = {
+					irish = "Baile Mhic Suibhne"
 				}
 			}
 		}
@@ -27072,47 +29721,69 @@ e_britannia = {
 			color2={ 255 255 255 }
 			
 			capital = 9 # Connacht
+			
+			irish = "Connachta"
 		
 			c_breifne = {
 				color={ 40 230 65 }
 				color2={ 255 255 255 }
+				
+				irish = "Bréifne"
 	
 				b_dromahair = {
+					irish = "Droim Áth Thiar"
 				}
 				b_kilmore = {
+					irish = "Cill Mhór"
 				}
 				b_cavan = {
+					irish = "An Cabhán"
 				}
 				b_longford = {
+					irish = "An Longphort"
 				}
 				b_ardagh = {
+					irish = "Ardachadh"
 				}
 				b_leitrim = {
+					irish = "Liatroim"
 				}
 				b_drumcliffe = {
+					irish = "Droim Chliabh"
 				}
 				b_kells = {
+					irish = "Ceann Lios"
 				}
 			}
 			c_connacht = {
 				color={ 45 230 70 }
 				color2={ 255 255 255 }
+				
+				irish = "Connachta"
 	
 				b_galway = {
+					irish = "Dún Bhun na Gaillimhe"
 				}
 				b_elphin = {
+					irish = "Ail Finn"
 				}
 				b_tuam = {
+					irish = "Tuaim Dá Ghualann"
 				}
 				b_clonfert = {
+					irish = "Cluain Fearta"
 				}
 				b_roscommon = {
+					irish = "Ros Comáin"
 				}
 				b_mayo = {
+					irish = "Maigh Eó"
 				}
 				b_killala = {
+					irish = "Cill Ala"
 				}
 				b_anchory = {
+					irish = "Baile Uí Fhiacháin"
 				}
 			}
 		}
@@ -27126,7 +29797,7 @@ e_britannia = {
 			danish = Dublin
 			swedish = Dublin
 			norse = Dyflinn
-			irish = Tara
+			irish = Mide
 			
 			pagan_coa = {
 				template = 0
@@ -27144,22 +29815,32 @@ e_britannia = {
 			c_kildare = {
 				color={ 102 248 65 }
 				color2={ 255 255 255 }
+				
+				irish = "Cill Dara"
 	
 				b_knockaulin = {
+					irish = "Dún Ailinne"
 				}
 				b_athlone = {
+					irish = "Baile Átha Luain"
 				}
 				b_kildare = {
+					irish = "Cill Dara"
 				}
 				b_maynooth = {
+					irish = "Maigh Nuad"
 				}
 				b_st_brigit = {
+					irish = "Naomh Brigid"
 				}
 				b_rathangan = {
+					irish = "Ráth Iomgháin"
 				}
 				b_durrow = {
+					irish = "Darú"
 				}
 				b_clonard = {
+					irish = "Cluain Ioraird"
 				}
 			}
 			c_dublin = {
@@ -27167,23 +29848,34 @@ e_britannia = {
 				color2={ 255 255 255 }
 				
 				norse = Dyflinn
+				irish = Dubhlinn
+				welsh = Dulyn
+
 				
 				b_dublin = {
 					norse = Dyflinn
+					irish = Dubhlinn
+					welsh = Dulyn
 				}
 				b_clondalkin = {
 				}
 				b_finglas = {
+					irish = "Fionnghlas"
 				}
 				b_wicklow = {
+					irish = "Cill Mhantáin"
 				}
 				b_ath_cliath = {
+					irish = "Baile Átha Cliath"
 				}
 				b_christ_church = {
+					irish = "Ardeaglais Chríost"
 				}
 				b_mellifont = {
+					irish = "An Mhainistir Mhór"
 				}
 				b_trim = {
+					irish = "Baile Átha Troim"
 				}
 			}
 		}
@@ -27197,6 +29889,7 @@ e_britannia = {
 			swedish = Veisafjord
 			danish = Veisafjord
 			norse = Veisafjorðr
+			irish = Laigin
 			
 			c_leinster = {
 				color={ 65 210 85 }
@@ -27206,47 +29899,66 @@ e_britannia = {
 				swedish = Veisafjord
 				danish = Veisafjord
 				norse = Veisafjorðr
+				irish = Laigin
 	
 				b_wexford = {
 					norwegian = Veisafjord
 					swedish = Veisafjord
 					danish = Veisafjord
 					norse = Veisafjorðr
+					irish = "Loch Garman"
 				}
 				b_leighlin = {
+					irish = "Leithghlinn"
 				}
 				b_arklow = {
+					irish = "An tInbhear Mór"
 				}
 				b_carlow = {
+					irish = "Ceatharlach"
 				}
 				b_ferns = {
+					irish = "Fearna Mór Maedhóg"
 				}
 				b_glendalough = {
+					irish = "Gleann Dá Loch"
 				}
 				b_naas = {
+					irish = "Nás na Ríogh"
 				}
 				b_enniscorthy = {
+					irish = "Inis Córthaidh"
 				}
 			}
 			c_ossory = {
 				color={ 60 210 80 }
 				color2={ 255 255 255 }
+				
+				irish = "Osraige"
 		
 				b_kilkenny = {
+					irish = "Cill Chainnigh"
 				}
 				b_gowran = {
+					irish = "Gabhrán"
 				}
 				b_clonmacnoise = {
+					irish = "Cluain Mhic Nóis"
 				}
 				b_aghaboe = {
+					irish = "Achadh Bhó"
 				}
 				b_jerpoint = {
+					irish = "Sheireapúin"
 				}
 				b_callan = {
+					irish = "Callainn"
 				}
 				b_grennan = {
+					irish = "An Ghrianán"
 				}
 				b_grannagh = {
+					irish = "An Greannach"
 				}
 			}
 		}
@@ -27260,6 +29972,7 @@ e_britannia = {
 			danish = "Lymrek"
 			swedish = "Lymrek"
 			norse = "Hlymrek"
+			irish = "Mumu"
 		
 			c_thomond = {
 				color={ 90 221 111 }
@@ -27269,24 +29982,32 @@ e_britannia = {
 				danish = "Lymrek"
 				swedish = "Lymrek"
 				norse = "Hlymrek"
+				irish = "Tuadhmhumhain"
 		
 				b_limerick = {
 					norwegian = "Hlymrek"
 					danish = "Lymrek"
 					swedish = "Lymrek"
 					norse = "Hlymrek"
+					irish = "Luimneach"
 				}
 				b_bunratty = {
+					irish = "Bun na Raite"
 				}
 				b_killaloe = {
+					irish = "Cill Dálua"
 				}
 				b_emly = {
+					irish = "Imleach Iubhair"
 				}
 				b_ennis = {
+					irish = "Inis"
 				}
 				b_kilfenora = {
+					irish = "Cill Fhionnúrach"
 				}
 				b_askeaton = {
+					irish = "Eas Géitine"
 				}
 				b_adare = {
 				}
@@ -27299,47 +30020,66 @@ e_britannia = {
 				swedish = Vedrafjord
 				danish = Vedrafjord
 				norse = Veðrafjorðr
+				irish = Urmhumhain
 		
 				b_waterford = {
 					norwegian = Vedrafjord
 					swedish = Vedrafjord
 					danish = Vedrafjord
 					norse = Veðrafjorðr
+					irish = "Port Láirge"
 				}
 				b_cahir = {
+					irish = "Cathair Dhún Iascaigh"
 				}
 				b_cashel = {
+					irish = "Dún Caiseal"
 				}
 				b_clonmel = {
+					irish = "Cluain Meala"
 				}
 				b_lismore = {
+					irish = "Lios Mór"
 				}
 				b_roscrea = {
+					irish = "Ros Cré"
 				}
 				b_nenagh = {
+					irish = "Aonach Urmhumhan"
 				}
 				b_fethard = {
+					irish = "Fiodh Ard"
 				}
 			}
 			c_desmond = {
 				color={ 100 221 90 }
 				color2={ 255 255 255 }
+				
+				irish = "Deasmhumhain"
 		
 				b_cork = {
+					irish = "Corcaigh"
 				}
 				b_dunasead = {
+					irish = "Dún na Séad"
 				}
 				b_ross = {
+					irish = "Ros Ó gCairbre"
 				}
 				b_youghal = {
+					irish = "Eochaill"
 				}
 				b_ardfert = {
+					irish = "Ard Fhearta"
 				}
 				b_cloyne = {
+					irish = "Cluain"
 				}
 				b_fermoy = {
+					irish = "Mainistir Fhear Maí"
 				}
 				b_blarney = {
+					irish = "An Bhlarna"
 				}
 			}
 		}
@@ -27440,127 +30180,7 @@ e_mali = {
 				b_el_ghaba = {}
 				b_koumbi_saleh = {}
 				b_silla = {
-					
 					holy_site = pagan
-					holy_site = lancea_sanctum
-					holy_site = invictus
-					holy_site = icarian
-					holy_site = gnostic
-					holy_site = livian
-					holy_site = die_nachteulen
-					holy_site = ordo_dracul
-					holy_site = revenant_longinus
-					holy_site = al-amin
-					holy_site = banu_shaitan
-					holy_site = dammitic
-					holy_site = revenant_abrahamic
-					holy_site = circle_of_the_crone
-					holy_site = unaligned
-					holy_site = laibon
-					holy_site = carthian
-					holy_site = revenant_unaligned
-					holy_site = nameless
-					holy_site = roaring_serpent
-					holy_site = pandaemonium
-					holy_site = mercy_seat
-					holy_site = smokeless_throne
-					holy_site = scarlet_rite
-					holy_site = corpus_delecti
-					holy_site = horned_hand
-					holy_site = teeth_of_yamatu
-					holy_site = revenant_duolosi
-					holy_site = asura-dharma
-					holy_site = mara-dharma
-					holy_site = prati-vasudeva-dharma
-					holy_site = revenant-dharma
-					holy_site = sennex
-					holy_site = legio_mortuum
-					holy_site = cult_of_augurs
-					holy_site = peregrine_collegia
-					holy_site = adamantes_athanatoi
-					holy_site = revenant_camarilla
-					holy_site = ivory_claws
-					holy_site = fire-touched
-					holy_site = predator_kings
-					holy_site = blood_talons
-					holy_site = bone_shadows
-					holy_site = hunters_in_darkness
-					holy_site = iron_masters
-					holy_site = storm_lords
-					holy_site = ghost_wolves
-					holy_site = bale_hounds
-					holy_site = magicka
-					holy_site = mummy
-					holy_site = changeling
-					holy_site = promethean
-					holy_site = demon
-					holy_site = geist
-					holy_site = aegis_kai_doru
-					holy_site = ascending_ones
-					holy_site = knights_of_saint_george
-					holy_site = les_mysteres
-					holy_site = malleus_maleficarum
-					holy_site = lucifuge
-					holy_site = ahl_al-jabal
-					holy_site = innocent
-					holy_site = insane
-					holy_site = criminal
-					holy_site = vampire_high_clans
-					holy_site = revenant_high_clans
-					holy_site = ashirra
-					holy_site = revenant_ashirra
-					holy_site = assamites
-					holy_site = revenant_assamites
-					holy_site = vampire_low_clans
-					holy_site = anarchs
-					holy_site = revenant_anarchs 
-					holy_site = autarkis
-					holy_site = revenant_autarkis
-					holy_site = furores
-					holy_site = vampire_promethean
-					holy_site = revenant_promethean
-					holy_site = revenant_furores
-					holy_site = revenant_low_clans
-					holy_site = anda
-					holy_site = einherjar
-					holy_site = noiad
-					holy_site = tremerelow
-					holy_site = koldun
-					holy_site = baali 
-					holy_site = revenant_baali
-					holy_site = masquerade_camarilla
-					holy_site = gangrelcamarilla
-					holy_site = brujahcamarilla
-					holy_site = malkaviancamarilla
-					holy_site = nosferatucamarilla
-					holy_site = toreadorcamarilla
-					holy_site = tremerecamarilla
-					holy_site = ventruecamarilla
-					holy_site = revenant_masquerade_camarilla
-					holy_site = sabbat
-					holy_site = revenant_sabbat
-					holy_site = inconnu
-					holy_site = revenant_inconnu
-					holy_site = giovanni 
-					holy_site = revenant_giovanni
-					holy_site = settite
-					holy_site = revenant_settite
-					holy_site = mayaparisataya
-					holy_site = revenant_mayaparisataya
-					holy_site = oradealeague 
-					holy_site = silver_fangs
-					holy_site = black_furies
-					holy_site = stargazers
-					holy_site = red_talons
-					holy_site = get_of_fenris
-					holy_site = fianna
-					holy_site = white_howlers
-					holy_site = silent_striders
-					holy_site = warders_of_men
-					holy_site = glass_walkers
-					holy_site = shadow_lords
-					holy_site = bone_gnawers
-					holy_site = black_spiral_dancers 
 				}
 				b_singhanah = {}
 				b_samakanda = {}
@@ -27772,7 +30392,7 @@ d_cumberland = {
 d_curonian = {
 	color = { 141 55 29 }
 	
-	tribe = yes
+#	tribe = yes
 	
 	allow = {
 		always = no
@@ -27789,7 +30409,7 @@ d_curonian = {
 d_danes = {
 	color={ 247 77 54 }
 	
-	tribe = yes
+#	tribe = yes
 	
 	dignity = 10
 	
@@ -27825,7 +30445,7 @@ d_estonia = {
 		always = no
 	}
 	
-	tribe = yes
+#	tribe = yes
 	
 	culture = ugricbaltic
 	title = "HIGH_CHIEF"
@@ -27844,7 +30464,7 @@ d_gilan = {
 d_geats = {
 	color={ 35 57 180 }
 
-	tribe = yes
+#	tribe = yes
 	
 	dignity = 8
 	
@@ -27865,7 +30485,7 @@ d_ikonion = {
 d_ingers = {
 	color={ 125 125 40 }
 	
-	tribe = yes
+#	tribe = yes
 	
 	allow = {
 		always = no
@@ -27879,7 +30499,7 @@ d_ingers = {
 d_kajaneborg = { # Kvens
 	color = { 123 73 13 }
 	
-	tribe = yes
+#	tribe = yes
 	
 	allow = {
 		always = no
@@ -27899,7 +30519,7 @@ d_karnten = {
 d_kexholm = {
 	color={ 121 98 20 }
 	
-	tribe = yes
+#	tribe = yes
 	
 	allow = {
 		always = no
@@ -27915,7 +30535,7 @@ d_khazars = {
 	
 	capital = 594 #	Sarkel
 	
-	tribe = yes
+#	tribe = yes
 	
 	culture = khazar
 	
@@ -27928,25 +30548,10 @@ d_khazars = {
 d_kirkuk = {
 	color = { 142 182 255 }
 }
-d_kola = {
-	color={ 194 171 117 }
-	
-	tribe = yes
-	
-	allow = {
-		always = no
-	}
-	
-	culture = lappish
-	title = "HIGH_CHIEF"
-	foa = "HIGH_CHIEF_FOA"
-	title_prefix = "TRIBE_OF"
-	
-}
 d_sami = {
 	color = { 101 99 35 }
 	
-	tribe = yes
+#	tribe = yes
 	
 	allow = {
 		always = no
@@ -27967,7 +30572,7 @@ d_laodikeia = {
 d_lettigalians = {
 	color = { 126 51 51 }
 	
-	tribe = yes
+#	tribe = yes
 	
 	allow = {
 		always = no
@@ -27996,45 +30601,13 @@ d_milano = {
 d_minsk = {
 	color = { 175 44 44 }
 }
-d_mordvins = {
-	color = { 148 165 45 }
-	
-	capital = 591 # Cheremisa
-	
-	tribe = yes
-	
-	allow = {
-		always = no
-	}
-	
-	culture = mordvin
-	title = "HIGH_CHIEF"
-	foa = "HIGH_CHIEF_FOA"
-	title_prefix = "TRIBE_OF"
-}
 
 d_muromians = {
 	color = { 160 120 75 }
 	
 	capital = 581 # Murom
 	
-	tribe = yes
-	
-	allow = {
-		always = no
-	}
-	
-	culture = mordvin
-	title = "HIGH_CHIEF"
-	foa = "HIGH_CHIEF_FOA"
-	title_prefix = "TRIBE_OF"
-}
-d_maris = {
-	color = { 150 130 45 }
-	
-	capital = 588 # Mari
-	
-	tribe = yes
+#	tribe = yes
 	
 	allow = {
 		always = no
@@ -28056,7 +30629,7 @@ d_pechenegs = {
 	
 	capital = 542 # Olvia
 	
-	tribe = yes
+#	tribe = yes
 	culture = pecheneg
 	
 	allow = {
@@ -28072,7 +30645,7 @@ d_pronsk = {
 d_pruthenians = {
 	color = { 159 195 75 }
 	
-	tribe = yes
+#	tribe = yes
 	
 	allow = {
 		always = no
@@ -28094,6 +30667,7 @@ d_romagna = {
 d_the_isles = {
 	color={ 10 48 243 }
 	color2={ 255 255 255 }
+	welsh = Manaw
 }
 d_salamanca = {
 	color = { 251 229 34 }
@@ -28103,7 +30677,7 @@ d_sames = {
 	# Actually Samoyeds
 	color = { 101 70 34 }
 	
-	tribe = yes
+#	tribe = yes
 	
 	allow = {
 		always = no
@@ -28120,7 +30694,7 @@ d_sandomiersk = {
 d_satakunta = {
 	color = { 117 47 47 }
 	
-	tribe = yes
+#	tribe = yes
 	
 	allow = {
 		always = no
@@ -28144,7 +30718,7 @@ d_slovakia = {
 d_sweden = {
 	color={ 55 112 170 }
 
-	tribe = yes
+#	tribe = yes
 	
 	dignity = 10
 	
@@ -28162,7 +30736,7 @@ d_swiss = {
 d_tavasts = {
 	color = { 131 21 21 }
 	
-	tribe = yes
+#	tribe = yes
 	
 	allow = {
 		always = no
@@ -28178,7 +30752,7 @@ d_meryas = {
 	
 	capital = 574 # Rostov / Merya
 	
-	tribe = yes
+#	tribe = yes
 	
 	allow = {
 		always = no
@@ -28192,7 +30766,7 @@ d_meryas = {
 d_veps = {
 	color = { 120 90 40 }
 	
-	tribe = yes
+#	tribe = yes
 	
 	allow = {
 		always = no
@@ -28208,7 +30782,7 @@ d_meshcheras = {
 	
 	capital = 580 # Ryazan
 	
-	tribe = yes
+#	tribe = yes
 	
 	allow = {
 		always = no
@@ -28237,7 +30811,7 @@ d_volga = {
 d_votes = {
 	color = { 0 193 119 }
 	
-	tribe = yes
+#	tribe = yes
 	
 	allow = {
 		always = no
@@ -28249,20 +30823,6 @@ d_votes = {
 	title_prefix = "TRIBE_OF"
 	
 }
-d_yatviags = {
-	color = { 149 97 97 }
-	
-	tribe = yes
-	
-	allow = {
-		always = no
-	}
-	
-	culture = lithuanian
-	title = "HIGH_CHIEF"
-	foa = "HIGH_CHIEF_FOA"
-	title_prefix = "TRIBE_OF"
-}
 d_zara = {
 	color = { 203 217 255 }
 }
@@ -28272,7 +30832,7 @@ d_zaragoza = {
 d_zemigalians = {
 	color = { 183 21 21 }
 	culture = lettigallish
-	tribe = yes
+#	tribe = yes
 	
 	allow = {
 		always = no
@@ -28287,7 +30847,7 @@ d_lendians = { # aka Ledzianie or Lechs
 	color={ 245 163 176 }
 	color2={ 255 255 255 }
 	culture = polish
-	tribe = yes
+#	tribe = yes
 	
 	capital = 527 # Krakowskie
 	
@@ -28305,9 +30865,27 @@ d_kryvians = { # aka Krivichi
 	color2={ 255 255 255 }
 	
 	culture = russian
-	tribe = yes
+#	tribe = yes
 	
 	capital = 419 # Polotsk
+	
+	allow = {
+		always = no
+	}
+	
+	title = "HIGH_CHIEF"
+	foa = "HIGH_CHIEF_FOA"
+	title_prefix = "TRIBE_OF"
+}
+
+d_ilmenians = { # aka Ilmen Slavs
+	color = { 70 120 40 }
+	color2={ 255 255 255 }
+	
+	culture = russian
+#	tribe = yes
+	
+	capital = 414 # Novgorod
 	
 	allow = {
 		always = no
@@ -28323,7 +30901,7 @@ d_severians = { # aka Severiane
 	color2={ 255 255 255 }
 	
 	culture = russian
-	tribe = yes
+#	tribe = yes
 	
 	capital = 567 # Novgorod Seversky
 	
@@ -28336,12 +30914,12 @@ d_severians = { # aka Severiane
 	title_prefix = "TRIBE_OF"
 }
 
-d_vyatichi = { 
+d_vyatichi = {
 	color={ 169 183 125 }
 	color2={ 255 255 255 }
 	
 	culture = russian
-	tribe = yes
+#	tribe = yes
 	
 	capital = 570 # Tver
 	
@@ -28359,7 +30937,7 @@ d_dregovichi = {
 	color2={ 255 255 255 }
 	
 	culture = russian
-	tribe = yes
+#	tribe = yes
 	
 	capital = 548 # Pinsk
 	
@@ -28377,7 +30955,7 @@ d_radimichi = {
 	color2={ 255 255 255 }
 	
 	culture = russian
-	tribe = yes
+#	tribe = yes
 	
 	capital = 551 # Mstislavl
 	
@@ -28395,7 +30973,7 @@ d_glomacze = { # Aka Dolomici
 	color2={ 255 255 255 }
 	
 	culture = pommeranian
-	tribe = yes
+#	tribe = yes
 	
 	capital = 312 # Meissen
 	
@@ -28413,7 +30991,7 @@ d_sorbs = {
 	color2={ 255 255 255 }
 	
 	culture = pommeranian
-	tribe = yes
+#	tribe = yes
 	
 	capital = 364 # Luzycka
 	
@@ -28431,7 +31009,7 @@ d_obotrites = {
 	color2={ 255 255 255 }
 	
 	culture = pommeranian
-	tribe = yes
+#	tribe = yes
 	
 	capital = 260 # Mecklenburg
 	
@@ -28452,7 +31030,7 @@ k_pechenegs = {
 	
 	capital = 543 # Oleshye
 	
-	tribe = yes
+#	tribe = yes
 	culture = pecheneg
 	
 	allow = {
@@ -28533,7 +31111,7 @@ k_karaman = {
 }
 k_magyar = {
 	color={ 187 70 70 }
-	tribe = yes
+#	tribe = yes
 	culture = hungarian
 	
 	capital = 522 # Pest
@@ -28548,17 +31126,6 @@ k_marinid = {
 k_mentese = {
 	color = { 60 130 20 }
 	culture = turkish
-}
-k_moravia = {
-	color={ 158 102 36 }
-	culture = bohemian
-	tribe = yes
-	
-	capital = 441 # Brno
-	
-	allow = {
-		always = no
-	}
 }
 k_naples = {
 	color = { 218 217 242 }
@@ -28590,10 +31157,13 @@ k_saruhan = {
 }
 k_seljuk_turks = { # Seljuk Turks
 	color={ 99 168 74 }
+	
+	short_name = yes
+	
 	capital = 646 # Esfahan
 	culture = turkish
 	
-	tribe=yes
+#	tribe = yes
 	
 #	landless = yes
 	
@@ -28670,6 +31240,26 @@ k_israel = {
 	
 	allow = {
 		always = no # Only created through special event
+	}
+}
+k_avaria = {
+	color={ 250 120 90 }
+	culture = avar
+	
+	capital = 444 # Anhalt
+	
+	allow = {
+		always = no
+	}
+}
+k_lombardy = {
+	color={ 234 217 110 }
+	culture = lombard
+	
+	capital = 234 # Anhalt
+	
+	allow = {
+		always = no
 	}
 }
 
@@ -29101,6 +31691,94 @@ d_ibadi = {
 	}
 }
 
+d_kharijite = {
+	color={ 10 110 10 }
+	color2={ 220 220 0 }
+	
+	capital = 719 # Mecca
+	
+	creation_requires_capital = no
+	
+	dignity = 80 # Counted as having this many more counties than it does
+	
+	title = "CALIPH"
+	title_female = "CALIPHA"
+	foa = "CALIPH_FOA"
+	short_name = yes
+	
+	religion=kharijite
+	
+	# Controls a religion
+	controls_religion = kharijite
+	
+	allow = {
+		piety = 1000
+		OR = {
+			custom_tooltip = { 
+				text = controls_mecca_medina
+				hidden_tooltip = {
+					719 = { # Mecca
+						owner = {
+							OR = {
+								is_liege_or_above = ROOT
+								character = ROOT
+							}
+						}
+					}
+					718 = { # Medina
+						owner = {
+							OR = {
+								is_liege_or_above = ROOT
+								character = ROOT
+							}
+						}
+					}
+				}
+			}
+			custom_tooltip = {
+				text = controls_jerusalem_damascus_baghdad
+				hidden_tooltip = {
+					774 = { # Jerusalem
+						owner = {
+							OR = {
+								is_liege_or_above = ROOT
+								character = ROOT
+							}
+						}
+					}
+					728 = { # Damascus
+						owner = {
+							OR = {
+								is_liege_or_above = ROOT
+								character = ROOT
+							}
+						}
+					}
+					693 = { # Baghdad
+						owner = {
+							OR = {
+								is_liege_or_above = ROOT
+								character = ROOT
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	caliphate = yes
+	
+	coat_of_arms=
+	{
+		data=
+		{
+			0 0 0 8 0 2 2
+		}
+		religion=kharijite
+	}
+}
+
 d_hurufi = {
 	color={ 80 220 80 }
 	color2={ 220 220 0 }
@@ -29207,7 +31885,7 @@ e_mexikha = {
 	# Always exists
 	landless = yes
 	
-	tribe = yes
+#	tribe = yes
 	
 	culture = nahuatl
 	religion = aztec
@@ -29311,6 +31989,26 @@ b_tribuno = {
 }
 
 b_tradonico = {
+	culture = italian
+	religion = catholic
+}
+
+b_antenoreo = {
+	culture = italian
+	religion = catholic
+}
+
+b_galbaio = {
+	culture = italian
+	religion = catholic
+}
+
+b_monegario = {
+	culture = italian
+	religion = catholic
+}
+
+b_gaulo = {
 	culture = italian
 	religion = catholic
 }
@@ -29450,6 +32148,30 @@ b_urso = {
 	religion = catholic
 }
 
+b_amalfinos = {
+	culture = greek
+	religion = catholic
+}
+
+b_manginos = {
+	culture = greek
+	religion = catholic
+}
+
+b_kanakares = {
+	culture = greek
+	religion = catholic
+}
+
+b_sorrenti = {
+	culture = italian
+	religion = catholic
+}
+
+b_ravelli = {
+	culture = italian
+	religion = catholic
+}
 
 # Pagan heads of religion
 
@@ -29632,6 +32354,32 @@ d_west_african_pagan_reformed = {
 	controls_religion = west_african_pagan_reformed
 	
 	religion = west_african_pagan_reformed
+	
+	# Cannot be held as a secondary title
+	primary = yes
+	
+	dynasty_title_names = no 	# Will not be named "Seljuk", etc.
+}
+
+d_zun_pagan_reformed = {
+	color={ 220 255 0 }
+	color2={ 220 220 0 }
+	
+	capital = 1183 #	Bost
+	
+	title = "HEAD_PRIEST"
+	title_female = "HEAD_PRIESTESS"
+	foa = "HEAD_PRIEST_FOA"
+	
+	short_name = yes
+	
+	# Always exists
+	landless = yes	
+	
+	# Controls a religion
+	controls_religion = zun_pagan_reformed
+	
+	religion = zun_pagan_reformed
 	
 	# Cannot be held as a secondary title
 	primary = yes
@@ -29921,6 +32669,8 @@ e_rajastan = {
 				color2={ 255 255 255 }
 				
 				b_multan = {
+					holy_site = zun_pagan
+					holy_site = zun_pagan_reformed
 				}
 				b_mulasthana = {
 				}
@@ -30798,6 +33548,8 @@ e_rajastan = {
 				}
 				b_ghaneraov = {
 				}
+				b_naddula = {
+				}
 			}
 			c_medantaka = {
 				color={ 194 67 30 }
@@ -30826,8 +33578,6 @@ e_rajastan = {
 				b_barodiya = {
 				}
 				b_achalgarh = {
-				}
-				b_naddula = {
 				}
 				b_khudala = {
 				}
@@ -34124,3 +36874,217 @@ e_deccan = {
 		}
 	}
 }
+
+
+# INDIAN MERCS
+
+#d_tamil_band = {
+#	color = { 110 60 30 }
+#	color2 = { 255 255 255 }
+#
+#	capital = 1120 # Tagadur
+#	
+#	# Parent Religion 
+#	religion = hindu
+#	
+#	culture = tamil
+#	
+#	mercenary = yes
+#
+#	title = "CAPTAIN"
+#	foa = "CAPTAIN_FOA"
+#
+#	# Always exists
+#	landless = yes
+#	
+#	# Cannot be held as a secondary title
+#	primary = yes
+#	
+#	# Cannot be vassalized
+#	independent = yes
+#	
+#	strength_growth_per_century = 1.0
+#	
+#	mercenary_type = tamil_band_composition
+#}
+#
+#d_marathi_company = {
+#	color = { 150 80 40 }
+#	color2 = { 255 255 255 }
+#
+#	capital = 1254 # Vairagara
+#	
+#	# Parent Religion
+#	religion = hindu
+#	
+#	culture = marathi
+#	
+#	mercenary = yes
+#
+#	title = "CAPTAIN"
+#	foa = "CAPTAIN_FOA"
+#
+#	# Always exists
+#	landless = yes
+#	
+#	# Cannot be held as a secondary title
+#	primary = yes
+#	
+#	# Cannot be vassalized
+#	independent = yes
+#	
+#	strength_growth_per_century = 1.0
+#	
+#	mercenary_type = marathi_company_composition
+#}
+#
+#d_marathi_band = {
+#	color = { 180 80 40 }
+#	color2 = { 255 255 255 }
+#
+#	capital = 1254 # Vairagara
+#	
+#	# Parent Religion
+#	religion = hindu
+#	
+#	culture = marathi
+#	
+#	mercenary = yes
+#
+#	title = "CAPTAIN"
+#	foa = "CAPTAIN_FOA"
+#
+#	# Always exists
+#	landless = yes
+#	
+#	# Cannot be held as a secondary title
+#	primary = yes
+#	
+#	# Cannot be vassalized
+#	independent = yes
+#	
+#	strength_growth_per_century = 1.0
+#	
+#	mercenary_type = marathi_band_composition
+#}
+#
+#d_bengal_company = {
+#	color = { 30 150 50 }
+#	color2 = { 255 255 255 }
+#
+#	capital = 1236 # Candradvipa
+#	
+#	# Parent Religion
+#	religion = hindu
+#	
+#	culture = bengali
+#	
+#	mercenary = yes
+#
+#	title = "CAPTAIN"
+#	foa = "CAPTAIN_FOA"
+#
+#	# Always exists
+#	landless = yes
+#	
+#	# Cannot be held as a secondary title
+#	primary = yes
+#	
+#	# Cannot be vassalized
+#	independent = yes
+#	
+#	strength_growth_per_century = 1.0
+#	
+#	mercenary_type = bengal_company_composition
+#}
+#
+#d_bengal_band = {
+#	color = { 30 170 50 }
+#	color2 = { 255 255 255 }
+#
+#	capital = 1236 # Candradvipa
+#	
+#	# Parent Religion
+#	religion = hindu
+#	
+#	culture = bengali
+#	
+#	mercenary = yes
+#
+#	title = "CAPTAIN"
+#	foa = "CAPTAIN_FOA"
+#
+#	# Always exists
+#	landless = yes
+#	
+#	# Cannot be held as a secondary title
+#	primary = yes
+#	
+#	# Cannot be vassalized
+#	independent = yes
+#	
+#	strength_growth_per_century = 1.0
+#	
+#	mercenary_type = bengal_band_composition
+#}
+#
+#d_rajput_company = {
+#	color = { 180 65 0 }
+#	color2 = { 255 255 255 }
+#
+#	capital = 1130 # Mandavyapura
+#	
+#	# Parent Religion
+#	religion = hindu
+#	
+#	culture = rajput
+#	
+#	mercenary = yes
+#
+#	title = "CAPTAIN"
+#	foa = "CAPTAIN_FOA"
+#
+#	# Always exists
+#	landless = yes
+#	
+#	# Cannot be held as a secondary title
+#	primary = yes
+#	
+#	# Cannot be vassalized
+#	independent = yes
+#	
+#	strength_growth_per_century = 1.0
+#	
+#	mercenary_type = rajput_company_composition
+#}
+#
+#d_rajput_band = {
+#	color = { 170 50 0 }
+#	color2 = { 255 255 255 }
+#
+#	capital = 1130 # Mandavyapura
+#	
+#	# Parent Religion
+#	religion = hindu
+#	
+#	culture = rajput
+#	
+#	mercenary = yes
+#
+#	title = "CAPTAIN"
+#	foa = "CAPTAIN_FOA"
+#
+#	# Always exists
+#	landless = yes
+#	
+#	# Cannot be held as a secondary title
+#	primary = yes
+#	
+#	# Cannot be vassalized
+#	independent = yes
+#	
+#	strength_growth_per_century = 1.0
+#	
+#	mercenary_type = rajput_band_composition
+#}
+

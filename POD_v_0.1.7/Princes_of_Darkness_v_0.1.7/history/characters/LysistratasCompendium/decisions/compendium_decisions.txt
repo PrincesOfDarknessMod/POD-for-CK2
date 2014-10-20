@@ -1,0 +1,274 @@
+decisions = {
+
+	create_ottoman_empire = {
+		is_high_prio = yes
+		potential = {
+			age = 16
+			prisoner = no
+			NOT = { trait = incapable }
+			primary_title = k_ottoman
+			e_ottoman = {
+			has_holder = no
+			}
+			independent = yes
+			religion_group = muslim
+			dynasty = 7
+			culture = turkish
+		}
+		allow = {
+			prestige = 3000
+			has_landed_title = c_prusa
+			has_landed_title = c_byzantion
+			has_landed_title = c_adrianopolis
+			completely_controls = d_thrace
+			completely_controls = d_nikaea
+			completely_controls = d_cyprus
+			completely_controls = d_adrianopolis
+			completely_controls = d_thessalonika
+			completely_controls = d_samos
+			completely_controls = d_thracesia
+			completely_controls = d_anatolia
+			completely_controls = d_cibyrrhaeot
+			completely_controls = d_armeniacon
+			completely_controls = d_paphlagonia
+			completely_controls = d_epirus
+			completely_controls = d_athens
+			completely_controls = d_achaia
+			completely_controls = d_trebizond
+			completely_controls = d_wallachia
+			completely_controls = d_moldau
+			completely_controls = d_krete
+			e_byzantium = {
+			    has_holder = no
+			}
+			e_roman_empire = {
+			    has_holder = no
+			}
+			e_trebizond = {
+			    has_holder = no
+			}
+			e_latin_empire = {
+			    has_holder = no
+			}
+		}
+		effect = {
+			narrative_event = { id = Cpdm.1 tooltip = EVTTOOLTIPCpdm.1 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	reestablish_byzantine_empire = {
+	    is_high_prio = yes
+		potential = {
+		    age = 16
+			prisoner = no
+			NOT = { trait = incapable }
+			OR = {
+			    has_landed_title = e_trebizond
+				has_landed_title = k_epirus
+			}
+			NOT = {
+			    has_landed_title = e_byzantium
+			}
+			culture = greek
+			religion = orthodox
+			e_roman_empire = {
+			    has_holder = no
+			}
+		}
+		allow = {
+		    prestige = 1000
+		    completely_controls = d_thrace
+			completely_controls = d_nikaea
+			completely_controls = d_epirus
+			OR = {
+			    AND = {
+				    has_landed_title = e_trebizond
+					k_epirus = {
+					    has_holder = no
+					}
+				}
+				AND = {
+				    has_landed_title = k_epirus
+					e_trebizond = {
+					    has_holder = no
+					}
+				}
+			}
+		}
+		effect = {
+		    narrative_event = { id = Cpdm.7 tooltip = EVETOOLTIPCpdm.7 }
+		}
+		ai_will_do = {
+		    factor = 1
+		}
+	}
+#	decide_which_religion_to_convert_to = {
+#	    potential = {
+#		    age = 16
+#			NOT = {
+#			    trait = incapable
+#			}
+#			independent = yes
+#			is_ruler = yes
+#			religion_group = pagan
+#			culture_group = altaic
+#			is_reformed_religion = no
+#			any_realm_province = {
+#				any_neighbor_province = {
+#					has_owner = yes
+#					top_liege = {
+#						NOT = {
+#						religion_group = pagan_group
+#						}
+#					}
+#				}
+#			}
+#		}
+#		allow = {
+#		    prisoner = no
+#			war = no
+#			piety = 100
+#			NOT = {
+#			religion_authority = 0.5
+#			}
+#		}
+#		effect = {
+#			limit = {
+#			    any_realm_province = {
+#				    any_neighbor_province = {
+#					    has_owner = yes
+#					    top_liege = {
+#						    NOT = {
+#							religion_group = pagan_group
+#							}
+#						}
+#					}
+#				}
+#			character_event = { id = Cpdm.8 tooltip = EVTTOOLTIPCpdm.8 }
+#			}
+#		}
+#		ai_will_do = {
+#		    factor = 0.2
+#			modifier = {
+#			    factor = 4
+#				trait = craven
+#			}
+#			modifier = {
+#			    factor = 2
+#				NOT = {
+#				    religion_authority = 0.4
+#				}
+#			}
+#			modifier = {
+#			    factor = 2
+#				NOT = {
+#				    religion_authority = 0.2
+#				}
+#			}
+#	}
+	
+#	create_empire_of_trebizond = {
+#	    is_high_prio = yes
+#		potential = {
+#		    age = 16
+#			prisoner = no
+#			NOT = { 
+#			    trait = incapable
+#				has_landed_title = c_byzantion
+#				has_landed_title = e_trebizond
+#			}
+#			independent = yes
+#			religion = orthodox
+#			culture = greek
+#			has_landed_title = c_trapezous
+#			tier = duke
+#			e_roman_empire = {
+#			    has_holder = no
+#			}
+#			e_latin_empire = {
+#			    has_holder = yes
+#			}
+#		}
+#		allow = {
+#			has_landed_title = d_cherson
+#			has_landed_title = d_trebizond
+#			has_landed_title = d_armeniacon
+#			prestige = 1000
+#		}
+#		effect = {
+#		    e_trebizond = {
+#			    grant_title = ROOT
+#			}
+#		}
+#	}	
+#	create_serbian_empire = {
+#		is_high_prio = yes
+#		potential = {
+#			age = 16
+#			prisoner = no
+#			NOT = { trait = incapable }
+#			has_landed_title = k_serbia
+#			independent = yes
+#			religion_group = christian
+#			culture = serbian
+#			e_serbian_empire = {
+#			    has_holder = no
+#			}
+#		}
+#		allow = {
+#			prestige = 3000
+#			completely_controls = d_thessalonika
+#			completely_controls = d_epirus
+#			completely_controls = d_dyrrachion
+#			completely_controls = d_dioclea
+#			completely_controls = d_rashka
+#		}
+#		effect = {
+#			narrative_event = { id = Cpdm.3 tooltip = EVTTOOLTIPCpdm.3 }
+#		}
+#		ai_will_do = {
+#			factor = 1
+#		}
+#	}
+	
+#	create_bulgarian_empire = {
+#		is_high_prio = yes
+#		potential = {
+#			age = 16
+#			prisoner = no
+#			NOT = { trait = incapable }
+#			has_landed_title = k_bulgaria
+#			independent = yes
+#			e_bulgarian_empire = {
+#			    has_holder = no
+#			}
+#			OR = {
+#			    religion_group = christian
+#				religion = tengri_pagan
+#				religion = tengri_pagan_reformed
+#			}
+#			culture = bulgarian
+#		}
+#		allow = {
+#			prestige = 3000
+#			completely_controls = d_adrianopolis
+#			completely_controls = d_thessalonika
+#			completely_controls = d_dyrrachion
+#			completely_controls = d_turnovo
+#			completely_controls = d_karvuna
+#			completely_controls = d_vidin
+#			completely_controls = d_wallachia
+#			completely_controls = d_moldau
+#           completely_controls = d_transylvania
+#			completely_controls = d_rashka
+#		}
+#		effect = {
+#			narrative_event = { id = Cpdm.5 tooltip = EVTTOOLTIPCpdm.5 }
+#		}
+#		ai_will_do = {
+#			factor = 1
+#		}
+#	}
+}
