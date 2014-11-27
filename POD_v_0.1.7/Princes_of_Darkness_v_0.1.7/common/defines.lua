@@ -496,6 +496,11 @@ NCharacter = {
 	NOMINATE_CROWN_BISHOP_REL_AUTHORITY_CHANGE = -0.01, -- OBSOLETE
 	WRONG_GOV_FORM_TAX_MOD = 0,
 	WRONG_GOV_FORM_LEVY_MOD = 0,
+	TRIBAL_WRONG_RELIGION_REFORM_MOD = -0.10,
+	TRIBAL_WRONG_RELIGION_MOD = -0.15,
+	TRIBAL_WRONG_RELIGION_GROUP_MOD = -0.25,
+	TRIBAL_WRONG_CULTURE_MOD = -0.15,
+	TRIBAL_WRONG_CULTURE_GROUP_MOD = -0.25,
 	CHANGE_SUCC_LAW_YEARS = 10,						-- Rulers must have reigned this long before they can change succession laws
 	CHANGE_AMBITION_YEARS = 3,						-- Delay between being able to pick a new ambition of plot after cancelling
 	PRESTIGE_FROM_DYNASTY_ON_BIRTH_DIV = 5, 		-- Newly born characters get the dynasty prestige of their mother and father divided by this as their starting prestige
@@ -885,6 +890,7 @@ NMilitary = {
 	LIEGE_LEVY_COST_MULTIPLIER = 1.0,				-- The vassal will pay regular maintenance * this for the liege levy
 	LIEGE_LEVY_SUBUNIT_SIZE_CUTOFF = 3000,			-- The max size of each liege levy subunit.
 	LIEGE_LEVY_SUBUNIT_SIZE_MIN = 500,				-- The min size before liege levy subunits start splitting.
+	LIEGE_LEVY_VICE_ROYALTY_MULTIPLIER = 0.8,		-- Liege levy multiplier for viceroy vassals
 	
 	LIGHT_INFANTRY_MORALE = 2,
 	LIGHT_INFANTRY_MAINTENANCE = 0.70,
@@ -1002,6 +1008,7 @@ NMilitary = {
 },
 
 NTechnology = {
+	DONT_EXECUTE_TECH_BEFORE = 769,				-- Set this to your earliest starting year
 	POINTS_PER_ATTRIBUTE = 0.04,
 
 	BASE_NEIGHBOUR_SPREAD_BONUS = 0.03, 		-- bonus for each neighbour with the tech
