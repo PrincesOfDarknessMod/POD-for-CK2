@@ -1,0 +1,277 @@
+namespace = revenant_noble
+character_event = {
+	id = revenant_noble.1
+	desc = "POD_REVENANT_NOBLE_DESC"
+	picture = GFX_evt_comet
+	hide_window = yes	
+	is_triggered_only = yes
+	
+	immediate = {
+		#name = "set_inital_revenant_ruler"
+
+
+			if = {
+					limit = {
+					age = 16
+					NOT = { trait = mortal }
+					NOT = { trait = vampire }
+					NOT = { trait = werewolf }
+					NOT = { trait = mage }
+					NOT = { trait = changeling }
+					NOT = { trait = mummy }
+					NOT = { trait = promethean }
+					NOT = { trait = geist }
+					trait = revenant 
+					NOT = { trait = demon }
+					NOT = { trait = fledgling }
+					OR = { 
+							religion = revenant_longinus
+							religion = revenant_abrahamic
+							religion = revenant_unaligned
+							religion = revenant-dharma
+							religion = revenant_duolosi
+						}
+					}	
+					
+# revenant mercs
+						if = { limit = {  
+											primary_title = {
+													title =  d_crassus }
+													
+										 trait = revenant }	
+							dynasty = 8000001
+							}		
+
+						if = { limit = {  
+											primary_title = {
+													title =  d_asmundarson }
+													
+										 trait = revenant }	
+							dynasty = 8000002
+							}								
+					
+						if = { limit = {  
+											primary_title = {
+													title =  d_nirriti }
+													
+										 trait = revenant }	
+							dynasty = 8000003
+							}	
+
+						if = { limit = {  
+											primary_title = {
+													title =  d_bratovitch }
+													
+										 trait = revenant }	
+							dynasty = 8000004
+							}	
+
+						if = { limit = {  
+											primary_title = {
+													title =  d_grimaldi }
+													
+										 trait = revenant }	
+							dynasty = 8000005
+							}	
+
+						if = { limit = {  
+											primary_title = {
+													title =  d_szantovich }
+													
+										 trait = revenant }	
+							dynasty = 8000006
+							}	
+
+						if = { limit = {  
+											primary_title = {
+													title =  d_obertus }
+													
+										 trait = revenant }	
+							dynasty = 8000007
+							}	
+
+						if = { limit = {  
+											primary_title = {
+													title =  d_vlaszy }
+													
+										 trait = revenant }	
+							dynasty = 8000008
+							}	
+
+						if = { limit = {  
+											primary_title = {
+													title =  d_basarab }
+													
+										 trait = revenant }	
+							dynasty = 8000009
+							}	
+
+						if = { limit = {  
+											primary_title = {
+													title =  d_danislaw }
+													
+										 trait = revenant }	
+							dynasty = 8000010
+							add_trait = wolf-blooded
+							}	
+
+						if = { limit = {  
+											primary_title = {
+													title =  d_khazi }
+													
+										 trait = revenant }	
+							dynasty = 8000011
+							}	
+
+						if = { limit = {  
+											primary_title = {
+													title =  d_krevcheski }
+													
+										 trait = revenant }	
+							dynasty = 8000012
+							}	
+
+						if = { limit = {  
+											primary_title = {
+													title =  d_oprichniki }
+													
+										 trait = revenant }	
+							dynasty = 8000013
+							}	
+
+						if = { limit = {  
+											primary_title = {
+													title =  d_premysl }
+													
+										 trait = revenant }	
+							dynasty = 8000014
+							}	
+
+						if = { limit = {  
+											primary_title = {
+													title =  d_narov }
+													
+										 trait = revenant }	
+							dynasty = 8000015
+							}	
+
+						if = { limit = {  
+											primary_title = {
+													title =  d_rustovitch }
+													
+										 trait = revenant }	
+							dynasty = 8000016
+							}	
+
+						if = { limit = {  
+											primary_title = {
+													title =  d_ruthvenski }
+													
+										 trait = revenant }	
+							dynasty = 8000017
+							}
+							
+						if = { limit = {  
+											primary_title = {
+													title =  d_enrathi }
+													
+										 trait = revenant }	
+							dynasty = 8000018
+							}	
+
+						if = { limit = {  
+											primary_title = {
+													title =  d_marijava }
+													
+										 trait = revenant }	
+							dynasty = 8000019
+							}	
+							
+						if = { limit = {  
+											primary_title = {
+													title =  d_rafastio }
+													
+										 trait = revenant }	
+							dynasty = 8000020
+							}								
+					
+# revenant duolosi mercs
+						if = { limit = {  
+											primary_title = {
+													title =  d_dhabi }
+													
+										 trait = revenant }	
+							dynasty = 8000021
+							}
+
+						if = { limit = { 
+											primary_title = {
+													title =  d_androphonis }
+													
+										 trait = revenant }	
+							dynasty = 8000022
+							}
+
+						if = { limit = {  
+											primary_title = {
+													title =  d_anleemoni }
+													
+										 trait = revenant }	
+							dynasty = 8000023
+							}
+
+						if = { limit = { 
+											primary_title = {
+													title =  d_avigsonne }
+													
+										 trait = revenant }	
+							dynasty = 8000024
+							}
+
+						if = { limit = {  
+											primary_title = {
+													title =  d_carcassonne }
+													
+										 trait = revenant }	
+							dynasty = 8000025
+							}
+
+						if = { limit = { 
+											primary_title = {
+													title =  d_diakonos }
+													
+										 trait = revenant }	
+							dynasty = 8000026
+							}
+
+						if = { limit = { 
+											primary_title = {
+													title =  d_schiavari }
+													
+										 trait = revenant }	
+							dynasty = 8000027
+							}
+
+							
+			if = { limit = { 
+								OR = {
+										dynasty = 8000027
+										dynasty = 8000026 
+										dynasty = 8000025
+										dynasty = 8000024
+										dynasty = 8000023
+										dynasty = 8000022
+										dynasty = 8000021
+									}
+			
+						}
+						add_trait = vigor_1
+						add_trait = celerity_1
+						add_trait = resilience_1
+				}					
+					
+
+				}	
+			}
+		}
+	
