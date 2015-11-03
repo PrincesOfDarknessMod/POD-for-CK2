@@ -1,0 +1,35 @@
+namespace = ruler_designer
+character_event = {
+	id = ruler_designer.1
+	#desc = "POD_VAMPIRE_RULE_DESIGNER_IMMORTALITY_FIX_DESC"
+	picture = GFX_evt_comet
+	hide_window = yes	
+
+	trigger = {
+		is_ruler = yes
+		is_adult = yes
+		trait = POD_vampire_RD_immortal_fix
+		NOT = { has_character_flag = FLAG_POD_vampire_RD_immortal_fix_fired }
+	}	
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+				hidden_tooltip = {
+			if = {
+					limit = {
+					age = 16
+					trait = POD_vampire_RD_immortal_fix 
+					NOT = { has_character_flag = FLAG_POD_vampire_RD_immortal_fix_fired }
+					}			
+# fix it! 
+					remove_trait = POD_vampire_RD_immortal_fix 
+					set_character_flag = FLAG_POD_vampire_RD_immortal_fix_fired 
+					add_trait = vampire
+				}
+			}
+		}		
+	}
+	

@@ -1,0 +1,3732 @@
+decisions = {
+# Werewolf Gifts
+# All Werewolves have affinity with Father Wolf and Mother Moon gifts. (Including Pure)
+# All auspice-only gifts are affinity for that auspice.
+# Rahu- Dominance, Strength,
+# Blood Talons- Inspiration, Rage, Strength, Battle (Rage)
+# Bone Shadows- Death, Insight, Warding, Ending(Rage)
+# Cahalith- Inspiration, Knowledge
+# Hunters in Darkness- Elemental, Nature, Stealth, Stalking(Rage)
+# Iron Masters-Knowledge, Shaping, Technology, Blending(Rage)
+# Elodoth-Insight, Warding
+# Irraka-Evasion, Stealth
+# Storm Lords-Dominance, Evasion, Weather, Alpha (Rage)
+# Ithaeur-Elemental, Shaping
+# Fire-Touched- Disease, Fever, Fervor, Insight, Inspiration
+# Ivory Claws-Agony, Dominance, Scourging, Warding
+# Predator Kings-Nature, Rage, Savagery, Strength
+
+train_agony_1_decision = {
+	potential = {
+			ai = no
+			age = 16
+			trait = werewolf
+			religion = ivory_claws
+			NOT = { trait = agony_1 }
+			NOT = { trait = agony_2 }
+			NOT = { trait = agony_3 }
+			NOT = { trait = agony_4 }
+			NOT = { trait = agony_5 }
+			
+	}
+	
+	allow = {
+		piety = 200
+			trait = werewolf
+			NOT = { trait = agony_1 }
+			NOT = { trait = agony_2 }
+			NOT = { trait = agony_3 }
+			NOT = { trait = agony_4 }
+			NOT = { trait = agony_5 }
+	}
+	effect = {
+		piety = -200
+		add_trait = agony_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 0	
+				}
+		}
+
+
+train_agony_2_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf
+			trait = agony_1 
+	}	
+	
+	allow = {
+		piety = 400
+		trait = agony_1 	
+	}
+	effect = {
+		piety = -400
+		add_trait = agony_2
+		remove_trait = agony_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0	
+		}
+	}
+
+train_agony_3_decision = {
+	
+	potential = {
+			ai = no
+
+			trait = werewolf
+			trait = agony_2
+	}
+	allow = {
+		piety = 600
+			trait = agony_2	
+	}
+	effect = {
+		piety = -600
+		remove_trait = agony_2
+		add_trait = agony_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0
+		}
+	}
+
+train_agony_4_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf		
+			trait = agony_3
+	}
+	allow = {
+		piety = 800
+			trait = agony_3	
+	}
+	effect = {
+		piety = -800
+		remove_trait = agony_3
+		add_trait = agony_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}
+
+train_agony_5_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf			
+			trait = agony_4 
+	}
+	allow = {
+		piety = 1200
+			trait = agony_4 		
+	}
+	effect = {
+		piety = -1200
+		remove_trait = agony_4
+		add_trait = agony_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}		
+	
+train_alpha_1_decision = {
+	potential = {
+			ai = no
+			age = 16
+			trait = werewolf
+			OR = {
+			religion = storm_lords
+			religion = silver_fangs
+			}
+			NOT = { trait = alpha_1 }
+			NOT = { trait = alpha_2 }
+			NOT = { trait = alpha_3 }
+			NOT = { trait = alpha_4 }
+			NOT = { trait = alpha_5 }
+			
+	}
+	
+	allow = {
+		piety = 200
+			trait = werewolf
+			NOT = { trait = alpha_1 }
+			NOT = { trait = alpha_2 }
+			NOT = { trait = alpha_3 }
+			NOT = { trait = alpha_4 }
+			NOT = { trait = alpha_5 }
+	}
+	effect = {
+		piety = -200
+		add_trait = alpha_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 0	
+				}
+		}
+
+
+train_alpha_2_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf
+			trait = alpha_1 
+	}	
+	
+	allow = {
+		piety = 400
+		trait = alpha_1 	
+	}
+	effect = {
+		piety = -400
+		add_trait = alpha_2
+		remove_trait = alpha_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0	
+		}
+	}
+
+train_alpha_3_decision = {
+	
+	potential = {
+			ai = no
+
+			trait = werewolf
+			trait = alpha_2
+	}
+	allow = {
+		piety = 600
+			trait = alpha_2	
+	}
+	effect = {
+		piety = -600
+		remove_trait = alpha_2
+		add_trait = alpha_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0
+		}
+	}
+
+train_alpha_4_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf		
+			trait = alpha_3
+	}
+	allow = {
+		piety = 800
+			trait = alpha_3	
+	}
+	effect = {
+		piety = -800
+		remove_trait = alpha_3
+		add_trait = alpha_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}
+
+train_alpha_5_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf			
+			trait = alpha_4 
+	}
+	allow = {
+		piety = 1200
+			trait = alpha_4 		
+	}
+	effect = {
+		piety = -1200
+		remove_trait = alpha_4
+		add_trait = alpha_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}			
+
+train_dominance_1_decision = {
+	potential = {
+			ai = no
+			age = 16
+			trait = werewolf
+			OR = {
+			religion = storm_lords
+			religion = ivory_claws
+			religion = silver_fangs
+			religion = shadow_lords
+			trait = rahu
+			}
+			NOT = { trait = dominance_1 }
+			NOT = { trait = dominance_2 }
+			NOT = { trait = dominance_3 }
+			NOT = { trait = dominance_4 }
+			NOT = { trait = dominance_5 }
+			
+	}
+	
+	allow = {
+		piety = 200
+			trait = werewolf
+			NOT = { trait = dominance_1 }
+			NOT = { trait = dominance_2 }
+			NOT = { trait = dominance_3 }
+			NOT = { trait = dominance_4 }
+			NOT = { trait = dominance_5 }
+	}
+	effect = {
+		piety = -200
+		add_trait = dominance_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 0	
+				}
+		}
+
+
+train_dominance_2_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf
+			trait = dominance_1 
+	}	
+	
+	allow = {
+		piety = 400
+		trait = dominance_1 	
+	}
+	effect = {
+		piety = -400
+		add_trait = dominance_2
+		remove_trait = dominance_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0	
+		}
+	}
+
+train_dominance_3_decision = {
+	
+	potential = {
+			ai = no
+
+			trait = werewolf
+			trait = dominance_2
+	}
+	allow = {
+		piety = 600
+			trait = dominance_2	
+	}
+	effect = {
+		piety = -600
+		remove_trait = dominance_2
+		add_trait = dominance_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0
+		}
+	}
+
+train_dominance_4_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf		
+			trait = dominance_3
+	}
+	allow = {
+		piety = 800
+			trait = dominance_3	
+	}
+	effect = {
+		piety = -800
+		remove_trait = dominance_3
+		add_trait = dominance_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}
+
+train_dominance_5_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf			
+			trait = dominance_4 
+	}
+	allow = {
+		piety = 1200
+			trait = dominance_4 		
+	}
+	effect = {
+		piety = -1200
+		remove_trait = dominance_4
+		add_trait = dominance_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}		
+
+train_battle_1_decision = {
+	potential = {
+			ai = no
+			age = 16
+			trait = werewolf
+			OR = {
+			religion = blood_talons
+			religion = get_of_fenris
+			trait = rahu
+			}
+			NOT = { trait = battle_1 }
+			NOT = { trait = battle_2 }
+			NOT = { trait = battle_3 }
+			NOT = { trait = battle_4 }
+			NOT = { trait = battle_5 }
+			
+	}
+	
+	allow = {
+		piety = 200
+			trait = werewolf
+			NOT = { trait = battle_1 }
+			NOT = { trait = battle_2 }
+			NOT = { trait = battle_3 }
+			NOT = { trait = battle_4 }
+			NOT = { trait = battle_5 }
+	}
+	effect = {
+		piety = -200
+		add_trait = battle_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 0	
+				}
+		}
+
+
+train_battle_2_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf
+			trait = battle_1 
+	}	
+	
+	allow = {
+		piety = 400
+		trait = battle_1 	
+	}
+	effect = {
+		piety = -400
+		add_trait = battle_2
+		remove_trait = battle_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0	
+		}
+	}
+
+train_battle_3_decision = {
+	
+	potential = {
+			ai = no
+
+			trait = werewolf
+			trait = battle_2
+	}
+	allow = {
+		piety = 600
+			trait = battle_2	
+	}
+	effect = {
+		piety = -600
+		remove_trait = battle_2
+		add_trait = battle_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0
+		}
+	}
+
+train_battle_4_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf		
+			trait = battle_3
+	}
+	allow = {
+		piety = 800
+			trait = battle_3	
+	}
+	effect = {
+		piety = -800
+		remove_trait = battle_3
+		add_trait = battle_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}
+
+train_battle_5_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf			
+			trait = battle_4 
+	}
+	allow = {
+		piety = 1200
+			trait = battle_4 		
+	}
+	effect = {
+		piety = -1200
+		remove_trait = battle_4
+		add_trait = battle_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}		
+
+train_blending_1_decision = {
+	potential = {
+			ai = no
+			age = 16
+			trait = werewolf
+			OR = {
+			religion = iron_masters
+			religion = warders_of_men
+			religion = bone_gnawers
+			}
+			NOT = { trait = blending_1 }
+			NOT = { trait = blending_2 }
+			NOT = { trait = blending_3 }
+			NOT = { trait = blending_4 }
+			NOT = { trait = blending_5 }
+			
+	}
+	
+	allow = {
+		piety = 200
+			trait = werewolf
+			NOT = { trait = blending_1 }
+			NOT = { trait = blending_2 }
+			NOT = { trait = blending_3 }
+			NOT = { trait = blending_4 }
+			NOT = { trait = blending_5 }
+	}
+	effect = {
+		piety = -200
+		add_trait = blending_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 0	
+				}
+		}
+
+
+train_blending_2_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf
+			trait = blending_1 
+	}	
+	
+	allow = {
+		piety = 400
+		trait = blending_1 	
+	}
+	effect = {
+		piety = -400
+		add_trait = blending_2
+		remove_trait = blending_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0	
+		}
+	}
+
+train_blending_3_decision = {
+	
+	potential = {
+			ai = no
+
+			trait = werewolf
+			trait = blending_2
+	}
+	allow = {
+		piety = 600
+			trait = blending_2	
+	}
+	effect = {
+		piety = -600
+		remove_trait = blending_2
+		add_trait = blending_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0
+		}
+	}
+
+train_blending_4_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf		
+			trait = blending_3
+	}
+	allow = {
+		piety = 800
+			trait = blending_3	
+	}
+	effect = {
+		piety = -800
+		remove_trait = blending_3
+		add_trait = blending_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}
+
+train_blending_5_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf			
+			trait = blending_4 
+	}
+	allow = {
+		piety = 1200
+			trait = blending_4 		
+	}
+	effect = {
+		piety = -1200
+		remove_trait = blending_4
+		add_trait = blending_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}		
+
+train_death_1_decision = {
+	potential = {
+			ai = no
+			age = 16
+			trait = werewolf
+			OR = {
+			religion = bone_shadows
+			religion = black_furies
+			}
+			NOT = { trait = death_1 }
+			NOT = { trait = death_2 }
+			NOT = { trait = death_3 }
+			NOT = { trait = death_4 }
+			NOT = { trait = death_5 }
+			
+	}
+	
+	allow = {
+		piety = 200
+			trait = werewolf
+			NOT = { trait = death_1 }
+			NOT = { trait = death_2 }
+			NOT = { trait = death_3 }
+			NOT = { trait = death_4 }
+			NOT = { trait = death_5 }
+	}
+	effect = {
+		piety = -200
+		add_trait = death_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 0	
+				}
+		}
+
+
+train_death_2_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf
+			trait = death_1 
+	}	
+	
+	allow = {
+		piety = 400
+		trait = death_1 	
+	}
+	effect = {
+		piety = -400
+		add_trait = death_2
+		remove_trait = death_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0	
+		}
+	}
+
+train_death_3_decision = {
+	
+	potential = {
+			ai = no
+
+			trait = werewolf
+			trait = death_2
+	}
+	allow = {
+		piety = 600
+			trait = death_2	
+	}
+	effect = {
+		piety = -600
+		remove_trait = death_2
+		add_trait = death_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0
+		}
+	}
+
+train_death_4_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf		
+			trait = death_3
+	}
+	allow = {
+		piety = 800
+			trait = death_3	
+	}
+	effect = {
+		piety = -800
+		remove_trait = death_3
+		add_trait = death_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}
+
+train_death_5_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf			
+			trait = death_4 
+	}
+	allow = {
+		piety = 1200
+			trait = death_4 		
+	}
+	effect = {
+		piety = -1200
+		remove_trait = death_4
+		add_trait = death_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}		
+	
+train_disease_1_decision = {
+	potential = {
+			ai = no
+			age = 16
+			trait = werewolf
+			OR = {
+			religion = fire-touched
+			religion = black_spiral_dancers
+			}
+			NOT = { trait = disease_1 }
+			NOT = { trait = disease_2 }
+			NOT = { trait = disease_3 }
+			NOT = { trait = disease_4 }
+			NOT = { trait = disease_5 }
+			
+	}
+	
+	allow = {
+		piety = 200
+			trait = werewolf
+			NOT = { trait = disease_1 }
+			NOT = { trait = disease_2 }
+			NOT = { trait = disease_3 }
+			NOT = { trait = disease_4 }
+			NOT = { trait = disease_5 }
+	}
+	effect = {
+		piety = -200
+		add_trait = disease_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 0	
+				}
+		}
+
+
+train_disease_2_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf
+			trait = disease_1 
+	}	
+	
+	allow = {
+		piety = 400
+		trait = disease_1 	
+	}
+	effect = {
+		piety = -400
+		add_trait = disease_2
+		remove_trait = disease_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0	
+		}
+	}
+
+train_disease_3_decision = {
+	
+	potential = {
+			ai = no
+
+			trait = werewolf
+			trait = disease_2
+	}
+	allow = {
+		piety = 600
+			trait = disease_2	
+	}
+	effect = {
+		piety = -600
+		remove_trait = disease_2
+		add_trait = disease_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0
+		}
+	}
+
+train_disease_4_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf		
+			trait = disease_3
+	}
+	allow = {
+		piety = 800
+			trait = disease_3	
+	}
+	effect = {
+		piety = -800
+		remove_trait = disease_3
+		add_trait = disease_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}
+
+train_disease_5_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf			
+			trait = disease_4 
+	}
+	allow = {
+		piety = 1200
+			trait = disease_4 		
+	}
+	effect = {
+		piety = -1200
+		remove_trait = disease_4
+		add_trait = disease_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}			
+
+train_elemental_1_decision = {
+	potential = {
+			ai = no
+			age = 16
+			trait = werewolf
+			OR = {
+			religion = hunters_in_darkness
+			religion = silent_striders
+			trait = ithaeur
+			}
+			NOT = { trait = elemental_1 }
+			NOT = { trait = elemental_2 }
+			NOT = { trait = elemental_3 }
+			NOT = { trait = elemental_4 }
+			NOT = { trait = elemental_5 }
+			
+	}
+	
+	allow = {
+		piety = 200
+			trait = werewolf
+			NOT = { trait = elemental_1 }
+			NOT = { trait = elemental_2 }
+			NOT = { trait = elemental_3 }
+			NOT = { trait = elemental_4 }
+			NOT = { trait = elemental_5 }
+	}
+	effect = {
+		piety = -200
+		add_trait = elemental_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 0	
+				}
+		}
+
+
+train_elemental_2_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf
+			trait = elemental_1 
+	}	
+	
+	allow = {
+		piety = 400
+		trait = elemental_1 	
+	}
+	effect = {
+		piety = -400
+		add_trait = elemental_2
+		remove_trait = elemental_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0	
+		}
+	}
+
+train_elemental_3_decision = {
+	
+	potential = {
+			ai = no
+
+			trait = werewolf
+			trait = elemental_2
+	}
+	allow = {
+		piety = 600
+			trait = elemental_2	
+	}
+	effect = {
+		piety = -600
+		remove_trait = elemental_2
+		add_trait = elemental_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0
+		}
+	}
+
+train_elemental_4_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf		
+			trait = elemental_3
+	}
+	allow = {
+		piety = 800
+			trait = elemental_3	
+	}
+	effect = {
+		piety = -800
+		remove_trait = elemental_3
+		add_trait = elemental_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}
+
+train_elemental_5_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf			
+			trait = elemental_4 
+	}
+	allow = {
+		piety = 1200
+			trait = elemental_4 		
+	}
+	effect = {
+		piety = -1200
+		remove_trait = elemental_4
+		add_trait = elemental_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}		
+train_ending_1_decision = {
+	potential = {
+			ai = no
+			age = 16
+			trait = werewolf
+			religion = bone_shadows
+			NOT = { trait = ending_1 }
+			NOT = { trait = ending_2 }
+			NOT = { trait = ending_3 }
+			NOT = { trait = ending_4 }
+			NOT = { trait = ending_5 }
+			
+	}
+	
+	allow = {
+		piety = 200
+			trait = werewolf
+			NOT = { trait = ending_1 }
+			NOT = { trait = ending_2 }
+			NOT = { trait = ending_3 }
+			NOT = { trait = ending_4 }
+			NOT = { trait = ending_5 }
+	}
+	effect = {
+		piety = -200
+		add_trait = ending_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 0	
+				}
+		}
+
+
+train_ending_2_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf
+			trait = ending_1 
+	}	
+	
+	allow = {
+		piety = 400
+		trait = ending_1 	
+	}
+	effect = {
+		piety = -400
+		add_trait = ending_2
+		remove_trait = ending_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0	
+		}
+	}
+
+train_ending_3_decision = {
+	
+	potential = {
+			ai = no
+
+			trait = werewolf
+			trait = ending_2
+	}
+	allow = {
+		piety = 600
+			trait = ending_2	
+	}
+	effect = {
+		piety = -600
+		remove_trait = ending_2
+		add_trait = ending_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0
+		}
+	}
+
+train_ending_4_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf		
+			trait = ending_3
+	}
+	allow = {
+		piety = 800
+			trait = ending_3	
+	}
+	effect = {
+		piety = -800
+		remove_trait = ending_3
+		add_trait = ending_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}
+
+train_ending_5_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf			
+			trait = ending_4 
+	}
+	allow = {
+		piety = 1200
+			trait = ending_4 		
+	}
+	effect = {
+		piety = -1200
+		remove_trait = ending_4
+		add_trait = ending_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}		
+	
+train_evasion_1_decision = {
+	potential = {
+			ai = no
+			age = 16
+			trait = werewolf
+			OR = {
+			religion = bone_shadows
+			religion = shadow_lords
+			religion = storm_lords
+			}
+			NOT = { trait = evasion_1 }
+			NOT = { trait = evasion_2 }
+			NOT = { trait = evasion_3 }
+			NOT = { trait = evasion_4 }
+			NOT = { trait = evasion_5 }
+			
+	}
+	
+	allow = {
+		piety = 200
+			trait = werewolf
+			NOT = { trait = evasion_1 }
+			NOT = { trait = evasion_2 }
+			NOT = { trait = evasion_3 }
+			NOT = { trait = evasion_4 }
+			NOT = { trait = evasion_5 }
+	}
+	effect = {
+		piety = -200
+		add_trait = evasion_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 0	
+				}
+		}
+
+
+train_evasion_2_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf
+			trait = evasion_1 
+	}	
+	
+	allow = {
+		piety = 400
+		trait = evasion_1 	
+	}
+	effect = {
+		piety = -400
+		add_trait = evasion_2
+		remove_trait = evasion_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0	
+		}
+	}
+
+train_evasion_3_decision = {
+	
+	potential = {
+			ai = no
+
+			trait = werewolf
+			trait = evasion_2
+	}
+	allow = {
+		piety = 600
+			trait = evasion_2	
+	}
+	effect = {
+		piety = -600
+		remove_trait = evasion_2
+		add_trait = evasion_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0
+		}
+	}
+
+train_evasion_4_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf		
+			trait = evasion_3
+	}
+	allow = {
+		piety = 800
+			trait = evasion_3	
+	}
+	effect = {
+		piety = -800
+		remove_trait = evasion_3
+		add_trait = evasion_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}
+
+train_evasion_5_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf			
+			trait = evasion_4 
+	}
+	allow = {
+		piety = 1200
+			trait = evasion_4 		
+	}
+	effect = {
+		piety = -1200
+		remove_trait = evasion_4
+		add_trait = evasion_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}			
+
+train_fever_1_decision = {
+	potential = {
+			ai = no
+			age = 16
+			trait = werewolf
+			OR = {
+			religion = fire-touched
+			religion = black_spiral_dancers
+			}
+			NOT = { trait = fever_1 }
+			NOT = { trait = fever_2 }
+			NOT = { trait = fever_3 }
+			NOT = { trait = fever_4 }
+			NOT = { trait = fever_5 }
+			
+	}
+	
+	allow = {
+		piety = 200
+			trait = werewolf
+			NOT = { trait = fever_1 }
+			NOT = { trait = fever_2 }
+			NOT = { trait = fever_3 }
+			NOT = { trait = fever_4 }
+			NOT = { trait = fever_5 }
+	}
+	effect = {
+		piety = -200
+		add_trait = fever_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 0	
+				}
+		}
+
+
+train_fever_2_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf
+			trait = fever_1 
+	}	
+	
+	allow = {
+		piety = 400
+		trait = fever_1 	
+	}
+	effect = {
+		piety = -400
+		add_trait = fever_2
+		remove_trait = fever_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0	
+		}
+	}
+
+train_fever_3_decision = {
+	
+	potential = {
+			ai = no
+
+			trait = werewolf
+			trait = fever_2
+	}
+	allow = {
+		piety = 600
+			trait = fever_2	
+	}
+	effect = {
+		piety = -600
+		remove_trait = fever_2
+		add_trait = fever_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0
+		}
+	}
+
+train_fever_4_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf		
+			trait = fever_3
+	}
+	allow = {
+		piety = 800
+			trait = fever_3	
+	}
+	effect = {
+		piety = -800
+		remove_trait = fever_3
+		add_trait = fever_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}
+
+train_fever_5_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf			
+			trait = fever_4 
+	}
+	allow = {
+		piety = 1200
+			trait = fever_4 		
+	}
+	effect = {
+		piety = -1200
+		remove_trait = fever_4
+		add_trait = fever_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}		
+	
+train_fervor_1_decision = {
+	potential = {
+			ai = no
+			age = 16
+			trait = werewolf
+			religion = fire-touched
+			NOT = { trait = fervor_1 }
+			NOT = { trait = fervor_2 }
+			NOT = { trait = fervor_3 }
+			NOT = { trait = fervor_4 }
+			NOT = { trait = fervor_5 }
+			
+	}
+	
+	allow = {
+		piety = 200
+			trait = werewolf
+			NOT = { trait = fervor_1 }
+			NOT = { trait = fervor_2 }
+			NOT = { trait = fervor_3 }
+			NOT = { trait = fervor_4 }
+			NOT = { trait = fervor_5 }
+	}
+	effect = {
+		piety = -200
+		add_trait = fervor_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 0	
+				}
+		}
+
+
+train_fervor_2_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf
+			trait = fervor_1 
+	}	
+	
+	allow = {
+		piety = 400
+		trait = fervor_1 	
+	}
+	effect = {
+		piety = -400
+		add_trait = fervor_2
+		remove_trait = fervor_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0	
+		}
+	}
+
+train_fervor_3_decision = {
+	
+	potential = {
+			ai = no
+
+			trait = werewolf
+			trait = fervor_2
+	}
+	allow = {
+		piety = 600
+			trait = fervor_2	
+	}
+	effect = {
+		piety = -600
+		remove_trait = fervor_2
+		add_trait = fervor_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0
+		}
+	}
+
+train_fervor_4_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf		
+			trait = fervor_3
+	}
+	allow = {
+		piety = 800
+			trait = fervor_3	
+	}
+	effect = {
+		piety = -800
+		remove_trait = fervor_3
+		add_trait = fervor_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}
+
+train_fervor_5_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf			
+			trait = fervor_4 
+	}
+	allow = {
+		piety = 1200
+			trait = fervor_4 		
+	}
+	effect = {
+		piety = -1200
+		remove_trait = fervor_4
+		add_trait = fervor_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}			
+
+train_insight_1_decision = {
+	potential = {
+			ai = no
+			age = 16
+			trait = werewolf
+			OR = {
+			religion = bone_shadows
+			religion = fire-touched
+			religion = black_furies
+			trait = elodoth
+			}
+			NOT = { trait = insight_1 }
+			NOT = { trait = insight_2 }
+			NOT = { trait = insight_3 }
+			NOT = { trait = insight_4 }
+			NOT = { trait = insight_5 }
+			
+	}
+	
+	allow = {
+		piety = 200
+			trait = werewolf
+			NOT = { trait = insight_1 }
+			NOT = { trait = insight_2 }
+			NOT = { trait = insight_3 }
+			NOT = { trait = insight_4 }
+			NOT = { trait = insight_5 }
+	}
+	effect = {
+		piety = -200
+		add_trait = insight_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 0	
+				}
+		}
+
+
+train_insight_2_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf
+			trait = insight_1 
+	}	
+	
+	allow = {
+		piety = 400
+		trait = insight_1 	
+	}
+	effect = {
+		piety = -400
+		add_trait = insight_2
+		remove_trait = insight_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0	
+		}
+	}
+
+train_insight_3_decision = {
+	
+	potential = {
+			ai = no
+
+			trait = werewolf
+			trait = insight_2
+	}
+	allow = {
+		piety = 600
+			trait = insight_2	
+	}
+	effect = {
+		piety = -600
+		remove_trait = insight_2
+		add_trait = insight_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0
+		}
+	}
+
+train_insight_4_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf		
+			trait = insight_3
+	}
+	allow = {
+		piety = 800
+			trait = insight_3	
+	}
+	effect = {
+		piety = -800
+		remove_trait = insight_3
+		add_trait = insight_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}
+
+train_insight_5_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf			
+			trait = insight_4 
+	}
+	allow = {
+		piety = 1200
+			trait = insight_4 		
+	}
+	effect = {
+		piety = -1200
+		remove_trait = insight_4
+		add_trait = insight_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}		
+
+train_inspiration_1_decision = {
+	potential = {
+			ai = no
+			age = 16
+			trait = werewolf
+			OR = {
+			religion = blood_talons
+			religion = fire-touched
+			religion = get_of_fenris
+			trait = cahalith
+			}
+			NOT = { trait = inspiration_1 }
+			NOT = { trait = inspiration_2 }
+			NOT = { trait = inspiration_3 }
+			NOT = { trait = inspiration_4 }
+			NOT = { trait = inspiration_5 }
+			
+	}
+	
+	allow = {
+		piety = 200
+			trait = werewolf
+			NOT = { trait = inspiration_1 }
+			NOT = { trait = inspiration_2 }
+			NOT = { trait = inspiration_3 }
+			NOT = { trait = inspiration_4 }
+			NOT = { trait = inspiration_5 }
+	}
+	effect = {
+		piety = -200
+		add_trait = inspiration_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 0	
+				}
+		}
+
+
+train_inspiration_2_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf
+			trait = inspiration_1 
+	}	
+	
+	allow = {
+		piety = 400
+		trait = inspiration_1 	
+	}
+	effect = {
+		piety = -400
+		add_trait = inspiration_2
+		remove_trait = inspiration_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0	
+		}
+	}
+
+train_inspiration_3_decision = {
+	
+	potential = {
+			ai = no
+
+			trait = werewolf
+			trait = inspiration_2
+	}
+	allow = {
+		piety = 600
+			trait = inspiration_2	
+	}
+	effect = {
+		piety = -600
+		remove_trait = inspiration_2
+		add_trait = inspiration_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0
+		}
+	}
+
+train_inspiration_4_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf		
+			trait = inspiration_3
+	}
+	allow = {
+		piety = 800
+			trait = inspiration_3	
+	}
+	effect = {
+		piety = -800
+		remove_trait = inspiration_3
+		add_trait = inspiration_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}
+
+train_inspiration_5_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf			
+			trait = inspiration_4 
+	}
+	allow = {
+		piety = 1200
+			trait = inspiration_4 		
+	}
+	effect = {
+		piety = -1200
+		remove_trait = inspiration_4
+		add_trait = inspiration_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}		
+
+train_knowledge_1_decision = {
+	potential = {
+			ai = no
+			age = 16
+			trait = werewolf
+			OR = {
+			religion = iron_masters
+			religion = warders_of_man
+			religion = glasswalkers
+			religion = bone_gnawers
+			religion = silver_fangs
+			trait = cahalith
+			}
+			NOT = { trait = knowledge_1 }
+			NOT = { trait = knowledge_2 }
+			NOT = { trait = knowledge_3 }
+			NOT = { trait = knowledge_4 }
+			NOT = { trait = knowledge_5 }
+			
+	}
+	
+	allow = {
+		piety = 200
+			trait = werewolf
+			NOT = { trait = knowledge_1 }
+			NOT = { trait = knowledge_2 }
+			NOT = { trait = knowledge_3 }
+			NOT = { trait = knowledge_4 }
+			NOT = { trait = knowledge_5 }
+	}
+	effect = {
+		piety = -200
+		add_trait = knowledge_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 0	
+				}
+		}
+
+
+train_knowledge_2_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf
+			trait = knowledge_1 
+	}	
+	
+	allow = {
+		piety = 400
+		trait = knowledge_1 	
+	}
+	effect = {
+		piety = -400
+		add_trait = knowledge_2
+		remove_trait = knowledge_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0	
+		}
+	}
+
+train_knowledge_3_decision = {
+	
+	potential = {
+			ai = no
+
+			trait = werewolf
+			trait = knowledge_2
+	}
+	allow = {
+		piety = 600
+			trait = knowledge_2	
+	}
+	effect = {
+		piety = -600
+		remove_trait = knowledge_2
+		add_trait = knowledge_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0
+		}
+	}
+
+train_knowledge_4_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf		
+			trait = knowledge_3
+	}
+	allow = {
+		piety = 800
+			trait = knowledge_3	
+	}
+	effect = {
+		piety = -800
+		remove_trait = knowledge_3
+		add_trait = knowledge_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}
+
+train_knowledge_5_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf			
+			trait = knowledge_4 
+	}
+	allow = {
+		piety = 1200
+			trait = knowledge_4 		
+	}
+	effect = {
+		piety = -1200
+		remove_trait = knowledge_4
+		add_trait = knowledge_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}		
+
+train_nature_1_decision = {
+	potential = {
+			ai = no
+			age = 16
+			trait = werewolf
+			OR = {
+			religion = hunters_in_darkness
+			religion = predator_kings
+			religion = silent_striders
+			religion = red_talons
+			}
+			NOT = { trait = nature_1 }
+			NOT = { trait = nature_2 }
+			NOT = { trait = nature_3 }
+			NOT = { trait = nature_4 }
+			NOT = { trait = nature_5 }
+			
+	}
+	
+	allow = {
+		piety = 200
+			trait = werewolf
+			NOT = { trait = nature_1 }
+			NOT = { trait = nature_2 }
+			NOT = { trait = nature_3 }
+			NOT = { trait = nature_4 }
+			NOT = { trait = nature_5 }
+	}
+	effect = {
+		piety = -200
+		add_trait = nature_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 0	
+				}
+		}
+
+
+train_nature_2_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf
+			trait = nature_1 
+	}	
+	
+	allow = {
+		piety = 400
+		trait = nature_1 	
+	}
+	effect = {
+		piety = -400
+		add_trait = nature_2
+		remove_trait = nature_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0	
+		}
+	}
+
+train_nature_3_decision = {
+	
+	potential = {
+			ai = no
+
+			trait = werewolf
+			trait = nature_2
+	}
+	allow = {
+		piety = 600
+			trait = nature_2	
+	}
+	effect = {
+		piety = -600
+		remove_trait = nature_2
+		add_trait = nature_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0
+		}
+	}
+
+train_nature_4_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf		
+			trait = nature_3
+	}
+	allow = {
+		piety = 800
+			trait = nature_3	
+	}
+	effect = {
+		piety = -800
+		remove_trait = nature_3
+		add_trait = nature_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}
+
+train_nature_5_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf			
+			trait = nature_4 
+	}
+	allow = {
+		piety = 1200
+			trait = nature_4 		
+	}
+	effect = {
+		piety = -1200
+		remove_trait = nature_4
+		add_trait = nature_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}		
+
+train_rage_1_decision = {
+	potential = {
+			ai = no
+			age = 16
+			trait = werewolf
+			OR = {
+			religion = blood_talons
+			religion = predator_kings
+			religion = get_of_fenris
+			religion = red_talons
+			}
+			NOT = { trait = rage_1 }
+			NOT = { trait = rage_2 }
+			NOT = { trait = rage_3 }
+			NOT = { trait = rage_4 }
+			NOT = { trait = rage_5 }
+			
+	}
+	
+	allow = {
+		piety = 200
+			trait = werewolf
+			NOT = { trait = rage_1 }
+			NOT = { trait = rage_2 }
+			NOT = { trait = rage_3 }
+			NOT = { trait = rage_4 }
+			NOT = { trait = rage_5 }
+	}
+	effect = {
+		piety = -200
+		add_trait = rage_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 0	
+				}
+		}
+
+
+train_rage_2_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf
+			trait = rage_1 
+	}	
+	
+	allow = {
+		piety = 400
+		trait = rage_1 	
+	}
+	effect = {
+		piety = -400
+		add_trait = rage_2
+		remove_trait = rage_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0	
+		}
+	}
+
+train_rage_3_decision = {
+	
+	potential = {
+			ai = no
+
+			trait = werewolf
+			trait = rage_2
+	}
+	allow = {
+		piety = 600
+			trait = rage_2	
+	}
+	effect = {
+		piety = -600
+		remove_trait = rage_2
+		add_trait = rage_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0
+		}
+	}
+
+train_rage_4_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf		
+			trait = rage_3
+	}
+	allow = {
+		piety = 800
+			trait = rage_3	
+	}
+	effect = {
+		piety = -800
+		remove_trait = rage_3
+		add_trait = rage_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}
+
+train_rage_5_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf			
+			trait = rage_4 
+	}
+	allow = {
+		piety = 1200
+			trait = rage_4 		
+	}
+	effect = {
+		piety = -1200
+		remove_trait = rage_4
+		add_trait = rage_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}		
+
+train_savagery_1_decision = {
+	potential = {
+			ai = no
+			age = 16
+			trait = werewolf
+			OR = {
+			religion = predator_kings
+			religion = red_talons
+			}
+			NOT = { trait = savagery_1 }
+			NOT = { trait = savagery_2 }
+			NOT = { trait = savagery_3 }
+			NOT = { trait = savagery_4 }
+			NOT = { trait = savagery_5 }
+			
+	}
+	
+	allow = {
+		piety = 200
+			trait = werewolf
+			NOT = { trait = savagery_1 }
+			NOT = { trait = savagery_2 }
+			NOT = { trait = savagery_3 }
+			NOT = { trait = savagery_4 }
+			NOT = { trait = savagery_5 }
+	}
+	effect = {
+		piety = -200
+		add_trait = savagery_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 0	
+				}
+		}
+
+
+train_savagery_2_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf
+			trait = savagery_1 
+	}	
+	
+	allow = {
+		piety = 400
+		trait = savagery_1 	
+	}
+	effect = {
+		piety = -400
+		add_trait = savagery_2
+		remove_trait = savagery_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0	
+		}
+	}
+
+train_savagery_3_decision = {
+	
+	potential = {
+			ai = no
+
+			trait = werewolf
+			trait = savagery_2
+	}
+	allow = {
+		piety = 600
+			trait = savagery_2	
+	}
+	effect = {
+		piety = -600
+		remove_trait = savagery_2
+		add_trait = savagery_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0
+		}
+	}
+
+train_savagery_4_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf		
+			trait = savagery_3
+	}
+	allow = {
+		piety = 800
+			trait = savagery_3	
+	}
+	effect = {
+		piety = -800
+		remove_trait = savagery_3
+		add_trait = savagery_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}
+
+train_savagery_5_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf			
+			trait = savagery_4 
+	}
+	allow = {
+		piety = 1200
+			trait = savagery_4 		
+	}
+	effect = {
+		piety = -1200
+		remove_trait = savagery_4
+		add_trait = savagery_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}		
+
+train_scourging_1_decision = {
+	potential = {
+			ai = no
+			age = 16
+			trait = werewolf
+			religion = ivory_claws
+			
+			NOT = { trait = scourging_1 }
+			NOT = { trait = scourging_2 }
+			NOT = { trait = scourging_3 }
+			NOT = { trait = scourging_4 }
+			NOT = { trait = scourging_5 }
+			
+	}
+	
+	allow = {
+		piety = 200
+			trait = werewolf
+			NOT = { trait = scourging_1 }
+			NOT = { trait = scourging_2 }
+			NOT = { trait = scourging_3 }
+			NOT = { trait = scourging_4 }
+			NOT = { trait = scourging_5 }
+	}
+	effect = {
+		piety = -200
+		add_trait = scourging_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 0	
+				}
+		}
+
+
+train_scourging_2_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf
+			trait = scourging_1 
+	}	
+	
+	allow = {
+		piety = 400
+		trait = scourging_1 	
+	}
+	effect = {
+		piety = -400
+		add_trait = scourging_2
+		remove_trait = scourging_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0	
+		}
+	}
+
+train_scourging_3_decision = {
+	
+	potential = {
+			ai = no
+
+			trait = werewolf
+			trait = scourging_2
+	}
+	allow = {
+		piety = 600
+			trait = scourging_2	
+	}
+	effect = {
+		piety = -600
+		remove_trait = scourging_2
+		add_trait = scourging_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0
+		}
+	}
+
+train_scourging_4_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf		
+			trait = scourging_3
+	}
+	allow = {
+		piety = 800
+			trait = scourging_3	
+	}
+	effect = {
+		piety = -800
+		remove_trait = scourging_3
+		add_trait = scourging_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}
+
+train_scourging_5_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf			
+			trait = scourging_4 
+	}
+	allow = {
+		piety = 1200
+			trait = scourging_4 		
+	}
+	effect = {
+		piety = -1200
+		remove_trait = scourging_4
+		add_trait = scourging_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}		
+
+train_shaping_1_decision = {
+	potential = {
+			ai = no
+			age = 16
+			trait = werewolf
+			OR = {
+			religion = iron_masters
+			religion = warders_of_men
+			religion = glasswalkers
+			trait = ithaeur
+			}
+			NOT = { trait = shaping_1 }
+			NOT = { trait = shaping_2 }
+			NOT = { trait = shaping_3 }
+			NOT = { trait = shaping_4 }
+			NOT = { trait = shaping_5 }
+			
+	}
+	
+	allow = {
+		piety = 200
+			trait = werewolf
+			NOT = { trait = shaping_1 }
+			NOT = { trait = shaping_2 }
+			NOT = { trait = shaping_3 }
+			NOT = { trait = shaping_4 }
+			NOT = { trait = shaping_5 }
+	}
+	effect = {
+		piety = -200
+		add_trait = shaping_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 0	
+				}
+		}
+
+
+train_shaping_2_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf
+			trait = shaping_1 
+	}	
+	
+	allow = {
+		piety = 400
+		trait = shaping_1 	
+	}
+	effect = {
+		piety = -400
+		add_trait = shaping_2
+		remove_trait = shaping_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0	
+		}
+	}
+
+train_shaping_3_decision = {
+	
+	potential = {
+			ai = no
+
+			trait = werewolf
+			trait = shaping_2
+	}
+	allow = {
+		piety = 600
+			trait = shaping_2	
+	}
+	effect = {
+		piety = -600
+		remove_trait = shaping_2
+		add_trait = shaping_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0
+		}
+	}
+
+train_shaping_4_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf		
+			trait = shaping_3
+	}
+	allow = {
+		piety = 800
+			trait = shaping_3	
+	}
+	effect = {
+		piety = -800
+		remove_trait = shaping_3
+		add_trait = shaping_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}
+
+train_shaping_5_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf			
+			trait = shaping_4 
+	}
+	allow = {
+		piety = 1200
+			trait = shaping_4 		
+	}
+	effect = {
+		piety = -1200
+		remove_trait = shaping_4
+		add_trait = shaping_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}		
+
+train_stealth_1_decision = {
+	potential = {
+			ai = no
+			age = 16
+			trait = werewolf
+			OR = {
+			religion = hunters_in_darkness
+			religion = silent_striders
+			religion = bone_gnawers
+			trait = irraka
+			}
+			NOT = { trait = stealth_1 }
+			NOT = { trait = stealth_2 }
+			NOT = { trait = stealth_3 }
+			NOT = { trait = stealth_4 }
+			NOT = { trait = stealth_5 }
+			
+	}
+	
+	allow = {
+		piety = 200
+			trait = werewolf
+			NOT = { trait = stealth_1 }
+			NOT = { trait = stealth_2 }
+			NOT = { trait = stealth_3 }
+			NOT = { trait = stealth_4 }
+			NOT = { trait = stealth_5 }
+	}
+	effect = {
+		piety = -200
+		add_trait = stealth_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 0	
+				}
+		}
+
+
+train_stealth_2_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf
+			trait = stealth_1 
+	}	
+	
+	allow = {
+		piety = 400
+		trait = stealth_1 	
+	}
+	effect = {
+		piety = -400
+		add_trait = stealth_2
+		remove_trait = stealth_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0	
+		}
+	}
+
+train_stealth_3_decision = {
+	
+	potential = {
+			ai = no
+
+			trait = werewolf
+			trait = stealth_2
+	}
+	allow = {
+		piety = 600
+			trait = stealth_2	
+	}
+	effect = {
+		piety = -600
+		remove_trait = stealth_2
+		add_trait = stealth_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0
+		}
+	}
+
+train_stealth_4_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf		
+			trait = stealth_3
+	}
+	allow = {
+		piety = 800
+			trait = stealth_3	
+	}
+	effect = {
+		piety = -800
+		remove_trait = stealth_3
+		add_trait = stealth_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}
+
+train_stealth_5_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf			
+			trait = stealth_4 
+	}
+	allow = {
+		piety = 1200
+			trait = stealth_4 		
+	}
+	effect = {
+		piety = -1200
+		remove_trait = stealth_4
+		add_trait = stealth_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}		
+
+train_stalking_1_decision = {
+	potential = {
+			ai = no
+			age = 16
+			trait = werewolf
+			OR = {
+			religion = hunters_in_darkness
+			religion = silent_striders
+			}
+			NOT = { trait = stalking_1 }
+			NOT = { trait = stalking_2 }
+			NOT = { trait = stalking_3 }
+			NOT = { trait = stalking_4 }
+			NOT = { trait = stalking_5 }
+			
+	}
+	
+	allow = {
+		piety = 200
+			trait = werewolf
+			NOT = { trait = stalking_1 }
+			NOT = { trait = stalking_2 }
+			NOT = { trait = stalking_3 }
+			NOT = { trait = stalking_4 }
+			NOT = { trait = stalking_5 }
+	}
+	effect = {
+		piety = -200
+		add_trait = stalking_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 0	
+				}
+		}
+
+
+train_stalking_2_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf
+			trait = stalking_1 
+	}	
+	
+	allow = {
+		piety = 400
+		trait = stalking_1 	
+	}
+	effect = {
+		piety = -400
+		add_trait = stalking_2
+		remove_trait = stalking_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0	
+		}
+	}
+
+train_stalking_3_decision = {
+	
+	potential = {
+			ai = no
+
+			trait = werewolf
+			trait = stalking_2
+	}
+	allow = {
+		piety = 600
+			trait = stalking_2	
+	}
+	effect = {
+		piety = -600
+		remove_trait = stalking_2
+		add_trait = stalking_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0
+		}
+	}
+
+train_stalking_4_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf		
+			trait = stalking_3
+	}
+	allow = {
+		piety = 800
+			trait = stalking_3	
+	}
+	effect = {
+		piety = -800
+		remove_trait = stalking_3
+		add_trait = stalking_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}
+
+train_stalking_5_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf			
+			trait = stalking_4 
+	}
+	allow = {
+		piety = 1200
+			trait = stalking_4 		
+	}
+	effect = {
+		piety = -1200
+		remove_trait = stalking_4
+		add_trait = stalking_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}		
+
+
+train_strength_1_decision = {
+	potential = {
+			ai = no
+			age = 16
+			trait = werewolf
+			OR = {
+			religion = predator_kings
+			religion = get_of_fenris
+			religion = red_talons
+			religion = blood_talons
+			trait = rahu
+			}
+			NOT = { trait = strength_1 }
+			NOT = { trait = strength_2 }
+			NOT = { trait = strength_3 }
+			NOT = { trait = strength_4 }
+			NOT = { trait = strength_5 }
+			
+	}
+	
+	allow = {
+		piety = 200
+			trait = werewolf
+			NOT = { trait = strength_1 }
+			NOT = { trait = strength_2 }
+			NOT = { trait = strength_3 }
+			NOT = { trait = strength_4 }
+			NOT = { trait = strength_5 }
+	}
+	effect = {
+		piety = -200
+		add_trait = strength_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 0	
+				}
+		}
+
+
+train_strength_2_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf
+			trait = strength_1 
+	}	
+	
+	allow = {
+		piety = 400
+		trait = strength_1 	
+	}
+	effect = {
+		piety = -400
+		add_trait = strength_2
+		remove_trait = strength_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0	
+		}
+	}
+
+train_strength_3_decision = {
+	
+	potential = {
+			ai = no
+
+			trait = werewolf
+			trait = strength_2
+	}
+	allow = {
+		piety = 600
+			trait = strength_2	
+	}
+	effect = {
+		piety = -600
+		remove_trait = strength_2
+		add_trait = strength_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0
+		}
+	}
+
+train_strength_4_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf		
+			trait = strength_3
+	}
+	allow = {
+		piety = 800
+			trait = strength_3	
+	}
+	effect = {
+		piety = -800
+		remove_trait = strength_3
+		add_trait = strength_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}
+
+train_strength_5_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf			
+			trait = strength_4 
+	}
+	allow = {
+		piety = 1200
+			trait = strength_4 		
+	}
+	effect = {
+		piety = -1200
+		remove_trait = strength_4
+		add_trait = strength_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}		
+
+train_tainted_moon_1_decision = {
+	potential = {
+			ai = no
+			age = 16
+			trait = werewolf
+			OR = {
+			religion = bale_hounds
+			religion = black_spiral_dancers
+			}
+			NOT = { trait = tainted_moon_1 }
+			NOT = { trait = tainted_moon_2 }
+			NOT = { trait = tainted_moon_3 }
+			NOT = { trait = tainted_moon_4 }
+			NOT = { trait = tainted_moon_5 }
+			
+	}
+	
+	allow = {
+		piety = 200
+			trait = werewolf
+			NOT = { trait = tainted_moon_1 }
+			NOT = { trait = tainted_moon_2 }
+			NOT = { trait = tainted_moon_3 }
+			NOT = { trait = tainted_moon_4 }
+			NOT = { trait = tainted_moon_5 }
+	}
+	effect = {
+		piety = -200
+		add_trait = tainted_moon_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 0	
+				}
+		}
+
+
+train_tainted_moon_2_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf
+			trait = tainted_moon_1 
+	}	
+	
+	allow = {
+		piety = 400
+		trait = tainted_moon_1 	
+	}
+	effect = {
+		piety = -400
+		add_trait = tainted_moon_2
+		remove_trait = tainted_moon_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0	
+		}
+	}
+
+train_tainted_moon_3_decision = {
+	
+	potential = {
+			ai = no
+
+			trait = werewolf
+			trait = tainted_moon_2
+	}
+	allow = {
+		piety = 600
+			trait = tainted_moon_2	
+	}
+	effect = {
+		piety = -600
+		remove_trait = tainted_moon_2
+		add_trait = tainted_moon_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0
+		}
+	}
+
+train_tainted_moon_4_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf		
+			trait = tainted_moon_3
+	}
+	allow = {
+		piety = 800
+			trait = tainted_moon_3	
+	}
+	effect = {
+		piety = -800
+		remove_trait = tainted_moon_3
+		add_trait = tainted_moon_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}
+
+train_tainted_moon_5_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf			
+			trait = tainted_moon_4 
+	}
+	allow = {
+		piety = 1200
+			trait = tainted_moon_4 		
+	}
+	effect = {
+		piety = -1200
+		remove_trait = tainted_moon_4
+		add_trait = tainted_moon_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}			
+
+train_technology_1_decision = {
+	potential = {
+			ai = no
+			age = 16
+			trait = werewolf
+			OR = {
+			religion = iron_masters
+			religion = warders_of_men
+			religion = glasswalkers
+			}
+			NOT = { trait = technology_1 }
+			NOT = { trait = technology_2 }
+			NOT = { trait = technology_3 }
+			NOT = { trait = technology_4 }
+			NOT = { trait = technology_5 }
+			
+	}
+	
+	allow = {
+		piety = 200
+			trait = werewolf
+			NOT = { trait = technology_1 }
+			NOT = { trait = technology_2 }
+			NOT = { trait = technology_3 }
+			NOT = { trait = technology_4 }
+			NOT = { trait = technology_5 }
+	}
+	effect = {
+		piety = -200
+		add_trait = technology_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 0	
+				}
+		}
+
+
+train_technology_2_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf
+			trait = technology_1 
+	}	
+	
+	allow = {
+		piety = 400
+		trait = technology_1 	
+	}
+	effect = {
+		piety = -400
+		add_trait = technology_2
+		remove_trait = technology_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0	
+		}
+	}
+
+train_technology_3_decision = {
+	
+	potential = {
+			ai = no
+
+			trait = werewolf
+			trait = technology_2
+	}
+	allow = {
+		piety = 600
+			trait = technology_2	
+	}
+	effect = {
+		piety = -600
+		remove_trait = technology_2
+		add_trait = technology_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0
+		}
+	}
+
+train_technology_4_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf		
+			trait = technology_3
+	}
+	allow = {
+		piety = 800
+			trait = technology_3	
+	}
+	effect = {
+		piety = -800
+		remove_trait = technology_3
+		add_trait = technology_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}
+
+train_technology_5_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf			
+			trait = technology_4 
+	}
+	allow = {
+		piety = 1200
+			trait = technology_4 		
+	}
+	effect = {
+		piety = -1200
+		remove_trait = technology_4
+		add_trait = technology_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}		
+	
+train_warding_1_decision = {
+	potential = {
+			ai = no
+			age = 16
+			trait = werewolf
+			OR = {
+			religion = bone_shadows
+			religion = ivory_claws
+			religion = black_furies
+			trait = elodoth
+			}
+			NOT = { trait = warding_1 }
+			NOT = { trait = warding_2 }
+			NOT = { trait = warding_3 }
+			NOT = { trait = warding_4 }
+			NOT = { trait = warding_5 }
+			
+	}
+	
+	allow = {
+		piety = 200
+			trait = werewolf
+			NOT = { trait = warding_1 }
+			NOT = { trait = warding_2 }
+			NOT = { trait = warding_3 }
+			NOT = { trait = warding_4 }
+			NOT = { trait = warding_5 }
+	}
+	effect = {
+		piety = -200
+		add_trait = warding_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 0	
+				}
+		}
+
+
+train_warding_2_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf
+			trait = warding_1 
+	}	
+	
+	allow = {
+		piety = 400
+		trait = warding_1 	
+	}
+	effect = {
+		piety = -400
+		add_trait = warding_2
+		remove_trait = warding_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0	
+		}
+	}
+
+train_warding_3_decision = {
+	
+	potential = {
+			ai = no
+
+			trait = werewolf
+			trait = warding_2
+	}
+	allow = {
+		piety = 600
+			trait = warding_2	
+	}
+	effect = {
+		piety = -600
+		remove_trait = warding_2
+		add_trait = warding_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0
+		}
+	}
+
+train_warding_4_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf		
+			trait = warding_3
+	}
+	allow = {
+		piety = 800
+			trait = warding_3	
+	}
+	effect = {
+		piety = -800
+		remove_trait = warding_3
+		add_trait = warding_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}
+
+train_warding_5_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf			
+			trait = warding_4 
+	}
+	allow = {
+		piety = 1200
+			trait = warding_4 		
+	}
+	effect = {
+		piety = -1200
+		remove_trait = warding_4
+		add_trait = warding_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}		
+	
+train_weather_1_decision = {
+	potential = {
+			ai = no
+			age = 16
+			trait = werewolf
+			OR = {
+			religion = storm_lords
+			religion = shadow_lords
+			}
+			NOT = { trait = weather_1 }
+			NOT = { trait = weather_2 }
+			NOT = { trait = weather_3 }
+			NOT = { trait = weather_4 }
+			NOT = { trait = weather_5 }
+			
+	}
+	
+	allow = {
+		piety = 200
+			trait = werewolf
+			NOT = { trait = weather_1 }
+			NOT = { trait = weather_2 }
+			NOT = { trait = weather_3 }
+			NOT = { trait = weather_4 }
+			NOT = { trait = weather_5 }
+	}
+	effect = {
+		piety = -200
+		add_trait = weather_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 0	
+				}
+		}
+
+
+train_weather_2_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf
+			trait = weather_1 
+	}	
+	
+	allow = {
+		piety = 400
+		trait = weather_1 	
+	}
+	effect = {
+		piety = -400
+		add_trait = weather_2
+		remove_trait = weather_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0	
+		}
+	}
+
+train_weather_3_decision = {
+	
+	potential = {
+			ai = no
+
+			trait = werewolf
+			trait = weather_2
+	}
+	allow = {
+		piety = 600
+			trait = weather_2	
+	}
+	effect = {
+		piety = -600
+		remove_trait = weather_2
+		add_trait = weather_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0
+		}
+	}
+
+train_weather_4_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf		
+			trait = weather_3
+	}
+	allow = {
+		piety = 800
+			trait = weather_3	
+	}
+	effect = {
+		piety = -800
+		remove_trait = weather_3
+		add_trait = weather_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}
+
+train_weather_5_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf			
+			trait = weather_4 
+	}
+	allow = {
+		piety = 1200
+			trait = weather_4 		
+	}
+	effect = {
+		piety = -1200
+		remove_trait = weather_4
+		add_trait = weather_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}		
+
+train_wound_1_decision = {
+	potential = {
+			ai = no
+			age = 16
+			trait = werewolf
+			OR = {
+			religion = bale_hounds
+			religion = black_spiral_dancers
+			}
+			NOT = { trait = wound_1 }
+			NOT = { trait = wound_2 }
+			NOT = { trait = wound_3 }
+			NOT = { trait = wound_4 }
+			NOT = { trait = wound_5 }
+			
+	}
+	
+	allow = {
+		piety = 200
+			trait = werewolf
+			NOT = { trait = wound_1 }
+			NOT = { trait = wound_2 }
+			NOT = { trait = wound_3 }
+			NOT = { trait = wound_4 }
+			NOT = { trait = wound_5 }
+	}
+	effect = {
+		piety = -200
+		add_trait = wound_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 0	
+				}
+		}
+
+
+train_wound_2_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf
+			trait = wound_1 
+	}	
+	
+	allow = {
+		piety = 400
+		trait = wound_1 	
+	}
+	effect = {
+		piety = -400
+		add_trait = wound_2
+		remove_trait = wound_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0	
+		}
+	}
+
+train_wound_3_decision = {
+	
+	potential = {
+			ai = no
+
+			trait = werewolf
+			trait = wound_2
+	}
+	allow = {
+		piety = 600
+			trait = wound_2	
+	}
+	effect = {
+		piety = -600
+		remove_trait = wound_2
+		add_trait = wound_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0
+		}
+	}
+
+train_wound_4_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf		
+			trait = wound_3
+	}
+	allow = {
+		piety = 800
+			trait = wound_3	
+	}
+	effect = {
+		piety = -800
+		remove_trait = wound_3
+		add_trait = wound_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}
+
+train_wound_5_decision = {
+	
+	potential = {
+			ai = no
+			trait = werewolf			
+			trait = wound_4 
+	}
+	allow = {
+		piety = 1200
+			trait = wound_4 		
+	}
+	effect = {
+		piety = -1200
+		remove_trait = wound_4
+		add_trait = wound_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}		
+}
