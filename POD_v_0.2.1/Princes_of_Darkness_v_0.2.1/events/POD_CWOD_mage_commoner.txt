@@ -21,7 +21,15 @@ character_event = {
 					NOT = { trait = promethean }
 					NOT = { trait = geist }
 					NOT = { trait = demon }
-					NOT = { trait = fledgling }				
+					NOT = { trait = fledgling }		
+		OR = {
+						has_global_flag = bookmark767
+						has_global_flag = bookmark1230
+						has_global_flag = bookmark1355
+						has_global_flag = bookmark1466
+						has_global_flag = bookmark1505
+						has_global_flag = bookmark1506
+						}			
 					}	
 # make mage commoner
 
@@ -709,6 +717,14 @@ character_event = {
 											NOT = { trait = sphere_affinity_prime }
 											NOT = { trait = sphere_affinity_spirit }
 											NOT = { trait = sphere_affinity_time }
+		OR = {
+						has_global_flag = bookmark767
+						has_global_flag = bookmark1230
+						has_global_flag = bookmark1355
+						has_global_flag = bookmark1466
+						has_global_flag = bookmark1505
+						has_global_flag = bookmark1506
+						}											
 											}
 											
 											
@@ -895,7 +911,8 @@ character_event = {
 				}	
 			}
 		}
-
+	}
+	
 character_event = {
 	id = CWOD_mage_commoner.2
 	picture = GFX_evt_comet
@@ -932,10 +949,7 @@ character_event = {
 	
 	immediate = {
 		#name = "set_mage_awakening"
-		hidden_tooltip = {
 			character_event = { id = mage_commoner.1 }
 		}
 
-	}
-	
-	}		
+	}	

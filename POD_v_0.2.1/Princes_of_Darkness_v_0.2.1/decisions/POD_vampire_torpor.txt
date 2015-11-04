@@ -1,23 +1,8 @@
 decisions = {
 
 enter_torpor_decision = {
-	is_high_prio = yes
 	from_potential = {
-			trait = vampire
-			in_command = no
-			is_adult = yes
-			is_alive = yes
-		NOT = { trait = mortal }
-		NOT = { trait = werewolf }
-		NOT = { trait = mage }
-		NOT = { trait = mummy }
-		NOT = { trait = changeling }
-		NOT = { trait = promethean }
-		NOT = { trait = geist }
-		NOT = { trait = demon }
-		NOT = { trait = fledgling }
-		NOT = { trait = revenant }
-		NOT = { trait = supe_hunter }			
+			trait = vampire		
 	}
 	allow = {
 				OR = 
@@ -31,8 +16,8 @@ enter_torpor_decision = {
 							trait = wounded
 							trait = maimed
 							trait = blinded
-							trait = vampire
 						}
+				trait = vampire		
 				NOT = { trait = torpor }
 				NOT = { has_character_flag = flag_nwod_recent_vampire_awaken_from_torpor }
 				in_command = no

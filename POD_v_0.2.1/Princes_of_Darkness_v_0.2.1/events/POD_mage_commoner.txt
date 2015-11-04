@@ -21,7 +21,12 @@ character_event = {
 					NOT = { trait = promethean }
 					NOT = { trait = geist }
 					NOT = { trait = demon }
-					NOT = { trait = fledgling }			
+					NOT = { trait = fledgling }	
+		OR = {
+				has_global_flag = bookmark1142	
+				has_global_flag = bookmark1250	
+				has_global_flag = bookmark1533
+		}				
 					}	
 # make mage commoner
 
@@ -34,6 +39,11 @@ character_event = {
 											NOT = { trait = moros }
 											NOT = { trait = mastigos }
 											NOT = { trait = acanthus }
+													OR = {
+				has_global_flag = bookmark1142	
+				has_global_flag = bookmark1250	
+				has_global_flag = bookmark1533
+		}
 											}
 								random_list = {
 												20 = { 
@@ -260,10 +270,7 @@ character_event = {
 	
 	immediate = {
 		#name = "set_mage_awakening"
-		hidden_tooltip = {
 			character_event = { id = mage_commoner.1 }
-		}
-
 	}
 	
 	}
