@@ -1,0 +1,29 @@
+namespace = promethean_noble
+character_event = {
+	id = promethean_noble.1
+	#desc = "POD_PROMETHEAN_NOBLE_DESC"
+	is_triggered_only = yes
+
+	immediate = {
+		#name = "set_inital_promethean_ruler"
+
+			if = {
+					limit = {
+					age = 16
+					NOT = { trait = mortal }
+					NOT = { trait = vampire }
+					NOT = { trait = werewolf }
+					NOT = { trait = mage }
+					NOT = { trait = mummy }
+					NOT = { trait = changeling }
+					NOT = { trait = promethean }
+					NOT = { trait = geist }
+					NOT = { trait = demon }
+					NOT = { trait = fledgling }
+					trait = promethean
+					}	
+# make promethean ruler
+religion = promethean
+				}	
+			}
+		}
