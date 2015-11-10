@@ -1,0 +1,110 @@
+decisions = {
+	embrace_mortal = {
+		from_potential = {
+			ai = no
+			host = { character = FROM }
+			 trait = vampire
+			 NOT = { num_of_children = 5 }
+			 NOT = { ai = yes }
+			 NOT = { trait = vampgeneration15 }			
+		}
+	
+		potential = {
+			ai = no
+			host = { character = FROM }
+			 trait = vampire
+			 NOT = { num_of_children = 5 }
+			 NOT = { ai = yes }
+			 NOT = { trait = vampgeneration15 }		
+		}
+
+		effect = {
+		
+immediate = { 
+			
+            if = {
+                limit = { is_female = no }			
+						random_list = {	
+							50 = {
+									create_character = {
+														random_traits = yes
+														trait = vampire
+														female = no
+														dynasty = ROOT
+														culture = ROOT
+														religion = ROOT
+														
+									}
+									new_character = {
+														set_father = ROOT
+														add_trait = fledgling
+														recalc_succession = yes
+													}
+								}
+							50 = {
+
+									create_character = {
+														random_traits = yes
+														trait = vampire
+														female = yes
+														dynasty = ROOT
+														culture = ROOT
+														religion = ROOT
+														
+									}
+									new_character = {
+
+														set_father = ROOT
+														add_trait = fledgling
+														recalc_succession = yes
+													}
+								}
+						}	
+				}
+            if = {
+                limit = { is_female = yes }			
+						random_list = {	
+							50 = {
+									create_character = {
+														random_traits = yes
+														trait = vampire
+														female = no
+														dynasty = ROOT
+														culture = ROOT
+														religion = ROOT
+														
+									}
+									new_character = {
+														set_mother = ROOT
+														add_trait = fledgling
+														recalc_succession = yes
+													}
+								}
+							50 = {
+									create_character = {
+														random_traits = yes
+														trait = vampire													
+														female = yes
+														dynasty = ROOT
+														culture = ROOT
+														religion = ROOT
+														
+									}
+									new_character = {
+														set_mother = ROOT
+														add_trait = fledgling
+														recalc_succession = yes
+													}
+								}
+						}	
+				}				
+				
+		set_character_flag = FLAG_POD_RECENT_VAMPIRE_CHILDE			
+		}
+	}		
+
+
+	
+	}
+	
+	}
