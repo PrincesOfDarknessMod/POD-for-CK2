@@ -1,0 +1,253 @@
+obj_reign_score = {
+	type = character
+	
+	allow = {
+		OR = {
+			trait = mortal
+			trait = changeling
+			trait = fledgling
+			trait = werewolf
+			trait = mage
+		}
+		NOT = { ruled_years = 20 }
+		NOT = { has_character_flag = reign_score }
+		is_ruler = yes
+		age = 16
+		prisoner = no
+		NOT = { trait = incapable }
+		independent = yes
+	}
+	chance = {
+		factor = 3
+		modifier = {
+			factor = 1.2
+			ruled_years = 10
+		}
+		modifier = {
+			factor = 1.8
+			ruled_years = 15
+		}
+		modifier = {
+			factor = 2.3
+			ruled_years = 18
+		}
+	}
+	success = {
+		ruled_years = 20
+	}
+	abort = {
+		OR = {
+			trait = vampire
+			trait = mummy
+			trait = demon
+			trait = promethean
+			trait = geist
+			trait = ghoul
+			trait = revenant
+			trait = incapable
+			is_ruler = no
+			prisoner = yes
+		}
+	}
+	abort_effect = {
+	}
+	effect = {
+		piety = 1000
+		set_character_flag = reign_score
+	}
+}
+obj_reign_halfcentury = {
+	type = character
+	
+	allow = {
+		AND = {
+			OR = {
+				trait = mortal
+				trait = changeling
+				trait = fledgling
+				trait = werewolf
+				trait = mage
+			}
+			ruled_years = 20
+		}
+		OR = {
+			trait = vampire
+			trait = mummy
+			trait = demon
+			trait = promethean
+			trait = geist
+			trait = ghoul
+			trait = revenant
+			trait = arcanum_death_5
+			trait = arcanum_life_3
+			trait = arcanum_life_4
+			trait = arcanum_life_5
+			trait = sphere_life_3
+			trait = sphere_life_4
+			trait = sphere_life_5
+		}
+		NOT = { ruled_years = 50 }
+		NOT = { has_character_flag = reign_halfcentury }
+		is_ruler = yes
+		age = 20
+		prisoner = no
+		NOT = { trait = incapable }
+		independent = yes
+	}
+	chance = {
+		factor = 3
+		modifier = {
+			factor = 1.2
+			ruled_years = 20
+		}
+		modifier = {
+			factor = 1.8
+			ruled_years = 30
+		}
+		modifier = {
+			factor = 2.3
+			ruled_years = 40
+		}
+	}
+	success = {
+		ruled_years = 50
+	}
+	abort = {
+		OR = {
+			trait = incapable
+			is_ruler = no
+			prisoner = yes
+		}
+	}
+	abort_effect = {
+	}
+	effect = {
+		piety = 1000
+		clr_character_flag = reign_score
+		set_character_flag = reign_halfcentury
+	}
+}
+obj_reign_century = {
+	type = character
+	
+	allow = {
+		OR = {
+			trait = vampire
+			trait = mummy
+			trait = demon
+			trait = promethean
+			trait = geist
+			trait = ghoul
+			trait = revenant
+			trait = arcanum_death_5
+			trait = arcanum_life_3
+			trait = arcanum_life_4
+			trait = arcanum_life_5
+			trait = sphere_life_3
+			trait = sphere_life_4
+			trait = sphere_life_5
+		}
+		ruled_years = 50
+		NOT = { ruled_years = 100 }
+		NOT = { has_character_flag = reign_century }
+		is_ruler = yes
+		age = 50
+		prisoner = no
+		NOT = { trait = incapable }
+		independent = yes
+	}
+	chance = {
+		factor = 3
+		modifier = {
+			factor = 1.2
+			ruled_years = 60
+		}
+		modifier = {
+			factor = 1.8
+			ruled_years = 75
+		}
+		modifier = {
+			factor = 2.3
+			ruled_years = 90
+		}
+	}
+	success = {
+		ruled_years = 100
+	}
+	abort = {
+		OR = {
+			trait = incapable
+			is_ruler = no
+			prisoner = yes
+		}
+	}
+	abort_effect = {
+	}
+	effect = {
+		piety = 1000
+		clr_character_flag = reign_halfcentury
+		set_character_flag = reign_century
+	}
+}
+obj_reign_twocentury = {
+	type = character
+	
+	allow = {
+		OR = {
+			trait = vampire
+			trait = mummy
+			trait = demon
+			trait = promethean
+			trait = geist
+			trait = ghoul
+			trait = revenant
+			trait = arcanum_death_5
+			trait = arcanum_life_3
+			trait = arcanum_life_4
+			trait = arcanum_life_5
+			trait = sphere_life_3
+			trait = sphere_life_4
+			trait = sphere_life_5
+		}
+		ruled_years = 100
+		NOT = { ruled_years = 200 }
+		NOT = { has_character_flag = reign_twocentury }
+		is_ruler = yes
+		age = 100
+		prisoner = no
+		NOT = { trait = incapable }
+		independent = yes
+	}
+	chance = {
+		factor = 3
+		modifier = {
+			factor = 1.2
+			ruled_years = 130
+		}
+		modifier = {
+			factor = 1.8
+			ruled_years = 150
+		}
+		modifier = {
+			factor = 2.3
+			ruled_years = 180
+		}
+	}
+	success = {
+		ruled_years = 200
+	}
+	abort = {
+		OR = {
+			trait = incapable
+			is_ruler = no
+			prisoner = yes
+		}
+	}
+	abort_effect = {
+	}
+	effect = {
+		piety = 1000
+		clr_character_flag = reign_century
+		set_character_flag = reign_twocentury
+	}
+}

@@ -1,0 +1,214 @@
+namespace = mage_commoner
+character_event = {
+	id = mage_commoner.1
+	hide_window = yes	
+	is_triggered_only = yes
+
+	immediate = {
+		if = {
+			limit = {
+				age = 16
+				trait = mage 
+				NOT = { trait = mortal }
+				NOT = { trait = vampire }
+				NOT = { trait = werewolf }
+				NOT = { trait = mummy }
+				NOT = { trait = changeling }
+				NOT = { trait = promethean }
+				NOT = { trait = geist }
+				NOT = { trait = demon }
+				NOT = { trait = fledgling }	
+				OR = {
+					has_global_flag = bookmark1142	
+					has_global_flag = bookmark1250	
+					has_global_flag = bookmark1533
+				}				
+			}	
+# make mage commoner
+# Mage PATH
+			if = { 
+				limit = {	
+					NOT = { trait = thyrsus }
+					NOT = { trait = obrimos }
+					NOT = { trait = moros }
+					NOT = { trait = mastigos }
+					NOT = { trait = acanthus }
+				}
+				random_list = {
+					20 = { add_trait = thyrsus }
+					20 = { add_trait = obrimos }
+					20 = { add_trait = moros }
+					20 = { add_trait = mastigos }
+					20 = { add_trait = acanthus }
+				}
+			}	
+# Mage Faction
+			if = { 
+				limit = {	
+					trait = mage
+					NOT = { religion_group = diamond_group }
+					NOT = { religion_group = pyramid_group }
+					NOT = { religion_group = scelesti_group }
+					NOT = { religion_group = timori_group }
+					NOT = { religion_group = pharmakons_group }
+					NOT = { religion_group = apostates_group }
+					NOT = { religion = orphan }
+				}
+				random_list = {
+					7 = { religion = adamantine_arrow }
+					7 = { religion = nameless_mage }
+					7 = { religion = guardians_of_the_veil }
+					7 = { religion = mysterium }
+					7 = { religion = silver_ladder }
+					7 = { religion = thanatoic }
+					8 = { religion = praetorian }
+					7 = { religion = mammon }
+					8 = { religion = paternoster }
+					7 = { religion = panopticon }													
+					7 = { religion = scelesti }		
+					7 = {
+						religion = pharmakons
+						add_trait = lunatic
+					}	
+					7 = { religion = timori }
+					7 = { religion = orphan }
+				}
+			}
+# Mage Government		
+			if = { 
+				limit = { trait = mage }
+				if = { 
+					limit = { religion_group = diamond_group }
+					set_government_type = diamond_government 
+				}
+				if = { 
+					limit = { religion_group = pyramid_group }
+					set_government_type = pyramid_government 
+				}	
+				if = {
+					limit = { religion_group = scelesti_group }
+					set_government_type = scelesti_government 
+				}	
+				if = { 
+					limit = { religion_group = timori_group }
+					set_government_type = timori_government 
+				}	
+				if = { 
+					limit = { religion_group = pharmakons_group }
+					set_government_type = pharmakons_government 
+				}	
+				if = {
+					limit = { religion_group = apostates_group }
+					set_government_type = apostate_government 
+				}	
+				if = { 
+					limit = { religion = orphan }
+					set_government_type = apostate_government 
+				}	
+			}						
+# Mage Arcanum
+			if = {
+				limit = { trait = thyrsus }
+				add_trait = arcanum_spirit_3
+				add_trait = arcanum_life_2
+				random_list = {
+					16 = { add_trait = arcanum_prime_1 }
+					14 = { add_trait = arcanum_fate_1 }
+					14 = { add_trait = arcanum_death_1 }
+					14 = { add_trait = arcanum_forces_1 }
+					14 = { add_trait = arcanum_time_1 }
+					14 = { add_trait = arcanum_space_1 }
+					14 = { add_trait = arcanum_matter_1 }
+				}
+			}
+			if = { 
+				limit = { trait = obrimos }
+				add_trait = arcanum_prime_3
+				add_trait = arcanum_forces_2
+				random_list = {
+					16 = { add_trait = arcanum_spirit_1 }
+					14 = { add_trait = arcanum_life_1 }
+					14 = { add_trait = arcanum_mind_1 }
+					14 = { add_trait = arcanum_forces_1 }
+					14 = { add_trait = arcanum_time_1 }
+					14 = { add_trait = arcanum_space_1 }
+					14 = { add_trait = arcanum_matter_1 }
+				}
+			}
+			if = { 
+				limit = { trait = moros }
+				add_trait = arcanum_death_3
+				add_trait = arcanum_matter_2
+				random_list = {
+					16 = { add_trait = arcanum_prime_1 }
+					14 = { add_trait = arcanum_fate_1 }
+					14 = { add_trait = arcanum_mind_1 }
+					14 = { add_trait = arcanum_forces_1 }
+					14 = { add_trait = arcanum_time_1 }
+					14 = { add_trait = arcanum_space_1 }
+					14 = { add_trait = arcanum_life_1 }
+				}
+			}
+			if = { 
+				limit = { trait = mastigos }
+				add_trait = arcanum_mind_3
+				add_trait = arcanum_space_2
+				random_list = {
+					16 = { add_trait = arcanum_prime_1 }
+					14 = { add_trait = arcanum_spirit_1 }
+					14 = { add_trait = arcanum_death_1 }
+					14 = { add_trait = arcanum_forces_1 }
+					14 = { add_trait = arcanum_time_1 }
+					14 = { add_trait = arcanum_life_1 }
+					14 = { add_trait = arcanum_matter_1 }
+				}
+			}
+			if = { 
+				limit = { trait = acanthus }
+				add_trait = arcanum_fate_3
+				add_trait = arcanum_time_2
+				random_list = {
+					16 = { add_trait = arcanum_spirit_1 }
+					14 = { add_trait = arcanum_fate_1 }
+					14 = { add_trait = arcanum_death_1 }
+					14 = { add_trait = arcanum_forces_1 }
+					14 = { add_trait = arcanum_life_1 }
+					14 = { add_trait = arcanum_space_1 }
+					14 = { add_trait = arcanum_matter_1 }
+				}
+			}
+# Mage Dynasties	
+		}	
+	}
+}
+
+character_event = {
+	id = mage_commoner.2
+	hide_window = yes
+	max_age = 25
+	min_age = 16
+	
+	trigger = {
+		trait = mage
+		OR = {
+			NOT = { trait = thyrsus }
+			NOT = { trait = obrimos }
+			NOT = { trait = moros }
+			NOT = { trait = mastigos }
+			NOT = { trait = acanthus }
+		}
+		OR = {
+			has_global_flag = bookmark1142	
+			has_global_flag = bookmark1250	
+			has_global_flag = bookmark1533
+		}				
+	}
+	
+	mean_time_to_happen = {
+		days = 365
+	}
+	
+	immediate = {
+		character_event = { id = mage_commoner.1 }
+	}
+}
