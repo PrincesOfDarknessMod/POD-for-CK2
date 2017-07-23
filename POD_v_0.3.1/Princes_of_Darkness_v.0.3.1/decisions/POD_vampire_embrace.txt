@@ -1,0 +1,189 @@
+
+targetted_decisions = {
+
+	player_embrace_mortal = {
+		filter = court
+		ai_target_filter = court
+		
+		from_potential = {
+			ai = no
+			trait = vampire
+			NOT = { num_of_children = 5 }
+			NOT = { trait = vampgeneration15 }
+		 }
+		potential = {
+			age = 16
+			trait = mortal
+			NOT = { trait = werewolf }
+			NOT = { trait = mummy }
+			NOT = { trait = promethean }
+			NOT = { trait = geist }
+			NOT = { trait = changeling }
+			NOT = { trait = demon }
+		}
+		effect = {
+			set_character_flag = FLAG_NWOD_EMBRACE_MORTAL_MINOR_TITLE_FIRED
+			if = { 
+				limit = { FROM = { is_female = no } }
+				set_father = FROM
+				set_mother = 0
+			}
+			if = {
+				limit = { FROM = { is_female = yes } }
+				set_father = 0
+				set_mother = FROM
+			}	
+			dynasty = FROM
+			add_trait = fledgling
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	player_ghoul = {
+		filter = court
+		ai_target_filter = court
+		
+		from_potential = {
+			ai = no
+			trait = vampire
+		 }
+		potential = {
+			is_adult = yes
+			OR = { 
+				trait = mortal
+				trait = werewolf
+			}
+			NOT = { trait = ghoul }
+		}
+		allow = {
+			NOT = {
+				any_opinion_modifier_target  = {
+					reverse_has_opinion_modifier = { who = FROM modifier = opinion_blood_bond_to_domitor_ghoul }
+					count = 5
+				}
+			}
+		}
+		effect = {
+			add_trait = ghoul
+			add_trait = vigor_1
+			opinion = {
+				modifier = opinion_blood_bond_to_domitor_ghoul
+				who = FROM
+				years = 3000
+			}
+			set_character_flag = FLAG_NWOD_BLOODBOUND
+			character_event = { id = ghoul.1 }
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	
+}
+
+
+decisions = {
+	embrace_mortal = {
+		potential = {
+			trait = vampire
+			NOT = { num_of_children = 5 }
+			NOT = { trait = vampgeneration15 }	
+			ai = no		
+		}
+	
+		allow = {
+			#was itentical to potential, and the decision is for ai, so it was completely redundant
+		}
+
+		effect = {
+            if = {
+                limit = { is_female = no }			
+				random_list = {	
+					50 = {
+						create_character = {
+							random_traits = yes
+							trait = vampire
+							female = no
+							dynasty = ROOT
+							culture = ROOT
+							religion = ROOT
+						}
+						new_character = {
+							set_father = ROOT
+							add_trait = fledgling
+							recalc_succession = yes
+						}
+					}
+					50 = {
+						create_character = {
+							random_traits = yes
+							trait = vampire
+							female = yes
+							dynasty = ROOT
+							culture = ROOT
+							religion = ROOT
+						}
+						new_character = {
+							set_father = ROOT
+							add_trait = fledgling
+							recalc_succession = yes
+						}
+					}
+				}	
+			}
+            if = {
+                limit = { is_female = yes }			
+				random_list = {	
+					50 = {
+						create_character = {
+							random_traits = yes
+							trait = vampire
+							female = no
+							dynasty = ROOT
+							culture = ROOT
+							religion = ROOT
+						}
+						new_character = {
+							set_mother = ROOT
+							add_trait = fledgling
+							recalc_succession = yes
+						}
+					}
+					50 = {
+						create_character = {
+							random_traits = yes
+							trait = vampire													
+							female = yes
+							dynasty = ROOT
+							culture = ROOT
+							religion = ROOT
+						}
+						new_character = {
+							set_mother = ROOT
+							add_trait = fledgling
+							recalc_succession = yes
+						}
+					}
+				}	
+			}				
+				
+			set_character_flag = FLAG_POD_RECENT_VAMPIRE_CHILDE			
+		}
+		revoke_allowed = {
+			always = no 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}		
+}
+	
