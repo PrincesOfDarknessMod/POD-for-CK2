@@ -1,0 +1,811 @@
+spriteTypes = {
+	
+	# File contains society specific clothing
+	
+
+	
+	### Holy Roads ###
+	
+	portraitType = {
+		name = "PORTRAIT_society_caeli_clothing_male"
+		
+		weight = {
+			additive_modifier = {
+				value = 10000
+				portrait_age > child
+				portrait_is_female = no
+				portrait_clothing = yes
+				OR = { 
+						portrait_society = via_caeli
+						portrait_society = monastic_order_osite
+						portrait_society = order_st_panteleimon
+						portrait_society = bloodline_sangiovanni
+					}
+				OR = {
+					portrait_culture_group = north_germanic
+					portrait_culture_group = central_germanic
+					portrait_culture_group = west_germanic
+					portrait_culture_group = latin
+					portrait_culture_group = iberian
+					portrait_culture_group = celtic
+					}						
+				# NOT = { portrait_tier = king }
+			}
+		}
+		
+		layer = {
+			"GFX_society_benedictine_male_clothing_behind:c0"
+			"GFX_society_benedictine_male_clothing_front:c2"
+			"GFX_society_benedictine_male_headgear_front:c5"
+			"GFX_western_male_hair_behind_midage"
+			"GFX_western_male_hair_midage"
+			"GFX_empty:c3"
+			"GFX_empty:c1"
+			"GFX_empty:c4"
+		}
+		
+		# Tonsure hairstyle, no beard
+		allow_property_values = {
+		}
+	}
+	
+	portraitType = {
+		name = "PORTRAIT_society_caeli_clothing_female"
+		
+		weight = {
+			additive_modifier = {
+				value = 10000
+				portrait_age > child
+				portrait_is_female = yes
+				portrait_clothing = yes
+				OR = {
+				portrait_society = via_caeli
+				portrait_society = monastic_order_osite
+				portrait_society = order_st_panteleimon
+				portrait_society = bloodline_sangiovanni
+				}
+				OR = {
+					portrait_culture_group = north_germanic
+					portrait_culture_group = central_germanic
+					portrait_culture_group = west_germanic
+					portrait_culture_group = latin
+					portrait_culture_group = iberian
+					portrait_culture_group = celtic
+					}					
+				# NOT = { portrait_tier = king }
+			}
+		}
+		
+		layer = { 
+			"GFX_society_benedictine_female_clothing_behind:c0"
+			"GFX_society_benedictine_female_clothing_front:c2"
+			"GFX_empty:c3"
+			"GFX_society_benedictine_female_headgear_behind:c1"
+			"GFX_society_benedictine_female_headgear_front:c5"
+			"GFX_empty:c4"
+		}
+		
+		# Hide hair
+		allow_property_values = {
+			1 = {
+				0 = {
+					always = yes
+				}
+			}
+		}
+	}	
+	
+	portraitType = {
+		name = "PORTRAIT_society_western_cainite_clothing_male"
+		
+		weight = {
+			additive_modifier = {
+				value = 10000
+				portrait_age > child
+				portrait_is_female = no
+				portrait_clothing = yes
+				portrait_society = cainite
+
+				OR = {
+					portrait_culture_group = north_germanic
+					portrait_culture_group = central_germanic
+					portrait_culture_group = west_germanic
+					portrait_culture_group = latin
+					portrait_culture_group = iberian
+					portrait_culture_group = celtic
+					}				
+				#NOT = { portrait_tier = king }
+			}
+		}
+		
+		layer = { 
+			"GFX_society_dominican_male_clothing_behind:c0"
+			"GFX_society_dominican_male_clothing_front:c2"
+			"GFX_society_dominican_male_headgear_behind:c1"
+			"GFX_society_dominican_male_headgear_front:c5"
+			"GFX_society_dominican_male_headgear_mid:c3"
+			"GFX_western_male_hair_behind_midage"
+			"GFX_western_male_hair_midage"
+			"GFX_empty:c4"
+		}
+		
+		# Tonsure hairstyle, no beard
+		allow_property_values = {
+		}
+	}
+	
+	
+	portraitType = {
+		name = "PORTRAIT_society_western_cainite_clothing_female"
+		
+		weight = {
+			additive_modifier = {
+				value = 10000
+				portrait_age > child
+				portrait_is_female = yes
+				portrait_clothing = yes
+				portrait_society = cainite
+				OR = {
+					portrait_culture_group = north_germanic
+					portrait_culture_group = central_germanic
+					portrait_culture_group = west_germanic
+					portrait_culture_group = latin
+					portrait_culture_group = iberian
+					portrait_culture_group = celtic
+					}
+				#NOT = { portrait_tier = king }
+			}
+		}
+		
+		layer = { 
+			"GFX_empty:c0"
+			"GFX_empty:c2"
+			"GFX_empty:c3"
+			"GFX_society_dominican_female_headgear_behind:c1"
+			"GFX_society_dominican_female_headgear_front:c5"
+			"GFX_empty:c4"
+		}
+		
+		# Hide hair
+		allow_property_values = {
+			1 = {
+				0 = {
+					always = yes
+				}
+			}
+		}
+	}	
+
+	portraitType = {
+		name = "PORTRAIT_society_eastern_cainite_clothing_male"
+		
+		weight = {
+			additive_modifier = {
+				value = 10000
+				portrait_age > child
+				portrait_is_female = no
+				portrait_clothing = yes
+				OR = {
+						portrait_society = monastic_order_orthodox
+						portrait_society = monastic_order_mystikoi
+						portrait_society = cainite
+						portrait_society = via_caeli
+						portrait_society = monastic_order_osite
+						portrait_society = order_st_panteleimon
+						portrait_society = bloodline_sangiovanni						
+					}
+				OR = {
+						portrait_culture_group = east_slavic														
+						portrait_culture_group = south_slavic
+						portrait_culture_group = byzantine
+						portrait_culture_group = west_slavic
+						portrait_culture_group = magyar
+						portrait_culture_group = baltic
+						portrait_culture_group = east_african
+						}
+				#NOT = { portrait_tier = king }
+			}
+		}
+		
+		layer = { 
+			"GFX_society_orthodox_monk_male_clothing_behind:c0"
+			"GFX_society_orthodox_monk_male_clothing_front:c2"
+			"GFX_society_orthodox_monk_male_headgear_behind:c1"
+			"GFX_society_orthodox_monk_male_headgear_front:c5"
+			"GFX_empty:c3"
+			"GFX_empty:c4"
+		}
+		
+		# Ranks, slot 3 is for Greek orthodox, 4 for Russian orthodox.
+		allow_property_values = {
+			3 = {
+				0 = {
+					portrait_society_rank = 1
+				}
+				1 = {
+					portrait_society_rank = 2
+				}
+				2 = {
+					portrait_society_rank = 3
+				}
+				3 = {
+					portrait_society_rank = 4
+					portrait_culture = greek
+				}
+				4 = {
+					portrait_society_rank = 4
+					NOT = { portrait_culture = greek }
+				}
+			}
+			5 = {
+				0 = {
+					portrait_society_rank = 1
+				}
+				1 = {
+					portrait_society_rank = 2
+				}
+				2 = {
+					portrait_society_rank = 3
+				}
+				3 = {
+					portrait_society_rank = 4
+					NOT = { portrait_culture = russian }
+				}
+				4 = {
+					portrait_society_rank = 4
+					portrait_culture = russian
+				}
+			}
+		}
+	}
+
+	portraitType = {
+		name = "PORTRAIT_society_eastern_cainite_clothing_female"
+		
+		weight = {
+			additive_modifier = {
+				value = 10000
+				portrait_age > child
+				portrait_is_female = yes
+				portrait_clothing = yes
+				OR = {
+						portrait_society = monastic_order_mystikoi
+						portrait_society = cainite
+						portrait_society = via_caeli
+						portrait_society = monastic_order_osite
+						portrait_society = order_st_panteleimon
+						portrait_society = bloodline_sangiovanni							
+						}
+				#NOT = { portrait_tier = king }
+			}
+		}
+		
+		layer = { 
+			"GFX_empty:c0"
+			"GFX_empty:c2"
+			"GFX_empty:c3"
+			"GFX_society_orthodox_monk_female_headgear_behind:c1"
+			"GFX_society_orthodox_monk_female_headgear_front:c5"
+			"GFX_empty:c4"
+		}
+		
+		# Hide hair, ranks, slot 3 is for Greek orthodox, 4 for Russian orthodox.
+		allow_property_values = {
+			1 = {
+				0 = {
+					always = yes
+				}
+			}
+			3 = {
+				0 = {
+					portrait_society_rank = 1
+				}
+				1 = {
+					portrait_society_rank = 2
+				}
+				2 = {
+					portrait_society_rank = 3
+				}
+				3 = {
+					portrait_society_rank = 4
+					portrait_culture = greek
+				}
+				4 = {
+					portrait_society_rank = 4
+					NOT = { portrait_culture = greek }
+				}
+			}
+			5 = {
+				0 = {
+					portrait_society_rank = 1
+				}
+				1 = {
+					portrait_society_rank = 2
+				}
+				2 = {
+					portrait_society_rank = 3
+				}
+				3 = {
+					portrait_society_rank = 4
+					NOT = { portrait_culture = russian }
+				}
+				4 = {
+					portrait_society_rank = 4
+					portrait_culture = russian
+				}
+			}
+		}
+	}
+
+### Mages ###
+
+	portraitType = {
+		name = "PORTRAIT_society_mage_clothing_male"
+		
+		weight = {
+			additive_modifier = {
+				value = 10000
+				portrait_age > child
+				portrait_is_female = no
+				portrait_clothing = yes
+				OR = {
+				portrait_society = code_of_tremere
+				portrait_society = via_serpentis
+				portrait_society = derech_lilit
+				portrait_society = via_ossium
+				}
+				NOT = { portrait_tier = king }
+			}
+		}
+		
+		layer = { 
+			"GFX_society_hermetic_male_clothing_behind:c0"
+			"GFX_society_hermetic_male_clothing_front:c2"
+			"GFX_society_hermetic_male_headgear_behind:c1"
+			"GFX_society_hermetic_male_headgear_front:c5"
+			"GFX_society_hermetic_male_headgear_mid:c3"
+			"GFX_empty:c4"
+		}
+		
+		# Appropriate clothing
+		allow_property_values = {
+			3 = {
+				0 = { # Western
+					OR = {
+						portrait_culture_group = west_germanic
+						portrait_culture_group = central_germanic
+						portrait_culture_group = latin
+						portrait_culture_group = iberian
+						portrait_culture_group = celtic
+					}
+				}
+				1 = { # Nordic
+					OR = {
+						portrait_culture_group = north_germanic
+						portrait_culture_group = finno_ugric
+					}					
+				}
+				2 = { # Baltic/Slavic
+					OR = {
+						portrait_culture_group = baltic
+						portrait_culture_group = east_slavic
+						portrait_culture_group = west_slavic
+						portrait_culture_group = south_slavic
+					}
+				}
+				3 = { # Muslim
+					OR = {
+						portrait_culture_group = altaic
+						portrait_culture_group = arabic
+						portrait_culture_group = iranian
+						portrait_culture_group = israelite
+					}
+				}
+				4 = { # Indian
+					OR = {
+						portrait_culture_group = indo_aryan_group
+						portrait_culture_group = dravidian_group	
+					}
+				}
+				5 = { # Central Asian
+					portrait_culture_group = magyar
+				}
+				6 = { # West African
+					portrait_culture_group = west_african
+				}
+				7 = { # East African
+					portrait_culture_group = east_african
+				}
+				8 = { # Byzantine
+					portrait_culture_group = byzantine
+				}
+			}
+			5 = {
+				0 = { # Western
+					OR = {
+						portrait_culture_group = west_germanic
+						portrait_culture_group = central_germanic
+						portrait_culture_group = latin
+						portrait_culture_group = iberian
+						portrait_culture_group = celtic
+					}
+				}
+				1 = { # Nordic
+					OR = {
+						portrait_culture_group = north_germanic
+						portrait_culture_group = finno_ugric
+					}					
+				}
+				2 = { # Baltic/Slavic
+					OR = {
+						portrait_culture_group = baltic
+						portrait_culture_group = east_slavic
+						portrait_culture_group = west_slavic
+						portrait_culture_group = south_slavic
+					}
+				}
+				3 = { # Muslim
+					OR = {
+						portrait_culture_group = altaic
+						portrait_culture_group = arabic
+						portrait_culture_group = iranian
+						portrait_culture_group = israelite
+					}
+				}
+				4 = { # Indian
+					OR = {
+						portrait_culture_group = indo_aryan_group
+						portrait_culture_group = dravidian_group	
+					}
+				}
+				5 = { # Central Asian
+					portrait_culture_group = magyar
+				}
+				6 = { # West African
+					portrait_culture_group = west_african
+				}
+				7 = { # East African
+					portrait_culture_group = east_african
+				}
+				8 = { # Byzantine
+					portrait_culture_group = byzantine
+				}
+			}
+		}
+	}	
+	
+	portraitType = {
+		name = "PORTRAIT_society_mage_clothing_female"
+		
+		weight = {
+			additive_modifier = {
+				value = 10000
+				portrait_age > child
+				portrait_is_female = yes
+				portrait_clothing = yes
+				OR = {
+				portrait_society = code_of_tremere
+				portrait_society = via_serpentis
+				portrait_society = derech_lilit
+				}
+				# NOT = { portrait_tier = king }
+			}
+		}
+		
+		layer = { 
+			"GFX_society_hermetic_female_clothing_behind:c0"
+			"GFX_society_hermetic_female_clothing_front:c2"
+			"GFX_society_hermetic_female_headgear_behind:c1"
+			"GFX_society_hermetic_female_headgear_front:c5"
+			"GFX_society_hermetic_female_headgear_mid:c3"
+			"GFX_empty:c4"
+		}
+		
+		# Hide hair on 3rd, 4th, and 9th slot ( slavic, muslim, byzantine )
+		allow_property_values = {
+			1 = {
+				0 = {
+					OR = {
+						portrait_culture_group = baltic
+						portrait_culture_group = east_slavic
+						portrait_culture_group = west_slavic
+						portrait_culture_group = south_slavic
+						
+						portrait_culture_group = altaic
+						portrait_culture_group = arabic
+						portrait_culture_group = iranian
+						portrait_culture_group = israelite
+						
+						portrait_culture_group = byzantine
+					}
+				}
+			}
+			3 = {
+				0 = { # Western
+					OR = {
+						portrait_culture_group = west_germanic
+						portrait_culture_group = central_germanic
+						portrait_culture_group = latin
+						portrait_culture_group = iberian
+						portrait_culture_group = celtic
+					}
+				}
+				1 = { # Nordic
+					OR = {
+						portrait_culture_group = north_germanic
+						portrait_culture_group = finno_ugric
+					}					
+				}
+				2 = { # Baltic/Slavic
+					OR = {
+						portrait_culture_group = baltic
+						portrait_culture_group = east_slavic
+						portrait_culture_group = west_slavic
+						portrait_culture_group = south_slavic
+					}
+				}
+				3 = { # Muslim
+					OR = {
+						portrait_culture_group = altaic
+						portrait_culture_group = arabic
+						portrait_culture_group = iranian
+						portrait_culture_group = israelite
+					}
+				}
+				4 = { # Indian
+					OR = {
+						portrait_culture_group = indo_aryan_group
+						portrait_culture_group = dravidian_group	
+					}
+				}
+				5 = { # Central Asian
+					portrait_culture_group = magyar
+				}
+				6 = { # West African
+					portrait_culture_group = west_african
+				}
+				7 = { # East African
+					portrait_culture_group = east_african
+				}
+				8 = { # Byzantine
+					portrait_culture_group = byzantine
+				}
+			}
+			5 = {
+				0 = { # Western
+					OR = {
+						portrait_culture_group = west_germanic
+						portrait_culture_group = central_germanic
+						portrait_culture_group = latin
+						portrait_culture_group = iberian
+						portrait_culture_group = celtic
+					}
+				}
+				1 = { # Nordic
+					OR = {
+						portrait_culture_group = north_germanic
+						portrait_culture_group = finno_ugric
+					}					
+				}
+				2 = { # Baltic/Slavic
+					OR = {
+						portrait_culture_group = baltic
+						portrait_culture_group = east_slavic
+						portrait_culture_group = west_slavic
+						portrait_culture_group = south_slavic
+					}
+				}
+				3 = { # Muslim
+					OR = {
+						portrait_culture_group = altaic
+						portrait_culture_group = arabic
+						portrait_culture_group = iranian
+						portrait_culture_group = israelite
+					}
+				}
+				4 = { # Indian
+					OR = {
+						portrait_culture_group = indo_aryan_group
+						portrait_culture_group = dravidian_group	
+					}
+				}
+				5 = { # Central Asian
+					portrait_culture_group = magyar
+				}
+				6 = { # West African
+					portrait_culture_group = west_african
+				}
+				7 = { # East African
+					portrait_culture_group = east_african
+				}
+				8 = { # Byzantine
+					portrait_culture_group = byzantine
+				}
+			}
+		}
+	}	
+	
+	
+	# the_assamites
+    
+    spriteType = {
+        name = "GFX_society_assamite_clothing_behind"
+        textureFile = "gfx/characters/societies/mom_assamite_clothing_behind.dds"
+        noOfFrames = 4
+    }
+    
+    spriteType = {
+        name = "GFX_society_assamite_clothing_front"
+        textureFile = "gfx/characters/societies/mom_assamite_clothing_front.dds"
+        noOfFrames = 4
+    }
+    
+    spriteType = {
+        name = "GFX_society_assamite_headgear_front"
+        textureFile = "gfx/characters/societies/mom_assamite_headgear_front.dds"
+        noOfFrames = 4
+    }
+
+    spriteType = {
+        name = "GFX_society_assamite_headgear_behind"
+        textureFile = "gfx/characters/societies/mom_assamite_headgear_behind.dds"
+        noOfFrames = 4
+    }
+    
+    portraitType = {
+        name = "PORTRAIT_society_assamite_clothing"
+        
+        weight = {
+            additive_modifier = {
+                value = 10000
+                portrait_age > child
+				portrait_society = via_sanguinus
+				portrait_clothing = yes
+            }
+        }
+        
+        layer = { 
+            "GFX_society_assamite_clothing_behind:c0"
+            "GFX_society_assamite_clothing_front:c2"
+            "GFX_empty:c3"
+            "GFX_society_assamite_headgear_front:c5"
+            "GFX_society_assamite_headgear_behind:c1"
+            "GFX_empty:c4"
+        }
+        
+		# Hide hair
+		allow_property_values = {
+			1 = {
+				0 = {
+					always = yes
+				}
+			}
+		}
+    }
+	
+### INFERNALISTS ###	
+	
+	portraitType = {
+		name = "PORTRAIT_society_infernalist_clothing_male"
+		
+		weight = {
+			additive_modifier = {
+				value = 10000
+				portrait_age > child
+				portrait_is_female = no
+				portrait_clothing = yes
+				OR = {
+					portrait_society = via_hyron
+					portrait_society = via_peccati
+					portrait_society = via_noctis
+				}
+			}
+		}
+		
+		layer = { 
+			"GFX_society_satanist_male_clothing_behind:c0"
+			"GFX_society_satanist_male_clothing_front:c2"
+			"GFX_society_satanist_male_headgear_mid:c3"
+			"GFX_society_satanist_male_headgear_front:c5"
+			"GFX_society_satanist_male_headgear_behind:c1"
+			"GFX_empty:c4"
+		}
+		
+		# Correct rank
+		allow_property_values = {
+			3 = {
+				0 = {
+					portrait_society_rank = 1
+				}
+				1 = {
+					portrait_society_rank = 2
+				}
+				2 = {
+					portrait_society_rank = 3
+				}
+				2 = {
+					portrait_society_rank = 4
+				}
+			}
+			5 = {
+				0 = {
+					portrait_society_rank = 1
+				}
+				1 = {
+					portrait_society_rank = 2
+				}
+				2 = {
+					portrait_society_rank = 3
+				}
+				2 = {
+					portrait_society_rank = 4
+				}
+			}
+		}
+	}
+
+	portraitType = {
+		name = "PORTRAIT_society_infernalist_clothing_female"
+		
+		weight = {
+			additive_modifier = {
+				value = 10000
+				portrait_age > child
+				portrait_is_female = yes
+				portrait_clothing = yes
+				OR = {
+					portrait_society = via_hyron
+					portrait_society = via_peccati
+					portrait_society = via_noctis
+				}
+			}
+		}
+		
+		layer = { 
+			"GFX_society_satanist_female_clothing_behind:c0"
+			"GFX_society_satanist_female_clothing_front:c2"
+			"GFX_empty:c3"
+			"GFX_society_satanist_female_headgear_front:c5"
+			"GFX_society_satanist_female_headgear_behind:c1"
+			"GFX_empty:c4"
+		}
+		
+		# No hair, correct rank
+		allow_property_values = {
+			1 = {
+				0 = {
+					always = yes
+				}
+			}
+			3 = {
+				0 = {
+					portrait_society_rank = 1
+				}
+				1 = {
+					portrait_society_rank = 2
+				}
+				2 = {
+					portrait_society_rank = 3
+				}
+				2 = {
+					portrait_society_rank = 4
+				}
+			}
+			5 = {
+				0 = {
+					portrait_society_rank = 1
+				}
+				1 = {
+					portrait_society_rank = 2
+				}
+				2 = {
+					portrait_society_rank = 3
+				}
+				2 = {
+					portrait_society_rank = 4
+				}
+			}
+		}
+	}
+	
+}

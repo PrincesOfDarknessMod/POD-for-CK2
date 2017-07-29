@@ -275,6 +275,7 @@ character_event = {
 				reverse_religion = ROOT
 				set_character_flag = FLAG_POD_RECENT_VAMPIRE_CHILDE
 			}
+
 			if = { 
 				limit = { father = { trait = kshatriya } }
 				add_trait = kshatriya
@@ -362,10 +363,12 @@ character_event = {
 			if = { 
 				limit = { father= { trait = nosferatu} }
 				add_trait = nosferatu 
+				set_graphical_culture = nosferatu
 			}
 			if = { 
 				limit = { father= { trait = nosferatuantitribu } }
 				add_trait = nosferatuantitribu 
+				set_graphical_culture = nosferatu
 			}		
 			if = { 
 				limit = { father= { trait = ventrue } }
@@ -601,8 +604,7 @@ character_event = {
 			if = { 
 				limit = { father= { trait = malkavian } }
 				add_trait = malkavian
-				add_trait = lunatic
-				}	
+				add_trait = lunatic	
 			}	
 			if = { 
 				limit = { father= { trait = malkavianantitribu } }
@@ -734,6 +736,7 @@ character_event = {
 			if = { 
 				limit = { mother= { trait = nosferatuantitribu } }
 				add_trait = nosferatuantitribu 
+				set_graphical_culture = nosferatu
 
 			}	
 			if = { 
@@ -747,11 +750,13 @@ character_event = {
 			if = {
 				limit = { mother= { trait = nosferatu} }
 				add_trait = nosferatu 
+				set_graphical_culture = nosferatu
 			}
 			if = {
 				limit = { mother= { trait = ventrue } }
 				add_trait = ventrue 
-			}															}
+			}	
+			
 			if = { 
 				limit = { mother= { trait =  petrovnavich } }
 				add_trait = petrovnavich 
@@ -1023,6 +1028,7 @@ character_event = {
 				limit = { mother= { trait = caitiff } }
 				add_trait = caitiff
 			}	
+			}
 
 if = {
 		limit = {			
@@ -1049,8 +1055,21 @@ if = {
 				}
 			POD_CWOD_vampire_governments_init_effect = yes
 			POD_CWOD_vampire_disciplines_init_effect = yes	
+			if = { limit = {
+						religion = einherjar
+						}
+						set_graphical_culture = norse
+						
+						}
+						
+			random_list = {
+						50 = { join_society = ROOT }
+						50 = { POD_CWOD_vampire_roads_init_effect = yes }
+						}			
 			}
 			
 			
 		}
+			
+		
 	}

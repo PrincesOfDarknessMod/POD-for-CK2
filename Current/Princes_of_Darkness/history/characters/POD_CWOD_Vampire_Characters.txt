@@ -461,7 +461,6 @@
 	religion = "vampire_low_clans"
 	trait = "antediluvian"
 	trait = "nosferatu"
-	trait = "disfigured"
 	trait = "animalism_5"
 	trait = "auspex_5"
 	trait = "celerity_5"
@@ -489,6 +488,7 @@
 		}
 	69.1.1 = {
 		add_trait = "vampire"
+		effect = { set_graphical_culture = nosferatu }
 		give_nickname=nick_the_hidden		
 		}
 	70.1.1 = {
@@ -1593,7 +1593,8 @@
 	109.1.1 = {
 		add_trait = vampire
 		culture = roman
-		effect = { join_society = via_regalis }
+		effect = { join_society = cult_of_mithras }
+		effect = { set_society_grandmaster = yes }	
 		}
 
 	989.1.1 = {
@@ -1604,7 +1605,8 @@
 		set_government_type = traditions_government	
 		remove_trait = "bookmark990"
 		add_trait = "bookmark1230"
-		effect = { join_society = via_regalis }
+		effect = { join_society = cult_of_mithras }
+		effect = { set_society_grandmaster = yes }
 	}	
 	
 	1249.12.30 = {`
@@ -1766,7 +1768,7 @@
 	religion = "vampire_low_clans"
 	add_trait = "vampire"
 	add_trait = "nosferatu"
-	add_trait = "disfigured"
+	effect = { set_graphical_culture = nosferatu }
 	add_trait = "methuselah"
 	add_trait = "obfuscate_5"
 	add_trait = "animalism_5"
@@ -1861,13 +1863,13 @@
 }
 
 505080 = {
-# Troyes, Champagne
+# Hélène la Juste, Troyes, Rheims, Sens, Champagne
 	name = "Helene"
 	culture = "frankish"
 	religion = "innocent"
 	dynasty = "2000009"
 	female = yes
-	mother = 5072
+	mother = 505072
 	trait = "midas_touched"	
 	937.1.1 = {
 		birth = 937.1.1 
@@ -1920,7 +1922,7 @@
 }
 
 505081 = {
-# Blois
+# Blois, Anjou and Chartres
 	name = "Isouda"
 	culture = "frankish"
 	dynasty = "2000009"
@@ -1958,12 +1960,17 @@
 	}	
 	
 	1499.1.1 = {
+		remove_trait = "torpor"
 		remove_trait = "bookmark1355"
 		add_trait = "bookmark1500"
+		add_trait = "toreadorantitribu"
+		remove_trait = "toreador"
+		religion = "sabbat"
 	}	
 	1505.1.1 = {
 		remove_trait = "bookmark1500"
 		add_trait = "bookmark1505"
+	
 	}	
 	1999.1.1 = {
 		death = yes
@@ -2019,7 +2026,7 @@
 	name = "Regis"
 	culture = "occitan"
 	dynasty = "2000011"
-	religion = "ventrue_high"
+	religion = "toreador_high"
 	trait = "vampire"
 	trait = "toreador"
 	trait = "elder"
@@ -2042,7 +2049,8 @@
 		set_government_type = traditions_government
 		add_claim = k_burgundy
 		add_claim = e_love		
-		effect = { join_society = via_caeli }
+		effect = { join_society = order_bitter_ashes }
+		effect = { set_society_grandmaster = yes }	
 	}			
 	1249.12.30 = {
 		add_trait = "torpor"
@@ -2347,12 +2355,12 @@
 	add_trait = "bloodpotency_6"
 	add_trait = "vampgeneration7"
 	add_trait = "nosferatu"
+	effect = { set_graphical_culture = nosferatu }
 	add_trait = "vigor_1"
 	add_trait = "obfuscate_3"
 	add_trait = "animalism_1"
 	add_trait = "neonate"
 	religion = "vampire_low_clans"
-	add_trait = "disfigured"
 	effect = { join_society = via_humanitatis }
 	}
 		
@@ -2394,7 +2402,6 @@
 	
 	700.1.1 = {
 		birth = 700.1.1
-		add_trait = "bookmark990"
 		}
 		
 	730.1.1 = {
@@ -2792,7 +2799,7 @@
 		effect = { set_graphical_culture = southerngfx }
 	}	
 	
-	1249.12.30 = {`
+	1249.12.30 = {
 		add_trait = "torpor"
 	}
 
@@ -2805,6 +2812,222 @@
 		remove_trait = "bookmark1355"
 		add_trait = "bookmark1500"	
 		}
+	1505.1.1 = {
+		remove_trait = "bookmark1500"
+		add_trait = "bookmark1505"
+	}		
+
+	1999.1.1 = {
+		death = yes
+		}		
+}
+
+
+505097 = {
+# Narses, Cainite Heresy, Archbishop of Nod, Prince of Venice
+	name = "Narses"
+	culture = "armenian"
+	dynasty = "4500018"
+	dna="c0llg0kfca0"
+	properties="0a0a0k00000000"
+	religion = "innocent"
+	trait = "brilliant_strategist"
+	trait = "organizer"
+	trait = "strategist"
+	female = no
+	
+	478.6.6 = {
+		birth = 478.6.6 
+		add_trait = "zealous"
+		add_trait = "eunuch"
+		}
+	576.1.1 = {
+		add_trait = vampire
+		add_trait = "lasombra"
+		add_trait = "neonate"
+		add_trait = "dominate_3"
+		add_trait = "bloodpotency_5"
+		add_trait = "vampgeneration6"
+		religion = "lasombra_high"
+		}
+		
+	660.1.1 = {
+		add_trait = "ancilla"
+		remove_trait = "neonate"
+		add_trait = "dominate_5"
+		remove_trait = "dominate_3"
+		add_trait = "obtenebration_3"
+		add_trait = "vigor_3"
+		effect = { join_society = cainite }
+		effect = { set_society_grandmaster = yes }	
+		add_trait = "heresiarch"
+		}
+
+	766.1.1 = {
+		add_trait = "bookmark767"
+		add_trait = "elder"
+		remove_trait = "ancilla"
+		add_trait = "obtenebration_5"
+		remove_trait = "obtenbration_3"
+		add_trait = "vigor_5"
+		remove_trait = "vigor_3"
+		remove_trait = "zealous"
+		}
+		
+	989.1.1 = {
+		remove_trait = "bookmark767"
+		add_trait = "bookmark990"
+		add_trait = "cynical"
+		}		
+		
+	1215.6.1 = {
+		death = yes
+	}	
+}
+
+
+
+505098 = {
+# Alfonzo of Venice, Cainite Heresy, Prince of Constantinople
+	name = "Alfonzo of Venice"
+	culture = "italian"
+	dynasty = "4500018"
+	dna="00j0g0k0ca0"
+	properties="lb0c0k00000000"
+	religion = "innocent"
+	female = no
+	father = 505097
+	trait = "fortune_builder"
+	
+	850.6.6 = {
+		birth = 850.6.6 
+		}		
+		
+	895.1.1 = {
+		add_trait = vampire
+		add_trait = "lasombra"
+		add_trait = "neonate"
+		add_trait = "dominate_3"
+		add_trait = "bloodpotency_4"
+		add_trait = "vampgeneration7"
+		religion = "lasombra_high"
+		effect = { join_society = cainite }		
+		}
+
+	989.1.1 = {
+		add_trait = "bookmark990"
+		add_trait = "ancilla"
+		remove_trait = "neonate"
+		add_trait = "dominate_5"
+		remove_trait = "dominate_3" 
+		add_trait = "obtenebration_3"
+		add_trait = "vigor_1"
+		add_trait = "majesty_3"
+		religion = "inconnu"
+	}
+		
+	1229.1.1 = {
+		add_trait = "obtenebration_4"
+		remove_trait = "obtenebration_3"
+		add_trait = "vigor_2"
+		remove_trait = "vigor_1"
+		add_trait = "auspex_3"
+		add_trait = "majesty_5"
+		add_trait = "elder"
+		remove_trait = "ancilla"
+		remove_trait = "bookmark990"
+		add_trait = "bookmark1230"
+		effect = { join_society = cainite }	
+	}		
+
+	1274.1.1 = {
+		death = yes
+		}		
+}
+
+
+505099 = {
+# Guilelmo Aliprando, Cainite Heresy, Archbishop of Nod, Prince of Venice
+	name = "Guilelmo Aliprando"
+	culture = "italian"
+	dynasty = "4500018"
+	dna="acllg0hc0a0"
+	properties="0b0agf00000000"
+	religion = "innocent"
+	trait = "grey_eminence"
+	female = no
+	father = 505097
+	
+	1014.6.6 = {
+		birth = 1014.6.6 
+		}
+		
+	1049.1.1 = {
+		add_trait = vampire
+		add_trait = "lasombra"
+		add_trait = "neonate"
+		add_trait = "dominate_3"
+		add_trait = "bloodpotency_4"
+		add_trait = "vampgeneration7"
+		religion = "lasombra_high"
+		}
+
+	1215.6.1 = {
+		add_trait = "diabolist"
+		add_trait = "vampgeneration6"
+		remove_trait = "vampgeneration7"
+		add_trait = "bloodpotency_5"
+		remove_trait = "bloodpotency_4"
+		add_trait = "ancilla"
+		remove_trait = "neonate"
+		add_trait = "dominate_5"
+		remove_trait = "dominate_3" 
+		add_trait = "obtenebration_3"
+		add_trait = "vigor_1"
+		add_trait = "majesty_3"
+		effect = { join_society = cainite }
+		effect = { set_society_grandmaster = yes }	
+	}
+		
+	1229.1.1 = {
+		add_trait = "majesty_5"
+		remove_trait = "majesty_3"
+		add_trait = "obtenebration_5"
+		remove_trait = "obtenebration_3"
+		add_trait = "vigor_3"
+		remove_trait = "vigor_1"
+		add_trait = "elder"
+		remove_trait = "ancilla"
+		remove_trait = "bookmark990"
+		add_trait = "bookmark1230"
+		employer = 505018
+		effect = { join_society = cainite }
+		effect = { set_society_grandmaster = yes }	
+	}	
+	
+
+	1354.1.1 = {
+		remove_trait = "bookmark1230"
+		add_trait = "bookmark1355"
+		dynasty = "4500097"
+	}	
+
+	1444.1.1 = {
+		effect = { leave_society }
+		add_trait = "torpor"
+		}		
+		
+	1499.1.1 = {
+		remove_trait = "bookmark1355"
+		add_trait = "bookmark1500"
+		religion = "masquerade_camarilla"
+		add_trait = "auspex_1"
+		add_trait = "vigor_4"
+		remove_trait = "vigor_3"
+		add_trait = "lasombraantitribu"
+		remove_trait = "lasombra" 		
+		}
+		
 	1505.1.1 = {
 		remove_trait = "bookmark1500"
 		add_trait = "bookmark1505"
