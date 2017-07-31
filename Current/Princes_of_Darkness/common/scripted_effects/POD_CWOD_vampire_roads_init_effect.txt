@@ -1,22 +1,4 @@
 POD_CWOD_vampire_roads_init_effect = {
-
-	if = {
-		limit = { character = 505086
-					has_global_flag = bookmark1230
-					NOT = { society_member_of = order_black_cross }
-					NOT = { primary_title = { title = e_fiefs_of_the_black_cross } }
-					}
-		join_society = order_black_cross 
-		set_society_grandmaster = yes 
-		}
-
-	if = { 
-		limit = { character = 505050 
-					has_global_flag = bookmark1230
-					NOT = { society_member_of = via_regalis }
-					}
-		join_society = via_regalis
-		}
 		
 if = { 
 		limit = {
@@ -58,6 +40,10 @@ if = {
 							religion = ventrue_high
 							trait = ventrue
 							culture = german
+							OR = {
+									trait = neonate
+									trait = ancilla 
+									}
 							}
 				random_list = {
 						25 = { join_society = order_black_cross }
@@ -65,7 +51,7 @@ if = {
 				}
 				
 				}
-				
+		
 		if = {
 			limit = { 
 							religion = toreador_high
@@ -82,7 +68,7 @@ if = {
 									}
 							}
 				random_list = {
-						20 = { join_society = order_sable_rose }
+						25 = { join_society = order_sable_rose }
 				}
 				
 				}		
@@ -98,8 +84,7 @@ if = {
 								add_trait = leper
 								}
 				}
-				
-				}	
+				}
 
 		if = {
 				limit = {	
@@ -115,8 +100,8 @@ if = {
 							NOT = { trait = diabolist }					
 						}
 				random_list = {
-						1 = { join_society = order_bitter_ashes }
-						1 = { join_society = order_twilight }								
+						5 = { join_society = order_bitter_ashes }
+						5 = { join_society = order_twilight }								
 				}						
 			}							
 		}
@@ -124,7 +109,7 @@ if = {
 		if = {
 				limit = { religion = lasombra_high 
 						  culture = italian
-						  learning = 5 }
+						  learning = 7 }
 				random_list = {
 						25 = { join_society = order_st_panteleimon }
 				}
@@ -249,7 +234,7 @@ if = {
 								culture = scottish
 								culture = breton
 								}
-						  intrigue = 5
+						  intrigue = 1
 						}
 				random_list = {
 						10 = { join_society = cult_of_mithras }
