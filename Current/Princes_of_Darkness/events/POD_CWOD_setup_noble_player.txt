@@ -1,0 +1,222 @@
+# Setup random new noble characters as supernaturals or mortals
+
+namespace = CWOD_setup_noble_player
+
+character_event = {
+	id = CWOD_setup_noble_player.1
+	hide_window = yes
+	ai = no
+	
+	trigger = {
+		NOT = {	trait = POD_vampire_RD_immortal_fix }
+		NOT = { trait = vampire }
+		NOT = { trait = werewolf }
+		NOT = { trait = mage }
+		NOT = { has_character_flag = FLAG_POD_SETUP_NOBLE_FIRED }
+		OR = {
+			has_global_flag = bookmark767
+			has_global_flag = bookmark1230
+			has_global_flag = bookmark1355
+			has_global_flag = bookmark1466
+			has_global_flag = bookmark1505
+			has_global_flag = bookmark1506
+		}
+	}
+	
+mean_time_to_happen = {
+	days = 1
+}	
+		
+	immediate = {
+	
+		set_character_flag = FLAG_POD_SETUP_NOBLE_FIRED
+		capital_scope = {	
+			reverse_religion = ROOT
+			reverse_culture = ROOT
+		}		
+		
+# setup Indian caste
+		if = {
+			limit = {
+				ROOT = {
+					primary_title = { holding_type = temple	}
+				}
+				OR = { 
+					culture = bengali
+					culture = oriya
+					culture = assamese
+					culture = hindustani
+					culture = gujurati
+					culture = panjabi
+					culture = rajput
+					culture = sindhi
+					culture = marathi
+					culture = sinhala
+					culture = tamil
+					culture = telugu
+					culture = kannada 
+				}
+			}
+			add_trait = brahmin
+		}	
+		if = { 
+			limit = { 
+				OR = {
+					ROOT = { primary_title = { holding_type = castle } } 
+					mercenary = yes
+					holy_order = yes
+					is_patrician = yes 
+				}
+				OR = { 
+					culture = bengali
+					culture = oriya
+					culture = assamese
+					culture = hindustani
+					culture = gujurati
+					culture = panjabi
+					culture = rajput
+					culture = sindhi
+					culture = marathi
+					culture = sinhala
+					culture = tamil
+					culture = telugu
+					culture = kannada 
+				}												 
+			}											
+			add_trait = kshatriya
+		}	
+		if = {
+			limit = {
+				OR = {
+					ROOT = { primary_title = { holding_type = city } }
+					is_patrician = yes																		
+				}
+				OR = { 	
+					culture = bengali
+					culture = oriya
+					culture = assamese
+					culture = hindustani
+					culture = gujurati
+					culture = panjabi
+					culture = rajput
+					culture = sindhi
+					culture = marathi
+					culture = sinhala
+					culture = tamil
+					culture = telugu
+					culture = kannada 
+				}												 
+			}											
+			add_trait = vaishya
+		}	
+		if = {
+			limit = {
+				is_adult = yes
+				NOT = { trait = POD_vampire_RD_immortal_fix }
+				NOT = { trait = vampire }
+				NOT = { religion = revenant_high_clans }
+				NOT = { religion = revenant_ashirra }
+				NOT = { religion = revenant_anarchs }
+				NOT = { religion = revenant_autarkis }
+				NOT = { religion = revenant_furores }
+				NOT = { religion = revenant_low_clans }
+				NOT = { religion = revenant_baali }
+				NOT = { religion = revenant_masquerade_camarilla }
+				NOT = { religion = revenant_sabbat }
+				NOT = { religion = revenant_inconnu }
+				NOT = { religion = revenant_giovanni }
+				NOT = { religion = revenant_setite }
+				NOT = { religion = revenant_mayaparisataya }
+				NOT = { religion = revenant_assamite }
+				NOT = { trait = storyteller }	
+				OR = {
+					has_global_flag = bookmark767
+					has_global_flag = bookmark1230
+					has_global_flag = bookmark1355
+					has_global_flag = bookmark1466
+					has_global_flag = bookmark1505
+					has_global_flag = bookmark1506
+				}					
+				OR = { 
+					religion_group = vampire_high_clans_group
+					religion_group = vampire_low_clans_group
+					religion_group = ashirra_vampire_group
+					religion_group = baali_group
+					religion_group = masquerade_camarilla_group
+					religion_group = sabbat_group
+					religion_group = inconnu_group
+					religion_group = masquerade_independent_group
+					religion = laibon
+				}
+			}	
+# make Vampire ruler
+			add_trait = vampire		
+			set_government_type = vampire_low_clans
+			character_event = { id = CWOD_vampire_noble.1 }	
+		}											
+# Werewolf nobles				
+		if = {
+			limit = {
+				NOT = { trait = POD_vampire_RD_immortal_fix }
+				is_adult = yes
+				OR = {
+					has_global_flag = bookmark767
+					has_global_flag = bookmark1230
+					has_global_flag = bookmark1355
+					has_global_flag = bookmark1466
+					has_global_flag = bookmark1505
+					has_global_flag = bookmark1506
+					}
+				OR = {
+					religion_group = garou_group
+					religion_group = wyrm_group
+					}
+				OR = {		
+					is_landed = yes
+					mercenary = yes
+					holy_order = yes
+					is_patrician = yes
+					num_of_duke_titles = 1
+					}	
+			}
+			# make werewolf ruler
+			add_trait = werewolf
+			set_government_type = litany_government
+			character_event = { id = CWOD_werewolf_noble.1 }		
+		}	
+# Mage nobles				
+		if = {
+			limit = {
+				OR = {		
+					is_landed = yes
+					mercenary = yes
+					holy_order = yes
+					is_patrician = yes
+					num_of_duke_titles = 1
+				}
+				is_adult = yes
+				OR = {
+					has_global_flag = bookmark767
+					has_global_flag = bookmark1230
+					has_global_flag = bookmark1355
+					has_global_flag = bookmark1466
+					has_global_flag = bookmark1505
+					has_global_flag = bookmark1506
+				}					
+				OR = {
+					religion_group = order_of_reason_group
+					religion_group = daedalan_group
+					religion_group = magical_traditions_group
+				}
+			}
+			# make mage ruler
+			add_trait = mage
+			set_government_type = magicka_government
+			character_event = { id = CWOD_mage_noble.1 }
+		}	
+
+	}	
+	
+}
+	
+	
