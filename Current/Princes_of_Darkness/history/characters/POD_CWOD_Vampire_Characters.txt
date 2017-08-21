@@ -77,8 +77,52 @@
 		give_nickname=nick_the_bewitched
 		
 		add_spouse = 505001
+		effect = { join_society = derech_lilit }
+		effect = { set_society_grandmaster = yes }
+		add_trait = "sphere_affinity_life"
+		add_trait = "sphere_correspondence_5"
+		add_trait = "sphere_life_5"
+		add_trait = "sphere_entropy_5"
+		add_trait = "sphere_forces_5"
+		add_trait = "sphere_prime_5"
+		add_trait = "sphere_matter_5"
+		add_trait = "sphere_spirit_5"
+		add_trait = "sphere_time_5"
+		add_trait = "sphere_mind_5"
+		add_trait = "seducer"
+		add_trait = "in_hiding"
+		}	
+
+	766.1.1 = {
+		add_trait = "bookmark767"
+		}
+	989.1.1 = {
+		remove_trait = "bookmark767"
+		add_trait = "bookmark990"
+		}
+	1229.1.1 = {
+		remove_trait = "bookmark990"
+		add_trait = "bookmark1230"
+		add_trait = "in_hiding"
+		effect = { join_society = derech_lilit }
+		effect = { set_society_grandmaster = yes }	
+	}		
+	1354.1.1 = {
+		remove_trait = "bookmark1230"
+		add_trait = "bookmark1355"
+	}
+	1499.1.1 = {
+		remove_trait = "bookmark1355"
+		add_trait = "bookmark1500"
+	}		
+	1505.1.1 = {
+		remove_trait = "bookmark1500"
+		add_trait = "bookmark1505"
 		}		
-	150.1.1 = {
+
+
+		
+	1999.1.1 = {
 		death = yes
 		}	
 }
@@ -367,25 +411,8 @@
 		remove_trait = "bookmark767"
 		add_trait = "bookmark990"
 		}
-	1229.1.1 = {
-		remove_trait = "bookmark990"
-		add_trait = "bookmark1230"
-	}		
-	1354.1.1 = {
-		remove_trait = "bookmark1230"
-		add_trait = "bookmark1355"
-	}
-	1499.1.1 = {
-		remove_trait = "bookmark1355"
-		add_trait = "bookmark1500"
-	}		
-	1505.1.1 = {
-		remove_trait = "bookmark1500"
-		add_trait = "bookmark1505"
-	
-	}
-	
-	1999.1.1 = {
+
+	1133.1.1 = {
 		death = yes
 		}		
 }
@@ -625,7 +652,8 @@
 		}
 	69.1.1 = {
 		give_nickname=nick_the_savage
-		
+		effect = { join_society = via_bestiae }
+		effect = { set_society_grandmaster = yes }			
 		}
 	70.1.1 = {
 		add_trait = "torpor"
@@ -640,6 +668,8 @@
 	1229.1.1 = {
 		remove_trait = "bookmark990"
 		add_trait = "bookmark1230"
+		effect = { join_society = via_bestiae }
+		effect = { set_society_grandmaster = yes }		
 	}		
 	1354.1.1 = {
 		remove_trait = "bookmark1230"
@@ -1097,7 +1127,7 @@
 	culture = "levantine_arabic"
 	religion = "koldun"
 	trait = "antediluvian"
-	trait = "ventrue"
+	trait = "tzimisce"
 	trait = "vicissitude_5"
 	trait = "animalism_5"
 	trait = "auspex_5"
@@ -1186,7 +1216,8 @@
 		add_trait = "dominate_5"	
 		add_trait = "vampgeneration5"
 		effect = { join_society = code_of_tremere }
-		}
+		}		
+		
 	1133.1.1 = {
 		remove_trait = "vampgeneration5"
 		add_trait = "vampgeneration3"		
@@ -1246,6 +1277,7 @@
 	trait = "brilliant_strategist"
 	trait = "ambitious"
 	female = no
+	father = 505014
 	80.6.6 = {
 		birth = 80.6.6 
 		}
@@ -1255,7 +1287,7 @@
 		}
 	989.1.1 = {
 		add_trait = "bookmark990"
-		set_government_type = traditions_government
+		effect = {  set_government_type = traditions_government }
 		}		
 	1229.1.1 = {
 		remove_trait = "bookmark990"
@@ -1311,7 +1343,7 @@
 	989.1.1 = {
 		add_trait = "bookmark990"
 		effect = { join_society = via_caeli }
-		set_government_type = traditions_government
+		effect  = { set_government_type = traditions_government }
 		}
 	1204.1.1 = {
 		death = yes
@@ -1342,7 +1374,6 @@
 		add_trait = "resilience_5"
 		add_trait = "bloodpotency_6"
 		add_trait = "vampgeneration6"
-		effect = { join_society = via_regalis }
 		}
 	989.1.1 = {
 		add_trait = "bookmark990"
@@ -1353,8 +1384,8 @@
 	1229.1.1 = {
 		remove_trait = "bookmark990"
 		add_trait = "bookmark1230"
-		set_government_type = traditions_government
-		effect = { join_society = via_regalis }
+		effect = { set_government_type = traditions_government }
+		effect = { join_society = via_peccati }
 	}		
 	1249.12.30 = {
 		add_trait = "torpor"
@@ -1414,7 +1445,7 @@
 	1229.1.1 = {
 		remove_trait = "bookmark990"
 		add_trait = "bookmark1230"
-		set_government_type = traditions_government
+		effect = { set_government_type = traditions_government }
 		effect = { join_society = via_mutationis }
 		effect = { set_society_grandmaster = yes }		
 	}
@@ -1538,7 +1569,7 @@
 		}	
 
 	1229.1.1 = {
-		set_government_type = traditions_government
+		effect = { set_government_type = traditions_government }
 		remove_trait = "bookmark990"
 		add_trait = "bookmark1230"
 		effect = { join_society = via_noctis }
@@ -1602,11 +1633,12 @@
 		}
 	1229.1.1 = {
 		culture = "english"
-		set_government_type = traditions_government	
+		effect = { set_government_type = traditions_government }
 		remove_trait = "bookmark990"
 		add_trait = "bookmark1230"
 		effect = { join_society = cult_of_mithras }
 		effect = { set_society_grandmaster = yes }
+		effect = { set_graphical_culture = persian }
 	}	
 	
 	1249.12.30 = {`
@@ -1670,7 +1702,7 @@
 	1229.1.1 = {
 		remove_trait = "bookmark990"
 		add_trait = "bookmark1230"
-		set_government_type = traditions_government
+		effect = { set_government_type = traditions_government }
 		add_claim = k_aquitaine
 		effect = { join_society = via_regalis }
 	}			
@@ -1723,7 +1755,7 @@
 	1229.1.1 = {
 		add_claim = k_aquitaine
 		add_claim = e_love
-		set_government_type = traditions_government
+		effect = { set_government_type = traditions_government }
 		remove_trait = "bookmark990"
 		add_trait = "bookmark1230"
 		effect = { join_society = via_regalis }
@@ -1752,7 +1784,7 @@
 
 505075 = {
 # Queen of Volga Bulgaria, Duchess of Vladimir, Rostov, Yarolslavl, Tver
-	name = "Baba"
+	name = "Baba Yaga"
 	dynasty = "5000047"
 	culture = "russian"
 	dna="cjl0g0baca0"
@@ -1777,7 +1809,7 @@
 	add_trait = "bloodpotency_6"
 	add_trait = "vampgeneration4"
 	give_nickname=nick_the_littlegrandmother
-	set_government_type = unaligned_government
+	effect = { set_government_type = unaligned_government }
 }	
 	989.1.1 = {
 		add_trait = "bookmark990"
@@ -1838,7 +1870,7 @@
 	1229.1.1 = {
 		remove_trait = "bookmark990"
 		add_trait = "bookmark1230"
-		set_government_type = traditions_government		
+		effect = {  set_government_type = traditions_government	 }	
 		effect = { join_society = via_regalis }
 	}		
 	1249.12.30 = {
@@ -1895,7 +1927,7 @@
 		add_claim = k_france
 		add_claim = e_love
 		give_nickname=nick_the_just
-		set_government_type = traditions_government
+		effect = { set_government_type = traditions_government }
 		remove_trait = "bookmark990"
 		add_trait = "bookmark1230"
 		effect = { join_society = via_regalis }
@@ -1947,7 +1979,7 @@
 	1229.1.1 = {
 		add_claim = k_aquitaine
 		add_claim = e_love
-		set_government_type = traditions_government
+		effect = { set_government_type = traditions_government }
 		remove_trait = "bookmark990"
 		add_trait = "bookmark1230"
 	}			
@@ -2010,7 +2042,7 @@
 				add_claim = c_ile_de_france
 				add_claim = k_france
 				add_claim = e_love
-				set_government_type = traditions_government
+				effect = { set_government_type = traditions_government }
 				remove_trait = "bookmark990"
 				add_trait = "bookmark1230"
 				effect = { join_society = via_regalis }				
@@ -2046,9 +2078,10 @@
 	1229.1.1 = {
 		remove_trait = "bookmark990"
 		add_trait = "bookmark1230"
-		set_government_type = traditions_government
+		effect = { set_government_type = traditions_government }
 		add_claim = k_burgundy
 		add_claim = e_love		
+		give_nickname=nick_the_saint
 		effect = { join_society = order_bitter_ashes }
 		effect = { set_society_grandmaster = yes }	
 	}			
@@ -2115,6 +2148,11 @@
 		add_trait = "vampgeneration5"
 		effect = { join_society = code_of_tremere }
 		}
+		
+	1037.1.1 = {	
+		add_trait = "bloodbound"		
+		}		
+		
 	1133.1.1 = {
 		remove_trait = "vampgeneration5"
 		add_trait = "vampgeneration4"		
@@ -2127,6 +2165,13 @@
 		add_trait = "bookmark1230"
 		remove_trait = "elder"
 		add_trait = "ancient"
+		add_claim = e_tremere
+		add_claim = d_osterreich
+		add_claim = c_osterreich
+		add_claim = c_tirgoviste
+		add_claim = c_innsbruck
+		add_claim = c_steiermark
+		add_claim = c_salzburg
 	}				
 	1354.1.1 = {
 		remove_trait = "bookmark1230"
@@ -2190,6 +2235,9 @@
 		add_trait = "bookmark990"
 		}
 
+		
+		
+		
 	1229.1.1 = {
 		culture = "frankish"
 		remove_trait = "bookmark990"
@@ -2256,6 +2304,10 @@
 		effect = { join_society = code_of_tremere }
 		}
 
+	1037.1.1 = {	
+		add_trait = "bloodbound"		
+		}		
+		
 	1229.1.1 = {
 		remove_trait = "bookmark990"
 		add_trait = "bookmark1230"
@@ -2264,7 +2316,6 @@
 		add_trait = "dominate_5"
 		effect = { join_society = code_of_tremere }
 		effect = { set_society_grandmaster = yes }		
-		effect = { add_artifact = Sword_of_Nul }
 	}				
 	1354.1.1 = {
 		remove_trait = "bookmark1230"
@@ -2274,6 +2325,7 @@
 	1499.1.1 = {
 		remove_trait = "bookmark1355"
 		add_trait = "bookmark1500"
+		effect = { add_artifact = Sword_of_Nul }		
 		religion = "tremerecamarila"
 	}		
 	1505.1.1 = {
@@ -2362,7 +2414,8 @@
 	add_trait = "animalism_1"
 	add_trait = "neonate"
 	religion = "vampire_low_clans"
-	effect = { join_society = via_humanitatis }
+	#effect = { join_society = via_humanitatis }
+	effect = { join_society = order_saint_ladre }
 	}
 		
 	1229.1.1 = {
@@ -2371,7 +2424,10 @@
 		add_trait = "bookmark1230"
 		add_trait = "animalism_3"
 		add_trait = "vigor_3"
-		effect = { join_society = via_humanitatis }
+	#effect = { join_society = via_humanitatis }
+	effect = { join_society = order_saint_ladre }
+		effect = { set_society_grandmaster = yes }
+		
 	}	
 	
 	1354.1.1 = {
@@ -2531,7 +2587,7 @@
 	add_trait = "neonate"
 	religion = "vampire_low_clans"
 	effect = { join_society = via_caeli }
-	government = "traditions"
+	effect = { government = "traditions_government" }
 	}
 		
 	1229.1.1 = {
@@ -2586,7 +2642,7 @@
 		}
 	989.1.1 = {
 		add_trait = "bookmark990"
-		set_government_type = ashirra_government
+		effect = { set_government_type = ashirra_government }
 		}
 	1229.1.1 = {
 		remove_trait = "bookmark990"
@@ -2632,7 +2688,7 @@
 		}
 	989.1.1 = {
 		add_trait = "bookmark990"
-		set_government_type = cult_government
+		effect = { set_government_type = cult_government }
 		}
 	1229.1.1 = {
 		remove_trait = "bookmark990"
@@ -2686,7 +2742,7 @@
 		}
 	989.1.1 = {
 		add_trait = "bookmark990"
-		set_government_type = cult_government
+		effect = { set_government_type = cult_government }
 		}		
 	1229.1.1 = {
 		remove_trait = "bookmark990"
@@ -2760,6 +2816,76 @@
 	}		
 }
 
+
+505101 = {
+# Dobrul the Brave
+	name = "Dobrul"
+	culture = "mongol"
+	dynasty = 3000036
+	trait = "brilliant_strategist"
+	female = no
+	trait = "gangrel"
+	trait = "methuselah"
+	trait = "animalism_5"
+	trait = "protean_5"
+	trait = "resilience_5"
+	trait = "cruac_5"
+	trait = "bloodpotency_6"
+	trait = "vampire"
+	trait = "vampgeneration4"
+	mother = 505013
+	trait = "wolf-blooded"
+	religion = "anda"
+
+	70.1.1 = {
+		birth = 70.1.1
+		}
+		
+	100.1.1 = {
+		give_nickname=nick_the_brave
+		effect = { join_society = via_yasaq }
+		effect = { set_society_grandmaster = yes }
+		effect = { set_government_type = anda_government }		
+		}	
+		
+	766.1.1 = {
+		add_trait = "bookmark767"
+		}
+		
+	989.1.1 = {
+		remove_trait = "bookmark767"
+		add_trait = "bookmark990"
+		}
+		
+	1229.1.1 = {
+		remove_trait = "bookmark990"
+		add_trait = "bookmark1230"
+		effect = { join_society = via_yasaq }
+		effect = { set_society_grandmaster = yes }			
+	}		
+	
+	1354.1.1 = {
+		remove_trait = "bookmark1230"
+		add_trait = "bookmark1355"
+		add_trait = "torpor"
+	}
+	
+	1499.1.1 = {
+		remove_trait = "bookmark1355"
+		add_trait = "bookmark1500"
+	}		
+	
+	1505.1.1 = {
+		remove_trait = "bookmark1500"
+		add_trait = "bookmark1505"
+	}
+	
+	1999.1.1 = {
+		death = yes
+		}		
+}
+
+
 505096 = {
 # Eternal Senate
 	name = "Julia"
@@ -2793,7 +2919,7 @@
 		}
 	1229.1.1 = {
 		culture = "german"
-		set_government_type = traditions_government	
+		effect = { set_government_type = traditions_government	}
 		remove_trait = "bookmark990"
 		add_trait = "bookmark1230"
 		effect = { join_society = eternal_senate }
@@ -2851,6 +2977,7 @@
 		add_trait = "bloodpotency_5"
 		add_trait = "vampgeneration6"
 		religion = "lasombra_high"
+		effect = { set_government_type = traditions_government }
 		}
 		
 	660.1.1 = {
@@ -2913,7 +3040,8 @@
 		add_trait = "bloodpotency_4"
 		add_trait = "vampgeneration7"
 		religion = "lasombra_high"
-		effect = { join_society = cainite }		
+		effect = { join_society = cainite }	
+		effect = { set_government_type = traditions_government	}	
 		}
 
 	989.1.1 = {
@@ -2948,8 +3076,66 @@
 }
 
 
-505099 = {
+505100 = {
+	name = "Joachim"
+	dynasty = 4850000
+	culture = "ashkenazi"
+	religion = "innocent"
+	trait = "tough_soldier"
+	female = no
+
+	906.1.1 = {
+		birth = 906.1.1 
+		}
+		
+	922.1.1 = {
+			add_trait = "vampire"
+			add_trait = "bloodpotency_7"
+			add_trait = "vampgeneration6"
+			add_trait = "salubri"
+			add_trait = "reslilence_3"
+			add_trait = "neonate"
+			religion = "salubri_high"
+			effect = { set_government_type = traditions_government }
+	
+	}
+		
+	1229.1.1 = {
+		add_trait = "elder"
+		remove_trait = "neonate"
+		add_trait = "bookmark1230"
+		add_trait = "resilience_5"
+		remove_trait = "resilience_3"
+		add_trait = "auspex_3"
+		add_trait = "obeah_2"
+		effect = { set_government_type = free_state_government }
+		religion = autarkis		
+		effect = { join_society = order_twilight }
+		effect = { set_society_grandmaster = yes }
+		
+	}	
+	
+	1354.1.1 = {
+		remove_trait = "bookmark1230"
+		add_trait = "bookmark1355"
+	}	
+	
+	1499.1.1 = {
+		remove_trait = "bookmark1355"
+		add_trait = "bookmark1500"
+	}	
+	1505.1.1 = {
+		remove_trait = "bookmark1500"
+		add_trait = "bookmark1505"
+	}	
+	1999.1.1 = {
+		death = yes
+		}	
+}
+
 # Guilelmo Aliprando, Cainite Heresy, Archbishop of Nod, Prince of Venice
+
+505099 = {
 	name = "Guilelmo Aliprando"
 	culture = "italian"
 	dynasty = "4500018"
@@ -2972,6 +3158,7 @@
 		add_trait = "bloodpotency_4"
 		add_trait = "vampgeneration7"
 		religion = "lasombra_high"
+		effect = { set_government_type = traditions_government }
 		}
 
 	1215.6.1 = {
@@ -3002,7 +3189,7 @@
 		remove_trait = "ancilla"
 		remove_trait = "bookmark990"
 		add_trait = "bookmark1230"
-		employer = 505018
+	#	employer = 505018
 		effect = { join_society = cainite }
 		effect = { set_society_grandmaster = yes }	
 	}	
@@ -3015,7 +3202,6 @@
 	}	
 
 	1444.1.1 = {
-		effect = { leave_society }
 		add_trait = "torpor"
 		}		
 		
@@ -3039,3 +3225,320 @@
 		death = yes
 		}		
 }
+
+505102 = {
+	name = "Goratrix"
+	culture = "frankish"
+	religion = "innocent"
+	trait = "elusive_shadow"
+	trait = "genius"
+	trait = "scholar"
+	trait = "ambitious"
+	trait = "envious"
+	trait = "proud"
+	dynasty = 4750005
+	female = no
+	720.1.1 = {
+		birth = 720.1.1
+		}
+	740.1.1 = {
+		add_trait = "mage"
+		religion = "magicka"
+		}	
+	740.1.1 = {
+		add_trait = "life_3"
+		}
+	980.1.1 = {
+		add_trait = "eunuch"
+		}
+	989.1.1 = {
+		add_trait = "bookmark990"
+		}		
+	1020.1.1 = {
+		culture = "german"
+		religion = "tremerelow"
+		remove_trait = "mage"
+		add_trait = "vampire"
+		remove_trait = "life_3"
+		add_trait = "neonate"
+		add_trait = "tremere"
+		add_trait = "thaumaturgy_5"	
+		add_trait = "vampgeneration5"
+		add_trait = "bloodpotency_6"
+		effect = { join_society = code_of_tremere }
+		}
+
+	1037.1.1 = {	
+		add_trait = "bloodbound"		
+		}			
+		
+	1229.1.1 = {
+		remove_trait = "bookmark990"
+		add_trait = "bookmark1230"
+		remove_trait = "neonate"
+		add_trait = "elder"
+		add_trait = "auspex_5"
+		add_trait = "dominate_5"
+		add_trait = "vicissitude_5"
+		add_trait = "diabolist"
+		remove_trait = "vampgeneration5"
+		add_trait = "vampgeneration4"
+		effect = { add_rival = 505084 }
+		add_claim = e_tremere
+		add_claim = d_osterreich
+		add_claim = c_osterreich
+		add_claim = c_innsbruck
+		add_claim = c_steiermark
+		add_claim = c_salzburg			
+		effect = { join_society = code_of_tremere } 
+	}				
+	1354.1.1 = {
+		remove_trait = "bookmark1230"
+		add_trait = "bookmark1355"
+	}	
+	
+	1499.1.1 = {
+		remove_trait = "bookmark1355"
+		add_trait = "bookmark1500"
+		religion = "tremerecamarila"
+	}		
+	1505.1.1 = {
+		remove_trait = "bookmark1500"
+		add_trait = "bookmark1505"
+	}	
+	1999.1.1 = {
+		death = yes
+		}		
+}
+505103 = {
+	name = "Meerlinda"
+	culture = "saxon"
+	religion = "innocent"
+	trait = "elusive_shadow"
+	trait = "attractive"
+	trait = "genius"
+	trait = "scholar"
+	trait = "cynical"
+	trait = "temperate"
+	dynasty = 4750005
+	female = yes
+	employer = 505071
+	
+	820.1.1 = {
+		birth = 820.1.1
+		}
+	840.1.1 = {
+		add_trait = "mage"
+		religion = "magicka"
+		}	
+	840.1.1 = {
+		add_trait = "correspondence_3"
+		add_trait = "life_3"
+		}
+		
+	989.1.1 = {
+		add_trait = "bookmark990"
+		}		
+	1020.1.1 = {
+		culture = "german"
+		religion = "tremerelow"
+		remove_trait = "mage"
+		add_trait = "vampire"
+		remove_trait = "correspondence_3"
+		add_trait = "neonate"
+		add_trait = "tremere"
+		add_trait = "scarred"
+		add_trait = "thaumaturgy_5"	
+		add_trait = "vampgeneration5"
+		add_trait = "bloodpotency_6"
+		effect = { join_society = code_of_tremere }
+		}
+
+	1037.1.1 = {	
+		add_trait = "bloodbound"		
+		}	
+		
+	1229.1.1 = {
+		remove_trait = "bookmark990"
+		add_trait = "bookmark1230"
+		remove_trait = "neonate"
+		add_trait = "elder"
+		add_trait = "auspex_5"
+		add_trait = "dominate_5"
+		add_trait = "presence_5"
+		add_trait = "diabolist"
+		remove_trait = "vampgeneration5"
+		add_trait = "vampgeneration4"
+		effect = { join_society = code_of_tremere } 
+	}				
+	1354.1.1 = {
+		remove_trait = "bookmark1230"
+		add_trait = "bookmark1355"
+	}	
+	
+	1499.1.1 = {
+		remove_trait = "bookmark1355"
+		add_trait = "bookmark1500"
+		religion = "tremerecamarila"
+	}		
+	1505.1.1 = {
+		remove_trait = "bookmark1500"
+		add_trait = "bookmark1505"
+		}
+	}
+
+505104 = {
+	name = "Calderon"
+	culture = "castilian"
+	religion = "innocent"
+	trait = "midas_touched"
+	trait = "theologian"
+	trait = "quick"
+	trait = "scholar"
+	trait = "brave"
+	trait = "content"
+	trait = "trusting"
+	dynasty = 4750005
+	female = no
+	employer = 505070
+	
+	790.1.1 = {
+		birth = 790.1.1
+		}
+	820.1.1 = {
+		add_trait = "mage"
+		religion = "magicka"
+		}	
+	820.1.1 = {
+		add_trait = "matter_3"
+		}
+	989.1.1 = {
+		add_trait = "bookmark990"
+		}		
+	1020.1.1 = {
+		culture = "german"
+		religion = "tremerelow"
+		remove_trait = "mage"
+		add_trait = "vampire"
+		remove_trait = "matter_3"
+		add_trait = "neonate"
+		add_trait = "tremere"
+		add_trait = "thaumaturgy_5"	
+		add_trait = "vampgeneration5"
+		add_trait = "bloodpotency_6"
+		effect = { join_society = code_of_tremere }
+		}
+		
+	1037.1.1 = {	
+		add_trait = "bloodbound"		
+		}	
+
+	1229.1.1 = {
+		remove_trait = "bookmark990"
+		add_trait = "bookmark1230"
+		remove_trait = "neonate"
+		add_trait = "elder"
+		add_trait = "auspex_5"
+		add_trait = "dominate_5"
+		add_trait = "fortitude_5"
+		add_trait = "diabolist"
+		remove_trait = "vampgeneration5"
+		add_trait = "vampgeneration4"
+		add_claim = e_tremere
+		add_claim = d_osterreich
+		add_claim = c_osterreich
+		add_claim = c_innsbruck
+		add_claim = c_steiermark
+		add_claim = c_salzburg
+		add_claim = c_tirgoviste		
+		effect = { join_society = code_of_tremere } 
+	}					
+	1314.1.1 = {
+		death = yes
+		}		
+	}
+
+505105 = {
+	name = "LeDuc"
+	culture = "frankish"
+	religion = "innocent"
+	trait = "brilliant_strategist"
+	trait = "patient"
+	trait = "quick"
+	trait = "scholar"
+	trait = "strategist"
+	dynasty = 4750005
+	female = no
+	employer = 505072
+	790.1.1 = {
+		birth = 790.1.1
+		}
+	820.1.1 = {
+		add_trait = "mage"
+		religion = "magicka"
+		}	
+	820.1.1 = {
+		add_trait = "forces_3"
+		}
+	989.1.1 = {
+		add_trait = "bookmark990"
+		}		
+	1020.1.1 = {
+		culture = "german"
+		religion = "tremerelow"
+		remove_trait = "mage"
+		add_trait = "vampire"
+		remove_trait = "forces_3"
+		add_trait = "neonate"
+		add_trait = "tremere"
+		add_trait = "thaumaturgy_5"	
+		add_trait = "vampgeneration5"
+		add_trait = "bloodpotency_6"
+		add_trait = "zealous"
+		effect = { join_society = code_of_tremere }
+		}
+
+	1037.1.1 = {	
+		add_trait = "bloodbound"		
+		}	
+		
+	1229.1.1 = {
+		remove_trait = "bookmark990"
+		add_trait = "bookmark1230"
+		remove_trait = "neonate"
+		add_trait = "elder"
+		add_trait = "auspex_5"
+		add_trait = "dominate_5"
+		add_trait = "potence_5"
+		add_trait = "diabolist"
+		remove_trait = "vampgeneration5"
+		add_trait = "vampgeneration4"
+		add_claim = e_tremere
+		add_claim = d_osterreich
+		add_claim = c_osterreich
+		add_claim = c_innsbruck
+		add_claim = c_steiermark
+		add_claim = c_salzburg
+		add_claim = c_tirgoviste
+		effect = { add_rival = 505102 }
+		effect = { join_society = code_of_tremere } 
+	}	
+				
+	1354.1.1 = {
+		remove_trait = "bookmark1230"
+		add_trait = "bookmark1355"
+	}	
+	
+	1499.1.1 = {
+		remove_trait = "bookmark1355"
+		add_trait = "bookmark1500"
+		religion = "tremerecamarila"
+	}		
+	1505.1.1 = {
+		remove_trait = "bookmark1500"
+		add_trait = "bookmark1505"	
+	}	
+	1600.1.1 = {
+		death = yes
+		}		
+	}

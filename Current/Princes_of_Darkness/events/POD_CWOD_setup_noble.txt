@@ -9,6 +9,7 @@ character_event = {
 	ai = yes
 	
 	trigger = {
+		ai = yes
 		is_landed = yes
 		NOT = {	trait = POD_vampire_RD_immortal_fix }
 		NOT = { trait = mortal }
@@ -186,7 +187,10 @@ character_event = {
 # Werewolf nobles				
 		if = {
 			limit = {
-				NOT = { trait = POD_vampire_RD_immortal_fix }
+				NOT = {	trait = POD_vampire_RD_immortal_fix }
+				NOT = { trait = vampire }
+				NOT = { trait = werewolf }
+				NOT = { trait = mage }				
 				is_adult = yes
 				OR = {
 					has_global_flag = bookmark767
@@ -224,6 +228,10 @@ character_event = {
 					num_of_duke_titles = 1
 				}
 				is_adult = yes
+				NOT = {	trait = POD_vampire_RD_immortal_fix }
+				NOT = { trait = vampire }
+				NOT = { trait = werewolf }
+				NOT = { trait = mage }				
 				OR = {
 					has_global_flag = bookmark767
 					has_global_flag = bookmark1230
@@ -254,6 +262,10 @@ character_event = {
 					num_of_duke_titles = 1
 				}
 				is_adult = yes
+				NOT = {	trait = POD_vampire_RD_immortal_fix }
+				NOT = { trait = vampire }
+				NOT = { trait = werewolf }
+				NOT = { trait = mage }								
 				religion_group = hunter_group
 			}
 			# make supe hunter ruler
@@ -270,9 +282,13 @@ character_event = {
 					mercenary = yes
 					holy_order = yes
 					is_patrician = yes
-					num_of_duke_titles = 1
+					num_of_duke_titles = 1								
 				}
 				is_adult = yes
+				NOT = {	trait = POD_vampire_RD_immortal_fix }
+				NOT = { trait = vampire }
+				NOT = { trait = werewolf }
+				NOT = { trait = mage }								
 				religion_group = changeling_group
 			}
 			# make changeling ruler
@@ -288,9 +304,13 @@ character_event = {
 					mercenary = yes
 					holy_order = yes
 					is_patrician = yes
-					num_of_duke_titles = 1
+					num_of_duke_titles = 1					
 				}
 				is_adult = yes
+				NOT = {	trait = POD_vampire_RD_immortal_fix }
+				NOT = { trait = vampire }
+				NOT = { trait = werewolf }
+				NOT = { trait = mage }								
 				religion_group = promethean_group
 			}
 			# make promethean ruler
@@ -310,6 +330,10 @@ character_event = {
 					num_of_duke_titles = 1
 				}
 				is_adult = yes
+				NOT = {	trait = POD_vampire_RD_immortal_fix }
+				NOT = { trait = vampire }
+				NOT = { trait = werewolf }
+				NOT = { trait = mage }								
 				religion_group = mummy_group
 			}
 			# make mummy ruler
@@ -329,6 +353,10 @@ character_event = {
 					num_of_duke_titles = 1
 				}
 				is_adult = yes
+				NOT = {	trait = POD_vampire_RD_immortal_fix }
+				NOT = { trait = vampire }
+				NOT = { trait = werewolf }
+				NOT = { trait = mage }								
 				religion_group = geist_group
 			}
 			# make geist ruler
@@ -347,6 +375,10 @@ character_event = {
 					is_patrician = yes
 					num_of_duke_titles = 1
 				}
+				NOT = {	trait = POD_vampire_RD_immortal_fix }
+				NOT = { trait = vampire }
+				NOT = { trait = werewolf }
+				NOT = { trait = mage }								
 				is_adult = yes
 				religion_group = demon_group
 			}
@@ -366,6 +398,10 @@ character_event = {
 					is_patrician = yes
 					num_of_duke_titles = 1
 				}
+				NOT = {	trait = POD_vampire_RD_immortal_fix }
+				NOT = { trait = vampire }
+				NOT = { trait = werewolf }
+				NOT = { trait = mage }								
 				is_adult = yes
 				OR = { 				
 					religion = revenant_longinus
@@ -427,6 +463,10 @@ character_event = {
 			limit = {
 				is_landed = yes
 				is_adult = yes
+				NOT = {	trait = POD_vampire_RD_immortal_fix }
+				NOT = { trait = vampire }
+				NOT = { trait = werewolf }
+				NOT = { trait = mage }								
 				religion_group = innocent_group
 			}
 			# make mortal ruler

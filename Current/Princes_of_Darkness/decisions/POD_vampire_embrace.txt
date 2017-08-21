@@ -1,14 +1,13 @@
 
 targetted_decisions = {
 
-	player_embrace_mortal = {
+	player_embrace_mortal_decision = {
 		filter = court
 		ai_target_filter = court
 		
 		from_potential = {
 			ai = no
 			trait = vampire
-			NOT = { num_of_children = 5 }
 			NOT = { trait = vampgeneration15 }
 		 }
 		potential = {
@@ -35,6 +34,9 @@ targetted_decisions = {
 			}	
 			dynasty = FROM
 			add_trait = fledgling
+			FROM = {
+                   POD_vampire_blood_thirst_increase_effect = yes
+                }
 		}
 		revoke_allowed = {
 			always = no
@@ -44,7 +46,7 @@ targetted_decisions = {
 		}
 	}
 
-	player_ghoul = {
+	player_ghoul_decision = {
 		filter = court
 		ai_target_filter = court
 		
@@ -71,6 +73,7 @@ targetted_decisions = {
 		effect = {
 			add_trait = ghoul
 			add_trait = vigor_1
+			add_trait = bloodbound
 			opinion = {
 				modifier = opinion_blood_bond_to_domitor_ghoul
 				who = FROM
@@ -78,6 +81,10 @@ targetted_decisions = {
 			}
 			set_character_flag = FLAG_NWOD_BLOODBOUND
 			character_event = { id = ghoul.1 }
+			FROM = {
+                   POD_vampire_blood_thirst_increase_effect = yes
+                }
+
 		}
 		revoke_allowed = {
 			always = no
@@ -92,10 +99,9 @@ targetted_decisions = {
 
 
 decisions = {
-	embrace_mortal = {
+	embrace_mortal_decision = {
 		potential = {
 			trait = vampire
-			NOT = { num_of_children = 5 }
 			NOT = { trait = vampgeneration15 }	
 			ai = no		
 		}
@@ -113,12 +119,12 @@ decisions = {
 							random_traits = yes
 							trait = vampire
 							female = no
-							dynasty = ROOT
-							culture = ROOT
-							religion = ROOT
+							dynasty = FROM
+							culture = FROM
+							religion = FROM
 						}
 						new_character = {
-							set_father = ROOT
+							set_father = FROM
 							add_trait = fledgling
 							recalc_succession = yes
 						}
@@ -128,17 +134,17 @@ decisions = {
 							random_traits = yes
 							trait = vampire
 							female = yes
-							dynasty = ROOT
-							culture = ROOT
-							religion = ROOT
+							dynasty = FROM
+							culture = FROM
+							religion = FROM
 						}
 						new_character = {
-							set_father = ROOT
+							set_father = FROM
 							add_trait = fledgling
 							recalc_succession = yes
 						}
 					}
-				}	
+				}
 			}
             if = {
                 limit = { is_female = yes }			
@@ -148,12 +154,12 @@ decisions = {
 							random_traits = yes
 							trait = vampire
 							female = no
-							dynasty = ROOT
-							culture = ROOT
-							religion = ROOT
+							dynasty = FROM
+							culture = FROM
+							religion = FROM
 						}
 						new_character = {
-							set_mother = ROOT
+							set_mother = FROM
 							add_trait = fledgling
 							recalc_succession = yes
 						}
@@ -163,20 +169,22 @@ decisions = {
 							random_traits = yes
 							trait = vampire													
 							female = yes
-							dynasty = ROOT
-							culture = ROOT
-							religion = ROOT
+							dynasty = FROM
+							culture = FROM
+							religion = FROM
 						}
 						new_character = {
-							set_mother = ROOT
+							set_mother = FROM
 							add_trait = fledgling
 							recalc_succession = yes
 						}
 					}
 				}	
-			}				
-				
-			set_character_flag = FLAG_POD_RECENT_VAMPIRE_CHILDE			
+			}					
+			set_character_flag = FLAG_POD_RECENT_VAMPIRE_CHILDE		
+            FROM = {
+                   POD_vampire_blood_thirst_increase_effect = yes
+                }			
 		}
 		revoke_allowed = {
 			always = no 

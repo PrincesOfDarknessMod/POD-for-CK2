@@ -33,32 +33,15 @@ eternal_senate = {
 				}
 			}
 		}
-		trait = vampire
-		trait = ventrue
-		religion = ventrue_high
-		culture = german
-		diplomacy = 5
-				NOR = {
-				culture_group = arabic
-				culture_group = iranian 
-				culture_group = altaic
-				culture_group = indo_aryan_group
-				culture = sephardi
-				religion = ashirra 
-				religion = einherjar 
-				religion = anda 
-				religion = noiad 
-				religion = koldun 
-				religion = mayaparisataya 
-				religion = assamite 
-				religion = setite 	
-				religion = cappadocian_high
-				}				
+		has_eternal_senate_prerequisites = yes	
+		custom_tooltip = {
+			text = did_not_betray_society
+			NOT = { has_character_flag = betrayed_eternal_senate }
+		}			
 	}
 
 	show_society = {
 		trait = vampire
-		age = 16
 	}
 
 	potential = {
@@ -108,12 +91,7 @@ eternal_senate = {
 		}
 		decisions = {
 		}
-		obedience_tooltip = obedience_tooltip #this can be unique per rank/society 
-		obedient = {
-			ROOT = {
-				always = yes
-			}
-		}
+		 
 	}
 
 	monthly_currency_gain = {
@@ -292,30 +270,12 @@ eternal_senate = {
 	    trigger = {
 			ai = yes
 	    	controls_religion = no 
-			age = 16
 			trait = vampire
 			trait = ventrue
 			religion = ventrue_high
-			culture = german			
-			diplomacy = 5
+			culture = german	
 			is_in_society = no		
-			NOT = { trait = antediluvian }
-				NOR = {
-				culture_group = arabic
-				culture_group = iranian 
-				culture_group = altaic
-				culture_group = indo_aryan_group
-				culture = sephardi
-				religion = ashirra 
-				religion = einherjar 
-				religion = anda 
-				religion = noiad 
-				religion = koldun 
-				religion = mayaparisataya 
-				religion = assamite 
-				religion = setite	
-				religion = cappadocian_high
-				}			
+			NOT = { trait = antediluvian }		
 		}
 	}
 }	
@@ -356,27 +316,17 @@ cult_of_mithras = {
 				}
 			}
 		}
-		intrigue = 5
-		trait = vampire
-				NOR = {
-				culture_group = arabic
-				culture_group = altaic
-				culture_group = indo_aryan_group
-				culture = sephardi
-				religion = ashirra 
-				religion = einherjar 
-				religion = anda 
-				religion = noiad 
-				religion = koldun 
-				religion = mayaparisataya 
-				religion = assamite 
-				religion = setite				
-				}		
+			has_cult_of_mithras_prerequisites = yes	
+		custom_tooltip = {
+			text = did_not_betray_society
+			NOT = { has_character_flag = betrayed_cult_of_mithras }
+		}
+	
+	
 	}
 
 	show_society = {
 		trait = vampire
-		age = 16
 	}
 
 	potential = {
@@ -425,12 +375,6 @@ cult_of_mithras = {
 			intrigue = 4 # bonus to dueling (left over)
 		}
 		decisions = {
-		}
-		obedience_tooltip = obedience_tooltip #this can be unique per rank/society 
-		obedient = {
-			ROOT = {
-				always = yes
-			}
 		}
 	}
 
@@ -591,25 +535,11 @@ cult_of_mithras = {
 	    trigger = {
 			ai = yes
 	    	controls_religion = no
-			age = 16
 			trait = vampire
 			intrigue = 5
 			is_in_society = no
 			NOT = { higher_tier_than = DUKE }			
-				NOR = {
-				culture_group = arabic
-				culture_group = altaic
-				culture_group = indo_aryan_group
-				culture = sephardi
-				religion = ashirra 
-				religion = einherjar 
-				religion = anda 
-				religion = noiad 
-				religion = koldun 
-				religion = mayaparisataya 
-				religion = assamite 
-				religion = setite				
-				}			
+	
 		}
 	}
 }
@@ -648,11 +578,7 @@ cainite = {
 				}
 			}
 		}
-		age = 16
-		trait = vampire
-		NOT = { trait = excommunicated }
-		NOT = { trait = antediluvian }
-		NOT = { trait = methuselah }
+		has_cainite_prerequisites = yes
 		custom_tooltip = {
 			text = did_not_betray_society
 			NOT = { has_character_flag = betrayed_cainite }
@@ -835,7 +761,6 @@ cainite = {
 	    trigger = {
 			ai = yes
 	    	controls_religion = no
-			age = 16
 			is_in_society = no
 			NOT = { higher_tier_than = DUKE }
 			NOR = {
@@ -892,10 +817,7 @@ order_st_panteleimon = {
 				}
 			}
 		}
-		age = 16
-		trait = vampire
-		trait = lasombra
-		NOT = { trait = excommunicated }
+		has_order_st_panteleimon_prerequisites = yes
 		custom_tooltip = {
 			text = did_not_betray_society
 			NOT = { has_character_flag = betrayed_order_st_panteleimon }
@@ -1078,7 +1000,6 @@ order_st_panteleimon = {
 	    trigger = {
 			ai = yes
 	    	controls_religion = no
-			age = 16
 			is_in_society = no
 			NOT = { higher_tier_than = DUKE }
 			NOR = {
@@ -1663,12 +1584,6 @@ order_thorned_wreath = {
 		}
 		decisions = {
 		}
-		obedience_tooltip = obedience_tooltip #this can be unique per rank/society 
-		obedient = {
-			ROOT = {
-				always = yes
-			}
-		}
 	}
 
 	monthly_currency_gain = {
@@ -2029,3 +1944,5 @@ bloodline_sangiovanni = {
 		}
 	
 	}
+	
+	

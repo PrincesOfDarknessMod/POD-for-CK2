@@ -19,6 +19,17 @@ mean_time_to_happen = {
 					add_trait = vampire
 					remove_trait = POD_vampire_RD_immortal_fix 
 					set_character_flag = FLAG_POD_vampire_RD_immortal_fix_fired 
+					
+					if = {
+							limit = {
+										OR = {
+												trait = nosferatu
+												trait = nosferatuantitribu
+												}
+											}
+								set_graphical_culture = nosferatu
+								}
+					
 					if = { 
 							limit = {
 											NOT = { trait = bloodpotency_1 }

@@ -157,7 +157,10 @@ mean_time_to_happen = {
 # Werewolf nobles				
 		if = {
 			limit = {
-				NOT = { trait = POD_vampire_RD_immortal_fix }
+				NOT = {	trait = POD_vampire_RD_immortal_fix }
+				NOT = { trait = vampire }
+				NOT = { trait = werewolf }
+				NOT = { trait = mage }
 				is_adult = yes
 				OR = {
 					has_global_flag = bookmark767
@@ -194,6 +197,10 @@ mean_time_to_happen = {
 					is_patrician = yes
 					num_of_duke_titles = 1
 				}
+				NOT = {	trait = POD_vampire_RD_immortal_fix }
+				NOT = { trait = vampire }
+				NOT = { trait = werewolf }
+				NOT = { trait = mage }				
 				is_adult = yes
 				OR = {
 					has_global_flag = bookmark767

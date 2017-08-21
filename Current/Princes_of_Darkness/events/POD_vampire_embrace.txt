@@ -9,6 +9,9 @@ character_event = {
 		ai = yes
 		NOT = { num_of_children = 6 }
 		NOT = { trait = bloodpotency_1 }
+		NOT = { has_character_modifier = dire_blood_thirst }
+		NOT = { has_character_modifier = dreadful_blood_thirst }
+
 		OR = {		
 			is_landed = yes
 			mercenary = yes
@@ -25,19 +28,19 @@ character_event = {
 		modifier = {
 			factor = 7
 		}
-			
+									
 		modifier = {
 			factor = 0.5
 			trait = lustful 
 		}
 
 		modifier = {
-			factor = 2
+			factor = 0.5
 			trait = neonate 
 		}
 		 
 		 modifier = {
-			factor = 0.5
+			factor = 0.3
 			trait = ancilla 
 		}
 		
@@ -238,7 +241,8 @@ character_event = {
 				}
 			}	
 		}				
-		set_character_flag = FLAG_POD_RECENT_VAMPIRE_CHILDE			
+		set_character_flag = FLAG_POD_RECENT_VAMPIRE_CHILDE	
+		POD_vampire_blood_thirst_increase_effect = yes
 	}
 }
 	
@@ -649,7 +653,8 @@ character_event = {
 			if = { 
 				limit = { father = { trait = caitiff } }
 				add_trait = caitiff	
-			}								
+			}	
+			}
 			
 		if = { 
 			limit = { mother = { trait = vampire } }
@@ -672,8 +677,10 @@ character_event = {
 			if = { 
 				limit = {
 					OR = {
+						has_global_flag = bookmark767
 						has_global_flag = bookmark1230
-						has_global_flag = bookmark1500
+						has_global_flag = bookmark1466
+						has_global_flag = bookmark1355
 					}
 				}
 				if = {
@@ -1068,7 +1075,7 @@ if = {
 						}			
 			}
 			
-			
+		POD_vampire_blood_thirst_increase_effect = yes	
 		}
 			
 		

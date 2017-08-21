@@ -6,10 +6,10 @@ order_black_cross = {
 	primary_attribute = martial
 	is_secret = no
 	devil_worshipper = no
-	opinion_to_other_members = +10
+	opinion_to_other_members = +1
 	opinion_to_pretenders = -20			#Pretenders is the opinion you have of people perceived/discovered to be in your society.
 	opinion_to_perceived_members = -20 	#Perceived is the opinion you have of people perceived/discovered to be of a society you're not part of
-	opinion_per_rank_above = +10
+	opinion_per_rank_above = +1
 	sound = assassins_interface
 	society_ranks_gfx = generic_ranks
 	
@@ -33,31 +33,9 @@ order_black_cross = {
 				}
 			}
 		}
-		martial = 7
-		combat_ratig = 7
-		trait = vampire
-		trait = ventrue
-		religion = ventrue_high
-		OR = {
-				trait = neonate
-				trait = ancilla 
-				trait = elder
-			}
-		culture = german
-				NOR = {
-				culture_group = arabic
-				culture_group = iranian 
-				culture_group = altaic
-				culture_group = indo_aryan_group
-				culture = sephardi
-				religion = ashirra 
-				religion = einherjar 
-				religion = anda 
-				religion = koldun 
-				religion = mayaparisataya 
-				religion = assamite 
-				religion = setite 				
-				}	
+
+		has_order_black_cross_prerequisites = yes
+		
 		custom_tooltip = {
 			text = did_not_betray_society
 			NOT = { has_character_flag = betrayed_order_black_cross}
@@ -66,7 +44,6 @@ order_black_cross = {
 
 	show_society = {
 		trait = vampire
-		age = 16
 	}
 
 	potential = {
@@ -120,12 +97,8 @@ order_black_cross = {
 		}
 		decisions = {
 		}
-		obedience_tooltip = obedience_tooltip #this can be unique per rank/society 
-		obedient = {
-			ROOT = {
-				always = yes
-			}
-		}
+		 
+
 	}
 
 	monthly_currency_gain = {
@@ -318,19 +291,16 @@ order_black_cross = {
 		}
 	}
 	}
-	
+
 ### Order of the Saint Ladre ###
 
 order_saint_ladre = {
 	primary_attribute = martial
-	is_secret = no
-	devil_worshipper = no
-	opinion_to_other_members = +10
-	opinion_to_pretenders = -20			#Pretenders is the opinion you have of people perceived/discovered to be in your society.
-	opinion_to_perceived_members = -20 	#Perceived is the opinion you have of people perceived/discovered to be of a society you're not part of
-	opinion_per_rank_above = +10
-	sound = assassins_interface
-	society_ranks_gfx = generic_ranks
+	opinion_to_other_members = +1
+	opinion_to_perceived_members = -20 
+	opinion_per_rank_above = +1
+	sound = monastic_orders_interface
+	society_ranks_gfx = monk_ranks
 	
 	active = {
 		OR = {
@@ -345,50 +315,32 @@ order_saint_ladre = {
 	can_join_society = {
 		hidden_trigger = {
 			NAND = {
-				ai = yes
 				is_society_rank_full = { 
 					society = order_saint_ladre
 					rank = 1
 				}
 			}
 		}
-		martial = 7
-		combat_ratig = 7
-		trait = vampire
-		trait = nosferatu
-		religion = vampire_low_clans
-				NOR = {
-				culture_group = arabic
-				culture_group = iranian 
-				culture_group = altaic
-				culture_group = indo_aryan_group
-				culture = sephardi
-				religion = ashirra 
-				religion = einherjar 
-				religion = anda 
-				religion = koldun 
-				religion = mayaparisataya 
-				religion = assamite 
-				religion = setite 				
-				}	
+		
+		has_order_saint_ladre_prerequisites = yes
+	
 		custom_tooltip = {
 			text = did_not_betray_society
-			NOT = { has_character_flag = betrayed_saint_ladre }
+			NOT = { has_character_flag = betrayed_order_saint_ladre }
 		}				
 	}
 
 	show_society = {
 		trait = vampire
-		age = 16
 	}
 
 	potential = {
-		trait = vampire
+		trait = nosferatu
 	}
 
 	society_rank = {
 		level = 1
-		limit = 100
+		limit = 1000
 		startup_limit = 0
 		modifier = {
 			combat_rating = 1
@@ -433,12 +385,7 @@ order_saint_ladre = {
 		}
 		decisions = {
 		}
-		obedience_tooltip = obedience_tooltip #this can be unique per rank/society 
-		obedient = {
-			ROOT = {
-				always = yes
-			}
-		}
+		 
 	}
 
 	monthly_currency_gain = {
@@ -604,27 +551,12 @@ order_saint_ladre = {
 			trait = vampire
 			trait = nosferatu
 			religion = vampire_low_clans
-			martial = 7
-			combat_ratig = 7
-			is_in_society = no
-			NOT = { mercenary = yes }
-				NOR = {
-				culture_group = arabic
-				culture_group = iranian 
-				culture_group = altaic
-				culture_group = indo_aryan_group
-				culture = sephardi
-				religion = ashirra 
-				religion = einherjar 
-				religion = anda 
-				religion = koldun 
-				religion = mayaparisataya 
-				religion = assamite 
-				religion = setite				
-				}			
+			is_in_society = no		
 		}
 	}
 	}
+	
+	
 	
 ### Order of the Sable Rose ###
 
@@ -632,10 +564,10 @@ order_sable_rose = {
 	primary_attribute = martial
 	is_secret = no
 	devil_worshipper = no
-	opinion_to_other_members = +10
+	opinion_to_other_members = +1
 	opinion_to_pretenders = -20			#Pretenders is the opinion you have of people perceived/discovered to be in your society.
 	opinion_to_perceived_members = -20 	#Perceived is the opinion you have of people perceived/discovered to be of a society you're not part of
-	opinion_per_rank_above = +10
+	opinion_per_rank_above = +1
 	sound = assassins_interface
 	society_ranks_gfx = generic_ranks
 	
@@ -659,26 +591,9 @@ order_sable_rose = {
 				}
 			}
 		}
-		martial = 7
-		combat_ratig = 7
-		trait = vampire
-		trait = toreador
-		religion = toreador_high
-
-				NOR = {
-				culture_group = arabic
-				culture_group = iranian 
-				culture_group = altaic
-				culture_group = indo_aryan_group
-				culture = sephardi
-				religion = ashirra 
-				religion = einherjar 
-				religion = anda 
-				religion = koldun 
-				religion = mayaparisataya 
-				religion = assamite 
-				religion = setite 				
-				}	
+		
+		has_order_sable_rose_prerequisites = yes		
+	
 		custom_tooltip = {
 			text = did_not_betray_society
 			NOT = { has_character_flag = betrayed_order_sable_rose }
@@ -687,7 +602,6 @@ order_sable_rose = {
 
 	show_society = {
 		trait = vampire
-		age = 16
 	}
 
 	potential = {
@@ -741,12 +655,7 @@ order_sable_rose = {
 		}
 		decisions = {
 		}
-		obedience_tooltip = obedience_tooltip #this can be unique per rank/society 
-		obedient = {
-			ROOT = {
-				always = yes
-			}
-		}
+		 
 	}
 
 	monthly_currency_gain = {
@@ -962,7 +871,7 @@ order_sable_rose = {
 			trait = toreador
 			religion = toreador_high
 			martial = 7
-			combat_ratig = 7
+			combat_rating = 7
 			is_in_society = no
 			NOT = { mercenary = yes }
 				NOR = {
@@ -989,10 +898,10 @@ order_bitter_ashes = {
 	primary_attribute = martial
 	is_secret = no
 	devil_worshipper = no
-	opinion_to_other_members = +10
+	opinion_to_other_members = +1
 	opinion_to_pretenders = -20			#Pretenders is the opinion you have of people perceived/discovered to be in your society.
 	opinion_to_perceived_members = -20 	#Perceived is the opinion you have of people perceived/discovered to be of a society you're not part of
-	opinion_per_rank_above = +10
+	opinion_per_rank_above = +1
 	sound = assassins_interface
 	society_ranks_gfx = generic_ranks
 	
@@ -1016,25 +925,9 @@ order_bitter_ashes = {
 				}
 			}
 		}
-		martial = 7
-		combat_ratig = 7
-		trait = vampire
 
-				NOR = {
-				triat = diabolist
-				culture_group = arabic
-				culture_group = iranian 
-				culture_group = altaic
-				culture_group = indo_aryan_group
-				culture = sephardi
-				religion = ashirra 
-				religion = einherjar 
-				religion = anda 
-				religion = koldun 
-				religion = mayaparisataya 
-				religion = assamite 
-				religion = setite 				
-				}	
+		has_order_bitter_ashes_prerequisites = yes
+		
 		custom_tooltip = {
 			text = did_not_betray_society
 			NOT = { has_character_flag = betrayed_order_bitter_ashes }
@@ -1043,7 +936,6 @@ order_bitter_ashes = {
 
 	show_society = {
 		trait = vampire
-		age = 16
 	}
 
 	potential = {
@@ -1097,12 +989,7 @@ order_bitter_ashes = {
 		}
 		decisions = {
 		}
-		obedience_tooltip = obedience_tooltip #this can be unique per rank/society 
-		obedient = {
-			ROOT = {
-				always = yes
-			}
-		}
+		 
 	}
 
 	monthly_currency_gain = {
@@ -1460,7 +1347,7 @@ order_bitter_ashes = {
 			age = 16
 			trait = vampire
 			martial = 7
-			combat_ratig = 7
+			combat_rating = 7
 			is_in_society = no
 			NOT = { mercenary = yes }
 				NOR = {
@@ -1489,10 +1376,10 @@ order_twilight = {
 	primary_attribute = martial
 	is_secret = no
 	devil_worshipper = no
-	opinion_to_other_members = +10
+	opinion_to_other_members = +1
 	opinion_to_pretenders = -20			#Pretenders is the opinion you have of people perceived/discovered to be in your society.
 	opinion_to_perceived_members = -20 	#Perceived is the opinion you have of people perceived/discovered to be of a society you're not part of
-	opinion_per_rank_above = +10
+	opinion_per_rank_above = +1
 	sound = assassins_interface
 	society_ranks_gfx = generic_ranks
 	
@@ -1516,25 +1403,9 @@ order_twilight = {
 				}
 			}
 		}
-		martial = 7
-		combat_ratig = 7
-		trait = vampire
 
-				NOR = {
-				triat = diabolist
-				culture_group = arabic
-				culture_group = iranian 
-				culture_group = altaic
-				culture_group = indo_aryan_group
-				culture = sephardi
-				religion = ashirra 
-				religion = einherjar 
-				religion = anda 
-				religion = koldun 
-				religion = mayaparisataya 
-				religion = assamite 
-				religion = setite 				
-				}	
+		has_order_twilight_prerequisites = yes		
+		
 		custom_tooltip = {
 			text = did_not_betray_society
 			NOT = { has_character_flag = betrayed_order_twilight }
@@ -1543,7 +1414,6 @@ order_twilight = {
 
 	show_society = {
 		trait = vampire
-		age = 16
 	}
 
 	potential = {
@@ -1597,12 +1467,7 @@ order_twilight = {
 		}
 		decisions = {
 		}
-		obedience_tooltip = obedience_tooltip #this can be unique per rank/society 
-		obedient = {
-			ROOT = {
-				always = yes
-			}
-		}
+		 
 	}
 
 	monthly_currency_gain = {
@@ -1962,7 +1827,7 @@ order_twilight = {
 			age = 16
 			trait = vampire
 			martial = 7
-			combat_ratig = 7
+			combat_rating = 7
 			is_in_society = no
 			NOT = { mercenary = yes }
 				NOR = {
@@ -1983,5 +1848,3 @@ order_twilight = {
 		}
 	}
 	}
-
-	

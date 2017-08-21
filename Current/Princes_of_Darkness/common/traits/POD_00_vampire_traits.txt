@@ -39,6 +39,7 @@ neonate = {
 	intrigue = 1
 	monthly_character_prestige = 0.25	
 	same_opinion_if_same_religion = 5
+	opposite_opinion = -10
 	
 }
 
@@ -60,6 +61,7 @@ ancilla = {
 	learning = 1
 	monthly_character_prestige = 0.5
 	same_opinion = -5
+	opposite_opinion = -5
 	  random = no
 }
 
@@ -82,8 +84,8 @@ elder = {
 	learning = 2
 	monthly_character_prestige = 1
 	monthly_character_piety = -0.5
-	same_opinion = -20
-	opposite_opinion = -5
+	same_opinion = -10
+	opposite_opinion = -10
 	ai_rationality = -10
 	# prestige gain
 	# piety loss
@@ -109,6 +111,8 @@ vampgeneration7 = {
 }
 	inherit_chance = 0 
     random = no 
+	opposite_opinion = -5
+	combat_rating = 6
 
 }
 
@@ -131,6 +135,8 @@ vampgeneration8 = {
 }
 	inherit_chance = 0 
     random = no 
+	opposite_opinion = -5
+	combat_rating = 5
     	
 }
 
@@ -153,7 +159,8 @@ vampgeneration9 = {
 }
 	inherit_chance = 0 
     random = no 
-    	
+    opposite_opinion = -5	
+	combat_rating = 4
 }
 
 vampgeneration10 = {
@@ -175,6 +182,8 @@ vampgeneration10 = {
 }
 	inherit_chance = 0 
     random = no 	
+	opposite_opinion = -5
+	combat_rating = 3
 }
 
 vampgeneration11 = {
@@ -196,6 +205,8 @@ vampgeneration11 = {
 }
 	inherit_chance = 0 
     random = no 
+	opposite_opinion = -5
+	combat_rating = 2
 }
 
 vampgeneration12 = {
@@ -217,6 +228,8 @@ vampgeneration12 = {
 }
 	inherit_chance = 0 
     random = no 	
+	opposite_opinion = -5
+	combat_rating = 1
 }
 
 
@@ -1432,6 +1445,8 @@ torpor = {
 	random = no 
 	customizer = no
 	in_hiding = yes
+	cannot_marry = yes
+	cannot_inherit = yes
 	incapacitating = yes # Will need a regent
 }
 
@@ -1748,7 +1763,7 @@ ancient = {
 	diplomacy = 1
 	monthly_character_prestige = 1
 	monthly_character_piety = -0.5
-	same_opinion = -20
+	same_opinion = -10
 	opposite_opinion = -10
 	ai_rationality = -10
 	# prestige gain
@@ -1776,8 +1791,8 @@ methuselah = {
 	diplomacy = 2
 	monthly_character_prestige = 1
 	monthly_character_piety = -0.5
-	same_opinion = -20
-	opposite_opinion = -15
+	same_opinion = -10
+	opposite_opinion = -10
 	ai_rationality = -10
 	# prestige gain
 	# piety loss
@@ -1804,18 +1819,29 @@ antediluvian = {
 	diplomacy = 3
 	monthly_character_prestige = 1
 	monthly_character_piety = -0.5
-	same_opinion = -20
-	opposite_opinion = -20
-	ai_rationality = -10
+	same_opinion = -10
+	opposite_opinion = -10
 	# prestige gain
 	# piety loss
 	  random = no
 }
 
-draugr = {
+bloodbound = {
 	inherit_chance = 0 
 	customizer = no
-	martial = 1
+	random = no
+	hidden = yes
+}
+
+#draugr
+
+wight = {
+	inherit_chance = 0 
+	customizer = no
+	cannot_marry = yes
+	cannot_inherit = yes	
+	combat_rating = 5
+	diplomacy = -5
 	general_opinion =  -500
 	command_modifier = {
 		pursue = 0.5
@@ -3566,7 +3592,8 @@ vampgeneration1 = {
 	inherit_chance = 0 
     random = no 
 	customizer = no
-    	  	
+    opposite_opinion = -5	 
+	combat_rating = 12
 }
 
 vampgeneration2 = {
@@ -3589,7 +3616,8 @@ vampgeneration2 = {
 	inherit_chance = 0 
     random = no 
 	customizer = no
-    	  	
+    opposite_opinion = -5	  
+	combat_rating = 11
 }
 
 vampgeneration3 = {
@@ -3612,7 +3640,8 @@ vampgeneration3 = {
 	inherit_chance = 0 
     random = no 
 	customizer = no
-    	  	
+    opposite_opinion = -5	 
+	combat_rating = 10
 }
 
 vampgeneration4 = {
@@ -3635,7 +3664,8 @@ vampgeneration4 = {
 	inherit_chance = 0 
     random = no 
 	customizer = no
-    	  	
+    opposite_opinion = -5	 
+	combat_rating = 9
 }
 
 vampgeneration5 = {
@@ -3658,7 +3688,8 @@ vampgeneration5 = {
 	inherit_chance = 0 
     random = no 
 	customizer = no
-    	  	
+    opposite_opinion = -5	  
+	combat_rating = 8	
 }
 
 vampgeneration6 = {
@@ -3681,7 +3712,8 @@ vampgeneration6 = {
 	inherit_chance = 0 
     random = no 
 	customizer = no
-    	  	
+    opposite_opinion = -5	 
+	combat_rating = 7 	
 }
 
 vampgeneration13 = {
@@ -3704,7 +3736,7 @@ vampgeneration13 = {
 	inherit_chance = 0 
     random = no 
 	customizer = no
-    	  	
+    opposite_opinion = -5	  	
 }
 
 vampgeneration14 = {
@@ -3727,7 +3759,7 @@ vampgeneration14 = {
 	inherit_chance = 0 
     random = no 
 	customizer = no
-    	  	
+    opposite_opinion = -5	  	
 }
 
 vampgeneration15 = {
@@ -3750,7 +3782,7 @@ vampgeneration15 = {
 	inherit_chance = 0 
     random = no 
 	customizer = no
-    	  	
+    opposite_opinion = -5	  	
 }
 
 vampire_blood_thirst = {

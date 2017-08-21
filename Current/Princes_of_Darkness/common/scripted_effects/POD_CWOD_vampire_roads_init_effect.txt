@@ -276,8 +276,50 @@ if = {
 						2 = { join_society = via_hyron }
 					}
 		
-		}			
+		}
+		if = { 
+				limt = { 
+						 has_secret_religion  = yes }
+						 
+						 if = {
+								limt = { secret_religion = baali } 
+									join_society = secret_religious_society_baali
+								}
+						if = {
+								limt = { secret_religion = setite } 
+									join_society = secret_religious_society_setite
+								}		
+						 if = {
+								limt = { secret_religion = vampire_promethean } 
+									join_society = secret_religious_society_vampire_promethean
+								}	
+						 if = {
+								limt = { secret_religion = furores } 
+									join_society = secret_religious_society_furores
+								}								
+								
+						 if = {
+								limt = { secret_religion = inconnu } 
+									join_society = secret_religious_society_inconnu
+								}								
+						 }
+			 
 	}
-	
-	
 }
+
+POD_CWOD_vampire_roads_grand_master_init_effect = {
+                       if = {
+                           limit = {
+							   is_landed = yes
+                               is_in_society = yes
+                               NOT = {
+                                   society = {
+                                       any_society_member = {
+                                           is_society_grandmaster = yes
+                                       }
+                                   }
+                               }
+                           }
+                           set_society_grandmaster = yes
+                       }
+					}

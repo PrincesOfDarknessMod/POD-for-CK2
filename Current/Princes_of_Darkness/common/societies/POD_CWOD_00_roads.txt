@@ -5,10 +5,10 @@ via_humanitatis = {
 	primary_attribute = diplomacy
 	is_secret = no
 	devil_worshipper = no
-	opinion_to_other_members = +10
+	opinion_to_other_members = +1
 	opinion_to_pretenders = -20			#Pretenders is the opinion you have of people perceived/discovered to be in your society.
 	opinion_to_perceived_members = -20 	#Perceived is the opinion you have of people perceived/discovered to be of a society you're not part of
-	opinion_per_rank_above = +10
+	opinion_per_rank_above = +1
 	sound = assassins_interface
 	society_ranks_gfx = generic_ranks
 	
@@ -32,29 +32,15 @@ via_humanitatis = {
 				}
 			}
 		}
-		trait = vampire
-		diplomacy = 2
-				NOR = {
-				culture_group = arabic
-				culture_group = iranian 
-				culture_group = altaic
-				culture_group = indo_aryan_group
-				culture = sephardi
-				religion = ashirra 
-				religion = einherjar 
-				religion = anda 
-				religion = noiad 
-				religion = koldun 
-				religion = mayaparisataya 
-				religion = assamite 
-				religion = setite 
-				}
-				
+		has_via_humanitatis_prerequisites = yes		
+		custom_tooltip = {
+			text = did_not_betray_society
+			NOT = { has_character_flag = betrayed_via_humanitatis }
+		}		
 	}
 
 	show_society = {
 		trait = vampire
-		age = 16
 	}
 
 	potential = {
@@ -104,12 +90,7 @@ via_humanitatis = {
 		}
 		decisions = {
 		}
-		obedience_tooltip = obedience_tooltip #this can be unique per rank/society 
-		obedient = {
-			ROOT = {
-				always = yes
-			}
-		}
+		 
 	}
 
 	monthly_currency_gain = {
@@ -315,10 +296,10 @@ via_regalis = {
 	primary_attribute = stewardship
 	is_secret = no
 	devil_worshipper = no
-	opinion_to_other_members = +10
+	opinion_to_other_members = +1
 	opinion_to_pretenders = -20			#Pretenders is the opinion you have of people perceived/discovered to be in your society.
 	opinion_to_perceived_members = -20 	#Perceived is the opinion you have of people perceived/discovered to be of a society you're not part of
-	opinion_per_rank_above = +10
+	opinion_per_rank_above = +1
 	sound = assassins_interface
 	society_ranks_gfx = generic_ranks
 	
@@ -342,29 +323,15 @@ via_regalis = {
 				}
 			}
 		}
-		trait = vampire
-		stewardship = 2
-				NOR = {
-				culture_group = arabic
-				culture_group = iranian 
-				culture_group = altaic
-				culture_group = indo_aryan_group
-				culture = sephardi
-				religion = ashirra 
-				religion = einherjar 
-				religion = anda 
-				religion = noiad 
-				religion = koldun 
-				religion = mayaparisataya 
-				religion = assamite 
-				religion = setite 	
-				religion = cappadocian_high
-				}				
+	has_via_regalis_prerequisites = yes	
+		custom_tooltip = {
+			text = did_not_betray_society
+			NOT = { has_character_flag = betrayed_via_regalis }
+		}	
 	}
 
 	show_society = {
 		trait = vampire
-		age = 16
 	}
 
 	potential = {
@@ -414,12 +381,7 @@ via_regalis = {
 		}
 		decisions = {
 		}
-		obedience_tooltip = obedience_tooltip #this can be unique per rank/society 
-		obedient = {
-			ROOT = {
-				always = yes
-			}
-		}
+		 
 	}
 
 	monthly_currency_gain = {
@@ -598,27 +560,9 @@ via_regalis = {
 	    trigger = {
 			ai = yes
 	    	controls_religion = no 
-			age = 16
 			trait = vampire
-			stewardship = 2
 			is_in_society = no
-			NOT = { trait = antediluvian }
-				NOR = {
-				culture_group = arabic
-				culture_group = iranian 
-				culture_group = altaic
-				culture_group = indo_aryan_group
-				culture = sephardi
-				religion = ashirra 
-				religion = einherjar 
-				religion = anda 
-				religion = noiad 
-				religion = koldun 
-				religion = mayaparisataya 
-				religion = assamite 
-				religion = setite	
-				religion = cappadocian_high
-				}			
+			NOT = { trait = antediluvian }	
 		}
 	}
 }
@@ -627,7 +571,7 @@ via_regalis = {
 via_caeli = {
 	primary_attribute = learning
 	is_religious = yes
-	opinion_to_other_members = +10
+	opinion_to_other_members = +1
 	opinion_per_rank_above = +5
 	sound = monastic_orders_interface
 	society_ranks_gfx = monk_ranks
@@ -653,24 +597,7 @@ via_caeli = {
 				}
 			}
 		}
-		age = 16
-		trait = vampire
-				NOR = {
-				culture_group = arabic
-				culture_group = iranian 
-				culture_group = altaic
-				culture_group = indo_aryan_group
-				culture = sephardi
-				religion = ashirra 
-				religion = einherjar 
-				religion = anda 
-				religion = noiad 
-				religion = koldun 
-				religion = mayaparisataya 
-				religion = assamite 
-				religion = setite 	
-				trait = diabolist
-				}		
+		has_via_caeli_prerequisites = yes	
 		custom_tooltip = {
 			text = did_not_betray_society
 			NOT = { has_character_flag = betrayed_via_caeli }
@@ -910,10 +837,10 @@ via_bestiae = {
 	primary_attribute = martial
 	is_secret = no
 	devil_worshipper = no
-	opinion_to_other_members = +10
+	opinion_to_other_members = +1
 	opinion_to_pretenders = -20			#Pretenders is the opinion you have of people perceived/discovered to be in your society.
 	opinion_to_perceived_members = -20 	#Perceived is the opinion you have of people perceived/discovered to be of a society you're not part of
-	opinion_per_rank_above = +10
+	opinion_per_rank_above = +1
 	sound = assassins_interface
 	society_ranks_gfx = generic_ranks
 	
@@ -937,28 +864,15 @@ via_bestiae = {
 				}
 			}
 		}
-		martial = 5
-		combat_rating = 2
-		trait = vampire
-				NOR = {
-				culture_group = arabic
-				culture_group = iranian 
-				culture_group = altaic
-				culture_group = indo_aryan_group
-				culture = sephardi
-				religion = ashirra 
-				religion = einherjar 
-				religion = anda 
-				religion = koldun 
-				religion = mayaparisataya 
-				religion = assamite 
-				religion = setite 				
-				}		
+		has_via_bestiae_prerequisites = yes	
+		custom_tooltip = {
+			text = did_not_betray_society
+			NOT = { has_character_flag = betrayed_via_bestiae }
+		}		
 	}
 
 	show_society = {
 		trait = vampire
-		age = 16
 	}
 
 	potential = {
@@ -1008,12 +922,7 @@ via_bestiae = {
 		}
 		decisions = {
 		}
-		obedience_tooltip = obedience_tooltip #this can be unique per rank/society 
-		obedient = {
-			ROOT = {
-				always = yes
-			}
-		}
+		 
 	}
 
 	monthly_currency_gain = {
@@ -1166,30 +1075,15 @@ via_bestiae = {
 	    trigger = {
 			ai = yes
 	    	controls_religion = no
-			age = 16
 			trait = vampire
-			martial = 5
-			combat_rating = 2
+			combat_rating = 5
 			is_in_society = no
 			NOT = { higher_tier_than = DUKE }
-			NOT = { mercenary = yes }
-				NOR = {
-				culture_group = arabic
-				culture_group = iranian 
-				culture_group = altaic
-				culture_group = indo_aryan_group
-				culture = sephardi
-				religion = ashirra 
-				religion = einherjar 
-				religion = anda 
-				religion = koldun 
-				religion = mayaparisataya 
-				religion = assamite 
-				religion = setite				
-				}			
+			NOT = { mercenary = yes }		
 		}
 	}
 }
+	
 
 ### Road of Sin ###
 
@@ -1197,10 +1091,10 @@ via_peccati = {
 	primary_attribute = intrigue
 	is_secret = no
 	devil_worshipper = no
-	opinion_to_other_members = +10
+	opinion_to_other_members = +1
 	opinion_to_pretenders = -20			#Pretenders is the opinion you have of people perceived/discovered to be in your society.
 	opinion_to_perceived_members = -20 	#Perceived is the opinion you have of people perceived/discovered to be of a society you're not part of
-	opinion_per_rank_above = +10
+	opinion_per_rank_above = +1
 	sound = assassins_interface
 	society_ranks_gfx = generic_ranks
 	
@@ -1224,29 +1118,15 @@ via_peccati = {
 				}
 			}
 		}
-		martial = 5
-		combat_rating = 2
-		trait = vampire
-				NOR = {
-				culture_group = arabic
-				culture_group = iranian 
-				culture_group = altaic
-				culture_group = indo_aryan_group
-				culture = sephardi
-				religion = ashirra 
-				religion = einherjar 
-				religion = anda 
-				religion = noiad 
-				religion = koldun 
-				religion = mayaparisataya 
-				religion = assamite 
-				religion = setite				
-				}		
+		has_via_peccati_prerequisites = yes	
+		custom_tooltip = {
+			text = did_not_betray_society
+			NOT = { has_character_flag = betrayed_via_peccati }
+		}		
 	}
 
 	show_society = {
 		trait = vampire
-		age = 16
 	}
 
 	potential = {
@@ -1296,12 +1176,7 @@ via_peccati = {
 		}
 		decisions = {
 		}
-		obedience_tooltip = obedience_tooltip #this can be unique per rank/society 
-		obedient = {
-			ROOT = {
-				always = yes
-			}
-		}
+		 
 	}
 
 	monthly_currency_gain = {
@@ -1461,35 +1336,19 @@ via_peccati = {
 	    trigger = {
 			ai = yes
 	    	controls_religion = no
-			age = 16
 			trait = vampire
 			intrigue = 5
 			is_in_society = no
-			NOT = { higher_tier_than = DUKE }			
-				NOR = {
-				culture_group = arabic
-				culture_group = iranian 
-				culture_group = altaic
-				culture_group = indo_aryan_group
-				culture = sephardi
-				religion = ashirra 
-				religion = einherjar 
-				religion = anda 
-				religion = noiad 
-				religion = koldun 
-				religion = mayaparisataya 
-				religion = assamite 
-				religion = setite				
-				}			
+			NOT = { higher_tier_than = DUKE }					
 		}
 	}
-}
+	}	
 
 
 ### Road of Bones ###
 via_ossium = {
 	primary_attribute = learning
-	opinion_to_other_members = +10
+	opinion_to_other_members = +1
 	opinion_per_rank_above = +5
 	sound = monastic_orders_interface
 	society_ranks_gfx = monk_ranks
@@ -1514,21 +1373,7 @@ via_ossium = {
 				}
 			}
 		}
-		age = 16
-		trait = vampire
-				NOR = {
-				culture_group = arabic
-				culture_group = indo_aryan_group
-				culture = sephardi
-				religion = ashirra 
-				religion = einherjar 
-				religion = anda 
-				religion = noiad 
-				religion = mayaparisataya 
-				religion = assamite 
-				religion = setite
-				religion = tremerelow
-				}		
+		has_via_ossium_prerequisites = yes			
 		custom_tooltip = {
 			text = did_not_betray_society
 			NOT = { has_character_flag = betrayed_via_ossium }
@@ -1789,7 +1634,6 @@ via_ossium = {
 	    trigger = {
 			ai = yes
 	    	controls_religion = no
-			age = 16
 			trait = vampire
 			is_in_society = no
 			NOT = { trait = antediluvian }
@@ -1802,31 +1646,7 @@ via_ossium = {
 				primary_title = { title = e_giovanni }
 			}			
 			has_secret_religion_trait_trigger = no
-			OR = {
-				trait = zealous
-				trait = scholar
-				trait = theologian
-				trait = monk
-				trait = nun
-				trait = malkavian
-				trait = tzimisce
-				trait = cappadocian
-				learning = 16
-				is_priest = yes
-			}
-				NOR = {
-				culture_group = arabic
-				culture_group = indo_aryan_group
-				culture = sephardi
-				religion = ashirra 
-				religion = einherjar 
-				religion = anda 
-				religion = noiad 
-				religion = mayaparisataya 
-				religion = assamite 
-				religion = setite	
-				religion = tremerelow
-				}			
+			
 		}
 	}
 }
@@ -1835,7 +1655,7 @@ via_ossium = {
 ### Road of Night ###
 via_noctis = {
 	primary_attribute = intrigue
-	opinion_to_other_members = +10
+	opinion_to_other_members = +1
 	opinion_per_rank_above = +5
 	sound = monastic_orders_interface
 	society_ranks_gfx = generic_ranks
@@ -1860,20 +1680,7 @@ via_noctis = {
 				}
 			}
 		}
-		age = 16
-		trait = vampire
-		trait = lasombra
-				NOR = {
-				culture_group = indo_aryan_group
-				religion = einherjar 
-				religion = anda 
-				religion = noiad 
-				religion = koldun 
-				religion = mayaparisataya 
-				religion = assamite 
-				religion = setite 		
-				religion = tremerelow
-				}		
+		has_via_noctis_prerequisites = yes	
 		custom_tooltip = {
 			text = did_not_betray_society
 			NOT = { has_character_flag = betrayed_via_noctis }
@@ -1940,12 +1747,7 @@ via_noctis = {
 		}
 		decisions = {
 		}
-		obedience_tooltip = obedience_tooltip #this can be unique per rank/society 
-		obedient = {
-			ROOT = {
-				always = yes
-			}
-		}
+		 
 	}
 
 	monthly_currency_gain = {
@@ -2121,7 +1923,6 @@ via_noctis = {
 	    trigger = {
 			ai = yes
 	    	controls_religion = no
-			age = 16
 			trait = vampire
 			is_in_society = no
 			OR = {
@@ -2132,26 +1933,12 @@ via_noctis = {
 				holy_order = yes
 			}
 			trait = lasombra
-			NOT = { trait = cynical }
 			has_secret_religion_trait_trigger = no
 			OR = {
 				trait = zealous
 				trait = scholar
 				intrigue = 5
-			}
-				NOR = {
-				culture_group = iranian 
-				culture_group = altaic
-				culture_group = indo_aryan_group
-				religion = einherjar 
-				religion = anda 
-				religion = noiad 
-				religion = koldun 
-				religion = mayaparisataya 
-				religion = assamite 
-				religion = setite		
-				religion = tremerelow
-				}			
+			}			
 		}
 	}
 }
@@ -2167,7 +1954,7 @@ via_hyron = {
 	opinion_to_other_members = +5
 	opinion_to_pretenders = -40			#Pretenders is the opinion you have of people perceived/discovered to be in your society.
 	opinion_to_perceived_members = -40	#Perceived is the opinion you have of people perceived/discovered to be of a society you're not part of
-	opinion_per_rank_above = +10
+	opinion_per_rank_above = +1
 	sound = devil_worshippers_interface
 	society_ranks_gfx = devil_ranks
 	
@@ -2183,7 +1970,8 @@ via_hyron = {
 	indestructible = yes
 	
 	can_join_society = {
-		trait = baali
+	
+	
 		hidden_trigger = {
 			NAND = {
 				ai = yes
@@ -2193,15 +1981,16 @@ via_hyron = {
 				}
 			}
 		}
+		has_via_hyron_prerequisites = yes	
+		custom_tooltip = {
+			text = did_not_betray_society
+			NOT = { has_character_flag = betrayed_via_hyron }
+		}		
+		
 	}
 
 	show_society = {
-		age = 16
 		trait = vampire
-		OR = {
-			trait = baali
-			society_member_of = via_hyron
-		}
 	}
 
 	potential = {
@@ -2285,12 +2074,7 @@ via_hyron = {
 			DW_prolong_life #Available Power: Prolong Life
 			DW_demonic_impregnation #Available power: Unholy Impregnation
 		}
-		obedience_tooltip = obedience_tooltip #this can be unique per rank/society 
-		obedient = {
-			ROOT = {
-				always = yes
-			}
-		}
+		 
 	}
 
 	plots = {
@@ -2504,20 +2288,12 @@ via_hyron = {
 			ai = yes
 			controls_religion = no
 			OR = {
-				true_religion_group_muslim_trigger = yes
-				true_religion_group_christian_trigger = yes
-				true_religion_group_jewish_group_trigger = yes
-				true_religion_group_zoroastrian_group_trigger = yes
-				true_religion_zun_pagan_trigger = yes
-			}
-			OR = {
 				has_impious_trait_trigger = yes
 				has_vice_trigger = yes
 				trait = drunkard
 				trait = possessed
 				trait = lunatic
 			}
-			age = 16
 			is_in_society = no
 			trait = baali
 			NOT = { higher_tier_than = DUKE }
@@ -2535,10 +2311,10 @@ tariq_el-umma = {
 	primary_attribute = diplomacy
 	is_secret = no
 	devil_worshipper = no
-	opinion_to_other_members = +10
+	opinion_to_other_members = +1
 	opinion_to_pretenders = -20			#Pretenders is the opinion you have of people perceived/discovered to be in your society.
 	opinion_to_perceived_members = -20 	#Perceived is the opinion you have of people perceived/discovered to be of a society you're not part of
-	opinion_per_rank_above = +10
+	opinion_per_rank_above = +1
 	sound = assassins_interface
 	society_ranks_gfx = generic_ranks
 	
@@ -2562,30 +2338,15 @@ tariq_el-umma = {
 				}
 			}
 		}
-		trait = vampire
-		diplomacy = 2
-		OR = {
-				culture_group = arabic
-				culture_group = iranian 
-				culture_group = altaic
-				culture_group = indo_aryan_group
-				culture = sephardi
-				religion = ashirra
-				}
+		has_tariq_el-umma_prerequisites = yes	
+		custom_tooltip = {
+			text = did_not_betray_society
+			NOT = { has_character_flag = betrayed_tariq_el-umma }
+		}
 	}
 
 	show_society = {
-		trait = vampire
-		age = 16
-				OR = {
-				culture_group = arabic
-				culture_group = iranian 
-				culture_group = altaic
-				culture_group = indo_aryan_group
-				culture = sephardi
-				religion = ashirra
-				religion = assamite
-				}	
+		trait = vampire	
 	}
 
 	potential = {
@@ -2629,18 +2390,13 @@ tariq_el-umma = {
 	society_rank = {
 		level = 4
 		limit = 5 
-		startup_limit = 0
+		startup_limit = 1
 		modifier = {
 			diplomacy = 4
 		}
 		decisions = {
 		}
-		obedience_tooltip = obedience_tooltip #this can be unique per rank/society 
-		obedient = {
-			ROOT = {
-				always = yes
-			}
-		}
+		 
 	}
 
 	monthly_currency_gain = {
@@ -2813,20 +2569,9 @@ tariq_el-umma = {
 	    trigger = {
 			ai = yes
 	    	controls_religion = no 
-			age = 16
 			trait = vampire
-			diplomacy = 2
+			diplomacy = 5
 			is_in_society = no
-			OR = {
-				culture_group = arabic
-				culture_group = iranian 
-				culture_group = altaic
-				culture_group = indo_aryan_group
-				culture = sephardi
-				religion = ashirra
-				}			
-			NOT = { trait = antediluvian }
-			NOT = { trait = methuselah }
 		}
 	}
 }
@@ -2838,10 +2583,10 @@ tariq_el-harb = {
 	primary_attribute = stewardship
 	is_secret = no
 	devil_worshipper = no
-	opinion_to_other_members = +10
+	opinion_to_other_members = +1
 	opinion_to_pretenders = -20			#Pretenders is the opinion you have of people perceived/discovered to be in your society.
 	opinion_to_perceived_members = -20 	#Perceived is the opinion you have of people perceived/discovered to be of a society you're not part of
-	opinion_per_rank_above = +10
+	opinion_per_rank_above = +1
 	sound = assassins_interface
 	society_ranks_gfx = generic_ranks
 	
@@ -2862,33 +2607,18 @@ tariq_el-harb = {
 				is_society_rank_full = { 
 					society = tariq_el-harb
 					rank = 1
-				}
+				}				
 			}
 		}
-		trait = vampire
-		stewardship = 2
-		OR = {
-				culture_group = arabic
-				culture_group = iranian 
-				culture_group = altaic
-				culture_group = indo_aryan_group
-				culture = sephardi
-				religion = ashirra
-				}				
+		has_tariq_el-harb_prerequisites = yes	
+		custom_tooltip = {
+			text = did_not_betray_society
+			NOT = { has_character_flag = betrayed_tariq_el-harb }
+		}
 	}
 
 	show_society = {
 		trait = vampire
-		age = 16
-				OR = {
-				culture_group = arabic
-				culture_group = iranian 
-				culture_group = altaic
-				culture_group = indo_aryan_group
-				culture = sephardi
-				religion = ashirra
-				religion = assamite
-				}	
 	}
 
 	potential = {
@@ -2932,18 +2662,13 @@ tariq_el-harb = {
 	society_rank = {
 		level = 4
 		limit = 5 
-		startup_limit = 0
+		startup_limit = 1
 		modifier = {
 			stewardship = 4
 		}
 		decisions = {
 		}
-		obedience_tooltip = obedience_tooltip #this can be unique per rank/society 
-		obedient = {
-			ROOT = {
-				always = yes
-			}
-		}
+		 
 	}
 
 	monthly_currency_gain = {
@@ -3112,29 +2837,18 @@ tariq_el-harb = {
 	    trigger = {
 			ai = yes
 	    	controls_religion = no 
-			age = 16
 			trait = vampire
 			stewardship = 2
 			is_in_society = no
-			NOT = { trait = antediluvian }
-			NOT = { trait = methuselah }
-			OR = {
-				culture_group = arabic
-				culture_group = iranian 
-				culture_group = altaic
-				culture_group = indo_aryan_group
-				culture = sephardi
-				religion = ashirra
-				}			
 		}
 	}
 }
 
-### Taruq el-Sama ###
+### Tariq el-Sama ###
 tariq_el-sama = {
 	primary_attribute = learning
 	is_religious = yes
-	opinion_to_other_members = +10
+	opinion_to_other_members = +1
 	opinion_per_rank_above = +5
 	sound = monastic_orders_interface
 	society_ranks_gfx = monk_ranks
@@ -3160,17 +2874,7 @@ tariq_el-sama = {
 				}
 			}
 		}
-		age = 16
-		trait = vampire
-			OR = {
-				culture_group = arabic
-				culture_group = iranian 
-				culture_group = altaic
-				culture_group = indo_aryan_group
-				culture = sephardi
-				religion = ashirra
-				religion = assamite
-				}		
+		has_tariq_el-sama_prerequisites = yes	
 		custom_tooltip = {
 			text = did_not_betray_society
 			NOT = { has_character_flag = betrayed_tariq_el-sama }
@@ -3178,15 +2882,7 @@ tariq_el-sama = {
 	}
 	
 	show_society = {
-		trait = vampire
-				OR = {
-				culture_group = arabic
-				culture_group = iranian 
-				culture_group = altaic
-				culture_group = indo_aryan_group
-				culture = sephardi
-				religion = ashirra
-				}	
+		trait = vampire	
 	}
 	
 	potential = {
@@ -3226,7 +2922,7 @@ tariq_el-sama = {
 	society_rank = {
 		level = 4
 		limit = 5
-		startup_limit = 0
+		startup_limit = 1
 		modifier = { 
 			monthly_character_piety = 0.5
 			learning = 3
@@ -3376,8 +3072,6 @@ tariq_el-sama = {
 			trait = vampire
 			is_in_society = no
 			NOT = { higher_tier_than = DUKE }
-			NOT = { trait = antediluvian }
-			NOT = { trait = methuselah }
 			NOR = {
 				mercenary = yes
 				holy_order = yes
@@ -3393,14 +3087,7 @@ tariq_el-sama = {
 				learning = 16
 				is_priest = yes
 			}
-			OR = {
-				culture_group = arabic
-				culture_group = iranian 
-				culture_group = altaic
-				culture_group = indo_aryan_group
-				culture = sephardi
-				religion = ashirra
-				}			
+			
 		}
 	}
 }
@@ -3411,10 +3098,10 @@ tariq_el-bedouin = {
 	primary_attribute = martial
 	is_secret = no
 	devil_worshipper = no
-	opinion_to_other_members = +10
+	opinion_to_other_members = +1
 	opinion_to_pretenders = -20			#Pretenders is the opinion you have of people perceived/discovered to be in your society.
 	opinion_to_perceived_members = -20 	#Perceived is the opinion you have of people perceived/discovered to be of a society you're not part of
-	opinion_per_rank_above = +10
+	opinion_per_rank_above = +1
 	sound = assassins_interface
 	society_ranks_gfx = generic_ranks
 	
@@ -3438,31 +3125,15 @@ tariq_el-bedouin = {
 				}
 			}
 		}
-		martial = 5
-		combat_rating = 2
-		trait = vampire
-			OR = {
-				culture_group = arabic
-				culture_group = iranian 
-				culture_group = altaic
-				culture_group = indo_aryan_group
-				culture = sephardi
-				religion = ashirra
-				}	
+		has_tariq_el-bedouin_prerequisites = yes	
+				custom_tooltip = {
+			text = did_not_betray_society
+			NOT = { has_character_flag = betrayed_tariq_el-bedouin }
+		}
 	}
 
 	show_society = {
 		trait = vampire
-		age = 16
-				OR = {
-				culture_group = arabic
-				culture_group = iranian 
-				culture_group = altaic
-				culture_group = indo_aryan_group
-				culture = sephardi
-				religion = ashirra
-				religion = assamite
-				}	
 	}
 
 	potential = {
@@ -3506,18 +3177,13 @@ tariq_el-bedouin = {
 	society_rank = {
 		level = 4
 		limit = 5 
-		startup_limit = 0
+		startup_limit = 1
 		modifier = {
 			combat_rating = 4 # bonus to dueling (left over)
 		}
 		decisions = {
 		}
-		obedience_tooltip = obedience_tooltip #this can be unique per rank/society 
-		obedient = {
-			ROOT = {
-				always = yes
-			}
-		}
+		 
 	}
 
 	monthly_currency_gain = {
@@ -3528,21 +3194,22 @@ tariq_el-bedouin = {
 			value = 0.5
 		}
 
-		modifier = {
+		has_trait = {
 			trait = methuselah
-			factor = 1.4
+			value = 1.4
 		}
-		modifier = {
+		
+		has_trait = {
 			trait = ancient
-			factor = 1.3
+			value = 1.3
 		}		
-		modifier = {
+		has_trait = {
 			trait = elder
-			factor = 1.2
+			value = 1.2
 		}
-		modifier = {
+		has_trait = {
 			trait = ancilla
-			factor = 1.1
+			value = 1.1
 		}			
 		
 		has_trait = {
@@ -3658,21 +3325,11 @@ tariq_el-bedouin = {
 	    trigger = {
 			ai = yes
 	    	controls_religion = no
-			age = 16
 			trait = vampire
-			martial = 5
-			combat_rating = 2
+			combat_rating = 5
 			is_in_society = no
 			NOT = { higher_tier_than = DUKE }
-			NOT = { mercenary = yes }
-			OR = {
-				culture_group = arabic
-				culture_group = iranian 
-				culture_group = altaic
-				culture_group = indo_aryan_group
-				culture = sephardi
-				religion = ashirra
-				}		
+			NOT = { mercenary = yes }	
 		}
 	}
 }
@@ -3683,10 +3340,10 @@ tariq_el-shaitan = {
 	primary_attribute = intrigue
 	is_secret = no
 	devil_worshipper = no
-	opinion_to_other_members = +10
+	opinion_to_other_members = +1
 	opinion_to_pretenders = -20			#Pretenders is the opinion you have of people perceived/discovered to be in your society.
 	opinion_to_perceived_members = -20 	#Perceived is the opinion you have of people perceived/discovered to be of a society you're not part of
-	opinion_per_rank_above = +10
+	opinion_per_rank_above = +1
 	sound = assassins_interface
 	society_ranks_gfx = generic_ranks
 	
@@ -3710,31 +3367,15 @@ tariq_el-shaitan = {
 				}
 			}
 		}
-		martial = 5
-		combat_rating = 2
-		trait = vampire
-			OR = {
-				culture_group = arabic
-				culture_group = iranian 
-				culture_group = altaic
-				culture_group = indo_aryan_group
-				culture = sephardi
-				religion = ashirra
-				}	
+		has_tariq_el-shaitan_prerequisites = yes	
+		custom_tooltip = {
+			text = did_not_betray_society
+			NOT = { has_character_flag = betrayed_tariq_el-shaitan }
+		}		
 	}
 
 	show_society = {
-		trait = vampire
-		age = 16
-				OR = {
-				culture_group = arabic
-				culture_group = iranian 
-				culture_group = altaic
-				culture_group = indo_aryan_group
-				culture = sephardi
-				religion = ashirra
-				religion = assamite
-				}	
+		trait = vampire	
 	}
 
 	potential = {
@@ -3778,18 +3419,13 @@ tariq_el-shaitan = {
 	society_rank = {
 		level = 4
 		limit = 5
-		startup_limit = 0
+		startup_limit = 1
 		modifier = {
 			intrigue = 4 # bonus to dueling (left over)
 		}
 		decisions = {
 		}
-		obedience_tooltip = obedience_tooltip #this can be unique per rank/society 
-		obedient = {
-			ROOT = {
-				always = yes
-			}
-		}
+		 
 	}
 
 	monthly_currency_gain = {
@@ -3949,18 +3585,9 @@ tariq_el-shaitan = {
 	    trigger = {
 			ai = yes
 	    	controls_religion = no
-			age = 16
 			trait = vampire
 			intrigue = 5
 			is_in_society = no
-			OR = {
-				culture_group = arabic
-				culture_group = iranian 
-				culture_group = altaic
-				culture_group = indo_aryan_group
-				culture = sephardi
-				religion = ashirra
-				}	
 			NOT = { higher_tier_than = DUKE }
 			NOT = { mercenary = yes }				
 		}
@@ -3973,10 +3600,10 @@ via_einherjar = {
 	primary_attribute = martial
 	is_secret = no
 	devil_worshipper = no
-	opinion_to_other_members = +10
+	opinion_to_other_members = +1
 	opinion_to_pretenders = -20			#Pretenders is the opinion you have of people perceived/discovered to be in your society.
 	opinion_to_perceived_members = -20 	#Perceived is the opinion you have of people perceived/discovered to be of a society you're not part of
-	opinion_per_rank_above = +10
+	opinion_per_rank_above = +1
 	sound = assassins_interface
 	society_ranks_gfx = generic_ranks
 	
@@ -4000,16 +3627,15 @@ via_einherjar = {
 				}
 			}
 		}
-		martial = 5
-		combat_rating = 2
-		trait = vampire
-		religion = einherjar
+		has_via_einherjar_prerequisites = yes
+		custom_tooltip = {
+			text = did_not_betray_society
+			NOT = { has_character_flag = betrayed_via_einherjar }
+		}		
 	}
 
 	show_society = {
 		trait = vampire
-		age = 16
-		religion = einherjar
 	}
 
 	potential = {
@@ -4059,12 +3685,7 @@ via_einherjar = {
 		}
 		decisions = {
 		}
-		obedience_tooltip = obedience_tooltip #this can be unique per rank/society 
-		obedient = {
-			ROOT = {
-				always = yes
-			}
-		}
+		 
 	}
 
 	monthly_currency_gain = {
@@ -4179,10 +3800,8 @@ via_einherjar = {
 	    trigger = {
 			ai = yes
 	    	controls_religion = no
-			age = 16
 			trait = vampire
-			martial = 5
-			combat_rating = 2
+			combat_rating = 7
 			is_in_society = no
 			religion = einherjar	
 			OR = {
@@ -4198,10 +3817,10 @@ via_yasaq = {
 	primary_attribute = martial
 	is_secret = no
 	devil_worshipper = no
-	opinion_to_other_members = +10
+	opinion_to_other_members = +1
 	opinion_to_pretenders = -20			#Pretenders is the opinion you have of people perceived/discovered to be in your society.
 	opinion_to_perceived_members = -20 	#Perceived is the opinion you have of people perceived/discovered to be of a society you're not part of
-	opinion_per_rank_above = +10
+	opinion_per_rank_above = +1
 	sound = assassins_interface
 	society_ranks_gfx = generic_ranks
 	
@@ -4225,16 +3844,15 @@ via_yasaq = {
 				}
 			}
 		}
-		martial = 5
-		combat_rating = 2
-		trait = vampire
-		religion = anda
+		has_via_yasaq_prerequisites = yes
+		custom_tooltip = {
+			text = did_not_betray_society
+			NOT = { has_character_flag = betrayed_via_yasaq }
+		}		
 	}
 
 	show_society = {
 		trait = vampire
-		age = 16
-		religion = anda
 	}
 
 	potential = {
@@ -4284,12 +3902,7 @@ via_yasaq = {
 		}
 		decisions = {
 		}
-		obedience_tooltip = obedience_tooltip #this can be unique per rank/society 
-		obedient = {
-			ROOT = {
-				always = yes
-			}
-		}
+		 
 	}
 
 	monthly_currency_gain = {
@@ -4399,12 +4012,9 @@ via_yasaq = {
 	    trigger = {
 			ai = yes
 	    	controls_religion = no
-			age = 16
 			trait = vampire
 			martial = 5
-			combat_rating = 2
 			is_in_society = no
-			religion = anda		
 			NOT = { higher_tier_than = DUKE }
 			NOT = { mercenary = yes }			
 		}
@@ -4413,14 +4023,15 @@ via_yasaq = {
 
 
 ###Via Sanguinus###
+
 via_sanguinus = {
 	primary_attribute = intrigue
 	is_secret = no
 	devil_worshipper = no
-	opinion_to_other_members = +10
+	opinion_to_other_members = +1
 	opinion_to_pretenders = -20			#Pretenders is the opinion you have of people perceived/discovered to be in your society.
 	opinion_to_perceived_members = -20 	#Perceived is the opinion you have of people perceived/discovered to be of a society you're not part of
-	opinion_per_rank_above = +10
+	opinion_per_rank_above = +1
 	society_rank_up_decision = request_to_rank_up_within_society
 	sound = assassins_interface
 	society_ranks_gfx = generic_ranks
@@ -4445,20 +4056,19 @@ via_sanguinus = {
 				}
 			}
 		}
-		religion = assamite
-		trait = vampire
-		hidden_trigger = {
-			NOT = { has_character_flag = society_join_block }
+		has_via_sanguinus_prerequisites = yes
+		custom_tooltip = {
+			text = did_not_betray_society
+			NOT = { has_character_flag = betrayed_via_sanguinus }
 		}
 	}
 
 	show_society = {
 		trait = vampire
-		age = 16
 	}
 
 	potential = {
-		religion = assamite
+		trait = vampire
 	}
 
 	society_rank = {
@@ -4521,12 +4131,7 @@ via_sanguinus = {
 			assassins_raise_troops #Available Power: Can raise a special regiment
 			assassins_mark_for_death #Available (targeted) Power: Mark for death (+ assassins_clear_marked_for_death_target i.e. the clearing of the mark)
 		}
-		obedience_tooltip = obedience_tooltip #this can be unique per rank/society 
-		obedient = {
-			ROOT = {
-				always = yes
-			}
-		}
+		 
 	}
 
 	monthly_currency_gain = {
@@ -4705,7 +4310,6 @@ via_sanguinus = {
 			ai = yes
 			religion = assamite
 			trait = vampire
-			age = 16
 			OR = {
 				trait = zealous
 				trait = schemer
@@ -4728,10 +4332,10 @@ via_paradoxi = {
 	primary_attribute = intrigue
 	is_secret = no
 	devil_worshipper = no
-	opinion_to_other_members = +10
+	opinion_to_other_members = +1
 	opinion_to_pretenders = -20			#Pretenders is the opinion you have of people perceived/discovered to be in your society.
 	opinion_to_perceived_members = -20 	#Perceived is the opinion you have of people perceived/discovered to be of a society you're not part of
-	opinion_per_rank_above = +10
+	opinion_per_rank_above = +1
 	sound = assassins_interface
 	society_ranks_gfx = generic_ranks
 	
@@ -4755,14 +4359,15 @@ via_paradoxi = {
 				}
 			}
 		}
-		intrigue = 5
-		trait = vampire
-		religion = mayaparisataya
+		has_via_paradoxi_prerequisites = yes
+		custom_tooltip = {
+			text = did_not_betray_society
+			NOT = { has_character_flag = betrayed_via_paradoxi }
+		}		
 	}
 
 	show_society = {
 		trait = vampire
-		age = 16
 	}
 
 	potential = {
@@ -4821,12 +4426,7 @@ via_paradoxi = {
 		}
 		decisions = {
 		}
-		obedience_tooltip = obedience_tooltip #this can be unique per rank/society 
-		obedient = {
-			ROOT = {
-				always = yes
-			}
-		}
+		 
 	}
 
 	monthly_currency_gain = {
@@ -4982,11 +4582,9 @@ via_paradoxi = {
 	    trigger = {
 			ai = yes
 	    	controls_religion = no
-			age = 16
 			trait = vampire
 			intrigue = 5
 			is_in_society = no
-			religion = mayaparisataya
 			OR = {
 				primary_title = { title = e_ravnos }
 			}			
@@ -5000,10 +4598,10 @@ via_serpentis = {
 	primary_attribute = intrigue
 	is_secret = no
 	devil_worshipper = no
-	opinion_to_other_members = +10
+	opinion_to_other_members = +1
 	opinion_to_pretenders = -20			#Pretenders is the opinion you have of people perceived/discovered to be in your society.
 	opinion_to_perceived_members = -20 	#Perceived is the opinion you have of people perceived/discovered to be of a society you're not part of
-	opinion_per_rank_above = +10
+	opinion_per_rank_above = +1
 	sound = assassins_interface
 	society_ranks_gfx = generic_ranks
 	
@@ -5027,14 +4625,17 @@ via_serpentis = {
 				}
 			}
 		}
-		intrigue = 5
-		trait = vampire
-		religion = setite
+		has_via_serpentis_prerequisites = yes
+		
+		custom_tooltip = {
+			text = did_not_betray_society
+			NOT = { has_character_flag = betrayed_via_serpentis }
+			}
 	}
 
+	
 	show_society = {
 		trait = vampire
-		age = 16
 	}
 
 	potential = {
@@ -5093,12 +4694,7 @@ via_serpentis = {
 		}
 		decisions = {
 		}
-		obedience_tooltip = obedience_tooltip #this can be unique per rank/society 
-		obedient = {
-			ROOT = {
-				always = yes
-			}
-		}
+		 
 	}
 
 	monthly_currency_gain = {
@@ -5229,17 +4825,15 @@ via_serpentis = {
 	    trigger = {
 			ai = yes
 	    	controls_religion = no
-			age = 16
 			trait = vampire
 			intrigue = 5
 			is_in_society = no
-			religion = setite
 			OR = {
 				primary_title = { title = e_setite }
 			}	
 		}
 	}
-}
+	}
 
 
 
@@ -5247,7 +4841,7 @@ via_serpentis = {
 via_mutationis = {
 	primary_attribute = learning
 	is_religious = yes
-	opinion_to_other_members = +10
+	opinion_to_other_members = +1
 	opinion_per_rank_above = +5
 	sound = monastic_orders_interface
 	society_ranks_gfx = monk_ranks
@@ -5272,9 +4866,7 @@ via_mutationis = {
 				}
 			}
 		}
-		age = 16
-		trait = vampire
-		religion = koldun
+		has_via_mutationis_prerequisites = yes
 		custom_tooltip = {
 			text = did_not_betray_society
 			NOT = { has_character_flag = betrayed_via_mutationis }
@@ -5282,16 +4874,7 @@ via_mutationis = {
 	}
 	
 	show_society = {
-		trait = vampire
-			OR = {
-				culture_group = arabic
-				culture_group = iranian 
-				culture_group = altaic
-				culture_group = indo_aryan_group
-				culture = sephardi
-				religion = ashirra
-				religion = assamite
-				}	
+		trait = vampire	
 	}
 	
 	potential = {
@@ -5472,7 +5055,6 @@ via_mutationis = {
 	    trigger = {
 			ai = yes
 	    	controls_religion = no
-			age = 16
 			trait = vampire
 			is_in_society = no
 			NOR = {
@@ -5480,15 +5062,7 @@ via_mutationis = {
 				holy_order = yes
 			}
 			NOT = { trait = cynical }
-			has_secret_religion_trait_trigger = no
-			OR = {
-				trait = zealous
-				trait = scholar
-				trait = mystic
-				learning = 16
-				trait = tzimisce
-			}
-			religion = koldun			
+			has_secret_religion_trait_trigger = no		
 		}
 	}
 }
@@ -5496,7 +5070,7 @@ via_mutationis = {
 code_of_tremere = {
 	primary_attribute = learning
 	society_ranks_gfx = generic_ranks
-	opinion_to_other_members = +10
+	opinion_to_other_members = +1
 	opinion_per_rank_above = +5
 	sound = hermetic_society_interface
 	non_interference = {
@@ -5523,22 +5097,19 @@ code_of_tremere = {
 				}
 			}
 		}
-		learning = 5
-		trait = tremere
-		trait = vampire
-		religion = tremerelow
-		hidden_trigger = { mercenary = no }
-		age = 16
+		has_code_of_tremere_prerequisites = yes	
+		custom_tooltip = {
+			text = did_not_betray_society
+			NOT = { has_character_flag = betrayed_code_of_tremere }
+		}
 	}
 
 	show_society = {
 		trait = vampire
-		trait = tremere
 	}
 	
 	potential = {
 		trait = vampire
-		age = 16
 		#If something else is added here, it could break apprenticeship. Create an event if they can get kicked out. title_hermetics_apprentice
 	}
 	
@@ -5757,7 +5328,6 @@ code_of_tremere = {
 	    trigger = {
 			ai = yes
 	    	controls_religion = no
-			age = 16
 			is_in_society = no
 			is_dumb_trigger = no
 			trait = tremere
@@ -5808,10 +5378,10 @@ derech_lilit  = {
 	primary_attribute = diplomacy
 	is_secret = no
 	devil_worshipper = no
-	opinion_to_other_members = +10
+	opinion_to_other_members = +1
 	opinion_to_pretenders = -20			#Pretenders is the opinion you have of people perceived/discovered to be in your society.
 	opinion_to_perceived_members = -20 	#Perceived is the opinion you have of people perceived/discovered to be of a society you're not part of
-	opinion_per_rank_above = +10
+	opinion_per_rank_above = +1
 	sound = assassins_interface
 	society_ranks_gfx = generic_ranks
 	
@@ -5835,8 +5405,7 @@ derech_lilit  = {
 				}
 			}
 		}
-		trait = vampire
-		diplomacy = 2
+		has_derech_lilit_prerequisites = yes 
 		custom_tooltip = {
 			text = did_not_betray_society
 			NOT = { has_character_flag = betrayed_derech_lilit}
@@ -5844,12 +5413,17 @@ derech_lilit  = {
 	}
 
 	show_society = {
+		OR = {
 		trait = vampire
-		age = 16
+		trait = mage
+		}
 	}
 
 	potential = {
+		OR ={
 		trait = vampire
+		trait = mage
+		}
 	}
 
 	society_rank = {
@@ -5895,12 +5469,7 @@ derech_lilit  = {
 		}
 		decisions = {
 		}
-		obedience_tooltip = obedience_tooltip #this can be unique per rank/society 
-		obedient = {
-			ROOT = {
-				always = yes
-			}
-		}
+		 
 	}
 
 	monthly_currency_gain = {
@@ -6041,7 +5610,6 @@ derech_lilit  = {
 	    trigger = {
 			ai = yes
 	    	controls_religion = no 
-			age = 16
 			trait = vampire
 			diplomacy = 2
 			is_in_society = no
@@ -6049,4 +5617,5 @@ derech_lilit  = {
 			
 		}
 	}
-}
+	}
+	

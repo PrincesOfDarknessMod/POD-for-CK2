@@ -1,0 +1,352 @@
+decisions = {
+			
+vampire_blood_heal_wounded_decision = {
+			potential = {
+				trait = vampire		
+				trait = wounded
+				NOT = { trait = torpor }
+				}
+			allow = {
+				trait = vampire		
+				trait = wounded			
+				NOT = { trait = torpor }
+				}
+			effect = {
+						character_event = { id = POD_VAMPIRE_BLOOD_HEAL.1 }	
+						
+				}  
+			ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 0
+				has_character_modifier = dire_blood_thirst
+				}
+			}			
+
+			
+			}			
+
+vampire_blood_heal_maiming_decision = {
+			potential = {
+				trait = vampire	
+				trait = maimed
+				NOT = { trait = torpor }
+				}
+			allow = {
+				trait = vampire	
+				trait = maimed	
+				NOT = { trait = torpor }				
+				}
+			effect = {
+						character_event = { id = POD_VAMPIRE_BLOOD_HEAL.2 }	
+						
+				}  
+			ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 0
+				has_character_modifier = dire_blood_thirst
+				}
+			}			
+			}
+			
+vampire_blood_heal_blinded_decision = {
+			potential = {
+				trait = vampire		
+				trait = blinded
+				NOT = { trait = torpor }
+				}
+			allow = {
+				trait = vampire		
+				trait = blinded	
+				NOT = { trait = torpor }
+				}
+			effect = {
+						character_event = { id = POD_VAMPIRE_BLOOD_HEAL.3 }	
+						
+				}  
+			ai_will_do = {
+			factor = 1
+
+			}			
+			}
+
+vampire_blood_heal_eunuch_decision = {
+			potential = {
+				trait = vampire	
+				trait = eunuch
+				ai = no
+				}
+			allow = {
+				ai = no
+				trait = vampire	
+				trait = eunuch				
+				}
+			effect = {
+						character_event = { id = POD_VAMPIRE_BLOOD_HEAL.4 }	
+						
+				}  
+			
+			}			
+			
+vampire_blood_heal_disfigured_decision = {
+			potential = {
+				trait = vampire	
+				trait = disfigured
+				NOT = { trait = torpor }
+				}
+			allow = {
+				trait = vampire	
+				trait = disfigured
+				NOT = { trait = torpor }
+				}
+			effect = {
+						character_event = { id = POD_VAMPIRE_BLOOD_HEAL.5 }	
+						
+				}  
+			ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 0
+				has_character_modifier = dire_blood_thirst
+				}
+			}			
+			}				
+	
+vampire_blood_heal_severely_injured_decision = {
+			potential = {
+				trait = vampire	
+				trait = severely_injured
+				NOT = { trait = torpor }
+				}
+			allow = {
+				trait = vampire	
+				trait = severely_injured	
+				NOT = { trait = torpor }				
+				}
+			effect = {
+						character_event = { id = POD_VAMPIRE_BLOOD_HEAL.6 }	
+						
+				}  
+			ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 0
+				has_character_modifier = dire_blood_thirst
+				}
+			}			
+			}	
+
+vampire_blood_heal_one_eyed_decision = {
+			potential = {
+				trait = vampire	
+				trait = one_eyed
+				NOT = { trait = torpor }
+				}
+			allow = {
+				trait = vampire	
+				trait = one_eyed	
+				NOT = { trait = torpor }
+				}
+			effect = {
+						character_event = { id = POD_VAMPIRE_BLOOD_HEAL.7 }	
+						
+				}  
+			ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 0
+				religion = einherjar
+				}
+			
+			modifier = {
+				factor = 0
+				has_artifact = Eye_of_Hazimel
+				}		
+			
+			modifier = {
+				factor = 0
+				has_character_modifier = dire_blood_thirst
+				}
+			}			
+			}	
+
+vampire_blood_heal_one_handed_decision = {
+			potential = {
+				trait = vampire	
+				trait = one_handed
+				NOT = { trait = torpor }
+				}
+			allow = {
+				trait = vampire	
+				trait = one_handed	
+				NOT = { trait = torpor }
+				}
+			effect = {
+						character_event = { id = POD_VAMPIRE_BLOOD_HEAL.8 }	
+						
+				}  
+			ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 0
+				has_character_modifier = dire_blood_thirst
+				}
+			}			
+			}	
+
+vampire_blood_heal_one_legged_decision = {
+			potential = {
+				trait = vampire	
+				trait = one_legged
+				NOT = { trait = torpor }
+				}
+			allow = {
+				trait = vampire	
+				trait = one_legged		
+				NOT = { trait = torpor }
+				}
+			effect = {
+						character_event = { id = POD_VAMPIRE_BLOOD_HEAL.9 }	
+						
+				}  
+			ai_will_do = {
+			factor = 1
+
+			}			
+			}	
+
+vampire_blood_heal_mangled_decision	= {
+			potential = {
+				trait = vampire	
+				trait = mangled
+				NOT = { trait = torpor }
+				}
+			allow = {
+				trait = vampire	
+				trait = mangled			
+				NOT = { trait = torpor }
+				}
+			effect = {
+						character_event = { id = POD_VAMPIRE_BLOOD_HEAL.10 }	
+						
+				}  
+			ai_will_do = {
+			factor = 1
+
+			}			
+			}	
+			
+enter_torpor_decision = {
+	potential = {
+		trait = vampire	
+		NOT = { trait = torpor }
+		NOT = { trait = wight }		
+	}
+	allow = {
+		OR = {
+			trait = incapable
+			age = 500
+			trait = bloodpotency_7
+			trait = bloodpotency_8
+			trait = bloodpotency_9
+			trait = bloodpotency_10
+		}	
+		NOT = { trait = torpor }
+		NOT = { trait = wight }
+		NOT = { has_character_flag = flag_nwod_recent_vampire_awaken_from_torpor }
+		in_command = no
+		prisoner = no
+	}
+	effect = {
+				character_event = { id = POD_VAMPIRE_TORPOR.1 }	
+	}  
+	
+	ai_will_do = {
+			factor = 1
+	
+			modifier = {
+				factor = 0.1 # Slow it down a lot
+			}
+			
+			modifier = {
+				factor = 0
+				trait = wight
+			}
+			
+			modifier = {
+				factor = 5
+				trait = incapable
+			}
+			modifier = {
+				factor = 1.1
+				trait = bloodpotency_7
+			}
+			modifier = {
+				factor = 1.5
+				trait = bloodpotency_8
+			}
+			modifier = {
+				factor = 2
+				trait = bloodpotency_9
+			}
+			modifier = {
+				factor = 2.5
+				trait = bloodpotency_10
+			}
+			modifier = {
+				factor = 1.2
+				trait = elder
+			}
+			modifier = {
+				factor = 1.1
+				trait = ancilla
+			}
+			modifier = {
+				factor = 0.5
+				num_of_friends = 1
+			}
+			modifier = {
+				factor = 0.1
+				num_of_children = 0
+			}
+			modifier = {
+				factor = 1.5
+				num_of_children = 5
+			}
+			modifier = {
+				factor = 2
+				trait = depressed
+			}
+			modifier = {
+				factor = 2
+				trait = content
+			}
+			modifier = {
+				factor = 2
+				trait = lunatic
+			}
+			modifier = {
+				factor = 2
+				trait = blinded
+			}
+			modifier = {
+				factor = 0.5
+				trait = ambitious
+			}
+			modifier = {
+				factor = 2
+				trait = diabolist
+			}
+			
+				
+			}
+		}
+
+}
