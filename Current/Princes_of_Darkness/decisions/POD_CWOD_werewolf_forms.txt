@@ -1,0 +1,425 @@
+decisions = {
+
+shift_homid_decision = {
+	potential = {
+			age = 16
+			trait = werewolf
+			NOT = { trait = homid }
+	}
+	
+	allow = {
+			piety = 10
+			trait = werewolf
+			NOT = { trait = homid }
+	}
+	effect = {
+		piety = -10
+                trigger_switch = {
+                    on_trigger = trait
+                    glabro = {
+                        remove_trait = glabro 
+                    }		
+					crinos = {
+						remove_trait = crinos
+					}
+					hispo = {
+						remove_trait = hispo 
+						}
+					lupus = {
+						remove_trait = lupus
+					}
+					zulo_form = {
+						remove_trait = zulo_form
+					}
+					blood_form = {
+						remove_trait = blood_form
+					}
+					mist_form = {
+						remove_trait = mist_form
+					}
+					shadow_form = {
+						remove_trait = shadow_form
+					}					
+		}
+	
+		add_trait = homid
+		POD_werewolf_rage_increase_effect = yes	
+	}
+	
+	revoke_allowed = { always = no }
+	
+			
+	ai_will_do = {
+				factor = 1	
+			
+				
+			modifier = {
+				factor = 0.1
+				FROM = {
+					OR = {
+						in_battle = yes
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				FROM = {
+					OR = {
+						in_battle = no
+					}
+				}
+			}		
+			modifier = {
+				factor = 5
+				FROM = {
+						trait = homid_born
+					}
+			}
+			modifier = {
+				factor = 0.1
+				FROM = {
+						trait = wroth
+					}
+			}	
+			modifier = {
+				factor = 5
+				FROM = {
+						trait = patient
+					}
+			}
+			
+			modifier = {
+				factor = 0.1
+				FROM = {
+						has_character_modifier = dire_rage
+					}
+			}				
+			
+			modifier = {
+				factor = 0.2
+				FROM = {
+						has_character_modifier = dreadful_rage
+					}
+				}			
+			
+		}
+	
+	}
+
+shift_glabro_decision = {
+	potential = {
+			age = 16
+			trait = werewolf
+			NOT = { trait = glabro }
+	}
+	
+	allow = {
+		piety = 10
+			trait = werewolf
+			NOT = { trait = glabro }
+	}
+	effect = {
+		piety = -10
+                trigger_switch = {
+                    on_trigger = trait
+					homid = {
+                        remove_trait = homid
+                    }		
+					crinos = {
+						remove_trait = crinos
+					}
+					hispo = {
+						remove_trait = hispo
+						}
+					lupus = {
+						remove_trait = lupus
+					}
+					zulo_form = {
+						remove_trait = zulo_form
+					}
+					blood_form = {
+						remove_trait = blood_form
+					}
+					mist_form = {
+						remove_trait = mist_form
+					}
+					shadow_form = {
+						remove_trait = shadow_form
+					}					
+		}
+	
+		add_trait = glabro
+		POD_werewolf_rage_increase_effect = yes	
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 1 	
+			modifier = {
+				factor = 5
+				FROM = {
+						in_command = yes
+					}
+				}	
+
+			modifier = {
+				factor = 0.1
+				FROM = {
+						in_command = no
+					}
+				}					
+			modifier = {
+				factor = 0.1
+				FROM = {
+						has_character_modifier = dire_rage
+					}
+			}				
+			
+			modifier = {
+				factor = 0.2
+				FROM = {
+						has_character_modifier = dreadful_rage
+					}
+				}					
+			}
+		}
+
+shift_crinos_decision = {
+	potential = {
+			age = 16
+			trait = werewolf
+			NOT = { trait = crinos }
+	}
+	
+	allow = {
+		piety = 10
+			trait = werewolf
+			NOT = { trait = crinos }
+	}
+	effect = {
+		piety = -10
+                trigger_switch = {
+                    on_trigger = trait
+                    glabro = {
+                        remove_trait = glabro
+                    }		
+					homid = {
+						remove_trait = homid
+					}
+					hispo = {
+						remove_trait = hispo
+						}
+					lupus = {
+						remove_trait = lupus
+					}
+					zulo_form = {
+						remove_trait = zulo_form
+					}
+					blood_form = {
+						remove_trait = blood_form
+					}
+					mist_form = {
+						remove_trait = mist_form
+					}
+					shadow_form = {
+						remove_trait = shadow_form
+					}
+				
+					
+		}
+	
+		add_trait = crinos
+		POD_werewolf_rage_increase_effect = yes	
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 1 	
+			modifier = {
+				factor = 5
+				FROM = {
+						in_battle = yes
+					}
+			}			
+			modifier = {
+				factor = 5
+				FROM = {
+						in_siege = yes
+					}
+			}	
+
+			modifier = {
+				factor = 5
+				FROM = {
+						trait = metis
+					}
+			}	
+			modifier = {
+				factor = 5
+				FROM = {
+						trait = wroth
+					}
+			}	
+			modifier = {
+				factor = 0.1
+				FROM = {
+						trait = patient
+					}
+			}	
+			modifier = {
+				factor = 0.1
+				FROM = {
+						has_character_modifier = dire_rage
+					}
+			}				
+			
+			modifier = {
+				factor = 0.2
+				FROM = {
+						has_character_modifier = dreadful_rage
+					}
+				}				
+			
+		
+		}
+	}
+
+shift_hispo_decision = {
+	potential = {
+			ai = no
+			age = 16
+			trait = werewolf
+			NOT = { trait = hispo }
+	}
+	
+	allow = {
+		piety = 10
+			trait = werewolf
+			NOT = { trait = hispo }
+	}
+	effect = {
+		piety = -10
+                trigger_switch = {
+                    on_trigger = trait
+                    glabro = {
+                        remove_trait = glabro
+                    }		
+					crinos = {
+						remove_trait = crinos
+					}
+					homid = {
+						remove_trait = homid
+						}
+					lupus = {
+						remove_trait = lupus
+					}
+					zulo_form = {
+						remove_trait = zulo_form
+					}
+					blood_form = {
+						remove_trait = blood_form
+					}
+					mist_form = {
+						remove_trait = mist_form
+					}
+					shadow_form = {
+						remove_trait = shadow_form
+					}					
+		}
+	
+		add_trait = hispo
+		POD_werewolf_rage_increase_effect = yes	
+		character_event = { id = werewolf.3 }	
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 0	
+				}
+		}
+
+shift_lupus_decision = {
+	potential = {
+			age = 16
+			trait = werewolf
+			NOT = { trait = lupus }
+	}
+	
+	allow = {
+		piety = 10
+			trait = werewolf
+			NOT = { trait = lupus }
+	}
+	effect = {
+		piety = -10
+                trigger_switch = {
+                    on_trigger = trait
+                    glabro = {
+                        remove_trait = glabro
+                    }		
+					crinos = {
+						remove_trait = crinos
+					}
+					hispo = {
+						remove_trait = hispo
+						}
+					homid = {
+						remove_trait = homid
+					}
+					zulo_form = {
+						remove_trait = zulo_form
+					}
+					blood_form = {
+						remove_trait = blood_form
+					}
+					mist_form = {
+						remove_trait = mist_form
+					}
+					shadow_form = {
+						remove_trait = shadow_form
+					}					
+		}
+	
+		add_trait = lupus
+		POD_werewolf_rage_increase_effect = yes	
+
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 1 	
+			modifier = {
+				factor = 5
+				FROM = {
+						trait = in_hiding 
+				}
+			}
+			modifier = {
+				factor = 0.1
+				FROM = {
+						trait = in_hiding 
+			}
+			}			
+			modifier = {
+				factor = 5
+				FROM = {
+						trait = lupus_born
+					}
+			}			
+			modifier = {
+				factor = 0.1
+				FROM = {
+						has_character_modifier = dire_rage
+					}
+			}				
+			
+			modifier = {
+				factor = 0.2
+				FROM = {
+						has_character_modifier = dreadful_rage
+					}
+				}				
+			
+		}
+	}			
+}

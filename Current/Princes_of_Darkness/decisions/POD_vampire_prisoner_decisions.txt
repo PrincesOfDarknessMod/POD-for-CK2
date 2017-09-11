@@ -177,6 +177,12 @@ targeted_decisions = {
                 factor = 0
                 reverse_opinion = { who = FROM value = 40 }
             }
+			
+			modifier = {
+				factor = 0.1
+				ROOT = { trait = canon }	
+			}
+			
             modifier = {
                 factor = 0
                 FROM = { trait = kind }
@@ -184,6 +190,27 @@ targeted_decisions = {
             modifier = {
                 factor = 0.2 # Less likely to do it
             }
+		
+            modifier = {
+                factor = 0.1 # Less likely to do it
+                FROM = { society_member_of = = via_caeli }
+            } 		   
+	
+            modifier = {
+                factor = 0.2 # Less likely to do it
+                FROM = { society_member_of = = tariq_el-sama }
+            } 	
+	
+            modifier = {
+                factor = 0.2 # Less likely to do it
+                FROM = { society_member_of = = via_humanitatis }
+            } 			
+			
+           modifier = {
+                factor = 0.1 # Less likely to do it
+                FROM = { society_member_of = = tariq_el-umma }
+            } 	
+			
             modifier = {
                 factor = 1.2
                 FROM = {
@@ -223,6 +250,7 @@ targeted_decisions = {
             }			
         }
     }
+	
     diablerize_vampire_prisoner_decision = {
         filter = court
         ai_target_filter = court
@@ -233,12 +261,17 @@ targeted_decisions = {
             trait = vampire
         }
    
-        potential = {}
+        potential = {
+			trait = vampire
+			prisoner = yes
+		}
+		
         allow = {
             host = { character = FROM }
             prisoner = yes
             trait = vampire
         }
+		
         effect = {
             hidden_tooltip = {
                 death = {
@@ -871,7 +904,12 @@ targeted_decisions = {
                 factor = 0
                 FROM = { trait = kind }
             }
-           
+  
+			modifier = {
+				factor = 0.1
+				ROOT = { trait = canon }	
+			}
+			
             modifier = {
                 factor = 0.2
                 FROM = { trait = just }
@@ -902,6 +940,27 @@ targeted_decisions = {
                 FROM = { religion_group = abrahamic_vampire_group }
             }           
            
+            modifier = {
+                factor = 0.1 # Less likely to do it
+                FROM = { society_member_of = = via_caeli }
+            } 		   
+	
+            modifier = {
+                factor = 0.2 # Less likely to do it
+                FROM = { society_member_of = = tariq_el-sama }
+            } 	
+	
+            modifier = {
+                factor = 0.2 # Less likely to do it
+                FROM = { society_member_of = = via_humanitatis }
+            } 			
+			
+           modifier = {
+                factor = 0.1 # Less likely to do it
+                FROM = { society_member_of = = tariq_el-umma }
+            } 			
+						
+		   
             modifier = {
                 factor = 1.2
                 FROM = {

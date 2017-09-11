@@ -25,7 +25,56 @@ character_event = {
 					}
 				}	
 # make werewolf ruler
-				add_trait = hishu	
+				if = { limit = {
+						NOT = { religion_group = wyrm_group }
+						NOT = { religion = red_talons }
+					}
+				random_list = {
+						85 = { add_trait = homid_born }
+						10 = { add_trait = lupus_born }
+						5 = { add_trait = metis }
+						}
+						
+						}
+				
+				if = { limit = {
+						 religion_group = wyrm_group } 
+				
+				random_list = {
+						75 = { add_trait = homid_born }
+						5 = { add_trait = lupus_born }
+						20 = { add_trait = metis }
+						}
+						
+						}	
+						
+				if = { limit = { religion = red_talons }
+				random_list = {
+						10 = { add_trait = homid_born }
+						85 = { add_trait = lupus_born }
+						5 = { add_trait = metis }
+						}
+						
+						}			
+				if = { limit = { trait = homid_born }
+						random_list = {
+						95 = { add_trait = homid }
+						5 = { add_trait = glabro }
+						}
+				}
+
+				if = { limit = { trait = lupus_born }
+						add_trait = lupus
+				}
+				
+				if = { limit = { trait = metis }
+						random_list = {
+						95 = { add_trait = crinos }
+						5 = { add_trait = glabro 
+							}
+						}
+				}				
+				
 	# black furies are female only				
 	#					if = { limit = {  
 	#										primary_title = {
@@ -550,6 +599,25 @@ character_event = {
 						20 = { add_trait = auspice_irraka }
 					}
 				}
+				
+# werewolf fur color assignment
+
+trigger_switch = {
+	on_trigger = religion
+	silver_fangs = { FROM = { add_trait = white_wolf } }
+	get_of_fenris = { FROM = { add_trait = grey_wolf } }
+	black_furies = { FROM = { add_trait = black_wolf } }
+	silent_striders	= { FROM = { add_trait = black_wolf } }
+	warders_of_men = { FROM = { add_trait = brown_wolf } }
+	bone_gnawers = { FROM = { add_trait = brown_wolf } }
+	fianna = { FROM = { add_trait = grey_wolf } }
+	red_talons	= { FROM = { add_trait = grey_wolf } }
+	shadow_lords = { FROM = { add_trait = black_wolf } }
+	black_spiral_dancers = { FROM = { add_trait = green_wolf } }
+	stargazers = { FROM = { add_trait = red_wolf } }
+}
+				
+				
 # werewolf gift assign
 				if = { 
 					limit = {	religion_group = garou_group }
@@ -669,12 +737,20 @@ character_event = {
 					}			
 				}								
 				if = {
+					limit = { trait = auspice_irraka }
+					random_list = {
+						50 = { add_trait = gift_Stealthl_1 }
+						50 = { add_trait = gift_Evasion_1 }
+					}			
+				}	
+				
+				if = {
 					limit = { trait = auspice_ithaeur }
 					random_list = {
 						50 = { add_trait = gift_Elemental_1 }
 						50 = { add_trait = gift_Shaping_1 }
 					}			
-				}	
+				}					
 				if = {
 					limit = { religion_group = garou_group }
 					random_list = {

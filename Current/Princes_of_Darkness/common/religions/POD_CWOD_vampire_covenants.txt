@@ -65,6 +65,7 @@ ventrue_high = {
 		
 		independence_war_score_bonus = 30 # Overrides define CONTESTED_TITLE_OCCUPIED_WARSCORE_BONUS_INDEP
 
+		intermarry = cainite
 		intermarry = brujah_high
 		intermarry = toreador_high
 		intermarry = salubri_high
@@ -132,7 +133,8 @@ brujah_high = {
 		max_consorts = 3
 		
 		independence_war_score_bonus = 30 # Overrides define CONTESTED_TITLE_OCCUPIED_WARSCORE_BONUS_INDEP
-		 
+		
+		intermarry = cainite
 		intermarry = ventrue_high
 		intermarry = toreador_high
 		intermarry = salubri_high
@@ -143,6 +145,9 @@ brujah_high = {
 		intermarry = inconnu
 		intermarry = oradealeague
 		intermarry = vampire_high_clans
+		intermarry = vampire_promethean
+		intermarry = furores
+		intermarry = autarkis
 		
 		short_reign_opinion_year_mult = 4 # The default is 2
 	}				
@@ -201,7 +206,8 @@ toreador_high = {
 		max_consorts = 3
 		
 		independence_war_score_bonus = 30 # Overrides define CONTESTED_TITLE_OCCUPIED_WARSCORE_BONUS_INDEP
-
+		
+		intermarry = cainite
 		intermarry = ventrue_high
 		intermarry = brujah_high
 		intermarry = salubri_high
@@ -270,6 +276,7 @@ lasombra_high = {
 		
 		independence_war_score_bonus = 30 # Overrides define CONTESTED_TITLE_OCCUPIED_WARSCORE_BONUS_INDEP
 
+		intermarry = cainite
 		intermarry = ventrue_high
 		intermarry = brujah_high
 		intermarry = salubri_high
@@ -338,6 +345,7 @@ cappadocian_high = {
 		
 		independence_war_score_bonus = 30 # Overrides define CONTESTED_TITLE_OCCUPIED_WARSCORE_BONUS_INDEP
 
+		intermarry = cainite
 		intermarry = ventrue_high
 		intermarry = brujah_high
 		intermarry = salubri_high
@@ -407,6 +415,7 @@ salubri_high = {
 		
 		independence_war_score_bonus = 30 # Overrides define CONTESTED_TITLE_OCCUPIED_WARSCORE_BONUS_INDEP
 
+		intermarry = cainite
 		intermarry = ventrue_high
 		intermarry = brujah_high
 		intermarry = lasombra_high
@@ -480,6 +489,7 @@ vampire_high_clans = {
 		intermarry = ashirra
 		intermarry = masquerade_camarilla
 		intermarry = inconnu
+		intermarry = cainite
 	}	
 
 revenant_high_clans = {
@@ -683,7 +693,8 @@ ashirra = {
 		intermarry = sabbat
 		intermarry = anarchs
 		intermarry = masquerade_camarilla
-		intermarry = inconnu		
+		intermarry = inconnu	
+		intermarry = cainite		
 		
 		short_reign_opinion_year_mult = 4 # The default is 2
 
@@ -817,6 +828,7 @@ assamite = {
 		intermarry = autarkis
 		intermarry = anarchs
 		intermarry = furores		
+		intermarry = cainite
 		
 		short_reign_opinion_year_mult = 4 # The default is 2
 	}	
@@ -893,6 +905,82 @@ vampire_low_clans_group = {
 	
 	ai_convert_same_group = 0 # never try to convert
 	ai_convert_other_group = 2 # always try to convert	
+
+
+	
+cainite = {
+		graphical_culture = westerngfx
+
+		icon = 53
+		heresy_icon = 53
+		
+		color = { 0.0 0.0 0.6 }
+		crusade_name = GREAT_HOLY_WAR
+		scripture_name = THE_LEGENDS
+		priest_title = PRIEST
+		
+		god_names = {
+			CAINE
+		}
+		evil_god_names = {
+			DEVIL
+		}
+		
+		unit_modifier = {		
+			garrison_size = 0.3
+			levy_size = 0.1
+			
+			key = "DEF_RELIGION"
+		}
+		unit_home_modifier = {
+			land_morale = 0.8
+			light_infantry_defensive = 0.8
+			heavy_infantry_defensive = 0.8
+			pikemen_defensive = 0.8
+			light_cavalry_defensive = 0.8
+			knights_defensive = 0.8
+			archers_defensive = 0.8
+			horse_archers_defensive = 0.8
+			
+			garrison_size = 0.4
+			
+			key = "DEF_RELIGION_HOME_TERRITORY"
+		}
+		
+		priests_can_marry = yes
+		can_grant_divorce = yes
+		
+		priests_can_inherit = yes
+		
+		female_temple_holders = yes
+		feminist = yes      # Nullifies the negative opinion modifier that vassals normally get if ruler is female or has female heir
+
+		defensive_attrition = yes
+		allow_looting = yes
+		
+		max_consorts = 3
+		
+		independence_war_score_bonus = 30 # Overrides define CONTESTED_TITLE_OCCUPIED_WARSCORE_BONUS_INDEP
+
+		intermarry = ventrue_high
+		intermarry = brujah_high
+		intermarry = salubri_high
+		intermarry = toreador_high
+		intermarry = lasombra_high
+		intermarry = anarchs
+		intermarry = vampire_promethean
+		intermarry = furores
+		intermarry = autarkis
+		intermarry = vampire_low_clans
+		intermarry = cappadocian_high
+		intermarry = ashirra
+		intermarry = inconnu
+		intermarry = oradealeague
+		intermarry = vampire_high_clans
+		intermarry = assamite
+		short_reign_opinion_year_mult = 4 # The default is 2
+	}		
+
 	
 vampire_low_clans = {
 		graphical_culture = norsegfx
@@ -957,7 +1045,163 @@ vampire_low_clans = {
 		intermarry = ashirra
 		intermarry = sabbat
 		intermarry = anarchs
+		intermarry = cainite
 		
+	}	
+
+	
+nosferatulow = {
+		graphical_culture = westerngfx
+
+		icon = 95
+		heresy_icon = 95
+		
+		color = { 0.5 0.5 0.5 }
+		crusade_name = JYHAD
+		scripture_name = THE_LEGENDS
+		priest_title = PRIEST
+		
+		god_names = {
+			GOD_GOD
+		}
+		evil_god_names = {
+			DEVIL
+		}
+		
+		unit_modifier = {		
+			garrison_size = 0.3
+			levy_size = 0.1
+			
+			key = "DEF_RELIGION"
+		}
+		unit_home_modifier = {
+			land_morale = 0.8
+			light_infantry_defensive = 0.8
+			heavy_infantry_defensive = 0.8
+			pikemen_defensive = 0.8
+			light_cavalry_defensive = 0.8
+			knights_defensive = 0.8
+			archers_defensive = 0.8
+			horse_archers_defensive = 0.8
+			
+			garrison_size = 0.4
+			
+			key = "DEF_RELIGION_HOME_TERRITORY"
+		}
+		
+		priests_can_marry = yes
+		can_grant_divorce = yes
+		
+		priests_can_inherit = yes
+		
+		female_temple_holders = yes
+		feminist = yes      # Nullifies the negative opinion modifier that vassals normally get if ruler is female or has female heir
+
+		defensive_attrition = yes
+		allow_looting = yes
+		
+		max_consorts = 3
+		
+		independence_war_score_bonus = 30 # Overrides define CONTESTED_TITLE_OCCUPIED_WARSCORE_BONUS_INDEP
+
+		intermarry = tzimisce
+		intermarry = furores
+		intermarry = vampire_promethean
+		intermarry = autarkis
+		intermarry = black_spiral_dancers
+		intermarry = bonegnawers
+		intermarry = cappadocian_high
+		intermarry = assamite
+		intermarry = laibon
+		intermarry = baali
+		intermarry = gangrellow
+		intermarry = nosferatulow
+		intermarry = malkavianlow
+		intermarry = setite
+		intermarry = ashirra
+		intermarry = inconnu
+		intermarry = vampire_low_clans
+		intermarry = cainite
+		
+		short_reign_opinion_year_mult = 4 # The default is 2
+	}			
+
+
+malkavianlow = {
+		graphical_culture = westerngfx
+
+		icon = 94
+		heresy_icon = 94
+		
+		color = { 0.0 1.0 1.0 }
+		crusade_name = JYHAD
+		scripture_name = THE_LEGENDS
+		priest_title = PRIEST
+		
+		god_names = {
+			GOD_GOD
+		}
+		evil_god_names = {
+			DEVIL
+		}
+		
+		unit_modifier = {		
+			garrison_size = 0.3
+			levy_size = 0.1
+			
+			key = "DEF_RELIGION"
+		}
+		unit_home_modifier = {
+			land_morale = 0.8
+			light_infantry_defensive = 0.8
+			heavy_infantry_defensive = 0.8
+			pikemen_defensive = 0.8
+			light_cavalry_defensive = 0.8
+			knights_defensive = 0.8
+			archers_defensive = 0.8
+			horse_archers_defensive = 0.8
+			
+			garrison_size = 0.4
+			
+			key = "DEF_RELIGION_HOME_TERRITORY"
+		}
+		
+		priests_can_marry = yes
+		can_grant_divorce = yes
+		
+		priests_can_inherit = yes
+		
+		female_temple_holders = yes
+		feminist = yes      # Nullifies the negative opinion modifier that vassals normally get if ruler is female or has female heir
+
+		defensive_attrition = yes
+		allow_looting = yes
+		
+		max_consorts = 3
+		
+		independence_war_score_bonus = 30 # Overrides define CONTESTED_TITLE_OCCUPIED_WARSCORE_BONUS_INDEP
+
+		intermarry = ventrue_high
+		intermarry = toreador_high
+		intermarry = tzimisce
+		intermarry = furores
+		intermarry = vampire_promethean
+		intermarry = autarkis
+		intermarry = black_spiral_dancers
+		intermarry = bonegnawers
+		intermarry = cappadocian_high
+		intermarry = assamite
+		intermarry = laibon
+		intermarry = baali
+		intermarry = setite
+		intermarry = ashirra
+		intermarry = inconnu
+		intermarry = vampire_low_clans
+		intermarry = gangrellow
+		intermarry = nosferatulow
+		intermarry = cainite
+		
+		short_reign_opinion_year_mult = 4 # The default is 2
 	}	
 	
 anarchs = {
@@ -1023,6 +1267,14 @@ anarchs = {
 		intermarry = ashirra
 		intermarry = sabbat
 		intermarry = vampire_low_clans
+		intermarry = gangrellow
+		intermarry = nosferatulow
+		intermarry = malkavianlow
+		intermarry = fuores
+		intermarry = autarkis
+		intermarry = vampire_promethean
+		intermarry = cainite
+		
 	}
 	
 revenant_anarchs = {
@@ -1154,7 +1406,13 @@ vampire_promethean = {
 		intermarry = ashirra
 		intermarry = sabbat
 		intermarry = vampire_low_clans
-	}
+		intermarry = gangrellow
+		intermarry = nosferatulow
+		intermarry = malkavianlow
+		intermarry = fuores
+		intermarry = autarkis
+		intermarry = cainite
+		}
 	
 revenant_promethean = {
 		graphical_culture = westerngfx
@@ -1285,6 +1543,12 @@ autarkis = {
 		intermarry = sabbat
 		intermarry = anarchs
 		intermarry = vampire_low_clans
+		intermarry = gangrellow
+		intermarry = nosferatulow
+		intermarry = malkavianlow
+		intermarry = fuores
+		intermarry = vampire_promethean
+		intermarry = cainite
 	}
 	
 revenant_autarkis = {
@@ -1419,6 +1683,11 @@ furores = {
 		intermarry = sabbat
 		intermarry = anarchs
 		intermarry = vampire_low_clans
+		intermarry = gangrellow
+		intermarry = nosferatulow
+		intermarry = malkavianlow
+		intermarry = vampire_promethean
+		intermarry = cainite
 	}
 	
 revenant_furores = {
@@ -1677,6 +1946,9 @@ anda = {
 		intermarry = ashirra
 		intermarry = assamites
 		intermarry = vampire_low_clans
+		intermarry = gangrellow
+		intermarry = nosferatulow
+		intermarry = malkavianlow		
 	}
 
 einherjar = {
@@ -1743,6 +2015,9 @@ einherjar = {
 		intermarry = vampire_low_clans
 		intermarry = noiad
 		intermarry = autarkis
+		intermarry = gangrellow
+		intermarry = nosferatulow
+		intermarry = malkavianlow
 	}
 
 noiad = {
@@ -1810,7 +2085,76 @@ noiad = {
 		intermarry = koldun
 		intermarry = vampire_low_clans
 		intermarry = autarkis
+		intermarry = gangrellow
+		intermarry = nosferatulow
+		intermarry = malkavianlow		
 	}
+
+gangrellow = {
+		graphical_culture = westerngfx
+
+		icon = 92
+		heresy_icon = 92
+
+		color = { 0.5 0.3 0.0 }
+		crusade_name = JYHAD
+		scripture_name = THE_LEGENDS
+		priest_title = PRIEST
+		
+		god_names = {
+			GOD_GOD
+		}
+		evil_god_names = {
+			DEVIL
+		}
+		
+		unit_modifier = {		
+			garrison_size = 0.3
+			levy_size = 0.1
+			
+			key = "DEF_RELIGION"
+		}
+		unit_home_modifier = {
+			land_morale = 0.8
+			light_infantry_defensive = 0.8
+			heavy_infantry_defensive = 0.8
+			pikemen_defensive = 0.8
+			light_cavalry_defensive = 0.8
+			knights_defensive = 0.8
+			archers_defensive = 0.8
+			horse_archers_defensive = 0.8
+			
+			garrison_size = 0.4
+			
+			key = "DEF_RELIGION_HOME_TERRITORY"
+		}
+		
+		priests_can_marry = yes
+		can_grant_divorce = yes
+		
+		priests_can_inherit = yes
+		
+		female_temple_holders = yes
+		feminist = yes      # Nullifies the negative opinion modifier that vassals normally get if ruler is female or has female heir
+
+		defensive_attrition = yes
+		allow_looting = yes
+		
+		max_consorts = 3
+		
+		independence_war_score_bonus = 30 # Overrides define CONTESTED_TITLE_OCCUPIED_WARSCORE_BONUS_INDEP
+		 
+		intermarry = einherjar
+		intermarry = anda
+		intermarry = koldun
+		intermarry = nosferatulow
+		intermarry = malkavianlow
+		intermarry = autarkis
+		intermarry = cainite
+		
+		short_reign_opinion_year_mult = 4 # The default is 2
+	}			
+
 	
 	}
 
@@ -2718,7 +3062,7 @@ revenant_sabbat = {
 	}		
 	
 inconnu_group = {
-# 
+
 	has_coa_on_barony_only = yes
 	graphical_culture = westerngfx
 	crusade_cb = crusade
@@ -2789,6 +3133,7 @@ inconnu = {
 		intermarry = vampire_high_clans
 		intermarry = vampire_low_clans
 		intermarry = oradealeague
+		intermarry = cainite
 		
 		short_reign_opinion_year_mult = 4 # The default is 2
 	}	

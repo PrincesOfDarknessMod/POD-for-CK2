@@ -59,6 +59,7 @@ character_event = {
 					primary_title = { title = e_giovanni }
 					primary_title = { title = k_lasombra }
 					primary_title = { title = k_tzimisce }
+					primary_title = { title = e_shadow_curtain }
 				}
 			}
 # destroy title
@@ -148,6 +149,18 @@ character_event = {
 				}
 				e_voivodate = { destroy_landed_title = THIS }
 			}	
+			
+			if = {
+				limit = {
+					primary_title = { title =  e_shadow_curtain }
+					OR = {
+						NOT = { trait = vampire }
+						NOT = { trait = nosferatu }
+					}
+				}
+				e_shadow_curtain = { destroy_landed_title = THIS }
+			}				
+			
 			if = {
 				limit = {
 					primary_title = { title =  e_sea_of_shadows }
@@ -465,6 +478,9 @@ character_event = {
 				}
 				e_inconnu = { destroy_landed_title = THIS }					
 			}
+			
+			
+			
 			if = {
 				limit = {
 					primary_title = { title =  e_oradealeague }

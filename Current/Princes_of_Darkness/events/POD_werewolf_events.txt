@@ -40,6 +40,7 @@ character_event = {
 					}
 					add_trait = wolf-blooded
 				}
+									
 				set_character_flag = FLAG_POD_WOLF_CHILD_FIRED	
 			}
 		}
@@ -157,12 +158,11 @@ character_event = {
 						}
 						random_list = {
 							5 = { religion = black_furies }
-							5 = { religion = blood_talons }
 							5 = { religion = fianna }
 							5 = { religion = get_of_fenris }
 							15 = { religion = warders_of_men } 
 							15 = { religion = bone_gnawers }
-							5 = { religion = silver_fangs }
+							10 = { religion = silver_fangs }
 							5 = { religion = shadow_lords }
 							5 = { religion = red_talons }
 							5 = { religion = stargazers }
@@ -170,6 +170,61 @@ character_event = {
 							15 = { religion = black_spiral_dancers }
 						}
 					}
+					if = { limit = {
+										NOT = white_wolf
+										NOT = grey_wolf
+										NOT = brown_wolf
+										NOT = red_wolf
+										NOT = green_wolf
+										NOT = black_wolf
+										}
+					
+						trigger_switch = {
+							on_trigger = religion
+							silver_fangs = { FROM = { add_trait = white_wolf } }
+							get_of_fenris = { FROM = { add_trait = grey_wolf } }
+							black_furies = { FROM = { add_trait = black_wolf } }
+							silent_striders	= { FROM = { add_trait = black_wolf } }
+							warders_of_men = { FROM = { add_trait = brown_wolf } }
+							bone_gnawers = { FROM = { add_trait = brown_wolf } }
+							fianna = { FROM = { add_trait = grey_wolf } }
+							red_talons	= { FROM = { add_trait = grey_wolf } }
+							shadow_lords = FROM = { add_trait = black_wolf } }
+							black_spiral_dancers = { FROM = { add_trait = green_wolf } }
+							stargazers = { FROM = { add_trait = red_wolf } }
+							}	
+						}
+					
+					if = { limit = {
+									OR = {
+									mother = { trait = mortal } 
+									father = { trait = mortal }
+									}
+									OR = {
+											religion_group = garou_group
+											religion = black_spiral_dancers
+									}
+									}
+									add_trait = homid_born
+									add_trait = homid
+									}
+											
+					
+					if = { limit = {
+									mother = { trait = werewolf } 
+									father = { trait = werewolf }
+									OR = {
+											religion_group = garou_group
+											religion = black_spiral_dancers
+									}
+									}
+									add_trait = metis
+									add_trait = crinos
+									}
+									
+
+					
+					
 					if = { 	
 						limit = {
 							OR = {
@@ -542,3 +597,5 @@ character_event = {
 		}
 	}	
 }	
+
+

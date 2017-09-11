@@ -644,7 +644,8 @@ baali = {
 	inherit_chance = 0 
 	intrigue = 1
 	# obfucate, majesty, serpentis
-	
+	same_trait_visibility = yes
+	hidden_from_others = yes
 	same_opinion = 10
 	opposite_opinion = -25
 	random = no
@@ -1456,7 +1457,21 @@ diabolist = {
 	general_opinion = -20
 	ai_rationality = -5
 	customizer = no
-}
+	hidden_from_others = yes	
+	is_visible = {
+	  OR = {
+		character = FROM
+	   OR = {
+			trait = auspex_2
+			trait = auspex_3
+			trait = auspex_4
+			trait = auspex_5
+			}
+	   }
+	  }
+}	
+	
+
 
 
 supe_hunter = {
@@ -4863,8 +4878,16 @@ daimoinon_1 = {
  	  
 	random = no 
 
- 
- 	 
+ is_visible = { 
+	OR = {
+		character = FROM
+		has_trait = daimoinon_1
+		has_trait = daimoinon_2
+		has_trait = daimoinon_3
+		has_trait = daimoinon_4
+		has_trait = daimoinon_5
+	}
+}	 
 	
 }
 
@@ -4880,6 +4903,17 @@ daimoinon_2 = {
 	inherit_chance = 0 
  	  
 	random = no 
+
+is_visible = { 
+	OR = {
+		character = FROM
+		has_trait = daimoinon_1
+		has_trait = daimoinon_2
+		has_trait = daimoinon_3
+		has_trait = daimoinon_4
+		has_trait = daimoinon_5
+	}
+}
 	
 }
 
@@ -4896,7 +4930,16 @@ daimoinon_3 = {
  	  
 	random = no 
 
- 
+ is_visible = { 
+	OR = {
+		character = FROM
+		has_trait = daimoinon_1
+		has_trait = daimoinon_2
+		has_trait = daimoinon_3
+		has_trait = daimoinon_4
+		has_trait = daimoinon_5
+	}
+}
  	 
 	
 }
@@ -4914,6 +4957,17 @@ daimoinon_4 = {
  	  
 	random = no 
 	
+is_visible = { 
+	OR = {
+		character = FROM
+		has_trait = daimoinon_1
+		has_trait = daimoinon_2
+		has_trait = daimoinon_3
+		has_trait = daimoinon_4
+		has_trait = daimoinon_5
+	}
+}
+	
 }
 
 daimoinon_5 = {
@@ -4928,6 +4982,17 @@ daimoinon_5 = {
 	inherit_chance = 0 
  	  
 	random = no 
+
+is_visible = { 
+	OR = {
+		character = FROM
+		has_trait = daimoinon_1
+		has_trait = daimoinon_2
+		has_trait = daimoinon_3
+		has_trait = daimoinon_4
+		has_trait = daimoinon_5
+	}
+}
 	
 }
 
@@ -4940,3 +5005,115 @@ freak = {
 		speed = -0.2
 	}	
 }
+
+zulo_form = {
+	opposites = {
+		blood_form
+		mist_form
+		shadow_form
+		beast_form 
+		crinos
+		glabro
+		hispo
+		lupus
+		homid
+		}
+	
+	combat_rating = 5	
+	martial = 2
+	diplomacy = -2
+	general_opinion  = -10
+	same_opinion = 10
+	inherit_chance = 0 
+	random = no 	
+	}
+	
+blood_form = {
+	opposites = {
+		zulo_form
+		mist_form
+		shadow_form
+		beast_form 
+		crinos
+		glabro
+		hispo
+		lupus
+		homid
+		}
+	
+	in_hiding = yes
+	intrigue = 5
+	diplomacy = -2
+	general_opinion  = -10
+	same_opinion = 10
+	inherit_chance = 0 
+	random = no 	
+	}	
+	
+mist_form = {
+	opposites = {
+		zulo_form
+		blood_form
+		shadow_form
+		beast_form 
+		crinos
+		glabro
+		hispo
+		lupus
+		homid
+		}
+	
+	in_hiding = yes
+	intrigue = 5
+	diplomacy = -2
+	general_opinion = -10
+	same_opinion = 10
+	inherit_chance = 0 
+	random = no 	
+	}		
+	
+shadow_form = {
+	opposites = {
+		zulo_form
+		blood_form
+		mist_form
+		beast_form 
+		crinos
+		glabro
+		hispo
+		lupus
+		homid
+		}
+	
+	in_hiding = yes
+	intrigue = 5
+	diplomacy = -2
+	general_opinion = -10
+	same_opinion = 10
+	inherit_chance = 0 
+	random = no 	
+	}
+	
+beast_form = {
+	opposites = {
+		blood_form
+		mist_form
+		shadow_form
+		zulo_form
+		crinos
+		glabro
+		hispo
+		lupus
+		homid
+		}
+	
+	inherit_chance = 0 
+	same_opinion = 5
+	general_opinion = -5
+	random = no 
+	combat_rating = 1
+	intrigue = 1
+	in_hiding = yes
+	diplomacy = -2
+	ai_rationality = -5		
+	}
