@@ -10,7 +10,11 @@ targeted_decisions = {
             num_of_prisoners = 1
         }
    
-        potential = {}
+        potential = {
+		    host = { character = FROM }
+            prisoner = yes
+			NOT = { trait = vampire } 
+		}
         allow = {
             host = { character = FROM }
             prisoner = yes
@@ -65,7 +69,7 @@ targeted_decisions = {
                         FROM = {
                             add_character_modifier = {
                                 name = blood_of_mummy
-                                duration = 3560
+                                duration = 356
                             }
 							POD_vampire_blood_thirst_decrease_effect = yes
                         }
@@ -193,22 +197,22 @@ targeted_decisions = {
 		
             modifier = {
                 factor = 0.1 # Less likely to do it
-                FROM = { society_member_of = = via_caeli }
+                FROM = { society_member_of = via_caeli }
             } 		   
 	
             modifier = {
                 factor = 0.2 # Less likely to do it
-                FROM = { society_member_of = = tariq_el-sama }
+                FROM = { society_member_of = tariq_el-sama }
             } 	
 	
             modifier = {
                 factor = 0.2 # Less likely to do it
-                FROM = { society_member_of = = via_humanitatis }
+                FROM = { society_member_of = via_humanitatis }
             } 			
 			
            modifier = {
                 factor = 0.1 # Less likely to do it
-                FROM = { society_member_of = = tariq_el-umma }
+                FROM = { society_member_of = tariq_el-umma }
             } 	
 			
             modifier = {
@@ -910,6 +914,26 @@ targeted_decisions = {
 				ROOT = { trait = canon }	
 			}
 			
+			modifier = {
+				factor = 0.1
+				ROOT = { trait = protean_5 }	
+			}			
+			
+			modifier = {
+				factor = 0.1
+				ROOT = { trait = obtenebration_5 }	
+			}			
+			
+			modifier = {
+				factor = 0.1
+				ROOT = { trait = vicissitude_5 }	
+			}				
+
+			modifier = {
+				factor = 0.1
+				ROOT = { ai = no }	
+			}				
+			
             modifier = {
                 factor = 0.2
                 FROM = { trait = just }
@@ -942,22 +966,22 @@ targeted_decisions = {
            
             modifier = {
                 factor = 0.1 # Less likely to do it
-                FROM = { society_member_of = = via_caeli }
+                FROM = { society_member_of = via_caeli }
             } 		   
 	
             modifier = {
                 factor = 0.2 # Less likely to do it
-                FROM = { society_member_of = = tariq_el-sama }
+                FROM = { society_member_of = tariq_el-sama }
             } 	
 	
             modifier = {
                 factor = 0.2 # Less likely to do it
-                FROM = { society_member_of = = via_humanitatis }
+                FROM = { society_member_of = via_humanitatis }
             } 			
 			
            modifier = {
                 factor = 0.1 # Less likely to do it
-                FROM = { society_member_of = = tariq_el-umma }
+                FROM = { society_member_of = tariq_el-umma }
             } 			
 						
 		   

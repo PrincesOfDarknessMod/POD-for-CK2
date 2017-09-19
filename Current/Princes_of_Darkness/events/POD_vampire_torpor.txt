@@ -29,11 +29,26 @@ character_event = {
 
     option = {
         name = EVTOPTA_POD_VAMPIRE_TORPOR2
-							remove_character_modifier = dire_blood_thirst
-							add_character_modifier = {
-                                name = dreadful_blood_thirst
-                                duration = 180
-                            }
+				remove_character_modifier = dire_blood_thirst
+				add_character_modifier = {
+                        name = dreadful_blood_thirst
+                        duration = 180
+                     }
+                trigger_switch = {
+                    on_trigger = trait
+					zulo_form = {
+						remove_trait = zulo_form
+					}
+					blood_form = {
+						remove_trait = blood_form
+					}
+					mist_form = {
+						remove_trait = mist_form
+					}
+					shadow_form = {
+						remove_trait = shadow_form
+					}	
+				}
 							add_trait = torpor
 							add_trait = in_hiding
 							leave_society = yes

@@ -611,8 +611,8 @@
 }
 
 505120 = {
-	name = "Marbuena" #ruler of barcelona
-	culture = "catalan"
+	name = "Marbuena" #ruler of Ovedio
+	culture = "castillan"
 	religion = "innocent"
 	trait = "skilled_tactician"
 	trait = "strategist"
@@ -622,7 +622,7 @@
 	trait = "greedy"
 	trait = "wroth"
 	trait = "envious"
-	dynasty = "4500012"
+	dynasty = "6000015"
 	female = no
 	989.1.1 = {
 		birth = 989.1.1
@@ -651,7 +651,11 @@
 		add_trait = "dominate_4"
 		add_trait = "resilience_4"
 		add_trait = "majesty_4"		
-				effect = { join_society = via_regalis }
+		add_claim = d_barcelona
+		add_claim = c_barcelona
+		add_claim = c_tarragona	
+		effect = { join_society = via_regalis }
+		effect = { add_rival = 505127 }
 	}
 	1354.1.1 = {
 		remove_trait = "bookmark1230"
@@ -670,4 +674,52 @@
 	1944.1.1 = {
 		death = yes
 		}		
+}
+
+505122 = {
+	name = "Theoderic" #ruler of almeria
+	culture = "visigothic"
+	religion = "innocent"
+	trait = "fortune_builder"
+	trait = "administrator"
+	trait = "greedy"
+	trait = "diligent"
+	trait = "cynical"
+	dynasty = "6000046"
+	female = no
+	989.1.1 = {
+		birth = 989.1.1
+		add_trait = "bookmark990"
+		}
+	1020.1.1 = {
+		add_trait = "ventrue"
+		add_trait = "vampire"
+		religion = "ashirra"
+		add_trait = "majesty_1"
+		add_trait = "dominate_1"
+		add_trait = "resilience_1"
+		add_trait = "vampgeneration8"
+		add_trait = "bloodpotency_3"
+		add_trait = "neonate"
+		}
+	1229.1.1 = {
+		remove_trait = "neonate"
+		add_trait = "elder"
+		remove_trait = "bookmark990"
+		add_trait = "bookmark1230"
+		remove_trait = "resilience_1"
+		remove_trait = "dominate_1"
+		remove_trait = "majesty_1"
+		add_trait = "dominate_3"
+		add_trait = "resilience_3"
+		add_trait = "majesty_3"		
+		effect = { join_society = tariq_el-harb }
+	}
+	1354.1.1 = {
+		remove_trait = "bookmark1230"
+		add_trait = "bookmark1355"
+	}	
+	1492.1.1 = {
+		death = yes
+		}
 }

@@ -4,10 +4,12 @@ character_event = {
 	id = POD_CWOD_title_succession.1
 	hide_window = yes
 	only_rulers = yes
+	ai = yes
 	
 	is_triggered_only = yes
 
 	immediate = {
+		if = { limit = { NOT = { trait = canon } }
 		primary_title = {
 			if = { limit = { 
 								NOT = { title = e_love } 
@@ -24,6 +26,7 @@ character_event = {
 								NOT = { title = ashirra }
 								NOT = { title = e_anda }
 								NOT = { title = e_shadow_curtain }
+								NOT = { title = e_crescent_moon }
 								}
 			add_law = true_cognatic_succession
 			add_law = gavelkind
@@ -56,7 +59,7 @@ character_event = {
 				primary_title = { add_law = succ_seniority }
 			}
 			
-			if = { limit = { religion = promethean }
+			if = { limit = { religion = vampire_promethean }
 				primary_title = { add_law = succ_feudal_elective }
 				}
 			
@@ -73,4 +76,6 @@ character_event = {
 		
 		}
 
+	}
+		
 

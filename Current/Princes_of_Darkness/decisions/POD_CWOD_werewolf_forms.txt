@@ -5,12 +5,14 @@ shift_homid_decision = {
 			age = 16
 			trait = werewolf
 			NOT = { trait = homid }
+			NOT = { trait = torpor }
 	}
 	
 	allow = {
 			piety = 10
 			trait = werewolf
 			NOT = { trait = homid }
+			NOT = { trait = torpor }
 	}
 	effect = {
 		piety = -10
@@ -111,12 +113,14 @@ shift_glabro_decision = {
 			age = 16
 			trait = werewolf
 			NOT = { trait = glabro }
+			NOT = { trait = torpor }
 	}
 	
 	allow = {
 		piety = 10
 			trait = werewolf
 			NOT = { trait = glabro }
+			NOT = { trait = torpor }
 	}
 	effect = {
 		piety = -10
@@ -161,7 +165,12 @@ shift_glabro_decision = {
 						in_command = yes
 					}
 				}	
-
+			modifier = {
+				factor = 0.1
+				FROM = {
+						trait = in_hiding 
+				}
+			}
 			modifier = {
 				factor = 0.1
 				FROM = {
@@ -189,12 +198,14 @@ shift_crinos_decision = {
 			age = 16
 			trait = werewolf
 			NOT = { trait = crinos }
+			NOT = { trait = torpor }
 	}
 	
 	allow = {
 		piety = 10
 			trait = werewolf
 			NOT = { trait = crinos }
+			NOT = { trait = torpor }
 	}
 	effect = {
 		piety = -10
@@ -247,6 +258,12 @@ shift_crinos_decision = {
 						in_siege = yes
 					}
 			}	
+			modifier = {
+				factor = 0.1
+				FROM = {
+						trait = in_hiding 
+				}
+			}		
 
 			modifier = {
 				factor = 5
@@ -290,12 +307,14 @@ shift_hispo_decision = {
 			age = 16
 			trait = werewolf
 			NOT = { trait = hispo }
+			NOT = { trait = torpor }
 	}
 	
 	allow = {
 		piety = 10
 			trait = werewolf
 			NOT = { trait = hispo }
+			NOT = { trait = torpor }
 	}
 	effect = {
 		piety = -10
@@ -343,12 +362,14 @@ shift_lupus_decision = {
 			age = 16
 			trait = werewolf
 			NOT = { trait = lupus }
+			NOT = { trait = torpor }
 	}
 	
 	allow = {
 		piety = 10
 			trait = werewolf
 			NOT = { trait = lupus }
+			NOT = { trait = torpor }
 	}
 	effect = {
 		piety = -10
@@ -397,8 +418,20 @@ shift_lupus_decision = {
 			modifier = {
 				factor = 0.1
 				FROM = {
-						trait = in_hiding 
+					OR = {
+						in_battle = yes
+					}
+				}
 			}
+			modifier = {
+				factor = 0.1
+				FROM = {
+						in_command = yes
+					}
+				}			
+			modifier = {
+				factor = 0.1
+				#slow it down
 			}			
 			modifier = {
 				factor = 5

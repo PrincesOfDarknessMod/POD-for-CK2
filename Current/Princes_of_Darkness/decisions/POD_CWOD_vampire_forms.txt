@@ -1,5 +1,66 @@
 decisions = {
 
+
+escape_prison_in_intangible_form = {
+	potential = {
+			age = 16
+			prisoner = yes
+			trait = vampire
+			NOT = { trait = torpor }
+			OR = {
+			trait = mist_form
+			trait = blood_form
+			trait = shadow_form
+			}
+	}
+	
+	allow = {
+			age = 16
+			prisoner = no
+			trait = vampire
+			NOT = { trait = torpor }
+			OR = {
+			trait = mist_form
+			trait = blood_form
+			trait = shadow_form
+			}
+	}
+	effect = {
+			prisoner = no
+	}
+	revoke_allowed = { always = no }
+			
+	ai_will_do = {
+			factor = 1	
+			modifier = {
+				factor = 5
+				FROM = {
+						prisoner = yes
+					}
+			}	
+			modifier = {
+				factor = 5
+				FROM = {
+						trait = blood_form
+					}
+			}	
+			modifier = {
+				factor = 5
+				FROM = {
+						trait = mist_form
+					}
+			}				
+			modifier = {
+				factor = 5
+				FROM = {
+						trait = shadow_form
+					}
+			}				
+			}
+}
+
+
+
 return_to_human_form_decision = {
 	potential = {
 			age = 16
@@ -106,6 +167,7 @@ return_to_human_form_decision = {
 shift_zulo_form_decision = {
 	potential = {
 			age = 16
+			NOT = { trait = torpor }
 			OR = {
 				trait = vicissitude_5
 				trait = vicissitude_4
@@ -120,6 +182,7 @@ shift_zulo_form_decision = {
 				trait = vicissitude_4
 			}
 			NOT = { trait = zulo_form }
+			NOT = { trait = torpor }
 	}
 	effect = {
                 trigger_switch = {
@@ -216,6 +279,7 @@ shift_blood_form_decision = {
 			age = 16
 			trait = vicissitude_5
 			NOT = { trait = blood_form }
+			NOT = { trait = torpor }
 	}
 	effect = {
                 trigger_switch = {
@@ -254,7 +318,51 @@ shift_blood_form_decision = {
 	
 	revoke_allowed = { always = no }
 	ai_will_do = {
+			factor = 1	
+			modifier = {
+				factor = 0.1
+				#slow it down			
+			}
+			modifier = {
+				factor = 0.1
+				FROM = {
+					OR = {
+						in_battle = yes
 					}
+				}
+			}
+			modifier = {
+				factor = 0.1
+				FROM = {
+						in_command = yes
+					}
+				}			
+			modifier = {
+				factor = 5
+				FROM = {
+						prisoner = yes
+					}
+			}		
+			modifier = {
+				factor = 5
+				FROM = {
+						trait = in_hiding 
+				}
+			}		
+			modifier = {
+				factor = 0.1
+				FROM = {
+						has_character_modifier = dire_blood_thirst
+					}
+			}				
+			
+			modifier = {
+				factor = 0.2
+				FROM = {
+						has_character_modifier = dreadful_blood_thirst
+					}
+				}			
+		}
 	}						
 	
 shift_beast_form_decision = {
@@ -266,6 +374,7 @@ shift_beast_form_decision = {
 				trait = protean_4
 			}
 			NOT = { trait = beast_form }
+			NOT = { trait = torpor }
 	}
 	
 	allow = {
@@ -275,6 +384,7 @@ shift_beast_form_decision = {
 				trait = protean_4
 			}
 			NOT = { trait = beast_form }
+			NOT = { trait = torpor }
 	}
 	effect = {
                 trigger_switch = {
@@ -313,21 +423,62 @@ shift_beast_form_decision = {
 	
 	revoke_allowed = { always = no }
 	ai_will_do = {
+			factor = 1	
+			modifier = {
+				factor = 0.1
+				#slow it down			
+			}
+			modifier = {
+				factor = 0.1
+				FROM = {
+					OR = {
+						in_battle = yes
 					}
+				}
+			}
+			modifier = {
+				factor = 0.1
+				FROM = {
+						in_command = yes
+					}
+				}			
+	
+			modifier = {
+				factor = 5
+				FROM = {
+						trait = in_hiding 
+				}
+			}		
+			modifier = {
+				factor = 0.1
+				FROM = {
+						has_character_modifier = dire_blood_thirst
+					}
+			}				
+			
+			modifier = {
+				factor = 0.2
+				FROM = {
+						has_character_modifier = dreadful_blood_thirst
+					}
+				}			
+		}
 	}	
 	
 shift_mist_form_decision = {
 	potential = {
-			ai = no
+
 			age = 16
 			trait = protean_5
 			NOT = { trait = mist_form }
+			NOT = { trait = torpor }
 	}
 	
 	allow = {
 			age = 16
 			trait = protean_5
 			NOT = { trait = mist_form }
+			NOT = { trait = torpor }
 	}
 	effect = {
                 trigger_switch = {
@@ -366,7 +517,51 @@ shift_mist_form_decision = {
 	
 	revoke_allowed = { always = no }
 	ai_will_do = {
+			factor = 1	
+			modifier = {
+				factor = 0.1
+				#slow it down			
+			}
+			modifier = {
+				factor = 0.1
+				FROM = {
+					OR = {
+						in_battle = yes
 					}
+				}
+			}
+			modifier = {
+				factor = 0.1
+				FROM = {
+						in_command = yes
+					}
+				}			
+			modifier = {
+				factor = 5
+				FROM = {
+						prisoner = yes
+					}
+			}		
+			modifier = {
+				factor = 5
+				FROM = {
+						trait = in_hiding 
+				}
+			}		
+			modifier = {
+				factor = 0.1
+				FROM = {
+						has_character_modifier = dire_blood_thirst
+					}
+			}				
+			
+			modifier = {
+				factor = 0.2
+				FROM = {
+						has_character_modifier = dreadful_blood_thirst
+					}
+				}			
+		}
 	}
 
 shift_shadow_form_decision = {
@@ -375,12 +570,14 @@ shift_shadow_form_decision = {
 			age = 16
 			trait = obtenebration_5
 			NOT = { trait = shadow_form }
+			NOT = { trait = torpor }
 	}
 	
 	allow = {
 			age = 16
 				trait = obtenebration_5
 			NOT = { trait = shadow_form }
+			NOT = { trait = torpor }
 	}
 	effect = {
                 trigger_switch = {
@@ -420,7 +617,51 @@ shift_shadow_form_decision = {
 	
 	revoke_allowed = { always = no }
 	ai_will_do = {
+			factor = 1	
+			modifier = {
+				factor = 0.1
+				#slow it down			
+			}
+			modifier = {
+				factor = 0.1
+				FROM = {
+					OR = {
+						in_battle = yes
 					}
+				}
+			}
+			modifier = {
+				factor = 0.1
+				FROM = {
+						in_command = yes
+					}
+				}			
+			modifier = {
+				factor = 5
+				FROM = {
+						prisoner = yes
+					}
+			}		
+			modifier = {
+				factor = 5
+				FROM = {
+						trait = in_hiding 
+				}
+			}		
+			modifier = {
+				factor = 0.1
+				FROM = {
+						has_character_modifier = dire_blood_thirst
+					}
+			}				
+			
+			modifier = {
+				factor = 0.2
+				FROM = {
+						has_character_modifier = dreadful_blood_thirst
+					}
+				}			
+		}
 	}	
 	
 	}

@@ -12,31 +12,45 @@ Australopitecus: bug fixing
 Jakalor: characters 
 
 Version 0.3.5
-Returned NDefines.NDiplomacy.DEMAND_RELIGIOUS_CONVERSION_INTERACTION_PIETY and NDefines.NDiplomacy.DEMAND_RELIGIOUS_CONVERSION_INTERACTION_PRESTIGE = 0 to vanilla.
+
+Demanding Sect (religious) conversions will now be possible.  Prestige and piety requirements reduced to same as vamilla CK2.
 This will make vassal/courtier management much easier as you can force conversions to your sect.  Or will it?
 Secret Religions for all religions and initial Secret Religious Cult setup for Baali, Inconnu, Promethean and Furores. 
 Many characters will now be secretly part of a sect and working in that sect's interest rather than the one they publicly profess. 
 More than 5% of all vampires will be practicing a secret sect.
+Operating as a secret sect may well now be the fastest way to convert provinces to your sect. 
+Known issue: Evoke Sympathy and Induction might not be working correctly.  Prepare ground and Openly Adopt Faith does work.
+Split Vampire Low Clans sect into Gangrel, Malkavian and Nosferatu.
+Cainite Heresy is now a separate sect and largely secret.  Order of the Sable Rose and Order of St. Panteleimon have secret Cainite Heresy members. Crimson Curia is now the society for revealed
+members of the Cainite Heresy.
+Hermetic society quests and apprentices are now available to Code of Tremere, Via Ossium, Via Mutationis and Derech Lilit society members.
+New decision to awaken torpor dynast: if a member of your dynasty is in torpor, you make awaken them at the risk of dire blood thirst and a cost of 500 prestige.
+Fixed torpor decision, added additional modifiers. Created awoken_from_torpor character modifier to use instead of character flag.
+Modified vampire aging events to improve code efficiency: less trait checks, now on 5 year or decade long pulse instead of MTTH.
+Created a vampire aging event to make unimportant torpored vampires to vanish (death) annually. 
+Added a gold cost to mass ghoul and mass embrace for outfitting of troops.
 Diabolist trait now only visible to characters with Auspex 2 or higher. 
 Baali trait now only visible to Baali.
-Daimoinon discipline only visible to others with Daimoinon disipline
-Split Vampire Low Clans sect into Gangrel, Malkavian and Nosferatu.
-Cainite Heresy is now a separate sect and largely secret.  Order of the Sable Rose and Order of St. Panteleimon have secret Cainite Heresy members.
+Daimoinon discipline only visible to others with Daimoinon discipline.
+Created canon trait.  Canon characters are less likely to enter torpor and get a intrigue bonus.  If in torpor, they are more likely to awaken from it.  They are less likely to be drained or diablerized by AI.
+Canon characters are more likely to embrace. 
 Added Werewolf breeding origin: lupus, metis and homid
 Added Werewolf shape shift decisions and forms: lupus, hispo, crinos, glabro, homid
 Added Werewolf Rage mechanics similar to Vampire Blood Thirst.  Shapeshifting increases rage.  Werewolf wounds can be healed with rage.  
 Added proof of concept Garou Crinos/Hispo/Lupus portraits
 Added proof of concept Glabro portraits
 Added random Coats of Arms: Wyrm/Black Spiral Dancers, Silver Fangs, Fianna, Children of Gaia, Bone Gnawers, Glass Walkers, Stargazers, Silent Striders, Get of Fenris, Shadow Lords, Red Talons and Black Furies
-Created canon trait.  Canon characters are less likely to enter torpor and get a intrigue bonus.  If in torpor, they are more likely to awaken from it.  They are less likely to be drained or diablerized by AI.
-Modified vampire aging events to improve code efficiency: less trait checks, now on 5 year or decade long pulse instead of MTTH.
-Created a vampire aging event to make unimportant torpored vampires to vanish (death) annually. 
 Added Protean 4: Beast Form, Protean 5: Mist Form, Obtenebration 5: Shadow Form, Vicissitude 4: Zulo Form and Vicissitude 5: Blood Form 
+Added random Coats of Arms: Malkavian Low, Nosferatu Low and Gangrel Low. 
 Added canon vampire characters: Cretheus, Danika, Grimgroth, Abetorius, Marconius, Ilse Reinegger, Gustav Breidenstein, Marbuena, Andrew of Normandy, 
-Nicholas the Younger, Balthazar, Fulgencio d'Idalia, Hilel
+Nicholas the Younger, Balthazar, Fulgencio d'Idalia, Hilel al-Masaari, Silvester de Ruiz, Badr, Ismael, Mireia Subira, Rufus
 Added canon werewolf characters: Yuri Tvarivich, Sophia Tvarivich, Utra, Foma, Vassili, Ragnor, Boris
+Title work in Iberia, North Africa, Russia, Germany
 Added titular empires: Crescent Moon, Shadow Curtain
-Modified empire coat of arm frame model object designation to change frames so Koldun, Setites, etc... get dragon/wyrm frames. Fiefs of the Black Cross gets the HRE frame. 
+Modified empire coat of arm frame model object designation to change frames so Koldun, Setites, etc... get dragon/wyrm frames. Fiefs of the Black Cross gets the HRE frame.
+Added a pulse and MTTH events that will make sure spawned courtiers get their world of darkness traits sooner rather than later. 
+Expanded priscus and whip titles to more clans; localisation.  Localisation for landed titles and jobs according to clan, sect and empire.
+Removed embrace_mortal minor title.  All player embraces of childer can be done through targetted decision or intrigue decision.
 
 Version 0.3.4
 Blood Thirst mechanic added.  When making certain decisions or certain events happen, blood thirst increases. 
