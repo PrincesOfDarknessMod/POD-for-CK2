@@ -1,0 +1,365 @@
+#POD_CWOD_combat_boost.txt
+
+decisions = {
+
+
+invoke_celerity_decision = {
+	potential = {
+			age = 16
+			OR = { 
+				trait = celerity_1 
+				trait = celerity_2
+				trait = celerity_3
+				trait = celerity_4
+				trait = celerity_5
+			
+			}
+			NOT = { has_character_modifier = invoke_celerity_1 }
+			NOT = { has_character_modifier = invoke_celerity_2 }
+			NOT = { has_character_modifier = invoke_celerity_3 }
+			NOT = { has_character_modifier = invoke_celerity_4 }
+			NOT = { has_character_modifier = invoke_celerity_5 }
+			NOT = { trait = torpor }
+	}
+	
+	allow = {
+			age = 16
+			OR = { 
+				trait = celerity_1 
+				trait = celerity_2
+				trait = celerity_3
+				trait = celerity_4
+				trait = celerity_5
+			
+			}
+			NOT = { has_character_modifier = invoked_celerity_1 }
+			NOT = { has_character_modifier = invoked_celerity_2 }
+			NOT = { has_character_modifier = invoked_celerity_3 }
+			NOT = { has_character_modifier = invoked_celerity_4 }
+			NOT = { has_character_modifier = invoked_celerity_5 }			
+			NOT = { trait = torpor }
+	}
+	effect = {
+                trigger_switch = {
+                    on_trigger = trait
+					celerity_1 = {
+						add_character_modifier = {
+						   name = invoked_celerity_1 
+							duration = 30
+						}					
+					}
+					celerity_2 = {
+						add_character_modifier = {
+						   name = invoked_celerity_2 
+							duration = 30
+						}
+					}
+					celerity_3 = {
+						add_character_modifier = {
+						   name = invoked_celerity_3 
+							duration = 30
+						}
+					}
+					celerity_4 = {
+						add_character_modifier = {
+						   name = invoked_celerity_4 
+							duration = 30
+						}
+					}
+					celerity_5 = {
+						add_character_modifier = {
+						   name = invoked_celerity_5 
+							duration = 30
+						}
+					}
+					
+					}	
+				POD_vampire_blood_thirst_increase_effect = yes						
+
+				}
+
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 1 	
+			modifier = {
+				factor = 5
+				FROM = {
+						in_battle = yes
+					}
+			}			
+			modifier = {
+				factor = 5
+				FROM = {
+						in_siege = yes
+					}
+			}	
+
+			modifier = {
+				factor = 5
+				FROM = {
+						trait = wroth
+					}
+			}	
+			modifier = {
+				factor = 0.1
+				FROM = {
+						trait = patient
+					}
+			}	
+
+			modifier = {
+				factor = 0.1
+				FROM = {
+						has_character_modifier = dire_blood_thirst
+					}
+			}				
+			
+			modifier = {
+				factor = 0.2
+				FROM = {
+						has_character_modifier = dreadful_blood_thirst
+					}
+				}
+		}
+	}
+
+
+invoke_resilience_decision = {
+	potential = {
+			age = 16
+			OR = { 
+				trait = resilience_1 
+				trait = resilience_2
+				trait = resilience_3
+				trait = resilience_4
+				trait = resilience_5
+			
+			}
+			NOT = { has_character_modifier = invoke_resilience_1 }
+			NOT = { has_character_modifier = invoke_resilience_2 }
+			NOT = { has_character_modifier = invoke_resilience_3 }
+			NOT = { has_character_modifier = invoke_resilience_4 }
+			NOT = { has_character_modifier = invoke_resilience_5 }
+			NOT = { trait = torpor }
+	}
+	
+	allow = {
+			age = 16
+			OR = { 
+				trait = resilience_1 
+				trait = resilience_2
+				trait = resilience_3
+				trait = resilience_4
+				trait = resilience_5
+			
+			}
+			NOT = { has_character_modifier = invoked_resilience_1 }
+			NOT = { has_character_modifier = invoked_resilience_2 }
+			NOT = { has_character_modifier = invoked_resilience_3 }
+			NOT = { has_character_modifier = invoked_resilience_4 }
+			NOT = { has_character_modifier = invoked_resilience_5 }			
+			NOT = { trait = torpor }
+	}
+	effect = {
+                trigger_switch = {
+                    on_trigger = trait
+					resilience_1 = {
+						add_character_modifier = {
+						   name = invoked_resilience_1 
+							duration = 30
+						}					
+					}
+					resilience_2 = {
+						add_character_modifier = {
+						   name = invoked_resilience_2 
+							duration = 30
+						}
+					}
+					resilience_3 = {
+						add_character_modifier = {
+						   name = invoked_resilience_3 
+							duration = 30
+						}
+					}
+					resilience_4 = {
+						add_character_modifier = {
+						   name = invoked_resilience_4 
+							duration = 30
+						}
+					}
+					resilience_5 = {
+						add_character_modifier = {
+						   name = invoked_resilience_5 
+							duration = 30
+						}
+					}
+					
+					}
+				POD_vampire_blood_thirst_increase_effect = yes						
+
+				}
+
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 1 	
+			modifier = {
+				factor = 5
+				FROM = {
+						in_battle = yes
+					}
+			}			
+			modifier = {
+				factor = 5
+				FROM = {
+						in_siege = yes
+					}
+			}	
+
+			modifier = {
+				factor = 5
+				FROM = {
+						trait = wroth
+					}
+			}	
+			modifier = {
+				factor = 0.1
+				FROM = {
+						trait = patient
+					}
+			}	
+
+			modifier = {
+				factor = 0.1
+				FROM = {
+						has_character_modifier = dire_blood_thirst
+					}
+			}				
+			
+			modifier = {
+				factor = 0.2
+				FROM = {
+						has_character_modifier = dreadful_blood_thirst
+					}
+				}
+		}
+	}
+	
+invoke_vigor_decision = {
+	potential = {
+			age = 16
+			OR = { 
+				trait = vigor_1 
+				trait = vigor_2
+				trait = vigor_3
+				trait = vigor_4
+				trait = vigor_5
+			
+			}
+			NOT = { has_character_modifier = invoke_vigor_1 }
+			NOT = { has_character_modifier = invoke_vigor_2 }
+			NOT = { has_character_modifier = invoke_vigor_3 }
+			NOT = { has_character_modifier = invoke_vigor_4 }
+			NOT = { has_character_modifier = invoke_vigor_5 }
+			NOT = { trait = torpor }
+	}
+	
+	allow = {
+			age = 16
+			OR = { 
+				trait = vigor_1 
+				trait = vigor_2
+				trait = vigor_3
+				trait = vigor_4
+				trait = vigor_5
+			
+			}
+			NOT = { has_character_modifier = invoked_vigor_1 }
+			NOT = { has_character_modifier = invoked_vigor_2 }
+			NOT = { has_character_modifier = invoked_vigor_3 }
+			NOT = { has_character_modifier = invoked_vigor_4 }
+			NOT = { has_character_modifier = invoked_vigor_5 }			
+			NOT = { trait = torpor }
+	}
+	effect = {
+                trigger_switch = {
+                    on_trigger = trait
+					vigor_1 = {
+						add_character_modifier = {
+						   name = invoked_vigor_1 
+							duration = 30
+						}					
+					}
+					vigor_2 = {
+						add_character_modifier = {
+						   name = invoked_vigor_2 
+							duration = 30
+						}
+					}
+					vigor_3 = {
+						add_character_modifier = {
+						   name = invoked_vigor_3 
+							duration = 30
+						}
+					}
+					vigor_4 = {
+						add_character_modifier = {
+						   name = invoked_vigor_4 
+							duration = 30
+						}
+					}
+					vigor_5 = {
+						add_character_modifier = {
+						   name = invoked_vigor_5 
+							duration = 30
+						}
+					}
+					
+					}
+				POD_vampire_blood_thirst_increase_effect = yes						
+
+				}
+
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 1 	
+			modifier = {
+				factor = 5
+				FROM = {
+						in_battle = yes
+					}
+			}			
+			modifier = {
+				factor = 5
+				FROM = {
+						in_siege = yes
+					}
+			}	
+
+			modifier = {
+				factor = 5
+				FROM = {
+						trait = wroth
+					}
+			}	
+			modifier = {
+				factor = 0.1
+				FROM = {
+						trait = patient
+					}
+			}	
+
+			modifier = {
+				factor = 0.1
+				FROM = {
+						has_character_modifier = dire_blood_thirst
+					}
+			}				
+			
+			modifier = {
+				factor = 0.2
+				FROM = {
+						has_character_modifier = dreadful_blood_thirst
+					}
+				}
+		}
+	}	

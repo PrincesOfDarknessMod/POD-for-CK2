@@ -59,7 +59,10 @@ character_event = {
 					primary_title = { title = e_giovanni }
 					primary_title = { title = k_lasombra }
 					primary_title = { title = k_tzimisce }
+					primary_title = { title = e_anda_horde }
 					primary_title = { title = e_shadow_curtain }
+					primary_title = { title = e_crescent_moon }
+					primary_title = { title = e_ashina_khanagate }
 				}
 			}
 # destroy title
@@ -146,6 +149,7 @@ character_event = {
 						NOT = { trait = vampire }
 						NOT = { trait = tzimisce }
 					}
+					NOT = { realm_size = 5 }	
 				}
 				e_voivodate = { destroy_landed_title = THIS }
 			}	
@@ -157,6 +161,7 @@ character_event = {
 						NOT = { trait = vampire }
 						NOT = { trait = nosferatu }
 					}
+					NOT = { realm_size = 5 }	
 				}
 				e_shadow_curtain = { destroy_landed_title = THIS }
 			}				
@@ -516,7 +521,49 @@ character_event = {
 					}
 				}
 				k_tzimisce = { destroy_landed_title = THIS }					
-			}				
+			}	
+
+			if = {
+				limit = {
+					primary_title = { title = e_anda_horde }
+					OR = {
+						NOT = { trait = vampire }
+						NOT = { religion = anda }
+						NOT = { realm_size = 10 }
+						NOT = { trait = gangrel }
+					}
+				}
+				e_anda_horde = { destroy_landed_title = THIS }					
+			}					
+			
+			if = {
+				limit = {
+					primary_title = { title =  e_crescent_moon }
+					OR = {
+						NOT = { trait = werewolf }
+						NOT = { realm_size = 10 }
+						NOT = { religion = silver_fangs }
+					}
+				}
+				crescent_moon = { destroy_landed_title = THIS }					
+			}		
+
+				if = {
+				limit = {
+					primary_title = { title =  e_ashina_khanagate }
+					OR = {
+						NOT = { trait = werewolf }
+						NOT = { realm_size = 10 }
+						NOT = { religion = shadow_lords }
+					}
+				}
+				crescent_moon = { destroy_landed_title = THIS }					
+			}		
+			
+			
+			
+
+			
 		}
 	}
 }

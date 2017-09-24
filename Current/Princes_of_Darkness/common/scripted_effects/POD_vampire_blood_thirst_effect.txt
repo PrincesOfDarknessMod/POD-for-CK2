@@ -75,20 +75,28 @@ if = { limit = { has_character_modifier = dire_blood_thirst	}
 POD_vampire_blood_thirst_dire_effect = {
 		
 # Diabolists are twice as likely to go into torpor (5%) or become a wight (5%) due to dire blood thirst
-		
-		if = { limit = { trait = diabolist }
-			random_list = {
-					5 = {  FROM = { character_event = { id = POD_VAMPIRE_WIGHT.1 } } }
-					5 = {  FROM = { character_event = { id = POD_VAMPIRE_TORPOR.2 } } }
-		
-				}	
+	
+	random = {
+		chance = 5
+		modifier = {
+			factor = 2
+			trait = diabolist
 			}
+		modifier = {
+			factor = 2
+			trait = wroth
+			}		
+		modifier = {
+			factor = 0.5
+			trait = patient
+			}	
+			
+			random_list = {
+					50 = { FROM = { character_event = { id = POD_VAMPIRE_WIGHT.1 } } }
+					50 = { FROM = { character_event = { id = POD_VAMPIRE_TORPOR.2 } } }
+				}			
+			
+		}
 
-		if = { limit = { NOT = { trait = diabolist } }
-			random_list = {
-					2 = { FROM = { character_event = { id = POD_VAMPIRE_WIGHT.1 } } }
-					3 = { FROM = { character_event = { id = POD_VAMPIRE_TORPOR.2 } } }
-				}
-			}
 	}
 

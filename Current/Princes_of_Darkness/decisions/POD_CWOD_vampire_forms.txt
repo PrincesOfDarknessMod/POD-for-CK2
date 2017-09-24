@@ -1,7 +1,9 @@
 decisions = {
 
 
-escape_prison_in_intangible_form = {
+escape_prison_in_intangible_form_decision = {
+	is_high_prio = yes
+	
 	potential = {
 			age = 16
 			prisoner = yes
@@ -71,6 +73,7 @@ return_to_human_form_decision = {
 					trait = blood_form
 					trait = zulo_form
 					trait = shadow_form
+					trait = beast_form
 					}
 	}
 	
@@ -83,6 +86,7 @@ return_to_human_form_decision = {
 					trait = blood_form
 					trait = zulo_form
 					trait = shadow_form
+					trait = beast_form
 					}
 	}
 	effect = {
@@ -100,7 +104,10 @@ return_to_human_form_decision = {
 					}
 					shadow_form = {
 						remove_trait = shadow_form
-					}					
+					}		
+					beast_form = {
+						remove_trait = beast_form
+					}
 		}
 	
 		POD_vampire_blood_thirst_increase_effect = yes	

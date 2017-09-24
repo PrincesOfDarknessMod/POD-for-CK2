@@ -2,6 +2,7 @@ POD_CWOD_vampire_governments_init_effect = {
 # Vampire Government Elders
 					if = {
 						limit = {
+							NOT = { is_patrician = yes }
 							OR = { 
 								religion_group = vampire_high_clans_group
 							   religion_group = masquerade_camarilla_group
@@ -15,22 +16,23 @@ POD_CWOD_vampire_governments_init_effect = {
 					}
 					if = {
 						limit = {
+							NOT = { is_patrician = yes }
 							religion_group = sabbat_group
 						}
 						set_government_type = milan_government
 					}	
 					if = {
 						limit = {
-							#OR = { 
-								religion_group = vampire_low_clans_group
-							#}
+							NOT = { is_patrician = yes }
 							NOT = { religion = vampire_low_clans }
 							NOT = { religion = autarkis }
+							religion_group = vampire_low_clans_group
 						}
 						set_government_type = free_state_government
 					}		
 					if = {
 						limit = {
+							NOT = { is_patrician = yes }
 							OR = { 
 								religion_group = baali_group
 								religion = setite
@@ -44,12 +46,14 @@ POD_CWOD_vampire_governments_init_effect = {
 						set_government_type = cult_government
 					}		
 					if = {
+						NOT = { is_patrician = yes }
 						limit = {
 							religion_group = ashirra_vampire_group
 						}
 						set_government_type = ashirra_government
 					}
 					if = {
+						NOT = { is_patrician = yes }
 						limit = {
 							religion = mayaparisataya
 						}
@@ -57,12 +61,14 @@ POD_CWOD_vampire_governments_init_effect = {
 					}		
 					if = {
 						limit = {
+							NOT = { is_patrician = yes }
 							religion = anda
 						}
 						set_government_type = anda_government
 					}
 					if = { 
 						limit = {
+							NOT = { is_patrician = yes }
 							religion = autarkis
 						}
 						set_government_type = unaligned_government			

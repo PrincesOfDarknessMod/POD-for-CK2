@@ -1485,11 +1485,13 @@ narrative_event = {
 	
 	trigger = {
 		NOT = { has_global_flag = initial_setup_started }
+		NOT = { year = 1230 }
 		or = {
 			and = {
 				year = 767
 				NOT = { year = 768 }
-			}
+			}		
+			
 			and = {
 				year = 1250
 				NOT = { year = 1251 }
@@ -2763,7 +2765,6 @@ character_event = {
 	}
 		
 	immediate = {
-		set_government_type = unaligned_government
 		POD_vampire_governments_init_effect = yes
 		POD_CWOD_vampire_governments_init_effect = yes
 	}	
