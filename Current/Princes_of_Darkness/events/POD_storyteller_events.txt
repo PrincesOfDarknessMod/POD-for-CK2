@@ -13,6 +13,7 @@ character_event = {
 
 	immediate = {
 		character_event = { id = storyteller.2 days = 1 } #allows the other initialisation events to take effect, and precludes them afterwards.
+		character_event = { id = storyteller.13 days = 10} #allows the other initialisation events to take effect, and precludes them afterwards.
 		if = { 
 			limit = {
 				 trait = "bookmark232"
@@ -675,7 +676,7 @@ character_event = {
 		year = 1142
 		NOT = { year = 1143 }
 		NOT = { has_global_flag = initial_setup_started }
-		#has_global_flag = bookmark1142
+		has_global_flag = bookmark1142
 		any_realm_province = {
 			owner = { character = ROOT }
 			NOR = { 							
@@ -751,8 +752,8 @@ character_event = {
 	trigger = {
 		year = 1250
 		NOT = { year = 1251 }
-		NOT = { has_global_flag = initial_setup_started }
-		#has_global_flag = bookmark1250 
+		#NOT = { has_global_flag = initial_setup_started }
+		has_global_flag = bookmark1250 
 		#has_global_flag = shattered_realm
 		any_realm_province = {
 			owner = { character = ROOT }
@@ -1484,8 +1485,9 @@ narrative_event = {
 	only_rulers = yes
 	
 	trigger = {
-		NOT = { has_global_flag = initial_setup_started }
+	#	NOT = { has_global_flag = initial_setup_started }
 		NOT = { year = 1230 }
+		NOT = { year = 1505 }
 		or = {
 			and = {
 				year = 767
@@ -1563,11 +1565,11 @@ character_event = {
 	trigger = {
 		year = 1505
 		NOT = { year = 1507 }
-		NOT = { has_global_flag = initial_setup_started }
-		#OR = { 
-			#has_global_flag = bookmark1505
-			#has_global_flag = bookmark1506 
-		#}
+		#NOT = { has_global_flag = initial_setup_started }
+		OR = { 
+			has_global_flag = bookmark1505
+			has_global_flag = bookmark1506 
+		}
 		#has_global_flag = shattered_realm
 		any_realm_province = {
 			owner = { character = ROOT } 
@@ -2141,8 +2143,8 @@ character_event = {
 	trigger = {
 		year = 1355
 		NOT = { year = 1356 }
-		NOT = { has_global_flag = initial_setup_started }
-		#has_global_flag = bookmark1355 
+		#NOT = { has_global_flag = initial_setup_started }
+		has_global_flag = bookmark1355 
 		any_realm_province = {
 			owner = { character = ROOT }
 			NOR = { 
@@ -2781,8 +2783,8 @@ character_event = {
 	trigger = {
 		year = 767
 		NOT = { year = 768 }
-		NOT = { has_global_flag = initial_setup_started }
-		#has_global_flag = bookmark767 
+		#NOT = { has_global_flag = initial_setup_started }
+		has_global_flag = bookmark767 
 		#has_global_flag = shattered_realm
 		any_realm_province = {
 		owner = { character = ROOT }
@@ -3166,8 +3168,8 @@ character_event = {
 	trigger = {
 	year = 1466
 		NOT = { year = 1467 }
-		NOT = { has_global_flag = initial_setup_started }
-		#has_global_flag = bookmark1466 
+		#NOT = { has_global_flag = initial_setup_started }
+		has_global_flag = bookmark1466 
 		#has_global_flag = shattered_realm
 		any_realm_province = {
 			owner = { character = ROOT } 
@@ -3583,8 +3585,9 @@ character_event = {
 	
 	trigger = {
 		year = 1533
-		NOT = { has_global_flag = initial_setup_started }
-	#	has_global_flag = bookmark1533
+		NOT = { year = 1534 }
+	#	NOT = { has_global_flag = initial_setup_started }
+		has_global_flag = bookmark1533
 	#	has_global_flag = shattered_realm
 		any_realm_province = {
 			owner = { character = ROOT }
@@ -3722,8 +3725,8 @@ character_event = {
 	trigger = {
 		year = 1230
 		NOT = { year = 1231 }
-		NOT = { has_global_flag = initial_setup_started }
-		#has_global_flag = bookmark1355 
+	#	NOT = { has_global_flag = initial_setup_started }
+		has_global_flag = bookmark1230
 		any_realm_province = {
 			owner = { character = ROOT }
 			NOR = { 
@@ -4311,4 +4314,24 @@ character_event = {
 		
 	}
 	
-}				
+}			
+
+character_event = {
+	id = storyteller.13
+	hide_window = yes	
+	is_triggered_only = yes #from on_startup (since it only needs firing at the start of a playthrough)
+
+	trigger = {
+		NOT = { has_global_flag = initial_setup_started }
+		trait = storyteller
+	}
+
+	immediate = {
+		if = { 
+			limit = {
+				 trait = "storyteller"
+			}
+			set_global_flag = initial_setup_started
+		}	
+		}
+		}
