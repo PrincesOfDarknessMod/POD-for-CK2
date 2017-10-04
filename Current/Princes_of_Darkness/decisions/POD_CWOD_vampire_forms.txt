@@ -9,6 +9,7 @@ escape_prison_in_intangible_form_decision = {
 			prisoner = yes
 			trait = vampire
 			NOT = { trait = torpor }
+			NOT = { trait = wight }
 			OR = {
 			trait = mist_form
 			trait = blood_form
@@ -21,6 +22,7 @@ escape_prison_in_intangible_form_decision = {
 			prisoner = no
 			trait = vampire
 			NOT = { trait = torpor }
+			NOT = { trait = wight }
 			OR = {
 			trait = mist_form
 			trait = blood_form
@@ -57,7 +59,8 @@ escape_prison_in_intangible_form_decision = {
 				FROM = {
 						trait = shadow_form
 					}
-			}				
+			}		
+
 			}
 }
 
@@ -152,19 +155,21 @@ return_to_human_form_decision = {
 						trait = patient
 					}
 			}
-			
 			modifier = {
-				factor = 0.1
+				factor = 5
 				FROM = {
-						has_character_modifier = dire_blood_thirst
+						trait = wight
 					}
-			}				
+			}			
 			
-			modifier = {
-				factor = 0.2
-				FROM = {
-						has_character_modifier = dreadful_blood_thirst
-					}
+			
+		modifier = {
+			factor = 0
+			has_character_modifier = dire_blood_thirst
+				}
+		modifier = {
+			factor = 0
+			has_character_modifier = dreaddful_blood_thirst
 				}			
 			
 		}
@@ -255,18 +260,13 @@ shift_zulo_form_decision = {
 					}
 			}	
 
-			modifier = {
-				factor = 0.1
-				FROM = {
-						has_character_modifier = dire_blood_thirst
-					}
-			}				
-			
-			modifier = {
-				factor = 0.2
-				FROM = {
-						has_character_modifier = dreadful_blood_thirst
-					}
+		modifier = {
+			factor = 0
+			has_character_modifier = dire_blood_thirst
+				}
+		modifier = {
+			factor = 0
+			has_character_modifier = dreaddful_blood_thirst
 				}
 		}
 	}	
@@ -279,12 +279,14 @@ shift_blood_form_decision = {
 			ai = no
 			age = 16
 			trait = vicissitude_5
+			NOT = { trait = wight }
 			NOT = { trait = blood_form }
 	}
 	
 	allow = {
 			age = 16
 			trait = vicissitude_5
+			NOT = { trait = wight }
 			NOT = { trait = blood_form }
 			NOT = { trait = torpor }
 	}
@@ -356,19 +358,14 @@ shift_blood_form_decision = {
 						trait = in_hiding 
 				}
 			}		
-			modifier = {
-				factor = 0.1
-				FROM = {
-						has_character_modifier = dire_blood_thirst
-					}
-			}				
-			
-			modifier = {
-				factor = 0.2
-				FROM = {
-						has_character_modifier = dreadful_blood_thirst
-					}
-				}			
+		modifier = {
+			factor = 0
+			has_character_modifier = dire_blood_thirst
+				}
+		modifier = {
+			factor = 0
+			has_character_modifier = dreaddful_blood_thirst
+				}		
 		}
 	}						
 	
@@ -382,6 +379,7 @@ shift_beast_form_decision = {
 			}
 			NOT = { trait = beast_form }
 			NOT = { trait = torpor }
+			NOT = { trait = wight }
 	}
 	
 	allow = {
@@ -392,6 +390,7 @@ shift_beast_form_decision = {
 			}
 			NOT = { trait = beast_form }
 			NOT = { trait = torpor }
+			NOT = { trait = wight }
 	}
 	effect = {
                 trigger_switch = {
@@ -456,18 +455,13 @@ shift_beast_form_decision = {
 						trait = in_hiding 
 				}
 			}		
-			modifier = {
-				factor = 0.1
-				FROM = {
-						has_character_modifier = dire_blood_thirst
-					}
-			}				
-			
-			modifier = {
-				factor = 0.2
-				FROM = {
-						has_character_modifier = dreadful_blood_thirst
-					}
+		modifier = {
+			factor = 0
+			has_character_modifier = dire_blood_thirst
+				}
+		modifier = {
+			factor = 0
+			has_character_modifier = dreaddful_blood_thirst
 				}			
 		}
 	}	
@@ -479,6 +473,7 @@ shift_mist_form_decision = {
 			trait = protean_5
 			NOT = { trait = mist_form }
 			NOT = { trait = torpor }
+			NOT = { trait = wight }
 	}
 	
 	allow = {
@@ -486,6 +481,7 @@ shift_mist_form_decision = {
 			trait = protean_5
 			NOT = { trait = mist_form }
 			NOT = { trait = torpor }
+			NOT = { trait = wight }
 	}
 	effect = {
                 trigger_switch = {
@@ -555,19 +551,14 @@ shift_mist_form_decision = {
 						trait = in_hiding 
 				}
 			}		
-			modifier = {
-				factor = 0.1
-				FROM = {
-						has_character_modifier = dire_blood_thirst
-					}
-			}				
-			
-			modifier = {
-				factor = 0.2
-				FROM = {
-						has_character_modifier = dreadful_blood_thirst
-					}
-				}			
+		modifier = {
+			factor = 0
+			has_character_modifier = dire_blood_thirst
+				}
+		modifier = {
+			factor = 0
+			has_character_modifier = dreaddful_blood_thirst
+				}
 		}
 	}
 
@@ -578,6 +569,7 @@ shift_shadow_form_decision = {
 			trait = obtenebration_5
 			NOT = { trait = shadow_form }
 			NOT = { trait = torpor }
+			NOT = { trait = wight }
 	}
 	
 	allow = {
@@ -585,6 +577,7 @@ shift_shadow_form_decision = {
 				trait = obtenebration_5
 			NOT = { trait = shadow_form }
 			NOT = { trait = torpor }
+			NOT = { trait = wight }
 	}
 	effect = {
                 trigger_switch = {
@@ -655,18 +648,13 @@ shift_shadow_form_decision = {
 						trait = in_hiding 
 				}
 			}		
-			modifier = {
-				factor = 0.1
-				FROM = {
-						has_character_modifier = dire_blood_thirst
-					}
-			}				
-			
-			modifier = {
-				factor = 0.2
-				FROM = {
-						has_character_modifier = dreadful_blood_thirst
-					}
+		modifier = {
+			factor = 0
+			has_character_modifier = dire_blood_thirst
+				}
+		modifier = {
+			factor = 0
+			has_character_modifier = dreaddful_blood_thirst
 				}			
 		}
 	}	
