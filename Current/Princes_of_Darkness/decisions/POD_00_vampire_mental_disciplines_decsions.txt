@@ -1,0 +1,458 @@
+
+targeted_decisions = {
+
+	majesty_summon_decision = {
+		filter = all
+		
+		from_potential = {
+			ai = no
+			OR = {
+				trait = majesty_4
+				trait = majesty_5
+			}
+			NOT = { trait = torpor }
+			NOT = { trait = incapable }
+			prisoner = no
+		}
+		
+		potential = {
+			ai = yes
+			NOT = { character = FROM }
+			NOT = { trait = topor }
+			NOT = { trait = wight }
+			NOT = { trait = antediluvian }
+			NOT = { at_location = FROM }
+			is_landed = no
+			prisoner = no
+			is_within_diplo_range = FROM
+		}
+		
+		allow = {
+			in_revolt = no
+			NOT = { war_with = FROM }
+			NOT = { trait = antediluvian }
+			NOT = { trait = topor }
+			NOT = { trait = wight }
+			NOT = { at_location = FROM }
+			prisoner = no
+			is_landed = no
+			is_within_diplo_range = FROM
+		}
+		
+		effect = {
+				FROM = { POD_vampire_blood_thirst_increase_effect = yes	}
+				
+				random = {
+				chance = 25
+
+				modifier = {				
+					factor = 2
+					ROOT = { dynasty = FROM }
+				}					
+				
+				modifier = {				
+					factor = 0.5
+					ROOT = { trait = paranoid }
+				}					
+
+				modifier = {				
+					factor = 0.5
+					ROOT = { trait = stubborn }
+				}					
+				
+				modifier = {				
+					factor = 2
+					ROOT = { trait = trusting }
+				}			
+				
+				modifier = {				
+					factor = 0.6
+					ROOT = { trait = supe_hunter }
+				}				
+				modifier = {				
+					factor = 0.9
+					ROOT = { trait = neonate }
+				}				
+				modifier = {				
+					factor = 0.5
+					ROOT = { trait = werewolf }
+				}	
+
+				modifier = {				
+					factor = 0.3
+					ROOT = { trait = mage }
+				}					
+				
+				modifier = {				
+					factor = 0.5
+					ROOT = { trait = ancilla }
+				}				
+				modifier = {				
+					factor = 0.3
+					ROOT = { trait = elder }
+				}				
+				modifier = {				
+					factor = 0.2
+					ROOT = { trait = ancient }
+				}				
+				modifier = {
+					factor = 0.1
+					ROOT = { trait = methuselah }
+				}
+
+				modifier = {
+					factor = 0
+					ROOT = { trait = torpor }
+				}
+				
+				modifier = {				
+					factor = 0.5
+					FROM = { trait = neonate }
+				}					
+				modifier = {				
+					factor = 0.7
+					FROM = { trait = ancilla }
+				}				
+				modifier = {				
+					factor = 1.1
+					FROM = { trait = elder }
+				}				
+				modifier = {				
+					factor = 2
+					FROM = { trait = ancient }
+				}				
+				modifier = {
+					factor = 3
+					FROM = { trait = methuselah }
+				}	
+
+				modifier = {
+					factor = 1.5
+					FROM = { trait = majesty_4 }
+				}		
+				modifier = {
+					factor = 2
+					FROM = { trait = majesty_5 }
+				}					
+				
+				ROOT = { force_host = FROM }
+				
+				FROM = {
+					character_event = { id = POD_VAMPIRE_MENTAL_DISCIPLINE.1 }			
+				}				
+				
+				}
+		}
+		
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0 		# 1 = 100% chance every month (for each allowed target!)
+		}
+	}
+	
+	dominate_mesmerize_decision = {
+		filter = court
+		
+		only_playable = yes
+		
+		from_potential = {
+			ai = no
+			OR = {
+				trait = dominate_2
+				trait = dominate_3
+				trait = dominate_4
+				trait = dominate_5
+			}
+			NOT = { trait = incapable }
+			prisoner = no
+		}
+		
+		potential = {
+			ai = yes
+			NOT = { character = FROM }
+			NOT = { trait = topor }
+			NOT = { trait = wight }
+			NOT = { trait = antediluvian }
+			at_location = FROM
+		}
+		
+		allow = {
+			in_revolt = no
+			NOT = { war_with = FROM }
+			NOT = { trait = antediluvian }
+			NOT = { trait = topor }
+			NOT = { trait = wight }
+			at_location = FROM
+		}
+		
+		effect = {
+				FROM = { POD_vampire_blood_thirst_increase_effect = yes	}
+				random = {
+				chance = 25
+
+				modifier = {				
+					factor = 2
+					ROOT = { dynasty = FROM }
+				}					
+				
+				modifier = {				
+					factor = 0.5
+					ROOT = { trait = paranoid }
+				}					
+
+				modifier = {				
+					factor = 0.5
+					ROOT = { trait = stubborn }
+				}					
+				
+				modifier = {				
+					factor = 2
+					ROOT = { trait = trusting }
+				}			
+				
+				modifier = {				
+					factor = 0.6
+					ROOT = { trait = supe_hunter }
+				}				
+				modifier = {				
+					factor = 0.9
+					ROOT = { trait = neonate }
+				}				
+				modifier = {				
+					factor = 0.5
+					ROOT = { trait = werewolf }
+				}	
+
+				modifier = {				
+					factor = 0.3
+					ROOT = { trait = mage }
+				}					
+				
+				modifier = {				
+					factor = 0.5
+					ROOT = { trait = ancilla }
+				}				
+				modifier = {				
+					factor = 0.3
+					ROOT = { trait = elder }
+				}				
+				modifier = {				
+					factor = 0.2
+					ROOT = { trait = ancient }
+				}				
+				modifier = {
+					factor = 0.1
+					ROOT = { trait = methuselah }
+				}
+
+				modifier = {
+					factor = 0
+					ROOT = { trait = torpor }
+				}
+				
+				modifier = {				
+					factor = 0.5
+					FROM = { trait = neonate }
+				}					
+				modifier = {				
+					factor = 0.7
+					FROM = { trait = ancilla }
+				}				
+				modifier = {				
+					factor = 1.1
+					FROM = { trait = elder }
+				}				
+				modifier = {				
+					factor = 2
+					FROM = { trait = ancient }
+				}				
+				modifier = {
+					factor = 3
+					FROM = { trait = methuselah }
+				}	
+				modifier = {
+					factor = 1.5
+					FROM = { trait = dominate_3 }
+				}	
+				modifier = {
+					factor = 2
+					FROM = { trait = dominate_4 }
+				}		
+				modifier = {
+					factor = 3
+					FROM = { trait = dominate_5 }
+				}					
+				
+				FROM = { add_favor = ROOT }
+				FROM = {
+					character_event = { id = POD_VAMPIRE_MENTAL_DISCIPLINE.2 }			
+				}
+				
+				}
+		}
+		
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0 		# 1 = 100% chance every month (for each allowed target!)
+		}
+	}	
+
+	majesty_entrance_decision = {
+		filter = court
+		
+		only_playable = yes
+		
+		from_potential = {
+			ai = no
+			OR = {
+				trait = majesty_3
+				trait = majesty_4
+				trait = majesty_5
+			}
+			NOT = { trait = incapable }
+			prisoner = no
+		}
+		
+		potential = {
+			ai = yes
+			NOT = { character = FROM }
+			NOT = { trait = topor }
+			NOT = { trait = wight }
+			NOT = { trait = antediluvian }
+			is_landed = no
+			prisoner = no
+			at_location = FROM
+		}
+		
+		allow = {
+			in_revolt = no
+			NOT = { war_with = FROM }
+			NOT = { trait = antediluvian }
+			NOT = { trait = topor }
+			NOT = { trait = wight }
+			prisoner = no
+			is_landed = no
+			at_location = FROM
+		}
+		
+		effect = {
+				FROM = { POD_vampire_blood_thirst_increase_effect = yes	}
+				random = {
+				chance = 25
+
+				modifier = {				
+					factor = 2
+					ROOT = { dynasty = FROM }
+				}					
+				
+				modifier = {				
+					factor = 0.5
+					ROOT = { trait = paranoid }
+				}					
+
+				modifier = {				
+					factor = 0.5
+					ROOT = { trait = stubborn }
+				}					
+				
+				modifier = {				
+					factor = 2
+					ROOT = { trait = trusting }
+				}			
+				
+				modifier = {				
+					factor = 0.6
+					ROOT = { trait = supe_hunter }
+				}				
+				modifier = {				
+					factor = 0.9
+					ROOT = { trait = neonate }
+				}				
+				modifier = {				
+					factor = 0.5
+					ROOT = { trait = werewolf }
+				}	
+
+				modifier = {				
+					factor = 0.3
+					ROOT = { trait = mage }
+				}					
+				
+				modifier = {				
+					factor = 0.5
+					ROOT = { trait = ancilla }
+				}				
+				modifier = {				
+					factor = 0.3
+					ROOT = { trait = elder }
+				}				
+				modifier = {				
+					factor = 0.2
+					ROOT = { trait = ancient }
+				}				
+				modifier = {
+					factor = 0.1
+					ROOT = { trait = methuselah }
+				}
+
+				modifier = {
+					factor = 0
+					ROOT = { trait = torpor }
+				}
+				
+				modifier = {				
+					factor = 0.5
+					FROM = { trait = neonate }
+				}					
+				modifier = {				
+					factor = 0.7
+					FROM = { trait = ancilla }
+				}				
+				modifier = {				
+					factor = 1.1
+					FROM = { trait = elder }
+				}				
+				modifier = {				
+					factor = 2
+					FROM = { trait = ancient }
+				}				
+				modifier = {
+					factor = 3
+					FROM = { trait = methuselah }
+				}	
+	
+				modifier = {
+					factor = 1.5
+					FROM = { trait = majesty_4 }
+				}		
+				modifier = {
+					factor = 2
+					FROM = { trait = majesty_5 }
+				}				
+				
+                ROOT = {opinion = {
+                    modifier = opinion_entranced
+                    who = FROM
+                    years = 1
+					}   
+				}
+				FROM = {
+					character_event = { id = POD_VAMPIRE_MENTAL_DISCIPLINE.3 }			
+				}				
+				
+				}
+		}
+		
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0 		# 1 = 100% chance every month (for each allowed target!)
+		}
+	}
+	
+}	

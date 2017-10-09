@@ -11,6 +11,194 @@
 # WARNING: IF YOU DON'T ADD NEW TRAITS LAST (IN THE LAST READ TRAIT FILE), IT WILL BREAK OLD SAVE GAMES!
 ########################################################################################################
 
+<<<<<<< HEAD
+=======
+############
+# EDUCATION
+############
+
+# INTRIGUE OUTCOMES
+amateurish_plotter = {
+	education = yes
+	
+	intrigue = 1
+	stewardship = -1
+}
+flamboyant_schemer = {
+	education = yes
+	
+	intrigue = 3
+	stewardship = -1
+}
+intricate_webweaver = {
+	education = yes
+	
+	intrigue = 6
+	martial = 1
+	diplomacy = 1
+	stewardship = -1
+}
+elusive_shadow = {
+	education = yes
+	
+	intrigue = 9
+	martial = 2
+	diplomacy = 2
+	stewardship = -1
+}
+
+# DIPLOMACY OUTCOMES
+naive_appeaser = {
+	education = yes
+	
+	diplomacy = 1
+	martial = -1
+}
+underhanded_rogue = {
+	education = yes
+	
+	diplomacy = 3
+	martial = -1
+	fertility = 0.05
+}
+charismatic_negotiator = {
+	education = yes
+	
+	diplomacy = 6
+	intrigue = 1
+	learning = 1
+	martial = -1
+	fertility = 0.05
+	
+}
+grey_eminence = {
+	education = yes
+	
+	diplomacy = 9
+	intrigue = 2
+	learning = 2
+	martial = -1
+	fertility = 0.1
+}
+
+# STEWARDSHIP OUTCOMES
+indulgent_wastrel = {
+	education = yes
+	
+	stewardship = 1
+	diplomacy = -1
+}
+thrifty_clerk = {
+	education = yes
+	
+	stewardship = 3
+	diplomacy = -1
+	fertility = 0.05
+}
+fortune_builder = {	
+	education = yes
+	
+	stewardship = 6
+	martial = 1
+	learning = 1
+	diplomacy = -1
+	fertility = 0.1
+}
+midas_touched = {
+	education = yes
+	
+	stewardship = 9
+	martial = 2
+	learning = 2
+	diplomacy = -1
+	fertility = 0.15
+}
+
+# MARTIAL OUTCOMES
+misguided_warrior = {
+	education = yes
+	
+	martial = 1
+	learning = -1
+	
+	health = 0.5
+}
+tough_soldier = {
+	education = yes
+	
+	martial = 3
+	learning = -1
+	
+	health = 0.5
+}
+skilled_tactician = {
+	education = yes
+	
+	martial = 6
+	intrigue = 1
+	stewardship = 1
+	learning = -1
+	
+	health = 0.5
+}
+brilliant_strategist = {
+	education = yes
+	
+	martial = 9
+	intrigue = 2
+	stewardship = 2
+	learning = -1
+	
+	health = 0.5
+
+	leadership_traits = 1
+}
+
+# ECCLESIASTICAL OUTCOMES
+detached_priest = {
+	priest = yes
+	education = yes
+	
+	learning = 1
+	intrigue = -1
+}
+martial_cleric = {
+	priest = yes
+	education = yes
+	
+	learning = 3
+	intrigue = -1
+	
+	ai_zeal = 10
+}
+scholarly_theologian = {
+	priest = yes
+	education = yes
+	
+	learning = 6
+	diplomacy = 1
+	stewardship = 1
+	intrigue = -1
+	
+	fertility = -0.05
+	
+	ai_zeal = 20
+}
+mastermind_theologian = {
+	priest = yes
+	education = yes
+	
+	learning = 9
+	diplomacy = 2
+	stewardship = 2
+	intrigue = -1
+	
+	fertility = -0.05
+	
+	ai_zeal = 30
+}
+
+>>>>>>> master
 ########################
 # HEALTH - Events
 ########################
@@ -55,8 +243,23 @@ ill = {
 	is_health = yes
 	is_illness = yes
 	
+<<<<<<< HEAD
 	opposites =  {
 		pneumonic
+=======
+	potential = {
+		NOT = { trait = vampire }
+		NOT = { trait = mummy }
+		NOT = { trait = promethean }
+		NOT = { trait = geist }
+	}	
+	opposites =  {
+		pneumonic
+		vampire
+		mummy
+		promethean
+		geist
+>>>>>>> master
 	}
 	
 	martial = -1
@@ -68,9 +271,26 @@ ill = {
 pneumonic = {
 	is_health = yes
 	is_illness = yes
+<<<<<<< HEAD
 	
 	opposites =  {
 		ill
+=======
+	potential = {
+		NOT = { trait = vampire }
+		NOT = { trait = mummy }
+		NOT = { trait = promethean }
+		NOT = { trait = geist }
+	}
+		
+	
+	opposites =  {
+		ill
+		vampire
+		mummy
+		promethean
+		geist		
+>>>>>>> master
 	}
 	
 	diplomacy = -2
@@ -86,6 +306,24 @@ pneumonic = {
 syphilitic = {
 	is_health = yes
 	is_illness = yes
+<<<<<<< HEAD
+=======
+
+	potential = {
+		NOT = { trait = vampire }
+		NOT = { trait = mummy }
+		NOT = { trait = promethean }
+		NOT = { trait = geist }
+	}
+	
+	opposites =  {
+		vampire
+		mummy
+		promethean
+		geist		
+	}	
+	
+>>>>>>> master
 	inherit_chance = 10
 	
 	sex_appeal_opinion = -30
@@ -102,6 +340,24 @@ syphilitic = {
 leper = {
 	is_health = yes
 	is_illness = yes
+<<<<<<< HEAD
+=======
+
+	potential = {
+		NOT = { trait = vampire }
+		NOT = { trait = mummy }
+		NOT = { trait = promethean }
+		NOT = { trait = geist }		
+	}	
+
+	opposites =  {
+		vampire
+		mummy
+		promethean
+		geist		
+	}	
+	
+>>>>>>> master
 	diplomacy = -2
 	health = -2
 	fertility = -0.2
@@ -137,6 +393,23 @@ maimed = {
 infirm = {
 	is_health = yes
 
+<<<<<<< HEAD
+=======
+	potential = {
+		NOT = { trait = vampire }
+		NOT = { trait = mummy }
+		NOT = { trait = promethean }
+		NOT = { trait = geist }
+	}	
+
+	opposites =  {
+		vampire
+		mummy
+		promethean
+		geist		
+	}		
+	
+>>>>>>> master
 	diplomacy = -3
 	intrigue = -3
 	stewardship = -3
@@ -150,6 +423,27 @@ infirm = {
 }
 incapable = {
 	is_health = yes
+<<<<<<< HEAD
+=======
+
+	potential = {
+		NOT = { trait = vampire }
+		NOT = { trait = mummy }
+		NOT = { trait = promethean }
+		NOT = { trait = geist }
+		NOT = { trait = revenant }
+		NOT = { trait = ghoul }
+	}	
+	
+	opposites =  {
+		vampire
+		mummy
+		promethean
+		geist		
+		revenant
+		ghoul
+	}	
+>>>>>>> master
 	
 	incapacitating = yes # Will need a regent
 	
@@ -177,6 +471,23 @@ has_tuberculosis = {
 	is_epidemic = yes
 	is_illness = yes
 	
+<<<<<<< HEAD
+=======
+	potential = {
+		NOT = { trait = vampire }
+		NOT = { trait = mummy }
+		NOT = { trait = promethean }
+		NOT = { trait = geist }
+	}	
+
+	opposites =  {
+		vampire
+		mummy
+		promethean
+		geist		
+	}	
+	
+>>>>>>> master
 	health = -2
 	
 	customizer = no
@@ -185,6 +496,23 @@ has_typhoid_fever = {
 	is_epidemic = yes
 	is_illness = yes
 	
+<<<<<<< HEAD
+=======
+	potential = {
+		NOT = { trait = vampire }
+		NOT = { trait = mummy }
+		NOT = { trait = promethean }
+		NOT = { trait = geist }
+	}	
+	
+	opposites =  {
+		vampire
+		mummy
+		promethean
+		geist		
+	}	
+	
+>>>>>>> master
 	health = -3
 	
 	customizer = no
@@ -193,6 +521,23 @@ has_typhus = {
 	is_epidemic = yes
 	is_illness = yes
 	
+<<<<<<< HEAD
+=======
+	potential = {
+		NOT = { trait = vampire }
+		NOT = { trait = mummy }
+		NOT = { trait = promethean }
+		NOT = { trait = geist }
+	}	
+
+	opposites =  {
+		vampire
+		mummy
+		promethean
+		geist		
+	}		
+	
+>>>>>>> master
 	health = -3
 	
 	customizer = no
@@ -201,6 +546,23 @@ has_bubonic_plague = {
 	is_epidemic = yes
 	is_illness = yes
 	
+<<<<<<< HEAD
+=======
+	potential = {
+		NOT = { trait = vampire }
+		NOT = { trait = mummy }
+		NOT = { trait = promethean }
+		NOT = { trait = geist }
+	}	
+	
+	opposites =  {
+		vampire
+		mummy
+		promethean
+		geist		
+	}		
+	
+>>>>>>> master
 	health = -7
 	
 	customizer = no
@@ -209,6 +571,23 @@ has_measles = {
 	is_epidemic = yes
 	is_illness = yes
 	
+<<<<<<< HEAD
+=======
+	potential = {
+		NOT = { trait = vampire }
+		NOT = { trait = mummy }
+		NOT = { trait = promethean }
+		NOT = { trait = geist }
+	}	
+	
+	opposites =  {
+		vampire
+		mummy
+		promethean
+		geist		
+	}	
+	
+>>>>>>> master
 	health = -2
 	
 	customizer = no
@@ -216,7 +595,25 @@ has_measles = {
 has_small_pox = {
 	is_epidemic = yes
 	is_illness = yes
+<<<<<<< HEAD
 
+=======
+	
+	potential = {
+		NOT = { trait = vampire }
+		NOT = { trait = mummy }
+		NOT = { trait = promethean }
+		NOT = { trait = geist }
+	}	
+
+	opposites =  {
+		vampire
+		mummy
+		promethean
+		geist		
+	}		
+	
+>>>>>>> master
 	health = -3
 	
 	customizer = no
@@ -477,6 +874,10 @@ strong = {
 	
 	sex_appeal_opinion = 10
 	vassal_opinion = 10
+<<<<<<< HEAD
+=======
+	tribal_opinion = 20
+>>>>>>> master
 }
 weak = {
 	birth = 100
@@ -493,6 +894,10 @@ weak = {
 	
 	sex_appeal_opinion = -10
 	vassal_opinion = -10
+<<<<<<< HEAD
+=======
+	tribal_opinion = -20
+>>>>>>> master
 }
 
 ################################################

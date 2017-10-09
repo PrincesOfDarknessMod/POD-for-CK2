@@ -2803,6 +2803,11 @@ religious = {
 			NOT = { pacifist = yes }
 			NOT = { religion = buddhist }
 			NOT = { trait = revenant }
+			NOT = { religion = inconnu }
+			OR = {
+				NOT = { religion_group = masquerade_camarilla_group }
+				FROM = { NOT = { religion = inconnu } }
+				}
 			OR = {
 				NOT = { religion = hindu }
 				FROM = { NOT = { religion_group = indian_group } }
@@ -2843,7 +2848,6 @@ religious = {
 	can_use_gui = {
 		ROOT = {
 			independent = yes
-			prestige = 100
 			piety = 50	
 			OR = {
 			trait = zealous
@@ -3004,7 +3008,6 @@ religious = {
 				years = 20
 			}		
 		}
-		FROM = { piety = -100 }
 		FROM = { prestige = -50 }
 	}
 
@@ -9491,8 +9494,7 @@ POD_VAMPIRE_CLAN_WAR = {
 	
 	can_use_gui = {
 		ROOT = {
-			prestige = 100
-			piety = 100
+			prestige = 50
 			trait = vampire
 			OR = { 
 			num_of_children = 4
@@ -9506,7 +9508,10 @@ POD_VAMPIRE_CLAN_WAR = {
 			trait = grey_eminence
 			trait = elusive_shadow
 			trait = ambitious
-			trait = ventrue		
+			trait = ventrue	
+			trait = assamite
+			trait = lasombra
+			trait = tzimisce
 			}
 			NOT = { trait = infirm }
 			NOT = { trait = slothful }
@@ -9520,32 +9525,148 @@ POD_VAMPIRE_CLAN_WAR = {
 			religion_group = ROOT
 			culture = ROOT
 			NOT = { dynasty = ROOT }
+
+			NOT = { AND = { ROOT = { trait = assamite }
+							trait = assamite
+						}
+			}	
+			
+			NOT = { AND = { ROOT = { trait = brujah }
+							trait = brujah
+						}
+			}		
+			
+			NOT = { AND = { ROOT = { trait = cappodocian }
+							trait = cappodocian
+						}
+			}				
+			
 			NOT = { AND = { ROOT = { trait = daeva }
 							trait = daeva
 						}
 			}
+			
+			NOT = { AND = { ROOT = { trait = followerofset }
+							trait = followerofset
+						}
+			}				
+			
 			NOT = { AND = { ROOT = { trait = gangrel }
 							trait = gangrel
 						}
-			}			
+			}		
+
+			NOT = { AND = { ROOT = { trait = giovanni }
+							trait = giovanni
+						}
+			}				
+						
+			NOT = { AND = { ROOT = { trait = lasombra }
+							trait = lasombra
+						}
+			}	
+			
+			NOT = { AND = { ROOT = { trait = malkavian }
+							trait = malkavian
+						}
+			}	
+			
 			NOT = { AND = { ROOT = { trait = mekhet }
 							trait = mekhet
 						}
 			}
+			
 			NOT = { AND = { ROOT = { trait = nosferatu }
 							trait = nosferatu
 						}
 			}
+
+			NOT = { AND = { ROOT = { trait = ravnos }
+							trait = ravnos
+						}
+			}				
+			
+			NOT = { AND = { ROOT = { trait = toreador }
+							trait = toreador
+						}
+			}				
+
+			NOT = { AND = { ROOT = { trait = tremere }
+							trait = tremere
+						}
+			}				
+			
+			NOT = { AND = { ROOT = { trait = tzimisce }
+							trait = tzimisce
+						}
+			}				
+			
 			NOT = { AND = { ROOT = { trait = ventrue }
 							trait = ventrue
 						}
+			}	
+
+
+			NOT = { AND = { ROOT = { trait = assamiteantitribu }
+							trait = assamiteantitribu
+						}
+			}	
+			
+			NOT = { AND = { ROOT = { trait = brujahantitribu }
+							trait = brujahantitribu
+						}
 			}			
+			
+			NOT = { AND = { ROOT = { trait = gangrelantitribu }
+							trait = gangrelantitribu
+						}
+			}				
+						
+			NOT = { AND = { ROOT = { trait = lasombraantitribu }
+							trait = lasombraantitribu
+						}
+			}	
+			
+			NOT = { AND = { ROOT = { trait = malkavianantitribu }
+							trait = malkavianantitribu
+						}
+			}	
+			
+			NOT = { AND = { ROOT = { trait = nosferatuantitribu }
+							trait = nosferatuantitribu
+						}
+			}
+
+			NOT = { AND = { ROOT = { trait = ravnosantitribu }
+							trait = ravnosantitribu
+						}
+			}				
+			
+			NOT = { AND = { ROOT = { trait = toreadorantitribu }
+							trait = toreadorantitribu
+						}
+			}				
+
+			NOT = { AND = { ROOT = { trait = tremereantitribu }
+							trait = tremereantitribu
+						}
+			}				
+			
+			NOT = { AND = { ROOT = { trait = tzimisceantitribu }
+							trait = tzimisceantitribu
+						}
+			}				
+			
+			NOT = { AND = { ROOT = { trait = ventrueantitribu }
+							trait = ventrueantitribu
+						}
+			}	
+			
 			}		
 	}
 	
 	on_add = {
-		ROOT = { piety = -100 }
-		ROOT = { prestige = -100 }		
+		ROOT = { prestige = -50 }		
 	}
 	
 	can_use = {

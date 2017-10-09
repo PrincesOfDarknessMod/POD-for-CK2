@@ -1,9 +1,9 @@
 # Setup random new noble characters as supernaturals or mortals
 
-namespace = "POD_SUPE_NOBLE"
+namespace = setup_noble
 character_event = {
-	id = pod.666000
-	desc = "POD_SUPE_NOBLE_DESC"
+	id = setup_noble.1
+	#desc = "POD_SUPE_NOBLE_DESC"
 	picture = GFX_evt_comet
 	hide_window = yes
 	trigger = {
@@ -14,6 +14,15 @@ character_event = {
 					is_patrician = yes
 					num_of_duke_titles = 1
 			}
+		OR = {
+				has_global_flag = bookmark232
+				has_global_flag = bookmark412
+				has_global_flag = bookmark480
+				has_global_flag = bookmark543
+				has_global_flag = bookmark947
+				has_global_flag = bookmark1142	
+				has_global_flag = bookmark1250	
+		}
 		NOT = { trait = mortal }
 		NOT = { trait = vampire }
 		NOT = { trait = werewolf }
@@ -27,13 +36,19 @@ character_event = {
 		NOT = { trait = revenant }
 		NOT = { trait = POD_vampire_RD_immortal_fix }
 		NOT = { has_character_flag = FLAG_POD_SETUP_NOBLE_FIRED }
+		NOT = { trait = storyteller }		
 	}
 	
 	mean_time_to_happen = {
 		days = 1
-		}
+		modifier = {
+		factor = 0.1 
+		adult = yes
+		}		
+	}
+		
 	immediate = {
-		name = "set_inital_random_supernaturals_rulers"
+		#name = "set_inital_random_supernaturals_rulers"
 		hidden_tooltip = {
 			if = {
 					limit = {
@@ -51,10 +66,8 @@ character_event = {
 					NOT = { trait = revenant }
 					NOT = { trait = POD_vampire_RD_immortal_fix }
 					NOT = { has_character_flag = FLAG_POD_SETUP_NOBLE_FIRED }
-				}
-
-					set_character_flag = FLAG_POD_SETUP_NOBLE_FIRED
-					
+					NOT = { trait = storyteller }					
+				}					
 					if = { limit = { is_landed = yes}
 					capital_scope = {	
 							reverse_religion = ROOT
@@ -63,7 +76,10 @@ character_event = {
 
 # setup Indian caste
 								if = { limit = {
-												ROOT = { is_theocracy = yes }
+												 ROOT = {
+														primary_title = { holding_type = temple	}
+														tier = BARON 
+												}
 												OR = { 	culture = bengali
 														culture = oriya
 														culture = assamese
@@ -83,7 +99,11 @@ character_event = {
 									}	
 
 								if = { limit = { 
-												 NOT = { ROOT = { is_theocracy = yes }  }	
+												 NOT = { ROOT = {
+														primary_title = { holding_type = temple	}
+														tier = BARON 
+															} 
+														}	
 												OR = { 	culture = bengali
 														culture = oriya
 														culture = assamese
@@ -102,7 +122,9 @@ character_event = {
 											
 										add_trait = kshatriya
 									}		
-set_character_flag = FLAG_POD_SETUP_NOBLE_FIRED		
+									
+set_character_flag = FLAG_POD_SETUP_NOBLE_FIRED	
+	
 			if = {
 					limit = {
 					age = 16
@@ -121,7 +143,8 @@ set_character_flag = FLAG_POD_SETUP_NOBLE_FIRED
 					NOT = { religion = revenant_abrahamic }
 					NOT = { religion = revenant_unaligned }
 					NOT = { religion = revenant-dharma }
-					NOT = { religion = revenant_duolosi }					
+					NOT = { religion = revenant_duolosi }
+					NOT = { trait = storyteller }					
 					OR = { 
 							religion_group = longinus_group
 							religion_group = abrahamic_vampire_group
@@ -136,7 +159,7 @@ set_character_flag = FLAG_POD_SETUP_NOBLE_FIRED
 					
 # make Vampire ruler
 				add_trait = vampire
-				character_event = { id = pod.666001 }	
+				character_event = { id = vampire_noble.1 }	
 			}
 															
 # Werewolf nobles				
@@ -159,6 +182,15 @@ set_character_flag = FLAG_POD_SETUP_NOBLE_FIRED
 							religion_group = forsaken_group
 							religion_group = bale_hounds_group
 						}
+					OR = {
+							has_global_flag = bookmark232
+							has_global_flag = bookmark412
+							has_global_flag = bookmark480
+							has_global_flag = bookmark543
+							has_global_flag = bookmark947
+							has_global_flag = bookmark1142	
+							has_global_flag = bookmark1250	
+					}						
 					OR = {		
 						is_landed = yes
 						mercenary = yes
@@ -169,7 +201,7 @@ set_character_flag = FLAG_POD_SETUP_NOBLE_FIRED
 					}
 							# make werewolf ruler
 							add_trait = werewolf
-							character_event = { id = pod.666002 }		
+							character_event = { id = werewolf_noble.1 }		
 				}				
 				
 # Mage nobles				
@@ -197,7 +229,7 @@ set_character_flag = FLAG_POD_SETUP_NOBLE_FIRED
 				}
 							# make mage ruler
 							add_trait = mage
-							character_event = { id = pod.666003 }
+							character_event = { id = mage_noble.1 }
 			}
 						
 # Supe hunter nobles						
@@ -226,7 +258,7 @@ set_character_flag = FLAG_POD_SETUP_NOBLE_FIRED
 					# make supe hunter ruler
 					add_trait = mortal
 					add_trait = supe_hunter
-					character_event = { id = pod.666004 }
+					character_event = { id = hunter_noble.1 }
 				}				
 				
 # changeling nobles						
@@ -254,7 +286,7 @@ set_character_flag = FLAG_POD_SETUP_NOBLE_FIRED
 				}
 					# make changeling ruler
 					add_trait = changeling
-					character_event = { id = pod.666005 }
+					character_event = { id = changeling_noble.1 }
 				}		
 
 # promethean nobles						
@@ -282,7 +314,7 @@ set_character_flag = FLAG_POD_SETUP_NOBLE_FIRED
 				}
 					# make promethean ruler
 					add_trait = promethean
-					character_event = { id = pod.666007 }
+					character_event = { id = promethean_noble.1 }
 				}					
 
 # mummy nobles						
@@ -310,7 +342,7 @@ set_character_flag = FLAG_POD_SETUP_NOBLE_FIRED
 				}
 					# make mummy ruler
 					add_trait = mummy
-					character_event = { id = pod.666009 }
+					character_event = { id = mummy_noble.1 }
 				}					
 
 # geist nobles						
@@ -338,7 +370,7 @@ set_character_flag = FLAG_POD_SETUP_NOBLE_FIRED
 				}
 					# make geist ruler
 					add_trait = geist
-					character_event = { id = pod.666008 }
+					character_event = { id = geist_noble.1 }
 				}	
 				
 # demon nobles						
@@ -366,7 +398,7 @@ set_character_flag = FLAG_POD_SETUP_NOBLE_FIRED
 				}
 					# make demon ruler
 					add_trait = demon
-					character_event = { id = pod.666006 }
+					character_event = { id = demon_noble.1 }
 				}					
 
 # revenant nobles						
@@ -400,7 +432,7 @@ set_character_flag = FLAG_POD_SETUP_NOBLE_FIRED
 				}
 					# make revenant ruler
 					add_trait = revenant
-					character_event = { id = pod.666010 }
+					character_event = { id = revenant_noble.1 }
 				}	
 
 if = { limit = {
@@ -450,7 +482,7 @@ if = { limit = {
 				}
 					# make mortal ruler
 					add_trait = mortal
-					character_event = { id = pod.666011 }
+					character_event = { id = mortal_noble.1 }
 				}					
 				
 				

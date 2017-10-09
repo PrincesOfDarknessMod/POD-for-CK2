@@ -10,6 +10,121 @@
 # and Chris King
 # and Henrik Eklund
 
+# remove disease for immortals
+character_event = {
+	id = immortal_disease_cure.1
+	picture = GFX_evt_comet
+	hide_window = yes
+
+	min_age = 16
+	
+	trigger = {
+				OR = {
+						trait = vampire
+						trait = promethean
+						trait = geist
+						trait = mummy
+						trait = storyteller
+					}
+				OR = {
+						trait = ill
+						trait = syphilitic
+						trait = infirm
+						trait = incapable
+						trait = sickly
+						trait = pneumonic 
+						trait = has_tuberculosis 
+						trait = has_typhoid_fever 
+						trait = has_typhus 
+						trait = has_bubonic_plague 
+						trait = has_measles 
+						trait = has_small_pox 					
+					}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+
+		modifier = {
+			factor = 0.1
+				OR = {
+						trait = vampire
+						trait = promethean
+						trait = geist
+						trait = mummy
+						trait = storyteller
+					}						
+		}		
+	}		
+
+	immediate = {
+		hidden_tooltip = {	
+			if = {
+					limit = {trait = ill }	
+					remove_trait = ill	
+				}
+
+			if = {
+					limit = {trait = syphilitic	}
+					remove_trait = syphilitic
+				}
+
+			if = {
+					limit = {trait = infirm }	
+					remove_trait = infirm
+				}
+
+			if = {
+					limit = {trait = incapable }	
+					remove_trait = incapable	
+				}
+
+			if = {
+					limit = {trait = sickly }	
+					remove_trait = sickly	
+				}
+
+			if = {
+					limit = {trait = pneumonic }	
+					remove_trait = pneumonic	
+				}
+
+			if = {
+					limit = {trait = has_tuberculosis }	
+					remove_trait = has_tuberculosis	
+				}
+
+			if = {
+					limit = {trait = has_typhoid_fever }	
+					remove_trait = has_typhoid_fever	
+				}
+
+			if = {
+					limit = {trait = has_typhus }	
+					remove_trait = has_typhus	
+				}
+
+			if = {
+					limit = {trait = has_bubonic_plague }	
+					remove_trait = has_bubonic_plague	
+				}
+
+			if = {
+					limit = {trait = has_measles }	
+					remove_trait = has_measles	
+				}
+
+			if = {
+					limit = {trait = has_small_pox }	
+					remove_trait = has_small_pox 	
+				}				
+				
+				
+			}
+		}
+	}	
+
+
 #Syphilitic
 character_event = {
 	id = 6000
@@ -82,10 +197,7 @@ character_event = {
 	desc = EVTDESC6001
 	picture = GFX_evt_recovery
 	
-	trigger = {
-		NOT = {
-				trait = vampire
-			}		
+	trigger = {	
 		health = 6
 		trait = syphilitic
 	}
@@ -157,10 +269,7 @@ character_event = {
 	
 	min_age = 10
 	
-	trigger = {
-		NOT = {
-				trait = vampire
-			}		
+	trigger = {	
 		health = 4
 		treasury = 25
 		trait = leper
@@ -699,7 +808,8 @@ character_event = {
 		NOT = { trait = has_measles }
 		NOT = { trait = has_small_pox }
 		NOT = { trait = vampire }
-		NOT = { trait = mummy }
+		NOT = { trait = mummy
+						trait = storyteller }
 		NOT = { trait = promethean }
 	}
 	
@@ -753,10 +863,6 @@ character_event = {
 	trigger = {
 		base_health = 3
 		trait = ill
-		NOT = {
-				trait = vampire
-			}
-			
 	}
 	
 	mean_time_to_happen = {
@@ -800,10 +906,7 @@ character_event = {
 	
 	trigger = {
 		trait = sickly
-		age = 2
-		NOT = {
-				trait = vampire
-			}			
+		age = 2		
 	}
 	
 	mean_time_to_happen = {
@@ -841,7 +944,8 @@ character_event = {
 			trait = has_measles
 		}
 		NOT = { trait = pneumonic }
-		NOT = { trait = mummy }
+		NOT = { trait = mummy
+						trait = storyteller }
 		NOT = { trait = promethean }
 		NOT = {
 				trait = vampire
@@ -899,10 +1003,7 @@ character_event = {
 	
 	trigger = {
 		base_health = 4
-		trait = pneumonic
-		NOT = {
-				trait = vampire
-			}			
+		trait = pneumonic			
 	}
 	
 	mean_time_to_happen = {
@@ -1042,7 +1143,8 @@ character_event = {
 		NOT = {
 				trait = vampire
 			}	
-		NOT = { trait = mummy }
+		NOT = { trait = mummy
+						trait = storyteller }
 		NOT = { trait = promethean }
 	}
 	
@@ -1089,8 +1191,11 @@ character_event = {
 		NOT = {
 				trait = vampire
 			}	
-		NOT = { trait = mummy }
+		NOT = { trait = mummy
+						trait = storyteller }
 		NOT = { trait = promethean }
+		NOT = { trait = revenant }
+		NOT = { trait = ghoul }
 	}
 	
 	mean_time_to_happen = {
@@ -1151,8 +1256,11 @@ character_event = {
 		NOT = {
 				trait = vampire
 			}	
-		NOT = { trait = mummy }
+		NOT = { trait = mummy
+						trait = storyteller }
 		NOT = { trait = promethean }
+		NOT = { trait = revenant }
+		NOT = { trait = ghoul }
 	}
 	
 	mean_time_to_happen = {
@@ -1194,10 +1302,7 @@ character_event = {
 	picture = GFX_evt_recovery
 	
 	trigger = {
-		trait = has_tuberculosis
-		NOT = {
-				trait = vampire
-			}			
+		trait = has_tuberculosis		
 	}
 	
 	mean_time_to_happen = {
@@ -1346,10 +1451,7 @@ character_event = {
 	picture = GFX_evt_recovery
 	
 	trigger = {
-		trait = has_typhus
-		NOT = {
-				trait = vampire
-			}			
+		trait = has_typhus		
 	}
 	
 	mean_time_to_happen = {
@@ -1422,10 +1524,7 @@ character_event = {
 	picture = GFX_evt_plague_doctor
 	
 	trigger = {
-		trait = has_bubonic_plague
-		NOT = {
-				trait = vampire
-			}			
+		trait = has_bubonic_plague			
 	}
 	
 	mean_time_to_happen = {
@@ -1497,10 +1596,7 @@ character_event = {
 	picture = GFX_evt_recovery
 	
 	trigger = {
-		trait = has_measles
-		NOT = {
-				trait = vampire
-			}		
+		trait = has_measles		
 	}
 	
 	mean_time_to_happen = {
@@ -1573,10 +1669,7 @@ character_event = {
 	picture = GFX_evt_recovery
 	
 	trigger = {
-		trait = has_small_pox
-		NOT = {
-				trait = vampire
-			}			
+		trait = has_small_pox		
 	}
 	
 	mean_time_to_happen = {

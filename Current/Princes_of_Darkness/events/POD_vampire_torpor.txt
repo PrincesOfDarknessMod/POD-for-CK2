@@ -1,0 +1,57 @@
+namespace = POD_VAMPIRE_TORPOR
+
+character_event = {
+    id = POD_VAMPIRE_TORPOR.1
+    desc = EVTDESC_POD_VAMPIRE_TORPOR1
+	picture = GFX_evt_vampire_torpor
+	border = GFX_event_normal_frame_intrigue
+	
+    is_triggered_only = yes
+
+    option = {
+        name = EVTOPTA_POD_VAMPIRE_TORPOR1
+				character_event = { id = POD_VAMPIRE_TORPOR.2 }
+			}
+			
+    option = {
+        name = EVTOPTB_POD_VAMPIRE_TORPOR1
+		}		
+		
+    }
+
+character_event = {
+    id = POD_VAMPIRE_TORPOR.2
+    desc = EVTDESC_POD_VAMPIRE_TORPOR2
+	picture = GFX_evt_vampire_torpor
+	border = GFX_event_normal_frame_intrigue
+	
+    is_triggered_only = yes
+
+    option = {
+        name = EVTOPTA_POD_VAMPIRE_TORPOR2
+				remove_character_modifier = dire_blood_thirst
+				add_character_modifier = {
+                        name = dreadful_blood_thirst
+                        duration = 180
+                     }
+                trigger_switch = {
+                    on_trigger = trait
+					zulo_form = {
+						remove_trait = zulo_form
+					}
+					blood_form = {
+						remove_trait = blood_form
+					}
+					mist_form = {
+						remove_trait = mist_form
+					}
+					shadow_form = {
+						remove_trait = shadow_form
+					}	
+				}
+							add_trait = torpor
+							add_trait = in_hiding
+							leave_society = yes
+							abdicate = yes 
+		}
+    }

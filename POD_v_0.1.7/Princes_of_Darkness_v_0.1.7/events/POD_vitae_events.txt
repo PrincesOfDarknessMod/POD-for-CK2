@@ -1,0 +1,393 @@
+namespace = vitae
+
+
+character_event = { #set up the vitae counter
+
+	id = vitae.1
+	
+	age = 16
+	hide_window = yes
+	
+	
+	trigger = {
+		trait = vampire
+		NOT = {
+			check_variable = {
+				which = "vitae"
+				value = 1
+			}
+		}
+	} 
+
+
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		set_variable = {
+			which = "vitae"
+			value = 0
+		}
+		set_variable = {
+			which = vitae_setup
+			value = 0
+		}
+			character_event = { id = vitae.2 }
+			character_event = { id = vitae.3 }
+	}
+}
+
+
+
+character_event = { #maxvitae is useless for now, but will make things easier when variables comparing is fixed
+
+	id = vitae.2
+	
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		set_variable = {
+			which = "maxvitae"
+			value = 0
+		}
+	}
+}
+
+character_event = { #set initial bloodpool to 5
+
+	id = vitae.3
+	
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		set_character_flag = vitae_initialised
+		change_variable = {
+			which = "vitae"
+			value = 5
+		}
+		IF = {
+			limit = {
+				OR = {
+					trait = bloodpotency_1
+					trait = bloodpotency_2
+					trait = bloodpotency_3
+					trait = bloodpotency_4
+					trait = bloodpotency_5
+				}	
+			}
+			change_variable = {
+				which = "maxvitae"
+				value = 5
+			}
+		}
+		IF = {
+			limit = {
+				trait = bloodpotency_6
+			}
+			change_variable = {
+				which = "maxvitae"
+				value = 6
+			}
+		}
+		IF = {
+			limit = {
+				trait = bloodpotency_7
+			}
+			change_variable = {
+				which = "maxvitae"
+				value = 7
+			}
+		}
+		IF = {
+			limit = {
+				trait = bloodpotency_8
+			}
+			change_variable = {
+				which = "maxvitae"
+				value = 8
+			}
+		}
+		IF = {
+			limit = {
+				trait = bloodpotency_9
+			}
+			change_variable = {
+				which = "maxvitae"
+				value = 9
+			}
+		}
+		IF = {
+			limit = {
+				trait = bloodpotency_10
+			}
+			change_variable = {
+				which = "maxvitae"
+				value = 10
+			}
+		}
+	}
+}
+
+
+
+
+character_event = { # PROVISIONAL increase vitae: replenish per month
+
+	id = vitae.4
+	
+	age = 16
+	hide_window = yes
+	
+	trigger= {
+	
+			NOT = {
+				OR = {
+					AND = {
+						is_variable_equal = {
+							which = "maxvitae"
+							value = 1
+						}
+						is_variable_equal = {
+							which = "vitae"
+							value = 1
+						}
+					}
+					AND = {
+						is_variable_equal = {
+							which = "maxvitae"
+							value = 2
+						}
+						is_variable_equal = {
+							which = "vitae"
+							value = 2
+						}
+					}
+					AND = {
+						is_variable_equal = {
+							which = "maxvitae"
+							value = 3
+						}
+						is_variable_equal = {
+							which = "vitae"
+							value = 3
+						}
+					}
+					AND = {
+						is_variable_equal = {
+							which = "maxvitae"
+							value = 4
+						}
+						is_variable_equal = {
+							which = "vitae"
+							value = 4
+						}
+					}
+					AND = {
+						is_variable_equal = {
+							which = "maxvitae"
+							value = 5
+						}
+						is_variable_equal = {
+							which = "vitae"
+							value = 5
+						}
+					}
+					AND = {
+						is_variable_equal = {
+							which = "maxvitae"
+							value = 6
+						}
+						is_variable_equal = {
+							which = "vitae"
+							value = 6
+						}
+					}
+					AND = {
+						is_variable_equal = {
+							which = "maxvitae"
+							value = 7
+						}
+						is_variable_equal = {
+							which = "vitae"
+							value = 7
+						}
+					}
+					AND = {
+						is_variable_equal = {
+							which = "maxvitae"
+							value = 8
+						}
+						is_variable_equal = {
+							which = "vitae"
+							value = 8
+						}
+					}
+					AND = {
+						is_variable_equal = {
+							which = "maxvitae"
+							value = 9
+						}
+						is_variable_equal = {
+							which = "vitae"
+							value = 9
+						}
+					}
+					AND = {
+						is_variable_equal = {
+							which = "maxvitae"
+							value = 10
+						}
+						is_variable_equal = {
+							which = "vitae"
+							value = 10
+						}
+					}
+				}
+			}
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	immediate = {
+				if = { 
+					limit = { 
+						is_variable_equal = {
+							which = "maxvitae"
+							value = 1
+						}
+					}
+						set_variable = {
+							which = "vitae"
+							value = 1
+						}
+				}
+				if = { 
+					limit = { 
+						is_variable_equal = {
+							which = "maxvitae"
+							value = 2
+						}
+					}
+						set_variable = {
+							which = "vitae"
+							value = 2
+						}
+				}
+				if = { 
+					limit = { 
+						is_variable_equal = {
+							which = "maxvitae"
+							value = 3
+						}
+					}
+						set_variable = {
+							which = "vitae"
+							value = 3
+						}
+				}
+				if = { 
+					limit = { 
+						is_variable_equal = {
+							which = "maxvitae"
+							value = 4
+						}
+					}
+						set_variable = {
+							which = "vitae"
+							value = 4
+						}
+				}
+				if = { 
+					limit = { 
+						is_variable_equal = {
+							which = "maxvitae"
+							value = 5
+						}
+					}
+						set_variable = {
+							which = "vitae"
+							value = 5
+						}
+				}
+				if = { 
+					limit = { 
+						is_variable_equal = {
+							which = "maxvitae"
+							value = 6
+						}
+					}
+						set_variable = {
+							which = "vitae"
+							value = 6
+						}
+				}
+				if = { 
+					limit = { 
+						is_variable_equal = {
+							which = "maxvitae"
+							value = 7
+						}
+					}
+						set_variable = {
+							which = "vitae"
+							value = 7
+						}
+				}
+				if = { 
+					limit = { 
+						is_variable_equal = {
+							which = "maxvitae"
+							value = 8
+						}
+					}
+						set_variable = {
+							which = "vitae"
+							value = 8
+						}
+				}
+				if = { 
+					limit = { 
+						is_variable_equal = {
+							which = "maxvitae"
+							value = 9
+						}
+					}
+						set_variable = {
+							which = "vitae"
+							value = 9
+						}
+				}
+				if = { 
+					limit = { 
+						is_variable_equal = {
+							which = "maxvitae"
+							value = 10
+						}
+					}
+						set_variable = {
+							which = "vitae"
+							value = 10
+						}
+				}
+	}
+}	
+
+character_event = { # test event
+
+id = vitae.666
+
+is_triggered_only = yes
+hide_window = yes
+
+immediate = { set_variable = { which = "vitae" value = 1 } }
+
+}
+
+

@@ -1,0 +1,69 @@
+POD_CWOD_vampire_governments_init_effect = {
+# Vampire Government Elders
+					if = {
+						limit = {
+							OR = { 
+								religion_group = vampire_high_clans_group
+							   religion_group = masquerade_camarilla_group
+							   religion_group = inconnu_group
+							   religion = vampire_low_clans
+							}
+						}
+						set_government_type = traditions_government
+					}
+					if = {
+						limit = {
+							religion_group = sabbat_group
+						}
+						set_government_type = milan_government
+					}	
+					if = {
+						limit = {
+							#OR = { 
+								religion_group = vampire_low_clans_group
+							#}
+							NOT = { religion = vampire_low_clans }
+							NOT = { religion = autarkis }
+						}
+						set_government_type = free_state_government
+					}		
+					if = {
+						limit = {
+							OR = { 
+								religion_group = baali_group
+								religion = setite
+								religion = einherjar
+								religion = noiad
+								religion = giovanni
+								religion = tremerelow
+								religion = laibon
+							}
+						}
+						set_government_type = cult_government
+					}		
+					if = {
+						limit = {
+							religion_group = ashirra_vampire_group
+						}
+						set_government_type = ashirra_government
+					}
+					if = {
+						limit = {
+							religion = mayaparisataya
+						}
+						set_government_type = dharmic_government
+					}		
+					if = {
+						limit = {
+							religion = anda
+						}
+						set_government_type = anda_government
+					}
+					if = { 
+						limit = {
+							religion = autarkis
+						}
+						set_government_type = unaligned_government			
+					}
+
+}

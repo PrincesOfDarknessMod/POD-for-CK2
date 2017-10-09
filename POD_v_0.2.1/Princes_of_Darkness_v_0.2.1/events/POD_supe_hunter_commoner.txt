@@ -1,0 +1,50 @@
+namespace = "POD_SUPE_HUNTER_COMMONER"
+character_event = {
+	id = supe_hunter_commoner.1
+	#desc = "POD_SUPE_HUNTER_COMMONER_DESC"
+	picture = GFX_evt_comet
+	hide_window = yes	
+	is_triggered_only = yes
+	immediate = {
+			if = {
+					limit = {
+					age = 16
+					NOT = { trait = supe_hunter }
+					}			
+# make supe_hunter commoner
+						if = { 
+								limit = {
+											religion_group = hunter_group 
+										}
+								random_list = {
+												10 = { 
+														
+														religion = aegis_kai_doru 
+														}
+												10 = { 
+														
+														religion = ascending_ones 
+														}
+												10 = { 
+														
+														religion = knights_of_saint_george 
+														}
+												10 = { 
+														
+														religion = les_mysteres 
+														}
+												10 = { 
+														
+														religion = malleus_maleficarum 
+														}
+												10 = {	
+														religion = ahl_al-jabal
+														}
+												5 = {	
+														religion = lucifuge
+														}			
+							}	
+						}
+				}	
+			}
+		}

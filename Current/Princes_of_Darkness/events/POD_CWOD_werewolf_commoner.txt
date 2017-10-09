@@ -1,0 +1,296 @@
+namespace = CWOD_werewolf_commoner
+character_event = {
+	id = CWOD_werewolf_commoner.1
+	hide_window = yes	
+	is_triggered_only = yes
+	immediate = {
+		if = {
+			limit = {
+				age = 16
+				trait = werewolf 
+			}	
+# make werewolf commoner
+# werewolf in non-werewolf territory	
+			if = {
+				limit = {
+					NOT = { religion_group = garou_group }
+					NOT = { religion_group = wyrm_group }
+					OR = {
+						has_global_flag = bookmark767
+						has_global_flag = bookmark1230
+						has_global_flag = bookmark1500
+						has_global_flag = bookmark1466
+						has_global_flag = bookmark1355
+						has_global_flag = bookmark1505
+						has_global_flag = bookmark1506
+						has_global_flag = bookmark1666
+					}
+				}
+				random_list = {
+					5 = { religion = black_furies }
+					5 = { religion = fianna }
+					5 = { religion = get_of_fenris }
+					15 = { religion = warders_of_men } 
+					20 = { religion = bone_gnawers }
+					5 = { religion = silver_fangs }
+					5 = { religion = shadow_lords }
+					5 = { religion = red_talons }
+					5 = { religion = stargazers }
+					15 = { religion = silent_striders }
+					15 = { religion = black_spiral_dancers }
+				}		
+			}
+			
+				if = { limit = {
+						NOT = { religion_group = wyrm_group }
+						NOT = { religion = red_talons }
+				}
+				random_list = {
+						85 = { add_trait = homid_born }
+						10 = { add_trait = lupus_born }
+						5 = { add_trait = metis }
+						}
+						
+						}
+				
+				if = { limit = {
+						 religion_group = wyrm_group } 
+				
+				random_list = {
+						75 = { add_trait = homid_born }
+						5 = { add_trait = lupus_born }
+						20 = { add_trait = metis }
+						}
+						
+						}	
+						
+				if = { limit = { religion = red_talons }
+				random_list = {
+						10 = { add_trait = homid_born }
+						85 = { add_trait = lupus_born }
+						5 = { add_trait = metis }
+						}
+						
+						}		
+						
+				if = { limit = { trait = homid_born }
+						add_trait = homid
+				}
+
+				if = { limit = { trait = lupus_born }
+						add_trait = lupus
+				}
+				
+				if = { limit = { trait = metis }
+						add_trait = crinos
+				}
+
+						
+# garou auspices							
+			if = {
+				limit = {
+					religion_group = garou_group 
+					trait = werewolf
+					NOT = { trait = auspice_rahu }
+					NOT = { trait = auspice_cahalith }
+					NOT = { trait = auspice_elodoth }
+					NOT = { trait = auspice_ithaeur }
+					NOT = { trait = auspice_irraka }
+				}
+				random_list = {
+					20 = { add_trait = auspice_rahu }
+					20 = { add_trait = auspice_cahalith }
+					20 = { add_trait = auspice_elodoth }
+					20 = { add_trait = auspice_ithaeur }
+					20 = { add_trait = auspice_irraka }
+				}
+			}
+			
+			
+# werewolf fur color assignment
+
+trigger_switch = {
+	on_trigger = religion
+	silver_fangs = { FROM = { add_trait = white_wolf } }
+	get_of_fenris = { FROM = { add_trait = grey_wolf } }
+	black_furies = { FROM = { add_trait = black_wolf } }
+	silent_striders	= { FROM = { add_trait = black_wolf } }
+	warders_of_men = { FROM = { add_trait = brown_wolf } }
+	bone_gnawers = { FROM = { add_trait = brown_wolf } }
+	fianna = { FROM = { add_trait = grey_wolf } }
+	red_talons	= { FROM = { add_trait = grey_wolf } }
+	shadow_lords = FROM = { add_trait = black_wolf } }
+	black_spiral_dancers = { FROM = { add_trait = green_wolf } }
+	stargazers = { FROM = { add_trait = red_wolf } }
+}			
+			
+# werewolf gift assign
+			if = { 
+				limit = {	religion_group = garou_group }
+				add_trait = gift_Father_Wolf_1
+				}
+			if = {
+				limit = {	religion_group = garou_group }
+				add_trait = gift_Mother_Luna_1
+			}
+			if = {
+				limit = {	religion_group = wyrm_group }
+				add_trait = gift_Tainted_Moon_1
+			}						
+			if = {
+				limit = { trait = auspice_rahu }
+				random_list = {
+					50 = { add_trait = gift_Dominance_1 }
+					50 = { add_trait = gift_Strength_1 }
+				}
+			}
+			if = {
+				limit = { religion = get_of_fenris }
+				random_list = {
+					25 = { add_trait = gift_Inspiration_1 }
+					25 = { add_trait = gift_Rage_1 }
+					25 = { add_trait = gift_Strength_1 }
+					25 = { add_trait = gift_Battle_1 }
+				}			
+			}
+			if = {
+				limit = { religion = black_furies }
+				random_list = {
+					25 = { add_trait = gift_Death_1 }
+					25 = { add_trait = gift_Insight_1 }
+					25 = { add_trait = gift_Warding_1 }
+					25 = { add_trait = gift_Ending_1 }
+				}			
+			}						
+			if = {
+				limit = { trait = auspice_cahalith }
+				random_list = {
+					50 = { add_trait = gift_Inspiration_1 }
+					50 = { add_trait = gift_Knowledge_1 }
+				}			
+			}		
+			if = {
+				limit = { religion = silent_striders }
+				random_list = {
+					25 = { add_trait = gift_Elemental_1 }
+					25 = { add_trait = gift_Nature_1 }
+					25 = { add_trait = gift_Stealth_1 }
+					25 = { add_trait = gift_Stalking_1 }
+				}			
+			}		
+			if = {
+				limit = { religion = warders_of_men }
+				random_list = {
+					25 = { add_trait = gift_Knowledge_1 }
+					25 = { add_trait = gift_Shaping_1 }
+					25 = { add_trait = gift_Technology_1 }
+					25 = { add_trait = gift_Blending_1 }
+				}			
+			}			
+			if = {
+				limit = { trait = auspice_ithaeur }
+				random_list = {
+					50 = { add_trait = gift_Shaping_1 }
+					50 = { add_trait = gift_Elemental_1 }
+				}	
+			}
+			if = {
+				limit = { trait = auspice_elodoth }
+				random_list = {
+					50 = { add_trait = gift_Insight_1 }
+					50 = { add_trait = gift_Warding_1 }
+				}			
+			}									
+			if = {
+				limit = { trait = auspice_elodoth }
+				random_list = {
+					50 = { add_trait = gift_Evasion_1 }
+					50 = { add_trait = gift_Stealth_1 }
+				}			
+			}		
+			if = {
+				limit = { religion = silver_fangs }
+				random_list = {
+					25 = { add_trait = gift_Dominance_1 }
+					25 = { add_trait = gift_Knowledge_1 }
+					25 = { add_trait = gift_Strength_1 }
+					25 = { add_trait = gift_Alpha_1 }
+				}			
+			}										
+			if = {
+				limit = { religion = bone_gnawers }
+				random_list = {
+					25 = { add_trait = gift_Evasion_1 }
+					25 = { add_trait = gift_Knowledge_1 }
+					25 = { add_trait = gift_Blending_1 }		
+					25 = { add_trait = gift_Stealth_1 }								
+				}			
+			}								
+			if = {
+				limit = { trait = auspice_ithaeur }
+				random_list = {
+					50 = { add_trait = gift_Elemental_1 }
+					50 = { add_trait = gift_Shaping_1 }
+				}			
+			}	
+			if = {
+				limit = { religion_group = garou_group }
+				random_list = {
+					5 = { add_trait = gift_Dominance_1 }
+					5 = { add_trait = gift_Evasion_1 }
+					5 = { add_trait = gift_Weather_1 }
+					5 = { add_trait = gift_Alpha_1 }
+					5 = { add_trait = gift_Knowledge_1 }
+					5 = { add_trait = gift_Shaping_1 }
+					5 = { add_trait = gift_Technology_1 }
+					5 = { add_trait = gift_Blending_1 }	
+					5 = { add_trait = gift_Death_1 }
+					5 = { add_trait = gift_Insight_1 }
+					5 = { add_trait = gift_Warding_1 }
+					5 = { add_trait = gift_Ending_1 }	
+					5 = { add_trait = gift_Inspiration_1 }
+					5 = { add_trait = gift_Rage_1 }
+					5 = { add_trait = gift_Strength_1 }
+					5 = { add_trait = gift_Battle_1 }	
+					5 = { add_trait = gift_Elemental_1 }
+					5 = { add_trait = gift_Nature_1 }
+					5 = { add_trait = gift_Stealth_1 }
+					5 = { add_trait = gift_Stalking_1 }										
+				}			
+			}	 
+			if = {
+				limit = { religion = shadow_lords }
+				random_list = {
+					25 = { add_trait = gift_Weather_1 }
+					25 = { add_trait = gift_Dominance_1 }
+					25 = { add_trait = gift_Battle_1 }
+					25 = { add_trait = gift_Evasion_1 }
+				}			
+			}		
+			if = {
+				limit = { religion = silver_fangs }
+				random_list = {
+					25 = { add_trait = gift_Dominance_1 }
+					25 = { add_trait = gift_Agony_1 }
+					25 = { add_trait = gift_Scourging_1 }
+					25 = { add_trait = gift_Warding_1 }
+				}			
+			}							
+			if = {
+				limit = { religion = red_talons }
+				random_list = {
+					25 = { add_trait = gift_Nature_1 }
+					25 = { add_trait = gift_Savagery_1 }
+					25 = { add_trait = gift_Rage_1 }
+					25 = { add_trait = gift_Strength_1 }
+				}			
+			}									
+			if = {
+				limit = { religion = black_spiral_dancers }
+				add_trait = gift_Evasion_1 
+				add_trait = gift_Wound_1 
+			}		
+		}	
+	}
+}
+

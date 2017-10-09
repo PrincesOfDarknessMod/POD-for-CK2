@@ -1,0 +1,264 @@
+decisions = {
+			
+vampire_blood_heal_wounded_decision = {
+	is_high_prio = yes
+			potential = {
+				trait = vampire		
+				trait = wounded
+				NOT = { trait = torpor }
+				}
+			allow = {
+				trait = vampire		
+				trait = wounded			
+				NOT = { trait = torpor }
+				}
+			effect = {
+						character_event = { id = POD_VAMPIRE_BLOOD_HEAL.1 }	
+						
+				}  
+			ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 0
+				has_character_modifier = dire_blood_thirst
+				}
+			}			
+
+			
+			}			
+
+vampire_blood_heal_maiming_decision = {
+	is_high_prio = yes
+			potential = {
+				trait = vampire	
+				trait = maimed
+				NOT = { trait = torpor }
+				}
+			allow = {
+				trait = vampire	
+				trait = maimed	
+				NOT = { trait = torpor }				
+				}
+			effect = {
+						character_event = { id = POD_VAMPIRE_BLOOD_HEAL.2 }	
+						
+				}  
+			ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 0
+				has_character_modifier = dire_blood_thirst
+				}
+			}			
+			}
+			
+vampire_blood_heal_blinded_decision = {
+	is_high_prio = yes
+			potential = {
+				trait = vampire		
+				trait = blinded
+				NOT = { trait = torpor }
+				}
+			allow = {
+				trait = vampire		
+				trait = blinded	
+				NOT = { trait = torpor }
+				}
+			effect = {
+						character_event = { id = POD_VAMPIRE_BLOOD_HEAL.3 }	
+						
+				}  
+			ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				has_character_modifier = dire_blood_thirst
+				}
+			}			
+			}
+
+vampire_blood_heal_eunuch_decision = {
+	is_high_prio = yes
+			potential = {
+				trait = vampire	
+				trait = eunuch
+				ai = no
+				}
+			allow = {
+				ai = no
+				trait = vampire	
+				trait = eunuch				
+				}
+			effect = {
+						character_event = { id = POD_VAMPIRE_BLOOD_HEAL.4 }	
+						
+				}  
+			
+			}			
+			
+vampire_blood_heal_disfigured_decision = {
+	is_high_prio = yes
+			potential = {
+				trait = vampire	
+				trait = disfigured
+				NOT = { trait = torpor }
+				}
+			allow = {
+				trait = vampire	
+				trait = disfigured
+				NOT = { trait = torpor }
+				}
+			effect = {
+						character_event = { id = POD_VAMPIRE_BLOOD_HEAL.5 }	
+						
+				}  
+			ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 0
+				has_character_modifier = dire_blood_thirst
+				}
+			}			
+			}				
+	
+vampire_blood_heal_severely_injured_decision = {
+	is_high_prio = yes
+			potential = {
+				trait = vampire	
+				trait = severely_injured
+				NOT = { trait = torpor }
+				}
+			allow = {
+				trait = vampire	
+				trait = severely_injured	
+				NOT = { trait = torpor }				
+				}
+			effect = {
+						character_event = { id = POD_VAMPIRE_BLOOD_HEAL.6 }	
+						
+				}  
+			ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 0
+				has_character_modifier = dire_blood_thirst
+				}
+			}			
+			}	
+
+vampire_blood_heal_one_eyed_decision = {
+	is_high_prio = yes
+			potential = {
+				trait = vampire	
+				trait = one_eyed
+				NOT = { trait = torpor }
+				}
+			allow = {
+				trait = vampire	
+				trait = one_eyed	
+				NOT = { trait = torpor }
+				}
+			effect = {
+						character_event = { id = POD_VAMPIRE_BLOOD_HEAL.7 }	
+						
+				}  
+			ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 0
+				religion = einherjar
+				}
+			
+			modifier = {
+				factor = 0
+				has_artifact = Eye_of_Hazimel
+				}		
+			
+			modifier = {
+				factor = 0
+				has_character_modifier = dire_blood_thirst
+				}
+			}			
+			}	
+
+vampire_blood_heal_one_handed_decision = {
+	is_high_prio = yes
+			potential = {
+				trait = vampire	
+				trait = one_handed
+				NOT = { trait = torpor }
+				}
+			allow = {
+				trait = vampire	
+				trait = one_handed	
+				NOT = { trait = torpor }
+				}
+			effect = {
+						character_event = { id = POD_VAMPIRE_BLOOD_HEAL.8 }	
+						
+				}  
+			ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 0
+				has_character_modifier = dire_blood_thirst
+				}
+			}			
+			}	
+
+vampire_blood_heal_one_legged_decision = {
+	is_high_prio = yes
+			potential = {
+				trait = vampire	
+				trait = one_legged
+				NOT = { trait = torpor }
+				}
+			allow = {
+				trait = vampire	
+				trait = one_legged		
+				NOT = { trait = torpor }
+				}
+			effect = {
+						character_event = { id = POD_VAMPIRE_BLOOD_HEAL.9 }	
+						
+				}  
+			ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				has_character_modifier = dire_blood_thirst
+				}
+			}			
+			}	
+
+vampire_blood_heal_mangled_decision	= {
+	is_high_prio = yes
+			potential = {
+				trait = vampire	
+				trait = mangled
+				NOT = { trait = torpor }
+				}
+			allow = {
+				trait = vampire	
+				trait = mangled			
+				NOT = { trait = torpor }
+				}
+			effect = {
+						character_event = { id = POD_VAMPIRE_BLOOD_HEAL.10 }	
+						
+				}  
+			ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				has_character_modifier = dire_blood_thirst
+				}
+			}			
+			}	
+	}

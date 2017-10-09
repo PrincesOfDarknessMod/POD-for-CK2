@@ -1,0 +1,164 @@
+
+namespace = POD_WEREWOLF_RAGE
+
+character_event = {
+    id = POD_WEREWOLF_RAGE.1
+    desc = EVTDESC_POD_WEREWOLF_RAGE1
+	picture = GFX_evt_werewolf_rage
+	border = GFX_event_normal_frame_intrigue
+	
+    is_triggered_only = yes
+
+    option = {
+        name = EVTOPTA_POD_RAGE1
+					add_character_modifier = {
+						   name = rage
+							duration = 30
+					}
+    }
+	
+	}
+	
+	
+character_event = {
+    id = POD_WEREWOLF_RAGE.2
+    desc = EVTDESC_POD_WEREWOLF_RAGE2
+	picture = GFX_evt_werewolf_rage
+	border = GFX_event_normal_frame_intrigue
+	
+    is_triggered_only = yes
+
+    option = {
+        name = EVTOPTA_POD_RAGE2
+							remove_character_modifier = rage
+                            add_character_modifier = {
+                                name = severe_rage
+                                duration = 60
+							}
+    }
+	
+	}
+	
+character_event = {
+    id = POD_WEREWOLF_RAGE.3
+    desc = EVTDESC_POD_WEREWOLF_RAGE3
+	picture = GFX_evt_werewolf_rage
+	border = GFX_event_normal_frame_intrigue
+	
+    is_triggered_only = yes
+
+    option = {
+        name = EVTOPTA_POD_RAGE3
+							remove_character_modifier = severe_rage
+                            add_character_modifier = {
+                                name = dreadful_rage
+                                duration = 180
+                            }
+    }
+	
+	}	
+	
+character_event = {
+    id = POD_WEREWOLF_RAGE.4
+    desc = EVTDESC_POD_WEREWOLF_RAGE4
+	picture = GFX_evt_werewolf_rage
+	border = GFX_event_normal_frame_intrigue
+	
+    is_triggered_only = yes
+
+    option = {
+        name = EVTOPTA_POD_RAGE4
+							remove_character_modifier = dreadful_rage
+                            add_character_modifier = {
+                                name = dire_rage
+                                duration = 356
+								}
+							
+			}
+	
+	}	
+	
+character_event = {
+    id = POD_WEREWOLF_RAGE.5
+    desc = EVTDESC_POD_WEREWOLF_RAGE5
+	picture = GFX_evt_werewolf_rage
+	border = GFX_event_normal_frame_intrigue
+	
+    is_triggered_only = yes
+
+    option = {
+        name = EVTOPTA_POD_RAGE5
+		POD_werewolf_rage_dire_effect = yes
+    }
+	
+	}	
+	
+character_event = {
+    id = POD_WEREWOLF_RAGE.6
+    desc = EVTDESC_POD_WEREWOLF_RAGE6
+	picture = GFX_evt_werewolf_victim
+	border = GFX_event_normal_frame_intrigue
+	
+    is_triggered_only = yes
+
+    option = {
+        name = EVTOPTA_POD_RAGE6
+			remove_character_modifier = dire_rage
+			add_character_modifier = {
+			name = dreadful_rage
+			duration = 180
+			
+			}
+	}	
+}	
+	
+character_event = {
+    id = POD_WEREWOLF_RAGE.7
+    desc = EVTDESC_POD_WEREWOLF_RAGE7
+	picture = GFX_evt_werewolf_victim
+	border = GFX_event_normal_frame_intrigue
+	
+    is_triggered_only = yes
+
+    option = {
+        name = EVTOPTA_POD_RAGE7
+		
+             remove_character_modifier = dreadful_rage
+			 add_character_modifier = {
+             name = severe_rage
+            duration = 60
+				}	
+	}
+}	
+
+character_event = {
+    id = POD_WEREWOLF_RAGE.8
+    desc = EVTDESC_POD_WEREWOLF_RAGE8
+	picture = GFX_evt_werewolf_victim
+	border = GFX_event_normal_frame_intrigue
+	
+    is_triggered_only = yes
+
+    option = {
+        name = EVTOPTA_POD_RAGE7
+             remove_character_modifier = severe_rage
+			 add_character_modifier = {
+             name = rage
+			 duration = 30
+		}	
+	}
+}
+
+character_event = {
+    id = POD_WEREWOLF_RAGE.9
+    desc = EVTDESC_POD_WEREWOLF_RAGE8
+	picture = GFX_evt_werewolf_victim
+	border = GFX_event_normal_frame_intrigue
+	
+    is_triggered_only = yes
+
+    option = {
+        name = EVTOPTA_POD_RAGE9
+		remove_character_modifier = rage
+	}			
+	}

@@ -1,0 +1,82 @@
+namespace = POD_CWOD_title_succession
+
+character_event = {
+	id = POD_CWOD_title_succession.1
+	hide_window = yes
+	only_rulers = yes
+	ai = yes
+	
+	is_triggered_only = yes
+
+	immediate = {
+		if = { limit = { NOT = { trait = canon } }
+		primary_title = {
+			if = { limit = { 
+								NOT = { title = e_love } 
+								NOT = { title = e_fiefs_of_the_black_cross }
+								NOT = { title = e_assamites }
+								NOT = { title = e_setite }
+								NOT = { title = e_avalon }
+								NOT = { title = e_inconnu }
+								NOT = { title = e_tremere }
+								NOT = { title = e_voivodate }
+								NOT = { title = e_sea_of_shadows }
+								NOT = { title = e_midgard }
+								NOT = { title = e_giovanni }
+								NOT = { title = ashirra }
+								NOT = { title = e_anda }
+								NOT = { title = e_shadow_curtain }
+								NOT = { title = e_crescent_moon }
+								}
+			add_law = true_cognatic_succession
+			add_law = gavelkind
+			add_law = law_voting_power_1
+			
+			FROM = {
+			trigger_switch = {
+					on_trigger = trait
+					assamite = { primary_title = { add_law = succ_seniority } }
+					brujah = { primary_title = { add_law = succ_feudal_elective } }
+					cappadocian = { primary_title = { add_law = succ_seniority } }
+					followerofset = { primary_title = { add_law = succ_seniority } }
+					gangrel = { primary_title = { add_law = succ_seniority } }
+					giovanni = { primary_title = { add_law = succ_primogeniture } }
+					lasombra = { primary_title = { add_law = succ_feudal_elective } }
+					malkavian = { primary_title = { add_law = succ_ultimogeniture } }
+					nosferatu = { primary_title = { add_law = succ_seniority } }
+					ravnos = { primary_title = { add_law = succ_seniority } }
+					toreador = { primary_title = { add_law = succ_elective_gavelkind } }
+					tremere = { primary_title = { add_law = succ_tanistry } }
+					tzimisce = { primary_title = { add_law = succ_gavelkind } }
+					ventrue = { primary_title = { add_law = succ_primogeniture } }
+					baali = { primary_title = { add_law = succ_feudal_elective } }
+			}
+			
+			if = { limit = { religion = anda }
+				primary_title = { add_law = succ_turkish_succession }
+			}
+			
+			if = { limit = { religion = einherjar }
+				primary_title = { add_law = succ_seniority }
+			}
+			
+			if = { limit = { religion = vampire_promethean }
+				primary_title = { add_law = succ_feudal_elective }
+				}
+			
+			if = { limit = { religion = inconnu } 
+				primary_title = { add_law = succ_seniority }
+				}
+			}
+				
+		}
+		
+		}
+		
+		}
+		
+		}
+
+	}
+		
+

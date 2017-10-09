@@ -1,0 +1,246 @@
+# Setup random new commoner characters as supernaturals or mortals	
+namespace = setup_commoner			
+				
+character_event = {
+	id = setup_commoner.1
+	hide_window = yes
+	max_age = 100
+	
+	trigger = {
+		NOT = { is_ruler = yes }
+		NOT = { has_character_flag = FLAG_POD_SETUP_COMMONER_FIRED }		
+		NOT = { trait = mortal }
+		NOT = { trait = vampire }
+		NOT = { trait = werewolf }
+		NOT = { trait = mage }
+		NOT = { trait = mummy }
+		NOT = { trait = changeling }
+		NOT = { trait = promethean }
+		NOT = { trait = geist }
+		NOT = { trait = demon }
+		NOT = { trait = revenant }
+		NOT = { trait = storyteller }
+		OR = {
+			has_global_flag = bookmark1142	
+			has_global_flag = bookmark1250
+			has_global_flag = bookmark1533
+		}
+		location = {
+			OR = {
+				has_province_flag = POD_WOD_province_supe_religion
+				religion_group = longinus_group
+				religion_group = abrahamic_vampire_group
+				religion_group = pagan_vampire_group
+				religion_group = forsworn_vampire_group
+				religion_group = camarilla_group
+				religion_group = dharmic_vampire_group
+				religion_group = pure_group
+				religion_group = forsaken_group
+				religion_group = bale_hounds_group	
+				religion_group = pyramid_group
+				religion_group = diamond_group
+				religion_group = scelesti_group
+				religion_group = timori_group
+				religion_group = pharmakons_group
+				religion_group = apostates_group
+				religion = orphan
+				religion_group = innocent_group
+				religion_group = hunter_group
+			}
+		}		
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+		modifier = {
+		factor = 0.1 
+		}		
+	}
+	
+	immediate = {
+		set_character_flag = FLAG_POD_SETUP_COMMONER_FIRED
+		location = {	
+			reverse_religion = ROOT
+			reverse_culture = ROOT
+		}	
+		# children
+		if = {
+			limit = {
+				NOT = { is_adult = yes }							
+			}
+			add_trait = mortal
+#				religion = { mother = {religion } 
+		}
+		if = {
+			limit = {
+				is_adult = yes	
+			}
+# vamp mercs
+			if = { 
+				limit = {
+					NOT = { religion = revenant_longinus }
+					NOT = { religion = revenant_abrahamic }
+					NOT = { religion = revenant_unaligned }
+					NOT = { religion = revenant-dharma }	
+					NOT = { religion = revenant_duolosi }
+					OR = { 
+						religion_group = longinus_group
+						religion_group = abrahamic_vampire_group
+						religion_group = pagan_vampire_group
+						religion_group = forsworn_vampire_group
+						religion_group = camarilla_group
+						religion_group = dharmic_vampire_group
+					}
+					OR = {
+						liege = { mercenary = yes }
+						liege = { holy_order = yes }
+						trait = peasant_leader
+					}
+				}
+				add_trait = vampire
+						
+				character_event = { id = vampire_commoner.1 }
+			}
+# revenant mercs
+			if = {
+				limit = {	
+					OR = {
+						religion = revenant_longinus 
+						religion = revenant_abrahamic 
+						religion = revenant_unaligned
+						religion = revenant-dharma 	
+						religion = revenant_duolosi 
+					}
+					OR = {
+						liege = { mercenary = yes }
+						liege = { holy_order = yes }
+						trait = peasant_leader
+					}
+				}
+				add_trait = revenant
+				
+				character_event = { id = revenant_commoner.1 }
+			}	
+# werewolf mercs
+			if = { 
+				limit = {
+					OR = { 
+						religion_group = forsaken_group
+						religion_group = pure_group
+						religion_group = bale_hounds_group									}
+					OR = {
+						liege = { mercenary = yes }
+						liege = { holy_order = yes }
+						trait = peasant_leader
+					}
+				}
+				add_trait = werewolf
+				add_trait = hishu
+				character_event = { id = werewolf_commoner.1 }	
+			}
+# mage mercs
+			if = { 
+				limit = {
+					OR = { 
+						religion_group = pyramid_group
+						religion_group = diamond_group
+						religion_group = scelesti_group
+						religion_group = timori_group
+						religion_group = pharmakons_group
+						religion_group = apostates_group								
+					}
+					OR = {
+						liege = { mercenary = yes }
+						liege = { holy_order = yes }
+						trait = peasant_leader
+					}
+				}
+				add_trait = mage
+				character_event = { id = mage_commoner.1 }	
+			}
+# supe_hunters					
+			if = { 
+				limit = {
+					religion_group = hunter_group 
+				}
+				add_trait = mortal
+				add_trait = supe_hunter
+				character_event = { id = supe_hunter_commoner.1 }
+			}
+			if = {
+				limit = { 
+					NOT = { trait = mortal }
+					NOT = { trait = vampire }
+					NOT = { trait = werewolf }
+					NOT = { trait = mage }
+					NOT = { trait = mummy }
+					NOT = { trait = changeling }
+					NOT = { trait = promethean }
+					NOT = { trait = geist }
+					NOT = { trait = demon }
+					NOT = { trait = revenant }
+				}	
+				random_list = {
+					1 = {
+						# vampire
+						add_trait = vampire
+						
+						character_event = { id = vampire_commoner.1 }
+					}
+					1 = {
+						# werewolf
+						add_trait = werewolf
+						add_trait = hishu
+						character_event = { id = werewolf_commoner.1 }
+					}
+					1 = {
+						# mage
+						add_trait = mage
+						character_event = { id = mage_commoner.1 }
+					}
+					1 = {
+						# changeling
+						add_trait = changeling
+						character_event = { id = changeling_commoner.1 }
+					}
+					1 = {
+						# mummy
+						add_trait = mummy
+											
+						character_event = { id = mummy_commoner.1 }
+					}
+					1 = {
+						# geist
+						add_trait = geist
+											
+						character_event = { id = geist_commoner.1 }
+					}
+					1 = {
+						# demon
+						add_trait = demon
+						
+						character_event = { id = demon_commoner.1 }
+					}
+					1 = {
+						# promethean
+						add_trait = promethean
+											
+						character_event = { id = promethean_commoner.1 }
+					}
+					1 = { 
+						# revenant 
+						add_trait = revenant
+						
+						character_event = { id = revenant_commoner.1 }
+					}
+					91 = { 
+						# mortal
+						add_trait = mortal
+						character_event = { id = mortal_commoner.1 }	
+					}						
+				}		
+			}			
+		}	
+	}
+}
+	

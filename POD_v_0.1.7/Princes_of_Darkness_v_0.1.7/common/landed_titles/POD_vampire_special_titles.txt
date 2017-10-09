@@ -4,6 +4,10 @@ e_invictus = {
 		color = { 102 0 51 }
 		capital = 496 # Germany
 		culture = german
+		title = "NACHT_KAISER"
+		title_female = "NACHT_KAISER"		
+		caliphate = yes			
+		controls_religion = invictus		
 		short_name = yes
 		allow = {
 			OR = {
@@ -26,6 +30,8 @@ e_invictus = {
 e_adamantes_athanatoi = {
 		color = { 178 0 127 }
 		capital = 496 # Byzantion
+		caliphate = yes			
+		controls_religion = adamantes_athanatoi		
 		culture = greek
 		short_name = yes
 		allow = {
@@ -43,7 +49,7 @@ e_adamantes_athanatoi = {
 
 e_ager_sanguinis = {
 # Field of Blood, the Crusader States
-		color = { 204 0.0 0.0 }
+		color = { 204 0 0 }
 		dignity = 5
 		capital = 774 # Jerusalem
 		culture = frankish
@@ -74,7 +80,10 @@ e_midgard = {
 			trait = gangrel
 			trait = vampire
 			NOT = { trait = werewolf }
+			OR = {
 			religion = circle_of_the_crone
+			religion = einherjhar
+			}
 			prestige = 1000
 			piety = 1000	
 			realm_size = 50				
@@ -102,10 +111,20 @@ e_voivodate	= {
 					culture = russian
 					culture = polish
 			}
+<<<<<<< HEAD
 			trait = ventrue
+=======
+>>>>>>> master
 			trait = vampire
 			NOT = { trait = werewolf }
-			religion = circle_of_the_crone
+			OR = {
+					AND = { religion = koldun
+							trait = tzimisce
+							has_global_flag = bookmark1230 }
+					AND = {
+							religion = circle_of_the_crone
+							trait = ventrue }
+				}
 			prestige = 1000
 			piety = 1000	
 			realm_size = 50				
@@ -123,7 +142,13 @@ e_sea_of_shadows = {
 		capital = 343 # Syrakousa, Sicily
 		culture = italian
 		allow = {
-			trait = ventrue
+			OR = { trait = lasombra
+				   AND = { trait = ventrue
+						   OR =  { has_global_flag = bookmark1142
+								   has_global_flag = bookmark1250
+						   }
+						}
+				   }
 			trait = vampire
 			NOT = { trait = werewolf }
 			prestige = 1000
@@ -141,13 +166,15 @@ e_avalon = {
 		dignity = 5
 		capital = 32 # London, Middlesex, England
 		culture = saxon
+		short_name = yes		
 		allow = {
 			OR = {
 					trait = daeva
 					trait = venture
 					trait = mekhet
+					trait = toreador
+					trait = lasombra
 				}		
-			trait = ventrue
 			trait = vampire
 			NOT = { trait = werewolf }
 			prestige = 1000
@@ -158,10 +185,10 @@ e_avalon = {
 		}
 }
 
-e_courts_of_love = {
+e_love = {
 		color = { 178 0 0 }
 		dignity = 5
-		title = "LORD"
+		title = "KING"
 		title_female = "QUEEN"
 		capital = 112 # Paris, Valois, France
 		culture = frankish
@@ -170,6 +197,8 @@ e_courts_of_love = {
 					trait = daeva
 					trait = venture
 					trait = mekhet
+					trait = toreador
+					trait = lasombra
 				}
 			trait = vampire
 			NOT = { trait = werewolf }
@@ -352,4 +381,29 @@ e_banu_shaitan = {
 #		}
 #		religion=banu_shaitan
 #	}
+<<<<<<< HEAD
+=======
+}
+
+e_ahrimanite = {
+		color = { 204 0 0 }
+		capital = 693 # Baghdad
+		culture = persian
+		title = "Shahanshah"
+		title_female = "Bambisnan Bambisn"		
+		caliphate = yes			
+		controls_religion = aka_manah		
+		short_name = yes
+		allow = {
+			OR = {
+					trait = daeva
+				}		
+			culture = persian
+			religion = aka_manah
+			trait = vampire
+			NOT = { trait = werewolf }	
+		}
+		gain_effect = {
+		}
+>>>>>>> master
 }

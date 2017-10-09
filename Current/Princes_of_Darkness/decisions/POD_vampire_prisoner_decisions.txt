@@ -1,0 +1,1177 @@
+targeted_decisions = {
+
+    drain_prisoner_decision = {
+        filter = court
+        ai_target_filter = court
+        only_rulers = yes
+
+        from_potential = {
+            trait = vampire
+            num_of_prisoners = 1
+        }
+   
+        potential = {
+		    host = { character = FROM }
+            prisoner = yes
+			NOT = { trait = vampire } 
+		}
+        allow = {
+            host = { character = FROM }
+            prisoner = yes
+			NOT = { trait = vampire } 
+        }
+        effect = {
+            hidden_tooltip = {
+               
+                death = {
+                    death_reason = death_murder
+                    killer = FROM
+                }
+                trigger_switch = {
+                    on_trigger = trait
+                    werewolf = {
+                        FROM = {
+                            add_character_modifier = {
+                                name = blood_of_werewolf
+                                duration = 356
+                            }
+							POD_vampire_blood_thirst_decrease_effect = yes
+                        }
+                    }
+                    mage = {
+                        FROM = {
+                            add_character_modifier = {
+                                name = blood_of_mage
+                                duration = 356
+                            }
+							POD_vampire_blood_thirst_decrease_effect = yes
+                        }
+                    }
+                    demon = {
+                        FROM = {
+                            add_character_modifier = {
+                                name = blood_of_demon
+                                duration = 356
+                            }
+							POD_vampire_blood_thirst_decrease_effect = yes
+                        }
+                    }
+                    changeling = {
+                        FROM = {
+                            add_character_modifier = {
+                                name = blood_of_changeling
+                                duration = 356
+                            }
+							POD_vampire_blood_thirst_decrease_effect = yes
+                        }
+                    }
+                    mummy = {
+                        FROM = {
+                            add_character_modifier = {
+                                name = blood_of_mummy
+                                duration = 356
+                            }
+							POD_vampire_blood_thirst_decrease_effect = yes
+                        }
+                    }
+                    promethean = {
+                        FROM = {
+                            add_character_modifier = {
+                                name = blood_of_promethean
+                                duration = 356
+                            }
+							POD_vampire_blood_thirst_decrease_effect = yes
+                        }
+                    }
+                    geist = {
+                        FROM = {
+                            add_character_modifier = {
+                                name = blood_of_geist
+                                duration = 356
+                            }
+							POD_vampire_blood_thirst_decrease_effect = yes
+                        }
+                    }
+                    revenant = {
+                        FROM = {
+                            add_character_modifier = {
+                                name = blood_of_revenant
+                                duration = 30
+                            }
+							POD_vampire_blood_thirst_decrease_effect = yes
+                        }
+                    }						
+                    wolf-blooded = {
+                        FROM = {
+                            add_character_modifier = {
+                                name = blood_of_wolf-blooded
+                                duration = 30
+                            }
+							POD_vampire_blood_thirst_decrease_effect = yes
+                        }
+                    }					
+					
+                    mortal = {
+                        FROM = {
+                            add_character_modifier = {
+                                name = blood_of_mortal
+                                duration = 30
+                            }
+							POD_vampire_blood_thirst_decrease_effect = yes
+                        }
+                    }
+                }
+                FROM = {
+                    if = {
+                        limit = { NOT = { trait = cruel } }
+                        random = {
+                            chance = 25
+                            add_trait = cruel
+                            character_event = { id = 38259 }
+                        }
+                    }
+                }
+                mother = {
+                    opinion = {
+                        modifier = opinion_killed_close_kin
+                        who = FROM
+                    }
+                }
+                father = {
+                    opinion = {
+                        modifier = opinion_killed_close_kin
+                        who = FROM
+                    }
+                }
+                spouse = {
+                    opinion = {
+                        modifier = opinion_killed_close_kin
+                        who = FROM
+                    }
+                }
+                any_child = {
+                    opinion = {
+                        modifier = opinion_killed_father
+                        who = FROM
+                    }
+                }
+                if = {
+                    limit = {
+                        FROM = {
+                            NOT = { dynasty = ROOT }
+                            NOT = { sibling = ROOT }
+                        }
+                    }
+                    any_sibling = {
+                        opinion = {
+                            modifier = opinion_killed_close_kin
+                            who = FROM
+                        }
+                    }
+                }
+            }
+        }
+        revoke_allowed = {
+            always = no
+        }
+        ai_will_do = {
+            factor = 1
+           
+            modifier = {
+                factor = 0
+                reverse_opinion = { who = FROM value = 40 }
+            }
+			
+			modifier = {
+				factor = 0.1
+				ROOT = { trait = canon }	
+			}
+			
+            modifier = {
+                factor = 0
+                FROM = { trait = kind }
+            }
+            modifier = {
+                factor = 0.2 # Less likely to do it
+            }
+		
+            modifier = {
+                factor = 0.1 # Less likely to do it
+                FROM = { society_member_of = via_caeli }
+            } 		   
+	
+            modifier = {
+                factor = 0.2 # Less likely to do it
+                FROM = { society_member_of = tariq_el-sama }
+            } 	
+	
+            modifier = {
+                factor = 0.2 # Less likely to do it
+                FROM = { society_member_of = via_humanitatis }
+            } 			
+			
+           modifier = {
+                factor = 0.1 # Less likely to do it
+                FROM = { society_member_of = tariq_el-umma }
+            } 	
+			
+            modifier = {
+                factor = 1.2
+                FROM = {
+                    OR = {
+                        trait = cruel
+                        trait = impaler
+                    }
+                }
+            }
+			
+            modifier = {
+                factor = 1.2
+                FROM = {
+                    has_character_modifier = blood_thirst
+                }
+            }			
+
+            modifier = {
+                factor = 1.5
+                FROM = {
+                    has_character_modifier = severe_blood_thirst
+                }
+            }
+
+            modifier = {
+                factor = 2
+                FROM = {
+                    has_character_modifier = dreadful_blood_thirst
+                }
+            }
+
+            modifier = {
+                factor = 3
+                FROM = {
+                    has_character_modifier = dire_blood_thirst
+                }
+            }			
+        }
+    }
+	
+    diablerize_vampire_prisoner_decision = {
+        filter = court
+        ai_target_filter = court
+        only_rulers = yes
+
+        from_potential = {
+            num_of_prisoners = 1
+            trait = vampire
+        }
+   
+        potential = {
+			trait = vampire
+			prisoner = yes
+		}
+		
+        allow = {
+            host = { character = FROM }
+            prisoner = yes
+            trait = vampire
+        }
+		
+        effect = {
+            hidden_tooltip = {
+                death = {
+                    death_reason = death_murder
+                    killer = FROM
+                }
+                FROM = {
+                    add_character_modifier = {
+                        name = blood_of_vampire
+                        duration = 356
+                    }
+					POD_vampire_blood_thirst_decrease_effect = yes
+                    add_trait = diabolist
+                    #this relies on bloodpotency traits being opposite of each other
+                    trigger_switch = {
+                        on_trigger = trait
+                        bloodpotency_1 = {
+                            if = { 
+                                limit = { 
+                                    OR = {    
+                                        ROOT = { trait = bloodpotency_2 }
+                                        ROOT = { trait = bloodpotency_3 }
+                                        ROOT = { trait = bloodpotency_4 }
+                                        ROOT = { trait = bloodpotency_5 }
+                                        ROOT = { trait = bloodpotency_6 }
+                                        ROOT = { trait = bloodpotency_7 }
+                                        ROOT = { trait = bloodpotency_8 }
+                                        ROOT = { trait = bloodpotency_9 }
+                                        ROOT = { trait = bloodpotency_10 }
+                                    }
+                                }
+                                add_trait = bloodpotency_2
+                            }
+                        }
+                        bloodpotency_2 = {
+                            if = { 
+                                limit = { 
+                                    OR = {    
+                                        ROOT = { trait = bloodpotency_3 }
+                                        ROOT = { trait = bloodpotency_4 }
+                                        ROOT = { trait = bloodpotency_5 }
+                                        ROOT = { trait = bloodpotency_6 }
+                                        ROOT = { trait = bloodpotency_7 }
+                                        ROOT = { trait = bloodpotency_8 }
+                                        ROOT = { trait = bloodpotency_9 }
+                                        ROOT = { trait = bloodpotency_10 }
+                                    }
+                                }
+                                add_trait = bloodpotency_3
+                            }
+                        }
+                        bloodpotency_3 = {
+                            if = {    
+                                limit = { 
+                                    OR = {    
+                                        ROOT = { trait = bloodpotency_4 }
+                                        ROOT = { trait = bloodpotency_5 }
+                                        ROOT = { trait = bloodpotency_6 }
+                                        ROOT = { trait = bloodpotency_7 }
+                                        ROOT = { trait = bloodpotency_8 }
+                                        ROOT = { trait = bloodpotency_9 }
+                                        ROOT = { trait = bloodpotency_10 }
+                                    }
+                                }
+                                add_trait = bloodpotency_4
+                            }
+                        }
+                        bloodpotency_4 = {
+                            if = { 
+                                limit = { 
+                                    OR = {    
+                                        ROOT = { trait = bloodpotency_5 }
+                                        ROOT = { trait = bloodpotency_6 }
+                                        ROOT = { trait = bloodpotency_7 }
+                                        ROOT = { trait = bloodpotency_8 }
+                                        ROOT = { trait = bloodpotency_9 }
+                                        ROOT = { trait = bloodpotency_10 }
+                                    }
+                                }
+                                add_trait = bloodpotency_5
+                            }
+                        }
+                        bloodpotency_5 = {
+                            if = { 
+                                limit = { 
+                                    OR = {    
+                                        ROOT = { trait = bloodpotency_6 }
+                                        ROOT = { trait = bloodpotency_7 }
+                                        ROOT = { trait = bloodpotency_8 }
+                                        ROOT = { trait = bloodpotency_9 }
+                                        ROOT = { trait = bloodpotency_10 }
+                                    }
+                                }
+                                add_trait = bloodpotency_6
+                            }
+                        }
+                        bloodpotency_6 = {
+                            if = { 
+                                limit = { 
+                                    OR = {    
+                                            ROOT = { trait = bloodpotency_7 }
+                                            ROOT = { trait = bloodpotency_8 }
+                                            ROOT = { trait = bloodpotency_9 }
+                                            ROOT = { trait = bloodpotency_10 }
+                                    }
+                                }
+                                add_trait = bloodpotency_7
+                            }
+                        }
+                        bloodpotency_7 = {
+                            if = { 
+                                limit = { 
+                                    OR = {    
+                                        ROOT = { trait = bloodpotency_8 }
+                                        ROOT = { trait = bloodpotency_9 }
+                                        ROOT = { trait = bloodpotency_10 }
+                                    }
+                                }
+                                add_trait = bloodpotency_8
+                            }
+                        }
+                        bloodpotency_8 = {
+                            if = {
+                                limit = { 
+                                    OR = {    
+                                        ROOT = { trait = bloodpotency_9 }
+                                        ROOT = { trait = bloodpotency_10 }
+                                    }
+                                }
+                                add_trait = bloodpotency_9
+                            }
+                        }
+                        bloodpotency_9 = {
+                            if = { 
+                                limit = { 
+                                    ROOT = { trait = bloodpotency_10 }
+                                }
+                                add_trait = bloodpotency_10
+                            }
+                        }
+					
+						
+                    }
+
+			if = { 
+				limit = {
+					OR = {
+						has_global_flag = bookmark767
+						has_global_flag = bookmark1230
+						has_global_flag = bookmark1466
+						has_global_flag = bookmark1355
+					}
+				}
+					
+					if = { limit = {
+								ROOT = { trait = vampgeneration1 }
+								}
+								add_trait = vampgeneration1
+							}
+
+					if = { limit = {
+								ROOT = { trait = vampgeneration2 }
+								NOR = { trait = vampgeneration1
+										trait = vampgeneration2 }
+								}
+								add_trait = vampgeneration2
+								if = { limit = { trait = vampgeneration3 }
+									remove_trait = vampgeneration3
+									}
+								if = { limit = { trait = vampgeneration4 }
+									remove_trait = vampgeneration4
+									}									
+							
+							}							
+
+					if = { limit = {
+								ROOT = { trait = vampgeneration3 }
+								NOR = { trait = vampgeneration1
+										trait = vampgeneration2
+										trait = vampgeneration3
+										}
+								}
+								add_trait = vampgeneration3
+								if = { limit = { trait = vampgeneration4 }
+									remove_trait = vampgeneration4
+									}
+							
+							}								
+							
+					if = { limit = {
+								ROOT = { trait = vampgeneration4 }
+								NOR = { trait = vampgeneration1
+										trait = vampgeneration2
+										trait = vampgeneration3
+										trait = vampgeneration4
+										}
+								}
+								add_trait = vampgeneration4
+								if = { limit = { trait = vampgeneration5 }
+									remove_trait = vampgeneration5		
+									}									
+								if = { limit = { trait = vampgeneration6 }
+									remove_trait = vampgeneration6		
+									}									
+								if = { limit = { trait = vampgeneration7 }
+									remove_trait = vampgeneration7		
+									}								
+								if = { limit = { trait = vampgeneration8 }
+									remove_trait = vampgeneration8		
+									}									
+								if = { limit = { trait = vampgeneration9 }
+									remove_trait = vampgeneration9		
+									}									
+								if = { limit = { trait = vampgeneration10 }
+									remove_trait = vampgeneration10		
+									}							
+								if = { limit = { trait = vampgeneration11 }
+									remove_trait = vampgeneration11		
+									}								
+								if = { limit = { trait = vampgeneration12 }
+									remove_trait = vampgeneration12		
+									}								
+								if = { limit = { trait = vampgeneration13 }
+									remove_trait = vampgeneration13		
+									}
+								if = { limit = { trait = vampgeneration14 }
+									remove_trait = vampgeneration14
+									}									
+								if = { limit = { trait = vampgeneration15 }
+									remove_trait = vampgeneration15
+									}
+							}	
+
+					if = { limit = {
+								ROOT = { trait = vampgeneration5 }
+								NOR = { trait = vampgeneration1
+										trait = vampgeneration2
+										trait = vampgeneration3
+										trait = vampgeneration4
+										trait = vampgeneration5
+										}
+								}
+								add_trait = vampgeneration5
+								if = { limit = { trait = vampgeneration6 }
+									remove_trait = vampgeneration6		
+									}									
+								if = { limit = { trait = vampgeneration7 }
+									remove_trait = vampgeneration7		
+									}								
+								if = { limit = { trait = vampgeneration8 }
+									remove_trait = vampgeneration8		
+									}									
+								if = { limit = { trait = vampgeneration9 }
+									remove_trait = vampgeneration9		
+									}									
+								if = { limit = { trait = vampgeneration10 }
+									remove_trait = vampgeneration10		
+									}							
+								if = { limit = { trait = vampgeneration11 }
+									remove_trait = vampgeneration11		
+									}								
+								if = { limit = { trait = vampgeneration12 }
+									remove_trait = vampgeneration12		
+									}								
+								if = { limit = { trait = vampgeneration13 }
+									remove_trait = vampgeneration13		
+									}
+								if = { limit = { trait = vampgeneration14 }
+									remove_trait = vampgeneration14
+									}									
+								if = { limit = { trait = vampgeneration15 }
+									remove_trait = vampgeneration15
+									}
+							}	
+
+					if = { limit = {
+								ROOT = { trait = vampgeneration6 }
+								NOR = { trait = vampgeneration1
+										trait = vampgeneration2
+										trait = vampgeneration3
+										trait = vampgeneration4
+										trait = vampgeneration5
+										trait = vampgeneration6
+										}
+								}
+								add_trait = vampgeneration6
+								if = { limit = { trait = vampgeneration7 }
+									remove_trait = vampgeneration7		
+									}								
+								if = { limit = { trait = vampgeneration8 }
+									remove_trait = vampgeneration8		
+									}									
+								if = { limit = { trait = vampgeneration9 }
+									remove_trait = vampgeneration9		
+									}									
+								if = { limit = { trait = vampgeneration10 }
+									remove_trait = vampgeneration10		
+									}							
+								if = { limit = { trait = vampgeneration11 }
+									remove_trait = vampgeneration11		
+									}								
+								if = { limit = { trait = vampgeneration12 }
+									remove_trait = vampgeneration12		
+									}								
+								if = { limit = { trait = vampgeneration13 }
+									remove_trait = vampgeneration13		
+									}
+								if = { limit = { trait = vampgeneration14 }
+									remove_trait = vampgeneration14
+									}									
+								if = { limit = { trait = vampgeneration15 }
+									remove_trait = vampgeneration15
+									}
+							}								
+						
+					if = { limit = {
+								ROOT = { trait = vampgeneration7 }
+								NOR = { trait = vampgeneration1
+										trait = vampgeneration2
+										trait = vampgeneration3
+										trait = vampgeneration4
+										trait = vampgeneration5
+										trait = vampgeneration6
+										trait = vampgeneration7
+										}
+								}
+								add_trait = vampgeneration7
+								if = { limit = { trait = vampgeneration8 }
+									remove_trait = vampgeneration8		
+									}									
+								if = { limit = { trait = vampgeneration9 }
+									remove_trait = vampgeneration9		
+									}									
+								if = { limit = { trait = vampgeneration10 }
+									remove_trait = vampgeneration10		
+									}							
+								if = { limit = { trait = vampgeneration11 }
+									remove_trait = vampgeneration11		
+									}								
+								if = { limit = { trait = vampgeneration12 }
+									remove_trait = vampgeneration12		
+									}								
+								if = { limit = { trait = vampgeneration13 }
+									remove_trait = vampgeneration13		
+									}
+								if = { limit = { trait = vampgeneration14 }
+									remove_trait = vampgeneration14
+									}									
+								if = { limit = { trait = vampgeneration15 }
+									remove_trait = vampgeneration15
+									}
+							}	
+							
+					if = { limit = {
+								ROOT = { trait = vampgeneration8 }
+								NOR = { trait = vampgeneration1
+										trait = vampgeneration2
+										trait = vampgeneration3
+										trait = vampgeneration4
+										trait = vampgeneration5
+										trait = vampgeneration6
+										trait = vampgeneration7
+										trait = vampgeneration8
+										}
+								}
+								add_trait = vampgeneration8
+								if = { limit = { trait = vampgeneration9 }
+									remove_trait = vampgeneration9		
+									}									
+								if = { limit = { trait = vampgeneration10 }
+									remove_trait = vampgeneration10		
+									}							
+								if = { limit = { trait = vampgeneration11 }
+									remove_trait = vampgeneration11		
+									}								
+								if = { limit = { trait = vampgeneration12 }
+									remove_trait = vampgeneration12		
+									}								
+								if = { limit = { trait = vampgeneration13 }
+									remove_trait = vampgeneration13		
+									}
+								if = { limit = { trait = vampgeneration14 }
+									remove_trait = vampgeneration14
+									}									
+								if = { limit = { trait = vampgeneration15 }
+									remove_trait = vampgeneration15
+									}
+							}								
+						
+					if = { limit = {
+								ROOT = { trait = vampgeneration9 }
+								NOR = { trait = vampgeneration1
+										trait = vampgeneration2
+										trait = vampgeneration3
+										trait = vampgeneration4
+										trait = vampgeneration5
+										trait = vampgeneration6
+										trait = vampgeneration7
+										trait = vampgeneration8
+										trait = vampgeneration9
+										}
+								}
+								add_trait = vampgeneration9
+								if = { limit = { trait = vampgeneration10 }
+									remove_trait = vampgeneration10		
+									}							
+								if = { limit = { trait = vampgeneration11 }
+									remove_trait = vampgeneration11		
+									}								
+								if = { limit = { trait = vampgeneration12 }
+									remove_trait = vampgeneration12		
+									}								
+								if = { limit = { trait = vampgeneration13 }
+									remove_trait = vampgeneration13		
+									}
+								if = { limit = { trait = vampgeneration14 }
+									remove_trait = vampgeneration14
+									}									
+								if = { limit = { trait = vampgeneration15 }
+									remove_trait = vampgeneration15
+									}
+							}							
+						
+					if = { limit = {
+								ROOT = { trait = vampgeneration10 }
+								NOR = { trait = vampgeneration1
+										trait = vampgeneration2
+										trait = vampgeneration3
+										trait = vampgeneration4
+										trait = vampgeneration5
+										trait = vampgeneration6
+										trait = vampgeneration7
+										trait = vampgeneration8
+										trait = vampgeneration9
+										trait = vampgeneration10
+										}
+								}
+								add_trait = vampgeneration10
+								if = { limit = { trait = vampgeneration11 }
+									remove_trait = vampgeneration11		
+									}								
+								if = { limit = { trait = vampgeneration12 }
+									remove_trait = vampgeneration12		
+									}								
+								if = { limit = { trait = vampgeneration13 }
+									remove_trait = vampgeneration13		
+									}
+								if = { limit = { trait = vampgeneration14 }
+									remove_trait = vampgeneration14
+									}									
+								if = { limit = { trait = vampgeneration15 }
+									remove_trait = vampgeneration15
+									}
+							}			
+
+					if = { limit = {
+								ROOT = { trait = vampgeneration11 }
+								NOR = { trait = vampgeneration1
+										trait = vampgeneration2
+										trait = vampgeneration3
+										trait = vampgeneration4
+										trait = vampgeneration5
+										trait = vampgeneration6
+										trait = vampgeneration7
+										trait = vampgeneration8
+										trait = vampgeneration9
+										trait = vampgeneration10
+										trait = vampgeneration11
+										}
+								}
+								add_trait = vampgeneration11
+								if = { limit = { trait = vampgeneration12 }
+									remove_trait = vampgeneration12		
+									}								
+								if = { limit = { trait = vampgeneration13 }
+									remove_trait = vampgeneration13		
+									}
+								if = { limit = { trait = vampgeneration14 }
+									remove_trait = vampgeneration14
+									}									
+								if = { limit = { trait = vampgeneration15 }
+									remove_trait = vampgeneration15
+									}
+							}									
+							
+					if = { limit = {
+								ROOT = { trait = vampgeneration12 }
+								NOR = { trait = vampgeneration1
+										trait = vampgeneration2
+										trait = vampgeneration3
+										trait = vampgeneration4
+										trait = vampgeneration5
+										trait = vampgeneration6
+										trait = vampgeneration7
+										trait = vampgeneration8
+										trait = vampgeneration9
+										trait = vampgeneration10
+										trait = vampgeneration11
+										trait = vampgeneration12
+										}
+								}
+								add_trait = vampgeneration12
+								if = { limit = { trait = vampgeneration13 }
+									remove_trait = vampgeneration13		
+									}
+								if = { limit = { trait = vampgeneration14 }
+									remove_trait = vampgeneration14
+									}									
+								if = { limit = { trait = vampgeneration15 }
+									remove_trait = vampgeneration15
+									}									
+
+							}			
+							
+					if = { limit = {
+								ROOT = { trait = vampgeneration13 }
+								NOR = { trait = vampgeneration1
+										trait = vampgeneration2
+										trait = vampgeneration3
+										trait = vampgeneration4
+										trait = vampgeneration5
+										trait = vampgeneration6
+										trait = vampgeneration7
+										trait = vampgeneration8
+										trait = vampgeneration9
+										trait = vampgeneration10
+										trait = vampgeneration11
+										trait = vampgeneration12
+										trait = vampgeneration13
+										}
+								}
+								add_trait = vampgeneration13
+								if = { limit = { trait = vampgeneration14 }
+									remove_trait = vampgeneration14
+									}									
+								if = { limit = { trait = vampgeneration15 }
+									remove_trait = vampgeneration15
+									}									
+
+							}										
+							
+					if = { limit = {
+								ROOT = { trait = vampgeneration14 }
+								NOR = { trait = vampgeneration1
+										trait = vampgeneration2
+										trait = vampgeneration3
+										trait = vampgeneration4
+										trait = vampgeneration5
+										trait = vampgeneration6
+										trait = vampgeneration7
+										trait = vampgeneration8
+										trait = vampgeneration9
+										trait = vampgeneration10
+										trait = vampgeneration11
+										trait = vampgeneration12
+										trait = vampgeneration13
+										trait = vampgeneration14
+										}
+								}
+								add_trait = vampgeneration14
+								if = { limit = { trait = vampgeneration15 }
+									remove_trait = vampgeneration15
+									}								
+
+							}	
+						}
+						
+                    if = {
+                        limit = { NOT = { trait = cruel } }
+                        random = {
+                            chance = 25
+                            add_trait = cruel
+                            hidden_tooltip = {
+                                character_event = { id = 38259 }
+                            }
+                        }
+                    }
+                }
+                mother = {
+                    opinion = {
+                        modifier = opinion_killed_close_kin
+                        who = FROM
+                    }
+                }
+                father = {
+                    opinion = {
+                        modifier = opinion_killed_close_kin
+                        who = FROM
+                    }
+                }
+                spouse = {
+                    opinion = {
+                        modifier = opinion_killed_close_kin
+                        who = FROM
+                    }
+                }
+                any_child = {
+                    opinion = {
+                        modifier = opinion_killed_father
+                        who = FROM
+                    }
+                }
+                if = {
+                    limit = {
+                        FROM = {
+                            NOT = { dynasty = ROOT }
+                            NOT = { sibling = ROOT }
+                        }
+                    }
+                    any_sibling = {
+                        opinion = {
+                            modifier = opinion_killed_close_kin
+                            who = FROM
+                        }
+                    }
+                }
+            }
+        }
+        revoke_allowed = {
+            always = no
+        }
+        ai_will_do = {
+            factor = 1
+           
+            modifier = {
+                factor = 0
+                opinion = { who = FROM value = 40 }
+            }
+            modifier = {
+                factor = 0
+                FROM = { trait = kind }
+            }
+  
+			modifier = {
+				factor = 0.1
+				ROOT = { trait = canon }	
+			}
+			
+			modifier = {
+				factor = 0.1
+				ROOT = { trait = protean_5 }	
+			}			
+			
+			modifier = {
+				factor = 0.1
+				ROOT = { trait = obtenebration_5 }	
+			}			
+			
+			modifier = {
+				factor = 0.1
+				ROOT = { trait = vicissitude_5 }	
+			}				
+
+			modifier = {
+				factor = 0.1
+				ROOT = { ai = no }	
+			}				
+			
+            modifier = {
+                factor = 0.2
+                FROM = { trait = just }
+            }
+           
+            modifier = {
+                factor = 0.2
+                FROM = { trait = patient }
+            }           
+
+            modifier = {
+                factor = 0.2
+                FROM = { trait = temperate }
+            }   
+           
+            modifier = {
+                factor = 0.2
+                FROM = { trait = content }
+            }               
+           
+            modifier = {
+                factor = 0.2 # Less likely to do it
+                FROM = { religion_group = longinus_group }
+            }
+           
+            modifier = {
+                factor = 0.2 # Less likely to do it
+                FROM = { religion_group = abrahamic_vampire_group }
+            }           
+           
+            modifier = {
+                factor = 0.1 # Less likely to do it
+                FROM = { society_member_of = via_caeli }
+            } 		   
+	
+            modifier = {
+                factor = 0.2 # Less likely to do it
+                FROM = { society_member_of = tariq_el-sama }
+            } 	
+	
+            modifier = {
+                factor = 0.2 # Less likely to do it
+                FROM = { society_member_of = via_humanitatis }
+            } 			
+			
+           modifier = {
+                factor = 0.1 # Less likely to do it
+                FROM = { society_member_of = tariq_el-umma }
+            } 			
+						
+		   
+            modifier = {
+                factor = 1.2
+                FROM = {
+                    OR = {
+                        trait = cruel
+                        trait = impaler
+                    }
+                }
+            }
+            modifier = {
+                factor = 3
+                FROM = {
+                    trait = diabolist
+                    }
+                }
+            modifier = {
+                factor = 2
+                FROM = {
+                    trait = ambitious
+                    }
+                }
+               
+            modifier = {
+                factor = 1.5
+                FROM = {
+                    trait = envious
+                    }
+                }
+
+            modifier = {
+                factor = 1.2
+                FROM = {
+                    trait = gluttonous
+                    }
+                }               
+
+            modifier = {
+                factor = 1.5
+                trait = bloodpotency_2
+            }
+            modifier = {
+                factor = 1.7
+                trait = bloodpotency_3
+            }
+            modifier = {
+                factor = 1.9
+                trait = bloodpotency_4
+            }
+            modifier = {
+                factor = 2.1
+                trait = bloodpotency_5
+            }
+            modifier = {
+                factor = 2.4
+                trait = bloodpotency_6
+            }
+            modifier = {
+                factor = 2.7
+                trait = bloodpotency_7
+            }
+            modifier = {
+                factor = 3
+                trait = bloodpotency_8
+            }
+            modifier = {
+                factor = 3.5
+                trait = bloodpotency_9
+            }
+            modifier = {
+                factor = 4
+                trait = bloodpotency_10
+            }
+			
+            modifier = {
+                factor = 1.1
+                FROM = {
+                    has_character_modifier = blood_thirst
+                }
+            }			
+
+            modifier = {
+                factor = 1.2
+                FROM = {
+                    has_character_modifier = severe_blood_thirst
+                }
+            }
+
+            modifier = {
+                factor = 1.5
+                FROM = {
+                    has_character_modifier = dreadful_blood_thirst
+                }
+            }
+
+            modifier = {
+                factor = 2
+                FROM = {
+                    has_character_modifier = dire_blood_thirst
+                }
+            }				
+        }
+    }
+	
+    bloodbind_vampire_prisoner_decision = {
+        filter = court
+        ai_target_filter = court
+        only_rulers = yes
+
+        from_potential = {
+            trait = vampire
+            num_of_prisoners = 1
+			NOT = { has_character_modifier = dire_blood_thirst }
+			NOT = { has_character_modifier = dreadful_blood_thirst }
+			NOT = { has_character_modifier = severe_blood_thirst }
+			NOT = { has_character_modifier = blood_thirst }			
+        }
+        potential = {
+            host = { character = FROM }
+            prisoner = yes
+			NOT = { trait = bloodbound }
+        }
+        allow = {
+            prisoner = yes
+            trait = vampire
+        }
+        effect = {
+            hidden_tooltip = {
+				add_trait = bloodbound
+                opinion = {
+                    modifier = opinion_blood_bond_to_domitor
+                    who = FROM
+                    years = 1000
+                }   
+                FROM = {
+                   POD_vampire_blood_thirst_increase_effect = yes
+                }		
+            }
+        }
+        revoke_allowed = {
+            always = no
+        }
+        ai_will_do = {
+            factor = 1
+  
+			modifier = {
+				factor = 0
+				FROM = { has_character_modifier = dire_blood_thirst }
+			}
+  
+ 			modifier = {
+				factor = 0
+				FROM = { has_character_modifier = dreadful_blood_thirst }
+			}
+			
+ 			modifier = {
+				factor = 0
+				FROM = { has_character_modifier = severe_blood_thirst }
+			}
+						
+			
+            modifier = {
+                factor = 0
+                reverse_opinion = { who = FROM value = 40 }
+            }
+            modifier = {
+                factor = 0
+                FROM = { trait = kind }
+            }
+            modifier = {
+                factor = 0.2 # Less likely to do it
+            }
+			modifier = {
+				factor = 1.25
+				FROM = { trait = ventrue }
+			}
+	        modifier = {
+                factor = 1.2
+                FROM = { intrigue = 10 }
+            }		
+            modifier = {
+                factor = 1.2
+                FROM = {
+                    OR = {
+                        trait = ambitious
+                    }
+                }
+            }
+        }
+    }   
+}

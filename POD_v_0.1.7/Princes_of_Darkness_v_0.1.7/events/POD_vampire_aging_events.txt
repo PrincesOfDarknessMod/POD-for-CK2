@@ -1,10 +1,10 @@
 # Vampire aging and blood potency
 
-namespace = "POD_VAMPIRE_AGING_ANCILLA"
+namespace = vampire_aging_events
 
 character_event = {
-	id = pod.666040
-	desc = "POD_VAMPIRE_AGING_ANCILLA_DESC"
+	id = vampire_aging_events.1
+	#desc = "vampire_aging_events_VAMPIRE_AGING_ANCILLA_DESC"
 	picture = GFX_evt_comet
 	hide_window = yes
 	min_age = 100
@@ -25,11 +25,9 @@ character_event = {
 		}
 }
 
-namespace = "POD_VAMPIRE_AGING_ELDER"
-
 character_event = {
-	id = pod.666041
-	desc = "POD_VAMPIRE_AGING_ELDER_DESC"
+	id = vampire_aging_events.2
+	#desc = "vampire_aging_events_VAMPIRE_AGING_ELDER_DESC"
 	picture = GFX_evt_comet
 	hide_window = yes
 	min_age = 250
@@ -49,11 +47,53 @@ character_event = {
 		}
 }
 
-namespace = "POD_VAMPIRE_BLOOD_POTENCY_INCREASING"
+character_event = {
+	id = vampire_aging_events.3
+	#desc = "vampire_aging_events_VAMPIRE_AGING_ANCIENT_DESC"
+	picture = GFX_evt_comet
+	hide_window = yes
+	min_age = 500
+	
+	trigger = {
+		trait = vampire
+		trait = elder
+		NOT = { trait = ancient}
+	}
+	
+	mean_time_to_happen = {
+		days = 3650
+      }
+	immediate = {	
+		remove_trait = elder
+		add_trait = ancient
+		}
+}
 
 character_event = {
-	id = pod.666042
-	desc = "POD_VAMPIRE_BLOOD_POTENCY_INCREASING_DESC"
+	id = vampire_aging_events.4
+	#desc = "vampire_aging_events_VAMPIRE_AGING_METHUSELAH_DESC"
+	picture = GFX_evt_comet
+	hide_window = yes
+	min_age = 1000
+	
+	trigger = {
+		trait = vampire
+		trait = ancient
+		NOT = { trait = methuselah }
+	}
+	
+	mean_time_to_happen = {
+		days = 3650
+      }
+	immediate = {	
+		remove_trait = ancient
+		add_trait = methuselah
+		}
+}
+
+character_event = {
+	id = vampire_aging_events.5
+	#desc = "vampire_aging_events_VAMPIRE_BLOOD_POTENCY_INCREASING_DESC"
 	picture = GFX_evt_comet
 	hide_window = yes
 	min_age = 100
@@ -61,7 +101,7 @@ character_event = {
 	trigger = {
 		trait = vampire
 		NOT = { trait = bloodpotency_10 }
-		NOT = { has_character_flag = FLAG_POD_VAMPIRE_BLOOD_POTENCY_INCREASE }
+		NOT = { has_character_flag = FLAG_vampire_aging_events_VAMPIRE_BLOOD_POTENCY_INCREASE }
 	}
 	
 	mean_time_to_happen = {
@@ -87,99 +127,164 @@ immediate = {
 			limit = {
 						trait = bloodpotency_9
 						age = 450 
-						
+						NOT = vampgeneration_15
+						NOT = vampgeneration_14
+						NOT = vampgeneration_13
+						NOT = vampgeneration_12
+						NOT = vampgeneration_11
+						NOT = vampgeneration_10
+						NOT = vampgeneration_9
+						NOT = vampgeneration_8
+						NOT = vampgeneration_7
+						NOT = vampgeneration_6
+						NOT = vampgeneration_5
+						NOT = vampgeneration_4	
 					}
 				remove_trait = bloodpotency_9
 				add_trait = bloodpotency_10
-				set_character_flag = FLAG_POD_VAMPIRE_BLOOD_POTENCY_INCREASE
+				set_character_flag = FLAG_vampire_aging_events_VAMPIRE_BLOOD_POTENCY_INCREASE
 		}
 	if = { 
 			limit = {
 						trait = bloodpotency_8
 						age = 400
-						
+						NOT = vampgeneration_15
+						NOT = vampgeneration_14
+						NOT = vampgeneration_13
+						NOT = vampgeneration_12
+						NOT = vampgeneration_11
+						NOT = vampgeneration_10
+						NOT = vampgeneration_9
+						NOT = vampgeneration_8
+						NOT = vampgeneration_7
+						NOT = vampgeneration_6
+						NOT = vampgeneration_5						
 					}
 				remove_trait = bloodpotency_8
 				add_trait = bloodpotency_9
-				set_character_flag = FLAG_POD_VAMPIRE_BLOOD_POTENCY_INCREASE 
+				set_character_flag = FLAG_vampire_aging_events_VAMPIRE_BLOOD_POTENCY_INCREASE 
 		}
 	if = { 
 			limit = {
 						trait = bloodpotency_7
 						age = 350
+						NOT = vampgeneration_15
+						NOT = vampgeneration_14
+						NOT = vampgeneration_13
+						NOT = vampgeneration_12
+						NOT = vampgeneration_11
+						NOT = vampgeneration_10
+						NOT = vampgeneration_9
+						NOT = vampgeneration_8
+						NOT = vampgeneration_7
+						NOT = vampgeneration_6
 						
 					}
 				remove_trait = bloodpotency_7
 				add_trait = bloodpotency_8
-				set_character_flag = FLAG_POD_VAMPIRE_BLOOD_POTENCY_INCREASE 
+				set_character_flag = FLAG_vampire_aging_events_VAMPIRE_BLOOD_POTENCY_INCREASE 
 		}
 	if = { 
 			limit = {
 						trait = bloodpotency_6
 						age = 300
+						NOT = vampgeneration_15
+						NOT = vampgeneration_14
+						NOT = vampgeneration_13
+						NOT = vampgeneration_12
+						NOT = vampgeneration_11
+						NOT = vampgeneration_10
+						NOT = vampgeneration_9
+						NOT = vampgeneration_8
+						NOT = vampgeneration_7					
 						
 					}
 				remove_trait = bloodpotency_6
 				add_trait = bloodpotency_7
-				set_character_flag = FLAG_POD_VAMPIRE_BLOOD_POTENCY_INCREASE
+				set_character_flag = FLAG_vampire_aging_events_VAMPIRE_BLOOD_POTENCY_INCREASE
 		}	
 	if = { 
 			limit = {
 						trait = bloodpotency_5
 						age = 250
-				
+						NOT = vampgeneration_15
+						NOT = vampgeneration_14
+						NOT = vampgeneration_13
+						NOT = vampgeneration_12
+						NOT = vampgeneration_11
+						NOT = vampgeneration_10
+						NOT = vampgeneration_9
+						NOT = vampgeneration_8									
 					}
 				remove_trait = bloodpotency_5
 				add_trait = bloodpotency_6
-				set_character_flag = FLAG_POD_VAMPIRE_BLOOD_POTENCY_INCREASE 
+				set_character_flag = FLAG_vampire_aging_events_VAMPIRE_BLOOD_POTENCY_INCREASE 
 		}			
 	if = { 
 			limit = {
 						trait = bloodpotency_4
 						age = 200
-						
+						NOT = vampgeneration_15
+						NOT = vampgeneration_14
+						NOT = vampgeneration_13
+						NOT = vampgeneration_12
+						NOT = vampgeneration_11
+						NOT = vampgeneration_10
+						NOT = vampgeneration_9						
 					}
 				remove_trait = bloodpotency_4
 				add_trait = bloodpotency_5
-				set_character_flag = FLAG_POD_VAMPIRE_BLOOD_POTENCY_INCREASE 
+				set_character_flag = FLAG_vampire_aging_events_VAMPIRE_BLOOD_POTENCY_INCREASE 
 		}
 	if = { 
 			limit = {
 						trait = bloodpotency_3
 						age = 150
-						
+						NOT = vampgeneration_15
+						NOT = vampgeneration_14
+						NOT = vampgeneration_13
+						NOT = vampgeneration_12
+						NOT = vampgeneration_11
+						NOT = vampgeneration_10						
 					}
 				remove_trait = bloodpotency_3
 				add_trait = bloodpotency_4
-				set_character_flag = FLAG_POD_VAMPIRE_BLOOD_POTENCY_INCREASE 
+				set_character_flag = FLAG_vampire_aging_events_VAMPIRE_BLOOD_POTENCY_INCREASE 
 		}	
 	if = { 
 			limit = {
 						trait = bloodpotency_2
 						age = 100 
+						NOT = vampgeneration_15
+						NOT = vampgeneration_14
+						NOT = vampgeneration_13
+						NOT = vampgeneration_12
+						NOT = vampgeneration_11					
 					}
 				remove_trait = bloodpotency_2
 				add_trait = bloodpotency_3
-				set_character_flag = FLAG_POD_VAMPIRE_BLOOD_POTENCY_INCREASE
+				set_character_flag = FLAG_vampire_aging_events_VAMPIRE_BLOOD_POTENCY_INCREASE
 		}
 	if = { 
 			limit = {
 						trait = bloodpotency_1
 						age = 50 
+						NOT = vampgeneration_15
+						NOT = vampgeneration_14
+						NOT = vampgeneration_13
+						NOT = vampgeneration_12						
 					}
 				remove_trait = bloodpotency_1
 				add_trait = bloodpotency_2
-				set_character_flag = FLAG_POD_VAMPIRE_BLOOD_POTENCY_INCREASE 
+				set_character_flag = FLAG_vampire_aging_events_VAMPIRE_BLOOD_POTENCY_INCREASE 
 		}
 		
 	}
 }
-	
-namespace = "POD_VAMPIRE_BLOOD_POTENCY_DECREASING"
 
 character_event = {
-	id = pod.666043
-	desc = "POD_VAMPIRE_BLOOD_POTENCY_DECREASING_DESC"
+	id = vampire_aging_events.6
+	#desc = "vampire_aging_events_VAMPIRE_BLOOD_POTENCY_DECREASING_DESC"
 	picture = GFX_evt_comet
 	hide_window = yes
 	min_age = 100
@@ -187,7 +292,7 @@ character_event = {
 	trigger = {
 		trait = vampire
 		trait = torpor
-		NOT = { has_character_flag = FLAG_POD_VAMPIRE_BLOOD_POTENCY_DECREASE }
+		NOT = { has_character_flag = FLAG_vampire_aging_events_VAMPIRE_BLOOD_POTENCY_DECREASE }
 	}
 	
 	mean_time_to_happen = {
@@ -201,7 +306,7 @@ immediate = {
 					}
 				remove_trait = bloodpotency_2
 				add_trait = bloodpotency_1
-				set_character_flag = FLAG_POD_VAMPIRE_BLOOD_POTENCY_DECREASE 
+				set_character_flag = FLAG_vampire_aging_events_VAMPIRE_BLOOD_POTENCY_DECREASE 
 		}
 		if = { 
 			limit = {
@@ -209,7 +314,7 @@ immediate = {
 					}
 				remove_trait = bloodpotency_3
 				add_trait = bloodpotency_2
-				set_character_flag = FLAG_POD_VAMPIRE_BLOOD_POTENCY_DECREASE 
+				set_character_flag = FLAG_vampire_aging_events_VAMPIRE_BLOOD_POTENCY_DECREASE 
 		}
 			if = { 
 			limit = {
@@ -217,7 +322,7 @@ immediate = {
 					}
 				remove_trait = bloodpotency_4
 				add_trait = bloodpotency_3
-				set_character_flag = FLAG_POD_VAMPIRE_BLOOD_POTENCY_DECREASE 
+				set_character_flag = FLAG_vampire_aging_events_VAMPIRE_BLOOD_POTENCY_DECREASE 
 		}
 			if = { 
 			limit = {
@@ -225,7 +330,7 @@ immediate = {
 					}
 				remove_trait = bloodpotency_5
 				add_trait = bloodpotency_4
-				set_character_flag = FLAG_POD_VAMPIRE_BLOOD_POTENCY_DECREASE 
+				set_character_flag = FLAG_vampire_aging_events_VAMPIRE_BLOOD_POTENCY_DECREASE 
 		}
 		if = { 
 			limit = {
@@ -233,7 +338,7 @@ immediate = {
 					}
 				remove_trait = bloodpotency_6
 				add_trait = bloodpotency_5
-				set_character_flag = FLAG_POD_VAMPIRE_BLOOD_POTENCY_DECREASE 
+				set_character_flag = FLAG_vampire_aging_events_VAMPIRE_BLOOD_POTENCY_DECREASE 
 		}
 	if = { 
 			limit = {
@@ -241,7 +346,7 @@ immediate = {
 					}
 				remove_trait = bloodpotency_7
 				add_trait = bloodpotency_6
-				set_character_flag = FLAG_POD_VAMPIRE_BLOOD_POTENCY_DECREASE 
+				set_character_flag = FLAG_vampire_aging_events_VAMPIRE_BLOOD_POTENCY_DECREASE 
 		}	
 				if = { 
 			limit = {
@@ -249,7 +354,7 @@ immediate = {
 					}
 				remove_trait = bloodpotency_8
 				add_trait = bloodpotency_7
-				set_character_flag = FLAG_POD_VAMPIRE_BLOOD_POTENCY_DECREASE 
+				set_character_flag = FLAG_vampire_aging_events_VAMPIRE_BLOOD_POTENCY_DECREASE 
 		}
 			if = { 
 			limit = {
@@ -257,7 +362,7 @@ immediate = {
 					}
 				remove_trait = bloodpotency_8
 				add_trait = bloodpotency_8
-				set_character_flag = FLAG_POD_VAMPIRE_BLOOD_POTENCY_DECREASE 
+				set_character_flag = FLAG_vampire_aging_events_VAMPIRE_BLOOD_POTENCY_DECREASE 
 		}
 			if = { 
 			limit = {
@@ -265,7 +370,7 @@ immediate = {
 					}
 				remove_trait = bloodpotency_9
 				add_trait = bloodpotency_8
-				set_character_flag = FLAG_POD_VAMPIRE_BLOOD_POTENCY_DECREASE 
+				set_character_flag = FLAG_vampire_aging_events_VAMPIRE_BLOOD_POTENCY_DECREASE 
 		}
 			if = { 
 			limit = {
@@ -273,16 +378,14 @@ immediate = {
 					}
 				remove_trait = bloodpotency_10
 				add_trait = bloodpotency_9
-				set_character_flag = FLAG_POD_VAMPIRE_BLOOD_POTENCY_DECREASE 
+				set_character_flag = FLAG_vampire_aging_events_VAMPIRE_BLOOD_POTENCY_DECREASE 
 		}
 	}
 }
-	
-namespace = "POD_VAMPIRE_TORPOR_AWAKEN"
 
 character_event = {
-	id = pod.666044
-	desc = "POD_VAMPIRE_TORPOR_AWAKEN_DESC"
+	id = vampire_aging_events.7
+	#desc = "vampire_aging_events_VAMPIRE_TORPOR_AWAKEN_DESC"
 	picture = GFX_evt_comet
 	hide_window = yes
 	min_age = 75
@@ -290,6 +393,9 @@ character_event = {
 	trigger = {
 		trait = vampire
 		trait = torpor
+		NOT = { trait = vampgeneration3 }
+		NOT = { trait = vampgeneration2 }
+		NOT = { trait = vampgeneration1 }
 	}
 	
 	mean_time_to_happen = {
@@ -351,9 +457,8 @@ character_event = {
 		remove_trait = wounded
 		remove_trait = maimed
 		remove_trait = blinded
-		wealth = 10
 		remove_trait = torpor
-		set_character_flag = FLAG_POD_VAMPIRE_TORPOR_AWAKEN 
+		set_character_flag = FLAG_vampire_aging_events_VAMPIRE_TORPOR_AWAKEN 
 		}
 	}
 	

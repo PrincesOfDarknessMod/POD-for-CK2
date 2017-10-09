@@ -1,8 +1,8 @@
-namespace = "POD_VAMPIRE_CHILDE_REARED"
+namespace = vampire_embrace
 
 character_event = {
-	id = pod.666045
-	desc = "POD_VAMPIRE_CHILDE_REARED_DESC"
+	id = vampire_embrace.1
+	#desc = "POD_VAMPIRE_CHILDE_REARED_DESC"
 	picture = GFX_evt_comet
 	hide_window = yes
 	min_age = 100
@@ -22,11 +22,10 @@ immediate = {
 		}
 	}	
 
-namespace = "POD_EMBRACED_MORTAL"
 
 character_event = {
-	id = pod.666046
-	desc = "POD_EMBRACED_MORTAL_DESC"
+	id = vampire_embrace.2
+	#desc = "POD_EMBRACED_MORTAL_DESC"
 	picture = GFX_evt_comet
 	hide_window = yes
 	min_age = 16
@@ -69,7 +68,60 @@ immediate = {
 														if = { limit = { father = { trait = brahmin } }
 															add_trait = brahmin
 															}	
+														if = { limit = { father = { trait = vaishya } }
+															add_trait = vaishya
+															}	
+if = {
+		OR = {
+			has_global_flag = bookmark1230
+			has_global_flag = bookmark1500
+		}
+		
+														if = { limit = { father = { trait = vampgeneration4 } }
+															add_trait = vampgeneration5
+															}
+															
+														if = { limit = { father = { trait = vampgeneration5 } }
+															add_trait = vampgeneration6
+															}
+															
+														if = { limit = { father = { trait = vampgeneration6 } }
+															add_trait = vampgeneration7
+															}																
 
+														if = { limit = { father = { trait = vampgeneration7 } }
+															add_trait = vampgeneration8
+															}		
+
+														if = { limit = { father = { trait = vampgeneration8 } }
+															add_trait = vampgeneration9
+															}		
+
+														if = { limit = { father = { trait = vampgeneration9 } }
+															add_trait = vampgeneration10
+															}		
+
+														if = { limit = { father = { trait = vampgeneration10 } }
+															add_trait = vampgeneration11
+															}		
+
+														if = { limit = { father = { trait = vampgeneration11 } }
+															add_trait = vampgeneration12
+															}		
+
+														if = { limit = { father = { trait = vampgeneration12 } }
+															add_trait = vampgeneration13
+															}		
+
+														if = { limit = { father = { trait = vampgeneration13 } }
+															add_trait = vampgeneration14
+															}		
+
+														if = { limit = { father = { trait = vampgeneration14 } }
+															add_trait = vampgeneration15
+															}		
+	}														
+																
 														if = { limit = { father = { trait = daeva } }
 															add_trait = daeva 
 																														
@@ -110,6 +162,27 @@ immediate = {
 																			}
 																		}	
 																}
+																
+														if = { limit = { father= { trait = gangrelantitribu } }
+															add_trait = gangrelantitribu
+															
+																	random_list = {
+																		70 = { 
+																			add_trait = animalism_1
+																			add_trait = protean_1
+																			add_trait = resilience_1
+																			}
+																		10 = {
+																			add_trait = animalism_3
+																			}
+																		10 = {
+																			add_trait = protean_3
+																			}
+																		10 = {
+																			add_trait = resilience_3
+																			}
+																		}	
+																}																
 														if = { limit = { father= { trait = mekhet } }
 															add_trait = mekhet 
 															
@@ -150,6 +223,27 @@ immediate = {
 																			}
 																		}
 																}
+																
+														if = { limit = { father= { trait = nosferatuantitribu } }
+															add_trait = nosferatuantitribu 
+															
+															random_list = {
+																		70 = { 
+																			add_trait = obfuscate_1
+																			add_trait = animalism_1
+																			add_trait = vigor_1
+																			}
+																		10 = {
+																			add_trait = obfuscate_3
+																			}
+																		10 = {
+																			add_trait = animalism_3
+																			}
+																		10 = {
+																			add_trait = vigor_3
+																			}
+																		}
+																}																
 
 														if = { limit = { father= { trait = ventrue } }
 															add_trait = ventrue 
@@ -169,8 +263,31 @@ immediate = {
 																		10 = {
 																			add_trait = resilience_3
 																			}
-																		}															}
-														if = { limit = { father= { trait =  petrovnavich } }
+																		}
+																		}
+																		
+														if = { limit = { father= { trait = ventrueantitribu } }
+															add_trait = ventrueantitribu 
+															
+																	random_list = {
+																		70 = { 
+																			add_trait = majesty_1
+																			add_trait = dominate_1
+																			add_trait = resilience_1
+																			}
+																		10 = {
+																			add_trait = majesty_3
+																			}
+																		10 = {
+																			add_trait = dominate_3
+																			}
+																		10 = {
+																			add_trait = resilience_3
+																			}
+																		}
+																		}
+																		
+														if = { limit = { father= { trait = petrovnavich } }
 															add_trait = petrovnavich 
 															add_trait = vii															
 																	random_list = {
@@ -355,6 +472,451 @@ immediate = {
 																		}			
 
 															}
+															
+														if = { limit = { father= { trait = brujah } }
+															add_trait = brujah
+																	random_list = {
+																		70 = { 
+																			add_trait = celerity_1
+																			add_trait = majesty_1
+																			add_trait = vigor_1
+																			}
+																		10 = {
+																			add_trait = celerity_3
+																			}
+																		10 = {
+																			add_trait = majesty_3
+																			}
+																		10 = {
+																			add_trait = vigor_3
+																			}
+																		}			
+
+															}
+															
+														if = { limit = { father= { trait = brujahantitribu } }
+															add_trait = brujahantitribu
+																	random_list = {
+																		70 = { 
+																			add_trait = celerity_1
+																			add_trait = majesty_1
+																			add_trait = vigor_1
+																			}
+																		10 = {
+																			add_trait = celerity_3
+																			}
+																		10 = {
+																			add_trait = majesty_3
+																			}
+																		10 = {
+																			add_trait = vigor_3
+																			}
+																		}			
+
+															}		
+
+														if = { limit = { father= { trait = assamite } }
+															add_trait = brujah
+																	random_list = {
+																		70 = { 
+																			add_trait = celerity_1
+																			add_trait = quietus_1
+																			add_trait = obfuscate_1
+																			}
+																		10 = {
+																			add_trait = celerity_3
+																			}
+																		10 = {
+																			add_trait = quietus_3
+																			}
+																		10 = {
+																			add_trait = obfuscate_3
+																			}
+																		}			
+
+															}	
+
+														if = { limit = { father= { trait = assamiteantitribu } }
+															add_trait = brujah
+																	random_list = {
+																		70 = { 
+																			add_trait = celerity_1
+																			add_trait = quietus_1
+																			add_trait = obfuscate_1
+																			}
+																		10 = {
+																			add_trait = celerity_3
+																			}
+																		10 = {
+																			add_trait = quietus_3
+																			}
+																		10 = {
+																			add_trait = obfuscate_3
+																			}
+																		}			
+
+															}																
+															
+														if = { limit = { father= { trait = cappadocian } }
+															add_trait = cappadocian
+																	random_list = {
+																		70 = { 
+																			add_trait = auspex_1
+																			add_trait = mortis_1
+																			add_trait = resilience_1
+																			}
+																		10 = {
+																			add_trait = auspex_3
+																			}
+																		10 = {
+																			add_trait = mortis_3
+																			}
+																		10 = {
+																			add_trait = resilience_3
+																			}
+																		}			
+
+															}															
+															
+														if = { limit = { father= { trait = giovanni } }
+															add_trait = giovanni
+																	random_list = {
+																		70 = { 
+																			add_trait = dominate_1
+																			add_trait = necromancy_1
+																			add_trait = vigor_1
+																			}
+																		10 = {
+																			add_trait = dominate_3
+																			}
+																		10 = {
+																			add_trait = necromancy_3
+																			}
+																		10 = {
+																			add_trait = vigor_3
+																			}
+																		}			
+
+															}	
+															
+														if = { limit = { father= { trait = followerofset } }
+															add_trait = followerofset
+																	random_list = {
+																		70 = { 
+																			add_trait = majesty_1
+																			add_trait = serpentis_1
+																			add_trait = obfuscate_1
+																			}
+																		10 = {
+																			add_trait = majesty_3
+																			}
+																		10 = {
+																			add_trait = serpentis_3
+																			}
+																		10 = {
+																			add_trait = obfuscate_3
+																			}
+																		}			
+
+															}	
+															
+														if = { limit = { father= { trait = lasombra } }
+															add_trait = lasombra
+																	random_list = {
+																		70 = { 
+																			add_trait = dominate_1
+																			add_trait = obtenebration_1
+																			add_trait = vigor_1
+																			}
+																		10 = {
+																			add_trait = dominate_3
+																			}
+																		10 = {
+																			add_trait = obtenebration_3
+																			}
+																		10 = {
+																			add_trait = vigor_3
+																			}
+																		}			
+
+															}	
+															
+														if = { limit = { father= { trait = lasombraantitribu } }
+															add_trait = lasombra
+																	random_list = {
+																		70 = { 
+																			add_trait = dominate_1
+																			add_trait = obtenebration_1
+																			add_trait = vigor_1
+																			}
+																		10 = {
+																			add_trait = dominate_3
+																			}
+																		10 = {
+																			add_trait = obtenebration_3
+																			}
+																		10 = {
+																			add_trait = vigor_3
+																			}
+																		}			
+
+															}	
+															
+														if = { limit = { father= { trait = malkavian } }
+															add_trait = malkavian
+															add_trait = lunatic
+																	random_list = {
+																		70 = { 
+																			add_trait = dominate_1
+																			add_trait = obfuscate_1
+																			add_trait = auspex_1
+																			}
+																		10 = {
+																			add_trait = dominate_3
+																			}
+																		10 = {
+																			add_trait = obfuscate_3
+																			}
+																		10 = {
+																			add_trait = auspex_3
+																			}
+																		}			
+
+															}	
+															
+														if = { limit = { father= { trait = malkavianantitribu } }
+															add_trait = malkavian
+															add_trait = lunatic
+																	random_list = {
+																		70 = { 
+																			add_trait = auspex_1
+																			add_trait = obfuscate_1
+																			add_trait = dementation_1
+																			}
+																		10 = {
+																			add_trait = auspex_3
+																			}
+																		10 = {
+																			add_trait = obfuscate_3
+																			}
+																		10 = {
+																			add_trait = dementation_3
+																			}
+																		}			
+
+															}									
+
+														if = { limit = { father= { trait = ravnos } }
+															add_trait = ravnos
+															
+																	random_list = {
+																		70 = { 
+																			add_trait = animalism_1
+																			add_trait = chimerstry_1
+																			add_trait = resilience_1
+																			}
+																		10 = {
+																			add_trait = animalism_3
+																			}
+																		10 = {
+																			add_trait = chimerstry_3
+																			}
+																		10 = {
+																			add_trait = resilience_3
+																			}
+																		}	
+																}
+																
+														if = { limit = { father= { trait = ravnosantitribu } }
+															add_trait = ravnosantitribu
+															
+																	random_list = {
+																		70 = { 
+																			add_trait = animalism_1
+																			add_trait = chimerstry_1
+																			add_trait = resilience_1
+																			}
+																		10 = {
+																			add_trait = animalism_3
+																			}
+																		10 = {
+																			add_trait = chimerstry_3
+																			}
+																		10 = {
+																			add_trait = resilience_3
+																			}
+																		}	
+																}	
+																
+														if = { limit = { father= { trait = toreador } }
+															add_trait = toreador
+																	random_list = {
+																		70 = { 
+																			add_trait = celerity_1
+																			add_trait = majesty_1
+																			add_trait = auspex_1
+																			}
+																		10 = {
+																			add_trait = celerity_3
+																			}
+																		10 = {
+																			add_trait = majesty_3
+																			}
+																		10 = {
+																			add_trait = auspex_3
+																			}
+																		}			
+
+															}
+															
+														if = { limit = { father= { trait = toreadorantitribu } }
+															add_trait = toreadorantitribu
+																	random_list = {
+																		70 = { 
+																			add_trait = celerity_1
+																			add_trait = majesty_1
+																			add_trait = auspex_1
+																			}
+																		10 = {
+																			add_trait = celerity_3
+																			}
+																		10 = {
+																			add_trait = majesty_3
+																			}
+																		10 = {
+																			add_trait = auspex_3
+																			}
+																																			}			
+
+															}
+
+														if = { limit = { father= { trait = tremere } }
+															add_trait = tremere
+																	random_list = {
+																		70 = { 
+																			add_trait = dominate_1
+																			add_trait = thaumaturgy_1
+																			add_trait = auspex_1
+																			}
+																		10 = {
+																			add_trait = dominate_3
+																			}
+																		10 = {
+																			add_trait = thaumaturgy_3
+																			}
+																		10 = {
+																			add_trait = auspex_3
+																			}
+																		}			
+
+															}	
+															
+														if = { limit = { father= { trait = salubri } }
+															add_trait = salubri
+																	random_list = {
+																		70 = { 
+																			add_trait = auspex_1
+																			add_trait = obeah_1
+																			add_trait = resilience_1
+																			}
+																		10 = {
+																			add_trait = auspex_3
+																			}
+																		10 = {
+																			add_trait = obeah_3
+																			}
+																		10 = {
+																			add_trait = resilience_3
+																			}
+																		}			
+
+															}	
+															
+														if = { limit = { father= { trait = tzimisce } }
+															add_trait = tzimisce
+																	random_list = {
+																		70 = { 
+																			add_trait = animalism_1
+																			add_trait = auspex_1
+																			add_trait = vicissitude_1
+																			}
+																		10 = {
+																			add_trait = animalism_3
+																			}
+																		10 = {
+																			add_trait = auspex_3
+																			}
+																		10 = {
+																			add_trait = vicissitude_3
+																			}
+																		}			
+
+															}
+															
+														if = { limit = { father= { trait = tzimisceantitribu } }
+															add_trait = tzimisceantitribu
+																	random_list = {
+																		70 = { 
+																			add_trait = animalism_1
+																			add_trait = auspex_1
+																			add_trait = vicissitude_1
+																			}
+																		10 = {
+																			add_trait = animalism_3
+																			}
+																		10 = {
+																			add_trait = auspex_3
+																			}
+																		10 = {
+																			add_trait = vicissitude_3
+																			}
+																																			}			
+
+															}
+															
+														if = { limit = { father= { trait = baali } }
+															add_trait = baali
+																	random_list = {
+																		70 = { 
+																			add_trait = majesty_1
+																			add_trait = obfuscate_1
+																			add_trait = daimoinon_1
+																			}
+																		10 = {
+																			add_trait = majesty_3
+																			}
+																		10 = {
+																			add_trait = obfuscate_3
+																			}
+																		10 = {
+																			add_trait = daimoinon_3
+																			}
+																		}			
+
+															}
+
+														if = { limit = { father= { trait = caitiff } }
+															add_trait = caitiff
+																	random_list = {
+																		70 = { 
+																			add_trait = celerity_1
+																			add_trait = resilience_1
+																			add_trait = vigor_1
+																			}
+																		10 = {
+																			add_trait = celerity_3
+																			}
+																		10 = {
+																			add_trait = resilience_3
+																			}
+																		10 = {
+																			add_trait = vigor_3
+																			}
+																		}			
+
+															}
+																															
+															
 			}
 	
 	if = { limit = { mother = { trait = vampire } }
@@ -374,7 +936,60 @@ immediate = {
 														if = { limit = { mother = { trait = brahmin } }
 															add_trait = brahmin
 															}	
+														if = { limit = { mother = { trait = vaishya } }
+															add_trait = vaishya
+															}	
+															
+if = {
+		OR = {
+			has_global_flag = bookmark1230
+			has_global_flag = bookmark1500
+		}
+														if = { limit = { mother = { trait = vampgeneration4 } }
+															add_trait = vampgeneration5
+															}
+															
+														if = { limit = { mother = { trait = vampgeneration5 } }
+															add_trait = vampgeneration6
+															}
+															
+														if = { limit = { mother = { trait = vampgeneration6 } }
+															add_trait = vampgeneration7
+															}																
 
+														if = { limit = { mother = { trait = vampgeneration7 } }
+															add_trait = vampgeneration8
+															}		
+
+														if = { limit = { mother = { trait = vampgeneration8 } }
+															add_trait = vampgeneration9
+															}		
+
+														if = { limit = { mother = { trait = vampgeneration9 } }
+															add_trait = vampgeneration10
+															}		
+
+														if = { limit = { mother = { trait = vampgeneration10 } }
+															add_trait = vampgeneration11
+															}		
+
+														if = { limit = { mother = { trait = vampgeneration11 } }
+															add_trait = vampgeneration12
+															}		
+
+														if = { limit = { mother = { trait = vampgeneration12 } }
+															add_trait = vampgeneration13
+															}		
+
+														if = { limit = { mother = { trait = vampgeneration13 } }
+															add_trait = vampgeneration14
+															}		
+
+														if = { limit = { mother = { trait = vampgeneration14 } }
+															add_trait = vampgeneration15
+															}			
+	}
+															
 														if = { limit = { mother = { trait = daeva } }
 															add_trait = daeva 
 															
@@ -415,6 +1030,70 @@ immediate = {
 																			}
 																		}	
 																}
+																
+																if = { limit = { mother= { trait = gangrelantitribu } }
+															add_trait = gangrelantitribu
+															
+																	random_list = {
+																		70 = { 
+																			add_trait = animalism_1
+																			add_trait = protean_1
+																			add_trait = resilience_1
+																			}
+																		10 = {
+																			add_trait = animalism_3
+																			}
+																		10 = {
+																			add_trait = protean_3
+																			}
+																		10 = {
+																			add_trait = resilience_3
+																			}
+																		}	
+																}				
+																
+																if = { limit = { mother= { trait = nosferatuantitribu } }
+															add_trait = nosferatuantitribu 
+															
+															random_list = {
+																		70 = { 
+																			add_trait = obfuscate_1
+																			add_trait = animalism_1
+																			add_trait = vigor_1
+																			}
+																		10 = {
+																			add_trait = obfuscate_3
+																			}
+																		10 = {
+																			add_trait = animalism_3
+																			}
+																		10 = {
+																			add_trait = vigor_3
+																			}
+																		}
+																}						
+																
+																if = { limit = { mother= { trait = ventrueantitribu } }
+															add_trait = ventrueantitribu 
+															
+																	random_list = {
+																		70 = { 
+																			add_trait = majesty_1
+																			add_trait = dominate_1
+																			add_trait = resilience_1
+																			}
+																		10 = {
+																			add_trait = majesty_3
+																			}
+																		10 = {
+																			add_trait = dominate_3
+																			}
+																		10 = {
+																			add_trait = resilience_3
+																			}
+																		}
+																		}
+																		
 														if = { limit = { mother= { trait = mekhet } }
 															add_trait = mekhet 
 															
@@ -660,6 +1339,449 @@ immediate = {
 																		}			
 
 															}
+															
+															
+														if = { limit = { mother= { trait = brujah } }
+															add_trait = brujah
+																	random_list = {
+																		70 = { 
+																			add_trait = celerity_1
+																			add_trait = majesty_1
+																			add_trait = vigor_1
+																			}
+																		10 = {
+																			add_trait = celerity_3
+																			}
+																		10 = {
+																			add_trait = majesty_3
+																			}
+																		10 = {
+																			add_trait = vigor_3
+																			}
+																		}			
+
+															}
+															
+														if = { limit = { mother= { trait = brujahantitribu } }
+															add_trait = brujahantitribu
+																	random_list = {
+																		70 = { 
+																			add_trait = celerity_1
+																			add_trait = majesty_1
+																			add_trait = vigor_1
+																			}
+																		10 = {
+																			add_trait = celerity_3
+																			}
+																		10 = {
+																			add_trait = majesty_3
+																			}
+																		10 = {
+																			add_trait = vigor_3
+																			}
+																		}			
+
+															}		
+
+														if = { limit = { mother= { trait = assamite } }
+															add_trait = brujah
+																	random_list = {
+																		70 = { 
+																			add_trait = celerity_1
+																			add_trait = quietus_1
+																			add_trait = obfuscate_1
+																			}
+																		10 = {
+																			add_trait = celerity_3
+																			}
+																		10 = {
+																			add_trait = quietus_3
+																			}
+																		10 = {
+																			add_trait = obfuscate_3
+																			}
+																		}			
+
+															}	
+
+														if = { limit = { mother= { trait = assamiteantitribu } }
+															add_trait = brujah
+																	random_list = {
+																		70 = { 
+																			add_trait = celerity_1
+																			add_trait = quietus_1
+																			add_trait = obfuscate_1
+																			}
+																		10 = {
+																			add_trait = celerity_3
+																			}
+																		10 = {
+																			add_trait = quietus_3
+																			}
+																		10 = {
+																			add_trait = obfuscate_3
+																			}
+																		}			
+
+															}																
+															
+														if = { limit = { mother= { trait = cappadocian } }
+															add_trait = cappadocian
+																	random_list = {
+																		70 = { 
+																			add_trait = auspex_1
+																			add_trait = mortis_1
+																			add_trait = resilience_1
+																			}
+																		10 = {
+																			add_trait = auspex_3
+																			}
+																		10 = {
+																			add_trait = mortis_3
+																			}
+																		10 = {
+																			add_trait = resilience_3
+																			}
+																		}			
+
+															}															
+															
+														if = { limit = { mother= { trait = giovanni } }
+															add_trait = giovanni
+																	random_list = {
+																		70 = { 
+																			add_trait = dominate_1
+																			add_trait = necromancy_1
+																			add_trait = vigor_1
+																			}
+																		10 = {
+																			add_trait = dominate_3
+																			}
+																		10 = {
+																			add_trait = necromancy_3
+																			}
+																		10 = {
+																			add_trait = vigor_3
+																			}
+																		}			
+
+															}	
+															
+														if = { limit = { mother= { trait = followerofset } }
+															add_trait = followerofset
+																	random_list = {
+																		70 = { 
+																			add_trait = majesty_1
+																			add_trait = serpentis_1
+																			add_trait = obfuscate_1
+																			}
+																		10 = {
+																			add_trait = majesty_3
+																			}
+																		10 = {
+																			add_trait = serpentis_3
+																			}
+																		10 = {
+																			add_trait = obfuscate_3
+																			}
+																		}			
+
+															}	
+															
+														if = { limit = { mother= { trait = lasombra } }
+															add_trait = lasombra
+																	random_list = {
+																		70 = { 
+																			add_trait = dominate_1
+																			add_trait = obtenebration_1
+																			add_trait = vigor_1
+																			}
+																		10 = {
+																			add_trait = dominate_3
+																			}
+																		10 = {
+																			add_trait = obtenebration_3
+																			}
+																		10 = {
+																			add_trait = vigor_3
+																			}
+																		}			
+
+															}	
+															
+														if = { limit = { mother= { trait = lasombraantitribu } }
+															add_trait = lasombra
+																	random_list = {
+																		70 = { 
+																			add_trait = dominate_1
+																			add_trait = obtenebration_1
+																			add_trait = vigor_1
+																			}
+																		10 = {
+																			add_trait = dominate_3
+																			}
+																		10 = {
+																			add_trait = obtenebration_3
+																			}
+																		10 = {
+																			add_trait = vigor_3
+																			}
+																		}			
+
+															}	
+															
+														if = { limit = { mother= { trait = malkavian } }
+															add_trait = malkavian
+																	random_list = {
+																		70 = { 
+																			add_trait = dominate_1
+																			add_trait = obfuscate_1
+																			add_trait = dementation_1
+																			}
+																		10 = {
+																			add_trait = dominate_3
+																			}
+																		10 = {
+																			add_trait = obfuscate_3
+																			}
+																		10 = {
+																			add_trait = dementation_3
+																			}
+																		}			
+
+															}	
+															
+														if = { limit = { mother= { trait = malkavianantitribu } }
+															add_trait = malkavian
+																	random_list = {
+																		70 = { 
+																			add_trait = dominate_1
+																			add_trait = obfuscate_1
+																			add_trait = dementation_1
+																			}
+																		10 = {
+																			add_trait = dominate_3
+																			}
+																		10 = {
+																			add_trait = obfuscate_3
+																			}
+																		10 = {
+																			add_trait = dementation_3
+																			}
+																		}			
+
+															}									
+
+														if = { limit = { mother= { trait = ravnos } }
+															add_trait = ravnos
+															
+																	random_list = {
+																		70 = { 
+																			add_trait = animalism_1
+																			add_trait = chimerstry_1
+																			add_trait = resilience_1
+																			}
+																		10 = {
+																			add_trait = animalism_3
+																			}
+																		10 = {
+																			add_trait = chimerstry_3
+																			}
+																		10 = {
+																			add_trait = resilience_3
+																			}
+																		}	
+																}
+																
+														if = { limit = { mother= { trait = ravnosantitribu } }
+															add_trait = ravnosantitribu
+															
+																	random_list = {
+																		70 = { 
+																			add_trait = animalism_1
+																			add_trait = chimerstry_1
+																			add_trait = resilience_1
+																			}
+																		10 = {
+																			add_trait = animalism_3
+																			}
+																		10 = {
+																			add_trait = chimerstry_3
+																			}
+																		10 = {
+																			add_trait = resilience_3
+																			}
+																		}	
+																}	
+																
+														if = { limit = { mother= { trait = toreador } }
+															add_trait = toreador
+																	random_list = {
+																		70 = { 
+																			add_trait = celerity_1
+																			add_trait = majesty_1
+																			add_trait = auspex_1
+																			}
+																		10 = {
+																			add_trait = celerity_3
+																			}
+																		10 = {
+																			add_trait = majesty_3
+																			}
+																		10 = {
+																			add_trait = auspex_3
+																			}
+																		}			
+
+															}
+															
+														if = { limit = { mother= { trait = toreadorantitribu } }
+															add_trait = toreadorantitribu
+																	random_list = {
+																		70 = { 
+																			add_trait = celerity_1
+																			add_trait = majesty_1
+																			add_trait = auspex_1
+																			}
+																		10 = {
+																			add_trait = celerity_3
+																			}
+																		10 = {
+																			add_trait = majesty_3
+																			}
+																		10 = {
+																			add_trait = auspex_3
+																			}
+																																			}			
+
+															}
+
+														if = { limit = { mother= { trait = tremere } }
+															add_trait = tremere
+																	random_list = {
+																		70 = { 
+																			add_trait = dominate_1
+																			add_trait = thaumaturgy_1
+																			add_trait = auspex_1
+																			}
+																		10 = {
+																			add_trait = dominate_3
+																			}
+																		10 = {
+																			add_trait = thaumaturgy_3
+																			}
+																		10 = {
+																			add_trait = auspex_3
+																			}
+																		}			
+
+															}	
+															
+														if = { limit = { mother= { trait = salubri } }
+															add_trait = salubri
+																	random_list = {
+																		70 = { 
+																			add_trait = auspex_1
+																			add_trait = obeah_1
+																			add_trait = resilience_1
+																			}
+																		10 = {
+																			add_trait = auspex_3
+																			}
+																		10 = {
+																			add_trait = obeah_3
+																			}
+																		10 = {
+																			add_trait = resilience_3
+																			}
+																		}			
+
+															}	
+															
+														if = { limit = { mother= { trait = tzimisce } }
+															add_trait = tzimisce
+																	random_list = {
+																		70 = { 
+																			add_trait = animalism_1
+																			add_trait = auspex_1
+																			add_trait = vicissitude_1
+																			}
+																		10 = {
+																			add_trait = animalism_3
+																			}
+																		10 = {
+																			add_trait = auspex_3
+																			}
+																		10 = {
+																			add_trait = vicissitude_3
+																			}
+																		}			
+
+															}
+															
+														if = { limit = { mother= { trait = tzimisceantitribu } }
+															add_trait = tzimisceantitribu
+																	random_list = {
+																		70 = { 
+																			add_trait = animalism_1
+																			add_trait = auspex_1
+																			add_trait = vicissitude_1
+																			}
+																		10 = {
+																			add_trait = animalism_3
+																			}
+																		10 = {
+																			add_trait = auspex_3
+																			}
+																		10 = {
+																			add_trait = vicissitude_3
+																			}
+																																			}			
+
+															}
+															
+														if = { limit = { mother= { trait = baali } }
+															add_trait = baali
+																	random_list = {
+																		70 = { 
+																			add_trait = majesty_1
+																			add_trait = obfuscate_1
+																			add_trait = daimoinon_1
+																			}
+																		10 = {
+																			add_trait = majesty_3
+																			}
+																		10 = {
+																			add_trait = obfuscate_3
+																			}
+																		10 = {
+																			add_trait = daimoinon_3
+																			}
+																		}			
+
+															}
+
+														if = { limit = { mother= { trait = caitiff } }
+															add_trait = caitiff
+																	random_list = {
+																		70 = { 
+																			add_trait = celerity_1
+																			add_trait = resilience_1
+																			add_trait = vigor_1
+																			}
+																		10 = {
+																			add_trait = celerity_3
+																			}
+																		10 = {
+																			add_trait = resilience_3
+																			}
+																		10 = {
+																			add_trait = vigor_3
+																			}
+																		}			
+
+															}															
+															
 			}
 	
 		}

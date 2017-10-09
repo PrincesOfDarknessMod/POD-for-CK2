@@ -1,10 +1,10 @@
 # werewolf events
 
-namespace = "POD_WOLF_CHILD"
+namespace = werewolf
 
 character_event = {
-	id = pod.666050
-	desc = "POD_WOLF_CHILD_DESC"
+	id = werewolf.1
+#	desc = "POD_WOLF_CHILD_DESC"
 	picture = GFX_evt_comet
 	hide_window = yes
 	max_age = 5
@@ -21,7 +21,7 @@ character_event = {
 	}
 
 	immediate = {
-		name = "set_wolf-blooded_children"
+		#name = "set_wolf-blooded_children"
 		hidden_tooltip = {
 			
 			if = {
@@ -48,11 +48,10 @@ character_event = {
 
 	}	
 }
-namespace = "POD_WEREWOLF_CHANGE"
 
 character_event = {
-	id = pod.666051
-	desc = "POD_WEREWOLF_CHANGE_DESC"
+	id = werewolf.2
+	desc = "#POD_WEREWOLF_CHANGE_DESC"
 	picture = GFX_evt_comet
 	hide_window = yes
 	min_age = 16
@@ -69,6 +68,7 @@ character_event = {
 		NOT = { trait = promethean }
 		NOT = { trait = geist }
 		NOT = { trait = demon }
+		NOT = { trait = fledgling }
 	}
 	
 	mean_time_to_happen = {
@@ -96,6 +96,17 @@ character_event = {
 		
       }
 	immediate = {	
+		if = { limit = { 
+									NOT = { trait = vampire } 
+									NOT = { trait = werewolf }
+									NOT = { trait = mage }
+									NOT = { trait = mummy }
+									NOT = { trait = changeling }
+									NOT = { trait = promethean }
+									NOT = { trait = geist }
+									NOT = { trait = demon }
+									NOT = { trait = fledgling }									
+							} 
 		random_list = { 
 						50 = {  set_character_flag = FLAG_POD_WEREWOLF_CHANGE_EVENT_FIRED
 								set_character_flag = FLAG_POD_NEVER_SHAPECHANGE
@@ -109,8 +120,12 @@ character_event = {
 									OR = {
 											NOT = { religion_group = forsaken_group }
 											NOT = { religion_group = pure_group }
-											NOT = { religion_group = balehounds_group }
+											NOT = { religion_group = bale_hounds_group }
 										}
+											OR = {
+												has_global_flag = bookmark1142
+												has_global_flag = bookmark1250
+											}										
 									}
 								random_list = {
 												15 = { religion = fire-touched }
@@ -125,10 +140,43 @@ character_event = {
 												5 = { religion = bale_hounds }
 										}
 										
+								}	
+
+							if = { 
+								limit = { 
+									OR = {
+											NOT = { religion_group = garou_group }
+											NOT = { religion_group = wyrm_group }
+										}
+											OR = {
+												has_global_flag = bookmark1230
+												has_global_flag = bookmark1500
+											}										
+									}
+								random_list = {
+												5 = { religion = black_furies }
+												5 = { religion = blood_talons }
+												5 = { religion = fianna }
+												5 = { religion = get_of_fenris }
+												15 = { religion = warders_of_men } 
+												15 = { religion = bone_gnawers }
+												5 = { religion = silver_fangs }
+												5 = { religion = shadow_lords }
+												5 = { religion = red_talons }
+												5 = { religion = stargazers }
+												15 = { religion = silent_striders }
+												15 = { religion = black_spiral_dancers }
+										}
+										
 								}
+								
+						}
 							if = { 
 								limit = {
-											religion_group = forsaken_group
+											OR = {
+												religion_group = forsaken_group
+												religion_group = garou_group
+												}
 											NOT = { trait = auspice_rahu }
 											NOT = { trait = auspice_cahalith }
 											NOT = { trait = auspice_elodoth }
@@ -201,7 +249,7 @@ character_event = {
 										}			
 						}						
 					if = {
-								limit = { trait = cahalith }
+								limit = { trait = auspice_cahalith }
 								random_list = {
 										50 = { add_trait = gift_Inspiration_1 }
 										50 = { add_trait = gift_Knowledge_1 }
@@ -304,7 +352,7 @@ character_event = {
 						}											
 								
 					if = {
-								limit = { trait = auspice_ithauer }
+								limit = { trait = auspice_ithaeur }
 								random_list = {
 										50 = { add_trait = gift_Elemental_1 }
 										50 = { add_trait = gift_Shaping_1 }
@@ -344,7 +392,7 @@ character_event = {
 								random_list = {
 										25 = { add_trait = gift_Dominance_1 }
 										25 = { add_trait = gift_Agony_1 }
-										25 = { add_trait = gift_Scourgng_1 }
+										25 = { add_trait = gift_Scourging_1 }
 										25 = { add_trait = gift_Warding_1 }
 										}			
 						}							
@@ -361,11 +409,178 @@ character_event = {
 								limit = { religion = bale_hounds }
 								add_trait = gift_Evasion_1 
 								add_trait = gift_Wound_1 
+						}	
+
+					if = { 
+								limit = {	religion_group = garou_group }
+								add_trait = gift_Father_Wolf_1
+								}
+					if = {
+								limit = {	religion_group = garou_group }
+								add_trait = gift_Mother_Luna_1
+						}
+						
+					if = {
+								limit = {	religion_group = wyrm_group }
+								add_trait = gift_Tainted_Moon_1
+						}						
+
+					if = {
+								limit = { religion = get_of_fenris }
+								random_list = {
+										25 = { add_trait = gift_Inspiration_1 }
+										25 = { add_trait = gift_Rage_1 }
+										25 = { add_trait = gift_Strength_1 }
+										25 = { add_trait = gift_Battle_1 }
 										}			
+						}
+
+					if = {
+								limit = { religion = black_furies }
+								random_list = {
+										25 = { add_trait = gift_Death_1 }
+										25 = { add_trait = gift_Insight_1 }
+										25 = { add_trait = gift_Warding_1 }
+										25 = { add_trait = gift_Ending_1 }
+										}			
+						}											
+
+					if = {
+								limit = { religion = silent_striders }
+								random_list = {
+										25 = { add_trait = gift_Elemental_1 }
+										25 = { add_trait = gift_Nature_1 }
+										25 = { add_trait = gift_Stealth_1 }
+										25 = { add_trait = gift_Stalking_1 }
+										}			
+						}							
+
+					if = {
+								limit = { religion = warders_of_men }
+								random_list = {
+										25 = { add_trait = gift_Knowledge_1 }
+										25 = { add_trait = gift_Shaping_1 }
+										25 = { add_trait = gift_Technology_1 }
+										25 = { add_trait = gift_Blending_1 }
+										}			
+						}				
+						
+					if = {
+								limit = { trait = auspice_elodoth }
+								random_list = {
+										50 = { add_trait = gift_Insight_1 }
+										50 = { add_trait = gift_Warding_1 }
+										}			
+						}									
+					if = {
+								limit = { trait = auspice_elodoth }
+								random_list = {
+										50 = { add_trait = gift_Evasion_1 }
+										50 = { add_trait = gift_Stealth_1 }
+										}			
+						}									
+								
+					if = {
+								limit = { religion = silver_fangs }
+								random_list = {
+										25 = { add_trait = gift_Dominance_1 }
+										25 = { add_trait = gift_Evasion_1 }
+										25 = { add_trait = gift_Weather_1 }
+										25 = { add_trait = gift_Alpha_1 }
+										}			
+						}										
+					if = {
+								limit = { religion = bone_gnawers }
+								random_list = {
+										5 = { add_trait = gift_Dominance_1 }
+										5 = { add_trait = gift_Evasion_1 }
+										5 = { add_trait = gift_Weather_1 }
+										5 = { add_trait = gift_Alpha_1 }
+										5 = { add_trait = gift_Knowledge_1 }
+										5 = { add_trait = gift_Shaping_1 }
+										5 = { add_trait = gift_Technology_1 }
+										5 = { add_trait = gift_Blending_1 }	
+										5 = { add_trait = gift_Death_1 }
+										5 = { add_trait = gift_Insight_1 }
+										5 = { add_trait = gift_Warding_1 }
+										5 = { add_trait = gift_Ending_1 }	
+										5 = { add_trait = gift_Inspiration_1 }
+										5 = { add_trait = gift_Rage_1 }
+										5 = { add_trait = gift_Strength_1 }
+										5 = { add_trait = gift_Battle_1 }	
+										5 = { add_trait = gift_Elemental_1 }
+										5 = { add_trait = gift_Nature_1 }
+										5 = { add_trait = gift_Stealth_1 }
+										5 = { add_trait = gift_Stalking_1 }										
+										}			
+						}															
+
+					if = {
+								limit = { religion_group = garou_group }
+								random_list = {
+										5 = { add_trait = gift_Dominance_1 }
+										5 = { add_trait = gift_Evasion_1 }
+										5 = { add_trait = gift_Weather_1 }
+										5 = { add_trait = gift_Alpha_1 }
+										5 = { add_trait = gift_Knowledge_1 }
+										5 = { add_trait = gift_Shaping_1 }
+										5 = { add_trait = gift_Technology_1 }
+										5 = { add_trait = gift_Blending_1 }	
+										5 = { add_trait = gift_Death_1 }
+										5 = { add_trait = gift_Insight_1 }
+										5 = { add_trait = gift_Warding_1 }
+										5 = { add_trait = gift_Ending_1 }	
+										5 = { add_trait = gift_Inspiration_1 }
+										5 = { add_trait = gift_Rage_1 }
+										5 = { add_trait = gift_Strength_1 }
+										5 = { add_trait = gift_Battle_1 }	
+										5 = { add_trait = gift_Elemental_1 }
+										5 = { add_trait = gift_Nature_1 }
+										5 = { add_trait = gift_Stealth_1 }
+										5 = { add_trait = gift_Stalking_1 }										
+										}			
+						}	 
+						
+					if = {
+								limit = { religion = shadow_lords }
+								random_list = {
+										25 = { add_trait = gift_Disease_1 }
+										25 = { add_trait = gift_Fervor_1 }
+										25 = { add_trait = gift_Insight_1 }
+										25 = { add_trait = gift_Inspiration_1 }
+										}			
+						}									
+
+					if = {
+								limit = { religion = silver_fangs }
+								random_list = {
+										25 = { add_trait = gift_Dominance_1 }
+										25 = { add_trait = gift_Agony_1 }
+										25 = { add_trait = gift_Scourging_1 }
+										25 = { add_trait = gift_Warding_1 }
+										}			
+						}							
+					if = {
+								limit = { religion = red_talons }
+								random_list = {
+										25 = { add_trait = gift_Nature_1 }
+										25 = { add_trait = gift_Savagery_1 }
+										25 = { add_trait = gift_Rage_1 }
+										25 = { add_trait = gift_Strength_1 }
+										}			
+						}									
+					if = {
+								limit = { religion = black_spiral_dancers }
+								add_trait = gift_Evasion_1 
+								add_trait = gift_Wound_1 
+						}	
+
+
+										
 						}									
 									
 					}
 			}
+		}
 	}	
-}
 

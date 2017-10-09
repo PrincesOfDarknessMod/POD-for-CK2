@@ -1,10 +1,10 @@
 # Setup random new commoner characters as supernaturals or mortals		
 				
-namespace = "POD_SETUP_COMMONER"			
+namespace = setup_commoner			
 				
 character_event = {
-	id = pod.666020
-	desc = "POD_SETUP_COMMONER_DESC"
+	id = setup_commoner.1
+	#desc = "POD_SETUP_COMMONER_DESC"
 	picture = GFX_evt_comet
 	hide_window = yes
 	max_age = 100
@@ -21,13 +21,23 @@ character_event = {
 		NOT = { trait = geist }
 		NOT = { trait = demon }
 		NOT = { trait = revenant }
+		NOT = { trait = storyteller }
+		OR = {
+				has_global_flag = bookmark1142	
+				has_global_flag = bookmark1250
+		}
 	}
 	
 	mean_time_to_happen = {
 		days = 1
+		modifier = {
+		factor = 0.1 
+		adult = yes
+		}		
 	}
+	
 	immediate = {
-		name = "set_inital_random_supernaturals_commoners"
+		#name = "set_inital_random_supernaturals_commoners"
 		hidden_tooltip = {	
 
 		# children
@@ -45,7 +55,7 @@ character_event = {
 								NOT = { trait = changeling }
 								NOT = { trait = promethean }
 								NOT = { trait = geist }
-								NOT = { trait = demon }
+								NOT = { trait = demon }								
 							}
 								add_trait = mortal
 #								religion = { mother = {religion } }
@@ -64,7 +74,8 @@ character_event = {
 		NOT = { trait = promethean }
 		NOT = { trait = geist }
 		NOT = { trait = demon }
-		NOT = { trait = revenant }					
+		NOT = { trait = revenant }		
+		NOT = { trait = storyteller }		
 				}
 
 # vamp mercs
@@ -90,7 +101,7 @@ character_event = {
 									
 								}
 						add_trait = vampire
-						character_event = { id = pod.666021 }
+						character_event = { id = vampire_commoner.1 }
 					}
 
 # revenant mercs
@@ -110,7 +121,7 @@ character_event = {
 									
 								}
 						add_trait = revenant
-						character_event = { id = pod.666030 }
+						character_event = { id = revenant_commoner.1 }
 					}					
 
 # werewolf mercs
@@ -118,15 +129,16 @@ character_event = {
 										OR = { 
 											religion_group = forsaken_group
 											religion_group = pure_group
-											religion_group = balehounds_group									}
+											religion_group = bale_hounds_group									}
 										OR = {
 											liege = { mercenary = yes }
 											liege = { holy_order = yes }
 											trait = peasant_leader
 										}
+						}
 						add_trait = werewolf
 						add_trait = hishu
-						character_event = { id = pod.666022 }	
+						character_event = { id = werewolf_commoner.1 }	
 					}
 
 # supe_hunters					
@@ -136,7 +148,7 @@ character_event = {
 										}
 						add_trait = mortal
 						add_trait = supe_hunter
-						character_event = { id = pod.666024 }
+						character_event = { id = hunter_commoner.1 }
 					}
 
 				if = {
@@ -157,53 +169,53 @@ character_event = {
 					91 = { 
 						# mortal
 						add_trait = mortal
-						character_event = { id = pod.666031 }	
+						character_event = { id = mortal_commoner.1 }	
 						}
 					1 = {
 						# vampire
 						add_trait = vampire
-						character_event = { id = pod.666021 }
+						character_event = { id = vampire_commoner.1 }
 						}
 					1 = {
 						# werewolf
 						add_trait = werewolf
 						add_trait = hishu
-						character_event = { id = pod.666022 }
+						character_event = { id = werewolf_commoner.1 }
 						}
 					1 = {
 						# mage
 						add_trait = mage
-						character_event = { id = pod.666023 }
+						character_event = { id = mage_commoner.1 }
 						}
 					1 = {
 						# changeling
 						add_trait = changeling
-						character_event = { id = pod.666025 }
+						character_event = { id = changeling_commoner.1 }
 						}
 					1 = {
 						# mummy
 						add_trait = mummy
-						character_event = { id = pod.666029 }
+						character_event = { id = mummy_commoner.1 }
 						}
 					1 = {
 						# geist
 						add_trait = geist
-						character_event = { id = pod.666028 }
+						character_event = { id = geist_commoner.1 }
 						}
 					1 = {
 						# demon
 						add_trait = demon
-						character_event = { id = pod.666026 }
+						character_event = { id = demon_commoner.1 }
 						}
 					1 = {
 						# promethean
 						add_trait = promethean
-						character_event = { id = pod.666027 }
+						character_event = { id = promethean_commoner.1 }
 						}
 					1 = { 
 						# revenant 
 						add_trait = revenant
-						character_event = { id = pod.666030 }
+						character_event = { id = revenant_commoner.1 }
 						}
 						
 					
@@ -214,12 +226,5 @@ character_event = {
 	
 		}
 	}
-	
-	}
-
-		option = {
-			name = EVTOPT_POD_setup_commoner
-			}	
-	
 	}
 	

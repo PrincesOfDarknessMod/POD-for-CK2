@@ -1,0 +1,3705 @@
+decisions = {
+
+train_animalism_1_decision = {
+	potential = {
+			ai = no
+			age = 16
+			trait = vampire
+			NOT = { trait = animalism_1 }
+			NOT = { trait = animalism_2 }
+			NOT = { trait = animalism_3 }
+			NOT = { trait = animalism_4 }
+			NOT = { trait = animalism_5 }
+			
+	}
+	
+	allow = {
+		prestige = 200
+			trait = vampire
+			NOT = { trait = animalism_1 }
+			NOT = { trait = animalism_2 }
+			NOT = { trait = animalism_3 }
+			NOT = { trait = animalism_4 }
+			NOT = { trait = animalism_5 }
+	}
+	effect = {
+		prestige = -200
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = animalism_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 0	
+				}
+		}
+
+
+train_animalism_2_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire
+			trait = animalism_1 
+	}	
+	
+	allow = {
+		prestige = 400
+		trait = animalism_1 	
+	}
+	effect = {
+		prestige = -400
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = animalism_2
+		remove_trait = animalism_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0	
+		}
+	}
+
+train_animalism_3_decision = {
+	
+	potential = {
+			ai = no
+
+			trait = vampire
+			trait = animalism_2
+	}
+	allow = {
+		prestige = 600
+			trait = animalism_2	
+	}
+	effect = {
+		prestige = -600
+		remove_trait = animalism_2
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = animalism_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0
+		}
+	}
+
+train_animalism_4_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire		
+			trait = animalism_3
+	}
+	allow = {
+		prestige = 800
+			trait = animalism_3	
+	}
+	effect = {
+		prestige = -800
+		remove_trait = animalism_3
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = animalism_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}
+
+train_animalism_5_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire			
+			trait = animalism_4 
+	}
+	allow = {
+		prestige = 1200
+			trait = animalism_4 		
+	}
+	effect = {
+		prestige = -1200
+		remove_trait = animalism_4
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = animalism_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}		
+		
+train_auspex_1_decision = {
+	potential = {
+			ai = no
+			age = 16
+			trait = vampire
+			NOT = { trait = auspex_1 }
+			NOT = { trait = auspex_2 }
+			NOT = { trait = auspex_3 }
+			NOT = { trait = auspex_4 }
+			NOT = { trait = auspex_5 }
+			OR = { 
+			trait = mekhet
+			trait = irinavici
+			trait = petrovnavich
+			trait = semeonovic
+			trait = marisovich
+			trait = cappadocian
+			trait = malkavian
+			trait = malkavianantitribu
+			trait = salubri
+			trait = toreador
+			trait = toreadorantitribu
+			trait = tremere
+			trait = tremereantitribu
+			trait = tzimisce
+			trait = tzimisceantitribu }
+		
+	}
+	
+	allow = {
+		prestige = 200
+			trait = vampire
+			NOT = { trait = auspex_1 }
+			NOT = { trait = auspex_2 }
+			NOT = { trait = auspex_3 }
+			NOT = { trait = auspex_4 }
+			NOT = { trait = auspex_5 }
+	}
+	effect = {
+		prestige = -200
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = auspex_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 0	
+				}
+		}
+
+
+train_auspex_2_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire
+			trait = auspex_1 
+	}	
+	
+	allow = {
+		prestige = 400
+		trait = auspex_1 	
+	}
+	effect = {
+		prestige = -400
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = auspex_2
+		remove_trait = auspex_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0	
+		}
+	}
+
+train_auspex_3_decision = {
+	
+	potential = {
+			ai = no
+
+			trait = vampire
+			trait = auspex_2
+	}
+	allow = {
+		prestige = 600
+			trait = auspex_2	
+	}
+	effect = {
+		prestige = -600
+		remove_trait = auspex_2
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = auspex_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0
+		}
+	}
+
+train_auspex_4_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire		
+			trait = auspex_3
+	}
+	allow = {
+		prestige = 800
+			trait = auspex_3	
+	}
+	effect = {
+		prestige = -800
+		remove_trait = auspex_3
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = auspex_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}
+
+train_auspex_5_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire			
+			trait = auspex_4 
+	}
+	allow = {
+		prestige = 1200
+			trait = auspex_4 		
+	}
+	effect = {
+		prestige = -1200
+		remove_trait = auspex_4
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = auspex_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}	
+	
+train_celerity_1_decision = {
+	potential = {
+			ai = no
+			age = 16
+			trait = vampire
+			NOT = { trait = celerity_1 }
+			NOT = { trait = celerity_2 }
+			NOT = { trait = celerity_3 }
+			NOT = { trait = celerity_4 }
+			NOT = { trait = celerity_5 }
+			
+	}
+	
+	allow = {
+		prestige = 200
+			trait = vampire
+			NOT = { trait = celerity_1 }
+			NOT = { trait = celerity_2 }
+			NOT = { trait = celerity_3 }
+			NOT = { trait = celerity_4 }
+			NOT = { trait = celerity_5 }
+	}
+	effect = {
+		prestige = -200
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = celerity_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 0	
+				}
+		}
+
+
+train_celerity_2_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire
+			trait = celerity_1 
+	}	
+	
+	allow = {
+		prestige = 400
+		trait = celerity_1 	
+	}
+	effect = {
+		prestige = -400
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = celerity_2
+		remove_trait = celerity_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0	
+		}
+	}
+
+train_celerity_3_decision = {
+	
+	potential = {
+			ai = no
+
+			trait = vampire
+			trait = celerity_2
+	}
+	allow = {
+		prestige = 600
+			trait = celerity_2	
+	}
+	effect = {
+		prestige = -600
+		remove_trait = celerity_2
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = celerity_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0
+		}
+	}
+
+train_celerity_4_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire		
+			trait = celerity_3
+	}
+	allow = {
+		prestige = 800
+			trait = celerity_3	
+	}
+	effect = {
+		prestige = -800
+		remove_trait = celerity_3
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = celerity_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}
+
+train_celerity_5_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire			
+			trait = celerity_4 
+	}
+	allow = {
+		prestige = 1200
+			trait = celerity_4 		
+	}
+	effect = {
+		prestige = -1200
+		remove_trait = celerity_4
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = celerity_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}		
+		
+train_dominate_1_decision = {
+	potential = {
+			ai = no
+			age = 16
+			trait = vampire
+			NOT = { trait = dominate_1 }
+			NOT = { trait = dominate_2 }
+			NOT = { trait = dominate_3 }
+			NOT = { trait = dominate_4 }
+			NOT = { trait = dominate_5 }
+			OR = {
+							trait = giovanni
+							trait = julii
+							trait = lasombra
+							trait = lasombraantitribu
+							trait = malkavian
+							trait = marisovich
+							trait = petrovnavich
+							trait = tremere
+							trait = tremereantitribu
+							trait = ventrue
+							trait = ventrueantitribu
+							}
+			
+	}
+	
+	allow = {
+		prestige = 200
+			trait = vampire
+			NOT = { trait = dominate_1 }
+			NOT = { trait = dominate_2 }
+			NOT = { trait = dominate_3 }
+			NOT = { trait = dominate_4 }
+			NOT = { trait = dominate_5 }
+	}
+	effect = {
+		prestige = -200
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = dominate_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 0	
+				}
+		}
+
+
+train_dominate_2_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire
+			trait = dominate_1 
+	}	
+	
+	allow = {
+		prestige = 400
+		trait = dominate_1 	
+	}
+	effect = {
+		prestige = -400
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = dominate_2
+		remove_trait = dominate_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0	
+		}
+	}
+
+train_dominate_3_decision = {
+	
+	potential = {
+			ai = no
+
+			trait = vampire
+			trait = dominate_2
+	}
+	allow = {
+		prestige = 600
+			trait = dominate_2	
+	}
+	effect = {
+		prestige = -600
+		remove_trait = dominate_2
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = dominate_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0
+		}
+	}
+
+train_dominate_4_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire		
+			trait = dominate_3
+	}
+	allow = {
+		prestige = 800
+			trait = dominate_3	
+	}
+	effect = {
+		prestige = -800
+		remove_trait = dominate_3
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = dominate_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}
+
+train_dominate_5_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire			
+			trait = dominate_4 
+	}
+	allow = {
+		prestige = 1200
+			trait = dominate_4 		
+	}
+	effect = {
+		prestige = -1200
+		remove_trait = dominate_4
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = dominate_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}		
+		
+train_majesty_1_decision = {
+	potential = {
+			ai = no
+			age = 16
+			trait = vampire
+			NOT = { trait = majesty_1 }
+			NOT = { trait = majesty_2 }
+			NOT = { trait = majesty_3 }
+			NOT = { trait = majesty_4 }
+			NOT = { trait = majesty_5 }
+		OR = { 
+							trait = baali
+							trait = brujah
+							trait = brujahantitribu	
+							trait = daeva
+							trait = followerofset
+							trait = irinavici
+							trait = mekhet
+							trait = semeonovic
+							trait = toreador
+							trait = toreadorantitribu
+							trait = ventrue
+							trait = ventrueantitribu	
+				}
+			
+	}
+	
+	allow = {
+		prestige = 200
+			trait = vampire
+			NOT = { trait = majesty_1 }
+			NOT = { trait = majesty_2 }
+			NOT = { trait = majesty_3 }
+			NOT = { trait = majesty_4 }
+			NOT = { trait = majesty_5 }
+	}
+	effect = {
+		prestige = -200
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = majesty_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 0	
+				}
+		}
+
+
+train_majesty_2_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire
+			trait = majesty_1 
+	}	
+	
+	allow = {
+		prestige = 400
+		trait = majesty_1 	
+	}
+	effect = {
+		prestige = -400
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = majesty_2
+		remove_trait = majesty_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0	
+		}
+	}
+
+train_majesty_3_decision = {
+	
+	potential = {
+			ai = no
+
+			trait = vampire
+			trait = majesty_2
+	}
+	allow = {
+		prestige = 600
+			trait = majesty_2	
+	}
+	effect = {
+		prestige = -600
+		remove_trait = majesty_2
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = majesty_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0
+		}
+	}
+
+train_majesty_4_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire		
+			trait = majesty_3
+	}
+	allow = {
+		prestige = 800
+			trait = majesty_3	
+	}
+	effect = {
+		prestige = -800
+		remove_trait = majesty_3
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = majesty_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}
+
+train_majesty_5_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire			
+			trait = majesty_4 
+	}
+	allow = {
+		prestige = 1200
+			trait = majesty_4 		
+	}
+	effect = {
+		prestige = -1200
+		remove_trait = majesty_4
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = majesty_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}		
+		
+train_nightmare_1_decision = {
+	potential = {
+			ai = no
+			age = 16
+			trait = vampire
+			trait = nosferatu
+			NOT = { trait = nightmare_1 }
+			NOT = { trait = nightmare_2 }
+			NOT = { trait = nightmare_3 }
+			NOT = { trait = nightmare_4 }
+			NOT = { trait = nightmare_5 }
+			
+	}
+	
+	allow = {
+		prestige = 200
+			trait = vampire
+			NOT = { trait = nightmare_1 }
+			NOT = { trait = nightmare_2 }
+			NOT = { trait = nightmare_3 }
+			NOT = { trait = nightmare_4 }
+			NOT = { trait = nightmare_5 }
+	}
+	effect = {
+		prestige = -200
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = nightmare_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 0	
+				}
+		}
+
+
+train_nightmare_2_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire
+			trait = nightmare_1 
+	}	
+	
+	allow = {
+		prestige = 400
+		trait = nightmare_1 	
+	}
+	effect = {
+		prestige = -400
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = nightmare_2
+		remove_trait = nightmare_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0	
+		}
+	}
+
+train_nightmare_3_decision = {
+	
+	potential = {
+			ai = no
+
+			trait = vampire
+			trait = nightmare_2
+	}
+	allow = {
+		prestige = 600
+			trait = nightmare_2	
+	}
+	effect = {
+		prestige = -600
+		remove_trait = nightmare_2
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = nightmare_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0
+		}
+	}
+
+train_nightmare_4_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire		
+			trait = nightmare_3
+	}
+	allow = {
+		prestige = 800
+			trait = nightmare_3	
+	}
+	effect = {
+		prestige = -800
+		remove_trait = nightmare_3
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = nightmare_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}
+
+train_nightmare_5_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire			
+			trait = nightmare_4 
+	}
+	allow = {
+		prestige = 1200
+			trait = nightmare_4 		
+	}
+	effect = {
+		prestige = -1200
+		remove_trait = nightmare_4
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = nightmare_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}		
+		
+train_obfuscate_1_decision = {
+	potential = {
+			ai = no
+			age = 16
+			trait = vampire
+			NOT = { trait = obfuscate_1 }
+			NOT = { trait = obfuscate_2 }
+			NOT = { trait = obfuscate_3 }
+			NOT = { trait = obfuscate_4 }
+			NOT = { trait = obfuscate_5 }
+			
+	}
+	
+	allow = {
+		prestige = 200
+			trait = vampire
+			NOT = { trait = obfuscate_1 }
+			NOT = { trait = obfuscate_2 }
+			NOT = { trait = obfuscate_3 }
+			NOT = { trait = obfuscate_4 }
+			NOT = { trait = obfuscate_5 }
+	}
+	effect = {
+		prestige = -200
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = obfuscate_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 0	
+				}
+		}
+
+
+train_obfuscate_2_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire
+			trait = obfuscate_1 
+	}	
+	
+	allow = {
+		prestige = 400
+		trait = obfuscate_1 	
+	}
+	effect = {
+		prestige = -400
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = obfuscate_2
+		remove_trait = obfuscate_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0	
+		}
+	}
+
+train_obfuscate_3_decision = {
+	
+	potential = {
+			ai = no
+
+			trait = vampire
+			trait = obfuscate_2
+	}
+	allow = {
+		prestige = 600
+			trait = obfuscate_2	
+	}
+	effect = {
+		prestige = -600
+		remove_trait = obfuscate_2
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = obfuscate_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0
+		}
+	}
+
+train_obfuscate_4_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire		
+			trait = obfuscate_3
+	}
+	allow = {
+		prestige = 800
+			trait = obfuscate_3	
+	}
+	effect = {
+		prestige = -800
+		remove_trait = obfuscate_3
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = obfuscate_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}
+
+train_obfuscate_5_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire			
+			trait = obfuscate_4 
+	}
+	allow = {
+		prestige = 1200
+			trait = obfuscate_4 		
+	}
+	effect = {
+		prestige = -1200
+		remove_trait = obfuscate_4
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = obfuscate_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}		
+		
+train_protean_1_decision = {
+	potential = {
+			ai = no
+			age = 16
+			trait = vampire
+			OR = {
+			trait = gangrel
+			trait = gangrelantitribu
+			}
+			NOT = { trait = protean_1 }
+			NOT = { trait = protean_2 }
+			NOT = { trait = protean_3 }
+			NOT = { trait = protean_4 }
+			NOT = { trait = protean_5 }
+			
+	}
+	
+	allow = {
+		prestige = 200
+			trait = vampire
+			NOT = { trait = protean_1 }
+			NOT = { trait = protean_2 }
+			NOT = { trait = protean_3 }
+			NOT = { trait = protean_4 }
+			NOT = { trait = protean_5 }
+	}
+	effect = {
+		prestige = -200
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = protean_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 0	
+				}
+		}
+
+
+train_protean_2_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire
+			trait = protean_1 
+	}	
+	
+	allow = {
+		prestige = 400
+		trait = protean_1 	
+	}
+	effect = {
+		prestige = -400
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = protean_2
+		remove_trait = protean_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0	
+		}
+	}
+
+train_protean_3_decision = {
+	
+	potential = {
+			ai = no
+
+			trait = vampire
+			trait = protean_2
+	}
+	allow = {
+		prestige = 600
+			trait = protean_2	
+	}
+	effect = {
+		prestige = -600
+		remove_trait = protean_2
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = protean_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0
+		}
+	}
+
+train_protean_4_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire		
+			trait = protean_3
+	}
+	allow = {
+		prestige = 800
+			trait = protean_3	
+	}
+	effect = {
+		prestige = -800
+		remove_trait = protean_3
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = protean_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}
+
+train_protean_5_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire			
+			trait = protean_4 
+	}
+	allow = {
+		prestige = 1200
+			trait = protean_4 		
+	}
+	effect = {
+		prestige = -1200
+		remove_trait = protean_4
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = protean_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}		
+		
+train_resilience_1_decision = {
+	potential = {
+			ai = no
+			age = 16
+			trait = vampire
+			NOT = { trait = resilience_1 }
+			NOT = { trait = resilience_2 }
+			NOT = { trait = resilience_3 }
+			NOT = { trait = resilience_4 }
+			NOT = { trait = resilience_5 }
+			
+	}
+	
+	allow = {
+		prestige = 200
+			trait = vampire
+			NOT = { trait = resilience_1 }
+			NOT = { trait = resilience_2 }
+			NOT = { trait = resilience_3 }
+			NOT = { trait = resilience_4 }
+			NOT = { trait = resilience_5 }
+	}
+	effect = {
+		prestige = -200
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = resilience_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 0	
+				}
+		}
+
+
+train_resilience_2_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire
+			trait = resilience_1 
+	}	
+	
+	allow = {
+		prestige = 400
+		trait = resilience_1 	
+	}
+	effect = {
+		prestige = -400
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = resilience_2
+		remove_trait = resilience_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0	
+		}
+	}
+
+train_resilience_3_decision = {
+	
+	potential = {
+			ai = no
+
+			trait = vampire
+			trait = resilience_2
+	}
+	allow = {
+		prestige = 600
+			trait = resilience_2	
+	}
+	effect = {
+		prestige = -600
+		remove_trait = resilience_2
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = resilience_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0
+		}
+	}
+
+train_resilience_4_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire		
+			trait = resilience_3
+	}
+	allow = {
+		prestige = 800
+			trait = resilience_3	
+	}
+	effect = {
+		prestige = -800
+		remove_trait = resilience_3
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = resilience_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}
+
+train_resilience_5_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire			
+			trait = resilience_4 
+	}
+	allow = {
+		prestige = 1200
+			trait = resilience_4 		
+	}
+	effect = {
+		prestige = -1200
+		remove_trait = resilience_4
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = resilience_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}		
+		
+train_vigor_1_decision = {
+	potential = {
+			ai = no
+			age = 16
+			trait = vampire
+			NOT = { trait = vigor_1 }
+			NOT = { trait = vigor_2 }
+			NOT = { trait = vigor_3 }
+			NOT = { trait = vigor_4 }
+			NOT = { trait = vigor_5 }
+			
+	}
+	
+	allow = {
+		prestige = 200
+			trait = vampire
+			NOT = { trait = vigor_1 }
+			NOT = { trait = vigor_2 }
+			NOT = { trait = vigor_3 }
+			NOT = { trait = vigor_4 }
+			NOT = { trait = vigor_5 }
+	}
+	effect = {
+		prestige = -200
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = vigor_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 0	
+				}
+		}
+
+
+train_vigor_2_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire
+			trait = vigor_1 
+	}	
+	
+	allow = {
+		prestige = 400
+		trait = vigor_1 	
+	}
+	effect = {
+		prestige = -400
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = vigor_2
+		remove_trait = vigor_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0	
+		}
+	}
+
+train_vigor_3_decision = {
+	
+	potential = {
+			ai = no
+
+			trait = vampire
+			trait = vigor_2
+	}
+	allow = {
+		prestige = 600
+			trait = vigor_2	
+	}
+	effect = {
+		prestige = -600
+		remove_trait = vigor_2
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = vigor_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0
+		}
+	}
+
+train_vigor_4_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire		
+			trait = vigor_3
+	}
+	allow = {
+		prestige = 800
+			trait = vigor_3	
+	}
+	effect = {
+		prestige = -800
+		remove_trait = vigor_3
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = vigor_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}
+
+train_vigor_5_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire			
+			trait = vigor_4 
+	}
+	allow = {
+		prestige = 1200
+			trait = vigor_4 		
+	}
+	effect = {
+		prestige = -1200
+		remove_trait = vigor_4
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = vigor_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}		
+		
+train_cruac_1_decision = {
+	potential = {
+			ai = no
+			age = 16
+			trait = vampire
+			OR = { religion = circle_of_the_crone
+				   religion = livian 
+				   religion = weihan_cynn
+				   religion = fuil-beannaithe
+				   religion = cult_of_augurs
+					}
+			NOT = { trait = cruac_1 }
+			NOT = { trait = cruac_2 }
+			NOT = { trait = cruac_3 }
+			NOT = { trait = cruac_4 }
+			NOT = { trait = cruac_5 }
+			
+	}
+	
+	allow = {
+		prestige = 200
+			trait = vampire
+			NOT = { trait = cruac_1 }
+			NOT = { trait = cruac_2 }
+			NOT = { trait = cruac_3 }
+			NOT = { trait = cruac_4 }
+			NOT = { trait = cruac_5 }
+	}
+	effect = {
+		prestige = -200
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = cruac_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 0	
+				}
+		}
+
+
+train_cruac_2_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire
+			trait = cruac_1 
+	}	
+	
+	allow = {
+		prestige = 400
+		trait = cruac_1 	
+	}
+	effect = {
+		prestige = -400
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = cruac_2
+		remove_trait = cruac_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0	
+		}
+	}
+
+train_cruac_3_decision = {
+	
+	potential = {
+			ai = no
+
+			trait = vampire
+			trait = cruac_2
+	}
+	allow = {
+		prestige = 600
+			trait = cruac_2	
+	}
+	effect = {
+		prestige = -600
+		remove_trait = cruac_2
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = cruac_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0
+		}
+	}
+
+train_cruac_4_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire		
+			trait = cruac_3
+	}
+	allow = {
+		prestige = 800
+			trait = cruac_3	
+	}
+	effect = {
+		prestige = -800
+		remove_trait = cruac_3
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = cruac_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}
+
+train_cruac_5_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire			
+			trait = cruac_4 
+	}
+	allow = {
+		prestige = 1200
+			trait = cruac_4 		
+	}
+	effect = {
+		prestige = -1200
+		remove_trait = cruac_4
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = cruac_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}		
+		
+train_theban_1_decision = {
+	potential = {
+			ai = no
+			age = 16
+			trait = vampire
+			learning = 5
+			OR = { 	religion = lancea_sanctum
+					religion = livian
+					religion = icarian
+					religion = banu_shaitan 
+					religion = shedim
+					religion = gnostic
+				}			
+			NOT = { trait = theban_1 }
+			NOT = { trait = theban_2 }
+			NOT = { trait = theban_3 }
+			NOT = { trait = theban_4 }
+			NOT = { trait = theban_5 }
+			
+	}
+	
+	allow = {
+		prestige = 200
+			trait = vampire
+			NOT = { trait = theban_1 }
+			NOT = { trait = theban_2 }
+			NOT = { trait = theban_3 }
+			NOT = { trait = theban_4 }
+			NOT = { trait = theban_5 }
+	}
+	effect = {
+		prestige = -200
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = theban_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 0	
+				}
+		}
+
+
+train_theban_2_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire
+			trait = theban_1 
+			learning = 7
+	}	
+	
+	allow = {
+		prestige = 400
+		trait = theban_1 	
+	}
+	effect = {
+		prestige = -400
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = theban_2
+		remove_trait = theban_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0	
+		}
+	}
+
+train_theban_3_decision = {
+	
+	potential = {
+			ai = no
+
+			trait = vampire
+			trait = theban_2
+			learning = 10
+	}
+	allow = {
+		prestige = 600
+			trait = theban_2	
+	}
+	effect = {
+		prestige = -600
+		remove_trait = theban_2
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = theban_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0
+		}
+	}
+
+train_theban_4_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire		
+			trait = theban_3
+			learning = 13
+	}
+	allow = {
+		prestige = 800
+			trait = theban_3	
+	}
+	effect = {
+		prestige = -800
+		remove_trait = theban_3
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = theban_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}
+
+train_theban_5_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire			
+			trait = theban_4 
+			learning = 15
+	}
+	allow = {
+		prestige = 1200
+			trait = theban_4 		
+	}
+	effect = {
+		prestige = -1200
+		remove_trait = theban_4
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = theban_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}		
+		
+train_coils_1_decision = {
+	potential = {
+			ai = no
+			age = 16
+			trait = vampire
+			religion = ordo_dracul
+			learning = 5
+			NOT = { trait = coils_1 }
+			NOT = { trait = coils_2 }
+			NOT = { trait = coils_3 }
+			NOT = { trait = coils_4 }
+			NOT = { trait = coils_5 }
+			
+	}
+	
+	allow = {
+		prestige = 200
+			trait = vampire
+			NOT = { trait = coils_1 }
+			NOT = { trait = coils_2 }
+			NOT = { trait = coils_3 }
+			NOT = { trait = coils_4 }
+			NOT = { trait = coils_5 }
+	}
+	effect = {
+		prestige = -200
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = coils_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 0	
+				}
+		}
+
+
+train_coils_2_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire
+			trait = coils_1 
+			learning = 7
+	}	
+	
+	allow = {
+		prestige = 400
+		trait = coils_1 	
+	}
+	effect = {
+		prestige = -400
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = coils_2
+		remove_trait = coils_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0	
+		}
+	}
+
+train_coils_3_decision = {
+	
+	potential = {
+			ai = no
+
+			trait = vampire
+			trait = coils_2
+			learning = 10
+	}
+	allow = {
+		prestige = 600
+			trait = coils_2	
+	}
+	effect = {
+		prestige = -600
+		remove_trait = coils_2
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = coils_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0
+		}
+	}
+
+train_coils_4_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire		
+			trait = coils_3
+			learning = 13
+	}
+	allow = {
+		prestige = 800
+			trait = coils_3	
+	}
+	effect = {
+		prestige = -800
+		remove_trait = coils_3
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = coils_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}
+
+train_coils_5_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire			
+			trait = coils_4 
+			learning = 15
+	}
+	allow = {
+		prestige = 1200
+			trait = coils_4 		
+	}
+	effect = {
+		prestige = -1200
+		remove_trait = coils_4
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = coils_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}		
+		
+train_constance_1_decision = {
+	potential = {
+			ai = no
+			age = 16
+			trait = vampire
+			trait = bloodline_icarian
+			NOT = { trait = constance_1 }
+			NOT = { trait = constance_2 }
+			NOT = { trait = constance_3 }
+			NOT = { trait = constance_4 }
+			NOT = { trait = constance_5 }
+			
+	}
+	
+	allow = {
+		prestige = 200
+			trait = vampire
+			NOT = { trait = constance_1 }
+			NOT = { trait = constance_2 }
+			NOT = { trait = constance_3 }
+			NOT = { trait = constance_4 }
+			NOT = { trait = constance_5 }
+	}
+	effect = {
+		prestige = -200
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = constance_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 0	
+				}
+		}
+
+
+train_constance_2_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire
+			trait = constance_1 
+	}	
+	
+	allow = {
+		prestige = 400
+		trait = constance_1 	
+	}
+	effect = {
+		prestige = -400
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = constance_2
+		remove_trait = constance_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0	
+		}
+	}
+
+train_constance_3_decision = {
+	
+	potential = {
+			ai = no
+
+			trait = vampire
+			trait = constance_2
+	}
+	allow = {
+		prestige = 600
+			trait = constance_2	
+	}
+	effect = {
+		prestige = -600
+		remove_trait = constance_2
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = constance_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0
+		}
+	}
+
+train_constance_4_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire		
+			trait = constance_3
+	}
+	allow = {
+		prestige = 800
+			trait = constance_3	
+	}
+	effect = {
+		prestige = -800
+		remove_trait = constance_3
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = constance_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}
+
+train_constance_5_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire			
+			trait = constance_4 
+	}
+	allow = {
+		prestige = 1200
+			trait = constance_4 		
+	}
+	effect = {
+		prestige = -1200
+		remove_trait = constance_4
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = constance_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}		
+		
+train_courtoisie_1_decision = {
+	potential = {
+			ai = no
+			age = 16
+			trait = vampire
+			trait = bloodline_spina
+			NOT = { trait = courtoisie_1 }
+			NOT = { trait = courtoisie_2 }
+			NOT = { trait = courtoisie_3 }
+			NOT = { trait = courtoisie_4 }
+			NOT = { trait = courtoisie_5 }
+			
+	}
+	
+	allow = {
+		prestige = 200
+			trait = vampire
+			NOT = { trait = courtoisie_1 }
+			NOT = { trait = courtoisie_2 }
+			NOT = { trait = courtoisie_3 }
+			NOT = { trait = courtoisie_4 }
+			NOT = { trait = courtoisie_5 }
+	}
+	effect = {
+		prestige = -200
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = courtoisie_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 0	
+				}
+		}
+
+
+train_courtoisie_2_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire
+			trait = courtoisie_1 
+	}	
+	
+	allow = {
+		prestige = 400
+		trait = courtoisie_1 	
+	}
+	effect = {
+		prestige = -400
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = courtoisie_2
+		remove_trait = courtoisie_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0	
+		}
+	}
+
+train_courtoisie_3_decision = {
+	
+	potential = {
+			ai = no
+
+			trait = vampire
+			trait = courtoisie_2
+	}
+	allow = {
+		prestige = 600
+			trait = courtoisie_2	
+	}
+	effect = {
+		prestige = -600
+		remove_trait = courtoisie_2
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = courtoisie_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0
+		}
+	}
+
+train_courtoisie_4_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire		
+			trait = courtoisie_3
+	}
+	allow = {
+		prestige = 800
+			trait = courtoisie_3	
+	}
+	effect = {
+		prestige = -800
+		remove_trait = courtoisie_3
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = courtoisie_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}
+
+train_courtoisie_5_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire			
+			trait = courtoisie_4 
+	}
+	allow = {
+		prestige = 1200
+			trait = courtoisie_4 		
+	}
+	effect = {
+		prestige = -1200
+		remove_trait = courtoisie_4
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = courtoisie_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}		
+		
+train_chimerstry_1_decision = {
+	potential = {
+			ai = no
+			age = 16
+			trait = vampire
+			OR = { 
+			trait = ravnos
+			trait = ravnosantitribu
+			}
+			NOT = { trait = chimerstry_1 }
+			NOT = { trait = chimerstry_2 }
+			NOT = { trait = chimerstry_3 }
+			NOT = { trait = chimerstry_4 }
+			NOT = { trait = chimerstry_5 }
+			
+	}
+	
+	allow = {
+		prestige = 200
+			trait = vampire
+			NOT = { trait = chimerstry_1 }
+			NOT = { trait = chimerstry_2 }
+			NOT = { trait = chimerstry_3 }
+			NOT = { trait = chimerstry_4 }
+			NOT = { trait = chimerstry_5 }
+	}
+	effect = {
+		prestige = -200
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = chimerstry_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 0	
+				}
+		}
+
+
+train_chimerstry_2_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire
+			trait = chimerstry_1 
+	}	
+	
+	allow = {
+		prestige = 400
+		trait = chimerstry_1 	
+	}
+	effect = {
+		prestige = -400
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = chimerstry_2
+		remove_trait = chimerstry_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0	
+		}
+	}
+
+train_chimerstry_3_decision = {
+	
+	potential = {
+			ai = no
+
+			trait = vampire
+			trait = chimerstry_2
+	}
+	allow = {
+		prestige = 600
+			trait = chimerstry_2	
+	}
+	effect = {
+		prestige = -600
+		remove_trait = chimerstry_2
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = chimerstry_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0
+		}
+	}
+
+train_chimerstry_4_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire		
+			trait = chimerstry_3
+	}
+	allow = {
+		prestige = 800
+			trait = chimerstry_3	
+	}
+	effect = {
+		prestige = -800
+		remove_trait = chimerstry_3
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = chimerstry_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}
+
+train_chimerstry_5_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire			
+			trait = chimerstry_4 
+	}
+	allow = {
+		prestige = 1200
+			trait = chimerstry_4 		
+	}
+	effect = {
+		prestige = -1200
+		remove_trait = chimerstry_4
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = chimerstry_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}		
+		
+train_dementation_1_decision = {
+	potential = {
+			ai = no
+			age = 16
+			trait = vampire
+			OR = { 
+			trait = malkavian
+			trait = malkavianantitribu
+			}
+			NOT = { trait = dementation_1 }
+			NOT = { trait = dementation_2 }
+			NOT = { trait = dementation_3 }
+			NOT = { trait = dementation_4 }
+			NOT = { trait = dementation_5 }
+			
+	}
+	
+	allow = {
+		prestige = 200
+			trait = vampire
+			NOT = { trait = dementation_1 }
+			NOT = { trait = dementation_2 }
+			NOT = { trait = dementation_3 }
+			NOT = { trait = dementation_4 }
+			NOT = { trait = dementation_5 }
+	}
+	effect = {
+		prestige = -200
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = dementation_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 0	
+				}
+		}
+
+
+train_dementation_2_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire
+			trait = dementation_1 
+	}	
+	
+	allow = {
+		prestige = 400
+		trait = dementation_1 	
+	}
+	effect = {
+		prestige = -400
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = dementation_2
+		remove_trait = dementation_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0	
+		}
+	}
+
+train_dementation_3_decision = {
+	
+	potential = {
+			ai = no
+
+			trait = vampire
+			trait = dementation_2
+	}
+	allow = {
+		prestige = 600
+			trait = dementation_2	
+	}
+	effect = {
+		prestige = -600
+		remove_trait = dementation_2
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = dementation_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0
+		}
+	}
+
+train_dementation_4_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire		
+			trait = dementation_3
+	}
+	allow = {
+		prestige = 800
+			trait = dementation_3	
+	}
+	effect = {
+		prestige = -800
+		remove_trait = dementation_3
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = dementation_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}
+
+train_dementation_5_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire			
+			trait = dementation_4 
+	}
+	allow = {
+		prestige = 1200
+			trait = dementation_4 		
+	}
+	effect = {
+		prestige = -1200
+		remove_trait = dementation_4
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = dementation_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}		
+		
+train_necromancy_1_decision = {
+	potential = {
+			ai = no
+			age = 16
+			trait = vampire
+			trait = giovanni
+			NOT = { trait = necromancy_1 }
+			NOT = { trait = necromancy_2 }
+			NOT = { trait = necromancy_3 }
+			NOT = { trait = necromancy_4 }
+			NOT = { trait = necromancy_5 }
+			
+	}
+	
+	allow = {
+		prestige = 200
+			trait = vampire
+			NOT = { trait = necromancy_1 }
+			NOT = { trait = necromancy_2 }
+			NOT = { trait = necromancy_3 }
+			NOT = { trait = necromancy_4 }
+			NOT = { trait = necromancy_5 }
+	}
+	effect = {
+		prestige = -200
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = necromancy_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 0	
+				}
+		}
+
+
+train_necromancy_2_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire
+			trait = necromancy_1 
+	}	
+	
+	allow = {
+		prestige = 400
+		trait = necromancy_1 	
+	}
+	effect = {
+		prestige = -400
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = necromancy_2
+		remove_trait = necromancy_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0	
+		}
+	}
+
+train_necromancy_3_decision = {
+	
+	potential = {
+			ai = no
+
+			trait = vampire
+			trait = necromancy_2
+	}
+	allow = {
+		prestige = 600
+			trait = necromancy_2	
+	}
+	effect = {
+		prestige = -600
+		remove_trait = necromancy_2
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = necromancy_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0
+		}
+	}
+
+train_necromancy_4_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire		
+			trait = necromancy_3
+	}
+	allow = {
+		prestige = 800
+			trait = necromancy_3	
+	}
+	effect = {
+		prestige = -800
+		remove_trait = necromancy_3
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = necromancy_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}
+
+train_necromancy_5_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire			
+			trait = necromancy_4 
+	}
+	allow = {
+		prestige = 1200
+			trait = necromancy_4 		
+	}
+	effect = {
+		prestige = -1200
+		remove_trait = necromancy_4
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = necromancy_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}		
+		
+train_mortis_1_decision = {
+	potential = {
+			ai = no
+			age = 16
+			trait = vampire
+			trait = cappadocian
+			NOT = { trait = mortis_1 }
+			NOT = { trait = mortis_2 }
+			NOT = { trait = mortis_3 }
+			NOT = { trait = mortis_4 }
+			NOT = { trait = mortis_5 }
+			
+	}
+	
+	allow = {
+		prestige = 200
+			trait = vampire
+			NOT = { trait = mortis_1 }
+			NOT = { trait = mortis_2 }
+			NOT = { trait = mortis_3 }
+			NOT = { trait = mortis_4 }
+			NOT = { trait = mortis_5 }
+	}
+	effect = {
+		prestige = -200
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = mortis_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 0	
+				}
+		}
+
+
+train_mortis_2_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire
+			trait = mortis_1 
+	}	
+	
+	allow = {
+		prestige = 400
+		trait = mortis_1 	
+	}
+	effect = {
+		prestige = -400
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = mortis_2
+		remove_trait = mortis_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0	
+		}
+	}
+
+train_mortis_3_decision = {
+	
+	potential = {
+			ai = no
+
+			trait = vampire
+			trait = mortis_2
+	}
+	allow = {
+		prestige = 600
+			trait = mortis_2	
+	}
+	effect = {
+		prestige = -600
+		remove_trait = mortis_2
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = mortis_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0
+		}
+	}
+
+train_mortis_4_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire		
+			trait = mortis_3
+	}
+	allow = {
+		prestige = 800
+			trait = mortis_3	
+	}
+	effect = {
+		prestige = -800
+		remove_trait = mortis_3
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = mortis_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}
+
+train_mortis_5_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire			
+			trait = mortis_4 
+	}
+	allow = {
+		prestige = 1200
+			trait = mortis_4 		
+	}
+	effect = {
+		prestige = -1200
+		remove_trait = mortis_4
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = mortis_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}		
+		
+train_obeah_1_decision = {
+	potential = {
+			ai = no
+			age = 16
+			trait = vampire
+			trait = salubri
+			NOT = { trait = obeah_1 }
+			NOT = { trait = obeah_2 }
+			NOT = { trait = obeah_3 }
+			NOT = { trait = obeah_4 }
+			NOT = { trait = obeah_5 }
+			
+	}
+	
+	allow = {
+		prestige = 200
+			trait = vampire
+			NOT = { trait = obeah_1 }
+			NOT = { trait = obeah_2 }
+			NOT = { trait = obeah_3 }
+			NOT = { trait = obeah_4 }
+			NOT = { trait = obeah_5 }
+	}
+	effect = {
+		prestige = -200
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = obeah_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 0	
+				}
+		}
+
+
+train_obeah_2_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire
+			trait = obeah_1 
+	}	
+	
+	allow = {
+		prestige = 400
+		trait = obeah_1 	
+	}
+	effect = {
+		prestige = -400
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = obeah_2
+		remove_trait = obeah_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0	
+		}
+	}
+
+train_obeah_3_decision = {
+	
+	potential = {
+			ai = no
+
+			trait = vampire
+			trait = obeah_2
+	}
+	allow = {
+		prestige = 600
+			trait = obeah_2	
+	}
+	effect = {
+		prestige = -600
+		remove_trait = obeah_2
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = obeah_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0
+		}
+	}
+
+train_obeah_4_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire		
+			trait = obeah_3
+	}
+	allow = {
+		prestige = 800
+			trait = obeah_3	
+	}
+	effect = {
+		prestige = -800
+		remove_trait = obeah_3
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = obeah_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}
+
+train_obeah_5_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire			
+			trait = obeah_4 
+	}
+	allow = {
+		prestige = 1200
+			trait = obeah_4 		
+	}
+	effect = {
+		prestige = -1200
+		remove_trait = obeah_4
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = obeah_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}		
+		
+train_obtenebration_1_decision = {
+	potential = {
+			ai = no
+			age = 16
+			trait = vampire
+			OR = {
+			trait = lasombra
+			trait = lasombraantitribu
+			}
+			NOT = { trait = obtenebration_1 }
+			NOT = { trait = obtenebration_2 }
+			NOT = { trait = obtenebration_3 }
+			NOT = { trait = obtenebration_4 }
+			NOT = { trait = obtenebration_5 }
+			
+	}
+	
+	allow = {
+		prestige = 200
+			trait = vampire
+			NOT = { trait = obtenebration_1 }
+			NOT = { trait = obtenebration_2 }
+			NOT = { trait = obtenebration_3 }
+			NOT = { trait = obtenebration_4 }
+			NOT = { trait = obtenebration_5 }
+	}
+	effect = {
+		prestige = -200
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = obtenebration_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 0	
+				}
+		}
+
+
+train_obtenebration_2_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire
+			trait = obtenebration_1 
+	}	
+	
+	allow = {
+		prestige = 400
+		trait = obtenebration_1 	
+	}
+	effect = {
+		prestige = -400
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = obtenebration_2
+		remove_trait = obtenebration_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0	
+		}
+	}
+
+train_obtenebration_3_decision = {
+	
+	potential = {
+			ai = no
+
+			trait = vampire
+			trait = obtenebration_2
+	}
+	allow = {
+		prestige = 600
+			trait = obtenebration_2	
+	}
+	effect = {
+		prestige = -600
+		remove_trait = obtenebration_2
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = obtenebration_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0
+		}
+	}
+
+train_obtenebration_4_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire		
+			trait = obtenebration_3
+	}
+	allow = {
+		prestige = 800
+			trait = obtenebration_3	
+	}
+	effect = {
+		prestige = -800
+		remove_trait = obtenebration_3
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = obtenebration_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}
+
+train_obtenebration_5_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire			
+			trait = obtenebration_4 
+	}
+	allow = {
+		prestige = 1200
+			trait = obtenebration_4 		
+	}
+	effect = {
+		prestige = -1200
+		remove_trait = obtenebration_4
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = obtenebration_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}		
+		
+train_quietus_1_decision = {
+	potential = {
+			ai = no
+			age = 16
+			trait = vampire
+			OR = {
+			trait = assamite
+			trait = assamiteantitribu 
+			}
+			NOT = { trait = quietus_1 }
+			NOT = { trait = quietus_2 }
+			NOT = { trait = quietus_3 }
+			NOT = { trait = quietus_4 }
+			NOT = { trait = quietus_5 }
+			
+	}
+	
+	allow = {
+		prestige = 200
+			trait = vampire
+			NOT = { trait = quietus_1 }
+			NOT = { trait = quietus_2 }
+			NOT = { trait = quietus_3 }
+			NOT = { trait = quietus_4 }
+			NOT = { trait = quietus_5 }
+	}
+	effect = {
+		prestige = -200
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = quietus_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 0	
+				}
+		}
+
+
+train_quietus_2_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire
+			trait = quietus_1 
+	}	
+	
+	allow = {
+		prestige = 400
+		trait = quietus_1 	
+	}
+	effect = {
+		prestige = -400
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = quietus_2
+		remove_trait = quietus_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0	
+		}
+	}
+
+train_quietus_3_decision = {
+	
+	potential = {
+			ai = no
+
+			trait = vampire
+			trait = quietus_2
+	}
+	allow = {
+		prestige = 600
+			trait = quietus_2	
+	}
+	effect = {
+		prestige = -600
+		remove_trait = quietus_2
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = quietus_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0
+		}
+	}
+
+train_quietus_4_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire		
+			trait = quietus_3
+	}
+	allow = {
+		prestige = 800
+			trait = quietus_3	
+	}
+	effect = {
+		prestige = -800
+		remove_trait = quietus_3
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = quietus_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}
+
+train_quietus_5_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire			
+			trait = quietus_4 
+	}
+	allow = {
+		prestige = 1200
+			trait = quietus_4 		
+	}
+	effect = {
+		prestige = -1200
+		remove_trait = quietus_4
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = quietus_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}		
+		
+train_serpentis_1_decision = {
+	potential = {
+			ai = no
+			age = 16
+			trait = vampire
+			trait = followerofset
+			NOT = { trait = serpentis_1 }
+			NOT = { trait = serpentis_2 }
+			NOT = { trait = serpentis_3 }
+			NOT = { trait = serpentis_4 }
+			NOT = { trait = serpentis_5 }
+			
+	}
+	
+	allow = {
+		prestige = 200
+			trait = vampire
+			NOT = { trait = serpentis_1 }
+			NOT = { trait = serpentis_2 }
+			NOT = { trait = serpentis_3 }
+			NOT = { trait = serpentis_4 }
+			NOT = { trait = serpentis_5 }
+	}
+	effect = {
+		prestige = -200
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = serpentis_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 0	
+				}
+		}
+
+
+train_serpentis_2_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire
+			trait = serpentis_1 
+	}	
+	
+	allow = {
+		prestige = 400
+		trait = serpentis_1 	
+	}
+	effect = {
+		prestige = -400
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = serpentis_2
+		remove_trait = serpentis_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0	
+		}
+	}
+
+train_serpentis_3_decision = {
+	
+	potential = {
+			ai = no
+
+			trait = vampire
+			trait = serpentis_2
+	}
+	allow = {
+		prestige = 600
+			trait = serpentis_2	
+	}
+	effect = {
+		prestige = -600
+		remove_trait = serpentis_2
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = serpentis_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0
+		}
+	}
+
+train_serpentis_4_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire		
+			trait = serpentis_3
+	}
+	allow = {
+		prestige = 800
+			trait = serpentis_3	
+	}
+	effect = {
+		prestige = -800
+		remove_trait = serpentis_3
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = serpentis_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}
+
+train_serpentis_5_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire			
+			trait = serpentis_4 
+	}
+	allow = {
+		prestige = 1200
+			trait = serpentis_4 		
+	}
+	effect = {
+		prestige = -1200
+		remove_trait = serpentis_4
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = serpentis_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}		
+		
+train_thaumaturgy_1_decision = {
+	potential = {
+			ai = no
+			age = 16
+			trait = vampire
+			OR = {
+			trait = tremere
+			trait = tremereantitribu 
+			trait = tzimisce
+			trait = tzimisceantitribu
+			}
+			learning = 5
+			NOT = { trait = thaumaturgy_1 }
+			NOT = { trait = thaumaturgy_2 }
+			NOT = { trait = thaumaturgy_3 }
+			NOT = { trait = thaumaturgy_4 }
+			NOT = { trait = thaumaturgy_5 }
+			
+	}
+	
+	allow = {
+		prestige = 200
+			trait = vampire
+			NOT = { trait = thaumaturgy_1 }
+			NOT = { trait = thaumaturgy_2 }
+			NOT = { trait = thaumaturgy_3 }
+			NOT = { trait = thaumaturgy_4 }
+			NOT = { trait = thaumaturgy_5 }
+	}
+	effect = {
+		prestige = -200
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = thaumaturgy_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 0	
+				}
+		}
+
+
+train_thaumaturgy_2_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire
+			learning = 7
+			trait = thaumaturgy_1 
+	}	
+	
+	allow = {
+		prestige = 400
+		trait = thaumaturgy_1 	
+	}
+	effect = {
+		prestige = -400
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = thaumaturgy_2
+		remove_trait = thaumaturgy_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0	
+		}
+	}
+
+train_thaumaturgy_3_decision = {
+	
+	potential = {
+			ai = no
+
+			trait = vampire
+			learning = 10
+			trait = thaumaturgy_2
+	}
+	allow = {
+		prestige = 600
+			trait = thaumaturgy_2	
+	}
+	effect = {
+		prestige = -600
+		remove_trait = thaumaturgy_2
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = thaumaturgy_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0
+		}
+	}
+
+train_thaumaturgy_4_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire		
+			trait = thaumaturgy_3
+			learning = 13
+	}
+	allow = {
+		prestige = 800
+			trait = thaumaturgy_3	
+	}
+	effect = {
+		prestige = -800
+		remove_trait = thaumaturgy_3
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = thaumaturgy_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}
+
+train_thaumaturgy_5_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire			
+			trait = thaumaturgy_4 	
+			learning = 15
+	}
+	allow = {
+		prestige = 1200
+			trait = thaumaturgy_4 		
+	}
+	effect = {
+		prestige = -1200
+		remove_trait = thaumaturgy_4
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = thaumaturgy_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}		
+		
+train_vicissitude_1_decision = {
+	potential = {
+			ai = no
+			age = 16
+			trait = vampire
+			OR = {
+			trait = tzimisce
+			religion = sabbat 
+			}
+			NOT = { trait = vicissitude_1 }
+			NOT = { trait = vicissitude_2 }
+			NOT = { trait = vicissitude_3 }
+			NOT = { trait = vicissitude_4 }
+			NOT = { trait = vicissitude_5 }
+			
+	}
+	
+	allow = {
+		prestige = 200
+			trait = vampire
+			NOT = { trait = vicissitude_1 }
+			NOT = { trait = vicissitude_2 }
+			NOT = { trait = vicissitude_3 }
+			NOT = { trait = vicissitude_4 }
+			NOT = { trait = vicissitude_5 }
+	}
+	effect = {
+		prestige = -200
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = vicissitude_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 0	
+				}
+		}
+
+
+train_vicissitude_2_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire
+			trait = vicissitude_1 
+	}	
+	
+	allow = {
+		prestige = 400
+		trait = vicissitude_1 	
+	}
+	effect = {
+		prestige = -400
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = vicissitude_2
+		remove_trait = vicissitude_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0	
+		}
+	}
+
+train_vicissitude_3_decision = {
+	
+	potential = {
+			ai = no
+
+			trait = vampire
+			trait = vicissitude_2
+	}
+	allow = {
+		prestige = 600
+			trait = vicissitude_2	
+	}
+	effect = {
+		prestige = -600
+		remove_trait = vicissitude_2
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = vicissitude_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0
+		}
+	}
+
+train_vicissitude_4_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire		
+			trait = vicissitude_3
+	}
+	allow = {
+		prestige = 800
+			trait = vicissitude_3	
+	}
+	effect = {
+		prestige = -800
+		remove_trait = vicissitude_3
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = vicissitude_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}
+
+train_vicissitude_5_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire			
+			trait = vicissitude_4 
+	}
+	allow = {
+		prestige = 1200
+			trait = vicissitude_4 		
+	}
+	effect = {
+		prestige = -1200
+		remove_trait = vicissitude_4
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = vicissitude_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}		
+		
+train_daimoinon_1_decision = {
+	potential = {
+			ai = no
+			age = 16
+			trait = vampire
+			religion = baali
+			NOT = { trait = daimoinon_1 }
+			NOT = { trait = daimoinon_2 }
+			NOT = { trait = daimoinon_3 }
+			NOT = { trait = daimoinon_4 }
+			NOT = { trait = daimoinon_5 }
+			
+	}
+	
+	allow = {
+		prestige = 200
+			trait = vampire
+			NOT = { trait = daimoinon_1 }
+			NOT = { trait = daimoinon_2 }
+			NOT = { trait = daimoinon_3 }
+			NOT = { trait = daimoinon_4 }
+			NOT = { trait = daimoinon_5 }
+	}
+	effect = {
+		prestige = -200
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = daimoinon_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 0	
+				}
+		}
+
+
+train_daimoinon_2_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire
+			trait = daimoinon_1 
+	}	
+	
+	allow = {
+		prestige = 400
+		trait = daimoinon_1 	
+	}
+	effect = {
+		prestige = -400
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = daimoinon_2
+		remove_trait = daimoinon_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0	
+		}
+	}
+
+train_daimoinon_3_decision = {
+	
+	potential = {
+			ai = no
+
+			trait = vampire
+			trait = daimoinon_2
+	}
+	allow = {
+		prestige = 600
+			trait = daimoinon_2	
+	}
+	effect = {
+		prestige = -600
+		remove_trait = daimoinon_2
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = daimoinon_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0
+		}
+	}
+
+train_daimoinon_4_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire		
+			trait = daimoinon_3
+	}
+	allow = {
+		prestige = 800
+			trait = daimoinon_3	
+	}
+	effect = {
+		prestige = -800
+		remove_trait = daimoinon_3
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = daimoinon_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}
+
+train_daimoinon_5_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire			
+			trait = daimoinon_4 
+	}
+	allow = {
+		prestige = 1200
+			trait = daimoinon_4 		
+	}
+	effect = {
+		prestige = -1200
+		remove_trait = daimoinon_4
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = daimoinon_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}		
+	
+}
+
+	
+	
+

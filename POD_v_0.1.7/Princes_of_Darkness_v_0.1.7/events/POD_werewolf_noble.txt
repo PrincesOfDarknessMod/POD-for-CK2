@@ -1,7 +1,7 @@
-namespace = "POD_WEREWOLF_NOBLE"
+namespace = werewolf_noble
 character_event = {
-	id = pod.666002
-	desc = "POD_WEREWOLF_NOBLE_DESC"
+	id = werewolf_noble.1
+	#desc = "POD_WEREWOLF_NOBLE_DESC"
 	picture = GFX_evt_comet
 	hide_window = yes	
 	is_triggered_only = yes
@@ -22,10 +22,19 @@ character_event = {
 					NOT = { trait = geist }
 					NOT = { trait = demon }
 					NOT = { trait = fledgling }
+					OR = {
+							has_global_flag = bookmark232
+							has_global_flag = bookmark412
+							has_global_flag = bookmark480
+							has_global_flag = bookmark543
+							has_global_flag = bookmark947
+							has_global_flag = bookmark1142	
+							has_global_flag = bookmark1250	
+					}					
 					OR = { 
 							religion_group = pure_group
 							religion_group = forsaken_group
-							religion_group = balehounds_group
+							religion_group = bale_hounds_group
 						}
 
 					}	
@@ -74,7 +83,7 @@ if = {
 									}
 				}					
 
-				if = { limit = { culture = pecheng }
+				if = { limit = { culture = pecheneg }
 					random_list = {
 									75 = { dynasty = 7000004 }
 									25 = { set_character_flag = POD_WEREWOLF_INDEPENDENT_DYNASTY }
@@ -252,7 +261,7 @@ if = {
 									}
 				}				
 
-				if = { limit = { culture = samyoed }
+				if = { limit = { culture = samoyed }
 					random_list = {
 									30 = { dynasty = 7000070 }		
 									35 = { dynasty = 7000071 }													
@@ -289,22 +298,22 @@ if = {
 
 				if = { limit = { culture = lettigallish }
 					random_list = {
-									50 = { dynasty = 7000078 }														
-									50 = { set_character_flag = POD_WEREWOLF_INDEPENDENT_DYNASTY }
+									30 = { dynasty = 7000078 }														
+									70 = { set_character_flag = POD_WEREWOLF_INDEPENDENT_DYNASTY }
 									}
 				}
 
 				if = { limit = { culture = lithuanian }
 					random_list = {
-									50 = { dynasty = 7000079 }														
-									50 = { set_character_flag = POD_WEREWOLF_INDEPENDENT_DYNASTY }
+									30 = { dynasty = 7000079 }														
+									70 = { set_character_flag = POD_WEREWOLF_INDEPENDENT_DYNASTY }
 									}
 				}
 
 				if = { limit = { culture = prussian }
 					random_list = {
-									50 = { dynasty = 7000080 }														
-									50 = { set_character_flag = POD_WEREWOLF_INDEPENDENT_DYNASTY }
+									30 = { dynasty = 7000080 }														
+									70 = { set_character_flag = POD_WEREWOLF_INDEPENDENT_DYNASTY }
 									}
 				}				
 
@@ -312,29 +321,34 @@ if = {
 
 				if = { limit = { culture = russian }
 					random_list = {
-									50 = { dynasty = 7000081 }														
-									50 = { set_character_flag = POD_WEREWOLF_INDEPENDENT_DYNASTY }
+									15 = { dynasty = 7000081 }	
+									15 = { dynasty = 7000156 }	
+									15 = { dynasty = 7000157 }	
+									15 = { dynasty = 7000158 }	
+									15 = { dynasty = 7000159 }		
+									10 = { set_character_flag = POD_WEREWOLF_INDEPENDENT_DYNASTY }
 									}
 				}	
+				
 
 				if = { limit = { culture = pommeranian }
 					random_list = {
-									50 = { dynasty = 7000082 }														
-									50 = { set_character_flag = POD_WEREWOLF_INDEPENDENT_DYNASTY }
+									30 = { dynasty = 7000082 }														
+									70 = { set_character_flag = POD_WEREWOLF_INDEPENDENT_DYNASTY }
 									}
 				}	
 
 				if = { limit = { culture = bohemian }
 					random_list = {
-									50 = { dynasty = 7000083 }														
-									50 = { set_character_flag = POD_WEREWOLF_INDEPENDENT_DYNASTY }
+									30 = { dynasty = 7000083 }														
+									70 = { set_character_flag = POD_WEREWOLF_INDEPENDENT_DYNASTY }
 									}
 				}	
 
 				if = { limit = { culture = polish }
 					random_list = {
-									50 = { dynasty = 7000084 }														
-									50 = { set_character_flag = POD_WEREWOLF_INDEPENDENT_DYNASTY }
+									30 = { dynasty = 7000084 }														
+									70 = { set_character_flag = POD_WEREWOLF_INDEPENDENT_DYNASTY }
 									}
 				}	
 
@@ -583,7 +597,7 @@ if = {
 											NOT = { trait = auspice_ithaeur }
 											NOT = { trait = auspice_irraka }
 											NOT = { religion_group = pure_group }
-											NOT = { religion_group = balehound_group}
+											NOT = { religion_group = bale_hounds_group}
 											}
 								random_list = {
 												20 = { 
@@ -674,21 +688,21 @@ if = {
 										}			
 						}			
 					if = {
-								limit = { trait = auscpie_ithaeur }
+								limit = { trait = auspice_ithaeur }
 								random_list = {
 										50 = { add_trait = gift_Shaping_1 }
 										50 = { add_trait = gift_Elemental_1 }
 										}	
 						
 					if = {
-								limit = { trait = auscpie_elodoth }
+								limit = { trait = auspice_elodoth }
 								random_list = {
 										50 = { add_trait = gift_Insight_1 }
 										50 = { add_trait = gift_Warding_1 }
 										}			
 						}									
 					if = {
-								limit = { trait = auscpie_irraka }
+								limit = { trait = auspice_elodoth }
 								random_list = {
 										50 = { add_trait = gift_Evasion_1 }
 										50 = { add_trait = gift_Stealth_1 }
@@ -730,7 +744,7 @@ if = {
 										}			
 						}								
 					if = {
-								limit = { trait = auspice_ithauer }
+								limit = { trait = auspice_ithaeur }
 								random_list = {
 										50 = { add_trait = gift_Elemental_1 }
 										50 = { add_trait = gift_Shaping_1 }
@@ -771,7 +785,7 @@ if = {
 										9 = { add_trait = gift_Inspiration_1 }
 										8 = { add_trait = gift_Dominance_1 }
 										8 = { add_trait = gift_Agony_1 }
-										8 = { add_trait = gift_Scrounging_1 }
+										8 = { add_trait = gift_Scourging_1 }
 										8 = { add_trait = gift_Warding_1 }		
 										8 = { add_trait = gift_Nature_1 }
 										8 = { add_trait = gift_Savagery_1 }
@@ -827,4 +841,5 @@ if = {
 	}
 	
 	}
+	
 	
