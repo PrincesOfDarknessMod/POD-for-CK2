@@ -1,4 +1,121 @@
 
+title_court_painter = {
+	dignity = 0.05
+	realm_in_name = yes
+	grant_limit = 1
+	opinion_effect = 5
+	
+	monthly_salary = 0.02
+	monthly_prestige = 0.40
+	
+	is_unique = yes
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
+		is_adult = yes
+		OR = { 
+			is_female = no
+			liege = {
+				OR = {
+					primary_title = {
+						has_law = status_of_women_2
+					}
+					primary_title = {
+						has_law = status_of_women_3
+					}
+					primary_title = {
+						has_law = status_of_women_4
+					}
+					has_game_rule = {
+						name = gender
+						value = all
+					}
+				}
+			}
+		}
+		NOT = { trait = incapable } 
+	}
+
+	allowed_to_grant = {
+		OR = {
+			is_feudal = yes
+			is_tribal = yes
+		}
+		OR = {
+		religion = toreador_high
+		trait = toreador
+		}
+	}
+	
+	gain_effect = {
+	}
+	lose_effect = {
+	}
+
+	message = yes
+}
+
+title_court_sculptor = {
+	dignity = 0.05
+	realm_in_name = yes
+	grant_limit = 1
+	opinion_effect = 5
+	
+	monthly_salary = 0.02
+	monthly_prestige = 0.40
+	
+	is_unique = yes
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
+		is_adult = yes
+		OR = { 
+			is_female = no
+			liege = {
+				OR = {
+					primary_title = {
+						has_law = status_of_women_2
+					}
+					primary_title = {
+						has_law = status_of_women_3
+					}
+					primary_title = {
+						has_law = status_of_women_4
+					}
+					has_game_rule = {
+						name = gender
+						value = all
+					}
+				}
+			}
+		}
+		NOT = { trait = incapable } 
+	}
+
+	allowed_to_grant = {
+		OR = {
+			is_feudal = yes
+			is_tribal = yes
+		}
+		OR = {
+		religion = toreador_high
+		trait = toreador
+		}
+	}
+	
+	gain_effect = {
+	}
+	lose_effect = {
+	}
+
+	message = yes
+}
+
+
 #MNM hermetics apprentice
 title_hermetics_apprentice = {
 	is_high_prio = yes
@@ -1177,11 +1294,8 @@ title_ghoul = {
 	
 	allowed_to_hold = {
 		is_adult = yes
-		OR = { 
-				trait = mortal
-				trait = werewolf
-				}
-				}
+		trait = mortal
+		NOT = { trait = werewolf }
 		allowed_to_grant = {
 			 trait = vampire
 			 ai = yes
