@@ -7,10 +7,10 @@ namespace = vampire_aging_events
 character_event = {
     id = vampire_aging_events.1
     hide_window = yes
-    min_age = 100
     is_triggered_only = yes
    
     trigger = {
+		age = 100
         trait = neonate
     }
 
@@ -22,40 +22,42 @@ character_event = {
 character_event = {
     id = vampire_aging_events.2
     hide_window = yes
-    min_age = 250
     is_triggered_only = yes
    
     trigger = {
+		age = 250
         trait = ancilla
     }
    
     immediate = {  
         add_trait = elder
-    }
-}
+		}
+	}
 
 character_event = {
     id = vampire_aging_events.3
     hide_window = yes
-    min_age = 500
     is_triggered_only = yes  
    
     trigger = {
+		age = 500
         trait = elder
     }
    
     immediate = {  
         add_trait = ancient
     }
-}
 
+	}
+
+	
 character_event = {
     id = vampire_aging_events.4
     hide_window = yes
-    min_age = 1000
     is_triggered_only = yes  
    
     trigger = {
+		age = 1000
         trait = ancient
     }
    
@@ -64,130 +66,149 @@ character_event = {
     }
 }
 
-
 character_event = {
     id = vampire_aging_events.5
     hide_window = yes
-    min_age = 50
+	is_triggered_only = yes
    
     trigger = {
+		age = 50
         trait = vampire
         NOT = { trait = bloodpotency_10 }
-        NOT = vampgeneration_15
-        NOT = vampgeneration_14
-        NOT = vampgeneration_13
-        NOT = vampgeneration_12 		
+       NOT = { trait = vampgeneration_15 }
+       NOT = { trait = vampgeneration_14 }
+       NOT = { trait = vampgeneration_13 }
+       NOT = { trait = vampgeneration_12 } 		
     }
+	
     immediate = {
         if = {
             limit = {
                 trait = bloodpotency_9
                 age = 450
-                NOT = vampgeneration_11
-                NOT = vampgeneration_10
-                NOT = vampgeneration_9
-                NOT = vampgeneration_8
-                NOT = vampgeneration_7
-                NOT = vampgeneration_6
-                NOT = vampgeneration_5
-                NOT = vampgeneration_4  
+               NOT = { trait = vampgeneration_11 }
+               NOT = { trait = vampgeneration_10 }
+               NOT = { trait = vampgeneration_9 }
+               NOT = { trait = vampgeneration_8 }
+               NOT = { trait = vampgeneration_7  }
+               NOT = { trait = vampgeneration_6  }
+               NOT = { trait = vampgeneration_5  }
+               NOT = { trait = vampgeneration_4  }  
             }
             add_trait = bloodpotency_10
+			remove_trait = bloodpotency_9
         }
         if = {
             limit = {
                 trait = bloodpotency_8
                 age = 400
-                NOT = vampgeneration_11
-                NOT = vampgeneration_10
-                NOT = vampgeneration_9
-                NOT = vampgeneration_8
-                NOT = vampgeneration_7
-                NOT = vampgeneration_6
-                NOT = vampgeneration_5                      
+               NOT = { trait = vampgeneration_11 }
+               NOT = { trait = vampgeneration_10 }
+               NOT = { trait = vampgeneration_9 }
+               NOT = { trait = vampgeneration_8 }
+               NOT = { trait = vampgeneration_7  }
+               NOT = { trait = vampgeneration_6  }
+               NOT = { trait = vampgeneration_5  }                      
             }
             add_trait = bloodpotency_9
+			
+			remove_trait = bloodpotency_8
         }
         if = {
             limit = {
                 trait = bloodpotency_7
                 age = 350
-                NOT = vampgeneration_11
-                NOT = vampgeneration_10
-                NOT = vampgeneration_9
-                NOT = vampgeneration_8
-                NOT = vampgeneration_7
-                NOT = vampgeneration_6
+               NOT = { trait = vampgeneration_11 }
+               NOT = { trait = vampgeneration_10 }
+               NOT = { trait = vampgeneration_9 }
+               NOT = { trait = vampgeneration_8 }
+               NOT = { trait = vampgeneration_7  }
+               NOT = { trait = vampgeneration_6  }
             }
             add_trait = bloodpotency_8
+			remove_trait = bloodpotency_7
+			
         }
         if = {
             limit = {
                 trait = bloodpotency_6
                 age = 300
-                NOT = vampgeneration_11
-                NOT = vampgeneration_10
-                NOT = vampgeneration_9
-                NOT = vampgeneration_8
-                NOT = vampgeneration_7      
+               NOT = { trait = vampgeneration_11 }
+               NOT = { trait = vampgeneration_10 }
+               NOT = { trait = vampgeneration_9 }
+               NOT = { trait = vampgeneration_8 }
+               NOT = { trait = vampgeneration_7  }      
             }
             add_trait = bloodpotency_7
+			remove_trait = bloodpotency_6
         }  
         if = {
             limit = {
                 trait = bloodpotency_5
                 age = 250
-                NOT = vampgeneration_11
-                NOT = vampgeneration_10
-                NOT = vampgeneration_9
-                NOT = vampgeneration_8                                  
+               NOT = { trait = vampgeneration_11 }
+               NOT = { trait = vampgeneration_10 }
+               NOT = { trait = vampgeneration_9 }
+               NOT = { trait = vampgeneration_8 }                                  
             }
             add_trait = bloodpotency_6
+			remove_trait = bloodpotency_5
+			
         }          
         if = {
             limit = {
                 trait = bloodpotency_4
                 age = 200
-                NOT = vampgeneration_11
-                NOT = vampgeneration_10
-                NOT = vampgeneration_9                      
+               NOT = { trait = vampgeneration_11 }
+               NOT = { trait = vampgeneration_10 }
+               NOT = { trait = vampgeneration_9 }                      
             }
             add_trait = bloodpotency_5
+			remove_trait = bloodpotency_4
+			
         }
         if = {
             limit = {
                 trait = bloodpotency_3
                 age = 150
-                NOT = vampgeneration_11
-                NOT = vampgeneration_10                      
+               NOT = { trait = vampgeneration_11 }
+               NOT = { trait = vampgeneration_10 }                      
             }
             add_trait = bloodpotency_4
+			remove_trait = bloodpotency_3
         }  
         if = {
             limit = {
                 trait = bloodpotency_2
                 age = 100
-                NOT = vampgeneration_11                  
+               NOT = { trait = vampgeneration_11 }                  
             }
             add_trait = bloodpotency_3
+			remove_trait = bloodpotency_2
         }
         if = {
             limit = {
                 trait = bloodpotency_1                   
             }
             add_trait = bloodpotency_2
+			remove_trait = bloodpotency_1
         }
     }
 }
 
+
+
 character_event = {
     id = vampire_aging_events.6
     hide_window = yes
-    min_age = 100
+    
     is_triggered_only = yes
 
     trigger = {
+		age = 100
+		trait = vampire
         trait = torpor
+		
         NOT = { trait = vampgeneration3 }
         NOT = { trait = vampgeneration2 }
         NOT = { trait = vampgeneration1 }		
@@ -196,31 +217,48 @@ character_event = {
     immediate = {
         trigger_switch = {
             on_trigger = trait
-            bloodpotency_2 = { add_trait = bloodpotency_1 }
-            bloodpotency_3 = { add_trait = bloodpotency_2 }
-            bloodpotency_4 = { add_trait = bloodpotency_3 }
-            bloodpotency_5 = { add_trait = bloodpotency_4 }
-            bloodpotency_6 = { add_trait = bloodpotency_5 }
-            bloodpotency_7 = { add_trait = bloodpotency_6 }
-            bloodpotency_8 = { add_trait = bloodpotency_7 }
-            bloodpotency_9 = { add_trait = bloodpotency_8 }
-            bloodpotency_10 = { add_trait = bloodpotency_9 }
+            bloodpotency_2 = { add_trait = bloodpotency_1
+								remove_trait = bloodpotency_2
+			}
+            bloodpotency_3 = { add_trait = bloodpotency_2 
+								remove_trait = bloodpotency_3
+			}
+            bloodpotency_4 = { add_trait = bloodpotency_3 
+								remove_trait = bloodpotency_4
+			}
+            bloodpotency_5 = { add_trait = bloodpotency_4 
+								remove_trait = bloodpotency_5
+			}
+            bloodpotency_6 = { add_trait = bloodpotency_5 
+								remove_trait = bloodpotency_6
+			}
+            bloodpotency_7 = { add_trait = bloodpotency_6 
+								remove_trait = bloodpotency_7
+			}
+            bloodpotency_8 = { add_trait = bloodpotency_7 
+								remove_trait = bloodpotency_8
+			}
+            bloodpotency_9 = { add_trait = bloodpotency_8 
+								remove_trait = bloodpotency_9
+			}
+            bloodpotency_10 = { add_trait = bloodpotency_9 
+								remove_trait = bloodpotency_10
+			}
 			}
 		}
 	}
 
-#This event should be changed to an on_decade_pulse. We'd need a function that assigns a base chance of awakening for a given time in torpor.
-#Then the value of the function should be modified by bloodpotency level. The function can be simulated with if clauses.
+
 
 character_event = {
     id = vampire_aging_events.7
     hide_window = yes
     is_triggered_only = yes
-    min_age = 100
    
     trigger = {
         trait = vampire
         trait = torpor
+		age = 100
         NOT = { trait = vampgeneration3 }
         NOT = { trait = vampgeneration2 }
         NOT = { trait = vampgeneration1 }
@@ -307,29 +345,37 @@ character_event = {
 character_event = {
     id = vampire_aging_events.8					
     hide_window = yes
-    min_age = 100
     is_triggered_only = yes
    
     trigger = {
+		age = 100
         trait = torpor
-		num_of_children = 0
-		num_of_claims = 0
-		num_of_lovers = 0
-		num_of_feuds = 0
-		num_of_rivals = 0
-		num_of_friends = 0
-		num_of_spouses = 0 
 		NOT = { trait = canon }
 		NOT = { trait = methuselah }
-		NOT = { trait = ancient }
 		NOT = { trait = antediluvian } 
     }
 
     immediate = {  
+	
+		if = { limit = { 
+				NOT = { has_living_children = yes }
+				NOT = { has_lover = yes }
+				NOT = { is_married = yes }
+				NOT = { num_of_claims = 1 }
+				NOT = { num_of_rivals = 1 }
+				NOT = { num_of_friends = 1 }
+		}
         random = {
 					chance = 50
 					death = { death_reason = death_vanished  }
 					
 					}
 				}
+		
+		}
     }
+
+
+
+	
+

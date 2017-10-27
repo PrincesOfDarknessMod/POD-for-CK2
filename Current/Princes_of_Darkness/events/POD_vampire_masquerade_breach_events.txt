@@ -33,7 +33,7 @@ character_event = {
 
 		modifier = {
 			factor = 0.1
-			trait = imbeicle
+			trait = imbecile
 		}			
 		
 		modifier = {
@@ -170,6 +170,11 @@ character_event = {
 	
 			}
 			new_character = { save_event_target_as = new_exposes_masquerade }
+			opinion = {
+				who = event_target:new_exposes_masquerade
+				modifier = opinion_breached_masquerade 
+				years = 2
+				}			
 	}
 	
 # Dominate Forgetful Mind
@@ -194,6 +199,7 @@ character_event = {
                     }
 				add_trait = stressed
 				remove_trait = knows_too_much
+				remove_opinion = { modifier = opinion_breached_masquerade }
 				}
     }
 
@@ -270,6 +276,7 @@ character_event = {
 					remove_trait = honest	
 					}
 				add_trait = deceitful	
+				remove_opinion = { modifier = opinion_breached_masquerade }
 				}
 		FROM = { wealth = -20 }
     }
@@ -410,7 +417,7 @@ character_event = {
 
 		modifier = {
 			factor = 0.1
-			trait = imbeicle
+			trait = imbecile
 		}			
 		
 		modifier = {
@@ -515,6 +522,13 @@ character_event = {
 
 	immediate = { 
 			FROM = { save_event_target_as = vampire_exposes_masquerade }
+
+			opinion = {
+				who = event_target:vampire_exposes_masquerade
+				modifier = opinion_breached_masquerade 
+				years = 2
+				}
+				
 			random_list = {
 				50 = {
 					create_character = {
@@ -538,6 +552,12 @@ character_event = {
 	
 			}
 			new_character = { save_event_target_as = new_exposes_masquerade }
+			
+			opinion = {
+				who = event_target:new_exposes_masquerade
+				modifier = opinion_breached_masquerade 
+				years = 2
+				}			
 	}
 	
 # Dominate Forgetful Mind
@@ -562,6 +582,7 @@ character_event = {
                     }
 				add_trait = stressed
 				remove_trait = knows_too_much
+				remove_opinion = { modifier = opinion_breached_masquerade }
 				}
     }
 
@@ -592,6 +613,7 @@ character_event = {
 					remove_trait = honest	
 					}
 				add_trait = deceitful	
+				remove_opinion = { modifier = opinion_breached_masquerade }
 				}
 		FROM = { wealth = -20 }
     }
@@ -722,14 +744,19 @@ character_event = {
 			}
 		}	
         name = EVTOPTA_POD_VAMPIRE_MASQUERADE_BREACH3
+		event_target:vampire_exposes_masquerade = {
 		add_favor = FROM	
-		
+		remove_opinion = { modifier = opinion_breached_masquerade }
+		}
     }
 	
 # Forgive them	
 
     option = {
         name = EVTOPTB_POD_VAMPIRE_MASQUERADE_BREACH3
+		event_target:vampire_exposes_masquerade = {
+		remove_opinion = { modifier = opinion_breached_masquerade }
+		}
     }	
 	
 # Order the Sherrif to Arrest them 

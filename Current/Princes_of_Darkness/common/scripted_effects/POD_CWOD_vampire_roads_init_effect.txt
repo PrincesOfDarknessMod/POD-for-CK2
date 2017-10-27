@@ -8,16 +8,18 @@ if = {
 					has_global_flag = bookmark1355					
 				}	
 			is_in_society = no
-			NOT = { trait = vampiregeneration1 }
-			NOT = { trait = vampiregeneration2 }
-			NOT = { trait = vampiregeneration3 }
+			NOT = { trait = vampgeneration1 }
+			NOT = { trait = vampgeneration2 }
+			NOT = { trait = vampgeneration3 }
 			NOT = { true_religion = inconnu }
 				}
 		random = {
 				chance = 75
 				
 		if = { 
-				limit = { true_religion = ashirra }		
+				limit = { true_religion = ashirra 
+							is_in_society = no
+				}		
 				random_list = {
 						25 = { join_society = tariq_el-umma }
 						10 = { join_society = tariq_el-sama }
@@ -80,7 +82,7 @@ if = {
 		if = {
 				limit = { 
 							trait = nosferatu
-							true_religion = vampire_low_clans							
+							true_religion = nosferatulow							
 							}
 				random_list = {
 						20 = { 
@@ -113,6 +115,7 @@ if = {
 		if = {
 				limit = { true_religion = lasombra_high 
 						  culture = italian
+						  is_in_society = no
 						  learning = 7 }
 				random_list = {
 						25 = { join_society = order_st_panteleimon
@@ -123,6 +126,7 @@ if = {
 
 		if = {
 				limit = { true_religion = lasombra_high 
+							is_in_society = no
 						  diplomacy = 5 }
 				random_list = {
 						25 = { join_society = cainite }
@@ -131,7 +135,9 @@ if = {
 			}
 			
 		if = { 
-				limit = { true_religion = lasombra_high }
+				limit = { true_religion = lasombra_high
+							is_in_society = no
+				}
 				random_list = {
 						25 = { join_society = via_noctis }
 						5 = { join_society = via_regalis }
@@ -140,7 +146,9 @@ if = {
 				}	
 				
 		if = { 
-				limit = { true_religion = cappadocian_high}
+				limit = { true_religion = cappadocian_high
+							is_in_society = no
+				}
 				random_list = {
 						25 = { join_society = via_ossium }
 						10 = { join_society = via_caeli }
@@ -149,6 +157,7 @@ if = {
 
 		if = { 
 				limit = { true_religion = ventrue_high 
+							is_in_society = no
 						  culture = german
 						  diplomacy = 5
 						}
@@ -158,7 +167,9 @@ if = {
 				}									
 				
 		if = { 
-				limit = { true_religion = ventrue_high}
+				limit = { true_religion = ventrue_high
+							is_in_society = no
+				}
 				random_list = {
 						25 = { join_society = via_regalis }
 						}
@@ -166,9 +177,11 @@ if = {
 
 		if = { 
 				limit = { 
+							is_in_society = no
 							OR = { 
 								true_religion = tremerelow
 								trait = tremere
+								
 								}
 							}
 				random_list = {
@@ -178,64 +191,72 @@ if = {
 		if = { 
 				limit = { 
 				religion = baali
-				true_religion = baali }
+				true_religion = baali 
+				is_in_society = no
+				}
 				random_list = {
 						75 = { join_society = via_hyron }
 						}
 				}
 
-		if = { 
-				limit = { 
-				NOT = { religion = baali }
-				true_religion = baali }
-				random_list = {
-						75 = { join_society = secret_religious_cult }
-						}
-				}
-								
-		if = { limit = { true_religion_group = vampire_low_clans }
-				random_list = {
-						20 = { join_society = via_bestiae }		
-						}
-			}				
+#		if = { 
+#				limit = { 
+#				NOT = { religion = baali }
+#				true_religion = baali }
+#				random_list = {
+#						75 = { join_society = secret_religious_cult }
+#						}
+#				}
 				
 		if = { 
-				limit = { true_religion = anda }
+				limit = { true_religion = anda
+							is_in_society = no
+				}
 				random_list = {
 						50 = { join_society = via_yasaq }
 						}
 				}
 				
 		if = { 
-				limit = { true_religion = einherjar}
+				limit = { true_religion = einherjar
+							is_in_society = no
+				}
 				random_list = {
 						50 = { join_society = via_einherjar }
 						}
 				}	
 				
 		if = { 
-				limit = { true_religion = noiad }
+				limit = { true_religion = noiad 
+					is_in_society = no
+				}
 				random_list = {
 						25 = { join_society = via_bestiae }
 						}
 				}						
 
 		if = { 
-				limit = { true_religion = koldun }
+				limit = { true_religion = koldun
+				is_in_society = no
+				}
 				random_list = {
 						50 = { join_society = via_mutationis }
 						}
 				}	
 				
 		if = { 
-				limit = { true_religion = mayaparisataya }
+				limit = { true_religion = mayaparisataya
+					is_in_society = no
+				}
 				random_list = {
 						50 = { join_society = via_paradoxi }
 						}
 				}			
 	
 		if = { 
-				limit = { true_religion = assamite }
+				limit = { true_religion = assamite 
+							is_in_society = no
+				}
 				random_list = {
 						50 = { join_society = via_sanguinus }
 						}
@@ -250,6 +271,7 @@ if = {
 		
 		if = { 
 				limit = {  
+							is_in_society = no
 						  OR = {
 								culture = english
 								culture = irish
@@ -264,11 +286,23 @@ if = {
 				}		
 	
 			
-		if = { limit = { true_religion = vampire_promethean }
+		if = { limit = { true_religion = vampire_promethean 
+						is_in_society = no
+		}
 				random_list = {
 						25 = { join_society = via_humanitatis }		
 			}		
 			}
+				
+		if = { limit = { true_religion_group = vampire_low_clans
+						 is_in_society = no
+		}
+				random_list = {
+						20 = { join_society = via_bestiae }		
+						}
+			}				
+				
+
 		
 		if = {
 				limit = {	

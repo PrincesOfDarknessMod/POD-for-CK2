@@ -12,10 +12,7 @@
 
 
 # General
-
-# Society decisions are only evaluated by members of societies	
-society_decisions = { 
-
+society_decisions = { # Society decisions are only evaluated by members of societies	
 	request_to_rank_up_within_society = {
 		only_playable = yes
 
@@ -228,8 +225,8 @@ society_decisions = {
 			society_member_of = code_of_tremere
 			society_member_of = via_ossium
 			society_member_of = derech_lilit
-			society_member_of = secret_religious_society_tremerelow
-			society_member_of = secret_religious_society_tzimisce
+			#society_member_of = secret_religious_society_tremerelow
+			#society_member_of = secret_religious_society_tzimisce
 			society_member_of = via_mutationis
 			}
 			has_quest = quest_hermetics_build_laboratory
@@ -429,23 +426,13 @@ society_decisions = {
 
 		potential = {
 			has_dlc = "Mystics"
-			OR = {
 			society_member_of = the_assassins
-			society_member_of = via_sanguinius
-			}
 			NOT = {
 				society_rank = {
 					society = the_assassins
 					rank == 4
 				}
 			}
-			NOT = {
-				society_rank = {
-					society = via_sanguinius
-					rank == 4
-				}
-			}			
-			
 			NOT = { has_character_modifier = assassins_debt }
 		}
 

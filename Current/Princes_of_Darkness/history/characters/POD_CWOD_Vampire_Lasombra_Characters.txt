@@ -30,6 +30,7 @@
 		}
 	69.1.1 = {
 		add_trait = vampire
+	add_trait = wyrm_taint
 		give_nickname=nick_the_shadow
 		effect = { join_society = via_noctis }
 		}
@@ -144,6 +145,7 @@
 		}
 	576.1.1 = {
 		add_trait = vampire
+	add_trait = wyrm_taint
 		add_trait = "lasombra"
 		add_trait = "neonate"
 		add_trait = "dominate_3"
@@ -209,6 +211,7 @@
 		
 	895.1.1 = {
 		add_trait = vampire
+	add_trait = wyrm_taint
 		add_trait = "lasombra"
 		add_trait = "neonate"
 		add_trait = "dominate_3"
@@ -272,6 +275,7 @@
 		
 	1049.1.1 = {
 		add_trait = vampire
+	add_trait = wyrm_taint
 		add_trait = "lasombra"
 		add_trait = "neonate"
 		add_trait = "dominate_3"
@@ -661,5 +665,285 @@
 			death = yes 
 	}	
 
+}
+
+
+
+710302 = {
+
+	name = "Sharif" # King Sharif, visionary founder of Cairo city proper. One of the most influential Ashirra
+	#father = 
+	dynasty = "6751002"
+	culture = "maghreb_arabic"
+	religion = "innocent"
+		trait = "lasombra"
+		trait = "ancient"
+		trait = "vampgeneration6"
+		trait = "bloodpotency_6"
+		trait = "dominate_5"
+		trait = "obtenebration_5"
+		trait = "vigor_5"
+		trait = "majesty_5"
+		trait = "auspex_4"
+		trait = "celerity_4"
+		trait = "resilience_4"
+		trait = "animalism_3"
+	diplomacy = 8
+	martial = 4
+	stewardship = 8
+	intrigue = 4
+	learning = 6
+		trait = "mastermind_theologian"
+		trait = "faqih"
+		trait = "zealous"
+		trait = "ambitious"
+		trait = "chaste"
+		trait = "erudite"
+		trait = "temperate"
+		trait = "canon"
+	disallow_random_traits = yes
+	female = no
+
+	400.1.1 = {
+		birth = 400.1.1
+		}
+	450.1.1 = {
+		add_trait = "vampire"
+		religion = "ashirra"
+		culture = "egyptian_arabic"
+		effect = { join_society = tariq_el-sama }
+		}
+	766.1.1 = {
+		add_trait = "bookmark767"
+		}
+	970.1.1 = {
+		add_lover = 710303
+		add_spouse = 710303
+		}
+	989.1.1 = {
+		remove_trait = "bookmark767"
+		add_trait = "bookmark990"
+		}
+	1229.1.1 = {
+		remove_trait = "bookmark990"
+		add_trait = "bookmark1230"
+		effect = { set_government_type = ashirra_government }
+		}
+	1354.1.1 = {
+		remove_trait = "bookmark1230"
+		add_trait = "bookmark1355"
+		}
+	1446.1.1 = {
+		remove_trait = "bookmark1355"
+		death = yes
+		}	
+}
+
+710303 = {
+
+	name = "Fatimah" # destined to become one of the most influential Lasombra in the world despite being antitribu
+	father = 710302
+	dynasty = "6751002"
+	culture = "maghreb_arabic"
+	religion = "innocent"
+		trait = "lasombra"
+		trait = "elder"
+		trait = "vampgeneration7"
+		trait = "bloodpotency_6"
+		trait = "dominate_3"
+		trait = "obtenebration_4"
+		trait = "vigor_3"
+		trait = "majesty_2"
+		trait = "auspex_2"
+		trait = "obfuscate_2"
+		trait = "resilience_3"
+	diplomacy = 10
+	martial = 2
+	stewardship = 6
+	intrigue = 10
+	learning = 8
+		trait = "elusive_shadow"
+		trait = "faqih"
+		trait = "zealous"
+		trait = "proud"
+		trait = "shy"
+		trait = "stubborn"
+		trait = "diligent"
+		trait = "canon"
+	disallow_random_traits = yes
+	female =yes
+
+	939.1.1 = {
+		birth = 939.1.1
+		}
+	970.1.1 = {
+		add_trait = "vampire"
+		religion = "ashirra"
+		culture = "egyptian_arabic"
+		effect = { join_society = tariq_el-sama }
+		give_nickname=nick_monarch_of_the_light
+		add_lover = 710302
+		add_spouse = 710302
+		add_friend = 710393
+		}
+	989.1.1 = {
+		remove_trait = "bookmark767"
+		add_trait = "bookmark990"
+		}
+	1229.1.1 = {
+		remove_trait = "bookmark990"
+		add_trait = "bookmark1230"
+		effect = { set_government_type = ashirra_government }
+		}
+	1354.1.1 = {
+		remove_trait = "bookmark1230"
+		add_trait = "bookmark1355"
+		}
+	1499.1.1 = {
+		remove_trait = "bookmark1355"
+		add_trait = "bookmark1500"
+		}		
+	1505.1.1 = {
+		remove_trait = "bookmark1500"
+		add_trait = "bookmark1505"
+		}
+	1999.1.1 = {
+		death = yes
+		}
+}
+
+
+710304 = {
+
+	name = "Mirri" 
+	father = 710302
+	dynasty = "6751002"
+	culture = "maghreb_arabic"
+	religion = "innocent"
+		trait = "lasombra"
+		trait = "ancilla"
+		trait = "vampgeneration7"
+		trait = "bloodpotency_6"
+		trait = "dominate_2"
+		trait = "obtenebration_3"
+		trait = "vigor_3"
+		trait = "animalism_2"
+		trait = "obfuscate_2"
+		trait = "resilience_3"
+		trait = "protean_3"
+	diplomacy = 8
+	martial = 8
+	stewardship = 4
+	intrigue = 6
+	learning = 6
+		trait = "martial_cleric"
+		trait = "gardener"
+		trait = "humble"
+		trait = "shy"
+		trait = "stubborn"
+		trait = "temperate"
+		trait = "cruel"
+		trait = "canon"
+	disallow_random_traits = yes
+	female =yes
+
+	945.1.1 = {
+		birth = 945.1.1
+		}
+	970.2.2 = {
+		add_trait = "vampire"
+		religion = "ashirra"
+		effect = { join_society = tariq_el-bedouin }
+		}
+	989.1.1 = {
+		remove_trait = "bookmark767"
+		add_trait = "bookmark990"
+		}
+	1229.1.1 = {
+		remove_trait = "bookmark990"
+		add_trait = "bookmark1230"
+		effect = { set_government_type = ashirra_government }
+		}
+	1354.1.1 = {
+		remove_trait = "bookmark1230"
+		add_trait = "bookmark1355"
+		}
+	1499.1.1 = {
+		remove_trait = "bookmark1355"
+		add_trait = "bookmark1500"
+		}		
+	1505.1.1 = {
+		remove_trait = "bookmark1500"
+		add_trait = "bookmark1505"
+		}
+	1999.1.1 = {
+		death = yes
+		}
+}
+
+
+710393 = {
+
+	name = "Asimah" # Fatimah's eternal assistant/confidant/bodyguard ghoul. should be immortal
+	#father = 
+	dynasty = "6751002"
+	culture = "maghreb_arabic"
+	religion = "innocent"
+		#trait = "bloodpotency_6"
+		trait = "obtenebration_1"
+		trait = "vigor_2"
+		trait = "auspex_2"
+		trait = "resilience_2"
+	diplomacy = 8
+	martial = 10
+	stewardship = 8
+	intrigue = 8
+	learning = 8
+		trait = "tough_soldier"
+		trait = "bastard"
+		trait = "duelist"
+		trait = "trusting"
+		trait = "gregarious"
+		trait = "humble"
+		trait = "brave"
+		trait = "content"
+		trait = "canon"
+		trait = "defensive_leader"
+	disallow_random_traits = yes
+	female = yes
+	employer = 710303
+
+	951.1.1 = {
+		birth = 951.1.1
+		}
+	971.1.1 = {
+		add_trait = "ghoul"
+		religion = "ashirra"
+		culture = "egyptian_arabic"
+		effect = { add_friend = 710303 }
+		}
+	989.1.1 = {
+		remove_trait = "bookmark767"
+		add_trait = "bookmark990"
+		}
+	1229.1.1 = {
+		remove_trait = "bookmark990"
+		add_trait = "bookmark1230"
+		}
+	1354.1.1 = {
+		remove_trait = "bookmark1230"
+		add_trait = "bookmark1355"
+		}
+	1499.1.1 = {
+		remove_trait = "bookmark1355"
+		add_trait = "bookmark1500"
+		}		
+	1505.1.1 = {
+		remove_trait = "bookmark1500"
+		add_trait = "bookmark1505"
+		}
+	1999.1.1 = {
+		death = yes
+		}
 }
 

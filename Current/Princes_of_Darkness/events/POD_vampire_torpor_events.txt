@@ -51,7 +51,11 @@ character_event = {
 				}
 							add_trait = torpor
 							add_trait = in_hiding
-							leave_society = yes
+							
+							if = { limit = {
+							is_in_society = yes }
+							leave_society = yes }
+							
 							abdicate = yes 
 		}
     }

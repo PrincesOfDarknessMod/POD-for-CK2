@@ -1193,7 +1193,7 @@ magnum_opus_alchemy_transmutation_3 = {
 						society_member_of = via_mutationis
 						society_member_of = derech_lilit
 						society_member_of = via_ossium
-						trait = mages
+						trait = mage
 					}
 					any_artifact = {
 						artifact_type = magnum_opus_alchemy_transmutation_4
@@ -1581,15 +1581,17 @@ finger_of_st_john = { #separate event chain
 chains_of_st_peter = {
 	monthly_character_prestige = 0.1
 	learning = 2
-	active = { r	OR = { religion_group = christian
+	active = { OR = { religion_group = christian
 		   society_member_of = via_caeli
 				society_member_of = order_bitter_ashes
  } }
 	allowed_gift = {
+	
 	OR = { religion_group = christian
 		   society_member_of = via_caeli
-				society_member_of = order_bitter_ashes
+			society_member_of = order_bitter_ashes
  }
+ 
 	}
 	quality = 2
 	flags = { religious christian chains saint }
@@ -2390,18 +2392,18 @@ axe_of_perun = {
 	active = {
 		OR = {
 			religion = slavic_pagan
-			religion = slavic_pagan_reformed
+			#religion = slavic_pagan_reformed
 			religion = koldun
-			religion = shadowlords
+			religion = shadow_lords
 		}
 		is_adult = yes
 	}
 	allowed_gift = {
 		OR = {
 			religion = slavic_pagan
-			religion = slavic_pagan_reformed
+			#religion = slavic_pagan_reformed
 			religion = koldun
-			religion = shadowlords
+			religion = shadow_lords
 		}
 	}
 	flags = { religious slavic_pagan very_rare combat axe }
@@ -2451,17 +2453,17 @@ yada_tashy = {
 	active = {
 		OR = {
 			religion = tengri_pagan
-			religion = tengri_pagan_reformed
+			#religion = tengri_pagan_reformed
 			religion = anda
-			religion = shadowlords
+			religion = shadow_lords
 		}
 	}
 	allowed_gift = {
 		OR = {
 			religion = tengri_pagan
-			religion = tengri_pagan_reformed
+			#religion = tengri_pagan_reformed
 			religion = anda
-			religion = shadowlords
+			religion = shadow_lords
 		}
 	}
 	flags = { religious tengri_pagan very_rare }

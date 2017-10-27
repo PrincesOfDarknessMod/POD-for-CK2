@@ -134,8 +134,8 @@ title_hermetics_apprentice = {
 		society_member_of = code_of_tremere
 		society_member_of = via_ossium
 		society_member_of = derech_lilit
-		society_member_of = secret_religious_society_tremerelow
-		society_member_of = secret_religious_society_tzimisce
+		#society_member_of = secret_religious_society_tremerelow
+		#society_member_of = secret_religious_society_tzimisce
 		society_member_of = via_mutationis		
 		}
 		ai = no
@@ -154,8 +154,8 @@ title_hermetics_apprentice = {
 		society_member_of = code_of_tremere
 		society_member_of = via_ossium
 		society_member_of = derech_lilit
-		society_member_of = secret_religious_society_tremerelow
-		society_member_of = secret_religious_society_tzimisce
+		#society_member_of = secret_religious_society_tremerelow
+		#society_member_of = secret_religious_society_tzimisce
 		society_member_of = via_mutationis		
 		is_in_society = no
 		}
@@ -171,8 +171,8 @@ title_hermetics_apprentice = {
 		society_member_of = code_of_tremere
 		society_member_of = via_ossium
 		society_member_of = derech_lilit
-		society_member_of = secret_religious_society_tremerelow
-		society_member_of = secret_religious_society_tzimisce
+		#society_member_of = secret_religious_society_tremerelow
+		#society_member_of = secret_religious_society_tzimisce
 		society_member_of = via_mutationis		
 		} 
 		}
@@ -230,16 +230,16 @@ title_hermetics_apprentice = {
 			}		
 		}			
 
-		if = { liege = { society_member_of = secret_religious_society_tremerelow }
+		if = { liege = { #society_member_of = secret_religious_society_tremerelow }
 			if = {
-				limit = { NOT = { society_member_of = secret_religious_society_tremerelow } }
+				limit = { NOT = { #society_member_of = secret_religious_society_tremerelow } }
 				join_society = secret_religious_society_tremerelow
 			}		
 		}
 
-		if = { liege = { society_member_of = secret_religious_society_tzimisce }
+		if = { liege = { #society_member_of = secret_religious_society_tzimisce }
 			if = {
-				limit = { NOT = { society_member_of = secret_religious_society_tzimisce } }
+				limit = { NOT = { #society_member_of = secret_religious_society_tzimisce } }
 				join_society = secret_religious_society_tzimisce
 			}		
 		}		
@@ -708,7 +708,7 @@ title_assamite_priscus = {
 	allowed_to_grant = {
 			 trait = vampire
 			 is_vampire_the_requiem = no
-			 NOT = { religion_group = vampire_high_group }
+			 NOT = { religion_group = vampire_high_clans_group }
 		}
 	
 	
@@ -767,13 +767,13 @@ title_follower_of_set_priscus = {
 		is_adult = yes
 		NOT = { religion = sabbat }
 		trait = vampire
-		trait = follower_of_set
+		trait = followerofset
 		}
 	allowed_to_grant = {
 			 trait = vampire
 			 is_vampire_the_requiem = no
 			 NOT = { religion_group = ashirra_vampire_group }
-			 NOT = { religion_group = vampire_high_group }
+			 NOT = { religion_group = vampire_high_clans_group }
 
 		}
 	
@@ -800,7 +800,7 @@ title_follower_of_set_whip = {
 		is_adult = yes
 		NOT = { religion = sabbat }
 		trait = vampire
-		trait = follower_of_set
+		trait = followerofset
 		NOT = { has_minor_title = title_follower_of_set_priscus }
 		}
 		allowed_to_grant = {
@@ -837,7 +837,7 @@ title_gangrel_priscus = {
 		}
 		allowed_to_grant = {
 			 trait = vampire		
-			 NOT = { religion_group = vampire_high_group }
+			 NOT = { religion_group = vampire_high_clans_group }
 		}
 	
 	
@@ -1037,7 +1037,7 @@ title_malkavian_priscus = {
 	allowed_to_grant = {
 			 trait = vampire
 			 is_vampire_the_requiem = no
-			 NOT = { religion_group = vampire_high_group }
+			 NOT = { religion_group = vampire_high_clans_group }
 		
 		}
 	
@@ -1104,7 +1104,7 @@ title_nosferatu_priscus = {
 
 		allowed_to_grant = {
 			 trait = vampire		
-			 NOT = { religion_group = vampire_high_group }
+			 NOT = { religion_group = vampire_high_clans_group }
 		}
 		
 	gain_effect = {
@@ -1166,7 +1166,7 @@ title_ravnos_priscus = {
 	allowed_to_grant = {
 			 trait = vampire
 			 is_vampire_the_requiem = no
-			 NOT = { religion_group = vampire_high_group }
+			 NOT = { religion_group = vampire_high_clans_group }
 		}
 	
 	
@@ -1230,7 +1230,7 @@ title_tremere_priscus = {
 	allowed_to_grant = {
 			 trait = vampire
 			 is_vampire_the_requiem = no
-			 NOT = { religion_group = vampire_high_group }
+			 NOT = { religion_group = vampire_high_clans_group }
 			 NOT = { trait = nosferatu }
 			 NOT = { trait = gangrel }
 			 NOT = { trait = tzimisce }

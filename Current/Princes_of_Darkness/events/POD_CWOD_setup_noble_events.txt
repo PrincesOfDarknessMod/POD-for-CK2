@@ -65,11 +65,11 @@ character_event = {
 			reverse_culture = ROOT
 		}		
 		
-# setup Indian caste
+## setup Indian caste
 		if = {
 			limit = {
 				ROOT = {
-					primary_title = { holding_type = temple	}
+					capital_holding = { holding_type = temple	}
 				}
 				OR = { 
 					culture = bengali
@@ -92,7 +92,7 @@ character_event = {
 		if = { 
 			limit = { 
 				OR = {
-					ROOT = { primary_title = { holding_type = castle } } 
+					ROOT = { capital_holding = { holding_type = castle } } 
 					mercenary = yes
 					holy_order = yes
 					is_patrician = yes 
@@ -118,7 +118,7 @@ character_event = {
 		if = {
 			limit = {
 				OR = {
-					ROOT = { primary_title = { holding_type = city } }
+					ROOT = { capital_holding = { holding_type = city } }
 					is_patrician = yes																		
 				}
 				OR = { 	
@@ -139,6 +139,7 @@ character_event = {
 			}											
 			add_trait = vaishya
 		}	
+
 		if = {
 			limit = {
 				is_adult = yes
@@ -181,6 +182,7 @@ character_event = {
 			}	
 # make Vampire ruler
 			add_trait = vampire		
+			add_trait = wyrm_taint
 			character_event = { id = CWOD_vampire_noble.1 }	
 		}											
 # Werewolf nobles				
@@ -314,7 +316,7 @@ character_event = {
 			}
 			# make promethean ruler
 			add_trait = promethean
-			give_supe_disease_immunity_effect		
+			
 			set_government_type = unaligned_government
 			character_event = { id = promethean_noble.1 }
 		}		
@@ -337,7 +339,7 @@ character_event = {
 			}
 			# make mummy ruler
 			add_trait = mummy
-			give_supe_disease_immunity_effect			
+			
 			set_government_type = unaligned_government
 			character_event = { id = mummy_noble.1 }
 		}	
@@ -360,7 +362,7 @@ character_event = {
 			}
 			# make geist ruler
 			add_trait = geist
-			give_supe_disease_immunity_effect			
+					
 			set_government_type = unaligned_government
 			character_event = { id = geist_noble.1 }
 		}	
