@@ -1277,12 +1277,6 @@ title_tremere_whip = {
 }
 
 
-
-
-
-
-
-
 # ghoul
 title_ghoul = {
 	dignity = 0.05
@@ -1296,11 +1290,19 @@ title_ghoul = {
 		is_adult = yes
 		trait = mortal
 		NOT = { trait = werewolf }
+		NOT = { trait = mage }
+		NOT = { trait = mummy }
+		NOT = { trait = geist }
+		NOT = { trait = demon }
+		NOT = { trait = supe_hunter }
+		}
+		
 		allowed_to_grant = {
 			 trait = vampire
 			 ai = yes
 		}
 	
+
 	
 	gain_effect = {
 	add_trait = ghoul

@@ -26,9 +26,12 @@ if = {
 						10 = { join_society = tariq_el-harb }
 						5 = { join_society = tariq_el-shaitan }
 						5 = { join_society = tariq_el-bedouin }
-						5 = { join_society = via_hyron }	
-						5 = { join_society = via_serpentis }
-						5 = { join_society = via_sanguinus }
+						5 = { set_religion = baali
+							join_society = via_hyron }	
+						5 = { set_religion = setite
+							join_society = via_serpentis }
+						5 = { set_relgion = assamite
+							join_society = via_sanguinus }
 						5 = { join_society = derech_lilit }
 				}
 		}
@@ -91,7 +94,7 @@ if = {
 								}
 				}
 				}
-
+				
 		if = {
 				limit = {	
 							is_in_society = no
@@ -106,11 +109,12 @@ if = {
 							NOT = { trait = diabolist }					
 						}
 				random_list = {
-						5 = { join_society = order_bitter_ashes }
-						5 = { join_society = order_twilight }								
+						1 = { join_society = order_bitter_ashes }
+						2 = { join_society = order_twilight }								
 				}						
-			}							
-		}
+			}				
+				
+			}
 		
 		if = {
 				limit = { true_religion = lasombra_high 
@@ -129,7 +133,9 @@ if = {
 							is_in_society = no
 						  diplomacy = 5 }
 				random_list = {
-						25 = { join_society = cainite }
+						25 = { set_secret_religion = cainite 
+								join_society = secret_religious_cult
+						}
 				}
 				
 			}
@@ -199,14 +205,15 @@ if = {
 						}
 				}
 
-#		if = { 
-#				limit = { 
-#				NOT = { religion = baali }
-#				true_religion = baali }
-#				random_list = {
-#						75 = { join_society = secret_religious_cult }
-#						}
-#				}
+		if = { 
+				limit = { 
+				NOT = { religion = baali }
+				true_religion = baali
+				secret_religion = baali }
+				random_list = {
+						75 = { join_society = secret_religious_cult }
+						}
+				}
 				
 		if = { 
 				limit = { true_religion = anda
@@ -302,7 +309,6 @@ if = {
 						}
 			}				
 				
-
 		
 		if = {
 				limit = {	
@@ -327,6 +333,8 @@ if = {
 					}
 		
 				}
+										
+						
 							
 			}					 
 			 

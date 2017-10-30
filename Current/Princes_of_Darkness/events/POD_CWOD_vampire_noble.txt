@@ -26,6 +26,15 @@ character_event = {
 				NOT = { trait = storyteller }					
 			}	
 # make vampire ruler
+						if = { limit = { trait = slow } 
+							remove_trait = slow
+						}
+						if = { limit = { trait = imbecile } 
+							remove_trait = imbecile
+						}						
+						if = { limit = { trait = inbred } 
+							remove_trait = inbred
+						}
 			add_trait = elder
 			add_trait = bloodpotency_5
 					
@@ -115,7 +124,7 @@ character_event = {
 					10 = { add_trait = gangrelantitribu }
 					10 = { add_trait = brujahantitribu }
 					10 = { add_trait = nosferatuantitribu 
-					set_graphical_culture = nosferatu}
+					set_graphical_culture = nosferatu } 
 					5 = { add_trait = malkavianantitribu }
 					5 = { add_trait = ventrueantitribu }
 					5 = { add_trait = ravnosantitribu }
@@ -652,7 +661,10 @@ character_event = {
 						}
 						new_character = {
 							inherit = PREV
-							set_father = ROOT
+							if = { limit = { ROOT = { is_female = no } } 
+							set_father = ROOT }
+							if = { limit = { ROOT = { is_female = yes } } 
+							set_mother = ROOT }
 							add_trait = ancilla
 							
 							add_trait = bloodpotency_2
@@ -672,7 +684,10 @@ character_event = {
 						}
 						new_character = {
 							inherit = PREV
-							set_father = ROOT
+							if = { limit = { ROOT = { is_female = no } } 
+							set_father = ROOT }
+							if = { limit = { ROOT = { is_female = yes } } 
+							set_mother = ROOT }
 							add_trait = ancilla
 							
 							add_trait = bloodpotency_2
@@ -691,7 +706,10 @@ character_event = {
 						}
 						new_character = {
 							inherit = PREV
-							set_father = ROOT
+							if = { limit = { ROOT = { is_female = no } } 
+							set_father = ROOT }
+							if = { limit = { ROOT = { is_female = yes } } 
+							set_mother = ROOT }
 							add_trait = ancilla
 							
 							add_trait = bloodpotency_3
@@ -711,7 +729,10 @@ character_event = {
 						}
 						new_character = {
 							inherit = PREV
-							set_father = ROOT
+							if = { limit = { ROOT = { is_female = no } } 
+							set_father = ROOT }
+							if = { limit = { ROOT = { is_female = yes } } 
+							set_mother = ROOT }
 							add_trait = ancilla
 							
 							add_trait = bloodpotency_3
@@ -730,7 +751,10 @@ character_event = {
 						}
 						new_character = {
 							inherit = PREV
-							set_father = ROOT
+							if = { limit = { ROOT = { is_female = no } } 
+							set_father = ROOT }
+							if = { limit = { ROOT = { is_female = yes } } 
+							set_mother = ROOT }
 							add_trait = elder
 							
 							add_trait = bloodpotency_4
@@ -750,7 +774,10 @@ character_event = {
 						}
 						new_character = {
 							inherit = PREV
-							set_father = ROOT
+							if = { limit = { ROOT = { is_female = no } } 
+							set_father = ROOT }
+							if = { limit = { ROOT = { is_female = yes } } 
+							set_mother = ROOT }
 							add_trait = elder
 							
 							add_trait = bloodpotency_4
@@ -780,7 +807,10 @@ character_event = {
 						}
 						new_character = {
 							inherit = PREV
-							set_father = ROOT
+							if = { limit = { ROOT = { is_female = no } } 
+							set_father = ROOT }
+							if = { limit = { ROOT = { is_female = yes } } 
+							set_mother = ROOT }
 							add_trait = ancient
 							set_secret_religion = inconnu
 							join_society = secret_religious_cult
@@ -802,7 +832,10 @@ character_event = {
 						}
 						new_character = {
 							inherit = PREV
-							set_father = ROOT
+							if = { limit = { ROOT = { is_female = no } } 
+							set_father = ROOT }
+							if = { limit = { ROOT = { is_female = yes } } 
+							set_mother = ROOT }
 							add_trait = ancient
 							set_secret_religion = inconnu
 							join_society = secret_religious_cult
@@ -831,7 +864,10 @@ character_event = {
 						}
 						new_character = {
 							inherit = PREV
-							set_father = ROOT
+							if = { limit = { ROOT = { is_female = no } } 
+							set_father = ROOT }
+							if = { limit = { ROOT = { is_female = yes } } 
+							set_mother = ROOT }
 							add_trait = ancilla
 							
 							add_trait = bloodpotency_2
@@ -851,7 +887,10 @@ character_event = {
 						}
 						new_character = {
 							inherit = PREV
-							set_father = ROOT
+							if = { limit = { ROOT = { is_female = no } } 
+							set_father = ROOT }
+							if = { limit = { ROOT = { is_female = yes } } 
+							set_mother = ROOT }
 							add_trait = ancilla
 							
 							add_trait = bloodpotency_2
@@ -870,7 +909,10 @@ character_event = {
 						}
 						new_character = {
 							inherit = PREV
-							set_father = ROOT
+							if = { limit = { ROOT = { is_female = no } } 
+							set_father = ROOT }
+							if = { limit = { ROOT = { is_female = yes } } 
+							set_mother = ROOT }
 							add_trait = ancilla
 							
 							add_trait = bloodpotency_3
@@ -890,7 +932,10 @@ character_event = {
 						}
 						new_character = {
 							inherit = PREV
-							set_father = ROOT
+							if = { limit = { ROOT = { is_female = no } } 
+							set_father = ROOT }
+							if = { limit = { ROOT = { is_female = yes } } 
+							set_mother = ROOT }
 							add_trait = ancilla
 							
 							add_trait = bloodpotency_3
@@ -909,7 +954,10 @@ character_event = {
 						}
 						new_character = {
 							inherit = PREV
-							set_father = ROOT
+							if = { limit = { ROOT = { is_female = no } } 
+							set_father = ROOT }
+							if = { limit = { ROOT = { is_female = yes } } 
+							set_mother = ROOT }
 							add_trait = elder
 							
 							add_trait = bloodpotency_4
@@ -929,7 +977,10 @@ character_event = {
 						}
 						new_character = {
 							inherit = PREV
-							set_father = ROOT
+							if = { limit = { ROOT = { is_female = no } } 
+							set_father = ROOT }
+							if = { limit = { ROOT = { is_female = yes } } 
+							set_mother = ROOT }
 							add_trait = elder
 							
 							add_trait = bloodpotency_4
@@ -957,7 +1008,10 @@ character_event = {
 						}
 						new_character = {
 							inherit = PREV
-							set_father = ROOT
+							if = { limit = { ROOT = { is_female = no } } 
+							set_father = ROOT }
+							if = { limit = { ROOT = { is_female = yes } } 
+							set_mother = ROOT }
 							add_trait = ancient
 							set_secret_religion = inconnu
 							join_society = secret_religious_cult
@@ -979,7 +1033,10 @@ character_event = {
 						}
 						new_character = {
 							inherit = PREV
-							set_father = ROOT
+							if = { limit = { ROOT = { is_female = no } } 
+							set_father = ROOT }
+							if = { limit = { ROOT = { is_female = yes } } 
+							set_mother = ROOT }
 							add_trait = ancient
 							set_secret_religion = inconnu
 							join_society = secret_religious_cult
@@ -991,6 +1048,15 @@ character_event = {
 				}			
 			
 			new_character = { 
+						if = { limit = { trait = slow } 
+							remove_trait = slow
+						}
+						if = { limit = { trait = imbecile } 
+							remove_trait = imbecile
+						}						
+						if = { limit = { trait = inbred } 
+							remove_trait = inbred
+						}			
 					POD_CWOD_vampire_inherit_sire_clan_effect = yes
 					POD_CWOD_bookmark_DAV_init_effect = yes
 					POD_CWOD_vampire_governments_init_effect = yes

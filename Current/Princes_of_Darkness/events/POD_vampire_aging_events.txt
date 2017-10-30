@@ -75,10 +75,10 @@ character_event = {
 		age = 50
         trait = vampire
         NOT = { trait = bloodpotency_10 }
-       NOT = { trait = vampgeneration_15 }
-       NOT = { trait = vampgeneration_14 }
-       NOT = { trait = vampgeneration_13 }
-       NOT = { trait = vampgeneration_12 } 		
+       NOT = { trait = vampgeneration15 }
+       NOT = { trait = vampgeneration14 }
+       NOT = { trait = vampgeneration13 }
+       NOT = { trait = vampgeneration12 } 		
     }
 	
     immediate = {
@@ -86,14 +86,14 @@ character_event = {
             limit = {
                 trait = bloodpotency_9
                 age = 450
-               NOT = { trait = vampgeneration_11 }
-               NOT = { trait = vampgeneration_10 }
-               NOT = { trait = vampgeneration_9 }
-               NOT = { trait = vampgeneration_8 }
-               NOT = { trait = vampgeneration_7  }
-               NOT = { trait = vampgeneration_6  }
-               NOT = { trait = vampgeneration_5  }
-               NOT = { trait = vampgeneration_4  }  
+               NOT = { trait = vampgeneration11 }
+               NOT = { trait = vampgeneration10 }
+               NOT = { trait = vampgeneration9 }
+               NOT = { trait = vampgeneration8 }
+               NOT = { trait = vampgeneration7  }
+               NOT = { trait = vampgeneration6  }
+               NOT = { trait = vampgeneration5  }
+               NOT = { trait = vampgeneration4  }  
             }
             add_trait = bloodpotency_10
 			remove_trait = bloodpotency_9
@@ -102,13 +102,13 @@ character_event = {
             limit = {
                 trait = bloodpotency_8
                 age = 400
-               NOT = { trait = vampgeneration_11 }
-               NOT = { trait = vampgeneration_10 }
-               NOT = { trait = vampgeneration_9 }
-               NOT = { trait = vampgeneration_8 }
-               NOT = { trait = vampgeneration_7  }
-               NOT = { trait = vampgeneration_6  }
-               NOT = { trait = vampgeneration_5  }                      
+               NOT = { trait = vampgeneration11 }
+               NOT = { trait = vampgeneration10 }
+               NOT = { trait = vampgeneration9 }
+               NOT = { trait = vampgeneration8 }
+               NOT = { trait = vampgeneration7  }
+               NOT = { trait = vampgeneration6  }
+               NOT = { trait = vampgeneration5  }                      
             }
             add_trait = bloodpotency_9
 			
@@ -118,12 +118,12 @@ character_event = {
             limit = {
                 trait = bloodpotency_7
                 age = 350
-               NOT = { trait = vampgeneration_11 }
-               NOT = { trait = vampgeneration_10 }
-               NOT = { trait = vampgeneration_9 }
-               NOT = { trait = vampgeneration_8 }
-               NOT = { trait = vampgeneration_7  }
-               NOT = { trait = vampgeneration_6  }
+               NOT = { trait = vampgeneration11 }
+               NOT = { trait = vampgeneration10 }
+               NOT = { trait = vampgeneration9 }
+               NOT = { trait = vampgeneration8 }
+               NOT = { trait = vampgeneration7  }
+               NOT = { trait = vampgeneration6  }
             }
             add_trait = bloodpotency_8
 			remove_trait = bloodpotency_7
@@ -133,11 +133,11 @@ character_event = {
             limit = {
                 trait = bloodpotency_6
                 age = 300
-               NOT = { trait = vampgeneration_11 }
-               NOT = { trait = vampgeneration_10 }
-               NOT = { trait = vampgeneration_9 }
-               NOT = { trait = vampgeneration_8 }
-               NOT = { trait = vampgeneration_7  }      
+               NOT = { trait = vampgeneration11 }
+               NOT = { trait = vampgeneration10 }
+               NOT = { trait = vampgeneration9 }
+               NOT = { trait = vampgeneration8 }
+               NOT = { trait = vampgeneration7  }      
             }
             add_trait = bloodpotency_7
 			remove_trait = bloodpotency_6
@@ -146,10 +146,10 @@ character_event = {
             limit = {
                 trait = bloodpotency_5
                 age = 250
-               NOT = { trait = vampgeneration_11 }
-               NOT = { trait = vampgeneration_10 }
-               NOT = { trait = vampgeneration_9 }
-               NOT = { trait = vampgeneration_8 }                                  
+               NOT = { trait = vampgeneration11 }
+               NOT = { trait = vampgeneration10 }
+               NOT = { trait = vampgeneration9 }
+               NOT = { trait = vampgeneration8 }                                  
             }
             add_trait = bloodpotency_6
 			remove_trait = bloodpotency_5
@@ -159,9 +159,9 @@ character_event = {
             limit = {
                 trait = bloodpotency_4
                 age = 200
-               NOT = { trait = vampgeneration_11 }
-               NOT = { trait = vampgeneration_10 }
-               NOT = { trait = vampgeneration_9 }                      
+               NOT = { trait = vampgeneration11 }
+               NOT = { trait = vampgeneration10 }
+               NOT = { trait = vampgeneration9 }                      
             }
             add_trait = bloodpotency_5
 			remove_trait = bloodpotency_4
@@ -171,8 +171,8 @@ character_event = {
             limit = {
                 trait = bloodpotency_3
                 age = 150
-               NOT = { trait = vampgeneration_11 }
-               NOT = { trait = vampgeneration_10 }                      
+               NOT = { trait = vampgeneration11 }
+               NOT = { trait = vampgeneration10 }                      
             }
             add_trait = bloodpotency_4
 			remove_trait = bloodpotency_3
@@ -181,7 +181,7 @@ character_event = {
             limit = {
                 trait = bloodpotency_2
                 age = 100
-               NOT = { trait = vampgeneration_11 }                  
+               NOT = { trait = vampgeneration11 }                  
             }
             add_trait = bloodpotency_3
 			remove_trait = bloodpotency_2
@@ -346,10 +346,11 @@ character_event = {
     id = vampire_aging_events.8					
     hide_window = yes
     is_triggered_only = yes
-   
+    
     trigger = {
 		age = 100
         trait = torpor
+		trait = vampire
 		NOT = { trait = canon }
 		NOT = { trait = methuselah }
 		NOT = { trait = antediluvian } 
@@ -358,19 +359,20 @@ character_event = {
     immediate = {  
 	
 		if = { limit = { 
-				NOT = { has_living_children = yes }
-				NOT = { has_lover = yes }
-				NOT = { is_married = yes }
-				NOT = { num_of_claims = 1 }
-				NOT = { num_of_rivals = 1 }
-				NOT = { num_of_friends = 1 }
-		}
-        random = {
+				trait = torpor
+				trait = vampire
+				#NOT = { has_living_children = yes }
+				#NOT = { has_lover = yes }
+				#NOT = { is_married = yes }
+				#NOT = { num_of_claims = 1 }
+				#NOT = { num_of_rivals = 1 }
+				#NOT = { num_of_friends = 1 }
+				}		
+			random = {
 					chance = 50
-					death = { death_reason = death_vanished  }
-					
+					death = "yes"
 					}
-				}
+			}
 		
 		}
     }

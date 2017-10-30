@@ -204,7 +204,16 @@ character_event = {
 					new_character = {
 						set_father = ROOT
 						add_trait = fledgling
-						 
+						if = { limit = { trait = slow } 
+							remove_trait = slow
+						}
+						if = { limit = { trait = imbecile } 
+							remove_trait = imbecile
+						}						
+						if = { limit = { trait = inbred } 
+							remove_trait = inbred
+						}								
+						
 						recalc_succession = yes
 					}
 				}
@@ -220,7 +229,15 @@ character_event = {
 					new_character = {
 						set_father = ROOT
 						add_trait = fledgling
-						
+						if = { limit = { trait = slow } 
+							remove_trait = slow
+						}
+						if = { limit = { trait = imbecile } 
+							remove_trait = imbecile
+						}						
+						if = { limit = { trait = inbred } 
+							remove_trait = inbred
+						}							
 						recalc_succession = yes
 					}
 				}
@@ -241,7 +258,15 @@ character_event = {
 					new_character = {
 						set_mother = ROOT
 						add_trait = fledgling
-						
+						if = { limit = { trait = slow } 
+							remove_trait = slow
+						}
+						if = { limit = { trait = imbecile } 
+							remove_trait = imbecile
+						}						
+						if = { limit = { trait = inbred } 
+							remove_trait = inbred
+						}							
 						recalc_succession = yes
 					}
 				}
@@ -257,7 +282,15 @@ character_event = {
 					new_character = {
 						set_mother = ROOT
 						add_trait = fledgling
-						
+						if = { limit = { trait = slow } 
+							remove_trait = slow
+						}
+						if = { limit = { trait = imbecile } 
+							remove_trait = imbecile
+						}						
+						if = { limit = { trait = inbred } 
+							remove_trait = inbred
+						}							
 						recalc_succession = yes
 					}
 				}
@@ -293,6 +326,7 @@ character_event = {
 			remove_trait = revenant
 		}		
 		add_trait = vampire
+		add_trait = wyrm_taint
 		add_trait = neonate
 		add_trait = bloodpotency_1
 		if = { 

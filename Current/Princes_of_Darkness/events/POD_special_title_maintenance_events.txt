@@ -62,6 +62,7 @@ character_event = {
 					primary_title = { title = e_shadow_curtain }
 					primary_title = { title = e_crescent_moon }
 					primary_title = { title = e_ashina_khaganate }
+					primary_title = { title = k_erciyes }
 					
 				}
 			}
@@ -166,6 +167,7 @@ character_event = {
 					OR = {
 						NOT = { trait = vampire }
 						NOT = { trait = tzimisce }
+						NOT = { religion = koldun }
 					}
 					NOT = { realm_size = 5 }	
 				}
@@ -192,8 +194,7 @@ character_event = {
 				limit = {
 					primary_title = { title =  e_sea_of_shadows }
 					NOT = { trait = vampire }
-					NOR = { trait = ventrue
-							trait = lasombra }
+					NOT = { trait = lasombra }
 					NOT = { realm_size = 20 }
 				}
 					e_sea_of_shadows = {
@@ -204,7 +205,10 @@ character_event = {
 			if = {
 				limit = {
 					primary_title = { title =  e_avalon }
+					OR = {
 					NOT = { trait = vampire }
+					NOT = { trait = ventrue }
+					}
 					NOT = { realm_size = 25 }								
 				}
 					e_avalon = {
@@ -215,9 +219,11 @@ character_event = {
 			if = {
 				limit = {
 					primary_title = { title =  e_love }
+					OR = {
 					NOT = { trait = vampire }
 					NOT = { culture_group = latin }
-					NOT = { realm_size = 25 }								
+					NOT = { realm_size = 25 }	
+					}
 				}
 						e_love = {
 						destroy_landed_title = THIS
@@ -625,7 +631,7 @@ character_event = {
 					e_anda = {
 						destroy_landed_title = THIS
 					}				
-			}					
+			}				
 			
 			if = {
 				limit = {
@@ -655,7 +661,20 @@ character_event = {
 					}					
 			}		
 			
-			
+			if = {
+				limit = {
+					primary_title = { title = k_erciyes 
+					OR = {
+						NOT = { trait = vampire }
+						NOT = { religion = cappadocian_high }
+						NOT = { trait = cappadocian }
+						NOT = { realm_size = 5 }
+					}
+				}
+					k_erciyes  = {
+						destroy_landed_title = THIS
+					}				
+			}				
 			
 
 			

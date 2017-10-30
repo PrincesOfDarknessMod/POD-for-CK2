@@ -600,7 +600,7 @@ e_sabbat = {
 			NOT = { trait = werewolf }
 			prestige = 1000
 			piety = 1000
-			realm_size = 15		
+			realm_size = 25		
 			has_global_flag = bookmark1500			
 		}
 		gain_effect = {
@@ -621,7 +621,7 @@ k_lasombra = {
 			NOT = { trait = werewolf }
 			prestige = 1000
 			piety = 1000
-			realm_size = 5	
+			realm_size = 25	
 			has_global_flag = bookmark1500			
 		}
 		gain_effect = {
@@ -642,7 +642,7 @@ k_tzimisce = {
 			NOT = { trait = werewolf }
 			prestige = 1000
 			piety = 1000
-			realm_size = 5		
+			realm_size = 25		
 			has_global_flag = bookmark1500			
 		}
 		gain_effect = {
@@ -664,7 +664,7 @@ e_shadow_curtain = {
 			NOT = { trait = werewolf }
 			prestige = 500
 			piety = 500
-			realm_size = 5	
+			realm_size = 25	
 			has_global_flag = bookmark1230
 		}
 		gain_effect = {
@@ -673,7 +673,7 @@ e_shadow_curtain = {
 	
 k_erciyes = {
 		color = { 32 0 24 }
-		#capital = 737 # Ericyes
+		capital = 737 # Ericyes
 		culture = armenian	
 		dignity = 100
 		used_for_random = no
@@ -683,14 +683,16 @@ k_erciyes = {
 		dynasty_title_names = no
 		allow = {
 			trait = cappadocian	
+			OR = { 
 			culture = armenian
-			culture = greek
-			religion = cappadocian
+			culture = greek 
+			}
+			religion = cappadocian_high
 			trait = vampire			
 			NOT = { trait = werewolf }
 			prestige = 500
 			piety = 500
-			realm_size = 50	
+			realm_size = 25	
 			has_global_flag = bookmark1230
 				}
 		gain_effect = {
