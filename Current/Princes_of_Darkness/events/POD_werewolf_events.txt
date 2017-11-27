@@ -171,14 +171,15 @@ character_event = {
 						}
 					}
 					if = { limit = {
-										NOT = white_wolf
-										NOT = grey_wolf
-										NOT = brown_wolf
-										NOT = red_wolf
-										NOT = green_wolf
-										NOT = black_wolf
+										NOT = { trait = white_wolf }
+										NOT = { trait = grey_wolf }
+										NOT = { trait = brown_wolf }
+										NOT = { trait = red_wolf }
+										NOT = { trait = green_wolf }
+										NOT = { trait = black_wolf }
 										}
-					
+										
+										
 						trigger_switch = {
 							on_trigger = religion
 							silver_fangs = { FROM = { add_trait = white_wolf } }
@@ -189,7 +190,7 @@ character_event = {
 							bone_gnawers = { FROM = { add_trait = brown_wolf } }
 							fianna = { FROM = { add_trait = grey_wolf } }
 							red_talons	= { FROM = { add_trait = grey_wolf } }
-							shadow_lords = FROM = { add_trait = black_wolf } }
+							shadow_lords = { FROM = { add_trait = black_wolf } }
 							black_spiral_dancers = { FROM = { add_trait = green_wolf } }
 							stargazers = { FROM = { add_trait = red_wolf } }
 							}	
@@ -393,7 +394,7 @@ character_event = {
 							limit = { religion_group = pure_group }
 							random_list = {
 								8 = { add_trait = gift_Disease_1 }
-								8 = { add_trait = gift_Ferver_1 }
+								8 = { add_trait = gift_Fervor_1}
 								9 = { add_trait = gift_Insight_1 }
 								9 = { add_trait = gift_Inspiration_1 }
 								8 = { add_trait = gift_Dominance_1 }
@@ -410,7 +411,7 @@ character_event = {
 							limit = { religion = fire-touched }
 							random_list = {
 								25 = { add_trait = gift_Disease_1 }
-								25 = { add_trait = gift_Ferver_1 }
+								25 = { add_trait = gift_Fervor_1 }
 								25 = { add_trait = gift_Insight_1 }
 								25 = { add_trait = gift_Inspiration_1 }
 							}			

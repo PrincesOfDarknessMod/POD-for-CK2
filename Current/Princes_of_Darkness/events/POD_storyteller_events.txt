@@ -9,6 +9,7 @@ character_event = {
 	trigger = {
 		NOT = { has_global_flag = initial_setup_started }
 		trait = storyteller
+		is_save_game = no
 	}
 
 	immediate = {
@@ -148,17 +149,20 @@ character_event = {
 		#		}
 		#	}
 		}
+		
 		if = { 
 			limit = {
 				 trait = "bookmark1505"
 			}
-			set_global_flag = bookmark1500
+			set_global_flag = bookmark1505
 		}	
+		
 		if = { 
 			limit = {
 				 trait = "bookmark1506"
 			}
 			set_global_flag = bookmark1506
+			
 		#	narrative_event = { id = storyteller.5 } # All counts
 		#	any_title = {
 		#		limit = { tier = count }
@@ -168,7 +172,8 @@ character_event = {
 		#			}
 		#		}
 		#	}
-		}		
+		}	
+		
 		if = { 
 			limit = {
 				 trait = "bookmark1533"
@@ -204,6 +209,7 @@ character_event = {
 	
 		trigger = {
 		is_alive = yes
+		is_save_game = no
 		NOT = { trait = storyteller } 
 	OR = {
 		trait = bookmark232 
@@ -244,7 +250,7 @@ character_event = {
 		has_global_flag = bookmark1325 
 		has_global_flag = bookmark1355
 		has_global_flag = bookmark1466 
-		has_global_flag = bookmark1500 
+		has_global_flag = bookmark1505 
 		has_global_flag = bookmark1506
 		has_global_flag = bookmark1533
 		has_global_flag = bookmark1666 	
@@ -541,7 +547,7 @@ character_event = {
 			
 		if = { 
 			limit = {
-						 has_global_flag = bookmark1500
+						 has_global_flag = bookmark1505
 						 NOT = { trait = storyteller } 
 				}
 				
@@ -564,7 +570,7 @@ character_event = {
 									trait = bookmark1250 
 									trait = bookmark1325 
 									trait = bookmark1466 
-
+									trait = bookmark1506	
 									trait = bookmark1666 								
 								}
 							}
@@ -583,6 +589,7 @@ character_event = {
 						remove_trait = bookmark1250 
 						remove_trait = bookmark1325 
 						remove_trait = bookmark1466 
+						remove_trait = bookmark1506
 						remove_trait = bookmark1666 
 						death = "yes"	
 				}
@@ -674,6 +681,7 @@ character_event = {
 	
 	trigger = {
 		year = 1142
+		is_save_game = no
 		NOT = { year = 1143 }
 		NOT = { has_global_flag = initial_setup_started }
 		has_global_flag = bookmark1142
@@ -734,7 +742,7 @@ character_event = {
 				limit = { religion_group = indian_group }
 				religion = asura-dharma
 			}
-			set_province_flag = POD_WOD_province_supe_religion							
+			set_province_flag = POD_CWOD_province_supe_religion							
 		}
 		
 	}
@@ -751,6 +759,7 @@ character_event = {
 	
 	trigger = {
 		year = 1250
+		is_save_game = no
 		NOT = { year = 1251 }
 		#NOT = { has_global_flag = initial_setup_started }
 		has_global_flag = bookmark1250 
@@ -999,6 +1008,7 @@ character_event = {
 						culture = armenian
 						culture = georgian
 						culture = alan 
+						culture = assyrian
 					} 
 				}
 				random_list = {				
@@ -1056,6 +1066,7 @@ character_event = {
 						culture = bolghar
 						culture = khitan
 						culture = uyghur
+						culture_group = chinese_group
 					} 
 				}
 						random_list = {				
@@ -1141,7 +1152,9 @@ character_event = {
 					OR = { 
 						culture = bengali
 						culture = assamese
-						culture = sinhala 
+						culture = sinhala
+						culture = nepali
+						culture_group = tibetan_group						
 					} 
 				}
 				random_list = {				
@@ -1471,7 +1484,7 @@ character_event = {
 					1 = { religion = gnostic }			
 				}
 			}
-			set_province_flag = POD_WOD_province_supe_religion				
+			set_province_flag = POD_CWOD_province_supe_religion				
 		}
 		
 	}	
@@ -1486,6 +1499,7 @@ narrative_event = {
 	
 	trigger = {
 	#	NOT = { has_global_flag = initial_setup_started }
+		is_save_game = no
 		NOT = { year = 1230 }
 		NOT = { year = 1505 }
 		or = {
@@ -1512,7 +1526,7 @@ narrative_event = {
 			}
 			and = {
 				year = 1506
-				NOT = { year = 1506 }
+				NOT = { year = 1507 }
 			}
 		}
 		NOT = { has_global_flag = initial_setup_started }
@@ -1554,44 +1568,38 @@ narrative_event = {
 		}
 	}
 }	
-#1506 CE Weak Sects (VTM/CWOD) Shattered World
+
+#1505/1506 CE Convention of Thorns / Shattered Sects (VTM/CWOD) Shattered World
 character_event = {
 	id = storyteller.6	
 	hide_window = yes	
 	is_triggered_only = yes
-	
-	only_rulers = yes
+	only_playable = yes
 	
 	trigger = {
-		year = 1505
-		NOT = { year = 1507 }
-		#NOT = { has_global_flag = initial_setup_started }
+		is_save_game = no	
 		OR = { 
 			has_global_flag = bookmark1505
 			has_global_flag = bookmark1506 
 		}
-		#has_global_flag = shattered_realm
-		any_realm_province = {
-			owner = { character = ROOT } 
-			NOR = { 
-				has_province_flag = POD_WOD_province_supe_religion
-				religion_group = longinus_group
-				religion_group = abrahamic_vampire_group
-				religion_group = pagan_vampire_group
-				religion_group = forsworn_vampire_group
-				religion_group = camarilla_group
-				religion_group = dharmic_vampire_group
-				religion_group = pure_group
-				religion_group = forsaken_group
-				religion_group = bale_hounds_group	
-				religion_group = hunter_group
-				religion_group = innocent_group
-				religion_group = diamond_group 
-				religion_group = pyramid_group 
-				religion_group = scelesti_group 
-				religion_group = timori_group 
-				religion_group = pharmakons_group 
-				religion_group = apostates_group 
+		
+		
+		any_province = {	
+			NOT = {
+				OR = { 
+				religion_group = ashirra_vampire_group
+				religion_group = vampire_low_clans_group
+				religion_group = baali_group
+				religion_group = masquerade_camarilla_group
+				religion_group = sabbat_group
+				religion_group = inconnu_group
+				religion_group = masquerade_independent_group
+				religion_group = garou_group
+				religion_group = wyrm_group 
+				religion_group = order_of_reason_group
+				religion_group = daedalan_group
+				religion_group = magical_traditions_group
+				religion = laibon
 				religion = orphan 
 				religion_group = mummy_group
 				religion_group = promethean_group
@@ -1599,536 +1607,16 @@ character_event = {
 				religion_group = geist_group
 				religion_group = changeling_group						
 			}
+			}
 		}
-	}
+	}	
+
 
 	immediate = {
-		any_realm_province = {
-			limit = { owner = { character = ROOT } }
-			if = { 
-				limit = { 
-					OR = { 
-						culture = basque
-						culture = castillan
-						culture = catalan
-						culture = portuguese
-					} 
-				}
-				random_list = {				
-					70 = { religion = sabbat }
-					10 = { religion = silver_fangs }
-					10 = { religion = brujahcamarilla }
-					10 = { religion = toreadorcamarilla }		
-				}
-			}
-			if = { 
-				limit = { 	
-					OR = { 
-						culture = norman
-						culture = frankish
-						culture = occitan 
-					} 
-				}
-				random_list = {				
-					70 = { religion = toreadorcamarilla }
-					5 = { religion = brujahcamarilla }
-					5 = { religion = nosferatucamarilla }
-					5 = { religion = malkaviancamarilla }
-					5 = { religion = ventruecamarilla }
-					10 = { religion = silver_fangs }		
-				}
-			}
-			if = { 
-				limit = { 
-					OR = { 
-						culture = english
-						culture = old_saxon
-						culture = saxon 
-					} 
-				}
-				random_list = {																										
-					10 = { religion = toreadorcamarilla }
-					10 = { religion = sabbat }																						
-					10 = { religion = anarchs }
-					10 = { religion = brujahcamarilla }
-					25 = { religion = nosferatucamarilla }
-					25 = { religion = malkaviancamarilla }
-					10 = { religion = ventruecamarilla }
-					10 = { religion = silver_fangs }
-				}
-			}	
-			if = { 
-				limit = { 
-					OR = { 
-						culture = frisian
-						culture = dutch 	
-					} 
-				}
-				random_list = {				
-					10 = { religion = toreadorcamarilla }
-					10 = { religion = sabbat }																						
-					10 = { religion = anarchs }
-					10 = { religion = brujahcamarilla }
-					25 = { religion = nosferatucamarilla }
-					25 = { religion = malkaviancamarilla }
-					10 = { religion = ventruecamarilla }		
-				}
-			}	
-			if = { 
-				limit = { culture = danish } 
-				random_list = {	
-					50 = { religion = get_of_fenris }
-					10 = { religion = gangrelcamarilla }
-					10 = { religion = sabbat }	
-					10 = { religion = nosferatucamarilla }
-					10 = { religion = malkaviancamarilla }
-					10 = { religion = ventruecamarilla }			
-				}
-			}	
-			if = {
-				limit = {
-					OR = { 
-						culture = prussian
-						culture = pommeranian 
-					} 
-				}
-				random_list = {				
-					30 = { religion = sabbat }
-					50 = { religion = ventruecamarilla }
-					10 = { religion = shadow_lords }																
-					10 = { religion = oradealeague }	
-				}
-			}	
-			if = {
-				limit = {
-					OR = { 
-						culture = lettigallish
-						culture = lithuanian
-						culture = polish
-					} 
-				}
-				random_list = {				
-					20 = { religion = sabbat }
-					60 = { religion = malkaviancamarilla }
-					10 = { religion = shadow_lords }																
-					10 = { religion = oradealeague }
-				}
-			}	
-			if = { 
-				limit = { culture = bohemian }
-				random_list = {				
-					10 = { religion = sabbat }
-					70 = { religion = nosferatucamarilla }
-					20 = { religion = shadow_lords }																
-					10 = { religion = oradealeague }
-				}
-			}	
-			if = { 
-				limit = { culture = hungarian } 
-				random_list = {				
-					40 = { religion = sabbat }
-					10 = { religion = ventruecamarilla }
-					20 = { religion = tremerecamarilla }
-					20 = { religion = shadow_lords }																
-					10 = { religion = oradealeague }
-					10 = { religion = anarchs }
-				}
-			}	
-			if = { 
-				limit = { 
-					OR = { 
-						culture = croatian
-						culture = serbian
-						culture = bulgarian
-						culture = romanian 
-					} 
-				}
-				random_list = {				
-					40 = { religion = sabbat }
-					10 = { religion = ventruecamarilla }
-					20 = { religion = tremerecamarilla }
-					20 = { religion = shadow_lords }																
-					10 = { religion = oradealeague }
-					10 = { religion = anarchs }
-				}
-			}	
-			if = { 
-				limit = { culture = greek } 
-				random_list = {				
-					40 = { religion = anarchs }
-					30 = { religion = brujahcamarilla }
-					30 = { religion = black_furies }
-				}
-			}	
-			if = { 
-				limit = { 
-					OR = { 
-						culture = armenian
-						culture = georgian
-						culture = alan 
-					} 
-				}
-				random_list = {				
-					40 = { religion = anarchs }
-					30 = { religion = brujahcamarilla }
-					30 = { religion = black_furies }		
-				}
-			}
-			if = { 
-				limit = { culture = russian } 
-				random_list = {				
-					50 = { religion = silver_fangs }																
-					10 = { religion = oradealeague }
-					10 = { religion = anarchs }
-					10 = { religion = brujahcamarilla }
-					10 = { religion = gangrelcamarilla }
-					10 = { religion = nosferatucamarilla }			
-				}
-			}	
-			if = { 
-				limit = { culture = mordvin }
-				random_list = {				
-					50 = { religion = silver_fangs }																
-					10 = { religion = oradealeague }
-					10 = { religion = anarchs }
-					10 = { religion = brujahcamarilla }
-					10 = { religion = gangrelcamarilla }
-					10 = { religion = nosferatucamarilla }			
-				}
-			}		
-			if = { 
-				limit = { 
-					OR = { 
-						culture = mongol
-						culture = pecheneg
-						culture = cuman 
-						culture = khazar
-						culture = karluk
-						culture = kirghiz
-						culture = bolghar
-						culture = khitan
-						culture = uyghur
-						culture = avar 
-					} 
-				}
-				random_list = {				
-					50 = { religion = anda }
-					40 = { religion = shadow_lords }	
-					10 = { religion = anarchs }
-				}
-			}		
-			if = { 
-				limit = { culture = turkish }
-				random_list = {				
-					30 = { religion = ashirra }
-					50 = { religion = assamite }
-					20 = { religion = shadow_lords }	
-				}
-			}	
-			if = {
-				limit = { 
-					OR = { 
-						culture = persian
-						culture = baloch 
-					} 
-				}
-				random_list = {				
-					30 = { religion = ashirra }
-					30 = { religion = assamite }
-					30 = { religion = setite }
-					10 = { religion = silent_striders }
-				}
-			}	
-			if = { 
-				limit = { culture = afghan }
-				random_list = {				
-					30 = { religion = ashirra }
-					30 = { religion = assamite }
-					30 = { religion = setite }
-					10 = { religion = silent_striders }
-				}
-			}	
-			if = { 
-				limit = { culture = sindhi }
-				random_list = {				
-					20 = { religion = ashirra }
-					50 = { religion = mayaparisataya }
-					20 = { religion = bone_gnawers } 
-					10 = { religion = assamite }
-				}
-			}	
-			if = {
-				limit = { culture = panjabi }
-				random_list = {				
-					20 = { religion = ashirra }
-					20 = { religion = mayaparisataya }
-					50 = { religion = stargazers } 
-					10 = { religion = assamite }
-				}
-			}	
-			if = { 
-				limit = { 
-					OR = { 
-						culture = bengali
-						culture = assamese
-						culture = sinhala 
-					} 
-				}
-				random_list = {				
-					5 = { religion = ashirra }
-					30 = { religion = mayaparisataya }
-					60 = { religion = stargazers } 
-					5 = { religion = assamite }
-				}
-			}	
-			if = { 
-				limit = { culture = sinhala  }
-				random_list = {				
-					5 = { religion = ashirra }
-					60 = { religion = mayaparisataya }
-					30 = { religion = red_talons } 
-					5 = { religion = assamite }
-				}
-			}	
-			if = { 
-				limit = { 
-					OR = { 
-						culture = gujurati
-						culture = rajput 
-					} 
-				}
-				random_list = {				
-					5 = { religion = ashirra }
-					60 = { religion = mayaparisataya }
-					30 = { religion = bone_gnawers } 
-					5 = { religion = assamite }
-				}
-			}	
-			if = { 
-				limit = { culture = oriya }
-				random_list = {				
-					5 = { religion = ashirra }
-					60 = { religion = mayaparisataya }
-					30 = { religion = red_talons } 
-					5 = { religion = assamite }
-				}
-			}
-			if = { 
-				limit = { culture = hindustani }
-				random_list = {				
-					5 = { religion = ashirra }
-					30 = { religion = mayaparisataya }
-					60 = { religion = stargazers } 
-					5 = { religion = assamite }	
-				}
-			}
-			if = { 
-				limit = { 
-					OR = { 
-						culture = tamil
-						culture = telugu
-					} 
-				}
-				random_list = {				
-					5 = { religion = ashirra }
-					60 = { religion = mayaparisataya }
-					30 = { religion = red_talons } 
-					5 = { religion = assamite }
-				}
-			}	
-			if = { 
-				limit = { 
-					OR = { 
-						culture = kannada
-						culture = marathi 
-					} 
-				}
-				random_list = {				
-					5 = { religion = ashirra }
-					60 = { religion = mayaparisataya }
-					30 = { religion = bone_gnawers } 
-					5 = { religion = assamite }
-				}	
-			}
-			if = { 
-				limit = { culture = kurdish  }
-				random_list = {		
-					10 = { religion = ashirra }
-					10 = { religion = assamite }
-					10 = { religion = setite }
-					70 = { religion = bone_gnawers }
-				}
-			}	
-			if = { 
-				limit = { culture = levantine_arabic  }
-				random_list = {		
-					50 = { religion = ashirra }
-					10 = { religion = assamite }
-					10 = { religion = setite }
-					10 = { religion = bone_gnawers }	
-					10 = { religion = warders_of_men }
-					10 = { religion = silent_striders }
-				}
-			}				
-			if = {
-				limit = { culture = bedouin_arabic  }
-				random_list = {		
-					30 = { religion = ashirra }
-					30 = { religion = assamite }
-					40 = { religion = silent_striders }	
-				}
-			}	
-			if = { 
-				limit = { culture = egyptian_arabic }
-				random_list = {		
-					20 = { religion = ashirra }
-					80 = { religion = setite }
-				}
-			}	
-			if = { 
-				limit = { culture = maghreb_arabic }
-				random_list = {			
-					30 = { religion = ashirra }
-					10 = { religion = assamite }
-					40 = { religion = setite }
-					10 = { religion = silent_striders }
-					10 = { religion = bone_gnawers }
-				}
-			}	
-			if = { 
-				limit = { culture = andalusian_arabic }
-				random_list = {			
-					30 = { religion = ashirra }
-					30 = { religion = assamite }
-					30 = { religion = setite }
-					10 = { religion = silent_striders }
-				}
-			}
-			if = { 
-				limit = { culture = nubian }
-				random_list = {			
-					30 = { religion = ashirra }
-					30 = { religion = laibon }
-					30 = { religion = setite }
-					10 = { religion = red_talons } 
-				}
-			}
-			if = { 
-				limit = { culture = ethiopian }
-				random_list = {			
-					30 = { religion = ashirra }
-					30 = { religion = laibon }
-					20 = { religion = setite }
-					20 = { religion = silent_striders }
-				}
-			}
-			if = { 
-				limit = { culture = somali }
-				random_list = {			
-					30 = { religion = ashirra }
-					50 = { religion = laibon }
-					10 = { religion = setite }
-					10 = { religion = silent_striders }
-				}
-			}
-			if = {
-				limit = { culture = manden  }
-					random_list = {		
-					90 = { religion = laibon }
-					10 = { religion = ashirra }
-				}
-			}
-			if = { 
-				limit = { 
-					OR = { 
-						culture = finnish
-						culture = ugricbaltic
-						culture = samoyed
-						culture = khanty
-						culture = komi 
-						culture = lappish 
-					} 
-				}
-				random_list = {				
-					10 = { religion = sabbat }																						
-					10 = { religion = gangrelcamarilla }
-					40 = { religion = red_talons }	
-					40 = { religion = noiad }		
-				}
-			}				
-			if = { 
-				limit = { 	
-					OR = { 
-						culture = norse
-						culture = norwegian
-						culture = swedish 
-					} 
-				}
-				random_list = {				
-					20 = { religion = sabbat }																						
-					10 = { religion = anarchs }
-					20 = { religion = gangrelcamarilla }
-					50 = { religion = get_of_fenris }	
-				}
-			}	
-			if = { 
-				limit = { culture = german  }
-				random_list = {				
-					50 = { religion = ventruecamarilla }
-					30 = { religion = tremerecamarilla }
-					20 = { religion = get_of_fenris }		
-				}
-			}	
-			if = { 
-				limit = { 
-					#OR = { 
-						culture = italian 
-					#}
-				}
-				random_list = {				
-					40 = { religion = giovanni } 
-					20 = { religion = brujahcamarilla }
-					10 = { religion = ventruecamarilla }
-					10 = { religion = toreadorcamarilla }
-					10 = { religion = warders_of_men }
-					10 = { religion = bone_gnawers }
-				}
-			}
-			if = { 
-				limit = { 
-					OR = {
-						culture = irish
-						culture = welsh
-						culture = breton 
-					} 
-				}
-				random_list = {										
-					5 = { religion = brujahcamarilla }
-					10 = { religion = gangrelcamarilla }
-					10 = { religion = nosferatucamarilla }
-					10 = { religion = malkaviancamarilla }
-					10 = { religion = toreadorcamarilla }
-					5 = { religion = ventruecamarilla }
-					50 = { religion = fianna }					
-				}
-			}				
-			if = {
-				limit = { 
-					OR = { 
-						culture = scottish
-						culture = pictish 
-					} 
-				}
-				random_list = {				
-					30 = { religion = sabbat }																						
-					70 = { religion = black_spiral_dancers }			
-				}
-			}
-			set_province_flag = POD_CWOD_province_supe_religion	
-		}
-		
+				POD_CWOD_vampire_sabbat_province_init_effect = yes 
+			
 	}
-	
+		
 }
 
 
@@ -2137,18 +1625,15 @@ character_event = {
 	id = storyteller.7	
 	hide_window = yes
 	is_triggered_only = yes
-	
-	only_rulers = yes
+	only_playable = yes
 	
 	trigger = {
-		year = 1355
-		NOT = { year = 1356 }
+		is_save_game = no
 		#NOT = { has_global_flag = initial_setup_started }
 		has_global_flag = bookmark1355 
-		any_realm_province = {
-			owner = { character = ROOT }
+		any_province = {
 			NOR = { 
-				has_province_flag = POD_WOD_province_supe_religion
+				has_province_flag = POD_CWOD_province_supe_religion
 				religion_group = longinus_group
 				religion_group = abrahamic_vampire_group
 				religion_group = pagan_vampire_group
@@ -2176,8 +1661,35 @@ character_event = {
 		}
 	}
 	immediate = {
-		any_realm_province = {
-			limit = { owner = { character = ROOT } }
+		any_province = {
+			limit = { 			
+				NOR = { 
+				has_province_flag = POD_CWOD_province_supe_religion
+				religion_group = longinus_group
+				religion_group = abrahamic_vampire_group
+				religion_group = pagan_vampire_group
+				religion_group = forsworn_vampire_group
+				religion_group = camarilla_group
+				religion_group = dharmic_vampire_group
+				religion_group = pure_group
+				religion_group = forsaken_group
+				religion_group = bale_hounds_group	
+				religion_group = hunter_group
+				religion_group = innocent_group
+				religion_group = diamond_group 
+				religion_group = pyramid_group 
+				religion_group = scelesti_group 
+				religion_group = timori_group 
+				religion_group = pharmakons_group 
+				religion_group = apostates_group 
+				religion = orphan 
+				religion_group = mummy_group
+				religion_group = promethean_group
+				religion_group = demon_group
+				religion_group = geist_group
+				religion_group = changeling_group						
+				}
+			}
 			if = { 
 				limit = { 
 					OR = { 
@@ -2243,10 +1755,10 @@ character_event = {
 				}
 				random_list = {				
 					20 = { religion = ventrue_high }
-					10 = { reigion = toreador_high }
+					10 = { religion = toreador_high }
 					10 = { religion = lasombra_high }
-					10 = { religon = brujah_high }
-					10 = { religon = warders_of_men } 
+					10 = { religion = brujah_high }
+					10 = { religion = warders_of_men } 
 					10 = { religion = malkavianlow }
 					15 = { religion = gangrellow }
 					15 = { religion = nosferatulow }	
@@ -2352,6 +1864,7 @@ character_event = {
 				limit = { 
 					OR = { 
 						culture = armenian
+						culture = assyrian
 						culture = georgian
 						culture = alan 
 					} 
@@ -2399,6 +1912,7 @@ character_event = {
 						culture = khitan
 						culture = uyghur
 						culture = avar 
+						culture_group = chinese_group
 					} 
 				}
 				random_list = {				
@@ -2455,8 +1969,8 @@ character_event = {
 				limit = { culture = panjabi }
 				random_list = {				
 					20 = { religion = ashirra }
-					20 = { religion = mayaparisataya }
-					50 = { religion = stargazers } 
+					50 = { religion = mayaparisataya }
+					20 = { religion = bone_gnawers } 
 					10 = { religion = assamite }
 				}
 			}	
@@ -2469,12 +1983,30 @@ character_event = {
 					}
 				}
 				random_list = {				
-					5 = { religion = ashirra }
-					30 = { religion = mayaparisataya }
-					60 = { religion = stargazers } 
-					5 = { religion = assamite }
+					20 = { religion = ashirra }
+					50 = { religion = mayaparisataya }
+					20 = { religion = bone_gnawers } 
+					10 = { religion = assamite }
 				}
 			}	
+			
+			if = { 
+				limit = {
+					OR = { 
+						culture_group = tibetan_group
+						culture = nepali
+						}
+				}
+				random_list = {				
+					5 = { religion = silent_striders }
+					10 = { religion = bone_gnawers }
+					10 = { religion = shadow_lords }
+					5 = { religion = silver_fangs }
+					10 = { religion = red_talons }
+					60 = { religion = stargazers } 
+				}
+			}				
+			
 			if = { 	
 				limit = { culture = sinhala  }
 				random_list = {				
@@ -2510,10 +2042,10 @@ character_event = {
 			if = {	
 				limit = { culture = hindustani }
 				random_list = {				
-					5 = { religion = ashirra }
-					30 = { religion = mayaparisataya }
-					60 = { religion = stargazers } 
-					5 = { religion = assamite }	
+					20 = { religion = ashirra }
+					50 = { religion = mayaparisataya }
+					20 = { religion = bone_gnawers } 
+					10 = { religion = assamite }
 				}
 			}
 			if = { 
@@ -2547,12 +2079,12 @@ character_event = {
 			if = { 
 				limit = { culture = kurdish  }
 				random_list = {		
-					10 = { religion = ashirra }
-					10 = { religion = assamite }
+					30 = { religion = ashirra }
+					30 = { religion = assamite }
 					10 = { religion = setite }
 					10 = { religion = cappadocian_high }
 					10 = { religion = brujah_high }
-					50 = { religion = bone_gnawers }
+					10 = { religion = bone_gnawers }
 				}
 			}	
 			if = { 
@@ -2755,6 +2287,7 @@ character_event = {
 		#	has_global_flag = bookmark1533
 	#	}
 		#has_global_flag = shattered_realm
+		is_save_game = no
 		OR = {
 			government = tribal_government
 			government = feudal_government
@@ -2782,6 +2315,7 @@ character_event = {
 	
 	trigger = {
 		year = 767
+		is_save_game = no
 		NOT = { year = 768 }
 		#NOT = { has_global_flag = initial_setup_started }
 		has_global_flag = bookmark767 
@@ -3168,6 +2702,7 @@ character_event = {
 	trigger = {
 	year = 1466
 		NOT = { year = 1467 }
+		is_save_game = no
 		#NOT = { has_global_flag = initial_setup_started }
 		has_global_flag = bookmark1466 
 		#has_global_flag = shattered_realm
@@ -3585,6 +3120,7 @@ character_event = {
 	
 	trigger = {
 		year = 1533
+		is_save_game = no
 		NOT = { year = 1534 }
 	#	NOT = { has_global_flag = initial_setup_started }
 		has_global_flag = bookmark1533
@@ -3709,7 +3245,7 @@ character_event = {
 				}
 			}
 		}	
-		set_province_flag = POD_WOD_province_supe_religion
+		set_province_flag = POD_CWOD_province_supe_religion
 		}
 	}
 }
@@ -3723,14 +3259,11 @@ character_event = {
 	only_rulers = yes
 	
 	trigger = {
-		year = 1230
-		NOT = { year = 1231 }
-	#	NOT = { has_global_flag = initial_setup_started }
+		is_save_game = no
 		has_global_flag = bookmark1230
-		any_realm_province = {
-			owner = { character = ROOT }
+		any_province = {	 
 			NOR = { 
-				has_province_flag = POD_WOD_province_supe_religion
+				has_province_flag = POD_CWOD_province_supe_religion
 				religion_group = vampire_high_clans_group
 				religion_group = vampire_low_clans_group
 				religion_group = ashirra_vampire_group
@@ -3755,8 +3288,33 @@ character_event = {
 		}
 	}
 	immediate = {
-		any_realm_province = {
-			limit = { owner = { character = ROOT } }
+		any_province = {
+			limit = { 
+			NOR = { 
+				has_province_flag = POD_CWOD_province_supe_religion
+				religion_group = vampire_high_clans_group
+				religion_group = vampire_low_clans_group
+				religion_group = ashirra_vampire_group
+				religion_group = baali_group
+				religion_group = masquerade_camarilla_group
+				religion_group = sabbat_group
+				religion_group = inconnu_group
+				religion_group = masquerade_independent_group
+				religion_group = garou_group
+				religion_group = wyrm_group 
+				religion_group = order_of_reason_group
+				religion_group = daedalan_group
+				religion_group = magical_traditions_group
+				religion = laibon
+				religion = orphan 
+				religion_group = mummy_group
+				religion_group = promethean_group
+				religion_group = demon_group
+				religion_group = geist_group
+				religion_group = changeling_group						
+			}			
+			
+			}
 			if = { 
 				limit = { 
 					OR = { 
@@ -3825,10 +3383,10 @@ character_event = {
 				random_list = {				
 					10 = { religion = ventrue_high }
 					10 = { religion = cainite }
-					10 = { reigion = toreador_high }
+					10 = { religion = toreador_high }
 					10 = { religion = lasombra_high }
-					10 = { religon = brujah_high }
-					10 = { religon = warders_of_men } 
+					10 = { religion = brujah_high }
+					10 = { religion = warders_of_men } 
 					15 = { religion = malkavianlow }
 					5 = { religion = gangrellow }
 					20 = { religion = nosferatulow }	
@@ -3936,6 +3494,7 @@ character_event = {
 				limit = { 
 					OR = { 
 						culture = armenian
+						culture = assyrian
 						culture = georgian
 						culture = alan 
 					} 
@@ -3983,6 +3542,7 @@ character_event = {
 						culture = khitan
 						culture = uyghur
 						culture = avar 
+						culture_group = chinese_group
 					} 
 				}
 				random_list = {				
@@ -4039,8 +3599,8 @@ character_event = {
 				limit = { culture = panjabi }
 				random_list = {				
 					20 = { religion = ashirra }
-					20 = { religion = mayaparisataya }
-					50 = { religion = stargazers } 
+					50 = { religion = mayaparisataya }
+					20 = { religion = bone_gnawers } 
 					10 = { religion = assamite }
 				}
 			}	
@@ -4053,10 +3613,10 @@ character_event = {
 					}
 				}
 				random_list = {				
-					5 = { religion = ashirra }
-					30 = { religion = mayaparisataya }
-					60 = { religion = stargazers } 
-					5 = { religion = assamite }
+					20 = { religion = ashirra }
+					50 = { religion = mayaparisataya }
+					20 = { religion = bone_gnawers } 
+					10 = { religion = assamite }
 				}
 			}	
 			if = { 	
@@ -4094,12 +3654,30 @@ character_event = {
 			if = {	
 				limit = { culture = hindustani }
 				random_list = {				
-					5 = { religion = ashirra }
-					30 = { religion = mayaparisataya }
-					60 = { religion = stargazers } 
-					5 = { religion = assamite }	
+					20 = { religion = ashirra }
+					50 = { religion = mayaparisataya }
+					20 = { religion = bone_gnawers } 
+					10 = { religion = assamite }
 				}
 			}
+			if = {	
+				limit = { 
+					OR = { 
+							culture_group = tibetan_group 
+							culture = nepali
+							}
+						}
+				random_list = {				
+					5 = { religion = silent_striders }
+					10 = { religion = bone_gnawers }
+					10 = { religion = shadow_lords }
+					5 = { religion = silver_fangs }
+					10 = { religion = red_talons }
+					60 = { religion = stargazers } 
+				}
+			}			
+			
+			
 			if = { 
 				limit = { 
 					OR = { 
@@ -4235,7 +3813,7 @@ character_event = {
 					20 = { religion = einherjar }
 					20 = { religion = get_of_fenris }
 					20 = { religion = noiad }	
-					20 = { religon = silver_fangs }
+					20 = { religion = silver_fangs }
 				}
 			}				
 			if = { 
@@ -4331,6 +3909,7 @@ character_event = {
 	is_triggered_only = yes #from on_startup (since it only needs firing at the start of a playthrough)
 
 	trigger = {
+		is_save_game = no
 		NOT = { has_global_flag = initial_setup_started }
 		trait = storyteller
 	}

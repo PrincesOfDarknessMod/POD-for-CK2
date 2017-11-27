@@ -6,30 +6,38 @@
 
 targeted_decisions = {
 	brew_happiness_potion = {
-		filter = home_court
-		ai_target_filter = home_court
 		is_in_society = yes
+		filter = realm_including_me
+		ai_target_filter = realm_including_me
 
 		from_potential = {
 			has_dlc = "Mystics"
+			OR = {
+				society_member_of = hermetics
+				society_member_of = code_of_tremere
+				society_member_of = via_ossium
+				society_member_of = derech_lilit
+				society_member_of = via_mutationis		
+				society_member_of = path_of_lilith
+				society_member_of = path_of_death_and_the_soul
+				society_member_of = path_of_bones
+				society_member_of = path_of_metamorphosis
+				}			
 			society_rank = {
 				rank >= 2
 			}
-			OR = {
-			society_member_of = hermetics
-			society_member_of = code_of_tremere
-			society_member_of = via_ossium
-			society_member_of = derech_lilit
-			#society_member_of = secret_religious_society_tremerelow
-			#society_member_of = secret_religious_society_koldun
-			society_member_of = via_mutationis
-			}			
 		}
 
 		potential = {
 			OR = {
 				trait = stressed
 				trait = depressed
+			}
+			OR = {
+				liege = {
+					character = FROM
+				}
+				character = FROM
 			}
 			OR = {
 				FROM = { ai = no }
@@ -128,15 +136,17 @@ targeted_decisions = {
 		potential = {
 			character = FROM
 			has_dlc = "Mystics"
-						OR = {
-			society_member_of = hermetics
-			society_member_of = code_of_tremere
-			society_member_of = via_ossium
-			society_member_of = derech_lilit
-			#society_member_of = secret_religious_society_tremerelow
-			#society_member_of = secret_religious_society_koldun
-			society_member_of = via_mutationis
-			}
+			OR = {
+				society_member_of = hermetics
+				society_member_of = code_of_tremere
+				society_member_of = via_ossium
+				society_member_of = derech_lilit
+				society_member_of = via_mutationis		
+				society_member_of = path_of_lilith
+				society_member_of = path_of_death_and_the_soul
+				society_member_of = path_of_bones
+				society_member_of = path_of_metamorphosis
+				}	
 			society_rank >= 2
 		}
 
@@ -196,16 +206,18 @@ targeted_decisions = {
 		
 		from_potential = {
 			has_dlc = "Mystics"
-						OR = {
-			society_member_of = hermetics
-			society_member_of = code_of_tremere
-			society_member_of = via_ossium
-			society_member_of = derech_lilit
-			#society_member_of = secret_religious_society_tremerelow
-			#society_member_of = secret_religious_society_koldun
-			society_member_of = via_mutationis
-			}
-			society_rank = 3
+			OR = {
+				society_member_of = hermetics
+				society_member_of = code_of_tremere
+				society_member_of = via_ossium
+				society_member_of = derech_lilit
+				society_member_of = via_mutationis		
+				society_member_of = path_of_lilith
+				society_member_of = path_of_death_and_the_soul
+				society_member_of = path_of_bones
+				society_member_of = path_of_metamorphosis
+				}	
+				society_rank = 3
 		}
 
 		potential = {
@@ -231,7 +243,7 @@ targeted_decisions = {
 				save_event_target_as = horoscope_child
 				FROM = { character_event = { id = MNM.1250 days = 5 } }
 			}
-			detract_society_currency_medium_effect = yes
+			FROM = { detract_society_currency_medium_effect = yes }
 		}
 
 		revoke_allowed = { always = no }
@@ -273,16 +285,18 @@ targeted_decisions = {
 			has_dlc = "Mystics"
 			is_playable = yes
 			is_adult = yes
-						OR = {
-			society_member_of = hermetics
-			society_member_of = code_of_tremere
-			society_member_of = via_ossium
-			society_member_of = derech_lilit
-			#society_member_of = secret_religious_society_tremerelow
-			#society_member_of = secret_religious_society_koldun
-			society_member_of = via_mutationis
-			}
-			society_rank = 4
+			OR = {
+				society_member_of = hermetics
+				society_member_of = code_of_tremere
+				society_member_of = via_ossium
+				society_member_of = derech_lilit
+				society_member_of = via_mutationis		
+				society_member_of = path_of_lilith
+				society_member_of = path_of_death_and_the_soul
+				society_member_of = path_of_bones
+				society_member_of = path_of_metamorphosis
+				}	
+			society_rank == 4
 		}
 		
 		allow = {
@@ -344,15 +358,17 @@ targeted_decisions = {
 		ai_target_filter = self
 
 		potential = {
-						OR = {
-			society_member_of = hermetics
-			society_member_of = code_of_tremere
-			society_member_of = via_ossium
-			society_member_of = derech_lilit
-			#society_member_of = secret_religious_society_tremerelow
-			#society_member_of = secret_religious_society_koldun
-			society_member_of = via_mutationis
-			}
+			OR = {
+				society_member_of = hermetics
+				society_member_of = code_of_tremere
+				society_member_of = via_ossium
+				society_member_of = derech_lilit
+				society_member_of = via_mutationis		
+				society_member_of = path_of_lilith
+				society_member_of = path_of_death_and_the_soul
+				society_member_of = path_of_bones
+				society_member_of = path_of_metamorphosis
+				}	
 			society_rank = 4
 			prisoner = no
 			NOT = { trait = incapable }
@@ -429,29 +445,34 @@ targeted_decisions = {
 			is_playable = yes
 			is_adult = yes
 			prisoner = no
-						OR = {
-			society_member_of = hermetics
-			society_member_of = code_of_tremere
-			society_member_of = via_ossium
-			society_member_of = derech_lilit
-			#society_member_of = secret_religious_society_tremerelow
-			#society_member_of = secret_religious_society_koldun
-			society_member_of = via_mutationis
-			}
+			OR = {
+				society_member_of = hermetics
+				society_member_of = code_of_tremere
+				society_member_of = via_ossium
+				society_member_of = derech_lilit
+				society_member_of = via_mutationis		
+				society_member_of = path_of_lilith
+				society_member_of = path_of_death_and_the_soul
+				society_member_of = path_of_bones
+				society_member_of = path_of_metamorphosis
+				}	
+		}
 		
 		potential = {
 			NOT = { character = FROM }
 			is_adult = yes
 			prisoner = no
-						OR = {
-			society_member_of = hermetics
-			society_member_of = code_of_tremere
-			society_member_of = via_ossium
-			society_member_of = derech_lilit
-			#society_member_of = secret_religious_society_tremerelow
-			#society_member_of = secret_religious_society_koldun
-			society_member_of = via_mutationis
-			}
+			OR = {
+				society_member_of = hermetics
+				society_member_of = code_of_tremere
+				society_member_of = via_ossium
+				society_member_of = derech_lilit
+				society_member_of = via_mutationis		
+				society_member_of = path_of_lilith
+				society_member_of = path_of_death_and_the_soul
+				society_member_of = path_of_bones
+				society_member_of = path_of_metamorphosis
+				}	
 			is_within_diplo_range = FROM
 		}
 		
@@ -526,21 +547,22 @@ targeted_decisions = {
 	}
 
 	
-	}
 }
 
 society_decisions = {
 	hermetics_acquire_ingredients_decision = {
 		potential = {
 			OR = {
-			society_member_of = hermetics
-			society_member_of = code_of_tremere
-			society_member_of = via_ossium
-			society_member_of = derech_lilit
-			#society_member_of = secret_religious_society_tremerelow
-			#society_member_of = secret_religious_society_koldun
-			society_member_of = via_mutationis
-			}
+				society_member_of = hermetics
+				society_member_of = code_of_tremere
+				society_member_of = via_ossium
+				society_member_of = derech_lilit
+				society_member_of = via_mutationis		
+				society_member_of = path_of_lilith
+				society_member_of = path_of_death_and_the_soul
+				society_member_of = path_of_bones
+				society_member_of = path_of_metamorphosis
+				}	
 		}
 		
 		allow = {
@@ -612,14 +634,16 @@ society_decisions = {
 	hermetics_write_theory_paper = {
 		potential = {
 			OR = {
-			society_member_of = hermetics
-			society_member_of = code_of_tremere
-			society_member_of = via_ossium
-			society_member_of = derech_lilit
-			#society_member_of = secret_religious_society_tremerelow
-			#society_member_of = secret_religious_society_koldun
-			society_member_of = via_mutationis
-			}
+				society_member_of = hermetics
+				society_member_of = code_of_tremere
+				society_member_of = via_ossium
+				society_member_of = derech_lilit
+				society_member_of = via_mutationis		
+				society_member_of = path_of_lilith
+				society_member_of = path_of_death_and_the_soul
+				society_member_of = path_of_bones
+				society_member_of = path_of_metamorphosis
+				}	
 		}
 
 		allow = {
@@ -666,15 +690,17 @@ society_decisions = {
 			is_playable = yes
 			is_adult = yes
 			OR = {
-			society_member_of = hermetics
-			society_member_of = code_of_tremere
-			society_member_of = via_ossium
-			society_member_of = derech_lilit
-			#society_member_of = secret_religious_society_tremerelow
-			#society_member_of = secret_religious_society_koldun
-			society_member_of = via_mutationis
-			}
-			society_rank = 4
+				society_member_of = hermetics
+				society_member_of = code_of_tremere
+				society_member_of = via_ossium
+				society_member_of = derech_lilit
+				society_member_of = via_mutationis		
+				society_member_of = path_of_lilith
+				society_member_of = path_of_death_and_the_soul
+				society_member_of = path_of_bones
+				society_member_of = path_of_metamorphosis
+				}	
+			society_rank == 4
 		}
 		
 		allow = {

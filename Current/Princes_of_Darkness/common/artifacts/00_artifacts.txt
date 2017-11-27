@@ -7,11 +7,14 @@ slots = {
 	wrist = 1
 	neck = 1
 	torso = 1
+	ceremonial_torso = 1
 }
 
-### Random ###
+#############################
+####### Random/Misc #########
+#############################
 
-loot_axe = {
+loot_axe = { #The Old Gods only
 	martial = 2
 	quality = 2
 	flags = { easter_egg }
@@ -20,31 +23,25 @@ loot_axe = {
 	slot = weapon
 }
 
-strange_chest = {
+strange_chest = { # (DLC: The Old Gods)
 	flags = { chest }
 	picture = "GFX_strange_chest"
 }
 
-necronomicon = {
-	learning = 5
-	diplomacy = -1
-	quality = 4
-	monthly_character_piety = -2
-	flags = { book unholy }
-	stacking = no
-	picture = "GFX_book_sinister"
-}
-
-cursed_diamond = {
+cursed_diamond = { # (DLC: Rajas of India)
 	monthly_character_prestige = 1
 	global_tax_modifier = 0.1
 	quality = 3
 	flags = { event diamond curse }
 	stacking = no
 	picture = "GFX_gem_diamond"
+	indestructible = yes
+	allowed_gift = {
+		always = no
+	}
 }
 
-cursed_diamond_crown = {
+cursed_diamond_crown = { # (DLC: Rajas of India)
 	monthly_character_prestige = 1
 	stewardship = 3
 	quality = 4
@@ -52,1195 +49,32 @@ cursed_diamond_crown = {
 	stacking = no
 	picture = "GFX_cursed_diamond_crown"
 	slot = crown
+	indestructible = yes
+	allowed_gift = {
+		always = no
+	}
 }
 
-###Societies###
-
-magnum_opus_theurgy_ritual_1 = {
-	learning = 1
+rival_skull = { # (DLC: Reaper's Due)
 	quality = 1
-	flags = { society hermetics lore theurgy book }
-	active = { 
-		OR = {
-			learning = 12
-			society_member_of = hermetics 
-		}
-		custom_tooltip = {
-			text = NO_HIGHER_QUALITY_VERSION_ACTIVE
-			NOT = {
-				AND = {
-					OR = {
-						learning = 16
-						society_member_of = hermetics
-						society_member_of = code_of_tremere
-						society_member_of = via_mutationis
-						society_member_of = derech_lilit
-						society_member_of = via_ossium
-						trait = mage
-					}
-					any_artifact = {
-						artifact_type = magnum_opus_theurgy_ritual_2
-					}
-				}
-			}
-			NOT = {
-				AND = {
-					OR = {
-						learning = 20
-						society_member_of = hermetics
-						society_member_of = code_of_tremere
-						society_member_of = via_mutationis
-						society_member_of = derech_lilit
-						society_member_of = via_ossium
-						trait = mage
-					}
-					any_artifact = {
-						artifact_type = magnum_opus_theurgy_ritual_3
-					}
-				}
-			}
-			NOT = {
-				AND = {
-					OR = {
-						learning = 25
-						society_member_of = hermetics
-						society_member_of = code_of_tremere
-						society_member_of = via_mutationis
-						society_member_of = derech_lilit
-						society_member_of = via_ossium
-						trait = mage
-					}
-					any_artifact = {
-						artifact_type = magnum_opus_theurgy_ritual_4
-					}
-				}
-			}
-		}
-	}
-	
+	monthly_character_prestige = 0.05
 	allowed_gift = {
 		always = no
 	}
-	
-	stacking = no
-	picture = "GFX_book_red"
+	flags = { trophy skull }
+	picture = "GFX_saints_skull"
 }
 
-magnum_opus_theurgy_ritual_2 = {
-	learning = 1
-	monthly_character_piety = 0.5
-	quality = 2
-	flags = { society hermetics lore theurgy book }
-	active = { 
-		OR = {
-			learning = 16
-			society_member_of = hermetics 
-		}
-		custom_tooltip = {
-			text = NO_HIGHER_QUALITY_VERSION_ACTIVE
-			NOT = {
-				AND = {
-					OR = {
-						learning = 20
-						society_member_of = hermetics
-						society_member_of = code_of_tremere
-						society_member_of = via_mutationis
-						society_member_of = derech_lilit
-						society_member_of = via_ossium
-						trait = mage
-					}
-					any_artifact = {
-						artifact_type = magnum_opus_theurgy_ritual_3
-					}
-				}
-			}
-			NOT = {
-				AND = {
-					OR = {
-						learning = 25
-						society_member_of = hermetics
-						society_member_of = code_of_tremere
-						society_member_of = via_mutationis
-						society_member_of = derech_lilit
-						society_member_of = via_ossium
-						trait = mage
-					}
-					any_artifact = {
-						artifact_type = magnum_opus_theurgy_ritual_4
-					}
-				}
-			}
-		}
-	}
-	
-	allowed_gift = {
-		always = no
-	}
-	
-	stacking = no
-	picture = "GFX_book_red"
-}
-
-magnum_opus_theurgy_ritual_3 = {
-	learning = 1
-	intrigue = 1
-	monthly_character_piety = 0.5
-	quality = 3
-	flags = { society hermetics lore theurgy book }
-	active = { 
-		OR = {
-			learning = 20
-			society_member_of = hermetics 
-		}
-		custom_tooltip = {
-			text = NO_HIGHER_QUALITY_VERSION_ACTIVE
-			NOT = {
-				AND = {
-					OR = {
-						learning = 25
-						society_member_of = hermetics
-						society_member_of = code_of_tremere
-						society_member_of = via_mutationis
-						society_member_of = derech_lilit
-						society_member_of = via_ossium
-						trait = mage
-					}
-					any_artifact = {
-						artifact_type = magnum_opus_theurgy_ritual_4
-					}
-				}
-			}
-		}
-	}
-	
-	allowed_gift = {
-		always = no
-	}
-	
-	stacking = no
-	picture = "GFX_book_red"
-}
-
-magnum_opus_theurgy_ritual_4 = {
-	learning = 1
-	intrigue = 1
-	stewardship = 1
-	monthly_character_piety = 0.5
-	quality = 4
-	flags = { society hermetics lore theurgy book }
-	active = { 
-		OR = {
-			learning = 25
-			society_member_of = hermetics
-						society_member_of = code_of_tremere
-						society_member_of = via_mutationis
-						society_member_of = derech_lilit
-						society_member_of = via_ossium
-						trait = mage
-		}
-	}
-	
-	allowed_gift = {
-		always = no
-	}
-	
-	stacking = no
-	picture = "GFX_book_red_glow"
-}
-
-magnum_opus_theurgy_contemplation_1 = {
-	learning = 1
-	quality = 1
-	flags = { society hermetics lore theurgy book }
-	active = { 
-		OR = {
-			learning = 12
-			society_member_of = hermetics
-						society_member_of = code_of_tremere
-						society_member_of = via_mutationis
-						society_member_of = derech_lilit
-						society_member_of = via_ossium
-						trait = mage 
-		}
-		custom_tooltip = {
-			text = NO_HIGHER_QUALITY_VERSION_ACTIVE
-			NOT = {
-				AND = {
-					OR = {
-						learning = 16
-						society_member_of = hermetics
-						society_member_of = code_of_tremere
-						society_member_of = via_mutationis
-						society_member_of = derech_lilit
-						society_member_of = via_ossium
-						trait = mage
-					}
-					any_artifact = {
-						artifact_type = magnum_opus_theurgy_contemplation_2
-					}
-				}
-			}
-			NOT = {
-				AND = {
-					OR = {
-						learning = 20
-						society_member_of = hermetics
-						society_member_of = code_of_tremere
-						society_member_of = via_mutationis
-						society_member_of = derech_lilit
-						society_member_of = via_ossium
-						trait = mage
-					}
-					any_artifact = {
-						artifact_type = magnum_opus_theurgy_contemplation_3
-					}
-				}
-			}
-			NOT = {
-				AND = {
-					OR = {
-						learning = 25
-						society_member_of = hermetics
-						society_member_of = code_of_tremere
-						society_member_of = via_mutationis
-						society_member_of = derech_lilit
-						society_member_of = via_ossium
-						trait = mage
-					}
-					any_artifact = {
-						artifact_type = magnum_opus_theurgy_contemplation_4
-					}
-				}
-			}
-		}
-	}
-	
-	allowed_gift = {
-		always = no
-	}
-	
-	stacking = no
-	picture = "GFX_book_red"
-}
-
-magnum_opus_theurgy_contemplation_2 = {
-	learning = 1
-	monthly_character_piety = 0.5
-	quality = 2
-	flags = { society hermetics lore theurgy book }
-	active = { 
-		OR = {
-			learning = 16
-			society_member_of = hermetics 
-		}
-		custom_tooltip = {
-			text = NO_HIGHER_QUALITY_VERSION_ACTIVE
-			NOT = {
-				AND = {
-					OR = {
-						learning = 20
-						society_member_of = hermetics
-						society_member_of = code_of_tremere
-						society_member_of = via_mutationis
-						society_member_of = derech_lilit
-						society_member_of = via_ossium
-						trait = mage
-					}
-					any_artifact = {
-						artifact_type = magnum_opus_theurgy_contemplation_3
-					}
-				}
-			}
-			NOT = {
-				AND = {
-					OR = {
-						learning = 25
-						society_member_of = hermetics
-						society_member_of = code_of_tremere
-						society_member_of = via_mutationis
-						society_member_of = derech_lilit
-						society_member_of = via_ossium
-						trait = mage
-					}
-					any_artifact = {
-						artifact_type = magnum_opus_theurgy_contemplation_4
-					}
-				}
-			}
-		}
-	}
-	
-	allowed_gift = {
-		always = no
-	}
-	
-	stacking = no
-	picture = "GFX_book_red"
-}
-
-magnum_opus_theurgy_contemplation_3 = {
-	learning = 2
-	monthly_character_piety = 0.5
-	quality = 3
-	flags = { society hermetics lore theurgy book }
-	active = { 
-		OR = {
-			learning = 20
-			society_member_of = hermetics
-						society_member_of = code_of_tremere
-						society_member_of = via_mutationis
-						society_member_of = derech_lilit
-						society_member_of = via_ossium
-						trait = mage
-		}
-		custom_tooltip = {
-			text = NO_HIGHER_QUALITY_VERSION_ACTIVE
-			NOT = {
-				AND = {
-					OR = {
-						learning = 25
-						society_member_of = hermetics
-						society_member_of = code_of_tremere
-						society_member_of = via_mutationis
-						society_member_of = derech_lilit
-						society_member_of = via_ossium
-						trait = mage
-					}
-					any_artifact = {
-						artifact_type = magnum_opus_theurgy_contemplation_4
-					}
-				}
-			}
-		}
-	}
-	
-	allowed_gift = {
-		always = no
-	}
-	
-	stacking = no
-	picture = "GFX_book_red"
-}
-
-magnum_opus_theurgy_contemplation_4 = {
-	learning = 2
-	diplomacy = 1
-	monthly_character_piety = 0.5
-	quality = 4
-	flags = { society hermetics lore theurgy book }
-	active = { 
-		OR = {
-			learning = 25
-			society_member_of = hermetics
-						society_member_of = code_of_tremere
-						society_member_of = via_mutationis
-						society_member_of = derech_lilit
-						society_member_of = via_ossium
-						trait = mage 
-		}
-	}
-	
-	allowed_gift = {
-		always = no
-	}
-	
-	stacking = no
-	picture = "GFX_book_red_glow"
-}
-
-magnum_opus_astrology_stars_1 = {
-	learning = 1
-	quality = 1
-	flags = { society hermetics lore astrology book }
-	active = { 
-		OR = {
-			learning = 12
-			society_member_of = hermetics
-						society_member_of = code_of_tremere
-						society_member_of = via_mutationis
-						society_member_of = derech_lilit
-						society_member_of = via_ossium
-						trait = mage
-		}
-		custom_tooltip = {
-			text = NO_HIGHER_QUALITY_VERSION_ACTIVE
-			NOT = {
-				AND = {
-					OR = {
-						learning = 16
-						society_member_of = hermetics
-						society_member_of = code_of_tremere
-						society_member_of = via_mutationis
-						society_member_of = derech_lilit
-						society_member_of = via_ossium
-						trait = mage
-					}
-					any_artifact = {
-						artifact_type = magnum_opus_astrology_stars_2
-					}
-				}
-			}
-			NOT = {
-				AND = {
-					OR = {
-						learning = 20
-						society_member_of = hermetics
-						society_member_of = code_of_tremere
-						society_member_of = via_mutationis
-						society_member_of = derech_lilit
-						society_member_of = via_ossium
-						trait = mage
-					}
-					any_artifact = {
-						artifact_type = magnum_opus_astrology_stars_3
-					}
-				}
-			}
-			NOT = {
-				AND = {
-					OR = {
-						learning = 25
-						society_member_of = hermetics
-						society_member_of = code_of_tremere
-						society_member_of = via_mutationis
-						society_member_of = derech_lilit
-						society_member_of = via_ossium
-						trait = mage
-					}
-					any_artifact = {
-						artifact_type = magnum_opus_astrology_stars_4
-					}
-				}
-			}
-		}
-	}
-	
-	allowed_gift = {
-		always = no
-	}
-	
-	stacking = no
-	picture = "GFX_book_blue"
-}
-
-magnum_opus_astrology_stars_2 = {
-	learning = 1
-	monthly_character_prestige = 0.5
-	quality = 2
-	flags = { society hermetics lore astrology book }
-	active = { 
-		OR = {
-			learning = 16
-			society_member_of = hermetics
-						society_member_of = code_of_tremere
-						society_member_of = via_mutationis
-						society_member_of = derech_lilit
-						society_member_of = via_ossium
-						trait = mage
-		}
-		custom_tooltip = {
-			text = NO_HIGHER_QUALITY_VERSION_ACTIVE
-			NOT = {
-				AND = {
-					OR = {
-						learning = 20
-						society_member_of = hermetics
-						society_member_of = code_of_tremere
-						society_member_of = via_mutationis
-						society_member_of = derech_lilit
-						society_member_of = via_ossium
-						trait = mage
-					}
-					any_artifact = {
-						artifact_type = magnum_opus_astrology_stars_3
-					}
-				}
-			}
-			NOT = {
-				AND = {
-					OR = {
-						learning = 25
-						society_member_of = hermetics
-						society_member_of = code_of_tremere
-						society_member_of = via_mutationis
-						society_member_of = derech_lilit
-						society_member_of = via_ossium
-						trait = mage
-					}
-					any_artifact = {
-						artifact_type = magnum_opus_astrology_stars_4
-					}
-				}
-			}
-		}
-	}
-	
-	allowed_gift = {
-		always = no
-	}
-	
-	stacking = no
-	picture = "GFX_book_blue"
-}
-
-magnum_opus_astrology_stars_3 = {
-	learning = 1
-	intrigue = 1
-	monthly_character_prestige = 0.5
-	quality = 3
-	flags = { society hermetics lore astrology book }
-	active = { 
-		OR = {
-			learning = 20
-			society_member_of = hermetics
-						society_member_of = code_of_tremere
-						society_member_of = via_mutationis
-						society_member_of = derech_lilit
-						society_member_of = via_ossium
-						trait = mage
-		}
-		custom_tooltip = {
-			text = NO_HIGHER_QUALITY_VERSION_ACTIVE
-			NOT = {
-				AND = {
-					OR = {
-						learning = 25
-						society_member_of = hermetics
-						society_member_of = code_of_tremere
-						society_member_of = via_mutationis
-						society_member_of = derech_lilit
-						society_member_of = via_ossium
-						trait = mage
-					}
-					any_artifact = {
-						artifact_type = magnum_opus_astrology_stars_4
-					}
-				}
-			}
-		}
-	}
-	
-	allowed_gift = {
-		always = no
-	}
-	
-	stacking = no
-	picture = "GFX_book_blue"
-}
-
-magnum_opus_astrology_stars_4 = {
-	learning = 1
-	intrigue = 1
-	martial = 1
-	monthly_character_prestige = 0.5
-	quality = 4
-	flags = { society hermetics lore astrology book }
-	active = { 
-		OR = {
-			learning = 25
-			society_member_of = hermetics
-						society_member_of = code_of_tremere
-						society_member_of = via_mutationis
-						society_member_of = derech_lilit
-						society_member_of = via_ossium
-						trait = mage 
-		}
-	}
-	allowed_gift = {
-		always = no
-	}
-	stacking = no
-	picture = "GFX_book_blue_glow"
-}
-
-magnum_opus_astrology_planets_1 = {
-	learning = 1
-	quality = 1
-	flags = { society hermetics lore astrology book }
-	active = { 
-		OR = {
-			learning = 12
-			society_member_of = hermetics
-						society_member_of = code_of_tremere
-						society_member_of = via_mutationis
-						society_member_of = derech_lilit
-						society_member_of = via_ossium
-						trait = mage
-		}
-		custom_tooltip = {
-			text = NO_HIGHER_QUALITY_VERSION_ACTIVE
-			NOT = {
-				AND = {
-					OR = {
-						learning = 16
-						society_member_of = hermetics
-						society_member_of = code_of_tremere
-						society_member_of = via_mutationis
-						society_member_of = derech_lilit
-						society_member_of = via_ossium
-						trait = mage
-					}
-					any_artifact = {
-						artifact_type = magnum_opus_astrology_planets_2
-					}
-				}
-			}
-			NOT = {
-				AND = {
-					OR = {
-						learning = 20
-						society_member_of = hermetics
-						society_member_of = code_of_tremere
-						society_member_of = via_mutationis
-						society_member_of = derech_lilit
-						society_member_of = via_ossium
-						trait = mage
-					}
-					any_artifact = {
-						artifact_type = magnum_opus_astrology_planets_3
-					}
-				}
-			}
-			NOT = {
-				AND = {
-					OR = {
-						learning = 25
-						society_member_of = hermetics
-						society_member_of = code_of_tremere
-						society_member_of = via_mutationis
-						society_member_of = derech_lilit
-						society_member_of = via_ossium
-						trait = mage
-					}
-					any_artifact = {
-						artifact_type = magnum_opus_astrology_planets_4
-					}
-				}
-			}
-		}
-	}
-	allowed_gift = {
-		always = no
-	}
-	stacking = no
-	picture = "GFX_book_blue"
-}
-
-magnum_opus_astrology_planets_2 = {
-	learning = 1
-	monthly_character_prestige = 0.5
-	quality = 2
-	flags = { society hermetics lore astrology book }
-	active = { 
-		OR = {
-			learning = 16
-			society_member_of = hermetics
-						society_member_of = code_of_tremere
-						society_member_of = via_mutationis
-						society_member_of = derech_lilit
-						society_member_of = via_ossium
-						trait = mage
-		}
-		custom_tooltip = {
-			text = NO_HIGHER_QUALITY_VERSION_ACTIVE
-			NOT = {
-				AND = {
-					OR = {
-						learning = 20
-						society_member_of = hermetics
-						society_member_of = code_of_tremere
-						society_member_of = via_mutationis
-						society_member_of = derech_lilit
-						society_member_of = via_ossium
-						trait = mage
-					}
-					any_artifact = {
-						artifact_type = magnum_opus_astrology_planets_3
-					}
-				}
-			}
-			NOT = {
-				AND = {
-					OR = {
-						learning = 25
-						society_member_of = hermetics
-						society_member_of = code_of_tremere
-						society_member_of = via_mutationis
-						society_member_of = derech_lilit
-						society_member_of = via_ossium
-						trait = mage
-					}
-					any_artifact = {
-						artifact_type = magnum_opus_astrology_planets_4
-					}
-				}
-			}
-		}
-	}
-	allowed_gift = {
-		always = no
-	}
-	stacking = no
-	picture = "GFX_book_blue"
-}
-
-magnum_opus_astrology_planets_3 = {
-	learning = 2
-	monthly_character_prestige = 0.5
-	quality = 3
-	flags = { society hermetics lore astrology book }
-	active = { 
-		OR = {
-			learning = 20
-			society_member_of = hermetics
-						society_member_of = code_of_tremere
-						society_member_of = via_mutationis
-						society_member_of = derech_lilit
-						society_member_of = via_ossium
-						trait = mage
-						}
-		custom_tooltip = {
-			text = NO_HIGHER_QUALITY_VERSION_ACTIVE
-			NOT = {
-				AND = {
-					OR = {
-						learning = 25
-						society_member_of = hermetics
-					}
-					any_artifact = {
-						artifact_type = magnum_opus_astrology_planets_4
-					}
-				}
-			}
-		}
-	}
-	allowed_gift = {
-		always = no
-	}
-	stacking = no
-	picture = "GFX_book_blue"
-}
-
-magnum_opus_astrology_planets_4 = {
-	learning = 2
-	diplomacy = 1
-	monthly_character_prestige = 0.5
-	quality = 4
-	flags = { society hermetics lore astrology book }
-	active = { 
-		OR = {
-			learning = 25
-			society_member_of = hermetics 
-		}
-	}
-	allowed_gift = {
-		always = no
-	}
-	stacking = no
-	picture = "GFX_book_blue_glow"
-}
-
-magnum_opus_alchemy_panacea_1 = {
-	learning = 1
-	quality = 1
-	flags = { society hermetics lore alchemy book }
-	active = { 
-		OR = {
-			learning = 12
-			society_member_of = hermetics
-						society_member_of = code_of_tremere
-						society_member_of = via_mutationis
-						society_member_of = derech_lilit
-						society_member_of = via_ossium
-						trait = mage
-		}
-		custom_tooltip = {
-			text = NO_HIGHER_QUALITY_VERSION_ACTIVE
-			NOT = {
-				AND = {
-					OR = {
-						learning = 16
-						society_member_of = hermetics
-						society_member_of = code_of_tremere
-						society_member_of = via_mutationis
-						society_member_of = derech_lilit
-						society_member_of = via_ossium
-						trait = mage
-					}
-					any_artifact = {
-						artifact_type = magnum_opus_alchemy_panacea_2
-					}
-				}
-			}
-			NOT = {
-				AND = {
-					OR = {
-						learning = 20
-						society_member_of = hermetics
-						society_member_of = code_of_tremere
-						society_member_of = via_mutationis
-						society_member_of = derech_lilit
-						society_member_of = via_ossium
-						trait = mage
-					}
-					any_artifact = {
-						artifact_type = magnum_opus_alchemy_panacea_3
-					}
-				}
-			}
-			NOT = {
-				AND = {
-					OR = {
-						learning = 25
-						society_member_of = hermetics
-						society_member_of = code_of_tremere
-						society_member_of = via_mutationis
-						society_member_of = derech_lilit
-						society_member_of = via_ossium
-						trait = mage
-					}
-					any_artifact = {
-						artifact_type = magnum_opus_alchemy_panacea_4
-					}
-				}
-			}
-		}
-	}
-	allowed_gift = {
-		always = no
-	}
-	stacking = no
-	picture = "GFX_book_green"
-}
-
-magnum_opus_alchemy_panacea_2 = {
-	learning = 2
-	quality = 2
-	flags = { society hermetics lore alchemy book }
-	active = { 
-		OR = {
-			learning = 16
-			society_member_of = hermetics
-						society_member_of = code_of_tremere
-						society_member_of = via_mutationis
-						society_member_of = derech_lilit
-						society_member_of = via_ossium
-						trait = mage
-		}
-		custom_tooltip = {
-			text = NO_HIGHER_QUALITY_VERSION_ACTIVE
-			NOT = {
-				AND = {
-					OR = {
-						learning = 20
-						society_member_of = hermetics
-						society_member_of = code_of_tremere
-						society_member_of = via_mutationis
-						society_member_of = derech_lilit
-						society_member_of = via_ossium
-						trait = mage
-					}
-					any_artifact = {
-						artifact_type = magnum_opus_alchemy_panacea_3
-					}
-				}
-			}
-			NOT = {
-				AND = {
-					OR = {
-						learning = 25
-						society_member_of = hermetics
-						society_member_of = code_of_tremere
-						society_member_of = via_mutationis
-						society_member_of = derech_lilit
-						society_member_of = via_ossium
-						trait = mage
-					}
-					any_artifact = {
-						artifact_type = magnum_opus_alchemy_panacea_4
-					}
-				}
-			}
-		}
-	}
-	allowed_gift = {
-		always = no
-	}
-	stacking = no
-	picture = "GFX_book_green"
-}
-
-magnum_opus_alchemy_panacea_3 = {
-	learning = 2
-	health = 0.5
-	quality = 3
-	flags = { society hermetics lore alchemy book }
-	active = { 
-		OR = {
-			learning = 20
-			society_member_of = hermetics
-						society_member_of = code_of_tremere
-						society_member_of = via_mutationis
-						society_member_of = derech_lilit
-						society_member_of = via_ossium
-						trait = mage
-		}
-		custom_tooltip = {
-			text = NO_HIGHER_QUALITY_VERSION_ACTIVE
-			NOT = {
-				AND = {
-					OR = {
-						learning = 25
-						society_member_of = hermetics
-						society_member_of = code_of_tremere
-						society_member_of = via_mutationis
-						society_member_of = derech_lilit
-						society_member_of = via_ossium
-						trait = mage
-					}
-					any_artifact = {
-						artifact_type = magnum_opus_alchemy_panacea_4
-					}
-				}
-			}
-		}
-	}
-	allowed_gift = {
-		always = no
-	}
-	stacking = no
-	picture = "GFX_book_green"
-}
-
-magnum_opus_alchemy_panacea_4 = {
-	learning = 2
-	health = 1
-	quality = 4
-	flags = { society hermetics lore alchemy book }
-	active = { 
-		OR = {
-			learning = 25
-			society_member_of = hermetics
-						society_member_of = code_of_tremere
-						society_member_of = via_mutationis
-						society_member_of = derech_lilit
-						society_member_of = via_ossium
-						trait = mage
-		}
-	}
-	allowed_gift = {
-		always = no
-	}
-	stacking = no
-	picture = "GFX_book_green_glow"
-}
-
-magnum_opus_alchemy_transmutation_1 = {
-	learning = 1
-	quality = 1
-	flags = { society hermetics lore alchemy book }
-	active = { 
-		OR = {
-			learning = 12
-			society_member_of = hermetics
-						society_member_of = code_of_tremere
-						society_member_of = via_mutationis
-						society_member_of = derech_lilit
-						society_member_of = via_ossium
-						trait = mage
-		}
-		custom_tooltip = {
-			text = NO_HIGHER_QUALITY_VERSION_ACTIVE
-			NOT = {
-				AND = {
-					OR = {
-						learning = 16
-						society_member_of = hermetics
-						society_member_of = code_of_tremere
-						society_member_of = via_mutationis
-						society_member_of = derech_lilit
-						society_member_of = via_ossium
-						trait = mage
-					}
-					any_artifact = {
-						artifact_type = magnum_opus_alchemy_transmutation_2
-					}
-				}
-			}
-			NOT = {
-				AND = {
-					OR = {
-						learning = 20
-						society_member_of = hermetics
-						society_member_of = code_of_tremere
-						society_member_of = via_mutationis
-						society_member_of = derech_lilit
-						society_member_of = via_ossium
-						trait = mage
-					}
-					any_artifact = {
-						artifact_type = magnum_opus_alchemy_transmutation_3
-					}
-				}
-			}
-			NOT = {
-				AND = {
-					OR = {
-						learning = 25
-						society_member_of = hermetics
-						society_member_of = code_of_tremere
-						society_member_of = via_mutationis
-						society_member_of = derech_lilit
-						society_member_of = via_ossium
-						trait = mage
-					}
-					any_artifact = {
-						artifact_type = magnum_opus_alchemy_transmutation_4
-					}
-				}
-			}
-		}
-	}
-	allowed_gift = {
-		always = no
-	}
-	stacking = no
-	picture = "GFX_book_green"
-}
-
-magnum_opus_alchemy_transmutation_2 = {
-	learning = 1
-	stewardship = 1
-	quality = 2
-	flags = { society hermetics lore alchemy book }
-	active = { 
-		OR = {
-			learning = 16
-			society_member_of = hermetics
-						society_member_of = code_of_tremere
-						society_member_of = via_mutationis
-						society_member_of = derech_lilit
-						society_member_of = via_ossium
-						trait = mage
-		}
-		custom_tooltip = {
-			text = NO_HIGHER_QUALITY_VERSION_ACTIVE
-			NOT = {
-				AND = {
-					OR = {
-						learning = 20
-						society_member_of = hermetics
-						society_member_of = code_of_tremere
-						society_member_of = via_mutationis
-						society_member_of = derech_lilit
-						society_member_of = via_ossium
-						trait = mage
-					}
-					any_artifact = {
-						artifact_type = magnum_opus_alchemy_transmutation_3
-					}
-				}
-			}
-			NOT = {
-				AND = {
-					OR = {
-						learning = 25
-						society_member_of = hermetics
-						society_member_of = code_of_tremere
-						society_member_of = via_mutationis
-						society_member_of = derech_lilit
-						society_member_of = via_ossium
-						trait = mage
-					}
-					any_artifact = {
-						artifact_type = magnum_opus_alchemy_transmutation_4
-					}
-				}
-			}
-		}
-	}
-	allowed_gift = {
-		always = no
-	}
-	stacking = no
-	picture = "GFX_book_green"
-}
-
-magnum_opus_alchemy_transmutation_3 = {
-	learning = 1
-	stewardship = 1
-	martial = 1
-	quality = 3
-	flags = { society hermetics lore alchemy book }
-	active = { 
-		OR = {
-			learning = 20
-			society_member_of = hermetics
-						society_member_of = code_of_tremere
-						society_member_of = via_mutationis
-						society_member_of = derech_lilit
-						society_member_of = via_ossium
-						trait = mage 
-		}
-		custom_tooltip = {
-			text = NO_HIGHER_QUALITY_VERSION_ACTIVE
-			NOT = {
-				AND = {
-					OR = {
-						learning = 25
-						society_member_of = hermetics
-						society_member_of = code_of_tremere
-						society_member_of = via_mutationis
-						society_member_of = derech_lilit
-						society_member_of = via_ossium
-						trait = mage
-					}
-					any_artifact = {
-						artifact_type = magnum_opus_alchemy_transmutation_4
-					}
-				}
-			}
-		}
-	}
-	allowed_gift = {
-		always = no
-	}
-	stacking = no
-	picture = "GFX_book_green"
-}
-
-magnum_opus_alchemy_transmutation_4 = {
-	learning = 1
-	stewardship = 2
-	martial = 1
-	quality = 3
-	flags = { society hermetics lore alchemy book }
-	active = { 
-		OR = {
-			learning = 25
-			society_member_of = hermetics
-						society_member_of = code_of_tremere
-						society_member_of = via_mutationis
-						society_member_of = derech_lilit
-						society_member_of = via_ossium
-						trait = mage
-		}
-	}
-	allowed_gift = {
-		always = no
-	}
-	stacking = no
-	picture = "GFX_book_green_glow"
-}
-
-### generic ###
+##################################################
+### DLC: Monks & Mystics (relic hunter events) ###
+##################################################
 
 famous_head = {
 	monthly_character_prestige = 0.05
 	learning = 1
 	quality = 1
 	flags = { saint bodypart }
-	picture = "GFX_saints_skull"
+	picture = "GFX_saintly_skull"
 }
 
 famous_tongue = {
@@ -1248,7 +82,7 @@ famous_tongue = {
 	diplomacy = 1
 	quality = 1
 	flags = { saint bodypart }
-	picture = "GFX_pouch"
+	picture = "GFX_saintly_tongue"
 }
 
 infamous_tongue = {
@@ -1256,7 +90,7 @@ infamous_tongue = {
 	intrigue = 1
 	quality = 1
 	flags = { saint bodypart }
-	picture = "GFX_pouch"
+	picture = "GFX_saintly_tongue"
 }
 
 famous_hand = {
@@ -1292,7 +126,10 @@ famous_ancient_weapon = { #rusty old weapon
 	slot = ceremonial_weapon
 }
 
+
+###########################
 ### Christian Artifacts ###
+###########################
 
 iron_crown_of_lombardy = {
 	short_reign_length = -5
@@ -1300,19 +137,17 @@ iron_crown_of_lombardy = {
 	monthly_character_prestige = 1
 	vassal_opinion = 10
 	diplomacy = 1
-	active = { 
-	
-	OR = { religion_group = christian
-		   society_member_of = via_caeli
-				society_member_of = order_bitter_ashes
- }
-		   
-	}
+	active = { 	OR = { religion_group = christian
+		society_member_of = via_caeli
+				
+		society_member_of = order_bitter_ashes
+ } }
 	allowed_gift = {
-	OR = { religion_group = christian
-		   society_member_of = via_caeli
-				society_member_of = order_bitter_ashes
- }
+		religion_group = christian
+		religion = silver_fangs
+		religion = vampire_high_clans
+		society_member_of = via_caeli	
+		society_member_of = order_bitter_ashes		
 	}
 	quality = 5
 	indestructible = yes
@@ -1328,15 +163,16 @@ shroud_of_jesus = {
 	same_religion_opinion = 5
 	global_levy_size = 0.05
 	learning = 1
-	active = { 	
-		OR = { religion_group = christian
-		   society_member_of = via_caeli
-				society_member_of = order_bitter_ashes
+	active = { 	OR = { religion_group = christian
+		society_member_of = via_caeli
+				
+		society_member_of = order_bitter_ashes
  } }
 	allowed_gift = {
-	OR = { religion_group = christian
-		   society_member_of = via_caeli
-				society_member_of = order_bitter_ashes
+			OR = { religion_group = christian
+		society_member_of = via_caeli
+				
+		society_member_of = order_bitter_ashes
  }
 	}
 	quality = 5
@@ -1355,16 +191,16 @@ spear_of_destiny = {
 		morale_offence = 0.2
 		morale_defence = 0.2
 	}
-	active = { 
-	OR = { religion_group = christian
-		   society_member_of = via_caeli
-				society_member_of = order_bitter_ashes
- }
-	}
+	active = { 	OR = { religion_group = christian
+		society_member_of = via_caeli
+				
+		society_member_of = order_bitter_ashes
+ } }
 	allowed_gift = {
-	OR = { religion_group = christian
-		   society_member_of = via_caeli
-				society_member_of = order_bitter_ashes
+			OR = { religion_group = christian
+		society_member_of = via_caeli
+				
+		society_member_of = order_bitter_ashes
  }
 	}
 	quality = 5
@@ -1378,16 +214,16 @@ holy_grail = {
 	monthly_character_prestige = 0.5
 	health = 4
 	same_religion_opinion = 5
-	active = { 
-	OR = { religion_group = christian
-		   society_member_of = via_caeli
-				society_member_of = order_bitter_ashes
- }
-	}
+	active = { 	OR = { religion_group = christian
+		society_member_of = via_caeli
+				
+		society_member_of = order_bitter_ashes
+ } }
 	allowed_gift = {
 	OR = { religion_group = christian
-		   society_member_of = via_caeli
-				society_member_of = order_bitter_ashes
+		society_member_of = via_caeli
+				
+		society_member_of = order_bitter_ashes
  }
 	}
 	quality = 5
@@ -1401,17 +237,16 @@ holy_chalice = {
 	monthly_character_prestige = 2
 	health = 1
 	same_religion_opinion = 10
-	active = { 
-	OR = { religion_group = christian
-		   society_member_of = via_caeli
-				society_member_of = order_bitter_ashes
- }
-		   
-	}
+	active = { 	OR = { religion_group = christian
+		society_member_of = via_caeli
+				
+		society_member_of = order_bitter_ashes
+ } }
 	allowed_gift = {
 	OR = { religion_group = christian
-		   society_member_of = via_caeli
-				society_member_of = order_bitter_ashes
+		society_member_of = via_caeli
+				
+		society_member_of = order_bitter_ashes
  }
 	}
 	quality = 5
@@ -1427,16 +262,16 @@ bones_of_st_peter = {
 	build_cost_modifier = -0.1
 	build_time_modifier = -0.1
 	stewardship = 1
-	active = { 
-	OR = { religion_group = christian
-		   society_member_of = via_caeli
-				society_member_of = order_bitter_ashes
- }	
-	}
+	active = { 	OR = { religion_group = christian
+		society_member_of = via_caeli
+				
+		society_member_of = order_bitter_ashes
+ } }
 	allowed_gift = {
 	OR = { religion_group = christian
-		   society_member_of = via_caeli
-				society_member_of = order_bitter_ashes
+		society_member_of = via_caeli
+				
+		society_member_of = order_bitter_ashes
  }
 	}
 	quality = 5
@@ -1451,17 +286,17 @@ crown_of_thorns = {
 	same_religion_opinion = 5
 	global_revolt_risk = -0.03
 	diplomacy = 1
-	active = { 
-	OR = { religion_group = christian
-		   society_member_of = via_caeli
-				society_member_of = order_bitter_ashes
- }
-	}
+	active = { 	OR = { religion_group = christian
+		society_member_of = via_caeli
+				
+		society_member_of = order_bitter_ashes
+ } }
 	allowed_gift = {
 	OR = { religion_group = christian
-		   society_member_of = via_caeli
-				society_member_of = order_bitter_ashes
- }	
+		society_member_of = via_caeli
+				
+		society_member_of = order_bitter_ashes
+ }
 	}
 	quality = 4
 	flags = { religious christian rare jesus crucifixion }
@@ -1477,14 +312,16 @@ seamless_robe_of_jesus = {
 	learning = 1
 	active = { 
 	OR = { religion_group = christian
-		   society_member_of = via_caeli
-				society_member_of = order_bitter_ashes
+		society_member_of = via_caeli
+				
+		society_member_of = order_bitter_ashes
  }
 	}
 	allowed_gift = {
 	OR = { religion_group = christian
-		   society_member_of = via_caeli
-				society_member_of = order_bitter_ashes
+		society_member_of = via_caeli
+				
+		society_member_of = order_bitter_ashes
  }
 	}
 	quality = 4
@@ -1498,13 +335,15 @@ fragment_of_true_cross = {
 	monthly_character_piety = 0.5
 	diplomacy = 2
 	active = { 	OR = { religion_group = christian
-		   society_member_of = via_caeli
-				society_member_of = order_bitter_ashes
+		society_member_of = via_caeli
+				
+		society_member_of = order_bitter_ashes
  } }
 	allowed_gift = {
 	OR = { religion_group = christian
-		   society_member_of = via_caeli
-				society_member_of = order_bitter_ashes
+		society_member_of = via_caeli
+				
+		society_member_of = order_bitter_ashes
  }
 	}
 	quality = 3
@@ -1519,14 +358,16 @@ holy_foreskin = {
 	health = 0.5
 	active = { 
 	OR = { religion_group = christian
-		   society_member_of = via_caeli
-				society_member_of = order_bitter_ashes
+		society_member_of = via_caeli
+				
+		society_member_of = order_bitter_ashes
  }
 	}
 	allowed_gift = {
 	OR = { religion_group = christian
-		   society_member_of = via_caeli
-				society_member_of = order_bitter_ashes
+		society_member_of = via_caeli
+				
+		society_member_of = order_bitter_ashes
  }
 	}
 	quality = 3
@@ -1539,16 +380,10 @@ fingerbone_of_saint = {
 	monthly_character_prestige = 0.25
 	monthly_character_piety = 0.25
 	active = { 
-	OR = { religion_group = christian
-		   society_member_of = via_caeli
-				society_member_of = order_bitter_ashes
- }
+		religion_group = christian
 	}
 	allowed_gift = {
-	OR = { religion_group = christian
-		   society_member_of = via_caeli
-				society_member_of = order_bitter_ashes
- }
+		religion_group = christian
 	}
 	quality = 1
 	flags = { religious christian bone saint bodypart }
@@ -1559,18 +394,17 @@ finger_of_st_john = { #separate event chain
 	monthly_character_prestige = 0.1
 	monthly_character_piety = 0.5
 	learning = 1
-	active = { 	
-		OR = {  religion_group = christian
-				society_member_of = via_caeli
-				society_member_of = order_bitter_ashes 
-			} 
-		}
- 
+	active = { 	OR = { religion_group = christian
+		society_member_of = via_caeli
+				
+		society_member_of = order_bitter_ashes
+ } }
 	allowed_gift = {
 	OR = { religion_group = christian
-		   society_member_of = via_caeli
-		   society_member_of = order_bitter_ashes
-		}		
+		society_member_of = via_caeli
+				
+		society_member_of = order_bitter_ashes
+ }
 	}
 	quality = 2
 	flags = { religious christian SoA bodypart }
@@ -1581,17 +415,17 @@ finger_of_st_john = { #separate event chain
 chains_of_st_peter = {
 	monthly_character_prestige = 0.1
 	learning = 2
-	active = { OR = { religion_group = christian
-		   society_member_of = via_caeli
-				society_member_of = order_bitter_ashes
+	active = { 	OR = { religion_group = christian
+		society_member_of = via_caeli
+				
+		society_member_of = order_bitter_ashes
  } }
 	allowed_gift = {
-	
 	OR = { religion_group = christian
-		   society_member_of = via_caeli
-			society_member_of = order_bitter_ashes
+		society_member_of = via_caeli
+				
+		society_member_of = order_bitter_ashes
  }
- 
 	}
 	quality = 2
 	flags = { religious christian chains saint }
@@ -1603,13 +437,15 @@ right_hand_st_demetrius = {
 	monthly_character_prestige = 0.1
 	martial = 2
 	active = { 	OR = { religion_group = christian
-		   society_member_of = via_caeli
-				society_member_of = order_bitter_ashes
- } }
+		society_member_of = via_caeli
+				
+		society_member_of = order_bitter_ashes
+ }}
 	allowed_gift = {
 	OR = { religion_group = christian
-		   society_member_of = via_caeli
-				society_member_of = order_bitter_ashes
+		society_member_of = via_caeli
+				
+		society_member_of = order_bitter_ashes
  }
 	}
 	quality = 2
@@ -1623,13 +459,15 @@ veil_of_veronica = {
 	monthly_character_piety = 0.5
 	global_revolt_risk = -0.01
 	active = { 	OR = { religion_group = christian
-		   society_member_of = via_caeli
-				society_member_of = order_bitter_ashes
+		society_member_of = via_caeli
+				
+		society_member_of = order_bitter_ashes
  } }
 	allowed_gift = {
 	OR = { religion_group = christian
-		   society_member_of = via_caeli
-				society_member_of = order_bitter_ashes
+		society_member_of = via_caeli
+				
+		society_member_of = order_bitter_ashes
  }
 	}
 	quality = 2
@@ -1644,35 +482,37 @@ image_of_edessa = {
 	health = 0.25
 	global_tax_modifier = 0.05
 	active = { 	OR = { religion_group = christian
-		   society_member_of = via_caeli
-				society_member_of = order_bitter_ashes
+		society_member_of = via_caeli
+				
+		society_member_of = order_bitter_ashes
  } }
 	allowed_gift = {
 	OR = { religion_group = christian
-		   society_member_of = via_caeli
-				society_member_of = order_bitter_ashes
+		society_member_of = via_caeli
+				
+		society_member_of = order_bitter_ashes
  }
 	}
 	quality = 3
 	flags = { religious christian jesus face cloth }
 	stacking = no
-	picture = "GFX_magnificent_painting_improved"
+	picture = "GFX_image_of_edessa"
 }
 
 remains_of_st_cessianus = {
 	monthly_character_prestige = 0.1
 	same_religion_opinion = 5
-	active = { 
-		OR = { religion_group = christian
-			   society_member_of = via_caeli
-			society_member_of = order_bitter_ashes
-			} 
-		}
+	active = { 	OR = { religion_group = christian
+		society_member_of = via_caeli
+				
+		society_member_of = order_bitter_ashes
+ } }
 	allowed_gift = {
 	OR = { religion_group = christian
-		   society_member_of = via_caeli
-			society_member_of = order_bitter_ashes
-		}
+		society_member_of = via_caeli
+				
+		society_member_of = order_bitter_ashes
+ }
 	}
 	quality = 2
 	flags = { religious christian saint remains }
@@ -1683,26 +523,28 @@ remains_of_st_cessianus = {
 weeping_statue = {
 	monthly_character_prestige = 0.1
 	global_tax_modifier = 0.05
-	active = { 
-			OR = { religion_group = christian
-		    society_member_of = via_caeli
-			society_member_of = order_bitter_ashes
-			} 
- }
+	active = { 	OR = { religion_group = christian
+		society_member_of = via_caeli
+				
+		society_member_of = order_bitter_ashes
+ } }
 	allowed_gift = {
 	OR = { religion_group = christian
-		   society_member_of = via_caeli
-				society_member_of = order_bitter_ashes
+		society_member_of = via_caeli
+				
+		society_member_of = order_bitter_ashes
  }
 	}
 	quality = 2
 	flags = { religious christian mary statue }
 	stacking = no
-	picture = "GFX_magnificent_painting_improved"
+	picture = "GFX_weeping_statue"
 }
 
 
-### Jewish ###
+###########################
+##### Jewish Artifacts ####
+###########################
 staff_of_moses = {
 	monthly_character_prestige = 0.1
 	monthly_character_piety = 0.5
@@ -1719,9 +561,8 @@ staff_of_moses = {
 			religion_group = muslim
 			religion_group = jewish_group
 			society_member_of = via_caeli
-				society_member_of = order_bitter_ashes
- 
-			religion = ashirra
+			society_member_of = order_bitter_ashes
+			religion = ashirra			
 		}
 	}
 	allowed_gift = {
@@ -1730,9 +571,8 @@ staff_of_moses = {
 			religion_group = muslim
 			religion_group = jewish_group
 			society_member_of = via_caeli
-				society_member_of = order_bitter_ashes
- 
-			religion = ashirra
+			society_member_of = order_bitter_ashes
+			religion = ashirra	
 		}
 	}
 	quality = 5
@@ -1753,9 +593,8 @@ davids_harp = {
 			religion_group = muslim
 			religion_group = jewish_group
 			society_member_of = via_caeli
-				society_member_of = order_bitter_ashes
- 
-			religion = ashirra
+			society_member_of = order_bitter_ashes
+			religion = ashirra	
 		}
 	}
 	allowed_gift = {
@@ -1764,9 +603,8 @@ davids_harp = {
 			religion_group = muslim
 			religion_group = jewish_group
 			society_member_of = via_caeli
-				society_member_of = order_bitter_ashes
- 
-			religion = ashirra
+			society_member_of = order_bitter_ashes
+			religion = ashirra	
 		}
 	}
 	quality = 5
@@ -1787,21 +625,21 @@ ark_of_the_covenant = {
 	active = { 
 		OR= {
 			religion_group = christian
+			religion_group = muslim
 			religion_group = jewish_group
 			society_member_of = via_caeli
-				society_member_of = order_bitter_ashes
- 
-			religion = ashirra			
+			society_member_of = order_bitter_ashes
+			religion = ashirra	
 		}
 	}
 	allowed_gift = {
 		OR= {
 			religion_group = christian
+			religion_group = muslim
 			religion_group = jewish_group
 			society_member_of = via_caeli
-				society_member_of = order_bitter_ashes
- 
-			religion = ashirra			
+			society_member_of = order_bitter_ashes
+			religion = ashirra	
 		}
 	}
 	quality = 5
@@ -1820,11 +658,11 @@ seal_of_solomon = {
 			religion_group = christian
 			religion_group = muslim
 			religion_group = jewish_group
-			trait = mystic
 			society_member_of = via_caeli
-				society_member_of = order_bitter_ashes
- 
-			religion = ashirra			
+			society_member_of = order_bitter_ashes
+			religion = ashirra	
+			trait = mage
+			trait = mystic
 		}
 	}
 	allowed_gift = {
@@ -1832,11 +670,11 @@ seal_of_solomon = {
 			religion_group = christian
 			religion_group = muslim
 			religion_group = jewish_group
-			trait = mystic
 			society_member_of = via_caeli
-				society_member_of = order_bitter_ashes
- 
-			religion = ashirra			
+			society_member_of = order_bitter_ashes
+			religion = ashirra	
+			trait = mage
+			trait = mystic
 		}
 	}
 	quality = 4
@@ -1852,19 +690,21 @@ tabernacle = {
 	active = { 
 		OR= {
 			religion_group = christian
+			religion_group = muslim
 			religion_group = jewish_group
 			society_member_of = via_caeli
-				society_member_of = order_bitter_ashes
- 
+			society_member_of = order_bitter_ashes
+			religion = ashirra	
 		}
 	}
 	allowed_gift = {
 		OR= {
 			religion_group = christian
+			religion_group = muslim
 			religion_group = jewish_group
 			society_member_of = via_caeli
-				society_member_of = order_bitter_ashes
-
+			society_member_of = order_bitter_ashes
+			religion = ashirra	
 		}
 	}
 	quality = 3
@@ -1880,44 +720,43 @@ davids_sling = {
 	active = { 
 		OR= {
 			religion_group = christian
+			religion_group = muslim
 			religion_group = jewish_group
 			society_member_of = via_caeli
-				society_member_of = order_bitter_ashes
-
+			society_member_of = order_bitter_ashes
+			religion = ashirra	
 		}
 	}
 	allowed_gift = {
 		OR= {
 			religion_group = christian
+			religion_group = muslim
 			religion_group = jewish_group
 			society_member_of = via_caeli
-				society_member_of = order_bitter_ashes
-
+			society_member_of = order_bitter_ashes
+			religion = ashirra	
 		}
 	}
 	quality = 2
 	flags = { religious christian combat jewish_group }
 	stacking = no
-	picture = "GFX_relic_box"
+	picture = "GFX_davids_sling"
 	slot = weapon
 }
 
-
-### Muslim ###
-
-
+###########################
+#### Muslim Artifacts #####
+###########################
 seal_of_mohammad = {
 	short_reign_length = -5
 	monthly_character_prestige = 0.5
 	same_religion_opinion = 10
 	diplomacy = 2
-	active = { 
-	OR = { religion = ashirra
-	religion_group = muslim } 
-	}
+	active = { OR = { religion = ashirra
+	religion_group = muslim } }
 	allowed_gift = {
-	OR = { religion = ashirra
-	religion_group = muslim } 
+OR = { religion = ashirra
+	religion_group = muslim }
 	}
 	quality = 5
 	flags = { religious muslim very_rare mohammad }
@@ -1934,11 +773,11 @@ holy_banner_of_mohammad = {
 	same_religion_opinion = 5
 	global_revolt_risk = -0.02
 	martial = 1
-	active = { 	OR = { religion = ashirra
-	religion_group = muslim }  }
+	active = { OR = { religion = ashirra
+	religion_group = muslim }}
 	allowed_gift = {
-	OR = { religion = ashirra
-	religion_group = muslim } 
+OR = { religion = ashirra
+	religion_group = muslim }
 	}
 	quality = 5
 	flags = { religious muslim very_rare mohammad troops_morale }
@@ -1952,11 +791,11 @@ blessed_mantle = {
 	same_religion_opinion = 5
 	global_tax_modifier = 0.1
 	diplomacy = 1
-	active = { 	OR = { religion = ashirra
-	religion_group = muslim }  }
+	active = { OR = { religion = ashirra
+	religion_group = muslim } }
 	allowed_gift = {
-	OR = { religion = ashirra
-	religion_group = muslim } 
+OR = { religion = ashirra
+	religion_group = muslim }
 	}
 	quality = 5
 	flags = { religious muslim very_rare mohammad }
@@ -1970,13 +809,13 @@ sword_of_mohammad = {
 	martial = 3
 	combat_rating = 2
 	active = { 
-	OR = { religion = ashirra
-	religion_group = muslim } 
+OR = { religion = ashirra
+	religion_group = muslim }
 		is_adult = yes
 	}
 	allowed_gift = {
-	OR = { religion = ashirra
-	religion_group = muslim } 
+OR = { religion = ashirra
+	religion_group = muslim }
 	}
 	quality = 4
 	flags = { religious muslim very_rare combat mohammad }
@@ -1989,11 +828,11 @@ blessed_sandals = {
 	monthly_character_prestige = 1
 	monthly_character_piety = 0.5
 	health = 1
-	active = { 	OR = { religion = ashirra
-	religion_group = muslim }  }
+	active = { OR = { religion = ashirra
+	religion_group = muslim } }
 	allowed_gift = {
-	OR = { religion = ashirra
-	religion_group = muslim } 
+OR = { religion = ashirra
+	religion_group = muslim }
 	}
 	quality = 4
 	flags = { religious muslim rare mohammad}
@@ -2005,11 +844,11 @@ letter_of_mohammad = {
 	monthly_character_prestige = 0.1
 	monthly_character_piety = 0.5
 	learning = 2
-	active = { 	OR = { religion = ashirra
+	active = { OR = { religion = ashirra
 	religion_group = muslim } }
 	allowed_gift = {
-	OR = { religion = ashirra
-	religion_group = muslim } 
+OR = { religion = ashirra
+	religion_group = muslim }
 	}
 	quality = 3
 	flags = { religious muslim rare mohammad}
@@ -2021,11 +860,11 @@ cloak_of_mohammad = {
 	monthly_character_prestige = 0.1
 	monthly_character_piety = 0.5
 	global_revolt_risk = -0.02
-	active = { 	OR = { religion = ashirra
-	religion_group = muslim }  }
+	active = { OR = { religion = ashirra
+	religion_group = muslim } }
 	allowed_gift = {
-	OR = { religion = ashirra
-	religion_group = muslim } 
+OR = { religion = ashirra
+	religion_group = muslim }
 	}
 	quality = 3
 	flags = { religious muslim rare mohammad}
@@ -2037,11 +876,11 @@ mohammads_bowl = {
 	monthly_character_prestige = 0.1
 	same_religion_opinion = 5
 	global_revolt_risk = -0.01
-	active = { 	OR = { religion = ashirra
-	religion_group = muslim }  }
+	active = { OR = { religion = ashirra
+	religion_group = muslim } }
 	allowed_gift = {
-	OR = { religion = ashirra
-	religion_group = muslim } 
+OR = { religion = ashirra
+	religion_group = muslim }
 	}
 	quality = 2
 	flags = { religious muslim }
@@ -2053,11 +892,11 @@ mohammads_beard = {
 	monthly_character_piety = 0.25
 	monthly_character_prestige = 0.25
 	diplomacy = 1
-	active = { 	OR = { religion = ashirra
+	active = { OR = { religion = ashirra
 	religion_group = muslim } }
 	allowed_gift = {
-	OR = { religion = ashirra
-	religion_group = muslim } 
+OR = { religion = ashirra
+	religion_group = muslim }
 	}
 	quality = 2
 	flags = { religious muslim }
@@ -2069,11 +908,11 @@ water_of_blessed_mantle = {
 	monthly_character_prestige = 0.1
 	monthly_character_piety = 0.25
 	health = 0.25
-	active = { 	OR = { religion = ashirra
-	religion_group = muslim }  }
+	active = { OR = { religion = ashirra
+	religion_group = muslim } }
 	allowed_gift = {
-	OR = { religion = ashirra
-	religion_group = muslim } 
+OR = { religion = ashirra
+	religion_group = muslim }
 	}
 	quality = 1
 	flags = { religious muslim }
@@ -2086,11 +925,11 @@ tooth_of_mohammad = {
 	command_modifier = {
 		center = 0.1
 	}
-	active = { 	OR = { religion = ashirra
-	religion_group = muslim }  }
+	active = { OR = { religion = ashirra
+	religion_group = muslim } }
 	allowed_gift = {
-	OR = { religion = ashirra
-	religion_group = muslim } 
+OR = { religion = ashirra
+	religion_group = muslim }
 	}
 	quality = 2
 	flags = { religious muslim }
@@ -2098,7 +937,9 @@ tooth_of_mohammad = {
 	picture = "GFX_pouch"
 }
 
-### Zoroastrian ###
+##############################
+#### Zoroastrian Artifacts ###
+##############################
 
 cup_of_jamshid = {
 	monthly_character_prestige = 0.1
@@ -2231,9 +1072,12 @@ keshmar_cypress_branch = {
 	picture = "GFX_branch_of_the_cypress_of_keshmar"
 }
 
-### Pagan ###
 
-#Germanic
+#############################
+###### Pagan Artifacts ######
+#############################
+
+### Germanic
 mjolnir = {
 	monthly_character_prestige = 0.5
 	martial = 3
@@ -2244,21 +1088,11 @@ mjolnir = {
 	same_religion_opinion = 5
 	quality = 5
 	active = {
-		OR = {
-			religion = norse_pagan
-			religion = norse_pagan_reformed
-			religion = einherjar
-			religion = get_of_fenris
-		}
+		religion_openly_norse_or_reformed_trigger = yes
 		is_adult = yes
 	}
 	allowed_gift = {
-		OR = {
-			religion = norse_pagan
-			religion = norse_pagan_reformed
-			religion = einherjar
-			religion = get_of_fenris
-		}
+		religion_openly_norse_or_reformed_trigger = yes
 	}
 	flags = { religious norse_pagan very_rare combat }
 	stacking = no
@@ -2275,26 +1109,18 @@ andvaranaut = {
 	health = -1
 	quality = 5
 	active = {
-		OR = {
-			religion = norse_pagan
-			religion = norse_pagan_reformed
-			religion = einherjar
-			religion = get_of_fenris
-		}
+		religion_openly_norse_or_reformed_trigger = yes
 	}
 	allowed_gift = {
-		OR = {
-			religion = norse_pagan
-			religion = norse_pagan_reformed
-			religion = einherjar
-			religion = get_of_fenris
-		}
+		religion_openly_norse_or_reformed_trigger = yes
 	}
 	flags = { religious norse_pagan very_rare ring curse }
 	stacking = no
 	picture = "GFX_bracelet_jeweled_gold"
 	
 	slot = wrist
+
+	indestructible = yes
 }
 
 gjallarhorn = {
@@ -2305,27 +1131,17 @@ gjallarhorn = {
 	}
 	quality = 3
 	active = {
-		OR = {
-			religion = norse_pagan
-			religion = norse_pagan_reformed
-			religion = einherjar
-			religion = get_of_fenris
-		}
+		religion_openly_norse_or_reformed_trigger = yes
 	}
 	allowed_gift = {
-		OR = {
-			religion = norse_pagan
-			religion = norse_pagan_reformed
-			religion = einherjar
-			religion = get_of_fenris
-		}
+		religion_openly_norse_or_reformed_trigger = yes
 	}
 	flags = { religious norse_pagan horn troops_morale }
 	stacking = no
-	picture = "GFX_relic_box_simple"
+	picture = "GFX_gjallarhorn"
 }
 
-#West African
+### West African
 fetish_of_souls = {
 	monthly_character_prestige = 0.1
 	monthly_character_piety = 0.5
@@ -2334,25 +1150,17 @@ fetish_of_souls = {
 	same_religion_opinion = 10
 	quality = 5
 	active = {
-		OR = {
-			religion = west_african_pagan
-			religion = west_african_pagan_reformed
-			religion = laibon
-		}
+		religion_openly_west_african_or_reformed_trigger = yes
 	}
 	allowed_gift = {
-		OR = {
-			religion = west_african_pagan
-			religion = west_african_pagan_reformed
-			religion = laibon
-		}
+		religion_openly_west_african_or_reformed_trigger = yes
 	}
 	flags = { religious west_african_pagan very_rare fetish wood face }
 	stacking = no
 	picture = "GFX_branch_of_the_cypress_of_keshmar"
 }
 
-#Finnish
+### Finnish
 sampo = {
 	monthly_character_prestige = 0.5
 	monthly_character_piety = 0.5
@@ -2361,25 +1169,17 @@ sampo = {
 	same_religion_opinion = 5
 	quality = 5
 	active = {
-		OR = {
-			religion = finnish_pagan
-			religion = finnish_pagan_reformed
-			religion = noiad
-		}
+		religion_openly_finnish_or_reformed_trigger = yes
 	}
 	allowed_gift = {
-		OR = {
-			religion = finnish_pagan
-			religion = finnish_pagan_reformed
-			religion = noiad
-		}
+		religion_openly_finnish_or_reformed_trigger = yes
 	}
 	flags = { religious finnish_pagan very_rare mill_of_fortune produce_gold }
 	stacking = no
-	picture = "GFX_relic_box"
+	picture = "GFX_sampo"
 }
 
-#Slavic
+### Slavic
 axe_of_perun = {
 	monthly_character_prestige = 0.5
 	martial = 2
@@ -2390,21 +1190,11 @@ axe_of_perun = {
 	same_religion_opinion = 5
 	quality = 5
 	active = {
-		OR = {
-			religion = slavic_pagan
-			#religion = slavic_pagan_reformed
-			religion = koldun
-			religion = shadow_lords
-		}
+		religion_openly_slavic_or_reformed_trigger = yes
 		is_adult = yes
 	}
 	allowed_gift = {
-		OR = {
-			religion = slavic_pagan
-			#religion = slavic_pagan_reformed
-			religion = koldun
-			religion = shadow_lords
-		}
+		religion_openly_slavic_or_reformed_trigger = yes
 	}
 	flags = { religious slavic_pagan very_rare combat axe }
 	stacking = no
@@ -2413,28 +1203,18 @@ axe_of_perun = {
 	slot = weapon
 }
 
-#Romuva
+### Romuva
 axe_of_perkunas = {
 	monthly_character_prestige = 0.5
 	martial = 5
 	same_religion_opinion = 5
 	quality = 5
 	active = {
-		OR = {
-			religion = baltic_pagan
-			religion = baltic_pagan_reformed
-			religion = koldun
-			religion = silver_fangs
-		}
+		religion_openly_baltic_or_reformed_trigger = yes
 		is_adult = yes
 	}
 	allowed_gift = {
-		OR = {
-			religion = baltic_pagan
-			religion = baltic_pagan_reformed
-			religion = koldun
-			religion = silver_fangs
-		}
+		religion_openly_baltic_or_reformed_trigger = yes
 	}
 	flags = { religious baltic_pagan very_rare combat stone axe }
 	stacking = no
@@ -2443,7 +1223,7 @@ axe_of_perkunas = {
 	slot = weapon
 }
 
-#Tengri
+### Tengri
 yada_tashy = {
 	monthly_character_prestige = 1
 	stewardship = 2
@@ -2451,27 +1231,20 @@ yada_tashy = {
 	same_religion_opinion = 10
 	quality = 5
 	active = {
-		OR = {
-			religion = tengri_pagan
-			#religion = tengri_pagan_reformed
-			religion = anda
-			religion = shadow_lords
-		}
+		religion_openly_tengri_or_reformed_trigger = yes
 	}
 	allowed_gift = {
-		OR = {
-			religion = tengri_pagan
-			#religion = tengri_pagan_reformed
-			religion = anda
-			religion = shadow_lords
-		}
+		religion_openly_tengri_or_reformed_trigger = yes
 	}
 	flags = { religious tengri_pagan very_rare }
 	stacking = no
-	picture = "GFX_pouch"
+	picture = "GFX_yada_tashy"
 }
 
-#Indian Artifacts
+
+##########################
+#### Indian Artifacts ####
+##########################
 
 buddhas_tooth = {
 	monthly_character_prestige = 0.1
@@ -2550,8 +1323,9 @@ sariraka_actual_body_part = {
 }
 
 
-
-###CROWN JEWELS###
+#########################
+###### Crown Jewels #####
+#########################
 
 #Christians & jewish sets (swords also norse)
 crown_of_majesty = {
@@ -2560,7 +1334,7 @@ crown_of_majesty = {
 	castle_opinion = 3
 	tribal_opinion = 2
 	town_opinion = 2
-	flags = { christian crown jewelry crown_jewel }
+	flags = { christian crown jewelry crown_jewel created }
 	stacking = no
 	picture = "GFX_crown_gold_fancy"
 	
@@ -2573,7 +1347,7 @@ emerald_scepter = {
 	castle_opinion = 3
 	tribal_opinion = 2
 	town_opinion = 2
-	flags = { scepter jewelry crown_jewel }
+	flags = { scepter jewelry crown_jewel created }
 	stacking = no
 	picture = "GFX_scepter_emerald"
 	
@@ -2586,7 +1360,7 @@ sword_of_heroes = {
 	tribal_opinion = 6
 	castle_opinion = 3
 	town_opinion = 2
-	flags = { sword jewelry crown_jewel }
+	flags = { sword jewelry crown_jewel created }
 	stacking = no
 	picture = "GFX_sword_of_heroes"
 	
@@ -2599,7 +1373,7 @@ crown_of_pearls = {
 	castle_opinion = 2
 	tribal_opinion = 2
 	town_opinion = 2
-	flags = { crown jewelry crown_jewel }
+	flags = { crown jewelry crown_jewel created }
 	stacking = no
 	picture = "GFX_crown_of_pearls"
 	
@@ -2612,7 +1386,7 @@ ruby_scepter = {
 	castle_opinion = 2
 	tribal_opinion = 2
 	town_opinion = 2
-	flags = { scepter jewelry crown_jewel }
+	flags = { scepter jewelry crown_jewel created }
 	stacking = no
 	picture = "GFX_sceptre_ruby"
 	
@@ -2625,7 +1399,7 @@ golden_sword = {
 	tribal_opinion = 4
 	castle_opinion = 2
 	town_opinion = 2
-	flags = { sword jewelry crown_jewel }
+	flags = { sword jewelry crown_jewel created }
 	stacking = no
 	picture = "GFX_sword_golden"
 	
@@ -2638,7 +1412,7 @@ the_lily_crown = {
 	castle_opinion = 1
 	tribal_opinion = 1
 	town_opinion = 1
-	flags = { crown jewelry crown_jewel }
+	flags = { crown jewelry crown_jewel created }
 	stacking = no
 	picture = "GFX_crown_of_lilies"
 	
@@ -2651,7 +1425,7 @@ noble_scepter = {
 	castle_opinion = 1
 	tribal_opinion = 1
 	town_opinion = 1
-	flags = { scepter jewelry crown_jewel }
+	flags = { scepter jewelry crown_jewel created }
 	stacking = no
 	picture = "GFX_royal_scepter"
 	
@@ -2664,7 +1438,7 @@ engraved_sword = {
 	tribal_opinion = 2
 	castle_opinion = 1
 	town_opinion = 1
-	flags = { scepter jewelry crown_jewel }
+	flags = { scepter jewelry crown_jewel created }
 	stacking = no
 	picture = "GFX_sword_engraved"
 	
@@ -2678,7 +1452,7 @@ dagger_of_glory = {
 	tribal_opinion = 6
 	castle_opinion = 3
 	town_opinion = 2
-	flags = { dagger jewelry crown_jewel }
+	flags = { dagger jewelry crown_jewel created }
 	stacking = no
 	picture = "GFX_inscriped_dagger"
 	
@@ -2691,7 +1465,7 @@ ruby_bracelets = {
 	castle_opinion = 3
 	tribal_opinion = 2
 	town_opinion = 2
-	flags = { bracelet jewelry crown_jewel }
+	flags = { bracelet jewelry crown_jewel created }
 	stacking = no
 	picture = "GFX_bracelet_jeweled_gold"
 	
@@ -2704,7 +1478,7 @@ bejeweled_dagger = {
 	tribal_opinion = 4
 	castle_opinion = 2
 	town_opinion = 2
-	flags = { dagger jewelry crown_jewel }
+	flags = { dagger jewelry crown_jewel created }
 	stacking = no
 	picture = "GFX_indian_dagger"
 	
@@ -2717,7 +1491,7 @@ golden_bracelets = {
 	castle_opinion = 2
 	tribal_opinion = 2
 	town_opinion = 2
-	flags = { bracelet jewelry crown_jewel }
+	flags = { bracelet jewelry crown_jewel created }
 	stacking = no
 	picture = "GFX_bracelet_gold"
 	
@@ -2730,7 +1504,7 @@ engraved_dagger = {
 	castle_opinion = 1
 	tribal_opinion = 2
 	town_opinion = 1
-	flags = { dagger jewelry crown_jewel }
+	flags = { dagger jewelry crown_jewel created }
 	stacking = no
 	picture = "GFX_simple_dagger"
 	
@@ -2743,7 +1517,7 @@ silver_bracelets = {
 	castle_opinion = 1
 	tribal_opinion = 1
 	town_opinion = 1
-	flags = { bracelet jewelry crown_jewel }
+	flags = { bracelet jewelry crown_jewel created }
 	stacking = no
 	picture = "GFX_bracelet_silver"
 	
@@ -2757,7 +1531,7 @@ celestial_necklace = {
 	castle_opinion = 3
 	tribal_opinion = 2
 	town_opinion = 2
-	flags = { necklace jewelry crown_jewel }
+	flags = { necklace jewelry crown_jewel created }
 	stacking = no
 	picture = "GFX_indian_necklace"
 	
@@ -2770,7 +1544,7 @@ necklace_of_radiance = {
 	castle_opinion = 2
 	tribal_opinion = 2
 	town_opinion = 2
-	flags = { necklace jewelry crown_jewel }
+	flags = { necklace jewelry crown_jewel created }
 	stacking = no
 	picture = "GFX_necklace_of_radiance"
 	
@@ -2783,7 +1557,7 @@ collar_of_pearls = {
 	castle_opinion = 1
 	tribal_opinion = 1
 	town_opinion = 1
-	flags = { necklace jewelry crown_jewel }
+	flags = { necklace jewelry crown_jewel created }
 	stacking = no
 	picture = "GFX_pearl_necklace"
 	
@@ -2797,7 +1571,7 @@ circlet_of_the_heavens = {
 	castle_opinion = 3
 	tribal_opinion = 2
 	town_opinion = 2
-	flags = { circlet jewelry crown_jewel }
+	flags = { circlet jewelry crown_jewel created }
 	stacking = no
 	picture = "GFX_bracelet_jeweled_silver"
 	
@@ -2810,7 +1584,7 @@ staff_of_majesty = {
 	castle_opinion = 3
 	tribal_opinion = 2
 	town_opinion = 2
-	flags = { staff jewelry crown_jewel }
+	flags = { staff jewelry crown_jewel created }
 	stacking = no
 	picture = "GFX_sceptre_ruby"
 	
@@ -2823,7 +1597,7 @@ circlet_of_the_sun = {
 	castle_opinion = 2
 	tribal_opinion = 2
 	town_opinion = 2
-	flags = { circlet jewelry crown_jewel }
+	flags = { circlet jewelry crown_jewel created }
 	stacking = no
 	picture = "GFX_bracelet_jeweled_gold"
 	
@@ -2836,7 +1610,7 @@ golden_staff = {
 	castle_opinion = 2
 	tribal_opinion = 2
 	town_opinion = 2
-	flags = { staff jewelry crown_jewel }
+	flags = { staff jewelry crown_jewel created }
 	stacking = no
 	picture = "GFX_royal_scepter"
 	
@@ -2849,7 +1623,7 @@ circlet_of_twilight = {
 	castle_opinion = 1
 	tribal_opinion = 1
 	town_opinion = 1
-	flags = { circlet jewelry crown_jewel }
+	flags = { circlet jewelry crown_jewel created }
 	stacking = no
 	picture = "GFX_bracelet_silver"
 	
@@ -2862,7 +1636,7 @@ silver_staff = {
 	castle_opinion = 1
 	tribal_opinion = 1
 	town_opinion = 1
-	flags = { staff jewelry crown_jewel }
+	flags = { staff jewelry crown_jewel created }
 	stacking = no
 	picture = "GFX_royal_scepter"
 	
@@ -2876,7 +1650,7 @@ crown_of_crows = {
 	castle_opinion = 3
 	tribal_opinion = 2
 	town_opinion = 2
-	flags = { crown jewelry crown_jewel }
+	flags = { crown jewelry crown_jewel created }
 	stacking = no
 	picture = "GFX_crown_gold"
 	
@@ -2889,7 +1663,7 @@ crown_of_the_sea = {
 	castle_opinion = 2
 	tribal_opinion = 2
 	town_opinion = 2
-	flags = { crown jewelry crown_jewel }
+	flags = { crown jewelry crown_jewel created }
 	stacking = no
 	picture = "GFX_crown_silver"
 	
@@ -2902,7 +1676,7 @@ iron_crown = {
 	castle_opinion = 1
 	tribal_opinion = 1
 	town_opinion = 1
-	flags = { crown jewelry crown_jewel }
+	flags = { crown jewelry crown_jewel created }
 	stacking = no
 	picture = "GFX_crown_silver"
 	
@@ -2918,7 +1692,7 @@ heros_crown = {
 	castle_opinion = 3
 	tribal_opinion = 2
 	town_opinion = 2
-	flags = { crown jewelry crown_jewel }
+	flags = { crown jewelry crown_jewel created }
 	stacking = no
 	picture = "GFX_crown_gold_fancy"
 	
@@ -2931,7 +1705,7 @@ axe_of_the_ancestors = {
 	tribal_opinion = 6
 	castle_opinion = 3
 	town_opinion = 2
-	flags = { axe jewelry crown_jewel }
+	flags = { axe jewelry crown_jewel created }
 	stacking = no
 	picture = "GFX_viking_axe"
 	
@@ -2944,7 +1718,7 @@ amber_crown = {
 	castle_opinion = 2
 	tribal_opinion = 2
 	town_opinion = 2
-	flags = { crown jewelry crown_jewel }
+	flags = { crown jewelry crown_jewel created }
 	stacking = no
 	picture = "GFX_crown_gold"
 	
@@ -2957,7 +1731,7 @@ obsidian_axe = {
 	tribal_opinion = 4
 	castle_opinion = 2
 	town_opinion = 2
-	flags = { axe jewelry crown_jewel }
+	flags = { axe jewelry crown_jewel created }
 	stacking = no
 	picture = "GFX_viking_axe"
 	
@@ -2970,7 +1744,7 @@ engraved_crown = {
 	castle_opinion = 1
 	tribal_opinion = 1
 	town_opinion = 1
-	flags = { crown jewelry crown_jewel }
+	flags = { crown jewelry crown_jewel created }
 	stacking = no
 	picture = "GFX_crown_silver"
 	
@@ -2983,7 +1757,7 @@ ceremonial_axe = {
 	tribal_opinion = 2
 	castle_opinion = 1
 	town_opinion = 1
-	flags = { axe jewelry crown_jewel }
+	flags = { axe jewelry crown_jewel created }
 	stacking = no
 	picture = "GFX_viking_axe"
 	
@@ -2992,7 +1766,10 @@ ceremonial_axe = {
 
 
 
-### Crafted Weapons ###
+##############################
+####### Crafted Weapons ######
+##############################
+
 # Sword
 sword_tier_1 = {
 	monthly_character_prestige = 0.25
@@ -3002,7 +1779,7 @@ sword_tier_1 = {
 	active = {
 		is_adult = yes
 	}
-	flags = { combat_weapon sword }
+	flags = { combat_weapon sword created }
 	stacking = no
 	picture = "GFX_sword"
 	slot = weapon
@@ -3016,7 +1793,7 @@ sword_tier_2 = {
 	active = {
 		is_adult = yes
 	}
-	flags = { combat_weapon sword }
+	flags = { combat_weapon sword created }
 	stacking = no
 	picture = "GFX_sword_T2"
 	slot = weapon
@@ -3030,7 +1807,7 @@ sword_tier_3_heartseeker = {
 	active = {
 		is_adult = yes
 	}
-	flags = { combat_weapon sword }
+	flags = { combat_weapon sword created }
 	stacking = no
 	picture = "GFX_sword_T3_glow_purple"
 	slot = weapon
@@ -3044,7 +1821,7 @@ sword_tier_3_vengeance = {
 	active = {
 		is_adult = yes
 	}
-	flags = { combat_weapon sword }
+	flags = { combat_weapon sword created }
 	stacking = no
 	picture = "GFX_sword_T3_glow_green"
 	slot = weapon
@@ -3058,7 +1835,7 @@ sword_tier_3_fury = {
 	active = {
 		is_adult = yes
 	}
-	flags = { combat_weapon sword }
+	flags = { combat_weapon sword created }
 	stacking = no
 	picture = "GFX_sword_T3_glow_red"
 	slot = weapon
@@ -3073,7 +1850,7 @@ scimitar_tier_1 = {
 	active = {
 		is_adult = yes
 	}
-	flags = { combat_weapon sword }
+	flags = { combat_weapon sword created }
 	stacking = no
 	picture = "GFX_scimitar_T1"
 	slot = weapon
@@ -3087,7 +1864,7 @@ scimitar_tier_2 = {
 	active = {
 		is_adult = yes
 	}
-	flags = { combat_weapon sword }
+	flags = { combat_weapon sword created }
 	stacking = no
 	picture = "GFX_scimitar_T2"
 	slot = weapon
@@ -3101,7 +1878,7 @@ scimitar_tier_3_golden = {
 	active = {
 		is_adult = yes
 	}
-	flags = { combat_weapon sword }
+	flags = { combat_weapon sword created }
 	stacking = no
 	picture = "GFX_the_golden_scimitar"
 	slot = weapon
@@ -3115,7 +1892,7 @@ scimitar_tier_3_fortune = {
 	active = {
 		is_adult = yes
 	}
-	flags = { combat_weapon sword }
+	flags = { combat_weapon sword created }
 	stacking = no
 	picture = "GFX_scimitar_T3"
 	slot = weapon
@@ -3129,7 +1906,7 @@ scimitar_tier_3_conquest = {
 	active = {
 		is_adult = yes
 	}
-	flags = { combat_weapon sword }
+	flags = { combat_weapon sword created }
 	stacking = no
 	picture = "GFX_sword_muslim"
 	slot = weapon
@@ -3144,7 +1921,7 @@ lance_tier_1 = {
 	active = {
 		is_adult = yes
 	}
-	flags = { combat_weapon lance }
+	flags = { combat_weapon lance created }
 	stacking = no
 	picture = "GFX_lance"
 	slot = weapon
@@ -3161,7 +1938,7 @@ lance_tier_2 = {
 	active = {
 		is_adult = yes
 	}
-	flags = { combat_weapon lance }
+	flags = { combat_weapon lance created }
 	stacking = no
 	picture = "GFX_twohanded_lance"
 	slot = weapon
@@ -3178,7 +1955,7 @@ lance_tier_3_impaler = {
 	active = {
 		is_adult = yes
 	}
-	flags = { combat_weapon lance }
+	flags = { combat_weapon lance created }
 	stacking = no
 	picture = "GFX_the_impaler"
 	slot = weapon
@@ -3195,7 +1972,7 @@ lance_tier_3_trident = {
 	active = {
 		is_adult = yes
 	}
-	flags = { combat_weapon lance }
+	flags = { combat_weapon lance created }
 	stacking = no
 	picture = "GFX_the_trident"
 	slot = weapon
@@ -3212,7 +1989,7 @@ lance_tier_3_piercer = {
 	active = {
 		is_adult = yes
 	}
-	flags = { combat_weapon lance }
+	flags = { combat_weapon lance created }
 	stacking = no
 	picture = "GFX_the_piercer"
 	slot = weapon
@@ -3227,7 +2004,7 @@ axe_tier_1 = {
 	active = {
 		is_adult = yes
 	}
-	flags = { combat_weapon axe }
+	flags = { combat_weapon axe created }
 	stacking = no
 	picture = "GFX_axe_tier_1"
 	slot = weapon
@@ -3244,7 +2021,7 @@ axe_tier_2 = {
 	active = {
 		is_adult = yes
 	}
-	flags = { combat_weapon axe }
+	flags = { combat_weapon axe created }
 	stacking = no
 	picture = "GFX_viking_axe"
 	slot = weapon
@@ -3261,7 +2038,7 @@ axe_tier_3_cleaver = {
 	active = {
 		is_adult = yes
 	}
-	flags = { combat_weapon axe }
+	flags = { combat_weapon axe created }
 	stacking = no
 	picture = "GFX_cleaver"
 	slot = weapon
@@ -3278,7 +2055,7 @@ axe_tier_3_ravager = {
 	active = {
 		is_adult = yes
 	}
-	flags = { combat_weapon axe }
+	flags = { combat_weapon axe created }
 	stacking = no
 	picture = "GFX_ravager"
 	slot = weapon
@@ -3295,7 +2072,7 @@ axe_tier_3_marauder = {
 	active = {
 		is_adult = yes
 	}
-	flags = { combat_weapon axe }
+	flags = { combat_weapon axe created }
 	stacking = no
 	picture = "GFX_marauder"
 	slot = weapon
@@ -3310,7 +2087,7 @@ mace_tier_1 = {
 	active = {
 		is_adult = yes
 	}
-	flags = { combat_weapon mace }
+	flags = { combat_weapon mace created }
 	stacking = no
 	picture = "GFX_mace_tier_1"
 	slot = weapon
@@ -3327,7 +2104,7 @@ mace_tier_2 = {
 	active = {
 		is_adult = yes
 	}
-	flags = { combat_weapon mace }
+	flags = { combat_weapon mace created }
 	stacking = no
 	picture = "GFX_mace"
 	slot = weapon
@@ -3344,7 +2121,7 @@ mace_tier_3_foe_hammer = {
 	active = {
 		is_adult = yes
 	}
-	flags = { combat_weapon mace }
+	flags = { combat_weapon mace created }
 	stacking = no
 	picture = "GFX_the_foe_hammer"
 	slot = weapon
@@ -3361,7 +2138,7 @@ mace_tier_3_bone_breaker = {
 	active = {
 		is_adult = yes
 	}
-	flags = { combat_weapon mace }
+	flags = { combat_weapon mace created }
 	stacking = no
 	picture = "GFX_the_bone_breaker"
 	slot = weapon
@@ -3378,7 +2155,7 @@ mace_tier_3_shatterer = {
 	active = {
 		is_adult = yes
 	}
-	flags = { combat_weapon mace }
+	flags = { combat_weapon mace created }
 	stacking = no
 	picture = "GFX_the_shatterer"
 	slot = weapon
@@ -3392,7 +2169,7 @@ bow_tier_1 = {
 	active = {
 		is_adult = yes
 	}
-	flags = { combat_weapon bow }
+	flags = { combat_weapon bow created }
 	stacking = no
 	picture = "GFX_self_bow_t1"
 	slot = weapon
@@ -3408,7 +2185,7 @@ bow_tier_2 = {
 	active = {
 		is_adult = yes
 	}
-	flags = { combat_weapon bow }
+	flags = { combat_weapon bow created }
 	stacking = no
 	picture = "GFX_recurve_bow"
 	slot = weapon
@@ -3424,7 +2201,7 @@ bow_tier_3_silent_wind = {
 	active = {
 		is_adult = yes
 	}
-	flags = { combat_weapon bow }
+	flags = { combat_weapon bow created }
 	stacking = no
 	picture = "GFX_silent_wind"
 	slot = weapon
@@ -3440,7 +2217,7 @@ bow_tier_3_lightning = {
 	active = {
 		is_adult = yes
 	}
-	flags = { combat_weapon bow }
+	flags = { combat_weapon bow created }
 	stacking = no
 	picture = "GFX_lightning"
 	slot = weapon
@@ -3456,13 +2233,16 @@ bow_tier_3_eagle = {
 	active = {
 		is_adult = yes
 	}
-	flags = { combat_weapon bow }
+	flags = { combat_weapon bow created }
 	stacking = no
 	picture = "GFX_eagle"
 	slot = weapon
 }
 
-#paintings
+
+##########################
+####### Paintings ########
+##########################
 
 magnificent_painting = {
 	monthly_character_prestige = 0.25
@@ -3482,7 +2262,10 @@ avant_garde_painting = {
 }
 
 
-###Hermetic ingredients###
+
+###############################
+##### Hermetic Ingredients ####
+###############################
 ingredient_herb1 = {
 	quality = 1
 	allowed_gift = {
@@ -3726,7 +2509,10 @@ ingredient_metal_exotic9 = {
 	picture = "GFX_pouch_of_ingredients"
 }
 
-###HERMETIC TEXTS###
+
+##################################
+#### Hermetic Texts (DLC: M&M) ###
+##################################
 
 emerald_tablet = {
 	learning = 2
@@ -3734,9 +2520,9 @@ emerald_tablet = {
 	quality = 4
 	active = {
 		OR = {
-			AND = {
-				society_member_of = hermetics 
-				society_rank >= 3
+			society_rank = {
+				society = hermetics
+				rank >= 3
 			}
 			learning = 20
 		}
@@ -3749,7 +2535,10 @@ emerald_tablet = {
 	picture = "GFX_emerald_tablet"
 }
 
-###HERMETIC INVENTIONS###
+#########################################
+##### Hermetic Inventions (DLC: M&M) ####
+#########################################
+
 hermetic_handgun = {
 	learning = 1
 	combat_rating = 2
@@ -3763,7 +2552,7 @@ hermetic_handgun = {
 		}
 	}
 	flags = { hermetics invention }
-	picture = "GFX_relicbox_iron"
+	picture = "GFX_handgun"
 	slot = weapon
 }
 
@@ -3779,7 +2568,7 @@ hermetic_compass = {
 		}
 	}
 	flags = { hermetics invention }
-	picture = "GFX_relic_box_simple"
+	picture = "GFX_compass"
 	stacking = no
 }
 
@@ -3845,16 +2634,388 @@ hermetic_glasses = {
 	stacking = no
 }
 
-################
-#Misc artifacts#
-################
 
-rival_skull = {
+#########################################
+## DLC: Jade Dragon: Chinese Artifacts ##
+#########################################
+
+jade_dragon = {
+	monthly_character_prestige = 1
+	global_tax_modifier = 0.1
+	diplomacy = 2
+	quality = 5
+	flags = { chinese statue rare }
+	picture = "GFX_jade_dragon"
+	stacking = no
+}
+chinese_dragon_amulet = {
+	monthly_character_prestige = 0.75
+	vassal_opinion = 5
+	stewardship = 1
+	build_cost_modifier = -0.1
+	quality = 4
+	flags = { chinese necklace jewelry }
+	picture = "GFX_dragon_amulet"
+	stacking = no
+	slot = neck
+}
+chinese_artwork = {
+	monthly_character_prestige = 0.35
+	monthly_character_piety = 0.1
+	quality = 2
+	flags = { chinese art decor }
+	picture = "GFX_chinese_artwork"
+	stacking = no
+}
+chinese_calligraphy = {
+	monthly_character_prestige = 0.35
+	town_opinion = 2
+	quality = 2
+	flags = { chinese art decor }
+	picture = "GFX_chinese_calligraphy"
+	stacking = no
+}
+chinese_sculpture = {
+	monthly_character_prestige = 0.35
+	build_time_modifier = -0.05
+	quality = 2
+	flags = { chinese sculpture decor }
+	picture = "GFX_chinese_sculpture"
+	stacking = no
+}
+chinese_ceremonial_robes = {
+	quality = 3
+	monthly_character_prestige = 0.5
+	diplomacy = 1
+	active = {
+		is_adult = yes
+	}
+	flags = { chinese clothing }
+	picture = "GFX_chinese_robe"
+	stacking = no
+	slot = ceremonial_torso
+}
+silk_shroud = {
+	quality = 3
+	monthly_character_prestige = 0.6
+	intrigue = 2
+	active = {
+		is_adult = yes
+	}
+	flags = { chinese textile clothing }
+	picture = "GFX_silk_shroud"
+	stacking = no
+	slot = ceremonial_torso
+}
+water_clock = {
+	quality = 4
+	monthly_character_piety = 0.5
+	learning = 2
+	flags = { chinese clock }
+	picture = "GFX_water_clock"
+	stacking = no
+}
+jian_sword = {
+	quality = 4
+	monthly_character_prestige = 1
+	martial = 3
+	combat_rating = 3
+	active = {
+		is_adult = yes
+	}
+	flags = { chinese sword }
+	stacking = no
+	picture = "GFX_jian_sword"
+	slot = weapon
+}
+chinese_prev_emperor_sculpture = {
+	monthly_character_prestige = 0.15
 	quality = 1
-	monthly_character_prestige = 0.05
+	flags = { chinese sculpture decor }
+	picture = "GFX_small_chinese_figurine"
+	#stacking = no
+}
+chinese_arm_protector = {
+	quality = 2
+	monthly_character_prestige = 0.4
+	sex_appeal_opinion = 10
+	flags = { chinese bracelet }
+	stacking = no
+	picture = "GFX_chinese_arm_protector"
+	
+	slot = wrist
+}
+chinese_serpent_spear = {
+	monthly_character_prestige = 0.4
+	martial = 2
+	combat_rating = 1
+	command_modifier = {
+		cavalry = 0.025
+		heavy_infantry = 0.025
+	}
+	quality = 2
+	active = {
+		is_adult = yes
+	}
+	flags = { chinese combat_weapon lance }
+	stacking = no
+	picture = "GFX_serpent_spear"
+	slot = weapon
+}
+chinese_ji = {
+	monthly_character_prestige = 0.65
+	martial = 3
+	combat_rating = 1
+	command_modifier = {
+		cavalry = 0.05
+		heavy_infantry = 0.05
+	}
+	quality = 3
+	active = {
+		is_adult = yes
+	}
+	flags = { chinese combat_weapon lance }
+	stacking = no
+	picture = "GFX_ji"
+	slot = weapon
+}
+chinese_crossbow = {
+	monthly_character_prestige = 0.25
+	martial = 2
+	combat_rating = 1
+	defensive_plot_power_modifier = 0.15
+	command_modifier = {
+		light_infantry = 0.10
+	}
+	quality = 3
+	active = {
+		is_adult = yes
+	}
+	flags = { chinese combat_weapon crossbow ranged_weapon }
+	stacking = no
+	picture = "GFX_relic_box_simple"
+	slot = weapon
+}
+chinese_bronze_sculpture = {
+	monthly_character_prestige = 0.1
+	stewardship = 1
+	quality = 3
+	flags = { chinese art decor }
+	picture = "GFX_chinese_bronze_statue"
+	stacking = no
+}
+chinese_painting_of_glitterhoof = {
+	quality = 1
+	monthly_character_prestige = 0.1
+	monthly_character_piety = 0.1
+	flags = { chinese art decor }
+	picture = "GFX_painting_of_shanguang_ti"
+	stacking = no
+}
+chinese_tapestry = {
+	monthly_character_prestige = 0.1
+	build_cost_modifier = -0.02
+	quality = 2
+	flags = { chinese art decor }
+	picture = "GFX_chinese_tapestry"
+	stacking = no
+}
+chinese_tapestry_grand = {
+	monthly_character_prestige = 0.3
+	short_reign_length = -2
+	quality = 3
+	flags = { chinese art decor }
+	picture = "GFX_chinese_tapestry"
+	stacking = no
+}
+
+
+################
+##### Armor ####
+################
+armor_tier_1 = {
+	monthly_character_prestige = 0.25
+	martial = 1
+	combat_rating = 1
+	quality = 1
+	active = {
+		is_adult = yes
+	}
+	flags = { armor_set armor created }
+	stacking = no
+	picture = "GFX_chain_mail"
+	slot = torso
+}
+armor_tier_2 = {
+	monthly_character_prestige = 0.5
+	martial = 1
+	combat_rating = 1
+	command_modifier = { morale_offence = 0.05 }
+	quality = 2
+	active = {
+		is_adult = yes
+	}
+	flags = { armor_set armor created }
+	stacking = no
+	picture = "GFX_splint_mail"
+	slot = torso
+}
+armor_tier_3_guardian = {
+	monthly_character_prestige = 0.75
+	martial = 1
+	combat_rating = 2
+	command_modifier = { morale_offence = 0.1 }
+	quality = 3
+	active = {
+		is_adult = yes
+	}
+	flags = { armor_set armor created }
+	stacking = no
+	picture = "GFX_guardian_armor"
+	slot = torso
+}
+armor_tier_3_champion = {
+	monthly_character_prestige = 0.75
+	martial = 1
+	combat_rating = 2
+	command_modifier = { morale_offence = 0.1 }
+	quality = 3
+	active = {
+		is_adult = yes
+	}
+	flags = { armor_set armor created }
+	stacking = no
+	picture = "GFX_champion_armor"
+	slot = torso
+}
+armor_tier_3_warden = {
+	monthly_character_prestige = 0.75
+	martial = 1
+	combat_rating = 2
+	command_modifier = { morale_offence = 0.1 }
+	quality = 3
+	active = {
+		is_adult = yes
+	}
+	flags = { armor_set armor created }
+	stacking = no
+	picture = "GFX_warden_armor"
+	slot = torso
+}
+
+horse_armor_tier_1 = {
+	monthly_character_prestige = 0.25
+	martial = 1
+	combat_rating = 1
+	quality = 1
+	active = {
+		culture = horse
+	}
+	flags = { horse_armor armor created }
+	stacking = no
+	picture = "GFX_horse_armor_T1"
+	slot = torso
+}
+horse_armor_tier_2 = {
+	monthly_character_prestige = 0.5
+	martial = 1
+	combat_rating = 1
+	command_modifier = { cavalry = 0.05 }
+	quality = 2
+	active = {
+		culture = horse
+	}
+	flags = { horse_armor armor created }
+	stacking = no
+	picture = "GFX_horse_armor_T2"
+	slot = torso
+}
+horse_armor_tier_3_golden_stallion = {
+	monthly_character_prestige = 0.75
+	martial = 1
+	combat_rating = 2
+	command_modifier = { cavalry = 0.1 }
+	quality = 3
+	active = {
+		is_female = no
+		culture = horse
+	}
+	flags = { horse_armor armor created }
+	stacking = no
+	picture = "GFX_horse_armor_T3_glow_blue"
+	slot = torso
+}
+horse_armor_tier_3_gilded_mare = {
+	monthly_character_prestige = 0.75
+	martial = 1
+	combat_rating = 2
+	command_modifier = { cavalry = 0.1 }
+	quality = 3
+	active = {
+		is_female = yes
+		culture = horse
+	}
+	flags = { horse_armor armor created }
+	stacking = no
+	picture = "GFX_horse_armor_T3_glow_green"
+	slot = torso
+}
+horse_armor_tier_3_ornate_steed = {
+	monthly_character_prestige = 0.75
+	martial = 1
+	combat_rating = 2
+	command_modifier = { cavalry = 0.1 }
+	quality = 3
+	active = {
+		culture = horse
+	}
+	flags = { horse_armor armor created }
+	stacking = no
+	picture = "GFX_horse_armor_T3_glow_red"
+	slot = torso
+}
+
+################################
+## Prosthetics (DLC: Reapers) ##
+################################
+prosthetic_hand_gold = {
+	sex_appeal_opinion = 5
+	monthly_character_prestige = 0.1
+	quality = 2
+	active = {
+		trait = one_handed
+	}
+	stacking = no
 	allowed_gift = {
 		always = no
 	}
-	flags = { trophy skull }
-	picture = "GFX_saints_skull"
+	picture = "GFX_prosthetic_hand_gold"
+}
+prosthetic_hand_metal = {
+	combat_rating = 2
+	quality = 2
+	active = {
+		trait = one_handed
+		NOT = {
+			has_artifact = prosthetic_hand_gold
+		}
+	}
+	stacking = no
+	allowed_gift = {
+		always = no
+	}
+	picture = "GFX_prosthetic_hand_metal"
+}
+prosthetic_leg_artifact = {
+	combat_rating = 3
+	sex_appeal_opinion = 10
+	quality = 2
+	active = {
+		trait = one_legged
+	}
+	stacking = no
+	allowed_gift = {
+		always = no
+	}
+	picture = "GFX_prosthetic_leg"
 }

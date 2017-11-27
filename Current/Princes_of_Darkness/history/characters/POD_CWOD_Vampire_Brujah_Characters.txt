@@ -43,7 +43,7 @@
 505016 = {
 	name = "Troile"
 	culture = "maghreb_arabic"
-	religion = "vampire_high_clans"
+	religion = "brujah_high"
 	trait = "antediluvian"
 	trait = "brujah"
 	trait = "animalism_5"
@@ -97,11 +97,11 @@
 	}
 	1499.1.1 = {
 		remove_trait = "bookmark1355"
-		add_trait = "bookmark1500"
-	}		
-	1505.1.1 = {
-		remove_trait = "bookmark1500"
 		add_trait = "bookmark1505"
+	}		
+	1506.1.1 = {
+		remove_trait = "bookmark1505"
+		add_trait = "bookmark1506"
 	}
 	1999.1.1 = {
 		death = yes
@@ -173,11 +173,14 @@
 		remove_trait = "elder"
 		add_trait = "ancient"	
 		remove_trait = "bookmark1355"
-		add_trait = "bookmark1500"
-	}		
-	1505.1.1 = {
-		remove_trait = "bookmark1500"
 		add_trait = "bookmark1505"
+		religion = "inconnu"
+		effect = { clear_secret_religion = yes }
+		effect = { leave_society = yes }
+	}		
+	1506.1.1 = {
+		remove_trait = "bookmark1505"
+		add_trait = "bookmark1506"
 		}		
 
 	1999.1.1 = {
@@ -185,6 +188,154 @@
 		}
 
 }
+
+605102 = {
+	name = "Losario"
+	culture = "roman"
+	religion = "brujah_high"
+	trait = "antediluvian"
+	trait = "brujah"
+	trait = "celerity_5"
+	trait = "majesty_5"	
+	trait = "vigor_5"
+	trait = "bloodpotency_8"
+	trait = "vampgeneration4"
+	trait = "tough_soldier"
+	trait = "aggressive_leader"
+	father = 505016
+	dynasty = 3500019
+	trait = "canon" 
+	female = no
+	employer = 9999999
+	
+	130.1.1 = {
+		birth = 130.1.1
+		}
+		
+	160.1.1 = {
+		add_trait = vampire
+		add_trait = wyrm_taint
+		}
+		
+	766.1.1 = {
+		add_trait = "bookmark767"
+		}
+		
+	989.1.1 = {
+		remove_trait = "bookmark767"
+		add_trait = "bookmark990"
+		}
+
+	1100.1.1 = {
+		add_trait = "torpor"
+		}	
+
+	1229.1.1 = {
+		remove_trait = "bookmark990"
+		add_trait = "bookmark1230"
+	}		
+	1354.1.1 = {
+		remove_trait = "bookmark1230"
+		add_trait = "bookmark1355"
+	}
+	1499.1.1 = {
+		remove_trait = "bookmark1355"
+		add_trait = "bookmark1505"
+	}		
+	1506.1.1 = {
+		remove_trait = "bookmark1505"
+		add_trait = "bookmark1506"
+	}
+	1999.1.1 = {
+		death = yes
+		}		
+}
+
+605103 = {
+	name = "Adana di Sforza"
+	culture = "italian"
+	trait = "brilliant_strategist"
+	father = 605102
+	dynasty = 3500019
+	trait = "quick"
+	trait = "canon" 
+	female = yes
+	diplomacy = 7
+	intrigue = 7
+	martial = 7
+	learning = 6	
+	trait = "fair"
+	
+	1066.1.1 = {
+		birth = 1066.1.1
+		}
+		
+	1093.4.15 = {
+		add_trait = vampire
+		add_trait = wyrm_taint
+		add_trait = brujah
+		religion = brujah_high
+		add_trait = "vigor_3"
+		add_trait = "bloodpotency_1"
+		add_trait = "vampgeneration5"
+		add_trait = "neonate"
+		add_trait = "homosexual"
+		add_trait = "strategist"
+		add_trait = "shrewd"
+		add_trait = "experimenter"
+		add_trait = "adventurer"
+		add_trait = "erudite"
+	}
+
+	1229.1.1 = {
+		add_trait = "ancilla"
+		remove_trait = "neonate"
+		add_trait = "bloodpotency_3"
+		remove_trait = "bloodpotency_3"
+		remove_trait = "bookmark990"
+		add_trait = "bookmark1230"
+		add_trait = "vigor_4"
+		remove_trait = "vigor_3"
+		add_trait = "celerity_3"
+	}		
+	
+	1354.1.1 = {
+		remove_trait = "bookmark1230"
+		add_trait = "bookmark1355"
+		add_trait = "elder"
+		add_trait = "majesty_3"
+		add_trait = "dominate_2"
+		add_trait = "resilience_3"
+	}
+	
+	1499.1.1 = {
+		remove_trait = "bookmark1355"
+		add_trait = "bookmark1505"
+		add_trait = "vigor_5"
+		remove_trait = "resilience_3"
+		add_trait = "resilience_4"
+		add_trait = "obfuscate_2"
+		remove_trait = "dominate_2"
+		add_trait = "dominate_3"
+		remove_trait = "celerity_3"
+		add_trait = "celerity_4"
+		remove_trait = "majesty_3"
+		add_trait = "majesty_4"
+		add_trait = "protean_4"
+		religion = "brujahcamarilla"
+		give_nickname=nick_founder_of_the_camarilla
+	}		
+	
+	1506.1.1 = {
+		remove_trait = "bookmark1505"
+		add_trait = "bookmark1506"
+	}
+	
+	1999.1.1 = {
+		death = yes
+		}		
+}
+
 
 710401 = {
 
@@ -250,14 +401,19 @@
 	1354.1.1 = {
 		remove_trait = "bookmark1230"
 		add_trait = "bookmark1355"
+		add_trait = "torpor"
 		}
 	1499.1.1 = {
+		remove_trait = "torpor"
 		remove_trait = "bookmark1355"
-		add_trait = "bookmark1500"
-		}		
-	1505.1.1 = {
-		remove_trait = "bookmark1500"
 		add_trait = "bookmark1505"
+		effect = { leave_society = yes }
+		effect = { join_society = "path_of_humanity" }
+		}		
+	1506.1.1 = {
+		add_trait = "torpor"
+		remove_trait = "bookmark1505"
+		add_trait = "bookmark1506"
 		}
 	1999.1.1 = {
 		death = yes
@@ -333,11 +489,11 @@
 		#}
 	1499.1.1 = {
 		remove_trait = "bookmark1355"
-		add_trait = "bookmark1500"
-		}		
-	1505.1.1 = {
-		remove_trait = "bookmark1500"
 		add_trait = "bookmark1505"
+		}		
+	1506.1.1 = {
+		remove_trait = "bookmark1505"
+		add_trait = "bookmark1506"
 		}
 	1999.1.1 = {
 		death = yes
@@ -377,7 +533,7 @@
 		trait = "diligent"
 		trait = "temperate"
 		trait = "shy"
-		trait = "coward"
+		trait = "craven"
 		trait = "patient"
 		trait = "organizer"
 		trait = "narrow_flank_leader"
@@ -418,11 +574,11 @@
 		#}
 	1499.1.1 = {
 		remove_trait = "bookmark1355"
-		add_trait = "bookmark1500"
-		}		
-	1505.1.1 = {
-		remove_trait = "bookmark1500"
 		add_trait = "bookmark1505"
+		}		
+	1506.1.1 = {
+		remove_trait = "bookmark1505"
+		add_trait = "bookmark1506"
 		}
 	1999.1.1 = {
 		death = yes

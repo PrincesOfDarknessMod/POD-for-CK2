@@ -4,13 +4,17 @@ namespace = CWOD_setup_noble
 character_event = {
 	id = CWOD_setup_noble.1
 	hide_window = yes
-	is_triggered_only = yes
 	only_rulers = yes
 	ai = yes
 	
 	trigger = {
 		ai = yes
-		is_landed = yes
+		OR = {
+			is_ruler = yes
+			 mercenary = yes 
+			 holy_order = yes 
+			 rebel = yes 
+			}		
 		NOT = {	trait = POD_vampire_RD_immortal_fix }
 		NOT = { trait = mortal }
 		NOT = { trait = vampire }
@@ -55,7 +59,14 @@ character_event = {
 	
 	}
 	
-		
+
+	mean_time_to_happen = {
+		days = 1
+		modifier = {
+		factor = 0.1 
+		}		
+	}
+	
 	immediate = {
 
 		set_character_flag = FLAG_POD_SETUP_NOBLE_FIRED
@@ -64,82 +75,24 @@ character_event = {
 			reverse_religion = ROOT
 			reverse_culture = ROOT
 		}		
-		
-## setup Indian caste
-		if = {
-			limit = {
-				ROOT = {
-					capital_holding = { holding_type = temple	}
-				}
-				OR = { 
-					culture = bengali
-					culture = oriya
-					culture = assamese
-					culture = hindustani
-					culture = gujurati
-					culture = panjabi
-					culture = rajput
-					culture = sindhi
-					culture = marathi
-					culture = sinhala
-					culture = tamil
-					culture = telugu
-					culture = kannada 
-				}
-			}
-			add_trait = brahmin
-		}	
-		if = { 
-			limit = { 
-				OR = {
-					ROOT = { capital_holding = { holding_type = castle } } 
-					mercenary = yes
-					holy_order = yes
-					is_patrician = yes 
-				}
-				OR = { 
-					culture = bengali
-					culture = oriya
-					culture = assamese
-					culture = hindustani
-					culture = gujurati
-					culture = panjabi
-					culture = rajput
-					culture = sindhi
-					culture = marathi
-					culture = sinhala
-					culture = tamil
-					culture = telugu
-					culture = kannada 
-				}												 
-			}											
-			add_trait = kshatriya
-		}	
-		if = {
-			limit = {
-				OR = {
-					ROOT = { capital_holding = { holding_type = city } }
-					is_patrician = yes																		
-				}
-				OR = { 	
-					culture = bengali
-					culture = oriya
-					culture = assamese
-					culture = hindustani
-					culture = gujurati
-					culture = panjabi
-					culture = rajput
-					culture = sindhi
-					culture = marathi
-					culture = sinhala
-					culture = tamil
-					culture = telugu
-					culture = kannada 
-				}												 
-			}											
-			add_trait = vaishya
-		}	
 
+# get a new dynasty names
+			if = { limit = { ai = yes }
+						create_character = {
+							random_traits = yes
+							age = 30
+							dynasty = actually_culture
+							culture = ROOT
+							religion = ROOT
+						}
+						
+						new_character = {
+								ROOT = { dynasty = PREV }
+								death = "yes"	
+						}				
+					}
+					
+					
 		if = {
 			limit = {
 				is_adult = yes
@@ -385,7 +338,7 @@ character_event = {
 			}
 			# make demon ruler
 			add_trait = demon
-			
+			add_trait = wyrm_taint
 			set_government_type = unaligned_government
 			character_event = { id = demon_noble.1 }
 		}
@@ -462,7 +415,7 @@ character_event = {
 # they won't last long!
 		if = {
 			limit = {
-				is_landed = yes
+				is_ruler = yes
 				is_adult = yes
 				NOT = {	trait = POD_vampire_RD_immortal_fix }
 				NOT = { trait = vampire }

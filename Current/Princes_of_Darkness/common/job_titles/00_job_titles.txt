@@ -6,7 +6,9 @@
 #	viceroy: This is the Viceroy title for de jure Kingdoms
 #	allow: conditions for the character to hold the title
 #	gain_effect: fires when the title is granted
-#	lose_effect: fires when a title is lost if dismissal_trigger evaluates to false
+#	lose_effect: fires when a title is lost through most causes
+#	retire_effect: fires when a title is lost due to the character stepping down
+#	death_effect: fires when a title is lost due to the character dying
 #	The other fields are all character modifiers.
 
 job_chancellor = {
@@ -20,8 +22,9 @@ job_chancellor = {
 	monthly_prestige = 0.75
 	
 	allow = {
-		NOT = { trait = torpor }
 		can_be_chancellor_trigger = yes
+		NOT = { trait = torpor }
+		NOT = { trait = wight }
 	}
 	dismiss_trigger = {
 		FROM = {
@@ -31,15 +34,45 @@ job_chancellor = {
 					ROOT = { is_powerful_vassal = yes }
 				}
 			}
+			conditional_tooltip = {
+				trigger = {
+					has_character_flag = swapping_councillors
+				}
+				custom_tooltip = {
+					text = not_swapping_tt
+					hidden_tooltip = {
+						NOT = {
+							has_character_flag = swapping_councillors
+						}
+					}
+				}
+			}
 		}
 	}
 	gain_effect = {
 	}
 	lose_effect = {
-		opinion = { who = FROM modifier = opinion_fired_from_council }
-		opinion = { who = FROM modifier = opinion_recently_fired }
+		if = {
+			limit = {
+				FROM = {
+					NOT = {
+						has_character_flag = swapping_councillors
+					}
+				}
+			}
+			opinion = { who = FROM modifier = opinion_fired_from_council }
+			opinion = { who = FROM modifier = opinion_recently_fired }
+		}
+		if = {
+			limit = { has_character_flag = relic_hunter }
+			character_event = { id = MNM.9034 }
+		}
 	}
 	retire_effect = {
+		if = {
+			limit = { has_character_flag = relic_hunter }
+			character_event = { id = MNM.9034 }
+		}
 	}
 	
 	action = action_statecraft
@@ -62,8 +95,9 @@ job_marshal = {
 	monthly_prestige = 0.75
 	
 	allow = {
-		NOT = { trait = torpor }
 		can_be_marshal_trigger = yes
+		NOT = { trait = torpor }
+		NOT = { trait = wight }		
 	}
 	dismiss_trigger = {
 		FROM = {
@@ -73,15 +107,45 @@ job_marshal = {
 					ROOT = { is_powerful_vassal = yes }
 				}
 			}
+			conditional_tooltip = {
+				trigger = {
+					has_character_flag = swapping_councillors
+				}
+				custom_tooltip = {
+					text = not_swapping_tt
+					hidden_tooltip = {
+						NOT = {
+							has_character_flag = swapping_councillors
+						}
+					}
+				}
+			}
 		}
 	}
 	gain_effect = {
 	}
 	lose_effect = {
-		opinion = { who = FROM modifier = opinion_fired_from_council }
-		opinion = { who = FROM modifier = opinion_recently_fired }
+		if = {
+			limit = {
+				FROM = {
+					NOT = {
+						has_character_flag = swapping_councillors
+					}
+				}
+			}
+			opinion = { who = FROM modifier = opinion_fired_from_council }
+			opinion = { who = FROM modifier = opinion_recently_fired }
+		}
+		if = {
+			limit = { has_character_flag = relic_hunter }
+			character_event = { id = MNM.9034 }
+		}
 	}
 	retire_effect = {
+		if = {
+			limit = { has_character_flag = relic_hunter }
+			character_event = { id = MNM.9034 }
+		}
 	}
 	
 	action = action_organize_army
@@ -105,8 +169,9 @@ job_treasurer = {
 	monthly_prestige = 0.75
 	
 	allow = {
-		NOT = { trait = torpor }
 		can_be_treasurer_trigger = yes
+		NOT = { trait = torpor }
+		NOT = { trait = wight }		
 	}
 	dismiss_trigger = {
 		FROM = {
@@ -116,15 +181,45 @@ job_treasurer = {
 					ROOT = { is_powerful_vassal = yes }
 				}
 			}
+			conditional_tooltip = {
+				trigger = {
+					has_character_flag = swapping_councillors
+				}
+				custom_tooltip = {
+					text = not_swapping_tt
+					hidden_tooltip = {
+						NOT = {
+							has_character_flag = swapping_councillors
+						}
+					}
+				}
+			}
 		}
 	}
 	gain_effect = {
 	}
 	lose_effect = {
-		opinion = { who = FROM modifier = opinion_fired_from_council }
-		opinion = { who = FROM modifier = opinion_recently_fired }
+		if = {
+			limit = {
+				FROM = {
+					NOT = {
+						has_character_flag = swapping_councillors
+					}
+				}
+			}
+			opinion = { who = FROM modifier = opinion_fired_from_council }
+			opinion = { who = FROM modifier = opinion_recently_fired }
+		}
+		if = {
+			limit = { has_character_flag = relic_hunter }
+			character_event = { id = MNM.9034 }
+		}
 	}
 	retire_effect = {
+		if = {
+			limit = { has_character_flag = relic_hunter }
+			character_event = { id = MNM.9034 }
+		}
 	}
 	
 	action = action_administer_realm
@@ -148,8 +243,9 @@ job_spymaster = {
 	monthly_salary = 0.1
 	
 	allow = {
-		NOT = { trait = torpor }
 		can_be_spymaster_trigger = yes
+		NOT = { trait = torpor }
+		NOT = { trait = wight }		
 	}
 	dismiss_trigger = {
 		FROM = {
@@ -159,15 +255,45 @@ job_spymaster = {
 					ROOT = { is_powerful_vassal = yes }
 				}
 			}
+			conditional_tooltip = {
+				trigger = {
+					has_character_flag = swapping_councillors
+				}
+				custom_tooltip = {
+					text = not_swapping_tt
+					hidden_tooltip = {
+						NOT = {
+							has_character_flag = swapping_councillors
+						}
+					}
+				}
+			}
 		}
 	}
 	gain_effect = {
 	}
 	lose_effect = {
-		opinion = { who = FROM modifier = opinion_fired_from_council }
-		opinion = { who = FROM modifier = opinion_recently_fired }
+		if = {
+			limit = {
+				FROM = {
+					NOT = {
+						has_character_flag = swapping_councillors
+					}
+				}
+			}
+			opinion = { who = FROM modifier = opinion_fired_from_council }
+			opinion = { who = FROM modifier = opinion_recently_fired }
+		}
+		if = {
+			limit = { has_character_flag = relic_hunter }
+			character_event = { id = MNM.9034 }
+		}
 	}
 	retire_effect = {
+		if = {
+			limit = { has_character_flag = relic_hunter }
+			character_event = { id = MNM.9034 }
+		}
 	}
 	
 	action = action_uncover_plots
@@ -191,16 +317,34 @@ job_spiritual = {
 	monthly_piety = 0.5
 	
 	allow = {
-		NOT = { trait = torpor }
 		can_be_spiritual_trigger = yes
+		NOT = { trait = torpor }
+		NOT = { trait = wight }		
 	}
 	gain_effect = {
 	}
 	lose_effect = {
-		opinion = { who = FROM modifier = opinion_fired_from_council }
-		opinion = { who = FROM modifier = opinion_recently_fired }
+		if = {
+			limit = {
+				FROM = {
+					NOT = {
+						has_character_flag = swapping_councillors
+					}
+				}
+			}
+			opinion = { who = FROM modifier = opinion_fired_from_council }
+			opinion = { who = FROM modifier = opinion_recently_fired }
+		}
+		if = {
+			limit = { has_character_flag = relic_hunter }
+			character_event = { id = MNM.9034 }
+		}
 	}
 	retire_effect = {
+		if = {
+			limit = { has_character_flag = relic_hunter }
+			character_event = { id = MNM.9034 }
+		}
 	}
 	dismiss_trigger = {
 		FROM = {
@@ -212,6 +356,19 @@ job_spiritual = {
 				AND = {
 					has_law = succession_voting_power_1
 					ROOT = { is_powerful_vassal = yes }
+				}
+			}
+			conditional_tooltip = {
+				trigger = {
+					has_character_flag = swapping_councillors
+				}
+				custom_tooltip = {
+					text = not_swapping_tt
+					hidden_tooltip = {
+						NOT = {
+							has_character_flag = swapping_councillors
+						}
+					}
 				}
 			}
 		}

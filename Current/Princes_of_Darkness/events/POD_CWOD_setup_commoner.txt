@@ -5,10 +5,11 @@ namespace = CWOD_setup_commoner
 character_event = {
 	id = CWOD_setup_commoner.1
 	hide_window = yes
-	max_age = 100
+	ai = yes
+	only_rulers = no
 	
 	trigger = {
-		NOT = { is_ruler = yes }		
+		is_ruler = no	
 		NOT = { has_character_flag = FLAG_POD_SETUP_COMMONER_FIRED }
 		NOT = { trait = mortal }
 		NOT = { trait = vampire }
@@ -101,7 +102,7 @@ character_event = {
 					OR = {
 						liege = { mercenary = yes }
 						liege = { holy_order = yes }
-						trait = peasant_leader
+						liege = { rebel = yes }
 					}
 				}
 				add_trait = vampire
@@ -131,7 +132,7 @@ character_event = {
 					OR = {
 						liege = { mercenary = yes }
 						liege = { holy_order = yes }
-						trait = peasant_leader
+						liege = { rebel = yes }
 					}
 				}
 				add_trait = revenant
@@ -149,11 +150,10 @@ character_event = {
 					OR = {
 						liege = { mercenary = yes }
 						liege = { holy_order = yes }
-						trait = peasant_leader
+						liege = { rebel = yes }
 					}
 				}
 				add_trait = werewolf
-				add_trait = hishu
 				character_event = { id = CWOD_werewolf_commoner.1 }	
 			}
 # mage mercs
@@ -167,7 +167,7 @@ character_event = {
 					OR = {
 						liege = { mercenary = yes }
 						liege = { holy_order = yes }
-						trait = peasant_leader
+						liege = { rebel = yes }
 					}
 				}
 				add_trait = mage
@@ -196,24 +196,24 @@ character_event = {
 					NOT = { trait = revenant }
 				}	
 				random_list = {
-					91 = { 
+					79 = { 
 						# mortal
 						add_trait = mortal
 						character_event = { id = mortal_commoner.1 }	
 					}
-					1 = {
+					5 = {
 						# vampire
 						add_trait = vampire
+						add_trait = wyrm_taint
 						
 						character_event = { id = CWOD_vampire_commoner.1 }
 					}
-					1 = {
+					5 = {
 						# werewolf
 						add_trait = werewolf
-						add_trait = hishu
 						character_event = { id = CWOD_werewolf_commoner.1 }
 					}
-					1 = {
+					5 = {
 						# mage
 						add_trait = mage
 						character_event = { id = CWOD_mage_commoner.1 }
@@ -238,7 +238,7 @@ character_event = {
 					1 = {
 						# demon
 						add_trait = demon
-						
+						add_trait = wyrm_taint
 						character_event = { id = demon_commoner.1 }
 					}
 					1 = {
@@ -250,7 +250,7 @@ character_event = {
 					1 = { 
 						# revenant 
 						add_trait = revenant
-						
+						add_trait = wyrm_taint
 						character_event = { id = CWOD_revenant_commoner.1 }
 					}
 				}			

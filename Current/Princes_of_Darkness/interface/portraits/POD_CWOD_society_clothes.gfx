@@ -7,6 +7,7 @@ spriteTypes = {
 	### Holy Roads ###
 	
 	portraitType = {
+		effectFile = "gfx/FX/portrait.lua"
 		name = "PORTRAIT_society_caeli_clothing_male"
 		
 		weight = {
@@ -20,6 +21,7 @@ spriteTypes = {
 						portrait_society = monastic_order_osite
 						portrait_society = order_st_panteleimon
 						portrait_society = bloodline_sangiovanni
+						portrait_society = path_of_redemption
 					}
 				OR = {
 					portrait_culture_group = north_germanic
@@ -58,6 +60,7 @@ spriteTypes = {
 	}
 	
 	portraitType = {
+		effectFile = "gfx/FX/portrait.lua"
 		name = "PORTRAIT_society_caeli_clothing_female"
 		
 		weight = {
@@ -72,6 +75,7 @@ spriteTypes = {
 				portrait_society = monastic_order_osite
 				portrait_society = order_st_panteleimon
 				portrait_society = bloodline_sangiovanni
+				portrait_society = path_of_redemption
 				}
 				OR = {
 					portrait_culture_group = north_germanic
@@ -113,6 +117,7 @@ spriteTypes = {
 	}	
 	
 	portraitType = {
+		effectFile = "gfx/FX/portrait.lua"
 		name = "PORTRAIT_society_western_cainite_clothing_male"
 		
 		weight = {
@@ -161,6 +166,7 @@ spriteTypes = {
 	
 	
 	portraitType = {
+		effectFile = "gfx/FX/portrait.lua"
 		name = "PORTRAIT_society_western_cainite_clothing_female"
 		
 		weight = {
@@ -169,7 +175,11 @@ spriteTypes = {
 				portrait_age > child
 				portrait_is_female = yes
 				portrait_clothing = yes
+				OR = {
 				portrait_religion = cainite
+				AND = { portrait_has_trait = lasombra 
+						portrait_religion = sabbat }
+				}
 				has_dlc = "Mystics"
 				OR = {
 					portrait_culture_group = north_germanic
@@ -211,6 +221,7 @@ spriteTypes = {
 	}	
 
 	portraitType = {
+		effectFile = "gfx/FX/portrait.lua"
 		name = "PORTRAIT_society_eastern_cainite_clothing_male"
 		
 		weight = {
@@ -224,6 +235,8 @@ spriteTypes = {
 						
 						portrait_society = monastic_order_mystikoi
 						portrait_religion = cainite
+						AND = { portrait_has_trait = lasombra 
+								portrait_religion = sabbat }
 						portrait_society = via_caeli
 						portrait_society = monastic_order_osite
 						portrait_society = order_st_panteleimon
@@ -303,6 +316,7 @@ spriteTypes = {
 	}
 
 	portraitType = {
+		effectFile = "gfx/FX/portrait.lua"
 		name = "PORTRAIT_society_eastern_cainite_clothing_female"
 		
 		weight = {
@@ -314,7 +328,8 @@ spriteTypes = {
 				has_dlc = "Mystics"
 				OR = {
 						portrait_society = monastic_order_mystikoi
-						portrait_religion = cainite
+						AND = { portrait_has_trait = lasombra 
+								portrait_religion = sabbat }
 						portrait_society = via_caeli
 						portrait_society = monastic_order_osite
 						portrait_society = order_st_panteleimon
@@ -392,6 +407,7 @@ spriteTypes = {
 ### Mages ###
 
 	portraitType = {
+		effectFile = "gfx/FX/portrait.lua"
 		name = "PORTRAIT_society_mage_clothing_male"
 		
 		weight = {
@@ -404,6 +420,7 @@ spriteTypes = {
 				OR = {
 				portrait_society = code_of_tremere
 				portrait_society = derech_lilit
+				portrait_society = path_of_lilith
 				}
 				NOT = { portrait_has_trait = blood_form }
 				NOT = { portrait_has_trait = shadow_form }
@@ -534,6 +551,8 @@ spriteTypes = {
 	}	
 	
 	portraitType = {
+		effectFile = "gfx/FX/portrait.lua"
+
 		name = "PORTRAIT_society_mage_clothing_female"
 		
 		weight = {
@@ -546,6 +565,7 @@ spriteTypes = {
 				OR = {
 				portrait_society = code_of_tremere
 				portrait_society = derech_lilit
+				portrait_society = path_of_lilith
 				}
 				NOT = { portrait_has_trait = blood_form }
 				NOT = { portrait_has_trait = shadow_form }
@@ -720,13 +740,19 @@ spriteTypes = {
     }
     
     portraitType = {
+		effectFile = "gfx/FX/portrait.lua"
+
         name = "PORTRAIT_society_assamite_clothing"
         
         weight = {
             additive_modifier = {
                 value = 10000
-                portrait_age > child				
+                portrait_age > child			
+				OR = {
 				portrait_society = via_sanguinus
+				portrait_society = path_of_blood
+				portrait_has_trait = assamiteantitribu
+				}
 				portrait_clothing = yes
 				has_dlc = "Mystics"
 				NOT = { portrait_has_trait = blood_form }
@@ -762,6 +788,8 @@ spriteTypes = {
 ### INFERNALISTS ###	
 	
 	portraitType = {
+		effectFile = "gfx/FX/portrait.lua"
+
 		name = "PORTRAIT_society_infernalist_clothing_male"
 		
 		weight = {
@@ -783,6 +811,10 @@ spriteTypes = {
 					portrait_society = via_hyron
 					portrait_society = via_peccati
 					portrait_society = via_noctis
+					portrait_society = path_of_the_hive
+					portrait_society = path_of_night
+					portrait_society = path_of_death_and_the_soul
+					portrait_society = path_of_evil_revelations
 				}
 			}
 		}
@@ -830,6 +862,8 @@ spriteTypes = {
 	}
 
 	portraitType = {
+		effectFile = "gfx/FX/portrait.lua"
+
 		name = "PORTRAIT_society_infernalist_clothing_female"
 		
 		weight = {
@@ -843,6 +877,10 @@ spriteTypes = {
 					portrait_society = via_hyron
 					portrait_society = via_peccati
 					portrait_society = via_noctis
+					portrait_society = path_of_the_hive
+					portrait_society = path_of_night
+					portrait_society = path_of_death_and_the_soul
+					portrait_society = path_of_evil_revelations
 				}
 				NOT = { portrait_has_trait = blood_form }
 				NOT = { portrait_has_trait = shadow_form }
@@ -930,6 +968,8 @@ spriteTypes = {
     }
     
     portraitType = {
+		effectFile = "gfx/FX/portrait.lua"
+
         name = "PORTRAIT_society_shaitan_clothing"
         
         weight = {
@@ -973,6 +1013,8 @@ spriteTypes = {
 ### Giovanni ###
 
 	portraitType = {
+		effectFile = "gfx/FX/portrait.lua"
+
 		name = "PORTRAIT_society_giovanni_clothing_male"
 		
 		weight = {
@@ -991,7 +1033,10 @@ spriteTypes = {
 				NOT = { portrait_has_trait = hispo }					
 				OR = {
 				portrait_has_trait = giovanni
+				OR = {
 				portrait_society = via_ossium
+				portrait_society = path_of_bones
+				}
 				}
 				portrait_culture_group = latin
 				has_dlc = "The Republic"	
@@ -1011,6 +1056,8 @@ spriteTypes = {
 	}
 	
 	portraitType = {
+		effectFile = "gfx/FX/portrait.lua"
+
 		name = "PORTRAIT_society_giovanni_clothing_female"
 		
 		weight = {
@@ -1029,12 +1076,10 @@ spriteTypes = {
 				NOT = { portrait_has_trait = hispo }	
 				OR = {
 				portrait_has_trait = giovanni
+				OR = {
 				portrait_society = via_ossium
-				#dynasty = 2500000
-				#dynasty = 2500001
-				#dynasty = 2500002
-				#dynasty = 2500008
-				#dynasty = 2500009
+				portrait_society = path_of_bones
+				}
 				}
 				portrait_culture_group = latin
 				has_dlc = "The Republic"				
@@ -1081,6 +1126,8 @@ spriteTypes = {
     }
 
 	portraitType = {
+		effectFile = "gfx/FX/portrait.lua"
+
 		name = "PORTRAIT_society_setite_clothing_male"
 		
 		weight = {
@@ -1100,6 +1147,7 @@ spriteTypes = {
 				OR = {
 				portrait_has_trait = followerofset
 				portrait_society = via_serpentis
+				portrait_society = path_of_typhon
 				portrait_religion = setite
 				portrait_religion = revenant_setite
 				}
@@ -1160,6 +1208,8 @@ spriteTypes = {
 	}	
 	
 	portraitType = {
+		effectFile = "gfx/FX/portrait.lua"
+
 		name = "PORTRAIT_society_setite_clothing_female"
 		
 		weight = {
@@ -1179,6 +1229,7 @@ spriteTypes = {
 				OR = {
 				portrait_has_trait = followerofset
 				portrait_society = via_serpentis
+				portrait_society = path_of_typhon
 				portrait_religion = setite
 				portrait_religion = revenant_setite
 				}		

@@ -51,7 +51,7 @@
 	}		
 	1354.1.1 = {
 		remove_trait = "bookmark1230"
-		add_trait = "bookmark1355"
+		add_trait = "bookmark1355"		
 	}
 	1444.1.1 = {
 		death = yes
@@ -74,20 +74,20 @@
 	dynasty = 2500000
 	trait = "canon" 
 	female = no	
-	government = traditions_government
+
 	945.1.1 = {
 		birth = 945.1.1
 		}
 	989.1.1 = {
 		add_trait = "bookmark990"
-		add_trait = "spirit_5"
-		add_trait = "life_3"
+		add_trait = "sphere_spirit_5"
+		add_trait = "sphere_life_3"
 		}		
 	1005.1.1 = {
 	religion = "cappadocian_high"
 	remove_trait = "mage"
-	remove_trait = "spirit_5"
-	remove_trait = "life_3"
+	remove_trait = "sphere_spirit_5"
+	remove_trait = "sphere_life_3"
 	add_trait = "vampire"
 	add_trait = "wyrm_taint"
 	add_trait = "neonate"
@@ -96,6 +96,7 @@
 	add_trait = "bloodpotency_10"
 	add_trait = "vampgeneration4"	
 	effect = { join_society = via_ossium }
+	effect = {  set_government_type = traditions_government }
 	effect = { set_society_grandmaster = yes }
 		}
 	1229.1.1 = {
@@ -132,13 +133,17 @@
 		
 	1499.1.1 = {
 		remove_trait = "bookmark1355"
-		add_trait = "bookmark1500"
+		add_trait = "bookmark1505"
 		remove_trait = "elder"
 		add_trait = "ancient"
+		remove_trait = "torpor"
+		effect = { leave_society = yes }
+		effect = { join_society = path_of_bones }
+		effect = { set_society_grandmaster = yes }
 	}		
-	1505.1.1 = {
-		remove_trait = "bookmark1500"
-		add_trait = "bookmark1505"
+	1506.1.1 = {
+		remove_trait = "bookmark1505"
+		add_trait = "bookmark1506"
 	}	
 	1999.1.1 = {
 		death = yes
@@ -166,7 +171,7 @@
 		trait = "celerity_5"
 		trait = "vigor_5"
 		trait = "animalism_5"
-		trait = "presence_3"
+		trait = "majesty_3"
 	diplomacy = 6
 	martial = 8
 	stewardship = 6
@@ -212,11 +217,12 @@
 		}
 	1499.1.1 = {
 		remove_trait = "bookmark1355"
-		add_trait = "bookmark1500"
-		}		
-	1505.1.1 = {
-		remove_trait = "bookmark1500"
 		add_trait = "bookmark1505"
+		effect = { leave_society = yes }		
+		}		
+	1506.1.1 = {
+		remove_trait = "bookmark1505"
+		add_trait = "bookmark1506"
 		}
 	1999.1.1 = {
 		death = yes
@@ -279,12 +285,11 @@
 		}
 	1499.1.1 = {
 		remove_trait = "bookmark1355"
-		add_trait = "bookmark1500"
-		}		
-	1505.1.1 = {
-		remove_trait = "bookmark1500"
 		add_trait = "bookmark1505"
-		}
+		religion = "autarkis"
+		effect = { leave_society = yes }			
+		}		
+
 	1999.1.1 = {
 		death = yes
 		}
@@ -405,6 +410,7 @@
 	105.1.1 = {
 		add_trait = vampire
 		add_trait = "wyrm_taint"
+		employer = 790020
 		effect = { join_society = via_ossium }
 		}
 
@@ -415,7 +421,7 @@
 		
 	1229.1.1 = {
 		add_trait = "bookmark1230"
-		give_minor_title = title_regent
+		effect = { give_minor_title = title_regent }
 		}
 
 	1354.1.1 = {
@@ -427,6 +433,12 @@
 		add_trait = "in_hiding"
 		}
 
+	1499.1.1 = {
+		remove_trait = "bookmark1355"
+		add_trait = "bookmark1505"
+		effect = { leave_society = yes }			
+		}			
+		
 	1999.4.15 = {
 		death = yes
 		}
@@ -456,6 +468,7 @@
 	add_trait = "auspex_3"
 	add_trait = "neonate"
 	religion = "cappadocian_high"
+	effect = { set_government_type = traditions_government }	
 	effect = { join_society = via_peccati }
 	}
 		
@@ -472,16 +485,16 @@
 	1354.1.1 = {
 		remove_trait = "bookmark1230"
 		add_trait = "bookmark1355"
+		add_trait = "torpor"
 	}	
 	
 	1499.1.1 = {
 		remove_trait = "bookmark1355"
-		add_trait = "bookmark1500"
-	}	
-	1505.1.1 = {
-		remove_trait = "bookmark1500"
 		add_trait = "bookmark1505"
-	}	
+		effect = { leave_society = yes }	
+		effect = { join_society = "path_of_cathari"	}	
+		}	
+		
 	1999.1.1 = {
 		death = yes
 		}	

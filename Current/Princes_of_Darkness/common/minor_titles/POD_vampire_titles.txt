@@ -115,152 +115,6 @@ title_court_sculptor = {
 	message = yes
 }
 
-
-#MNM hermetics apprentice
-title_hermetics_apprentice = {
-	is_high_prio = yes
-	attribute = learning
-    dignity = 1
-    realm_in_name = no
-	grant_limit = 1
-	opinion_effect = 10
-	monthly_salary = 0.1
-	monthly_prestige = 0.1
-	
-	allowed_to_grant = {
-		has_dlc = "Mystics"
-		OR = {
-		society_member_of = hermetics
-		society_member_of = code_of_tremere
-		society_member_of = via_ossium
-		society_member_of = derech_lilit
-		#society_member_of = secret_religious_society_tremerelow
-		#society_member_of = secret_religious_society_tzimisce
-		society_member_of = via_mutationis		
-		}
-		ai = no
-	}
-	
-	allowed_to_hold = {
-		custom_tooltip = {
-			text = court_physician_tooltip_1
-			NOT = {
-				primary_title = { temporary = yes } 
-			}
-		}
-		is_adult = yes
-		OR = {
-		society_member_of = hermetics
-		society_member_of = code_of_tremere
-		society_member_of = via_ossium
-		society_member_of = derech_lilit
-		#society_member_of = secret_religious_society_tremerelow
-		#society_member_of = secret_religious_society_tzimisce
-		society_member_of = via_mutationis		
-		is_in_society = no
-		}
-
-		NOT = { trait = in_hiding }
-		NOT = { trait = incapable }
-		prisoner = no
-		
-		hidden_trigger = {
-			liege = { 		
-			OR = {
-		society_member_of = hermetics
-		society_member_of = code_of_tremere
-		society_member_of = via_ossium
-		society_member_of = derech_lilit
-		#society_member_of = secret_religious_society_tremerelow
-		#society_member_of = secret_religious_society_tzimisce
-		society_member_of = via_mutationis		
-		} 
-		}
-			ai = yes
-			NOT = { has_character_flag = completed_apprenticeship }
-			OR = {
-				FROM = { ai = no }
-				learning = 10
-				is_smart_trigger = yes
-				trait = gardener
-				trait = scholar
-				trait = mystic
-			}
-		}
-	}
-
-	revoke_trigger = {
-		always = no
-	}
-	
-	gain_effect = {
-		
-		if = { liege = { society_member_of = hermetics }
-			if = {
-				limit = { NOT = { society_member_of = hermetics } }
-				join_society = hermetics
-			}		
-		}
-
-		if = { liege = { society_member_of = code_of_tremere }
-			if = {
-				limit = { NOT = { society_member_of = code_of_tremere} }
-				join_society = code_of_tremere
-			}		
-		}		
-		
-		if = { liege = { society_member_of = via_ossium }
-			if = {
-				limit = { NOT = { society_member_of = via_ossium } }
-				join_society = via_ossium
-			}		
-		}		
-		
-		if = { liege = { society_member_of = via_mutationis }
-			if = {
-				limit = { NOT = { society_member_of = via_mutationis } }
-				join_society = via_mutationis
-			}		
-		}		
-		
-		if = { liege = { society_member_of = derech_lilit }
-			if = {
-				limit = { NOT = { society_member_of = derech_lilit } }
-				join_society = derech_lilit
-			}		
-		}			
-
-		if = { liege = { #society_member_of = secret_religious_society_tremerelow }
-			if = {
-				limit = { NOT = { #society_member_of = secret_religious_society_tremerelow } }
-				join_society = secret_religious_society_tremerelow
-			}		
-		}
-
-		if = { liege = { #society_member_of = secret_religious_society_tzimisce }
-			if = {
-				limit = { NOT = { #society_member_of = secret_religious_society_tzimisce } }
-				join_society = secret_religious_society_tzimisce
-			}		
-		}		
-		
-		character_event = { id = MNM.1413 days = 4500 random = 1000 }  #Some years later, the apprenticeship ends
-
-		FROM = {
-			if = {
-				limit = { has_quest = quest_hermetics_find_apprentice }
-				character_event = { id = MNM.1409 }
-			}
-		}
-	}
-	lose_effect = {
-	}
-	retire_effect = {
-	}
-
-	message = yes
-}
-
 title_primogen_heir = {
 	dignity = 0.05
 	realm_in_name = yes
@@ -315,7 +169,7 @@ title_keeper_of_elysium = {
 }
 
 # brujah Priscus
-title_brujah_priscus = {
+title_brujah_primogen = {
 	dignity = 0.05
 	realm_in_name = yes
 	grant_limit = 1
@@ -358,11 +212,11 @@ title_brujah_whip = {
 		NOT = { religion = sabbat }
 		trait = vampire
 		trait = brujah
-		NOT = { has_minor_title = title_brujah_priscus }
+		NOT = { has_minor_title = title_brujah_primogen }
 		}
 		allowed_to_grant = {
 			 trait = vampire
-			 has_assigned_minor_title = title_brujah_priscus
+			 has_assigned_minor_title = title_brujah_primogen
 			 is_vampire_the_requiem = no
 		}
 	
@@ -376,8 +230,8 @@ title_brujah_whip = {
 }
 
 
-# cappadocian Priscus
-title_cappadocian_priscus = {
+# cappadocian Primogen
+title_cappadocian_primogen = {
 	dignity = 0.05
 	realm_in_name = yes
 	grant_limit = 1
@@ -421,11 +275,11 @@ title_cappadocian_whip = {
 		NOT = { religion = sabbat }
 		trait = vampire
 		trait = cappadocian
-		NOT = { has_minor_title = title_cappadocian_priscus }
+		NOT = { has_minor_title = title_cappadocian_primogen }
 		}
 		allowed_to_grant = {
 			 trait = vampire
-			 has_assigned_minor_title = title_cappadocian_priscus
+			 has_assigned_minor_title = title_cappadocian_primogen
 			 is_vampire_the_requiem = no
 		}
 	
@@ -440,8 +294,8 @@ title_cappadocian_whip = {
 
 
 
-# lasombra Priscus
-title_lasombra_priscus = {
+# lasombra Primogen
+title_lasombra_primogen = {
 	dignity = 0.05
 	realm_in_name = yes
 	grant_limit = 1
@@ -485,11 +339,11 @@ title_lasombra_whip = {
 		NOT = { religion = sabbat }
 		trait = vampire
 		trait = lasombra
-		NOT = { has_minor_title = title_lasombra_priscus }
+		NOT = { has_minor_title = title_lasombra_primogen }
 		}
 		allowed_to_grant = {
 			 trait = vampire
-			 has_assigned_minor_title = title_lasombra_priscus
+			 has_assigned_minor_title = title_lasombra_primogen
 			 is_vampire_the_requiem = no
 		}
 	
@@ -502,8 +356,8 @@ title_lasombra_whip = {
 	message = yes
 }
 
-# toreador Priscus
-title_toreador_priscus = {
+# toreador Primogen
+title_toreador_primogen = {
 	dignity = 0.05
 	realm_in_name = yes
 	grant_limit = 1
@@ -547,11 +401,11 @@ title_toreador_whip = {
 		NOT = { religion = sabbat }
 		trait = vampire
 		trait = toreador
-		NOT = { has_minor_title = title_toreador_priscus }
+		NOT = { has_minor_title = title_toreador_primogen }
 		}
 		allowed_to_grant = {
 			 trait = vampire
-			 has_assigned_minor_title = title_toreador_priscus
+			 has_assigned_minor_title = title_toreador_primogen
 			 is_vampire_the_requiem = no
 		}
 	
@@ -566,8 +420,8 @@ title_toreador_whip = {
 
 
 
-# tzimisce Priscus
-title_tzimisce_priscus = {
+# tzimisce Primogen
+title_tzimisce_primogen = {
 	dignity = 0.05
 	realm_in_name = yes
 	grant_limit = 1
@@ -611,11 +465,11 @@ title_tzimisce_whip = {
 		NOT = { religion = sabbat }
 		trait = vampire
 		trait = tzimisce
-		NOT = { has_minor_title = title_tzimisce_priscus }
+		NOT = { has_minor_title = title_tzimisce_primogen }
 		}
 		allowed_to_grant = {
 			 trait = vampire
-			 has_assigned_minor_title = title_tzimisce_priscus
+			 has_assigned_minor_title = title_tzimisce_primogen
 			 is_vampire_the_requiem = no
 		}
 	
@@ -628,8 +482,8 @@ title_tzimisce_whip = {
 	message = yes
 }
 
-# Ventrue Priscus
-title_ventrue_priscus = {
+# Ventrue Primogen
+title_ventrue_primogen = {
 	dignity = 0.05
 	realm_in_name = yes
 	grant_limit = 1
@@ -672,11 +526,11 @@ title_ventrue_whip = {
 		NOT = { religion = sabbat }
 		trait = vampire
 		trait = ventrue
-		NOT = { has_minor_title = title_ventrue_priscus }
+		NOT = { has_minor_title = title_ventrue_primogen }
 		}
 		allowed_to_grant = {
 			 trait = vampire
-			 has_assigned_minor_title = title_ventrue_priscus
+			 has_assigned_minor_title = title_ventrue_primogen
 		}
 	
 	
@@ -689,8 +543,8 @@ title_ventrue_whip = {
 }
 
 
-# assamite Priscus
-title_assamite_priscus = {
+# assamite Primogen
+title_assamite_primogen = {
 	dignity = 0.05
 	realm_in_name = yes
 	grant_limit = 1
@@ -735,11 +589,11 @@ title_assamite_whip = {
 		NOT = { religion = sabbat }
 		trait = vampire
 		trait = assamite
-		NOT = { has_minor_title = title_assamite_priscus }
+		NOT = { has_minor_title = title_assamite_primogen }
 		}
 		allowed_to_grant = {
 			 trait = vampire
-			 has_assigned_minor_title = title_assamite_priscus
+			 has_assigned_minor_title = title_assamite_primogen
 			 is_vampire_the_requiem = no
 		}
 	
@@ -753,8 +607,8 @@ title_assamite_whip = {
 }
 
 
-# follower_of_set Priscus
-title_follower_of_set_priscus = {
+# follower_of_set Primogen
+title_follower_of_set_primogen = {
 	dignity = 0.05
 	realm_in_name = yes
 	grant_limit = 1
@@ -801,11 +655,11 @@ title_follower_of_set_whip = {
 		NOT = { religion = sabbat }
 		trait = vampire
 		trait = followerofset
-		NOT = { has_minor_title = title_follower_of_set_priscus }
+		NOT = { has_minor_title = title_follower_of_set_primogen }
 		}
 		allowed_to_grant = {
 			 trait = vampire
-			 has_assigned_minor_title = title_follower_of_set_priscus
+			 has_assigned_minor_title = title_follower_of_set_primogen
 			 is_vampire_the_requiem = no
 		}
 	
@@ -819,8 +673,8 @@ title_follower_of_set_whip = {
 }
 
 
-# Gangrel Priscus
-title_gangrel_priscus = {
+# Gangrel Primogen
+title_gangrel_primogen = {
 	dignity = 0.05
 	realm_in_name = yes
 	grant_limit = 1
@@ -864,11 +718,11 @@ title_gangrel_whip = {
 		NOT = { religion = sabbat }
 		trait = vampire
 		trait = gangrel
-		NOT = { has_minor_title = title_gangrel_priscus }
+		NOT = { has_minor_title = title_gangrel_primogen }
 		}
 		allowed_to_grant = {
 			 trait = vampire
-			 has_assigned_minor_title = title_gangrel_priscus
+			 has_assigned_minor_title = title_gangrel_primogen
 		}
 	
 	gain_effect = {
@@ -881,8 +735,8 @@ title_gangrel_whip = {
 
 
 
-# Daeva Priscus
-title_daeva_priscus = {
+# Daeva Primogen
+title_daeva_primogen = {
 	dignity = 0.05
 	realm_in_name = yes
 	grant_limit = 1
@@ -934,7 +788,7 @@ title_daeva_whip = {
 		NOT = { religion = sabbat }
 		trait = vampire
 		trait = daeva
-		NOT = { has_minor_title = title_daeva_priscus }
+		NOT = { has_minor_title = title_daeva_primogen }
 		}
 		allowed_to_grant = {
 			 trait = vampire
@@ -950,8 +804,8 @@ title_daeva_whip = {
 	message = yes
 }
 
-# Mekhet Priscus
-title_mekhet_priscus = {
+# Mekhet Primogen
+title_mekhet_primogen = {
 	dignity = 0.05
 	realm_in_name = yes
 	grant_limit = 1
@@ -1002,7 +856,7 @@ title_mekhet_whip = {
 		NOT = { religion = sabbat }
 		trait = vampire
 		trait = mekhet
-		NOT = { has_minor_title = title_mekhet_priscus }
+		NOT = { has_minor_title = title_mekhet_primogen }
 		}
 		
 		allowed_to_grant = {
@@ -1018,8 +872,8 @@ title_mekhet_whip = {
 	message = yes
 }
 
-# malkavian Priscus
-title_malkavian_priscus = {
+# malkavian Primogen
+title_malkavian_primogen = {
 	dignity = 0.05
 	realm_in_name = yes
 	grant_limit = 1
@@ -1065,11 +919,11 @@ title_malkavian_whip = {
 		NOT = { religion = sabbat }
 		trait = vampire
 		trait = malkavian
-		NOT = { has_minor_title = title_malkavian_priscus }
+		NOT = { has_minor_title = title_malkavian_primogen }
 		}
 		allowed_to_grant = {
 			 trait = vampire
-			 has_assigned_minor_title = title_malkavian_priscus
+			 has_assigned_minor_title = title_malkavian_primogen
 			 is_vampire_the_requiem = no
 		}
 	
@@ -1082,8 +936,8 @@ title_malkavian_whip = {
 	message = yes
 }
 
-# Nosferatu Priscus
-title_nosferatu_priscus = {
+# Nosferatu Primogen
+title_nosferatu_primogen = {
 	dignity = 0.05
 	realm_in_name = yes
 	grant_limit = 1
@@ -1130,11 +984,11 @@ title_nosferatu_whip = {
 		NOT = { religion = sabbat }
 		trait = vampire
 		trait = nosferatu
-		NOT = { has_minor_title = title_nosferatu_priscus }
+		NOT = { has_minor_title = title_nosferatu_primogen }
 		}
 		allowed_to_grant = {
 			 trait = vampire
-			 has_assigned_minor_title = title_nosferatu_priscus
+			 has_assigned_minor_title = title_nosferatu_primogen
 		}
 	
 	gain_effect = {
@@ -1147,8 +1001,8 @@ title_nosferatu_whip = {
 
 
 
-# ravnos Priscus
-title_ravnos_priscus = {
+# ravnos Primogen
+title_ravnos_primogen = {
 	dignity = 0.05
 	realm_in_name = yes
 	grant_limit = 1
@@ -1193,11 +1047,11 @@ title_ravnos_whip = {
 		NOT = { religion = sabbat }
 		trait = vampire
 		trait = ravnos
-		NOT = { has_minor_title = title_ravnos_priscus }
+		NOT = { has_minor_title = title_ravnos_primogen }
 		}
 		allowed_to_grant = {
 			 trait = vampire
-			 has_assigned_minor_title = title_ravnos_priscus
+			 has_assigned_minor_title = title_ravnos_primogen
 			 is_vampire_the_requiem = no
 		}
 	
@@ -1211,8 +1065,8 @@ title_ravnos_whip = {
 }
 
 
-# Tremere Priscus
-title_tremere_priscus = {
+# Tremere Primogen
+title_tremere_primogen = {
 	dignity = 0.05
 	realm_in_name = yes
 	grant_limit = 1
@@ -1259,12 +1113,12 @@ title_tremere_whip = {
 		NOT = { religion = sabbat }
 		trait = vampire
 		trait = tremere
-		NOT = { has_minor_title = title_tremere_priscus }
+		NOT = { has_minor_title = title_tremere_primogen }
 		}
 		allowed_to_grant = {
 			 trait = vampire
 			 is_vampire_the_requiem = no
-			 has_assigned_minor_title = title_tremere_priscus
+			 has_assigned_minor_title = title_tremere_primogen
 		}
 	
 	

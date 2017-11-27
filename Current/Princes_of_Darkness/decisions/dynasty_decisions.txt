@@ -81,8 +81,8 @@ targetted_decisions = {
 
 	legitimize_bastard = {
 		only_playable = yes
-		filter = dynasty
-		ai_target_filter = dynasty
+		filter = close_relatives
+		ai_target_filter = close_relatives
 	
 		from_potential = {
 			ai = no
@@ -115,11 +115,14 @@ targetted_decisions = {
 				imprison = no
 			}
 			
-			mother = {
-				opinion = {
-					who = FROM
-					modifier = legitimized_child
-					years = 10
+			if = {
+				limit = { FROM = { is_female = no } }
+				mother = {
+					opinion = {
+						who = FROM
+						modifier = legitimized_child
+						years = 10
+					}
 				}
 			}
 			FROM = {
@@ -133,7 +136,7 @@ targetted_decisions = {
 							}
 						}
 						opinion = {
-							who = FROM
+							who = ROOT_FROM
 							modifier = legitimized_bastard
 							years = 20
 						}
@@ -142,11 +145,11 @@ targetted_decisions = {
 				any_child = {
 					limit = {
 						NOT = { character = ROOT }
-						dynasty = FROM
+						dynasty = ROOT_FROM
 						NOT = { trait = bastard }
 					}
 					opinion = {
-						who = FROM
+						who = ROOT_FROM
 						modifier = legitimized_bastard
 						months = 12
 					}
@@ -167,6 +170,7 @@ targetted_decisions = {
 		only_playable = yes
 		filter = dynasty
 		ai_target_filter = dynasty
+		ai_check_interval = 3
 	
 		hide_in_decisions_list = yes # This decision is shown in the Religion View for each decadent character
 		
@@ -231,6 +235,7 @@ targetted_decisions = {
 		
 		filter = dynasty
 		ai_target_filter = dynasty
+		ai_check_interval = 3
 	
 		from_potential = {
 			is_ruler = yes
@@ -248,7 +253,7 @@ targetted_decisions = {
 		}
 		
 		potential = {
-			NOT = { trait = wight }
+			NOT = { trait = wight }		
 			NOT = { is_inaccessible_trigger = yes }
 			is_ruler = no
 			liege = { character = FROM }
@@ -286,6 +291,7 @@ targetted_decisions = {
 		allow = {
 			in_command = no
 			prisoner = no
+			NOT = { trait = wight }
 			custom_tooltip = {
 				text = is_not_busy_trigger_tooltip
 				hidden_tooltip = { NOT = { has_character_flag = do_not_disturb } }
@@ -424,7 +430,7 @@ targetted_decisions = {
 		ai_will_do = {
 			factor = 1
 			modifier = {
-				factor = 0.1
+				factor = 0.3
 			}
 			modifier = {
 				factor = 0.5
@@ -467,6 +473,7 @@ targetted_decisions = {
 		
 		filter = dynasty
 		ai_target_filter = dynasty
+		ai_check_interval = 3
 	
 		from_potential = {
 			is_ruler = yes
@@ -569,10 +576,11 @@ targetted_decisions = {
 		
 		filter = self
 		ai_target_filter = self
+		ai_check_interval = 3
 		
 		potential = {
-			NOT = { trait = wight }
 			prisoner = no
+			NOT = { trait = wight }
 			NOT = { is_inaccessible_trigger = yes }
 			OR = {
 				ai = no
@@ -584,6 +592,7 @@ targetted_decisions = {
 		}
 		allow = {
 			in_command = no
+			NOT = { trait = wight }
 			custom_tooltip = {
 				text = is_not_busy_trigger_tooltip
 				hidden_tooltip = { NOT = { has_character_flag = do_not_disturb } }
@@ -673,7 +682,7 @@ targetted_decisions = {
 				}
 			}
 			modifier = {
-				factor = 0.1
+				factor = 0.3
 			}
 			modifier = {
 				factor = 0.1
@@ -704,6 +713,7 @@ targetted_decisions = {
 		
 		filter = self
 		ai_target_filter = self
+		ai_check_interval = 3
 		
 		potential = {
 			is_ruler = yes
@@ -795,6 +805,7 @@ targetted_decisions = {
 		
 		filter = spouse
 		ai_target_filter = spouse
+		ai_check_interval = 3
 		
 		from_potential = {
 			is_ruler = yes
@@ -811,10 +822,10 @@ targetted_decisions = {
 		}
 		
 		potential = {
-			NOT = { trait = wight }
 			NOT = { is_inaccessible_trigger = yes }
 			is_ruler = no
 			is_married = FROM
+			NOT = { trait = wight }
 			liege = { character = FROM }
 			NAND = { 
 				is_plot_target_of = FROM 
@@ -835,6 +846,7 @@ targetted_decisions = {
 				text = is_not_busy_trigger_tooltip
 				hidden_tooltip = { NOT = { has_character_flag = do_not_disturb } }
 			}
+			NOT = { trait = wight }
 			has_job_title = no
 			NOT = { is_ruler = yes }
 			custom_tooltip = {
@@ -906,7 +918,7 @@ targetted_decisions = {
 			factor = 1 
 			
 			modifier = {
-				factor = 0.1
+				factor = 0.3
 			}
 			modifier = {
 				factor = 0.1
@@ -975,6 +987,7 @@ targetted_decisions = {
 		
 		filter = spouse
 		ai_target_filter = spouse
+		ai_check_interval = 3
 		
 		from_potential = {
 			is_ruler = yes

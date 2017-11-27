@@ -35,6 +35,7 @@ character_event = {
 						if = { limit = { trait = inbred } 
 							remove_trait = inbred
 						}
+						
 			add_trait = elder
 			add_trait = bloodpotency_5
 					
@@ -345,10 +346,9 @@ character_event = {
 			}				
 		}
 		
-# Rebel vampires		
+# Clan Setup
 		if = {
 				limit = {
-					rebel = yes
 					OR = { 
 						has_global_flag = bookmark1505
 						has_global_flag = bookmark1506
@@ -357,8 +357,93 @@ character_event = {
 						has_global_flag = bookmark1466
 						has_global_flag = bookmark1355
 					}
-					NOT = { has_CWOD_clan_trigger = yes }												
+					NOT = { trait = assamite }
+					NOT = { trait = brujah }
+					NOT = { trait = cappadocian }
+					NOT = { trait = giovanni }
+					NOT = { trait = followerofset }
+					NOT = { trait = gangrel }
+					NOT = { trait = lasombra }
+					NOT = { trait = malkavian }
+					NOT = { trait = nosferatu }
+					NOT = { trait = ravnos }
+					NOT = { trait = toreador }
+					NOT = { trait = nosferatu }
+					NOT = { trait = tremere }
+					NOT = { trait = tzimisce }
+					NOT = { trait = ventrue }
+					NOT = { trait = salubri }
+					NOT = { trait = baali }
+					NOT = { trait = gangrelantitribu }
+					NOT = { trait = brujahantitribu }
+					NOT = { trait = nosferatuantitribu }
+					NOT = { trait = malkavianantitribu }
+					NOT = { trait = ventrueantitribu }
+					NOT = { trait = lasombraantitribu }
+					NOT = { trait = ravnosantitribu }
+					NOT = { trait = toreadorantitribu }
+					NOT = { trait = tzimisceantitribu }
+					NOT = { trait = assamiteantitribu }
+					NOT = { trait = caitiff	}											
 				}
+				
+				if = {
+					limit = { religion = inconnu }
+					random_list = {
+						1 = { add_trait = salubri }
+						1 = { add_trait = followerofset }
+						1 = { add_trait = ravnos }
+						1 = { add_trait = cappadocian }
+						1 = { add_trait = toreador }
+						25 = { add_trait = gangrel }
+						20 = { add_trait = ventrue }
+						15 = { add_trait = malkavian }
+						15 = { add_trait = nosferatu }
+						10 = { 
+							if = { limit = {
+										OR = { 
+												has_global_flag = bookmark1230
+												has_global_flag = bookmark1355 
+												}
+											}
+									add_trait = lasombra									
+							}
+							if = { limit = {
+										OR = { 
+												has_global_flag = bookmark1505
+												has_global_flag = bookmark1506
+												}
+											}
+									add_trait = lasombraantitribu									
+							}							
+							
+						
+						}
+						10 = { 
+							if = { limit = {
+										OR = { 
+												has_global_flag = bookmark1230
+												has_global_flag = bookmark1355 
+												}
+											}
+									add_trait = tzimisce									
+							}
+							if = { limit = {
+										OR = { 
+												has_global_flag = bookmark1505
+												has_global_flag = bookmark1506
+												}
+											}
+									add_trait = tzimisceantitribu									
+							}							
+							
+						
+						}						
+						
+					}
+					
+					}
+				
 				if = { 
 					limit = { religion = anda }
 					add_trait = gangrel 
@@ -528,112 +613,86 @@ character_event = {
 								religion = cappadocian_high 
 								}
 								add_trait = cappadocian
+								}	
+
+					 if = { 
+						limit = {
+								religion = malkavianlow
+								}
+								add_trait = malkavian
 								}								
+								
+					 if = { 
+						limit = {
+								religion = gangrellow
+								}
+								add_trait = gangrel
+								}
+								
+					 if = { 
+						limit = {
+								religion = furores
+								}
+								add_trait = brujah
+								}		
+
+					 if = { 
+						limit = {
+								religion = autarkis
+								}
+								add_trait = gangrel
+								}	
+
+					if = { 
+						limit = {
+								religion = anarchs
+								}
+								random_list = {
+									30 = { add_trait = brujah }
+									25 = { add_trait = gangrel }
+									20 = { add_trait = caitiff }
+									10 = { add_trait = malkavian }
+									10 = { add_trait = nosferatu }
+									 5 = { add_trait = toreador }
+								}
+							}	
+								
+					if = {
+						limit = { 
+								religion = nosferatulow 
+								}
+								add_trait = nosferatu
+								set_graphical_culture = nosferatu
+								}
+					 if = { 
+						limit = {
+								religion = vampire_promethean
+								}
+								add_trait = brujah
+								}										
+								
+					 if = { 
+						limit = {
+								religion = cainite
+								}
+								random_list = {
+										40 = { add_trait = lasombra }
+										10 = { add_trait = toreador }
+										10 = { add_trait = ventrue }
+										10 = { add_trait = tzimisce }
+										10 = { add_trait = cappadocian }
+										10 = { add_trait = nosferatu
+												set_graphical_culture = nosferatu
+										}
+										10 = { add_trait = malkavian 
+								}
+						}										
+								
 				}
-				if = { 
-					limit = { 
-						religion_group = vampire_low_clans_group
-						OR = { 
-							has_global_flag = bookmark1230	
-							has_global_flag = bookmark1355	
-						}														
-					}
-					random_list = {
-						25 = { add_trait = gangrel }
-						25 = { add_trait = nosferatu
-								set_graphical_culture = nosferatu }
-						25 = { add_trait = malkavian }
-						25 = { add_trait = tremere }
-					}
-				}											
+										
 			}	
 			
-
-			
-# Inconnu
-			if = {
-				limit = { 
-					OR = { 
-						has_global_flag = bookmark1505
-						has_global_flag = bookmark1506
-						has_global_flag = bookmark767
-						has_global_flag = bookmark1230
-						has_global_flag = bookmark1466
-						has_global_flag = bookmark1355
-					}									
-					NOT = { true_religion = inconnu }
-					NOT = { has_character_flag = FLAG_POD_NOT_INCONNU }
-				}
-				random_list = {
-					1 = { 									
-						if = { 
-							limit = { 
-								OR = { 
-									has_global_flag = bookmark1505
-									has_global_flag = bookmark1506
-									has_global_flag = bookmark767
-									has_global_flag = bookmark1230
-									has_global_flag = bookmark1466
-									has_global_flag = bookmark1355
-								}									
-								NOT = { has_CWOD_clan_trigger = yes }
-							} 	
-							culture = "roman"
-							random_list = {
-								10 = { 
-									if = { 
-										limit = {
-											OR = { 
-												has_global_flag = bookmark767
-												has_global_flag = bookmark1230
-												has_global_flag = bookmark1466
-												has_global_flag = bookmark1355
-											}
-										}
-										add_trait = lasombra
-									}
-									if = { 
-										limit = {
-											OR = { 
-												has_global_flag = bookmark1505
-												has_global_flag = bookmark1506 
-											} 
-										}
-										add_trait = lasombraantitribu
-									}
-									religion = lasombra_high
-									set_secret_religion = inconnu
-								}
-								30 = { 
-									add_trait = ventrue
-									religion = ventrue_high
-									set_secret_religion = inconnu
-								}	
-								20 = { 
-									add_trait = gangrel
-									religion = gangrellow
-									set_secret_religion = inconnu
-								}	
-								20 = { 
-									add_trait = malkavian
-									religion = malkavianlow
-									set_secret_religion = inconnu
-								}	
-								20 = { 
-									add_trait = nosferatu
-									set_graphical_culture = nosferatu
-									religion = nosferatulow
-									set_secret_religion = inconnu
-								}											
-							}
-						}	
-					}
-					99 = {
-						set_character_flag = FLAG_POD_NOT_INCONNU
-
-						}
-					}
-			}		
+		}
 
 		POD_CWOD_bookmark_DAV_init_effect = yes	
 		POD_CWOD_bookmark_masquerade_init_effect = yes
@@ -646,16 +705,17 @@ character_event = {
 	if = { 
 		limit = { 
 				 ai = yes 
-				 NOT = { true_religion = inconnu }
+				 trait = vampire
 				}
 				random_list = {							
-					10 = {
+					5 = {
 						# Create Young Ancilla
 						create_character = {
 							random_traits = yes
 							trait = vampire
+							trait = wyrm_taint
 							age = 100
-							dynasty = culture
+							dynasty = actually_culture
 							culture = ROOT
 							religion = ROOT
 						}
@@ -671,14 +731,15 @@ character_event = {
 							add_trait = vampgeneration9						
 						}
 					}
-					10 = {
+					5 = {
 						# Create Young Ancilla
 						create_character = {
 							random_traits = yes
 							trait = vampire
+							trait = wyrm_taint
 							age = 100
 							female = yes
-							dynasty = culture
+							dynasty = actually_culture
 							culture = ROOT
 							religion = ROOT
 						}
@@ -699,8 +760,9 @@ character_event = {
 						create_character = {
 							random_traits = yes
 							trait = vampire
+							trait = wyrm_taint
 							age = 150
-							dynasty = culture
+							dynasty = actually_culture
 							culture = ROOT
 							religion = ROOT
 						}
@@ -721,9 +783,10 @@ character_event = {
 						create_character = {
 							random_traits = yes
 							trait = vampire
+							trait = wyrm_taint
 							age = 150
 							female = yes
-							dynasty = culture
+							dynasty = actually_culture
 							culture = ROOT
 							religion = ROOT
 						}
@@ -744,8 +807,9 @@ character_event = {
 						create_character = {
 							random_traits = yes
 							trait = vampire
+							trait = wyrm_taint
 							age = 250
-							dynasty = culture
+							dynasty = actually_culture
 							culture = ROOT
 							religion = ROOT
 						}
@@ -766,9 +830,10 @@ character_event = {
 						create_character = {
 							random_traits = yes
 							trait = vampire
+							trait = wyrm_taint
 							age = 250
 							female = yes
-							dynasty = culture
+							dynasty = actually_culture
 							culture = ROOT
 							religion = ROOT										
 						}
@@ -784,24 +849,14 @@ character_event = {
 							add_trait = vampgeneration7
 						}
 					}
-				}
-
-
-		}			
-
-# AI Inconnu are really old
-			if = { 
-				limit = { 
-						ai = yes
-						true_religion = inconnu } 
-				random_list = {
-					50 = {
+					5 = {
 						# Create male Ancient
 						create_character = {
 							random_traits = yes
 							trait = vampire
+							trait = wyrm_taint
 							age = 1100
-							dynasty = culture
+							dynasty = actually_culture
 							culture = ROOT
 							religion = ROOT
 						}
@@ -819,14 +874,15 @@ character_event = {
 							
 						}
 					}
-					50 = {
+					5 = {
 						# Create female ancient
 						create_character = {
 							random_traits = yes
 							trait = vampire
+							trait = wyrm_taint
 							age = 1100
 							female = yes
-							dynasty = culture
+							dynasty = actually_culture
 							culture = ROOT
 							religion = ROOT									
 						}
@@ -842,211 +898,9 @@ character_event = {
 							add_trait = bloodpotency_5
 							add_trait = vampgeneration6
 						}
-					}
+					}					
+					
 				}
-				}
-			
-			if = { 
-				limit = { 
-					NOT = { true_religion = inconnu } 
-					ai = no
-				} 
-				random_list = {							
-					10 = {
-						# Create Young Ancilla
-						create_character = {
-							random_traits = yes
-							trait = vampire
-							age = 100
-							dynasty = ROOT
-							culture = ROOT
-							religion = ROOT
-						}
-						new_character = {
-							inherit = PREV
-							if = { limit = { ROOT = { is_female = no } } 
-							set_father = ROOT }
-							if = { limit = { ROOT = { is_female = yes } } 
-							set_mother = ROOT }
-							add_trait = ancilla
-							
-							add_trait = bloodpotency_2
-							add_trait = vampgeneration9						
-						}
-					}
-					10 = {
-						# Create Young Ancilla
-						create_character = {
-							random_traits = yes
-							trait = vampire
-							age = 100
-							female = yes
-							dynasty = ROOT
-							culture = ROOT
-							religion = ROOT
-						}
-						new_character = {
-							inherit = PREV
-							if = { limit = { ROOT = { is_female = no } } 
-							set_father = ROOT }
-							if = { limit = { ROOT = { is_female = yes } } 
-							set_mother = ROOT }
-							add_trait = ancilla
-							
-							add_trait = bloodpotency_2
-							add_trait = vampgeneration9								
-						}
-					}
-					20 = {
-						# Create Old Ancilla
-						create_character = {
-							random_traits = yes
-							trait = vampire
-							age = 150
-							dynasty = ROOT
-							culture = ROOT
-							religion = ROOT
-						}
-						new_character = {
-							inherit = PREV
-							if = { limit = { ROOT = { is_female = no } } 
-							set_father = ROOT }
-							if = { limit = { ROOT = { is_female = yes } } 
-							set_mother = ROOT }
-							add_trait = ancilla
-							
-							add_trait = bloodpotency_3
-							add_trait = vampgeneration8						
-						}
-					}
-					20 = {
-						# Create Old Ancilla
-						create_character = {
-							random_traits = yes
-							trait = vampire
-							age = 150
-							female = yes
-							dynasty = ROOT
-							culture = ROOT
-							religion = ROOT
-						}
-						new_character = {
-							inherit = PREV
-							if = { limit = { ROOT = { is_female = no } } 
-							set_father = ROOT }
-							if = { limit = { ROOT = { is_female = yes } } 
-							set_mother = ROOT }
-							add_trait = ancilla
-							
-							add_trait = bloodpotency_3
-							add_trait = vampgeneration8							
-						}
-					}
-					20 = {
-						# Create Elder
-						create_character = {
-							random_traits = yes
-							trait = vampire
-							age = 250
-							dynasty = ROOT
-							culture = ROOT
-							religion = ROOT
-						}
-						new_character = {
-							inherit = PREV
-							if = { limit = { ROOT = { is_female = no } } 
-							set_father = ROOT }
-							if = { limit = { ROOT = { is_female = yes } } 
-							set_mother = ROOT }
-							add_trait = elder
-							
-							add_trait = bloodpotency_4
-							add_trait = vampgeneration7
-						}
-					}
-					20 = {
-						# Create Elder
-						create_character = {
-							random_traits = yes
-							trait = vampire
-							age = 250
-							female = yes
-							dynasty = ROOT
-							culture = ROOT
-							religion = ROOT										
-						}
-						new_character = {
-							inherit = PREV
-							if = { limit = { ROOT = { is_female = no } } 
-							set_father = ROOT }
-							if = { limit = { ROOT = { is_female = yes } } 
-							set_mother = ROOT }
-							add_trait = elder
-							
-							add_trait = bloodpotency_4
-							add_trait = vampgeneration7
-						}
-					}
-				}
-			}	
-			
-# AI Inconnu are really old
-			if = { 
-				limit = { 
-						ai = no
-						true_religion = inconnu } 
-				random_list = {
-					50 = {
-						# Create male Ancient
-						create_character = {
-							random_traits = yes
-							trait = vampire
-							age = 1100
-							dynasty = ROOT
-							culture = ROOT
-							religion = ROOT
-						}
-						new_character = {
-							inherit = PREV
-							if = { limit = { ROOT = { is_female = no } } 
-							set_father = ROOT }
-							if = { limit = { ROOT = { is_female = yes } } 
-							set_mother = ROOT }
-							add_trait = ancient
-							set_secret_religion = inconnu
-							join_society = secret_religious_cult
-							add_trait = bloodpotency_5
-							add_trait = vampgeneration6
-							
-						}
-					}
-					50 = {
-						# Create female ancient
-						create_character = {
-							random_traits = yes
-							trait = vampire
-							age = 1100
-							female = yes
-							dynasty = ROOT
-							culture = ROOT
-							religion = ROOT									
-						}
-						new_character = {
-							inherit = PREV
-							if = { limit = { ROOT = { is_female = no } } 
-							set_father = ROOT }
-							if = { limit = { ROOT = { is_female = yes } } 
-							set_mother = ROOT }
-							add_trait = ancient
-							set_secret_religion = inconnu
-							join_society = secret_religious_cult
-							add_trait = bloodpotency_5
-							add_trait = vampgeneration6
-						}
-					}
-				}
-				}			
-			
 			new_character = { 
 						if = { limit = { trait = slow } 
 							remove_trait = slow
@@ -1056,25 +910,32 @@ character_event = {
 						}						
 						if = { limit = { trait = inbred } 
 							remove_trait = inbred
-						}			
+						}		
+						
 					POD_CWOD_vampire_inherit_sire_clan_effect = yes
 					POD_CWOD_bookmark_DAV_init_effect = yes
 					POD_CWOD_vampire_governments_init_effect = yes
 					POD_CWOD_vampire_disciplines_init_effect = yes	
 					POD_CWOD_vampire_roads_init_effect = yes
+					POD_CWOD_vampire_paths_init_effect = yes
 					POD_CWOD_vampire_secret_religion_init_effect = yes
+					POD_CWOD_vampire_sabbat_secret_religion_init_effect = yes
 					POD_CWOD_vampire_roads_grand_master_init_effect = yes
+					
 					if = { 
 						limit = { 
 									ai = yes
 								}
 					POD_CWOD_dynasty_effect = yes			
 					}
+					
 					inherit = ROOT
-			}
+				}
+
+		}			
 
 		# kill random noble vampire supe
 			death = "yes"			
-		}
-	}	
-}
+			}
+		}	
+	}

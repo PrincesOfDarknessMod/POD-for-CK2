@@ -41,10 +41,27 @@ has_via_humanitatis_prerequisites = {
 		has_xtian_sect_trigger = yes
 }
 
+has_path_of_humanity_prerequisites = {
+		diplomacy = 5
+		has_vampire_trait_trigger = yes
+}
+
 has_via_regalis_prerequisites = {
 		stewardship = 5
 		has_vampire_trait_trigger = yes
 		has_xtian_sect_trigger = yes
+}
+
+has_path_of_power_and_the_inner_voice_prerequisites = {
+		stewardship = 5
+		has_vampire_trait_trigger = yes
+		religion = sabbat
+}
+
+has_path_of_honorable_accord_prerequisites = {
+		combat_rating = 5
+		has_vampire_trait_trigger = yes
+		religion = sabbat
 }
 
 has_via_caeli_prerequisites = {
@@ -53,16 +70,44 @@ has_via_caeli_prerequisites = {
 		has_xtian_sect_trigger = yes
 }
 
+has_path_of_redemption_prerequisites = {
+		learning = 5
+		has_vampire_trait_trigger = yes
+}
+
 has_via_bestiae_prerequisites = {
 		combat_rating = 5
 		has_vampire_trait_trigger = yes
 		has_xtian_sect_trigger = yes
 }
 
+has_path_of_the_beast_prerequisites = {
+		combat_rating = 5
+		has_vampire_trait_trigger = yes
+		OR = {
+			religion = sabbat
+			has_gangrel_trait_trigger = yes
+			}
+}
+
 has_via_peccati_prerequisites = {
 		intrigue = 5
 		has_vampire_trait_trigger = yes
 		has_xtian_sect_trigger = yes
+}
+
+has_path_of_cathari_prerequisites = {
+		intrigue = 5
+		has_vampire_trait_trigger = yes
+		OR = {
+			trait = lustful
+			religion = sabbat
+			}
+}
+
+has_path_of_evil_revelations_prerequisites = {
+		intrigue = 5
+		has_vampire_trait_trigger = yes
 }
 
 has_via_ossium_prerequisites = {
@@ -72,6 +117,19 @@ has_via_ossium_prerequisites = {
 		has_xtian_sect_trigger = yes
 }
 
+has_path_of_bones_prerequisites = {
+		learning = 5
+		has_giovanni_trait_trigger = yes	
+		religion = giovanni
+		has_vampire_trait_trigger = yes
+}
+
+has_path_of_death_and_the_soul_prerequisites = {
+		learning = 5
+		religion = sabbat
+		has_vampire_trait_trigger = yes
+}
+
 has_via_noctis_prerequisites = {
 		intrigue = 5
 		has_vampire_trait_trigger = yes
@@ -79,7 +137,19 @@ has_via_noctis_prerequisites = {
 		has_lasombra_trait_trigger = yes	
 }
 
+has_path_of_night_prerequisites = {
+		intrigue = 5
+		has_vampire_trait_trigger = yes
+		has_lasombra_trait_trigger = yes	
+}
+
 has_via_hyron_prerequisites = {
+		intrigue = 5
+		has_vampire_trait_trigger = yes
+		has_baali_trait_trigger = yes			
+}
+
+has_path_of_the_hive_prerequisites = {
 		intrigue = 5
 		has_vampire_trait_trigger = yes
 		has_baali_trait_trigger = yes			
@@ -139,13 +209,38 @@ has_via_sanguinus_prerequisites = {
 		has_assamite_trait_trigger = yes
 }
 
+has_path_of_blood_prerequisites = {
+		intrigue = 5
+		religion = assamite
+		has_vampire_trait_trigger = yes
+		has_assamite_trait_trigger = yes
+}
+
+has_path_of_caine_prerequisites = {
+		martial = 5
+		religion = sabbat
+		has_vampire_trait_trigger = yes
+}
+
 has_via_paradoxi_prerequisites = {
 		intrigue = 5
 		has_vampire_trait_trigger = yes
 		has_ravnos_trait_trigger = yes
 }
 
+has_path_of_paradox_prerequisites = {
+		intrigue = 5
+		has_vampire_trait_trigger = yes
+		has_ravnos_trait_trigger = yes
+}
+
 has_via_serpentis_prerequisites = {
+		intrigue = 5
+		has_vampire_trait_trigger = yes
+		has_followerofset_trait_trigger = yes
+}
+
+has_path_of_typhon_prerequisites = {
 		intrigue = 5
 		has_vampire_trait_trigger = yes
 		has_followerofset_trait_trigger = yes
@@ -158,6 +253,18 @@ has_via_mutationis_prerequisites = {
 		religion = koldun	
 }
 
+has_path_of_metamorphosis_prerequisites = {
+		learning = 5
+		has_vampire_trait_trigger = yes
+		OR = {
+		has_tzimisce_trait_trigger = yes
+		has_vicissitude = yes
+		}
+		OR = { religion = sabbat
+				religion = oradealeague
+				}
+}
+
 has_code_of_tremere_prerequisites = {
 		learning = 5
 		has_vampire_trait_trigger = yes
@@ -165,6 +272,15 @@ has_code_of_tremere_prerequisites = {
 }
 
 has_derech_lilit_prerequisites = {
+		diplomacy = 5
+		OR = { 
+		has_vampire_trait_trigger = yes
+		has_mage_trait_trigger = yes
+		}
+		
+}
+
+has_path_of_lilith_prerequisites = {
 		diplomacy = 5
 		OR = { 
 		has_vampire_trait_trigger = yes
@@ -191,6 +307,12 @@ has_cult_of_mithras_prerequisites = {
 }
 
 has_cainite_prerequisites = {
+		diplomacy = 5
+		has_vampire_trait_trigger = yes
+		has_xtian_sect_trigger = yes
+}
+
+has_crimson_curia_prerequisites = {
 		diplomacy = 5
 		has_vampire_trait_trigger = yes
 		has_xtian_sect_trigger = yes

@@ -4,7 +4,7 @@ character_event = {
 	hide_window = yes
 	only_rulers = yes
 	trigger = {
-		trait = vampire
+		is_vampire_trigger = yes
 		age = 25
 		ai = yes
 		NOT = { num_of_children = 6 }
@@ -215,6 +215,10 @@ character_event = {
 						}								
 						
 						recalc_succession = yes
+						character_event = { id = vampire_embrace.2
+											days = 1
+											random = 5
+						}						
 					}
 				}
 				50 = {
@@ -239,6 +243,10 @@ character_event = {
 							remove_trait = inbred
 						}							
 						recalc_succession = yes
+						character_event = { id = vampire_embrace.2
+											days = 1
+											random = 5
+						}						
 					}
 				}
 			}	
@@ -268,6 +276,10 @@ character_event = {
 							remove_trait = inbred
 						}							
 						recalc_succession = yes
+						character_event = { id = vampire_embrace.2
+											days = 1
+											random = 5
+						}						
 					}
 				}
 				50 = {
@@ -292,6 +304,11 @@ character_event = {
 							remove_trait = inbred
 						}							
 						recalc_succession = yes
+						
+						character_event = { id = vampire_embrace.2
+											days = 1
+											random = 5
+						}
 					}
 				}
 			}	
@@ -304,18 +321,16 @@ character_event = {
 character_event = {
 	id = vampire_embrace.2
 	hide_window = yes
+	is_triggered_only = yes
+	 
 	trigger = {
 		trait = fledgling
-	}
-	
-	mean_time_to_happen = {
-		days = 1
 	}
 
 	immediate = {
 		set_character_flag = FLAG_POD_EMBRACE_EVENT_FIRED
 		remove_trait = mortal
-		remove_trait = fledgling	
+		remove_trait = fledgling
 		if = { 
 			limit = { trait = ghoul } 
 			remove_trait = ghoul 
@@ -329,8 +344,9 @@ character_event = {
 		add_trait = wyrm_taint
 		add_trait = neonate
 		add_trait = bloodpotency_1
+
 		if = { 
-			limit = { father = { trait = vampire } }
+			limit = { father = { is_vampire_trigger = yes } }
 			father = {
 				reverse_religion = ROOT
 				set_character_flag = FLAG_POD_RECENT_VAMPIRE_CHILDE
@@ -713,7 +729,7 @@ character_event = {
 			}
 			
 		if = { 
-			limit = { mother = { trait = vampire } }
+			limit = { mother = { is_vampire_trigger = yes } }
 			mother = {
 				reverse_religion = ROOT
 				set_character_flag = FLAG_POD_RECENT_VAMPIRE_CHILDE
@@ -1126,8 +1142,9 @@ if = {
 						}
 						
 			random_list = {
-						50 = { join_society = ROOT }
-						50 = { POD_CWOD_vampire_roads_init_effect = yes }
+						50 = { 	POD_CWOD_vampire_roads_init_effect = yes
+								POD_CWOD_vampire_paths_init_effect = yes
+						}
 						}			
 			}
 			

@@ -144,7 +144,7 @@ return_to_human_form_decision = {
 				factor = 5
 				FROM = {
 					OR = {
-						hiding = no
+						in_hiding = no
 					}
 				}
 			}				
@@ -167,6 +167,7 @@ return_to_human_form_decision = {
 			factor = 0
 			has_character_modifier = dire_blood_thirst
 				}
+				
 		modifier = {
 			factor = 0
 			has_character_modifier = dreadful_blood_thirst
@@ -232,42 +233,51 @@ shift_zulo_form_decision = {
 	}
 	
 	revoke_allowed = { always = no }
+	
 	ai_will_do = {
-			factor = 1 	
+				factor = 1	
+			
 			modifier = {
 				factor = 5
 				FROM = {
+					OR = {
 						in_battle = yes
 					}
-			}			
+				}
+			}
 			modifier = {
 				factor = 5
 				FROM = {
+					OR = {
 						in_siege = yes
 					}
-			}	
-
+				}
+			}					
+			
+			modifier = {
+				factor = 5
+				FROM = {
+						trait = patient
+					}
+			}
 			modifier = {
 				factor = 5
 				FROM = {
 						trait = wroth
 					}
-			}	
-			modifier = {
-				factor = 0.1
-				FROM = {
-						trait = patient
-					}
-			}	
-
+			}			
+			
+			
 		modifier = {
 			factor = 0
 			has_character_modifier = dire_blood_thirst
 				}
+				
 		modifier = {
 			factor = 0
 			has_character_modifier = dreadful_blood_thirst
-				}
+				}	
+				
 		}
 	}	
 
@@ -355,7 +365,7 @@ shift_blood_form_decision = {
 			modifier = {
 				factor = 5
 				FROM = {
-						trait = in_hiding 
+						in_hiding = yes
 				}
 			}		
 		modifier = {
@@ -452,7 +462,7 @@ shift_beast_form_decision = {
 			modifier = {
 				factor = 5
 				FROM = {
-						trait = in_hiding 
+						in_hiding = yes
 				}
 			}		
 		modifier = {
@@ -548,7 +558,7 @@ shift_mist_form_decision = {
 			modifier = {
 				factor = 5
 				FROM = {
-						trait = in_hiding 
+						in_hiding = yes
 				}
 			}		
 		modifier = {
@@ -645,7 +655,7 @@ shift_shadow_form_decision = {
 			modifier = {
 				factor = 5
 				FROM = {
-						trait = in_hiding 
+						in_hiding = yes
 				}
 			}		
 		modifier = {

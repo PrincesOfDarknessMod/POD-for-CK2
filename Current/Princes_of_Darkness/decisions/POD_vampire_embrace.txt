@@ -7,14 +7,14 @@ targetted_decisions = {
 		
 		from_potential = {
 			ai = no
-			trait = vampire
+			is_vampire_trigger = yes
 			NOT = { trait = vampgeneration15 }				
 		 }
 		potential = {
 			age = 16
 			trait = mortal
-			NOT = { trait = werewolf }
 			NOT = { trait = mummy }
+			NOT = { trait = werewolf }
 			NOT = { trait = promethean }
 			NOT = { trait = geist }
 			NOT = { trait = changeling }
@@ -31,12 +31,16 @@ targetted_decisions = {
 				limit = { FROM = { is_female = yes } }
 				set_father = 0
 				set_mother = FROM
-			}	
+			}
 			dynasty = FROM
 			add_trait = fledgling
 			FROM = {
                    POD_vampire_blood_thirst_increase_effect = yes
                 }
+						character_event = { id = vampire_embrace.2
+											days = 1
+											random = 5
+						}	
 		}
 		revoke_allowed = {
 			always = no
@@ -52,7 +56,7 @@ targetted_decisions = {
 		
 		from_potential = {
 			ai = no
-			trait = vampire
+			is_vampire_trigger = yes
 		 }
 		potential = {
 			is_adult = yes
@@ -91,7 +95,111 @@ targetted_decisions = {
 			factor = 0
 		}
 	}
+	
+	player_embrace_werewolf_decision = {
+		filter = court
+		ai_target_filter = court
+		
+		from_potential = {
+			ai = no
+			is_vampire_trigger = yes
+			NOT = { trait = vampgeneration15 }				
+		 }
+		potential = {
+			age = 16
+			is_werewolf_trigger = yes
+			NOT = { trait = vampire }
+			NOT = { trait = werewolf_abomination }
+		}
+		effect = {
+			custom_tooltip = {
+				name = "player_embrace_werewolf_decision_tooltip"
+				hidden_tooltip = {
+					set_character_flag = FLAG_NWOD_EMBRACE_MORTAL_MINOR_TITLE_FIRED
+					random_list = {
+						95 = {
+							death = { death_reason = death_murdered killer = FROM }
+						}
+						5 = { # 5% CHANCE TO YIELD AN ABOMINATION
+							if = { 
+								limit = { FROM = { is_female = no } }
+									set_father = FROM
+									set_mother = 0
+								}
+							if = {
+								limit = { FROM = { is_female = yes } }
+								set_father = 0
+								set_mother = FROM
+							}
+							dynasty = FROM
+							add_trait = fledgling
+							remove_trait = werewolf
+							add_trait = werewolf_abomination
+							FROM = {
+            		       		POD_vampire_blood_thirst_increase_effect = yes
+            		   		 }
+						character_event = { id = vampire_embrace.2
+											days = 1
+											random = 5
+						}								 
+						}
+					}
+				}
+			}
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
 
+	player_ghoul_decision = {
+		filter = court
+		ai_target_filter = court
+		
+		from_potential = {
+			ai = no
+			is_vampire_trigger = yes
+		 }
+		potential = {
+			is_adult = yes
+			trait = mortal
+			NOT = { trait = ghoul }
+			NOT = { trait = werewolf }
+		}
+		allow = {
+			NOT = {
+				any_opinion_modifier_target  = {
+					reverse_has_opinion_modifier = { who = FROM modifier = opinion_blood_bond_to_domitor_ghoul }
+					count = 5
+				}
+			}
+		}
+		effect = {
+			add_trait = ghoul
+			add_trait = vigor_1
+			add_trait = bloodbound
+			opinion = {
+				modifier = opinion_blood_bond_to_domitor_ghoul
+				who = FROM
+				years = 3000
+			}
+			set_character_flag = FLAG_NWOD_BLOODBOUND
+			character_event = { id = ghoul.1 }
+			FROM = {
+                   POD_vampire_blood_thirst_increase_effect = yes
+                }
+
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
 	
 }
 
@@ -99,7 +207,7 @@ targetted_decisions = {
 decisions = {
 	embrace_mortal_decision = {
 		potential = {
-			trait = vampire
+			is_vampire_trigger = yes
 			NOT = { trait = vampgeneration15 }	
 			ai = no		
 		}
