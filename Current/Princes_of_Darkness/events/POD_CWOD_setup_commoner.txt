@@ -47,6 +47,7 @@ character_event = {
 				religion_group = daedalan_group
 				religion_group = magical_traditions_group
 				religion = laibon
+				religion_group = changeling_group
 			}
 		}
 	}
@@ -173,6 +174,34 @@ character_event = {
 				add_trait = mage
 				character_event = { id = CWOD_mage_commoner.1 }	
 			}	
+			
+# changeling mercs
+			if = { 
+				limit = {
+					NOT = { trait = mortal }
+					NOT = { trait = vampire }
+					NOT = { trait = werewolf }
+					NOT = { trait = mage }
+					NOT = { trait = mummy }
+					NOT = { trait = changeling }
+					NOT = { trait = promethean }
+					NOT = { trait = geist }
+					NOT = { trait = demon }
+					NOT = { trait = revenant }				
+					OR = {
+						religion_group = changeling_group_group
+					}
+					OR = {
+						liege = { mercenary = yes }
+						liege = { holy_order = yes }
+						liege = { rebel = yes }
+					}
+				}
+				add_trait = changeling
+				character_event = { id = CWOD_changeling_commoner.1 }	
+			}	
+			
+			
 # supe_hunters					
 			if = { 
 				limit = {
@@ -196,7 +225,7 @@ character_event = {
 					NOT = { trait = revenant }
 				}	
 				random_list = {
-					79 = { 
+					75 = { 
 						# mortal
 						add_trait = mortal
 						character_event = { id = mortal_commoner.1 }	
@@ -218,10 +247,10 @@ character_event = {
 						add_trait = mage
 						character_event = { id = CWOD_mage_commoner.1 }
 					}
-					1 = {
+					5 = {
 						# changeling
 						add_trait = changeling
-						character_event = { id = changeling_commoner.1 }
+						character_event = { id = CWOD_changeling_commoner.1 }
 					}
 					1 = {
 						# mummy

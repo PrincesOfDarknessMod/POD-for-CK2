@@ -1,0 +1,1677 @@
+decisions = {
+
+train_actor_1_decision = {
+	potential = {
+			age = 16
+			trait = changeling
+			NOT = { trait = actor_1 }
+			NOT = { trait = actor_2 }
+			NOT = { trait = actor_3 }
+			NOT = { trait = actor_4 }
+			NOT = { trait = actor_5 }
+			
+	}
+	
+	allow = {
+		piety = 20
+			trait = changeling
+			NOT = { trait = actor_1 }
+			NOT = { trait = actor_2 }
+			NOT = { trait = actor_3 }
+			NOT = { trait = actor_4 }
+			NOT = { trait = actor_5 }
+	}
+	effect = {
+		piety = -20
+		
+		character_event = { id = POD_CWOD_CHANGELING_TRAIN_CANTRIP.1  }
+		add_trait = actor_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 1	
+				}
+		}
+
+
+train_actor_2_decision = {
+	
+	potential = {
+			
+			trait = changeling
+			trait = actor_1 
+	}	
+	
+	allow = {
+		piety = 40
+		trait = actor_1 	
+	}
+	effect = {
+		piety = -40
+		
+		character_event = { id = POD_CWOD_CHANGELING_TRAIN_CANTRIP.1  }
+		add_trait = actor_2
+		remove_trait = actor_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 1	
+		}
+	}
+
+train_actor_3_decision = {
+	
+	potential = {
+			
+
+			trait = changeling
+			trait = actor_2
+	}
+	allow = {
+		piety = 60
+			trait = actor_2	
+	}
+	effect = {
+		piety = -60
+		remove_trait = actor_2
+		
+		character_event = { id = POD_CWOD_CHANGELING_TRAIN_CANTRIP.1  }
+		add_trait = actor_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 1
+		}
+	}
+
+train_actor_4_decision = {
+	
+	potential = {
+			
+			trait = changeling		
+			trait = actor_3
+	}
+	allow = {
+		piety = 80
+			trait = actor_3	
+	}
+	effect = {
+		piety = -80
+		remove_trait = actor_3
+		
+		character_event = { id = POD_CWOD_CHANGELING_TRAIN_CANTRIP.1  }
+		add_trait = actor_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 1				
+			}
+	}
+
+train_actor_5_decision = {
+	
+	potential = {
+			
+			trait = changeling			
+			trait = actor_4 
+	}
+	allow = {
+		piety = 120
+			trait = actor_4 		
+	}
+	effect = {
+		piety = -120
+		remove_trait = actor_4
+		
+		character_event = { id = POD_CWOD_CHANGELING_TRAIN_CANTRIP.1  }
+		add_trait = actor_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 1				
+			}
+	}		
+		
+
+
+train_fae_1_decision = {
+	potential = {
+			
+			age = 16
+			trait = changeling
+			NOT = { trait = fae_1 }
+			NOT = { trait = fae_2 }
+			NOT = { trait = fae_3 }
+			NOT = { trait = fae_4 }
+			NOT = { trait = fae_5 }
+			
+	}
+	
+	allow = {
+		piety = 20
+			trait = changeling
+			NOT = { trait = fae_1 }
+			NOT = { trait = fae_2 }
+			NOT = { trait = fae_3 }
+			NOT = { trait = fae_4 }
+			NOT = { trait = fae_5 }
+	}
+	effect = {
+		piety = -20
+		
+		character_event = { id = POD_CWOD_CHANGELING_TRAIN_CANTRIP.1  }
+		add_trait = fae_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 1	
+				}
+		}
+
+
+train_fae_2_decision = {
+	
+	potential = {
+			
+			trait = changeling
+			trait = fae_1 
+	}	
+	
+	allow = {
+		piety = 40
+		trait = fae_1 	
+	}
+	effect = {
+		piety = -40
+		
+		character_event = { id = POD_CWOD_CHANGELING_TRAIN_CANTRIP.1  }
+		add_trait = fae_2
+		remove_trait = fae_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 1	
+		}
+	}
+
+train_fae_3_decision = {
+	
+	potential = {
+			
+
+			trait = changeling
+			trait = fae_2
+	}
+	allow = {
+		piety = 60
+			trait = fae_2	
+	}
+	effect = {
+		piety = -60
+		remove_trait = fae_2
+		
+		character_event = { id = POD_CWOD_CHANGELING_TRAIN_CANTRIP.1  }
+		add_trait = fae_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 1
+		}
+	}
+
+train_fae_4_decision = {
+	
+	potential = {
+			
+			trait = changeling		
+			trait = fae_3
+	}
+	allow = {
+		piety = 80
+			trait = fae_3	
+	}
+	effect = {
+		piety = -80
+		remove_trait = fae_3
+		
+		character_event = { id = POD_CWOD_CHANGELING_TRAIN_CANTRIP.1  }
+		add_trait = fae_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 1				
+			}
+	}
+
+train_fae_5_decision = {
+	
+	potential = {
+			
+			trait = changeling			
+			trait = fae_4 
+	}
+	allow = {
+		piety = 120
+			trait = fae_4 		
+	}
+	effect = {
+		piety = -120
+		remove_trait = fae_4
+		
+		character_event = { id = POD_CWOD_CHANGELING_TRAIN_CANTRIP.1  }
+		add_trait = fae_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 1				
+			}
+	}		
+
+
+train_prop_1_decision = {
+	potential = {
+			
+			age = 16
+			trait = changeling
+			NOT = { trait = prop_1 }
+			NOT = { trait = prop_2 }
+			NOT = { trait = prop_3 }
+			NOT = { trait = prop_4 }
+			NOT = { trait = prop_5 }
+			
+	}
+	
+	allow = {
+		piety = 20
+			trait = changeling
+			NOT = { trait = prop_1 }
+			NOT = { trait = prop_2 }
+			NOT = { trait = prop_3 }
+			NOT = { trait = prop_4 }
+			NOT = { trait = prop_5 }
+	}
+	effect = {
+		piety = -20
+		
+		character_event = { id = POD_CWOD_CHANGELING_TRAIN_CANTRIP.1  }
+		add_trait = prop_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 1	
+				}
+		}
+
+
+train_prop_2_decision = {
+	
+	potential = {
+			
+			trait = changeling
+			trait = prop_1 
+	}	
+	
+	allow = {
+		piety = 40
+		trait = prop_1 	
+	}
+	effect = {
+		piety = -40
+		
+		character_event = { id = POD_CWOD_CHANGELING_TRAIN_CANTRIP.1  }
+		add_trait = prop_2
+		remove_trait = prop_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 1	
+		}
+	}
+
+train_prop_3_decision = {
+	
+	potential = {
+			
+
+			trait = changeling
+			trait = prop_2
+	}
+	allow = {
+		piety = 60
+			trait = prop_2	
+	}
+	effect = {
+		piety = -60
+		remove_trait = prop_2
+		
+		character_event = { id = POD_CWOD_CHANGELING_TRAIN_CANTRIP.1  }
+		add_trait = prop_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 1
+		}
+	}
+
+train_prop_4_decision = {
+	
+	potential = {
+			
+			trait = changeling		
+			trait = prop_3
+	}
+	allow = {
+		piety = 80
+			trait = prop_3	
+	}
+	effect = {
+		piety = -80
+		remove_trait = prop_3
+		
+		character_event = { id = POD_CWOD_CHANGELING_TRAIN_CANTRIP.1  }
+		add_trait = prop_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 1				
+			}
+	}
+
+train_prop_5_decision = {
+	
+	potential = {
+			
+			trait = changeling			
+			trait = prop_4 
+	}
+	allow = {
+		piety = 120
+			trait = prop_4 		
+	}
+	effect = {
+		piety = -120
+		remove_trait = prop_4
+		
+		character_event = { id = POD_CWOD_CHANGELING_TRAIN_CANTRIP.1  }
+		add_trait = prop_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 1				
+			}
+	}		
+
+
+train_nature_1_decision = {
+	potential = {
+			
+			age = 16
+			trait = changeling
+			NOT = { trait = nature_1 }
+			NOT = { trait = nature_2 }
+			NOT = { trait = nature_3 }
+			NOT = { trait = nature_4 }
+			NOT = { trait = nature_5 }
+			
+	}
+	
+	allow = {
+		piety = 20
+			trait = changeling
+			NOT = { trait = nature_1 }
+			NOT = { trait = nature_2 }
+			NOT = { trait = nature_3 }
+			NOT = { trait = nature_4 }
+			NOT = { trait = nature_5 }
+	}
+	effect = {
+		piety = -20
+		
+		character_event = { id = POD_CWOD_CHANGELING_TRAIN_CANTRIP.1  }
+		add_trait = nature_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 1	
+				}
+		}
+
+
+train_nature_2_decision = {
+	
+	potential = {
+			
+			trait = changeling
+			trait = nature_1 
+	}	
+	
+	allow = {
+		piety = 40
+		trait = nature_1 	
+	}
+	effect = {
+		piety = -40
+		
+		character_event = { id = POD_CWOD_CHANGELING_TRAIN_CANTRIP.1  }
+		add_trait = nature_2
+		remove_trait = nature_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 1	
+		}
+	}
+
+train_nature_3_decision = {
+	
+	potential = {
+			
+
+			trait = changeling
+			trait = nature_2
+	}
+	allow = {
+		piety = 60
+			trait = nature_2	
+	}
+	effect = {
+		piety = -60
+		remove_trait = nature_2
+		
+		character_event = { id = POD_CWOD_CHANGELING_TRAIN_CANTRIP.1  }
+		add_trait = nature_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 1
+		}
+	}
+
+train_nature_4_decision = {
+	
+	potential = {
+			
+			trait = changeling		
+			trait = nature_3
+	}
+	allow = {
+		piety = 80
+			trait = nature_3	
+	}
+	effect = {
+		piety = -80
+		remove_trait = nature_3
+		
+		character_event = { id = POD_CWOD_CHANGELING_TRAIN_CANTRIP.1  }
+		add_trait = nature_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 1				
+			}
+	}
+
+train_nature_5_decision = {
+	
+	potential = {
+			
+			trait = changeling			
+			trait = nature_4 
+	}
+	allow = {
+		piety = 120
+			trait = nature_4 		
+	}
+	effect = {
+		piety = -120
+		remove_trait = nature_4
+		
+		character_event = { id = POD_CWOD_CHANGELING_TRAIN_CANTRIP.1  }
+		add_trait = nature_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 1				
+			}
+	}		
+
+
+train_scene_1_decision = {
+	potential = {
+			
+			age = 16
+			trait = changeling
+			NOT = { trait = scene_1 }
+			NOT = { trait = scene_2 }
+			NOT = { trait = scene_3 }
+			NOT = { trait = scene_4 }
+			NOT = { trait = scene_5 }
+			
+	}
+	
+	allow = {
+		piety = 20
+			trait = changeling
+			NOT = { trait = scene_1 }
+			NOT = { trait = scene_2 }
+			NOT = { trait = scene_3 }
+			NOT = { trait = scene_4 }
+			NOT = { trait = scene_5 }
+	}
+	effect = {
+		piety = -20
+		
+		character_event = { id = POD_CWOD_CHANGELING_TRAIN_CANTRIP.1  }
+		add_trait = scene_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 1	
+				}
+		}
+
+
+train_scene_2_decision = {
+	
+	potential = {
+			
+			trait = changeling
+			trait = scene_1 
+	}	
+	
+	allow = {
+		piety = 40
+		trait = scene_1 	
+	}
+	effect = {
+		piety = -40
+		
+		character_event = { id = POD_CWOD_CHANGELING_TRAIN_CANTRIP.1  }
+		add_trait = scene_2
+		remove_trait = scene_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 1	
+		}
+	}
+
+train_scene_3_decision = {
+	
+	potential = {
+			
+
+			trait = changeling
+			trait = scene_2
+	}
+	allow = {
+		piety = 60
+			trait = scene_2	
+	}
+	effect = {
+		piety = -60
+		remove_trait = scene_2
+		
+		character_event = { id = POD_CWOD_CHANGELING_TRAIN_CANTRIP.1  }
+		add_trait = scene_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 1
+		}
+	}
+
+train_scene_4_decision = {
+	
+	potential = {
+			
+			trait = changeling		
+			trait = scene_3
+	}
+	allow = {
+		piety = 80
+			trait = scene_3	
+	}
+	effect = {
+		piety = -80
+		remove_trait = scene_3
+		
+		character_event = { id = POD_CWOD_CHANGELING_TRAIN_CANTRIP.1  }
+		add_trait = scene_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 1				
+			}
+	}
+
+train_scene_5_decision = {
+	
+	potential = {
+			
+			trait = changeling			
+			trait = scene_4 
+	}
+	allow = {
+		piety = 120
+			trait = scene_4 		
+	}
+	effect = {
+		piety = -120
+		remove_trait = scene_4
+		
+		character_event = { id = POD_CWOD_CHANGELING_TRAIN_CANTRIP.1  }
+		add_trait = scene_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 1				
+			}
+	}		
+		
+
+
+train_time_1_decision = {
+	potential = {
+			
+			age = 16
+			trait = changeling
+			NOT = { trait = time_1 }
+			NOT = { trait = time_2 }
+			NOT = { trait = time_3 }
+			NOT = { trait = time_4 }
+			NOT = { trait = time_5 }
+			
+	}
+	
+	allow = {
+		piety = 20
+			trait = changeling
+			NOT = { trait = time_1 }
+			NOT = { trait = time_2 }
+			NOT = { trait = time_3 }
+			NOT = { trait = time_4 }
+			NOT = { trait = time_5 }
+	}
+	effect = {
+		piety = -20
+		
+		character_event = { id = POD_CWOD_CHANGELING_TRAIN_CANTRIP.1  }
+		add_trait = time_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 1	
+				}
+		}
+
+
+train_time_2_decision = {
+	
+	potential = {
+			
+			trait = changeling
+			trait = time_1 
+	}	
+	
+	allow = {
+		piety = 40
+		trait = time_1 	
+	}
+	effect = {
+		piety = -40
+		
+		character_event = { id = POD_CWOD_CHANGELING_TRAIN_CANTRIP.1  }
+		add_trait = time_2
+		remove_trait = time_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 1	
+		}
+	}
+
+train_time_3_decision = {
+	
+	potential = {
+			
+
+			trait = changeling
+			trait = time_2
+	}
+	allow = {
+		piety = 60
+			trait = time_2	
+	}
+	effect = {
+		piety = -60
+		remove_trait = time_2
+		
+		character_event = { id = POD_CWOD_CHANGELING_TRAIN_CANTRIP.1  }
+		add_trait = time_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 1
+		}
+	}
+
+train_time_4_decision = {
+	
+	potential = {
+			
+			trait = changeling		
+			trait = time_3
+	}
+	allow = {
+		piety = 80
+			trait = time_3	
+	}
+	effect = {
+		piety = -80
+		remove_trait = time_3
+		
+		character_event = { id = POD_CWOD_CHANGELING_TRAIN_CANTRIP.1  }
+		add_trait = time_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 1				
+			}
+	}
+
+train_time_5_decision = {
+	
+	potential = {
+			
+			trait = changeling			
+			trait = time_4 
+	}
+	allow = {
+		piety = 120
+			trait = time_4 		
+	}
+	effect = {
+		piety = -120
+		remove_trait = time_4
+		
+		character_event = { id = POD_CWOD_CHANGELING_TRAIN_CANTRIP.1  }
+		add_trait = time_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 1				
+			}
+	}		
+		
+
+
+train_chicanery_1_decision = {
+	potential = {
+			
+			age = 16
+			trait = changeling
+			NOT = { trait = chicanery_1 }
+			NOT = { trait = chicanery_2 }
+			NOT = { trait = chicanery_3 }
+			NOT = { trait = chicanery_4 }
+			NOT = { trait = chicanery_5 }
+			
+	}
+	
+	allow = {
+		piety = 20
+			trait = changeling
+			NOT = { trait = chicanery_1 }
+			NOT = { trait = chicanery_2 }
+			NOT = { trait = chicanery_3 }
+			NOT = { trait = chicanery_4 }
+			NOT = { trait = chicanery_5 }
+	}
+	effect = {
+		piety = -20
+		
+		character_event = { id = POD_CWOD_CHANGELING_TRAIN_CANTRIP.1  }
+		add_trait = chicanery_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 1	
+				}
+		}
+
+
+train_chicanery_2_decision = {
+	
+	potential = {
+			
+			trait = changeling
+			trait = chicanery_1 
+	}	
+	
+	allow = {
+		piety = 40
+		trait = chicanery_1 	
+	}
+	effect = {
+		piety = -40
+		
+		character_event = { id = POD_CWOD_CHANGELING_TRAIN_CANTRIP.1  }
+		add_trait = chicanery_2
+		remove_trait = chicanery_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 1	
+		}
+	}
+
+train_chicanery_3_decision = {
+	
+	potential = {
+			
+
+			trait = changeling
+			trait = chicanery_2
+	}
+	allow = {
+		piety = 60
+			trait = chicanery_2	
+	}
+	effect = {
+		piety = -60
+		remove_trait = chicanery_2
+		
+		character_event = { id = POD_CWOD_CHANGELING_TRAIN_CANTRIP.1  }
+		add_trait = chicanery_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 1
+		}
+	}
+
+train_chicanery_4_decision = {
+	
+	potential = {
+			
+			trait = changeling		
+			trait = chicanery_3
+	}
+	allow = {
+		piety = 80
+			trait = chicanery_3	
+	}
+	effect = {
+		piety = -80
+		remove_trait = chicanery_3
+		
+		character_event = { id = POD_CWOD_CHANGELING_TRAIN_CANTRIP.1  }
+		add_trait = chicanery_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 1				
+			}
+	}
+
+train_chicanery_5_decision = {
+	
+	potential = {
+			
+			trait = changeling			
+			trait = chicanery_4 
+	}
+	allow = {
+		piety = 120
+			trait = chicanery_4 		
+	}
+	effect = {
+		piety = -120
+		remove_trait = chicanery_4
+		
+		character_event = { id = POD_CWOD_CHANGELING_TRAIN_CANTRIP.1  }
+		add_trait = chicanery_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 1				
+			}
+	}		
+		
+
+
+train_legerdemain_1_decision = {
+	potential = {
+			
+			age = 16
+			trait = changeling
+			NOT = { trait = legerdemain_1 }
+			NOT = { trait = legerdemain_2 }
+			NOT = { trait = legerdemain_3 }
+			NOT = { trait = legerdemain_4 }
+			NOT = { trait = legerdemain_5 }
+			
+	}
+	
+	allow = {
+		piety = 20
+			trait = changeling
+			NOT = { trait = legerdemain_1 }
+			NOT = { trait = legerdemain_2 }
+			NOT = { trait = legerdemain_3 }
+			NOT = { trait = legerdemain_4 }
+			NOT = { trait = legerdemain_5 }
+	}
+	effect = {
+		piety = -20
+		
+		character_event = { id = POD_CWOD_CHANGELING_TRAIN_CANTRIP.1  }
+		add_trait = legerdemain_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 1	
+				}
+		}
+
+
+train_legerdemain_2_decision = {
+	
+	potential = {
+			
+			trait = changeling
+			trait = legerdemain_1 
+	}	
+	
+	allow = {
+		piety = 40
+		trait = legerdemain_1 	
+	}
+	effect = {
+		piety = -40
+		
+		character_event = { id = POD_CWOD_CHANGELING_TRAIN_CANTRIP.1  }
+		add_trait = legerdemain_2
+		remove_trait = legerdemain_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 1	
+		}
+	}
+
+train_legerdemain_3_decision = {
+	
+	potential = {
+			
+
+			trait = changeling
+			trait = legerdemain_2
+	}
+	allow = {
+		piety = 60
+			trait = legerdemain_2	
+	}
+	effect = {
+		piety = -60
+		remove_trait = legerdemain_2
+		
+		character_event = { id = POD_CWOD_CHANGELING_TRAIN_CANTRIP.1  }
+		add_trait = legerdemain_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 1
+		}
+	}
+
+train_legerdemain_4_decision = {
+	
+	potential = {
+			
+			trait = changeling		
+			trait = legerdemain_3
+	}
+	allow = {
+		piety = 80
+			trait = legerdemain_3	
+	}
+	effect = {
+		piety = -80
+		remove_trait = legerdemain_3
+		
+		character_event = { id = POD_CWOD_CHANGELING_TRAIN_CANTRIP.1  }
+		add_trait = legerdemain_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 1				
+			}
+	}
+
+train_legerdemain_5_decision = {
+	
+	potential = {
+			
+			trait = changeling			
+			trait = legerdemain_4 
+	}
+	allow = {
+		piety = 120
+			trait = legerdemain_4 		
+	}
+	effect = {
+		piety = -120
+		remove_trait = legerdemain_4
+		
+		character_event = { id = POD_CWOD_CHANGELING_TRAIN_CANTRIP.1  }
+		add_trait = legerdemain_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 1				
+			}
+	}		
+		
+
+
+train_primal_1_decision = {
+	potential = {
+			
+			age = 16
+			trait = changeling
+			NOT = { trait = primal_1 }
+			NOT = { trait = primal_2 }
+			NOT = { trait = primal_3 }
+			NOT = { trait = primal_4 }
+			NOT = { trait = primal_5 }
+			
+	}
+	
+	allow = {
+		piety = 20
+			trait = changeling
+			NOT = { trait = primal_1 }
+			NOT = { trait = primal_2 }
+			NOT = { trait = primal_3 }
+			NOT = { trait = primal_4 }
+			NOT = { trait = primal_5 }
+	}
+	effect = {
+		piety = -20
+		
+		character_event = { id = POD_CWOD_CHANGELING_TRAIN_CANTRIP.1  }
+		add_trait = primal_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 1	
+				}
+		}
+
+
+train_primal_2_decision = {
+	
+	potential = {
+			
+			trait = changeling
+			trait = primal_1 
+	}	
+	
+	allow = {
+		piety = 40
+		trait = primal_1 	
+	}
+	effect = {
+		piety = -40
+		
+		character_event = { id = POD_CWOD_CHANGELING_TRAIN_CANTRIP.1  }
+		add_trait = primal_2
+		remove_trait = primal_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 1	
+		}
+	}
+
+train_primal_3_decision = {
+	
+	potential = {
+			
+
+			trait = changeling
+			trait = primal_2
+	}
+	allow = {
+		piety = 60
+			trait = primal_2	
+	}
+	effect = {
+		piety = -60
+		remove_trait = primal_2
+		
+		character_event = { id = POD_CWOD_CHANGELING_TRAIN_CANTRIP.1  }
+		add_trait = primal_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 1
+		}
+	}
+
+train_primal_4_decision = {
+	
+	potential = {
+			
+			trait = changeling		
+			trait = primal_3
+	}
+	allow = {
+		piety = 80
+			trait = primal_3	
+	}
+	effect = {
+		piety = -80
+		remove_trait = primal_3
+		
+		character_event = { id = POD_CWOD_CHANGELING_TRAIN_CANTRIP.1  }
+		add_trait = primal_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 1				
+			}
+	}
+
+train_primal_5_decision = {
+	
+	potential = {
+			
+			trait = changeling			
+			trait = primal_4 
+	}
+	allow = {
+		piety = 120
+			trait = primal_4 		
+	}
+	effect = {
+		piety = -120
+		remove_trait = primal_4
+		
+		character_event = { id = POD_CWOD_CHANGELING_TRAIN_CANTRIP.1  }
+		add_trait = primal_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 1				
+			}
+	}		
+		
+
+train_soothsay_1_decision = {
+	potential = {
+			
+			age = 16
+			trait = changeling
+			NOT = { trait = soothsay_1 }
+			NOT = { trait = soothsay_2 }
+			NOT = { trait = soothsay_3 }
+			NOT = { trait = soothsay_4 }
+			NOT = { trait = soothsay_5 }
+			
+	}
+	
+	allow = {
+		piety = 20
+			trait = changeling
+			NOT = { trait = soothsay_1 }
+			NOT = { trait = soothsay_2 }
+			NOT = { trait = soothsay_3 }
+			NOT = { trait = soothsay_4 }
+			NOT = { trait = soothsay_5 }
+	}
+	effect = {
+		piety = -20
+		
+		character_event = { id = POD_CWOD_CHANGELING_TRAIN_CANTRIP.1  }
+		add_trait = soothsay_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 1	
+				}
+		}
+
+
+train_soothsay_2_decision = {
+	
+	potential = {
+			
+			trait = changeling
+			trait = soothsay_1 
+	}	
+	
+	allow = {
+		piety = 40
+		trait = soothsay_1 	
+	}
+	effect = {
+		piety = -40
+		
+		character_event = { id = POD_CWOD_CHANGELING_TRAIN_CANTRIP.1  }
+		add_trait = soothsay_2
+		remove_trait = soothsay_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 1	
+		}
+	}
+
+train_soothsay_3_decision = {
+	
+	potential = {
+			
+
+			trait = changeling
+			trait = soothsay_2
+	}
+	allow = {
+		piety = 60
+			trait = soothsay_2	
+	}
+	effect = {
+		piety = -60
+		remove_trait = soothsay_2
+		
+		character_event = { id = POD_CWOD_CHANGELING_TRAIN_CANTRIP.1  }
+		add_trait = soothsay_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 1
+		}
+	}
+
+train_soothsay_4_decision = {
+	
+	potential = {
+			
+			trait = changeling		
+			trait = soothsay_3
+	}
+	allow = {
+		piety = 80
+			trait = soothsay_3	
+	}
+	effect = {
+		piety = -80
+		remove_trait = soothsay_3
+		
+		character_event = { id = POD_CWOD_CHANGELING_TRAIN_CANTRIP.1  }
+		add_trait = soothsay_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 1				
+			}
+	}
+
+train_soothsay_5_decision = {
+	
+	potential = {
+			
+			trait = changeling			
+			trait = soothsay_4 
+	}
+	allow = {
+		piety = 120
+			trait = soothsay_4 		
+	}
+	effect = {
+		piety = -120
+		remove_trait = soothsay_4
+		
+		character_event = { id = POD_CWOD_CHANGELING_TRAIN_CANTRIP.1  }
+		add_trait = soothsay_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 1				
+			}
+	}		
+		
+
+
+train_wayfare_1_decision = {
+	potential = {
+			
+			age = 16
+			trait = changeling
+			NOT = { trait = wayfare_1 }
+			NOT = { trait = wayfare_2 }
+			NOT = { trait = wayfare_3 }
+			NOT = { trait = wayfare_4 }
+			NOT = { trait = wayfare_5 }
+			
+	}
+	
+	allow = {
+		piety = 20
+			trait = changeling
+			NOT = { trait = wayfare_1 }
+			NOT = { trait = wayfare_2 }
+			NOT = { trait = wayfare_3 }
+			NOT = { trait = wayfare_4 }
+			NOT = { trait = wayfare_5 }
+	}
+	effect = {
+		piety = -20
+		
+		character_event = { id = POD_CWOD_CHANGELING_TRAIN_CANTRIP.1  }
+		add_trait = wayfare_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 1	
+				}
+		}
+
+
+train_wayfare_2_decision = {
+	
+	potential = {
+			
+			trait = changeling
+			trait = wayfare_1 
+	}	
+	
+	allow = {
+		piety = 40
+		trait = wayfare_1 	
+	}
+	effect = {
+		piety = -40
+		
+		character_event = { id = POD_CWOD_CHANGELING_TRAIN_CANTRIP.1  }
+		add_trait = wayfare_2
+		remove_trait = wayfare_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 1	
+		}
+	}
+
+train_wayfare_3_decision = {
+	
+	potential = {
+			
+
+			trait = changeling
+			trait = wayfare_2
+	}
+	allow = {
+		piety = 60
+			trait = wayfare_2	
+	}
+	effect = {
+		piety = -60
+		remove_trait = wayfare_2
+		
+		character_event = { id = POD_CWOD_CHANGELING_TRAIN_CANTRIP.1  }
+		add_trait = wayfare_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 1
+		}
+	}
+
+train_wayfare_4_decision = {
+	
+	potential = {
+			
+			trait = changeling		
+			trait = wayfare_3
+	}
+	allow = {
+		piety = 80
+			trait = wayfare_3	
+	}
+	effect = {
+		piety = -80
+		remove_trait = wayfare_3
+		
+		character_event = { id = POD_CWOD_CHANGELING_TRAIN_CANTRIP.1  }
+		add_trait = wayfare_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 1				
+			}
+	}
+
+train_wayfare_5_decision = {
+	
+	potential = {
+			
+			trait = changeling			
+			trait = wayfare_4 
+	}
+	allow = {
+		piety = 120
+			trait = wayfare_4 		
+	}
+	effect = {
+		piety = -120
+		remove_trait = wayfare_4
+		
+		character_event = { id = POD_CWOD_CHANGELING_TRAIN_CANTRIP.1  }
+		add_trait = wayfare_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 1				
+			}
+	}		
+		
+
+
+
+train_sovereign_1_decision = {
+	potential = {
+			
+			age = 16
+			trait = changeling
+			NOT = { trait = sovereign_1 }
+			NOT = { trait = sovereign_2 }
+			NOT = { trait = sovereign_3 }
+			NOT = { trait = sovereign_4 }
+			NOT = { trait = sovereign_5 }
+			
+	}
+	
+	allow = {
+		piety = 20
+			trait = changeling
+			NOT = { trait = sovereign_1 }
+			NOT = { trait = sovereign_2 }
+			NOT = { trait = sovereign_3 }
+			NOT = { trait = sovereign_4 }
+			NOT = { trait = sovereign_5 }
+	}
+	effect = {
+		piety = -20
+		
+		character_event = { id = POD_CWOD_CHANGELING_TRAIN_CANTRIP.1  }
+		add_trait = sovereign_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 1	
+				}
+		}
+
+
+train_sovereign_2_decision = {
+	
+	potential = {
+			
+			trait = changeling
+			trait = sovereign_1 
+	}	
+	
+	allow = {
+		piety = 40
+		trait = sovereign_1 	
+	}
+	effect = {
+		piety = -40
+		
+		character_event = { id = POD_CWOD_CHANGELING_TRAIN_CANTRIP.1  }
+		add_trait = sovereign_2
+		remove_trait = sovereign_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 1	
+		}
+	}
+
+train_sovereign_3_decision = {
+	
+	potential = {
+			
+
+			trait = changeling
+			trait = sovereign_2
+	}
+	allow = {
+		piety = 60
+			trait = sovereign_2	
+	}
+	effect = {
+		piety = -60
+		remove_trait = sovereign_2
+		
+		character_event = { id = POD_CWOD_CHANGELING_TRAIN_CANTRIP.1  }
+		add_trait = sovereign_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 1
+		}
+	}
+
+train_sovereign_4_decision = {
+	
+	potential = {
+			
+			trait = changeling		
+			trait = sovereign_3
+	}
+	allow = {
+		piety = 80
+			trait = sovereign_3	
+	}
+	effect = {
+		piety = -80
+		remove_trait = sovereign_3
+		
+		character_event = { id = POD_CWOD_CHANGELING_TRAIN_CANTRIP.1  }
+		add_trait = sovereign_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 1				
+			}
+	}
+
+train_sovereign_5_decision = {
+	
+	potential = {
+			
+			trait = changeling			
+			trait = sovereign_4 
+	}
+	allow = {
+		piety = 120
+			trait = sovereign_4 		
+	}
+	effect = {
+		piety = -120
+		remove_trait = sovereign_4
+		
+		character_event = { id = POD_CWOD_CHANGELING_TRAIN_CANTRIP.1  }
+		add_trait = sovereign_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 1				
+			}
+	}		
+		
+}

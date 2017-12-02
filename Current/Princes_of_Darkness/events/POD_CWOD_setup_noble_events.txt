@@ -4,17 +4,18 @@ namespace = CWOD_setup_noble
 character_event = {
 	id = CWOD_setup_noble.1
 	hide_window = yes
+	is_triggered_only = yes
 	only_rulers = yes
 	ai = yes
 	
 	trigger = {
 		ai = yes
 		OR = {
-			is_ruler = yes
+			 is_landed = yes
 			 mercenary = yes 
 			 holy_order = yes 
 			 rebel = yes 
-			}		
+			}
 		NOT = {	trait = POD_vampire_RD_immortal_fix }
 		NOT = { trait = mortal }
 		NOT = { trait = vampire }
@@ -59,14 +60,7 @@ character_event = {
 	
 	}
 	
-
-	mean_time_to_happen = {
-		days = 1
-		modifier = {
-		factor = 0.1 
-		}		
-	}
-	
+		
 	immediate = {
 
 		set_character_flag = FLAG_POD_SETUP_NOBLE_FIRED
@@ -75,7 +69,45 @@ character_event = {
 			reverse_religion = ROOT
 			reverse_culture = ROOT
 		}		
-
+		
+# setup Indian caste
+		if = { 
+			limit = {
+				OR = { 
+					culture = bengali
+					culture = oriya
+					culture = assamese
+					culture = hindustani
+					culture = gujurati
+					culture = panjabi
+					culture = rajput
+					culture = sindhi
+					culture = marathi
+					culture = sinhala
+					culture = tamil
+					culture = telugu
+					culture = kannada 
+				}
+			}
+			if = {
+				limit = {
+					primary_title = { holding_type = temple	}
+				}
+				add_trait = brahmin
+			}	
+			else_if = {
+				limit = {
+					OR = {
+						primary_title = { holding_type = city }
+						is_patrician = yes	
+					}											 
+				}											
+				add_trait = vaishya
+			}	
+			else = { 									
+				add_trait = kshatriya
+			}	
+		}
 # get a new dynasty names
 			if = { limit = { ai = yes }
 						create_character = {
@@ -91,7 +123,6 @@ character_event = {
 								death = "yes"	
 						}				
 					}
-					
 					
 		if = {
 			limit = {
@@ -240,15 +271,22 @@ character_event = {
 				}
 				is_adult = yes
 				NOT = {	trait = POD_vampire_RD_immortal_fix }
-				NOT = { trait = vampire }
-				NOT = { trait = werewolf }
-				NOT = { trait = mage }								
+					NOT = { trait = mortal }
+					NOT = { trait = vampire }
+					NOT = { trait = werewolf }
+					NOT = { trait = mage }
+					NOT = { trait = mummy }
+					NOT = { trait = changeling }
+					NOT = { trait = promethean }
+					NOT = { trait = geist }
+					NOT = { trait = demon }
+					NOT = { trait = revenant }							
 				religion_group = changeling_group
 			}
 			# make changeling ruler
 			add_trait = changeling
 			set_government_type = unaligned_government
-			character_event = { id = changeling_noble.1 }
+			character_event = { id = CWOD_changeling_noble.1 }
 		}	
 # promethean nobles						
 		if = {
@@ -262,14 +300,21 @@ character_event = {
 				}
 				is_adult = yes
 				NOT = {	trait = POD_vampire_RD_immortal_fix }
-				NOT = { trait = vampire }
-				NOT = { trait = werewolf }
-				NOT = { trait = mage }								
+					NOT = { trait = mortal }
+					NOT = { trait = vampire }
+					NOT = { trait = werewolf }
+					NOT = { trait = mage }
+					NOT = { trait = mummy }
+					NOT = { trait = changeling }
+					NOT = { trait = promethean }
+					NOT = { trait = geist }
+					NOT = { trait = demon }
+					NOT = { trait = revenant }							
 				religion_group = promethean_group
 			}
 			# make promethean ruler
 			add_trait = promethean
-			
+			give_supe_disease_immunity_effect = yes	
 			set_government_type = unaligned_government
 			character_event = { id = promethean_noble.1 }
 		}		
@@ -285,14 +330,21 @@ character_event = {
 				}
 				is_adult = yes
 				NOT = {	trait = POD_vampire_RD_immortal_fix }
-				NOT = { trait = vampire }
-				NOT = { trait = werewolf }
-				NOT = { trait = mage }								
+					NOT = { trait = mortal }
+					NOT = { trait = vampire }
+					NOT = { trait = werewolf }
+					NOT = { trait = mage }
+					NOT = { trait = mummy }
+					NOT = { trait = changeling }
+					NOT = { trait = promethean }
+					NOT = { trait = geist }
+					NOT = { trait = demon }
+					NOT = { trait = revenant }						
 				religion_group = mummy_group
 			}
 			# make mummy ruler
 			add_trait = mummy
-			
+			give_supe_disease_immunity_effect = yes
 			set_government_type = unaligned_government
 			character_event = { id = mummy_noble.1 }
 		}	
@@ -308,14 +360,21 @@ character_event = {
 				}
 				is_adult = yes
 				NOT = {	trait = POD_vampire_RD_immortal_fix }
-				NOT = { trait = vampire }
-				NOT = { trait = werewolf }
-				NOT = { trait = mage }								
+					NOT = { trait = mortal }
+					NOT = { trait = vampire }
+					NOT = { trait = werewolf }
+					NOT = { trait = mage }
+					NOT = { trait = mummy }
+					NOT = { trait = changeling }
+					NOT = { trait = promethean }
+					NOT = { trait = geist }
+					NOT = { trait = demon }
+					NOT = { trait = revenant }							
 				religion_group = geist_group
 			}
 			# make geist ruler
 			add_trait = geist
-					
+			give_supe_disease_immunity_effect = yes
 			set_government_type = unaligned_government
 			character_event = { id = geist_noble.1 }
 		}	
@@ -330,9 +389,16 @@ character_event = {
 					num_of_duke_titles = 1
 				}
 				NOT = {	trait = POD_vampire_RD_immortal_fix }
-				NOT = { trait = vampire }
-				NOT = { trait = werewolf }
-				NOT = { trait = mage }								
+					NOT = { trait = mortal }
+					NOT = { trait = vampire }
+					NOT = { trait = werewolf }
+					NOT = { trait = mage }
+					NOT = { trait = mummy }
+					NOT = { trait = changeling }
+					NOT = { trait = promethean }
+					NOT = { trait = geist }
+					NOT = { trait = demon }
+					NOT = { trait = revenant }							
 				is_adult = yes
 				religion_group = demon_group
 			}
@@ -353,9 +419,16 @@ character_event = {
 					num_of_duke_titles = 1
 				}
 				NOT = {	trait = POD_vampire_RD_immortal_fix }
-				NOT = { trait = vampire }
-				NOT = { trait = werewolf }
-				NOT = { trait = mage }								
+					NOT = { trait = mortal }
+					NOT = { trait = vampire }
+					NOT = { trait = werewolf }
+					NOT = { trait = mage }
+					NOT = { trait = mummy }
+					NOT = { trait = changeling }
+					NOT = { trait = promethean }
+					NOT = { trait = geist }
+					NOT = { trait = demon }
+					NOT = { trait = revenant }								
 				is_adult = yes
 				OR = { 				
 					religion = revenant_longinus
@@ -415,7 +488,7 @@ character_event = {
 # they won't last long!
 		if = {
 			limit = {
-				is_ruler = yes
+				is_landed = yes
 				is_adult = yes
 				NOT = {	trait = POD_vampire_RD_immortal_fix }
 				NOT = { trait = vampire }
@@ -428,8 +501,5 @@ character_event = {
 			set_government_type = unaligned_government
 			character_event = { id = mortal_noble.1 }
 		}
-		
-	
 	}
-	
 }	

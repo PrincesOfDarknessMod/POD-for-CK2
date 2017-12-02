@@ -1,0 +1,555 @@
+namespace = CWOD_changeling_commoner
+character_event = {
+	id = CWOD_changeling_commoner.1
+	#desc = "POD_CHANGELING_COMMONER_DESC"
+	hide_window = yes	
+	is_triggered_only = yes
+
+	immediate = {
+		#name = "set_inital_changeling_commoner"
+			if = {
+					limit = {
+					age = 16
+					trait = changeling 
+					}			
+# make changeling commoner
+						
+						if = { 
+								limit = { 
+									OR = {
+											NOT = { trait = troll }
+											NOT = { trait = redcap }
+											NOT = { trait = sluagh }
+											NOT = { trait = eshu }
+											NOT = { trait = satyr }
+										}
+									}
+								
+								
+			if = { 
+				limit = { 
+					OR = { 
+						culture = basque
+						culture = castillan
+						culture = catalan
+						culture = portuguese 
+					} 
+				}
+				random = {	
+					chance = 60 
+					add_trait = eshu
+				}
+			}
+			if = { 
+				limit = { 
+					OR = { 
+						culture = norman
+						culture = frankish
+						culture = occitan 
+					} 
+				}
+				random_list = {				
+					20 = { add_trait = troll }
+					20 = { add_trait = satyr }
+					20 = { add_trait = sluagh }
+					20 = { add_trait = redcap }
+					20 = { add_trait = eshu }
+				}
+			}
+			if = { 
+				limit = { 	
+					OR = { 
+						culture = english
+						culture = old_saxon
+						culture = saxon 
+					} 
+				}
+				random_list = {				
+					30 = { add_trait = troll }
+					10 = { add_trait = satyr }
+					20 = { add_trait = sluagh }
+					40 = { add_trait = redcap }
+				}
+			}	
+			if = { 
+				limit = {
+					OR = { 
+						culture = frisian
+						culture = dutch
+					} 
+				}
+				random_list = {				
+					30 = { add_trait = troll }
+					10 = { add_trait = satyr }
+					20 = { add_trait = sluagh }
+					20 = { add_trait = redcap }	
+				}
+			}	
+			if = { 
+				limit = { culture = danish } 
+				random_list = {				
+					50 = { add_trait = troll }
+					40 = { add_trait = sluagh }
+					10 = { add_trait = redcap }	
+				}
+			}	
+			if = { 
+				limit = { 
+					OR = { 
+						culture = prussian
+						culture = pommeranian 
+					} 
+				}
+				random_list = {				
+					30 = { add_trait = troll }
+					70 = { add_trait = sluagh }
+				}
+			}	
+			if = { 
+				limit = { 
+					OR = { 
+						culture = lettigallish
+						culture = lithuanian
+						culture = polish 
+					} 
+				}
+				random_list = {				
+					20 = { add_trait = troll }
+					80 = { add_trait = sluagh }
+				}
+			}	
+			if = {
+				limit = { culture = bohemian }
+				random_list = {				
+					10 = { add_trait = troll }
+					70 = { add_trait = sluagh }
+					20 = { add_trait = satyr }	
+				}
+			}	
+			if = {
+				limit = { culture = hungarian } 
+				random_list = {				
+					30 = { add_trait = eshu }
+					30 = { add_trait = satyr }
+					40 = { add_trait = sluagh }
+				}
+			}	
+			if = { 
+				limit = { 
+					OR = { 
+						culture = croatian
+						culture = serbian
+						culture = bulgarian
+						culture = romanian 
+					} 
+				}
+				random_list = {				
+					30 = { add_trait = eshu }
+					30 = { add_trait = satyr }
+					40 = { add_trait = sluagh }
+				}
+			}	
+			if = { 
+				limit = { culture = greek } 
+				random_list = {				
+					10 = { add_trait = eshu }
+					80 = { add_trait = satyr }
+					10 = { add_trait = sluagh }
+				}
+			}	
+			if = { 
+				limit = { 
+					OR = { 
+						culture = armenian
+						culture = assyrian
+						culture = georgian
+						culture = alan 
+					} 
+				}
+				random_list = {				
+					30 = { add_trait = eshu }
+					60 = { add_trait = satyr }
+					10 = { add_trait = sluagh }
+				}
+			}
+			if = { 
+				limit = { culture = russian } 
+				random_list = {				
+					10 = { add_trait = troll }
+					70 = { add_trait = sluagh }
+					10 = { add_trait = satyr }
+					10 = { add_trait = eshu }
+				}
+			}	
+			if = { 
+				limit = { culture = mordvin }
+				random_list = {				
+					10 = { add_trait = troll }
+					70 = { add_trait = sluagh }
+					10 = { add_trait = satyr }
+					10 = { add_trait = eshu }
+				}
+			}		
+			if = {
+				limit = {
+					OR = { 
+						culture = mongol
+						culture = pecheneg
+						culture = cuman
+						culture = khazar
+						culture = karluk
+						culture = kirghiz
+						culture = bolghar
+						culture = khitan
+						culture = uyghur
+						culture = avar 
+						culture_group = chinese_group
+					} 
+				}
+				random_list = {				
+					10 = { add_trait = sluagh }
+					90 = { add_trait = eshu }
+				}
+			}		
+			if = { 
+				limit = { culture = turkish }
+				random_list = {				
+					60 = { add_trait = eshu }
+					30 = { add_trait = satyr }
+					10 = { add_trait = sluagh }
+				}
+			}	
+			if = { 
+				limit = { 
+					OR = { 
+						culture = persian
+						culture = baloch 
+					} 
+				}
+				random = {	
+					chance = 90 
+					add_trait = eshu
+				}
+			}	
+			if = { 
+				limit = { culture = afghan }
+				random = {	
+					chance = 90 
+					add_trait = eshu
+				}
+			}	
+			if = { 
+				limit = { culture = sindhi }
+				random = {	
+					chance = 90 
+					add_trait = eshu
+				}
+			}
+			if = { 
+				limit = { culture = panjabi }
+				random = {	
+					chance = 90 
+					add_trait = eshu
+				}
+			}	
+			if = { 
+				limit = {
+					OR = { 
+						culture = bengali
+						culture = assamese
+						culture = sinhala 
+					}
+				}
+				random = {	
+					chance = 90 
+					add_trait = eshu
+				}
+			}	
+			if = { 	
+				limit = { culture = sinhala  }
+				random = {	
+					chance = 90 
+					add_trait = eshu
+				}
+			}		
+			if = { 
+				limit = { 
+					OR = { 
+						culture = gujurati
+						culture = rajput 
+					} 
+				}
+				random = {	
+					chance = 90 
+					add_trait = eshu
+				}
+			}		
+			if = {
+				limit = { culture = oriya }
+				random_list = {				
+					5 = { religion = ashirra }
+					60 = { religion = mayaparisataya }
+					30 = { religion = red_talons } 
+					5 = { religion = assamite }
+				}
+			}	
+			if = {	
+				limit = { culture = hindustani }
+				random = {	
+					chance = 90 
+					add_trait = eshu
+				}
+			}
+			if = {	
+				limit = { 
+					OR = { 
+							culture_group = tibetan_group 
+							culture = nepali
+							}
+						}
+				random = {	
+					chance = 90 
+					add_trait = eshu
+				}
+			}			
+			
+			
+			if = { 
+				limit = { 
+					OR = { 
+						culture = tamil
+						culture = telugu 
+					} 
+				}
+				random = {	
+					chance = 90 
+					add_trait = eshu
+				}
+			}	
+			if = {
+				limit = { 
+					OR = { 
+						culture = kannada
+						culture = marathi 
+					} 
+				}
+				random = {	
+					chance = 90 
+					add_trait = eshu
+				}	
+			}
+			if = { 
+				limit = { culture = kurdish  }
+				random = {	
+					chance = 90 
+					add_trait = eshu
+				}
+			}	
+			if = { 
+				limit = { culture = levantine_arabic  }
+				random = {	
+					chance = 90 
+					add_trait = eshu
+				}
+			}		
+			if = { 
+				limit = { culture = bedouin_arabic  }
+				random = {	
+					chance = 90 
+					add_trait = eshu
+				}
+			}	
+			if = { 
+				limit = { culture = egyptian_arabic }
+				random_list = {		
+					20 = { religion = ashirra }
+					80 = { religion = setite }
+				}
+			}	
+			if = {
+				limit = { culture = maghreb_arabic }
+				random = {	
+					chance = 90 
+					add_trait = eshu
+				}
+			}	
+			if = { 
+				limit = { culture = andalusian_arabic }
+				random = {	
+					chance = 90 
+					add_trait = eshu
+				}
+			}
+			if = { 
+				limit = { culture = nubian }
+				random = {	
+					chance = 90 
+					add_trait = eshu
+				}
+			}
+			if = { 
+				limit = { culture = ethiopian }
+				random = {	
+					chance = 90 
+					add_trait = eshu
+				}
+			}
+			if = { 	
+				limit = { culture = somali }
+				random = {	
+					chance = 90 
+					add_trait = eshu
+				}
+			}
+			if = { 	
+				limit = { culture = manden  }
+				random = {	
+					chance = 90 
+					add_trait = eshu
+				}
+			}
+			if = { 
+				limit = { 
+					OR = { 
+						culture = finnish
+						culture = ugricbaltic
+						culture = samoyed
+						culture = khanty
+						culture = komi 
+						culture = lappish 
+					} 
+				}
+				random_list = {				
+					60 = { add_trait = troll }
+					20 = { add_trait = sluagh }
+					20 = { add_trait = eshu }
+				}
+			}				
+			if = { 
+				limit = { 
+					OR = { 
+						culture = norse
+						culture = norwegian
+						culture = swedish 
+					}
+				}
+				random_list = {				
+					70 = { add_trait = troll }
+					30 = { add_trait = sluagh }
+				}
+			}	
+			if = { 
+				limit = { culture = german  }
+				random_list = {				
+					70 = { add_trait = troll }
+					30 = { add_trait = sluagh }
+				}
+			}	
+			if = { 
+				limit = { 
+					#OR = { 
+						culture = italian 
+					#} 
+				}
+				random_list = {				
+					10 = { add_trait = eshu }
+					80 = { add_trait = satyr }
+					10 = { add_trait = sluagh }
+				}
+			}
+			if = { 
+				limit = {
+					OR = { 
+						culture = irish
+						culture = welsh
+						culture = breton 
+					} 
+				}
+				random_list = {				
+					10 = { add_trait = troll }
+					10 = { add_trait = satyr }
+					20 = { add_trait = sluagh }
+					60 = { add_trait = redcap }
+				}
+			}			
+			if = { 	
+				limit = { 	
+					OR = { 
+						culture = scottish
+						culture = pictish 
+					}
+				}
+				random_list = {				
+					10 = { add_trait = troll }
+					10 = { add_trait = satyr }
+					10 = { add_trait = sluagh }
+					70 = { add_trait = redcap }
+				}
+			}								
+												
+		}
+						
+				
+						if = { 
+								limit = { 
+									OR = {
+											NOT = { trait = troll }
+											NOT = { trait = redcap }
+											NOT = { trait = sluagh }
+											NOT = { trait = eshu }
+											NOT = { trait = satyr }
+										}
+									}						
+						random_list = {
+							20 = { add_trait = troll }							
+							20 = { add_trait = redcap }
+							20 = { add_trait = sluagh }
+							20 = { add_trait = satyr }									
+							19  = { add_trait = eshu }			
+						}
+					}
+				
+						random_list = {
+							20 = { add_trait = chicanery_3 }
+							20 = { add_trait = legerdemain_3 }
+							20 = { add_trait = primal_3 }
+							20 = { add_trait = soothsay_3 }
+							19 = { add_trait = wayfair_3 }
+						}						
+
+						add_trait = actor_1
+						add_trait = time_1					
+						
+						random_list = {
+							50 = { religion = seelie_court }
+							50 = { religion = unseelie_court }
+						}	
+						
+						add_trait = fae_mien
+						
+						trigger_switch = {
+							on_trigger = trait	
+							redcap = {
+								set_graphical_culture = redcap
+								add_trait = nature_3
+								}
+							troll = {
+								set_graphical_culture = troll
+								add_trait = fae_3 
+							}		
+							sluagh = { 
+								set_graphical_culture = sluagh 
+								add_trait = prop_3
+							}
+							satyr = {
+								add_trait = fae_3
+							}
+							eshu = {
+								add_trait = scene_3
+							}
+							
+							
+						}						
+				}	
+			}
+		}

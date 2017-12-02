@@ -1,0 +1,248 @@
+# changeling child events
+
+namespace = POD_CWOD_CHANGELING_CHILD
+
+character_event = {
+	id = POD_CWOD_CHANGELING_CHILD.1
+	hide_window = yes
+	max_age = 15
+	min_age = 1
+	
+	trigger = {
+		NOT = { trait = mortal }
+		NOT = { trait = changeling }
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		hidden_tooltip = {
+			
+			add_trait = mortal
+			
+			if = {
+				limit = {
+					age = 1
+					is_adult = no
+					NOT = { trait = changeling } 
+				}
+				
+				random = {
+				chance = 15
+				
+					modifier = {
+						factor = 2
+						mother = { trait = changeling }
+					}			
+
+					modifier = {
+						factor = 2
+						father = { trait = changeling }
+					}	
+
+					modifier = {
+						factor = 2
+						mother = { trait = entranced_mortal }
+					}			
+
+					modifier = {
+						factor = 2
+						father = { trait = entranced_mortal }
+					}			
+					
+					modifier = {
+						factor = 0.1
+						mother = { trait = depressed }
+					}			
+
+					modifier = {
+						factor = 0.1
+						father = { trait = depressed  }
+					}				
+		
+				remove_trait = mortal
+				add_trait = changeling
+				
+				if = { limit = { NOT = { trait = eshu } } 
+					random = {
+						chance = 10
+							modifier = {
+								factor = 2
+								mother = { trait = eshu }
+							}			
+
+							modifier = {
+								factor = 2
+								father = { trait = eshu }
+							}	
+
+							modifier = {
+								factor = 2
+								mother = { trait = gregarious }
+							}			
+
+							modifier = {
+								factor = 2
+								father = { trait = gregarious }
+							} 							
+							
+						add_trait = "eshu"
+					}
+				}
+
+				if = { limit = { NOT = { trait = redcap } } 
+					random = {
+						chance = 10
+							modifier = {
+								factor = 2
+								mother = { trait = redcap }
+							}			
+
+							modifier = {
+								factor = 2
+								father = { trait = redcap }
+							}	
+							
+							modifier = {
+								factor = 2
+								mother = { trait = gluttonous }
+							}			
+
+							modifier = {
+								factor = 2
+								father = { trait = gluttonous }
+							}
+							
+						add_trait = "redcap"
+					}
+				}
+
+				if = { limit = { NOT = { trait = satyr } } 
+					random = {
+						chance = 10
+							modifier = {
+								factor = 2
+								mother = { trait = satyr }
+							}			
+
+							modifier = {
+								factor = 2
+								father = { trait = satyr }
+							}	
+
+							modifier = {
+								factor = 2
+								mother = { trait = lustful }
+							}			
+
+							modifier = {
+								factor = 2
+								father = { trait = lustful }
+							}								
+							
+						add_trait = "satyr"
+					}
+				}
+
+				if = { limit = { NOT = { trait = sluagh } } 
+					random = {
+						chance = 10
+							modifier = {
+								factor = 2
+								mother = { trait = sluagh }
+							}			
+
+							modifier = {
+								factor = 2
+								father = { trait = sluagh }
+							}	
+							
+							modifier = {
+								factor = 2
+								mother = { trait = shy }
+							}			
+
+							modifier = {
+								factor = 2
+								father = { trait = shy }
+							}
+							
+						add_trait = "sluagh"
+					}
+				}
+
+				if = { limit = { NOT = { trait = troll } } 
+					random = {
+						chance = 10
+							modifier = {
+								factor = 2
+								mother = { trait = troll }
+							}			
+
+							modifier = {
+								factor = 2
+								father = { trait = troll }
+							}	
+							
+							modifier = {
+								factor = 2
+								mother = { trait = stubborn }
+							}			
+
+							modifier = {
+								factor = 2
+								father = { trait = stubborn }
+							}
+							
+						add_trait = "troll"
+					}
+				}				
+				
+				if = { limit = { 
+								NOT = { trait = eshu }
+								NOT = { trait = redcap }
+								NOT = { trait = satyr }
+								NOT = { trait = sluagh }
+								NOT = { trait = troll }
+							}
+							
+						random_list = {
+							20 = { add_trait = troll }							
+							20 = { add_trait = redcap }
+							20 = { add_trait = sluagh }
+							20 = { add_trait = satyr }									
+							19 = { add_trait = eshu }			
+						}				
+					}
+				
+				trigger_switch = {
+					on_trigger = trait
+					eshu = { add_trait = scene_1 }
+					satyr = { add_trait = fae_1 }
+					redcap = { add_trait = nature_1 }
+					sluagh = { add_trait = prop_1 }
+					troll = { add_trait = fae_1 }
+				}		
+
+						random_list = {
+							20 = { add_trait = chicanery_1 }
+							20 = { add_trait = legerdemain_1 }
+							20 = { add_trait = primal_1 }
+							20 = { add_trait = soothsay_1 }
+							19 = { add_trait = wayfair_1 }
+						}					
+					
+				random_list = {
+							40 = { religion = seelie_court }
+							40 = { religion = unseelie_court }
+						}	
+				
+				}
+									
+			}
+		}
+
+	}	
+}

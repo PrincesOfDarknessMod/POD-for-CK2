@@ -59,7 +59,9 @@ escape_prison_in_intangible_form_decision = {
 				FROM = {
 						trait = shadow_form
 					}
-			}		
+			}	
+
+			
 
 			}
 }
@@ -122,6 +124,19 @@ return_to_human_form_decision = {
 	ai_will_do = {
 				factor = 1	
 			
+			modifier = {
+				factor = 0
+				FROM = {
+						has_character_modifier = dire_blood_thirst
+					}
+			}				
+			
+			modifier = {
+				factor = 0.2
+				FROM = {
+						has_character_modifier = dreadful_blood_thirst
+					}
+				}
 				
 			modifier = {
 				factor = 0.1

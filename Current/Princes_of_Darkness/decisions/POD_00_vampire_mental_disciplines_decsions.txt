@@ -3,9 +3,8 @@ targeted_decisions = {
 
 	majesty_summon_decision = {
 		filter = all
-		
+		ai = no
 		from_potential = {
-			ai = no
 			OR = {
 				trait = majesty_4
 				trait = majesty_5
@@ -17,16 +16,8 @@ targeted_decisions = {
 		
 		potential = {
 			ai = yes
-			NOT = { character = FROM }
-			NOT = { trait = torpor }
-			NOT = { trait = wight }
 			NOT = { trait = antediluvian }
-			NOT = { at_location = FROM }
-			is_landed = no
-			prisoner = no
-			is_within_diplo_range = FROM
 		}
-		
 		allow = {
 			in_revolt = no
 			NOT = { war_with = FROM }
@@ -40,9 +31,9 @@ targeted_decisions = {
 		}
 		
 		effect = {
-				FROM = { POD_vampire_blood_thirst_increase_effect = yes	}
-				
-				random = {
+			FROM = { POD_vampire_blood_thirst_increase_effect = yes	}
+			
+			random = {
 				chance = 25
 
 				modifier = {				
@@ -140,25 +131,15 @@ targeted_decisions = {
 				FROM = {
 					character_event = { id = POD_VAMPIRE_MENTAL_DISCIPLINE.1 }			
 				}				
-				
-				}
-		}
-		
-		revoke_allowed = {
-			always = no
-		}
-		ai_will_do = {
-			factor = 0 		# 1 = 100% chance every month (for each allowed target!)
+			}
 		}
 	}
 	
 	dominate_mesmerize_decision = {
 		filter = court
-		
-		only_playable = yes
+		ai = no
 		
 		from_potential = {
-			ai = no
 			OR = {
 				trait = dominate_2
 				trait = dominate_3
@@ -171,11 +152,6 @@ targeted_decisions = {
 		
 		potential = {
 			ai = yes
-			NOT = { character = FROM }
-			NOT = { trait = torpor }
-			NOT = { trait = wight }
-			NOT = { trait = antediluvian }
-			at_location = FROM
 		}
 		
 		allow = {
@@ -188,8 +164,8 @@ targeted_decisions = {
 		}
 		
 		effect = {
-				FROM = { POD_vampire_blood_thirst_increase_effect = yes	}
-				random = {
+			FROM = { POD_vampire_blood_thirst_increase_effect = yes	}
+			random = {
 				chance = 25
 
 				modifier = {				
@@ -285,29 +261,19 @@ targeted_decisions = {
 					FROM = { trait = dominate_5 }
 				}					
 				
-				FROM = { add_favor = ROOT }
-				FROM = {
+				FROM = { 
+					add_favor = ROOT
 					character_event = { id = POD_VAMPIRE_MENTAL_DISCIPLINE.2 }			
 				}
-				
-				}
-		}
-		
-		revoke_allowed = {
-			always = no
-		}
-		ai_will_do = {
-			factor = 0 		# 1 = 100% chance every month (for each allowed target!)
+			}
 		}
 	}	
 
 	majesty_entrance_decision = {
 		filter = court
-		
-		only_playable = yes
+		ai = no
 		
 		from_potential = {
-			ai = no
 			OR = {
 				trait = majesty_3
 				trait = majesty_4
@@ -317,16 +283,7 @@ targeted_decisions = {
 			prisoner = no
 		}
 		
-		potential = {
-			ai = yes
-			NOT = { character = FROM }
-			NOT = { trait = torpor }
-			NOT = { trait = wight }
-			NOT = { trait = antediluvian }
-			is_landed = no
-			prisoner = no
-			at_location = FROM
-		}
+		potential = {}
 		
 		allow = {
 			in_revolt = no
@@ -340,8 +297,8 @@ targeted_decisions = {
 		}
 		
 		effect = {
-				FROM = { POD_vampire_blood_thirst_increase_effect = yes	}
-				random = {
+			FROM = { POD_vampire_blood_thirst_increase_effect = yes	}
+			random = {
 				chance = 25
 
 				modifier = {				
@@ -432,36 +389,24 @@ targeted_decisions = {
 				modifier = {
 					factor = 2
 					FROM = { trait = majesty_5 }
-				}				
-				
-                ROOT = {opinion = {
+				}		
+            	opinion = {
                     modifier = opinion_entranced
                     who = FROM
                     years = 1
-					}   
-				}
+				}   
 				FROM = {
 					character_event = { id = POD_VAMPIRE_MENTAL_DISCIPLINE.3 }			
-				}				
-				
-				}
-		}
-		
-		revoke_allowed = {
-			always = no
-		}
-		ai_will_do = {
-			factor = 0 		# 1 = 100% chance every month (for each allowed target!)
+				}	
+			}
 		}
 	}
 
 	hunt_mortal_decision = {
 		filter = court
-		
-		only_playable = yes
+		ai = no
 		
 		from_potential = {
-			ai = no
 			OR = {
 				trait = obfuscate_1
 				trait = obfuscate_2
@@ -478,12 +423,7 @@ targeted_decisions = {
 			prisoner = no
 		}
 		
-		potential = {
-			ai = yes
-			NOT = { character = FROM }
-			trait = "mortal"
-			at_location = FROM
-		}
+		potential = {}
 		
 		allow = {
 			ai = yes
@@ -493,10 +433,9 @@ targeted_decisions = {
 		}
 		
 		effect = {
-
-				ROOT = { save_event_target_as = vampire_hunt_target }
-		
-				random = {
+			save_event_target_as = vampire_hunt_target
+	
+			random = {
 				chance = 5
 				
 				modifier = {				
@@ -575,16 +514,11 @@ targeted_decisions = {
 				}
 				
                 FROM = {
-                            add_trait = wounded
-						}
+                    add_trait = wounded
+				}
 			}
-		
-
-			
-				random = {
+			random = {
 				chance = 25
-				
-					
 				modifier = {				
 					factor = 0.9
 					ROOT = { trait = paranoid }
@@ -655,17 +589,13 @@ targeted_decisions = {
 					FROM = { trait = beast_form }
 				}						
 				
-				ROOT = { death = { death_reason = death_missing	} }
+				death = { death_reason = death_missing	}
 		
                 FROM = {
-                            add_character_modifier = {
-                                name = blood_of_mortal
-                                duration = 30
-                            }
-						}
-						
-						
-                FROM = {
+                    add_character_modifier = {
+                        name = blood_of_mortal
+                        duration = 30
+                    }
                     if = {
                         limit = { NOT = { trait = cruel } }
                         random = {
@@ -673,23 +603,9 @@ targeted_decisions = {
                             add_trait = cruel
                         }
                     }
-                }	
-				
-				FROM = {
 					character_event = { id = POD_VAMPIRE_MENTAL_DISCIPLINE.4 }			
-				}				
-				
-
-				
-				}
-		
+				}	
+			}
 		}
-		
-		revoke_allowed = {
-			always = no
-		}
-		ai_will_do = {
-			factor = 0 		# 1 = 100% chance every month (for each allowed target!)
-		}
-	
+	}
 }	

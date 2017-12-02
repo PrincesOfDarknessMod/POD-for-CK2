@@ -9,8 +9,8 @@ character_event = {
     hide_window = yes
     is_triggered_only = yes
    
+    min_age = 100
     trigger = {
-		age = 100
         trait = neonate
     }
 
@@ -24,8 +24,8 @@ character_event = {
     hide_window = yes
     is_triggered_only = yes
    
+    min_age = 250
     trigger = {
-		age = 250
         trait = ancilla
     }
    
@@ -39,8 +39,8 @@ character_event = {
     hide_window = yes
     is_triggered_only = yes  
    
+    min_age = 500
     trigger = {
-		age = 500
         trait = elder
     }
    
@@ -56,8 +56,8 @@ character_event = {
     hide_window = yes
     is_triggered_only = yes  
    
+    min_age = 1000
     trigger = {
-		age = 1000
         trait = ancient
     }
    
@@ -71,8 +71,8 @@ character_event = {
     hide_window = yes
 	is_triggered_only = yes
    
+    min_age = 50
     trigger = {
-		age = 50
         trait = vampire
         NOT = { trait = bloodpotency_10 }
        NOT = { trait = vampgeneration15 }
@@ -98,7 +98,7 @@ character_event = {
             add_trait = bloodpotency_10
 			remove_trait = bloodpotency_9
         }
-        if = {
+        else_if = {
             limit = {
                 trait = bloodpotency_8
                 age = 400
@@ -114,7 +114,7 @@ character_event = {
 			
 			remove_trait = bloodpotency_8
         }
-        if = {
+        else_if = {
             limit = {
                 trait = bloodpotency_7
                 age = 350
@@ -129,7 +129,7 @@ character_event = {
 			remove_trait = bloodpotency_7
 			
         }
-        if = {
+        else_if = {
             limit = {
                 trait = bloodpotency_6
                 age = 300
@@ -142,7 +142,7 @@ character_event = {
             add_trait = bloodpotency_7
 			remove_trait = bloodpotency_6
         }  
-        if = {
+        else_if = {
             limit = {
                 trait = bloodpotency_5
                 age = 250
@@ -155,7 +155,7 @@ character_event = {
 			remove_trait = bloodpotency_5
 			
         }          
-        if = {
+        else_if = {
             limit = {
                 trait = bloodpotency_4
                 age = 200
@@ -167,7 +167,7 @@ character_event = {
 			remove_trait = bloodpotency_4
 			
         }
-        if = {
+        else_if = {
             limit = {
                 trait = bloodpotency_3
                 age = 150
@@ -177,7 +177,7 @@ character_event = {
             add_trait = bloodpotency_4
 			remove_trait = bloodpotency_3
         }  
-        if = {
+        else_if = {
             limit = {
                 trait = bloodpotency_2
                 age = 100
@@ -186,7 +186,7 @@ character_event = {
             add_trait = bloodpotency_3
 			remove_trait = bloodpotency_2
         }
-        if = {
+        else_if = {
             limit = {
                 trait = bloodpotency_1                   
             }
@@ -204,8 +204,8 @@ character_event = {
     
     is_triggered_only = yes
 
+    min_age = 100
     trigger = {
-		age = 100
 		trait = vampire
         trait = torpor
 		
@@ -255,10 +255,10 @@ character_event = {
     hide_window = yes
     is_triggered_only = yes
    
+    min_age = 100
     trigger = {
         trait = vampire
         trait = torpor
-		age = 100
         NOT = { trait = vampgeneration3 }
         NOT = { trait = vampgeneration2 }
         NOT = { trait = vampgeneration1 }
@@ -280,58 +280,58 @@ character_event = {
 					}
 				}
 				
-		if = { limit = { trait = bloodpotency_2 }
+		else_if = { limit = { trait = bloodpotency_2 }
 				random = {
 					chance = 50
 					POD_vampire_awaken_torpor_effect = yes 
 					}
 				}	
 				
-		if = { limit = { trait = bloodpotency_3 }
+		else_if = { limit = { trait = bloodpotency_3 }
 				random = {
 					chance = 40
 					POD_vampire_awaken_torpor_effect = yes 
 					}
 				}
 				
-		if = { limit = { trait = bloodpotency_4 }
+		else_if = { limit = { trait = bloodpotency_4 }
 				random = {
 					chance = 30
 					POD_vampire_awaken_torpor_effect = yes 
 					}
 				}				
- 		if = { limit = { trait = bloodpotency_5 }
+ 		else_if = { limit = { trait = bloodpotency_5 }
 				random = {
 					chance = 25
 					POD_vampire_awaken_torpor_effect = yes 
 					}
 				}				
-		if = { limit = { trait = bloodpotency_6}
+		else_if = { limit = { trait = bloodpotency_6}
 				random = {
 					chance = 20
 					POD_vampire_awaken_torpor_effect = yes 
 					}
 				}	
-		if = { limit = { trait = bloodpotency_7 }
+		else_if = { limit = { trait = bloodpotency_7 }
 				random = {
 					chance = 15
 					POD_vampire_awaken_torpor_effect = yes 
 					}
 				}
 				
-		if = { limit = { trait = bloodpotency_8 }
+		else_if = { limit = { trait = bloodpotency_8 }
 				random = {
 					chance = 10
 					POD_vampire_awaken_torpor_effect = yes 
 					}
 				}				
- 		if = { limit = { trait = bloodpotency_9 }
+ 		else_if = { limit = { trait = bloodpotency_9
 				random = {
 					chance = 5
 					POD_vampire_awaken_torpor_effect = yes 
 					}
-				}
-		if = { limit = { trait = bloodpotency_10 }
+				}				
+		else_if = { limit = { trait = bloodpotency_10 }
 				random = {
 					chance = 1
 					POD_vampire_awaken_torpor_effect = yes 
@@ -340,15 +340,15 @@ character_event = {
 		
 		}
 	}
-	
+	}
 
 character_event = {
     id = vampire_aging_events.8					
     hide_window = yes
     is_triggered_only = yes
     
+    min_age = 100
     trigger = {
-		age = 100
         trait = torpor
 		trait = vampire
 		NOT = { trait = canon }
@@ -361,10 +361,10 @@ character_event = {
 		if = { limit = { 
 				trait = torpor
 				trait = vampire
-				#NOT = { has_living_children = yes }
-				#NOT = { has_lover = yes }
-				#NOT = { is_married = yes }
-				#NOT = { num_of_claims = 1 }
+				NOT = { has_living_children = yes }
+				NOT = { has_lover = yes }
+				NOT = { is_married = yes }
+				NOT = { num_of_claims = 1 }
 				#NOT = { num_of_rivals = 1 }
 				#NOT = { num_of_friends = 1 }
 				}		

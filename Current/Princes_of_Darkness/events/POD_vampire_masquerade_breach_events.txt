@@ -19,6 +19,13 @@ character_event = {
 	
 	mean_time_to_happen = {
 		years = 100
+
+		modifier = {
+			location = {
+				has_event_modifier = masquerade_breach
+			}
+			factor = 2
+		}
 		
 		modifier = {
 			factor = 2
@@ -140,34 +147,19 @@ character_event = {
 	}
 
 	immediate = { 
-			random_list = {
-				50 = {
-					create_character = {
-						random_traits = yes
-						female = no
-						trait = mortal
-						trait = knows_too_much
-						religion = innocent
-					}
-					}
-				50 = {
-					create_character = {
-						random_traits = yes
-						female = no
-						trait = mortal
-						trait = knows_too_much
-						religion = innocent
-					}					
-					
-				}
-	
+			create_character = {
+				random_traits = yes
+				female = 50
+				trait = mortal
+				trait = knows_too_much
+				religion = innocent
 			}
 			new_character = { save_event_target_as = new_exposes_masquerade }
 			opinion = {
 				who = FROM
 				modifier = opinion_breached_masquerade 
 				years = 2
-				}			
+			}			
 	}
 	
 # Dominate Forgetful Mind
@@ -402,6 +394,13 @@ character_event = {
 		years = 50
 		
 		modifier = {
+			location = {
+				has_event_modifier = masquerade_breach
+			}
+			factor = 2
+		}
+		
+		modifier = {
 			factor = 2
 		}
 
@@ -523,27 +522,12 @@ character_event = {
 				}	
 			}
 			
-			random_list = {
-				50 = {
-					create_character = {
-						random_traits = yes
-						female = no
-						trait = mortal
-						trait = knows_too_much
-						religion = innocent
-					}
-					}
-				50 = {
-					create_character = {
-						random_traits = yes
-						female = no
-						trait = mortal
-						trait = knows_too_much
-						religion = innocent
-					}					
-					
-				}
-	
+			create_character = {
+				random_traits = yes
+				female = 50
+				trait = mortal
+				trait = knows_too_much
+				religion = innocent
 			}
 			new_character = { save_event_target_as = new_exposes_masquerade }
 			

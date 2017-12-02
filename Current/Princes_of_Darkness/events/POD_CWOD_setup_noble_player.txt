@@ -221,6 +221,43 @@ mean_time_to_happen = {
 			set_government_type = magicka_government
 			character_event = { id = CWOD_mage_noble.1 }
 		}	
+		
+# Changeling nobles		
+		if = {
+			limit = {
+				OR = {		
+					is_landed = yes
+					mercenary = yes
+					holy_order = yes
+					is_patrician = yes
+					num_of_duke_titles = 1
+				}
+				NOT = {	trait = POD_vampire_RD_immortal_fix }
+				NOT = { trait = vampire }
+				NOT = { trait = werewolf }
+				NOT = { trait = mage }		
+				NOT = { trait = changeling }
+				is_adult = yes
+				OR = {
+					has_global_flag = bookmark767
+					has_global_flag = bookmark1230
+					has_global_flag = bookmark1355
+					has_global_flag = bookmark1466
+					has_global_flag = bookmark1505
+					has_global_flag = bookmark1506
+				}					
+				OR = {
+					religion_group = changeling_group
+				}
+			}
+			# make changeling ruler
+			add_trait = changeling
+			set_government_type = unaligned_government
+			character_event = { id = CWOD_changeling_noble.1 }
+		}			
+		
+		
+		
 
 	}	
 	

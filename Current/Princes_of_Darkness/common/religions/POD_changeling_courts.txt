@@ -614,7 +614,6 @@ west_court = {
 	
 
 changeling_group = {
-#Reformed religions must be listed before their unreformed versions.
 	has_coa_on_barony_only = yes
 	graphical_culture = westerngfx
 	crusade_cb = crusade
@@ -622,9 +621,117 @@ changeling_group = {
 	hostile_within_group = yes	
 	ai_peaceful = no # Will make Hordes lose their super aggressiveness
 	
-	ai_convert_same_group = 1 # try to convert if zealous
-	ai_convert_other_group = 2 # always try to convert
+	ai_convert_same_group = 2 # try to convert if zealous
+	ai_convert_other_group = 1 # always try to convert
 
+
+seelie_court = {
+		graphical_culture = westerngfx
+
+		icon = 48
+		heresy_icon = 50
+		
+		color = { 0.3 0.0 0.6 }
+		crusade_name = LEGENDARY_WAR
+		scripture_name = THE_LEGENDS
+		piety_name = IMAGINATION
+		priest_title = BARD
+
+		high_god_name = GOD_SEELIE
+		
+		god_names = {
+			GOD_SEELIE
+		}
+		evil_god_names = {
+			DEVIL_SEELIE
+		}
+
+		
+		priests_can_marry = yes
+		can_grant_divorce = yes
+		
+		priests_can_inherit = yes
+		
+		female_temple_holders = yes
+		feminist = yes      # Nullifies the negative opinion modifier that vassals normally get if ruler is female or has female heir
+
+		defensive_attrition = yes
+		allow_looting = yes
+		
+		max_consorts = 3
+		bs_marriage = yes
+		pc_marriage = yes
+		allow_rivermovement = yes
+		has_heir_designation = yes
+		attacking_same_religion_piety_loss = no
+		hard_to_convert = yes
+		dynamic_cult = yes
+		secret_religion = yes
+		
+		independence_war_score_bonus = 30 # Overrides define CONTESTED_TITLE_OCCUPIED_WARSCORE_BONUS_INDEP
+
+		intermarry = unseelie_court
+		
+		ai_convert_same_group = 2
+		ai_convert_other_group = 1
+		
+		aggression = 1.0
+	}	
+	
+unseelie_court = {
+		graphical_culture = westerngfx
+
+		icon = 5
+		heresy_icon = 14
+	
+		color = { 0.6 0.8 0.9 }
+		crusade_name = LEGENDARY_WAR
+		scripture_name = THE_LEGENDS
+		piety_name = IMAGINATION
+		priest_title = BARD
+
+		high_god_name = GOD_UNSEELIE
+		
+		god_names = {
+			GOD_UNSEELIE
+		}
+		evil_god_names = {
+			DEVIL_UNSEELIE
+		}
+		
+		priests_can_marry = yes
+		can_grant_divorce = yes
+		
+		priests_can_inherit = yes
+		
+		female_temple_holders = yes
+		feminist = yes      # Nullifies the negative opinion modifier that vassals normally get if ruler is female or has female heir
+
+		defensive_attrition = yes
+		allow_looting = yes
+		
+		max_consorts = 3
+		bs_marriage = yes
+		pc_marriage = yes
+		allow_rivermovement = yes
+		has_heir_designation = yes
+		attacking_same_religion_piety_loss = no
+		hard_to_convert = yes
+		dynamic_cult = yes
+		secret_religion = yes
+		
+		independence_war_score_bonus = 30 # Overrides define CONTESTED_TITLE_OCCUPIED_WARSCORE_BONUS_INDEP
+
+		intermarry = seelie_court
+		
+		ai_convert_same_group = 2
+		ai_convert_other_group = 1
+		
+		aggression = 2.0
+	}		
+	
+	
+	
 changeling = {
 #
 		graphical_culture = westerngfx
