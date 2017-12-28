@@ -1,0 +1,896 @@
+
+namespace = CWOD_changeling_ai_train_cantrip_event
+
+character_event = {
+	id = CWOD_changeling_ai_train_cantrip_event.1
+	hide_window = yes
+	is_triggered_only = yes
+	ai = yes
+	min_age  = 16
+	
+immediate = {
+		if = {
+			limit = {
+				is_adult = yes
+				OR =
+				{
+				trait = changeling
+				trait = firstbornfae
+				}
+				NOT = { trait = storyteller }	
+
+				NOR = 
+				{
+					trait = chicanery_1 
+					trait = legerdemain_1
+					trait = primal_1	
+					trait = soothsay_1
+					trait = sovereign_1
+					trait = mind_1
+					trait = actor_1
+					trait = spirit_1
+					trait = time_1
+				}
+			}		
+					#set_character_flag = POD_CWOD_mage_ai_train_flag_to_1
+
+						if = { limit = 
+						{ 
+							NOT = { trait = chicanery_1 }
+							NOT = { trait = chicanery_2 }
+							NOT = { trait = chicanery_3 }
+							NOT = { trait = chicanery_4 }
+							NOT = { trait = chicanery_5 }
+						}
+						
+							random = {
+							chance = 10
+							add_trait = chicanery_1  } } 
+							
+						if = { limit = 
+						{ 
+							NOT = { trait = legerdemain_1 }
+							NOT = { trait = legerdemain_2 }
+							NOT = { trait = legerdemain_3 }
+							NOT = { trait = legerdemain_4 }
+							NOT = { trait = legerdemain_5 }
+						}
+												
+							random = {
+							chance = 10
+							add_trait = legerdemain_1
+							remove_trait = legerdemain_1 } } 
+							
+						if = { limit = 
+						{ 
+							NOT = { trait = primal_1 }
+							NOT = { trait = primal_2 }
+							NOT = { trait = primal_3 }
+							NOT = { trait = primal_4 }
+							NOT = { trait = primal_5 }
+						}
+							random = {
+							chance = 10						
+							add_trait = primal_1
+							remove_trait = primal_1 } } 
+							
+						if = { limit = 
+						{ 
+							NOT = { trait = soothsay_1 }
+							NOT = { trait = soothsay_2 }
+							NOT = { trait = soothsay_3 }
+							NOT = { trait = soothsay_4 }
+							NOT = { trait = soothsay_5 }
+						}
+							random = {
+							chance = 10					
+							add_trait = soothsay_1
+							remove_trait = soothsay_1 } } 
+							
+						if = { limit = 
+						{ 
+							NOT = { trait = wayfare_1 }
+							NOT = { trait = wayfare_2 }
+							NOT = { trait = wayfare_3 }
+							NOT = { trait = wayfare_4 }
+							NOT = { trait = wayfare_5 }
+						}
+							random = {
+							chance = 10						
+							add_trait = wayfare_1
+							remove_trait = wayfare_1 } } 
+							
+						if = { limit = 
+						{ 
+							NOT = { trait = sovereign_1 }
+							NOT = { trait = sovereign_2 }
+							NOT = { trait = sovereign_3 }
+							NOT = { trait = sovereign_4 }
+							NOT = { trait = sovereign_5 }
+							trait = sidhe
+						}
+							random = {
+							chance = 10
+							modifier = 
+							{
+								factor = 2
+								trait = sidhe
+							}							
+							add_trait = sovereign_1
+							remove_trait = sovereign_1  } } 
+							
+						if = { limit = 
+						{ 
+							NOT = { trait = actor_1 }
+							NOT = { trait = actor_2 }
+							NOT = { trait = actor_3 }
+							NOT = { trait = actor_4 }
+							NOT = { trait = actor_5 }
+						}
+							random = {
+							chance = 10
+							modifier = 
+							{
+								factor = 2
+								OR = 
+								{
+									trait = clurichaun
+									trait = piskey
+									trait = boggan
+								}
+							}
+							add_trait = actor_1
+							remove_trait = actor_1 } } 
+							
+						if = { limit = 
+						{ 
+							NOT = { trait = fae_1 }
+							NOT = { trait = fae_2 }
+							NOT = { trait = fae_3 }
+							NOT = { trait = fae_4 }
+							NOT = { trait = fae_5 }
+						}
+							random = {
+							chance = 10
+							modifier = 
+							{
+								factor = 2
+								OR = 
+								{
+									trait = sidhe
+									trait = satyr
+									trait = troll
+								}
+							}							
+							add_trait = fae_1
+							remove_trait = fae_1 } } 
+							
+						if = { limit = 
+						{ 
+							NOT = { trait = prop_1 }
+							NOT = { trait = prop_2 }
+							NOT = { trait = prop_3 }
+							NOT = { trait = prop_4 }
+							NOT = { trait = prop_5 }
+						}
+							random = {
+							chance = 10
+							modifier = 
+							{
+								factor = 2
+								OR = 
+								{
+									trait = nocker
+									trait = sluagh
+								}
+							
+							}							
+							add_trait = prop_1
+							remove_trait = prop_1 } } 
+							
+						if = { limit = 
+						{ 
+							NOT = { trait = scene_1 }
+							NOT = { trait = scene_2 }
+							NOT = { trait = scene_3 }
+							NOT = { trait = scene_4 }
+							NOT = { trait = scene_5 }
+						}
+							random = {
+							chance = 10
+							modifier = 
+							{
+								factor = 2
+								trait = eshu
+							}							
+							add_trait = scene_1
+							remove_trait = scene_1 } } 					
+							
+						if = { limit = 
+						{ 
+							NOT = { trait = time_1 }
+							NOT = { trait = time_2 }
+							NOT = { trait = time_3 }
+							NOT = { trait = time_4 }
+							NOT = { trait = time_5 }
+						}
+							random = {
+							chance = 10
+						
+							add_trait = time_1
+							remove_trait = time_1 } } 
+							
+					}			
+					
+			
+	
+				}
+			}
+	
+character_event = {
+	id = CWOD_changeling_ai_train_cantrip_event.2
+	hide_window = yes
+	is_triggered_only = yes
+	ai = yes
+	min_age  = 16
+	
+immediate = {
+		if = {
+			limit = {
+				is_adult = yes
+				OR =
+				{
+				trait = changeling
+				trait = firstbornfae
+				}
+				NOT = { trait = storyteller }	
+
+				OR = 
+				{
+					trait = chicanery_1 
+					trait = legerdemain_1
+					trait = primal_1	
+					trait = soothsay_1
+					trait = wayfare_1
+					trait = sovereign_1
+					trait = actor_1
+					trait = fae_1
+					trait = time_1
+				}
+			}		
+					#set_character_flag = POD_CWOD_mage_ai_train_flag_to_2
+
+						if = { limit = { trait = chicanery_1  }
+						
+							random = {
+							chance = 10
+							modifier = 
+							{
+								factor = 2
+								trait = affinity_chicanery
+							}	
+							add_trait = chicanery_2 
+							remove_trait = chicanery_1  } } 
+							
+						if = { limit = { trait = legerdemain_1 }							
+						
+							random = {
+							chance = 10
+							modifier = 
+							{
+								factor = 2
+								trait = affinity_legerdemain
+							}
+							add_trait = legerdemain_2
+							remove_trait = legerdemain_1 } } 
+							
+						if = { limit = { trait = primal_1 }
+							random = {
+							chance = 10
+							modifier = 
+							{
+								factor = 2
+								trait = affinity_primal
+							}							
+							add_trait = primal_2
+							remove_trait = primal_1 } } 
+							
+						if = { limit = { trait = soothsay_1 }
+							random = {
+							chance = 10
+							modifier = 
+							{
+								factor = 2
+								trait = affinity_soothsay
+							}							
+							add_trait = soothsay_2
+							remove_trait = soothsay_1 } } 
+							
+						if = { limit = { trait = wayfare_1 }
+							random = {
+							chance = 10
+							modifier = 
+							{
+								factor = 2
+								trait = affinity_wayfare
+							}							
+							add_trait = wayfare_2
+							remove_trait = wayfare_1 } } 
+							
+						if = { limit = { trait = sovereign_1 }  
+							random = {
+							chance = 10
+							modifier = 
+							{
+								factor = 2
+								trait = affinity_sovereign
+							}							
+							add_trait = sovereign_2
+							remove_trait = sovereign_1  } } 
+							
+						if = { limit = { trait = actor_1 }
+							random = {
+							chance = 10
+							modifier = 
+							{
+								factor = 2
+								OR = 
+								{
+									trait = clurichaun
+									trait = piskey
+									trait = boggan
+								}
+							}
+							add_trait = actor_2
+							remove_trait = actor_1 } } 
+							
+						if = { limit = { trait = fae_1 } 
+							random = {
+							chance = 10
+							modifier = 
+							{
+								factor = 2
+								OR = 
+								{
+									trait = sidhe
+									trait = satyr
+									trait = troll
+								}
+							}							
+							add_trait = fae_2
+							remove_trait = fae_1 } } 
+							
+						if = { limit = 
+						{ 
+							NOT = { trait = prop_1 }
+							NOT = { trait = prop_2 }
+							NOT = { trait = prop_3 }
+							NOT = { trait = prop_4 }
+							NOT = { trait = prop_5 }
+						}
+							random = {
+							chance = 10
+							modifier = 
+							{
+								factor = 2
+								OR = 
+								{
+									trait = nocker
+									trait = sluagh
+								}
+							
+							}							
+							add_trait = prop_2
+							remove_trait = prop_1 } } 
+							
+						if = { limit = 
+						{ 
+							NOT = { trait = scene_1 }
+							NOT = { trait = scene_2 }
+							NOT = { trait = scene_3 }
+							NOT = { trait = scene_4 }
+							NOT = { trait = scene_5 }
+						}
+							random = {
+							chance = 10
+							modifier = 
+							{
+								factor = 2
+								trait = eshu
+							}							
+							add_trait = scene_2
+							remove_trait = scene_1 } } 									
+							
+						if = { limit = { trait = time_1 } 
+							random = {
+							chance = 10
+							modifier = 
+							{
+								factor = 2
+								trait = affinity_time
+							}							
+							add_trait = time_2
+							remove_trait = time_1 } } 
+							
+	
+					}			
+					
+			
+	
+				}
+			}
+
+character_event = {
+	id = CWOD_changeling_ai_train_cantrip_event.3
+	hide_window = yes
+	is_triggered_only = yes
+	ai = yes
+	min_age  = 16
+	
+immediate = {
+		if = {
+			limit = {
+				is_adult = yes
+				OR =
+				{
+				trait = changeling
+				trait = firstbornfae
+				}
+				NOT = { trait = storyteller }	
+
+				OR = 
+				{
+					trait = chicanery_2 
+					trait = legerdemain_2
+					trait = primal_2	
+					trait = soothsay_2
+					trait = wayfare_2
+					trait = sovereign_2
+					trait = actor_2
+					trait = fae_2
+					trait = time_2
+				}
+			}		
+					#set_character_flag = POD_CWOD_mage_ai_train_flag_to_3
+
+						if = { limit = { trait = chicanery_2  }
+						
+							random = {
+							chance = 10
+							add_trait = chicanery_3 
+							remove_trait = chicanery_2  } } 
+							
+						if = { limit = { trait = legerdemain_2 }							
+						
+							random = {
+							chance = 10
+
+							add_trait = legerdemain_3
+							remove_trait = legerdemain_2 } } 
+							
+						if = { limit = { trait = primal_2 }
+							random = {
+							chance = 10							
+							add_trait = primal_3
+							remove_trait = primal_2 } } 
+							
+						if = { limit = { trait = soothsay_2 }
+							random = {
+							chance = 10						
+							add_trait = soothsay_3
+							remove_trait = soothsay_2 } } 
+							
+						if = { limit = { trait = wayfare_2 }
+							random = {
+							chance = 10					
+							add_trait = wayfare_3
+							remove_trait = wayfare_2 } } 
+							
+						if = { limit = { trait = sovereign_2 }  
+							random = {
+							chance = 10
+							modifier = 
+							{
+								factor = 2
+								trait = sidhe
+							}							
+							add_trait = sovereign_3
+							remove_trait = sovereign_2  } } 
+							
+						if = { limit = { trait = actor_2 }
+							random = {
+							chance = 10
+							modifier = 
+							{
+								factor = 2
+								OR = 
+								{
+									trait = clurichaun
+									trait = piskey
+									trait = boggan
+								}
+							}
+							add_trait = actor_3
+							remove_trait = actor_2 } } 
+							
+						if = { limit = { trait = fae_2 } 
+							random = {
+							chance = 10
+							modifier = 
+							{
+								factor = 2
+								OR = 
+								{
+									trait = sidhe
+									trait = satyr
+									trait = troll
+								}
+							}							
+							add_trait = fae_3
+							remove_trait = fae_2 } } 
+
+						if = { limit = 
+						{ 
+							 trait = prop_2 
+						}
+							random = {
+							chance = 10
+							modifier = 
+							{
+								factor = 2
+								OR = 
+								{
+									trait = nocker
+									trait = sluagh
+								}
+							
+							}							
+							add_trait = prop_2
+							remove_trait = prop_1 } } 
+							
+						if = { limit = 
+						{ 
+							trait = scene_2
+						}
+							random = {
+							chance = 10
+							modifier = 
+							{
+								factor = 2
+								trait = eshu
+							}							
+							add_trait = scene_2
+							remove_trait = scene_1 } } 		
+							
+						if = { limit = { trait = time_2 } 
+							random = {
+							chance = 10					
+							add_trait = time_3
+							remove_trait = time_2 } } 
+							
+	
+					}			
+					
+			
+	
+				}
+			}			
+
+
+character_event = {
+	id = CWOD_changeling_ai_train_cantrip_event.4
+	hide_window = yes
+	is_triggered_only = yes
+	ai = yes
+	min_age  = 16
+	
+immediate = {
+		if = {
+			limit = {
+				is_adult = yes
+				OR =
+				{
+				trait = changeling
+				trait = firstbornfae
+				}
+				NOT = { trait = storyteller }	
+
+				OR = 
+				{
+					trait = chicanery_3 
+					trait = legerdemain_3
+					trait = primal_3	
+					trait = soothsay_3
+					trait = wayfare_3
+					trait = sovereign_3
+					trait = actor_3
+					trait = fae_3
+					trait = time_3
+				}
+			}		
+					#set_character_flag = POD_CWOD_mage_ai_train_flag_to_4
+
+						if = { limit = { trait = chicanery_3  }
+						
+							random = {
+							chance = 10
+							add_trait = chicanery_4 
+							remove_trait = chicanery_3  } } 
+							
+						if = { limit = { trait = legerdemain_3 }							
+						
+							random = {
+							chance = 10
+							add_trait = legerdemain_4
+							remove_trait = legerdemain_3 } } 
+							
+						if = { limit = { trait = primal_3 }
+							random = {
+							chance = 10					
+							add_trait = primal_4
+							remove_trait = primal_3 } } 
+							
+						if = { limit = { trait = soothsay_3 }
+							random = {
+							chance = 10					
+							add_trait = soothsay_4
+							remove_trait = soothsay_3 } } 
+							
+						if = { limit = { trait = wayfare_3 }
+							random = {
+							chance = 10
+							add_trait = wayfare_4
+							remove_trait = wayfare_3 } } 
+							
+						if = { limit = { trait = sovereign_3 }  
+							random = {
+							chance = 10		
+							modifier = 
+							{
+								factor = 2
+								trait = sidhe
+							}								
+							add_trait = sovereign_4
+							remove_trait = sovereign_3  } } 
+							
+						if = { limit = { trait = actor_3 }
+							random = {
+							chance = 10
+							modifier = 
+							{
+								factor = 2
+								OR = 
+								{
+									trait = clurichaun
+									trait = piskey
+									trait = boggan
+								}
+							}
+							add_trait = actor_4
+							remove_trait = actor_3 } } 
+							
+						if = { limit = { trait = fae_3 } 
+							random = {
+							chance = 10
+							modifier = 
+							{
+								factor = 2							
+								OR = 
+								{
+									trait = sidhe
+									trait = satyr
+									trait = troll
+								}							}							
+							add_trait = fae_4
+							remove_trait = fae_3 } } 
+							
+						if = { limit = 
+						{ 
+							NOT = { trait = prop_1 }
+							NOT = { trait = prop_2 }
+							NOT = { trait = prop_3 }
+							NOT = { trait = prop_4 }
+							NOT = { trait = prop_5 }
+						}
+							random = {
+							chance = 10
+							modifier = 
+							{
+								factor = 2
+								OR = 
+								{
+									trait = nocker
+									trait = sluagh
+								}
+							
+							}							
+							add_trait = prop_2
+							remove_trait = prop_1 } } 
+							
+						if = { limit = 
+						{ 
+							NOT = { trait = scene_1 }
+							NOT = { trait = scene_2 }
+							NOT = { trait = scene_3 }
+							NOT = { trait = scene_4 }
+							NOT = { trait = scene_5 }
+						}
+							random = {
+							chance = 10
+							modifier = 
+							{
+								factor = 2
+								trait = eshu
+							}							
+							add_trait = scene_2
+							remove_trait = scene_1 } } 									
+							
+						if = { limit = { trait = time_3 } 
+							random = {
+							chance = 10					
+							add_trait = time_4
+							remove_trait = time_3 } } 
+							
+	
+					}			
+					
+			
+	
+				}
+			}			
+			
+character_event = {
+	id = CWOD_changeling_ai_train_cantrip_event.5
+	hide_window = yes
+	is_triggered_only = yes
+	ai = yes
+	min_age  = 16
+	
+immediate = {
+		if = {
+			limit = {
+				is_adult = yes
+				OR =
+				{
+				trait = changeling
+				trait = firstbornfae
+				}
+				NOT = { trait = storyteller }	
+
+				OR = 
+				{
+					trait = chicanery_4 
+					trait = legerdemain_4
+					trait = primal_4	
+					trait = soothsay_4
+					trait = wayfare_4
+					trait = sovereign_4
+					trait = actor_4
+					trait = fae_4
+					trait = time_4
+				}
+			}		
+					#set_character_flag = POD_CWOD_mage_ai_train_flag_to_5
+
+						if = { limit = { trait = chicanery_4  }
+						
+							random = {
+							chance = 10
+							add_trait = chicanery_5 
+							remove_trait = chicanery_4  } } 
+							
+						if = { limit = { trait = legerdemain_4 }							
+						
+							random = {
+							chance = 10
+							add_trait = legerdemain_5
+							remove_trait = legerdemain_4 } } 
+							
+						if = { limit = { trait = primal_4 }
+							random = {
+							chance = 10						
+							add_trait = primal_5
+							remove_trait = primal_4 } } 
+							
+						if = { limit = { trait = soothsay_4 }
+							random = {
+							chance = 10						
+							add_trait = soothsay_5
+							remove_trait = soothsay_4 } } 
+							
+						if = { limit = { trait = wayfare_4 }
+							random = {
+							chance = 10						
+							add_trait = wayfare_5
+							remove_trait = wayfare_4 } } 
+							
+						if = { limit = { trait = sovereign_4 }  
+							random = {
+							chance = 10
+							modifier = 
+							{
+								factor = 2
+								trait = sidhe
+							}							
+							add_trait = sovereign_5
+							remove_trait = sovereign_4  } } 
+							
+						if = { limit = { trait = actor_4 }
+							random = {
+							chance = 10
+							modifier = 
+							{
+								factor = 2
+								OR = 
+								{
+									trait = clurichaun
+									trait = piskey
+									trait = boggan
+								}
+							}
+							add_trait = actor_5
+							remove_trait = actor_4 } } 
+							
+						if = { limit = { trait = fae_4 } 
+							random = {
+							chance = 10
+							modifier = 
+							{
+								factor = 2
+								OR = 
+								{
+									trait = sidhe
+									trait = satyr
+									trait = troll
+								}
+							}							
+							add_trait = fae_5
+							remove_trait = fae_4 } } 
+
+						if = { limit = 
+						{ 
+							NOT = { trait = prop_4 }
+						}
+							random = {
+							chance = 10
+							modifier = 
+							{
+								factor = 2
+								OR = 
+								{
+									trait = nocker
+									trait = sluagh
+								}
+							
+							}							
+							add_trait = prop_2
+							remove_trait = prop_1 } } 
+							
+						if = { limit = 
+						{ 
+							trait = scene_4
+						}
+							random = {
+							chance = 10
+							modifier = 
+							{
+								factor = 2
+								trait = eshu
+							}							
+							add_trait = scene_2
+							remove_trait = scene_1 } } 		
+							
+						if = { limit = { trait = time_4 } 
+							random = {
+							chance = 10				
+							add_trait = time_5
+							remove_trait = time_4 } } 
+							
+	
+					}			
+					
+			
+	
+				}
+			}				
+										

@@ -23,16 +23,20 @@ character_event = {
 		NOT = { trait = mage }
 		NOT = { trait = mummy }
 		NOT = { trait = changeling }
+		NOT = { trait = firstbornfae }
 		NOT = { trait = promethean }
 		NOT = { trait = geist }
 		NOT = { trait = demon }
 		NOT = { trait = fledgling }
 		NOT = { trait = revenant }
-		NOT = { trait = storyteller }			
+		NOT = { trait = storyteller }
+		NOT = { trait = canon }
 		NOT = { has_character_flag = FLAG_POD_SETUP_NOBLE_FIRED }
 		OR = {
 			has_global_flag = bookmark767
+			has_global_flag = bookmark1215
 			has_global_flag = bookmark1230
+			has_global_flag = bookmark1350
 			has_global_flag = bookmark1355
 			has_global_flag = bookmark1466
 			has_global_flag = bookmark1505
@@ -55,6 +59,8 @@ character_event = {
 				religion_group = daedalan_group
 				religion_group = magical_traditions_group
 				religion = laibon
+				religion_group = seasons_courts_group
+				religion_group = changeling_group
 			}
 		}
 	
@@ -64,7 +70,9 @@ character_event = {
 	immediate = {
 
 		set_character_flag = FLAG_POD_SETUP_NOBLE_FIRED
-				 
+	
+		any_close_relative = { death = "yes" }
+	
 		capital_scope = {	
 			reverse_religion = ROOT
 			reverse_culture = ROOT
@@ -109,20 +117,62 @@ character_event = {
 			}	
 		}
 # get a new dynasty names
-			if = { limit = { ai = yes }
-						create_character = {
+
+			if = 
+			{ limit = { ai = yes }
+						create_character = 
+						{
 							random_traits = yes
 							age = 30
-							dynasty = actually_culture
 							culture = ROOT
 							religion = ROOT
+							dynasty = random
 						}
 						
-						new_character = {
-								ROOT = { dynasty = PREV }
-								death = "yes"	
-						}				
-					}
+						new_character =
+						{
+							save_event_target_as = new_dynasty
+							ROOT = 
+							{ 
+								dynasty = event_target:new_dynasty 
+							}							
+							clear_event_target = event_target:new_dynasty
+							death = "yes"
+						}					
+							
+			}
+
+		random =
+		{
+			chance = 75
+			
+			if = 
+			{ limit = { ai = yes }
+			
+						create_character = 
+						{
+							random_traits = yes
+							age = 30
+							culture = ROOT
+							religion = ROOT
+							dynasty = actually_culture
+						}
+						
+						new_character =
+						{
+							save_event_target_as = new_dynasty
+							ROOT = 
+							{ 
+								dynasty = event_target:new_dynasty 
+							}							
+							clear_event_target = event_target:new_dynasty
+							death = "yes"
+						}					
+							
+			}
+		}		
+
+		
 					
 		if = {
 			limit = {
@@ -146,7 +196,9 @@ character_event = {
 				NOT = { trait = storyteller }	
 				OR = {
 					has_global_flag = bookmark767
+					has_global_flag = bookmark1215
 					has_global_flag = bookmark1230
+					has_global_flag = bookmark1355
 					has_global_flag = bookmark1355
 					has_global_flag = bookmark1466
 					has_global_flag = bookmark1505
@@ -175,11 +227,19 @@ character_event = {
 				NOT = {	trait = POD_vampire_RD_immortal_fix }
 				NOT = { trait = vampire }
 				NOT = { trait = werewolf }
-				NOT = { trait = mage }				
+				NOT = { trait = mage }	
+				NOT = { trait = firstbornfae }	
+				NOT = { trait = changeling }
+				NOT = { trait = promethean }
+				NOT = { trait = geist }
+				NOT = { trait = demon }
+				NOT = { trait = revenant }	
 				is_adult = yes
 				OR = {
 					has_global_flag = bookmark767
+					has_global_flag = bookmark1215
 					has_global_flag = bookmark1230
+					has_global_flag = bookmark1350
 					has_global_flag = bookmark1355
 					has_global_flag = bookmark1466
 					has_global_flag = bookmark1505
@@ -216,10 +276,18 @@ character_event = {
 				NOT = {	trait = POD_vampire_RD_immortal_fix }
 				NOT = { trait = vampire }
 				NOT = { trait = werewolf }
-				NOT = { trait = mage }				
+				NOT = { trait = mage }	
+				NOT = { trait = firstbornfae }	
+				NOT = { trait = changeling }	
+				NOT = { trait = promethean }
+				NOT = { trait = geist }
+				NOT = { trait = demon }
+				NOT = { trait = revenant }	
 				OR = {
 					has_global_flag = bookmark767
+					has_global_flag = bookmark1215
 					has_global_flag = bookmark1230
+					has_global_flag = bookmark1350
 					has_global_flag = bookmark1355
 					has_global_flag = bookmark1466
 					has_global_flag = bookmark1505
@@ -250,7 +318,13 @@ character_event = {
 				NOT = {	trait = POD_vampire_RD_immortal_fix }
 				NOT = { trait = vampire }
 				NOT = { trait = werewolf }
-				NOT = { trait = mage }								
+				NOT = { trait = mage }	
+				NOT = { trait = firstbornfae }	
+				NOT = { trait = changeling }
+				NOT = { trait = promethean }
+				NOT = { trait = geist }
+				NOT = { trait = demon }
+				NOT = { trait = revenant }	
 				religion_group = hunter_group
 			}
 			# make supe hunter ruler
@@ -270,18 +344,23 @@ character_event = {
 					num_of_duke_titles = 1								
 				}
 				is_adult = yes
-				NOT = {	trait = POD_vampire_RD_immortal_fix }
+					NOT = {	trait = POD_vampire_RD_immortal_fix }
 					NOT = { trait = mortal }
 					NOT = { trait = vampire }
 					NOT = { trait = werewolf }
 					NOT = { trait = mage }
 					NOT = { trait = mummy }
+					NOT = { trait = firstbornfae}	
 					NOT = { trait = changeling }
 					NOT = { trait = promethean }
 					NOT = { trait = geist }
 					NOT = { trait = demon }
-					NOT = { trait = revenant }							
-				religion_group = changeling_group
+					NOT = { trait = revenant }	
+					OR = 
+					{
+						religion_group = changeling_group
+						religion_group = seasons_court_group
+					}
 			}
 			# make changeling ruler
 			add_trait = changeling
@@ -299,12 +378,13 @@ character_event = {
 					num_of_duke_titles = 1					
 				}
 				is_adult = yes
-				NOT = {	trait = POD_vampire_RD_immortal_fix }
+					NOT = {	trait = POD_vampire_RD_immortal_fix }
 					NOT = { trait = mortal }
 					NOT = { trait = vampire }
 					NOT = { trait = werewolf }
 					NOT = { trait = mage }
 					NOT = { trait = mummy }
+					NOT = { trait = firstbornfae }	
 					NOT = { trait = changeling }
 					NOT = { trait = promethean }
 					NOT = { trait = geist }
@@ -329,12 +409,13 @@ character_event = {
 					num_of_duke_titles = 1
 				}
 				is_adult = yes
-				NOT = {	trait = POD_vampire_RD_immortal_fix }
+					NOT = {	trait = POD_vampire_RD_immortal_fix }
 					NOT = { trait = mortal }
 					NOT = { trait = vampire }
 					NOT = { trait = werewolf }
 					NOT = { trait = mage }
 					NOT = { trait = mummy }
+					NOT = { trait = firstbornfae }	
 					NOT = { trait = changeling }
 					NOT = { trait = promethean }
 					NOT = { trait = geist }
@@ -359,12 +440,13 @@ character_event = {
 					num_of_duke_titles = 1
 				}
 				is_adult = yes
-				NOT = {	trait = POD_vampire_RD_immortal_fix }
+					NOT = {	trait = POD_vampire_RD_immortal_fix }
 					NOT = { trait = mortal }
 					NOT = { trait = vampire }
 					NOT = { trait = werewolf }
 					NOT = { trait = mage }
 					NOT = { trait = mummy }
+					NOT = { trait = firstbornfae }	
 					NOT = { trait = changeling }
 					NOT = { trait = promethean }
 					NOT = { trait = geist }
@@ -388,12 +470,13 @@ character_event = {
 					is_patrician = yes
 					num_of_duke_titles = 1
 				}
-				NOT = {	trait = POD_vampire_RD_immortal_fix }
+					NOT = {	trait = POD_vampire_RD_immortal_fix }
 					NOT = { trait = mortal }
 					NOT = { trait = vampire }
 					NOT = { trait = werewolf }
 					NOT = { trait = mage }
 					NOT = { trait = mummy }
+					NOT = { trait = firstbornfae }	
 					NOT = { trait = changeling }
 					NOT = { trait = promethean }
 					NOT = { trait = geist }
@@ -424,6 +507,7 @@ character_event = {
 					NOT = { trait = werewolf }
 					NOT = { trait = mage }
 					NOT = { trait = mummy }
+					NOT = { trait = firstbornfae }	
 					NOT = { trait = changeling }
 					NOT = { trait = promethean }
 					NOT = { trait = geist }
@@ -474,6 +558,7 @@ character_event = {
 						religion_group = hunter_group
 						religion_group = promethean_group
 						religion_group = changeling_group
+						religion_group = seasons_courts_group
 						religion_group = mummy_group
 						religion_group = geist_group
 						religion_group = demon_group
@@ -493,7 +578,14 @@ character_event = {
 				NOT = {	trait = POD_vampire_RD_immortal_fix }
 				NOT = { trait = vampire }
 				NOT = { trait = werewolf }
-				NOT = { trait = mage }								
+				NOT = { trait = mage }		
+				NOT = { trait = firstbornfae }	
+				NOT = { trait = changeling }
+				NOT = { trait = demon }
+				NOT = { trait = geist }
+				NOT = { trait = mummy }
+				NOT = { trait = revenant }
+				NOT = { trait = promethean }
 				religion_group = innocent_group
 			}
 			# make mortal ruler

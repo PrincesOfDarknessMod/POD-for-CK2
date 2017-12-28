@@ -1710,6 +1710,12 @@ character_event = {
     id = MNM.1417
     hide_window = yes
     is_triggered_only = yes
+	
+	trigger = { 
+		is_alive = yes 
+		NOT = { is_dying = yes } 
+	}
+	
     immediate = { FROM = { character_event = { id = MNM.1418 } } }
 }
 
@@ -7215,7 +7221,7 @@ character_event = {
         custom_tooltip = { text = EVTOPTB_MNM_1401_TT }
 
         reverse_opinion = {
-        	who = FROMFROM
+        	who = FROM
         	modifier = opinion_ungrateful
         }
         #Does not give follow-up because if a player recieves this, the sender is a courtier
@@ -7841,6 +7847,7 @@ character_event = {
 
     is_triggered_only = yes
     
+	capable_only = yes
     trigger = {
 	OR = {
 			society_member_of = hermetics

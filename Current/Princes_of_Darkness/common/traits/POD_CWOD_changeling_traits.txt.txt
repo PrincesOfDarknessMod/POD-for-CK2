@@ -1,7 +1,46 @@
 changeling = {
-	opposites =  {
-	mortal
+	inherit_chance = 0 
+	customizer = yes
+	health = 1
+	combat_rating = 1
+	immortal = no
+	  random = no
+	same_opinion = 5
+	opposite_opinion = -5
+	
+	is_visible = {
+		OR = {
+		trait = changeling
+		trait = firstbornfae
+		trait = entranced_mortal
+		trait = auspex_1
+		trait = auspex_2
+		trait = auspex_3
+		trait = auspex_4
+		trait = auspex_5
+		trait = werewolf
+		trait = mage		
+		}
 	}
+
+	opposites =  {
+		vampire
+		werewolf
+		mage
+		geist
+		mummy
+		firstbornfae
+		promethean
+		demon
+		revenant
+		mortal
+		ghoul
+		POD_vampire_RD_immortal_fix
+		supe_hunter
+	}	
+}
+
+firstbornfae = {
 	inherit_chance = 0 
 	customizer = yes
 	health = 1
@@ -13,6 +52,7 @@ changeling = {
 	is_visible = {
 		OR = {
 		trait = changeling
+		trait = firstbornfae
 		trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -23,12 +63,217 @@ changeling = {
 		trait = mage		
 		}
 	}	
+	
+	opposites =  {
+		vampire
+		werewolf
+		mage
+		geist
+		mummy
+		changeling
+		promethean
+		demon
+		revenant
+		mortal
+		ghoul
+		POD_vampire_RD_immortal_fix
+		supe_hunter
+	}	
 }
+
 
 # Splats
 
+boggan = {
+	opposites =  {
+	clurichaun
+	nocker
+	piskey
+	pooka
+	selkie
+	sidhe	
+	redcap
+	satyr
+	sluagh
+	troll
+	}
+	inherit_chance = 0 
+	customizer = yes
+	stewardship = 2
+	  random = no
+	is_visible = {
+		OR = {
+		trait = changeling
+		trait = firstbornfae
+		trait = entranced_mortal
+		trait = auspex_1
+		trait = auspex_2
+		trait = auspex_3
+		trait = auspex_4
+		trait = auspex_5
+		trait = werewolf
+		trait = mage		
+		}
+	}
+	same_opinion = 5
+	opposite_opinion = 5	  
+}
+
+clurichaun = {
+	opposites =  {
+	boggan
+	nocker
+	piskey
+	pooka
+	selkie
+	sidhe	
+	redcap
+	satyr
+	sluagh
+	troll
+	}
+	inherit_chance = 0 
+	customizer = yes
+	diplomacy = 2
+	  random = no
+	is_visible = {
+		OR = {
+		trait = changeling
+		trait = firstbornfae
+		trait = entranced_mortal
+		trait = auspex_1
+		trait = auspex_2
+		trait = auspex_3
+		trait = auspex_4
+		trait = auspex_5
+		trait = werewolf
+		trait = mage		
+		}
+	}
+	same_opinion = 5
+	opposite_opinion = 5	  
+}
+
+nocker = {
+	opposites =  {
+	boggan
+	clurichaun
+	piskey
+	pooka
+	selkie
+	sidhe	
+	redcap
+	satyr
+	sluagh
+	troll
+	}
+	inherit_chance = 0 
+	customizer = yes
+	learning = 2
+	  random = no
+	is_visible = {
+		OR = {
+		trait = changeling
+		trait = firstbornfae
+		trait = entranced_mortal
+		trait = auspex_1
+		trait = auspex_2
+		trait = auspex_3
+		trait = auspex_4
+		trait = auspex_5
+		trait = werewolf
+		trait = mage		
+		}
+	}
+	same_opinion = 5
+	opposite_opinion = 5	  
+}
+
+
+piskey = {
+	opposites =  {
+	boggan
+	clurichaun
+	nocker
+	pooka
+	selkie
+	sidhe	
+	redcap
+	satyr
+	sluagh
+	troll
+	}
+	inherit_chance = 0 
+	customizer = yes
+	intrigue = 2
+	  random = no
+	is_visible = {
+		OR = {
+		trait = changeling
+		trait = firstbornfae
+		trait = entranced_mortal
+		trait = auspex_1
+		trait = auspex_2
+		trait = auspex_3
+		trait = auspex_4
+		trait = auspex_5
+		trait = werewolf
+		trait = mage		
+		}
+	}
+	same_opinion = 5
+	opposite_opinion = 5	  
+}
+
+
+
+selkie = {
+	opposites =  {
+	boggan
+	clurichaun
+	nocker
+	piskey
+	pooka
+	selkie
+	sidhe	
+	redcap
+	satyr
+	sluagh
+	troll
+	}
+	inherit_chance = 0 
+	customizer = yes
+	diplomacy = 2
+	  random = no
+	is_visible = {
+		OR = {
+		trait = changeling
+		trait = firstbornfae
+		trait = entranced_mortal
+		trait = auspex_1
+		trait = auspex_2
+		trait = auspex_3
+		trait = auspex_4
+		trait = auspex_5
+		trait = werewolf
+		trait = mage		
+		}
+	}
+	same_opinion = 5
+	opposite_opinion = 5	  
+}
+
+
+
 eshu = {
 	opposites =  {
+	boggan
+	clurichaun
+	nocker
+	piskey
+	pooka
+	selkie	
+	sidhe
 	redcap
 	satyr
 	sluagh
@@ -42,6 +287,7 @@ eshu = {
 	is_visible = {
 		OR = {
 		trait = changeling
+		trait = firstbornfae
 		trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -58,6 +304,13 @@ eshu = {
 
 redcap = {
 	opposites =  {
+	boggan
+	clurichaun
+	nocker
+	piskey
+	pooka
+	selkie
+	sidhe
 	eshu
 	satyr
 	sluagh
@@ -71,6 +324,7 @@ redcap = {
 	is_visible = {
 		OR = {
 		trait = changeling
+		trait = firstbornfae
 		trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -85,8 +339,51 @@ redcap = {
 	opposite_opinion = -10	  
 }
 
+sidhe = {
+	opposites =  {
+	boggan
+	clurichaun
+	nocker
+	piskey
+	pooka
+	selkie	
+	eshu
+	redcap
+	sluagh
+	troll
+	}
+	inherit_chance = 0 
+	customizer = yes
+	diplomacy = 1
+	martial = 1
+	  random = no
+	is_visible = {
+		OR = {
+		trait = changeling
+		trait = firstbornfae
+		trait = entranced_mortal
+		trait = auspex_1
+		trait = auspex_2
+		trait = auspex_3
+		trait = auspex_4
+		trait = auspex_5
+		trait = werewolf
+		trait = mage
+		}
+	}
+	same_opinion = 10
+	opposite_opinion = 5	  
+}
+
 satyr = {
 	opposites =  {
+	boggan
+	clurichaun
+	nocker
+	piskey
+	pooka
+	selkie	
+	sidhe
 	eshu
 	redcap
 	sluagh
@@ -100,6 +397,7 @@ satyr = {
 	is_visible = {
 		OR = {
 		trait = changeling
+		trait = firstbornfae
 		trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -116,6 +414,13 @@ satyr = {
 
 sluagh  = {
 	opposites =  {
+	boggan
+	clurichaun
+	nocker
+	piskey
+	pooka
+	selkie
+	sidhe
 	eshu
 	redcap
 	satyr
@@ -129,6 +434,7 @@ sluagh  = {
 	is_visible = {
 		OR = {
 		trait = changeling
+		trait = firstbornfae
 		trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -145,6 +451,13 @@ sluagh  = {
 
 troll = {
 	opposites =  {
+	boggan
+	clurichaun
+	nocker
+	piskey
+	pooka
+	selkie
+	sidhe
 	eshu
 	redcap
 	satyr
@@ -159,6 +472,7 @@ troll = {
 	is_visible = {
 		OR = {
 		trait = changeling
+		trait = firstbornfae
 		trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -185,6 +499,7 @@ entranced_mortal = {
 	is_visible = {
 		OR = {
 		trait = changeling
+		trait = firstbornfae
 		trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -215,6 +530,7 @@ chicanery_1 = {
 	is_visible = {
 		OR = {
 		trait = changeling
+		trait = firstbornfae
 		trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -247,6 +563,7 @@ chicanery_2 = {
 	is_visible = {
 		OR = {
 		trait = changeling
+		trait = firstbornfae
 		trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -278,6 +595,7 @@ chicanery_3 = {
 	is_visible = {
 		OR = {
 			trait = changeling
+		trait = firstbornfae
 			trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -309,6 +627,7 @@ chicanery_4 = {
 	is_visible = {
 		OR = {
 			trait = changeling
+		trait = firstbornfae
 			trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -339,6 +658,7 @@ chicanery_5 = {
 	is_visible = {
 		OR = {
 			trait = changeling
+		trait = firstbornfae
 			trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -351,6 +671,315 @@ chicanery_5 = {
 	} 
 	
 }
+
+contempt_1 = {
+	opposites =  {
+		contempt_2
+		contempt_3
+		contempt_4
+		contempt_5
+	}
+
+	diplomacy = 2
+	inherit_chance = 0 
+ 	  
+	random = no
+	is_visible = {
+		OR = {
+			trait = changeling
+		trait = firstbornfae
+			trait = entranced_mortal
+		trait = auspex_1
+		trait = auspex_2
+		trait = auspex_3
+		trait = auspex_4
+		trait = auspex_5
+		trait = werewolf
+		trait = mage			
+		}
+	} 
+
+ 
+ 	 
+	
+}
+
+contempt_2 = {
+	opposites =  {
+		contempt_1
+		contempt_3
+		contempt_4
+		contempt_5
+	}
+
+	diplomacy = 3
+	inherit_chance = 0 
+		  
+	random = no
+	is_visible = {
+		OR = {
+			trait = changeling
+		trait = firstbornfae
+			trait = entranced_mortal
+		trait = auspex_1
+		trait = auspex_2
+		trait = auspex_3
+		trait = auspex_4
+		trait = auspex_5
+		trait = werewolf
+		trait = mage			
+		}
+	} 
+	
+	
+}
+
+contempt_3 = {
+	opposites =  {
+		contempt_2
+		contempt_1
+		contempt_4
+		contempt_5
+	}
+
+	diplomacy = 4
+	inherit_chance = 0 
+ 	  
+	random = no
+	is_visible = {
+		OR = {
+			trait = changeling
+		trait = firstbornfae
+			trait = entranced_mortal
+		trait = auspex_1
+		trait = auspex_2
+		trait = auspex_3
+		trait = auspex_4
+		trait = auspex_5
+		trait = werewolf
+		trait = mage			
+		}
+	} 
+
+	
+}
+
+contempt_4 = {
+	opposites =  {
+		contempt_2
+		contempt_3
+		contempt_1
+		contempt_5
+	}
+
+	diplomacy = 5
+	inherit_chance = 0 
+ 	  
+	random = no
+	is_visible = {
+		OR = {
+			trait = changeling
+		trait = firstbornfae
+			trait = entranced_mortal
+		trait = auspex_1
+		trait = auspex_2
+		trait = auspex_3
+		trait = auspex_4
+		trait = auspex_5
+		trait = werewolf
+		trait = mage			
+		}
+	} 
+	
+}
+
+contempt_5 = {
+	opposites =  {
+		contempt_2
+		contempt_3
+		contempt_4
+		contempt_1
+	}
+
+	diplomacy = 6
+	inherit_chance = 0 
+ 	  
+	random = no
+	is_visible = {
+		OR = {
+			trait = changeling
+		trait = firstbornfae
+			trait = entranced_mortal
+		trait = auspex_1
+		trait = auspex_2
+		trait = auspex_3
+		trait = auspex_4
+		trait = auspex_5
+		trait = werewolf
+		trait = mage			
+		}
+	} 
+	
+}
+
+
+delusion_1 = {
+	opposites =  {
+		delusion_2
+		delusion_3
+		delusion_4
+		delusion_5
+	}
+
+	intrigue = 2
+	inherit_chance = 0 
+ 	  
+	random = no
+	is_visible = {
+		OR = {
+		trait = changeling
+		trait = firstbornfae
+		trait = entranced_mortal
+		trait = auspex_1
+		trait = auspex_2
+		trait = auspex_3
+		trait = auspex_4
+		trait = auspex_5
+		trait = werewolf
+		trait = mage		
+		}
+	} 
+
+ 
+ 	 
+	
+}
+
+delusion_2 = {
+	opposites =  {
+		delusion_1
+		delusion_3
+		delusion_4
+		delusion_5
+	}
+
+	intrigue = 2
+	diplomacy = 1
+	inherit_chance = 0 
+		  
+	random = no
+	is_visible = {
+		OR = {
+		trait = changeling
+		trait = firstbornfae
+		trait = entranced_mortal
+		trait = auspex_1
+		trait = auspex_2
+		trait = auspex_3
+		trait = auspex_4
+		trait = auspex_5
+		trait = werewolf
+		trait = mage		
+		}
+	} 
+	
+	
+}
+
+delusion_3 = {
+	opposites =  {
+		delusion_2
+		delusion_1
+		delusion_4
+		delusion_5
+	}
+
+	intrigue = 2
+	diplomacy = 1
+	learning = 1
+	inherit_chance = 0 
+ 	  
+	random = no
+	is_visible = {
+		OR = {
+			trait = changeling
+		trait = firstbornfae
+			trait = entranced_mortal
+		trait = auspex_1
+		trait = auspex_2
+		trait = auspex_3
+		trait = auspex_4
+		trait = auspex_5
+		trait = werewolf
+		trait = mage			
+		}
+	} 
+
+	
+}
+
+delusion_4 = {
+	opposites =  {
+		delusion_2
+		delusion_3
+		delusion_1
+		delusion_5
+	}
+
+	intrigue = 3
+	diplomacy = 1
+	learning = 2
+	inherit_chance = 0 
+ 	  
+	random = no
+	is_visible = {
+		OR = {
+			trait = changeling
+		trait = firstbornfae
+			trait = entranced_mortal
+		trait = auspex_1
+		trait = auspex_2
+		trait = auspex_3
+		trait = auspex_4
+		trait = auspex_5
+		trait = werewolf
+		trait = mage			
+		}
+	} 
+	
+}
+
+delusion_5 = {
+	opposites =  {
+		delusion_2
+		delusion_3
+		delusion_4
+		delusion_1
+	}
+
+	intrigue = 3
+	diplomacy = 1
+	learning = 3
+	inherit_chance = 0 
+ 	  
+	random = no
+	is_visible = {
+		OR = {
+			trait = changeling
+		trait = firstbornfae
+			trait = entranced_mortal
+		trait = auspex_1
+		trait = auspex_2
+		trait = auspex_3
+		trait = auspex_4
+		trait = auspex_5
+		trait = werewolf
+		trait = mage			
+		}
+	} 
+	
+}
+
 
 legerdemain_1 = {
 	opposites =  {
@@ -367,6 +996,7 @@ legerdemain_1 = {
 	is_visible = {
 		OR = {
 			trait = changeling
+		trait = firstbornfae
 			trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -398,6 +1028,7 @@ legerdemain_2 = {
 	is_visible = {
 		OR = {
 			trait = changeling
+		trait = firstbornfae
 			trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -427,6 +1058,7 @@ legerdemain_3 = {
 	is_visible = {
 		OR = {
 			trait = changeling
+		trait = firstbornfae
 			trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -456,6 +1088,7 @@ legerdemain_4 = {
 	is_visible = {
 		OR = {
 			trait = changeling
+		trait = firstbornfae
 			trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -484,6 +1117,7 @@ legerdemain_5 = {
 	is_visible = {
 		OR = {
 			trait = changeling
+		trait = firstbornfae
 			trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -512,6 +1146,7 @@ primal_1 = {
 	is_visible = {
 		OR = {
 			trait = changeling
+		trait = firstbornfae
 			trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -545,6 +1180,7 @@ primal_2 = {
 	is_visible = {
 		OR = {
 			trait = changeling
+		trait = firstbornfae
 			trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -576,6 +1212,7 @@ primal_3 = {
 	is_visible = {
 		OR = {
 			trait = changeling
+		trait = firstbornfae
 			trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -607,6 +1244,7 @@ primal_4 = {
 	is_visible = {
 		OR = {
 			trait = changeling
+		trait = firstbornfae
 			trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -637,6 +1275,7 @@ primal_5 = {
 	is_visible = {
 		OR = {
 			trait = changeling
+		trait = firstbornfae
 			trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -665,6 +1304,7 @@ soothsay_1 = {
 	is_visible = {
 		OR = {
 			trait = changeling
+		trait = firstbornfae
 			trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -697,6 +1337,7 @@ soothsay_2 = {
 	is_visible = {
 		OR = {
 			trait = changeling
+		trait = firstbornfae
 			trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -727,6 +1368,7 @@ soothsay_3 = {
 	is_visible = {
 		OR = {
 			trait = changeling
+		trait = firstbornfae
 			trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -757,6 +1399,7 @@ soothsay_4 = {
 	is_visible = {
 		OR = {
 			trait = changeling
+		trait = firstbornfae
 			trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -786,6 +1429,7 @@ soothsay_5 = {
 	is_visible = {
 		OR = {
 			trait = changeling
+		trait = firstbornfae
 			trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -814,6 +1458,7 @@ sovereign_1 = {
 	is_visible = {
 		OR = {
 			trait = changeling
+		trait = firstbornfae
 			trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -845,6 +1490,7 @@ sovereign_2 = {
 	is_visible = {
 		OR = {
 			trait = changeling
+		trait = firstbornfae
 			trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -874,6 +1520,7 @@ sovereign_3 = {
 	is_visible = {
 		OR = {
 			trait = changeling
+		trait = firstbornfae
 			trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -903,6 +1550,7 @@ sovereign_4 = {
 	is_visible = {
 		OR = {
 			trait = changeling
+		trait = firstbornfae
 			trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -931,6 +1579,7 @@ sovereign_5 = {
 	is_visible = {
 		OR = {
 			trait = changeling
+		trait = firstbornfae
 			trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -961,6 +1610,7 @@ wayfare_1 = {
 	is_visible = {
 		OR = {
 			trait = changeling
+		trait = firstbornfae
 			trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -994,6 +1644,7 @@ wayfare_2 = {
 	is_visible = {
 		OR = {
 			trait = changeling
+		trait = firstbornfae
 			trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -1026,6 +1677,7 @@ wayfare_3 = {
 	is_visible = {
 		OR = {
 			trait = changeling
+		trait = firstbornfae
 			trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -1057,6 +1709,7 @@ wayfare_4 = {
 	is_visible = {
 		OR = {
 			trait = changeling
+		trait = firstbornfae
 			trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -1087,6 +1740,7 @@ wayfare_5 = {
 	is_visible = {
 		OR = {
 			trait = changeling
+		trait = firstbornfae
 			trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -1117,6 +1771,7 @@ actor_1 = {
 	is_visible = {
 		OR = {
 			trait = changeling
+		trait = firstbornfae
 			trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -1148,6 +1803,7 @@ actor_2 = {
 	is_visible = {
 		OR = {
 			trait = changeling
+		trait = firstbornfae
 			trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -1177,6 +1833,7 @@ actor_3 = {
 	is_visible = {
 		OR = {
 			trait = changeling
+		trait = firstbornfae
 			trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -1206,6 +1863,7 @@ actor_4 = {
 	is_visible = {
 		OR = {
 			trait = changeling
+		trait = firstbornfae
 			trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -1234,6 +1892,7 @@ actor_5 = {
 	is_visible = {
 		OR = {
 			trait = changeling
+		trait = firstbornfae
 			trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -1263,6 +1922,7 @@ fae_1 = {
 	is_visible = {
 		OR = {
 			trait = changeling
+		trait = firstbornfae
 			trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -1294,6 +1954,7 @@ fae_2 = {
 	is_visible = {
 		OR = {
 			trait = changeling
+		trait = firstbornfae
 			trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -1323,6 +1984,7 @@ fae_3 = {
 	is_visible = {
 		OR = {
 			trait = changeling
+		trait = firstbornfae
 			trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -1352,6 +2014,7 @@ fae_4 = {
 	is_visible = {
 		OR = {
 			trait = changeling
+		trait = firstbornfae
 			trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -1380,6 +2043,7 @@ fae_5 = {
 	is_visible = {
 		OR = {
 			trait = changeling
+		trait = firstbornfae
 			trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -1409,6 +2073,7 @@ nature_1 = {
 	is_visible = {
 		OR = {
 			trait = changeling
+		trait = firstbornfae
 			trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -1440,6 +2105,7 @@ nature_2 = {
 	is_visible = {
 		OR = {
 			trait = changeling
+		trait = firstbornfae
 			trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -1469,6 +2135,7 @@ nature_3 = {
 	is_visible = {
 		OR = {
 			trait = changeling
+		trait = firstbornfae
 			trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -1498,6 +2165,7 @@ nature_4 = {
 	is_visible = {
 		OR = {
 			trait = changeling
+		trait = firstbornfae
 			trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -1526,6 +2194,7 @@ nature_5 = {
 	is_visible = {
 		OR = {
 			trait = changeling
+		trait = firstbornfae
 			trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -1554,6 +2223,7 @@ prop_1 = {
 	is_visible = {
 		OR = {
 			trait = changeling
+		trait = firstbornfae
 			trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -1585,6 +2255,7 @@ prop_2 = {
 	is_visible = {
 		OR = {
 			trait = changeling
+		trait = firstbornfae
 			trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -1614,6 +2285,7 @@ prop_3 = {
 	is_visible = {
 		OR = {
 			trait = changeling
+		trait = firstbornfae
 			trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -1643,6 +2315,7 @@ prop_4 = {
 	is_visible = {
 		OR = {
 			trait = changeling
+		trait = firstbornfae
 			trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -1671,6 +2344,7 @@ prop_5 = {
 	is_visible = {
 		OR = {
 			trait = changeling
+		trait = firstbornfae
 			trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -1700,6 +2374,7 @@ scene_1 = {
 	is_visible = {
 		OR = {
 			trait = changeling
+		trait = firstbornfae
 			trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -1731,6 +2406,7 @@ scene_2 = {
 	is_visible = {
 		OR = {
 			trait = changeling
+		trait = firstbornfae
 			trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -1760,6 +2436,7 @@ scene_3 = {
 	is_visible = {
 		OR = {
 			trait = changeling
+		trait = firstbornfae
 			trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -1789,6 +2466,7 @@ scene_4 = {
 	is_visible = {
 		OR = {
 			trait = changeling
+		trait = firstbornfae
 			trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -1817,6 +2495,7 @@ scene_5 = {
 	is_visible = {
 		OR = {
 			trait = changeling
+		trait = firstbornfae
 			trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -1846,6 +2525,7 @@ time_1 = {
 	is_visible = {
 		OR = {
 			trait = changeling
+		trait = firstbornfae
 			trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -1877,6 +2557,7 @@ time_2 = {
 	is_visible = {
 		OR = {
 			trait = changeling
+		trait = firstbornfae
 			trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -1906,6 +2587,7 @@ time_3 = {
 	is_visible = {
 		OR = {
 			trait = changeling
+		trait = firstbornfae
 			trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -1935,6 +2617,7 @@ time_4 = {
 	is_visible = {
 		OR = {
 			trait = changeling
+		trait = firstbornfae
 			trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2
@@ -1963,6 +2646,7 @@ time_5 = {
 	is_visible = {
 		OR = {
 			trait = changeling
+		trait = firstbornfae
 			trait = entranced_mortal
 		trait = auspex_1
 		trait = auspex_2

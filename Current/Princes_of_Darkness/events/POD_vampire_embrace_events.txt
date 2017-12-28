@@ -29,6 +29,11 @@ character_event = {
 		}
 
 		modifier = {
+			#SLOWITDOWN
+			factor = 9
+		}
+		
+		modifier = {
 			factor = 0.1
 			trait = canon
 		}
@@ -69,19 +74,19 @@ character_event = {
 		}
 		
 		modifier = {
-			factor = 0.2
+			factor = 0.5
 			num_of_children = 1 
 		}
 		modifier = {
-			factor = 0.5
+			factor = 2
 			num_of_children = 2 
 		}	
 		modifier = {
-			factor = 2
+			factor = 8
 			num_of_children = 3
 		}	
 		modifier = {
-			factor = 5
+			factor = 9
 			num_of_children = 4
 		}
 
@@ -314,7 +319,7 @@ character_event = {
 			}	
 		}				
 		set_character_flag = FLAG_POD_RECENT_VAMPIRE_CHILDE	
-		POD_vampire_blood_thirst_increase_effect = yes
+		#POD_vampire_blood_thirst_increase_effect = yes
 	}
 }
 	
@@ -368,7 +373,9 @@ character_event = {
 				limit = {
 					OR = {
 						has_global_flag = bookmark767
+						has_global_flag = bookmark1215
 						has_global_flag = bookmark1230
+						has_global_flag = bookmark1350
 						has_global_flag = bookmark1355
 						has_global_flag = bookmark1466
 						has_global_flag = bookmark1505
@@ -750,9 +757,13 @@ character_event = {
 				limit = {
 					OR = {
 						has_global_flag = bookmark767
+						has_global_flag = bookmark1215
 						has_global_flag = bookmark1230
-						has_global_flag = bookmark1466
+						has_global_flag = bookmark1350
 						has_global_flag = bookmark1355
+						has_global_flag = bookmark1466
+						has_global_flag = bookmark1505
+						has_global_flag = bookmark1506
 					}
 				}
 				if = {
@@ -1125,7 +1136,9 @@ if = {
 		limit = {
 					OR = {
 			has_global_flag = bookmark767
+			has_global_flag = bookmark1215
 			has_global_flag = bookmark1230
+			has_global_flag = bookmark1350
 			has_global_flag = bookmark1355
 			has_global_flag = bookmark1466
 			has_global_flag = bookmark1505

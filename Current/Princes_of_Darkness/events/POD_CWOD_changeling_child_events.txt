@@ -9,8 +9,9 @@ character_event = {
 	min_age = 1
 	
 	trigger = {
-		NOT = { trait = mortal }
 		NOT = { trait = changeling }
+		NOT = { trait = mage }
+		NOT = { trait = firstbornfae }
 	}
 	
 	mean_time_to_happen = {
@@ -27,6 +28,7 @@ character_event = {
 					age = 1
 					is_adult = no
 					NOT = { trait = changeling } 
+					NOT = { trait = firstbornfae }
 				}
 				
 				random = {
@@ -53,6 +55,16 @@ character_event = {
 					}			
 					
 					modifier = {
+						factor = 0.5
+						mother = { trait = mortal }
+					}			
+
+					modifier = {
+						factor = 0.5
+						father = { trait = mortal }
+					}							
+					
+					modifier = {
 						factor = 0.1
 						mother = { trait = depressed }
 					}			
@@ -65,89 +77,166 @@ character_event = {
 				remove_trait = mortal
 				add_trait = changeling
 				
-				if = { limit = { NOT = { trait = eshu } } 
-					random = {
-						chance = 10
-							modifier = {
-								factor = 2
-								mother = { trait = eshu }
-							}			
-
-							modifier = {
-								factor = 2
-								father = { trait = eshu }
-							}	
-
-							modifier = {
-								factor = 2
-								mother = { trait = gregarious }
-							}			
-
-							modifier = {
-								factor = 2
-								father = { trait = gregarious }
-							} 							
-							
-						add_trait = "eshu"
+				if = 
+				{
+					limit =
+					{
+						OR =
+						{
+							has_global_flag = bookmark767 
+							has_global_flag = bookmark1230 
+							has_global_flag = bookmark1215 
+						}
 					}
-				}
 
-				if = { limit = { NOT = { trait = redcap } } 
-					random = {
+				random = 
+				{
+					chance = 15
+				
+					modifier = {
+						factor = 5
+						mother = { trait = firstbornfae }
+					}			
+
+					modifier = {
+						factor = 5
+						father = { trait = firstbornfae }
+					}		
+					
+					modifier = {
+						factor = 0.5
+						father = { trait = mortal }
+					}
+					
+					modifier = {
+						factor = 0.5
+						mother = { trait = mortal }
+					}
+
+					modifier = {
+						factor = 0.1
+						mother = { trait = depressed }
+					}			
+
+					modifier = {
+						factor = 0.1
+						father = { trait = depressed  }
+					}			
+					
+					remove_trait = mortal
+					remove_trait = changeling
+					add_trait = firstbornfae
+				}
+				
+			}
+
+				if = 
+				{ 
+					limit = 
+					{ 
+						NOT = { has_CWOD_changeling_kith_trigger = yes }
+					} 
+					random = 
+					{
 						chance = 10
 							modifier = {
-								factor = 2
-								mother = { trait = redcap }
+								factor = 4
+								mother = { trait = sidhe }
 							}			
 
 							modifier = {
-								factor = 2
-								father = { trait = redcap }
+								factor = 4
+								father = { trait = sidhe }
 							}	
 							
 							modifier = {
 								factor = 2
-								mother = { trait = gluttonous }
+								mother = { trait = proud }
 							}			
 
 							modifier = {
 								factor = 2
-								father = { trait = gluttonous }
+								father = { trait = proud }
 							}
 							
-						add_trait = "redcap"
+						add_trait = "sidhe"
 					}
-				}
+				}	
 
-				if = { limit = { NOT = { trait = satyr } } 
-					random = {
+				if = 
+				{ 
+					limit = 
+					{  
+						NOT = { has_CWOD_changeling_kith_trigger = yes }
+					} 
+					random = 
+					{
 						chance = 10
 							modifier = {
 								factor = 2
-								mother = { trait = satyr }
+								mother = { trait = clurichaun }
 							}			
 
 							modifier = {
 								factor = 2
-								father = { trait = satyr }
+								father = { trait = clurichaun }
 							}	
 
 							modifier = {
 								factor = 2
-								mother = { trait = lustful }
+								mother = { trait = drunk }
 							}			
 
 							modifier = {
 								factor = 2
-								father = { trait = lustful }
+								father = { trait = drunk }
 							}								
 							
-						add_trait = "satyr"
+						add_trait = "clurichaun"
 					}
-				}
+				}	
 
-				if = { limit = { NOT = { trait = sluagh } } 
-					random = {
+				if = 
+				{ 
+					limit = 
+					{ 
+						NOT = { has_CWOD_changeling_kith_trigger = yes }
+					} 
+					random = 
+					{
+						chance = 10
+							modifier = {
+								factor = 2
+								mother = { trait = piskey }
+							}			
+
+							modifier = {
+								factor = 2
+								father = { trait = piskey }
+							}	
+
+							modifier = {
+								factor = 2
+								mother = { trait = diligent }
+							}			
+
+							modifier = {
+								factor = 2
+								father = { trait = diligent }
+							}								
+							
+						add_trait = "piskey"
+					}
+				}	
+
+				if = 
+				{ 
+					limit = 
+					{ 
+						NOT = { has_CWOD_changeling_kith_trigger = yes }
+					} 
+					random = 
+					{
 						chance = 10
 							modifier = {
 								factor = 2
@@ -173,8 +262,14 @@ character_event = {
 					}
 				}
 
-				if = { limit = { NOT = { trait = troll } } 
-					random = {
+				if = 
+				{ 
+					limit = 
+					{ 
+						NOT = { has_CWOD_changeling_kith_trigger = yes }
+					} 
+					random = 
+					{
 						chance = 10
 							modifier = {
 								factor = 2
@@ -198,7 +293,173 @@ character_event = {
 							
 						add_trait = "troll"
 					}
+				}	
+
+				if = 
+				{ 
+					limit = 
+					{ 
+						NOT = { has_CWOD_changeling_kith_trigger = yes }
+					} 
+					random = 
+					{
+						chance = 10
+							modifier = {
+								factor = 2
+								mother = { trait = redcap }
+							}			
+
+							modifier = {
+								factor = 2
+								father = { trait = redcap }
+							}	
+							
+							modifier = {
+								factor = 2
+								mother = { trait = gluttonous }
+							}			
+
+							modifier = {
+								factor = 2
+								father = { trait = gluttonous }
+							}
+							
+						add_trait = "redcap"
+					}
+				}
+
+				if = 
+				{ 
+					limit = 
+					{ 
+						NOT = { has_CWOD_changeling_kith_trigger = yes }
+					} 
+					random = 
+					{
+						chance = 10
+							modifier = {
+								factor = 2
+								mother = { trait = satyr }
+							}			
+
+							modifier = {
+								factor = 2
+								father = { trait = satyr }
+							}	
+
+							modifier = {
+								factor = 2
+								mother = { trait = lustful }
+							}			
+
+							modifier = {
+								factor = 2
+								father = { trait = lustful }
+							}								
+							
+						add_trait = "satyr"
+					}
+				}					
+				
+				if = 
+				{ 
+					limit = 
+					{ 
+						NOT = { has_CWOD_changeling_kith_trigger = yes }
+					} 
+					random = 
+					{
+						chance = 10
+							modifier = {
+								factor = 2
+								mother = { trait = boggan }
+							}			
+
+							modifier = {
+								factor = 2
+								father = { trait = boggan }
+							}	
+
+							modifier = {
+								factor = 2
+								mother = { trait = humble }
+							}			
+
+							modifier = {
+								factor = 2
+								father = { trait = humble }
+							}								
+							
+						add_trait = "boggan"
+					}
+				}		
+
+				if = 
+				{ 
+					limit = 
+					{ 
+						NOT = { has_CWOD_changeling_kith_trigger = yes }
+					} 
+					random = 
+					{
+						chance = 10
+							modifier = {
+								factor = 2
+								mother = { trait = nocker }
+							}			
+
+							modifier = {
+								factor = 2
+								father = { trait = nocker }
+							}	
+
+							modifier = {
+								factor = 2
+								mother = { trait = diligent }
+							}			
+
+							modifier = {
+								factor = 2
+								father = { trait = diligent }
+							}								
+							
+						add_trait = "nocker"
+					}
+				}					
+
+				if = 
+				{ 
+					limit = 
+					{ 
+						NOT = { has_CWOD_changeling_kith_trigger = yes }
+					} 
+					random = 
+					{
+						chance = 10
+							modifier = {
+								factor = 2
+								mother = { trait = eshu }
+							}			
+
+							modifier = {
+								factor = 2
+								father = { trait = eshu }
+							}	
+
+							modifier = {
+								factor = 2
+								mother = { trait = gregarious }
+							}			
+
+							modifier = {
+								factor = 2
+								father = { trait = gregarious }
+							} 							
+							
+						add_trait = "eshu"
+					}
 				}				
+							
 				
 				if = { limit = { 
 								NOT = { trait = eshu }
@@ -206,38 +467,51 @@ character_event = {
 								NOT = { trait = satyr }
 								NOT = { trait = sluagh }
 								NOT = { trait = troll }
+								NOT = { trait = sidhe }
+								NOT = { trait = boggan }
+								NOT = { trait = piskey }
+								NOT = { trait = nocker }
+								NOT = { trait = clurichaun }
 							}
 							
 						random_list = {
 							20 = { add_trait = troll }							
-							20 = { add_trait = redcap }
-							20 = { add_trait = sluagh }
+							15 = { add_trait = redcap }
+							15 = { add_trait = sluagh }
 							20 = { add_trait = satyr }									
-							19 = { add_trait = eshu }			
+							10 = { add_trait = eshu }	
+							5 = { add_trait = nocker }
+							5 = { add_trait = boggan }
+							5 = { add_trait = piskey }
+							5 = { add_trait = sidhe }
 						}				
 					}
 				
 				trigger_switch = {
 					on_trigger = trait
+					clurichaun = { add_trait = actor_1 }
+					piskey = { add_trait = actor_1 }
+					boggan = { add_trait = actor_1 }
+					nocker = { add_trait = prop_1 }
+					sidhe = { add_trait = fae_1 }
 					eshu = { add_trait = scene_1 }
 					satyr = { add_trait = fae_1 }
 					redcap = { add_trait = nature_1 }
 					sluagh = { add_trait = prop_1 }
 					troll = { add_trait = fae_1 }
+					selkie = { add_trait = nature_1 }
 				}		
 
-						random_list = {
-							20 = { add_trait = chicanery_1 }
-							20 = { add_trait = legerdemain_1 }
-							20 = { add_trait = primal_1 }
-							20 = { add_trait = soothsay_1 }
-							19 = { add_trait = wayfair_1 }
-						}					
-					
-				random_list = {
-							40 = { religion = seelie_court }
-							40 = { religion = unseelie_court }
-						}	
+				random_list = 
+				{
+					20 = { add_trait = chicanery_1 }
+					20 = { add_trait = legerdemain_1 }
+					20 = { add_trait = primal_1 }
+					20 = { add_trait = soothsay_1 }
+					19 = { add_trait = wayfair_1 }
+				}		
+
+				POD_CWOD_changeling_fae_mien_init_effect = yes
 				
 				}
 									

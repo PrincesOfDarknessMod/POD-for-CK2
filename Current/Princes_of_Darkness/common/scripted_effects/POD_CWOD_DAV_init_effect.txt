@@ -4,8 +4,10 @@ POD_CWOD_bookmark_DAV_init_effect = {
 				limit = { 
 					OR = {
 						has_global_flag = bookmark767
+						has_global_flag = bookmark1215
 						has_global_flag = bookmark1230
 						has_global_flag = bookmark1466
+						has_global_flag = bookmark1350
 						has_global_flag = bookmark1355
 					}
 					NOT = { has_CWOD_clan_trigger = yes }
@@ -57,6 +59,14 @@ POD_CWOD_bookmark_DAV_init_effect = {
 						5 = {
 							add_trait = tremere
 							religion = tremerelow
+							{ 
+								limit = 
+								{
+								has_global_flag = bookmark767
+								}
+								add_trait = gangrel
+								religion = gangrellow
+							}
 						}
 						15 = { 
 							add_trait = ventrue
@@ -128,9 +138,18 @@ POD_CWOD_bookmark_DAV_init_effect = {
 							set_secret_religion = vampire_promethean
 							join_society = secret_religious_cult
 						}
-						5 = {
+						5 = 
+						{
 							add_trait = tremere
 							religion = tremerelow
+							{ 
+								limit = 
+								{
+								has_global_flag = bookmark767
+								}
+								add_trait = gangrel
+								religion = gangrellow
+							}
 						}
 						5 = { 
 							add_trait = tzimisce
@@ -302,6 +321,15 @@ POD_CWOD_bookmark_DAV_init_effect = {
 					5 = {
 						add_trait = tremere
 						religion = tremerelow
+						if = 
+						{ 
+							limit = 
+							{
+							has_global_flag = bookmark767
+							}
+							add_trait = gangrel
+							religion = gangrellow
+						}
 					}
 					10 = { 
 						add_trait = ventrue
@@ -771,13 +799,21 @@ POD_CWOD_bookmark_DAV_init_effect = {
 			}
 			if = { 
 				limit = { 
-					culture = hungarian
+					culture_group = magyar
 				} 	
 				random_list = {
 				
 					26 = { 
 						add_trait = tremere
-						religion = tremerelow 
+						religion = tremerelow
+						{ 
+							limit = 
+							{
+							has_global_flag = bookmark767
+							}
+							add_trait = gangrel
+							religion = gangrellow
+						}						
 					}
 					
 					5 = { 
@@ -914,8 +950,10 @@ POD_CWOD_bookmark_DAV_init_effect = {
 				limit = { 
 					OR = { 
 						has_global_flag = bookmark767
+						has_global_flag = bookmark1215
 						has_global_flag = bookmark1230
 						has_global_flag = bookmark1466
+						has_global_flag = bookmark1350
 						has_global_flag = bookmark1355
 						}
 					}
@@ -932,8 +970,10 @@ POD_CWOD_bookmark_DAV_init_effect = {
 				limit = { 
 					OR = {
 						has_global_flag = bookmark767
+						has_global_flag = bookmark1215
 						has_global_flag = bookmark1230
 						has_global_flag = bookmark1466
+						has_global_flag = bookmark1350
 						has_global_flag = bookmark1355
 					}
 					NOT = { has_CWOD_clan_trigger = yes }											
@@ -962,6 +1002,14 @@ POD_CWOD_bookmark_DAV_init_effect = {
 					7 = {
 						add_trait = tremere
 						religion = tremerelow
+												{ 
+							limit = 
+							{
+							has_global_flag = bookmark767
+							}
+							add_trait = gangrel
+							religion = gangrellow
+						}
 					}
 					7 = { 
 						add_trait = ventrue

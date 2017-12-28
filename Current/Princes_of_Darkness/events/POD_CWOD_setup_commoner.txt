@@ -17,6 +17,7 @@ character_event = {
 		NOT = { trait = mage }
 		NOT = { trait = mummy }
 		NOT = { trait = changeling }
+		NOT = { trait = firstbornfae }
 		NOT = { trait = promethean }
 		NOT = { trait = geist }
 		NOT = { trait = demon }
@@ -24,7 +25,9 @@ character_event = {
 		NOT = { trait = storyteller }
 		OR = {
 			has_global_flag = bookmark767
+			has_global_flag = bookmark1215
 			has_global_flag = bookmark1230
+			has_global_flag = bookmark1350
 			has_global_flag = bookmark1355
 			has_global_flag = bookmark1466
 			has_global_flag = bookmark1505
@@ -48,6 +51,7 @@ character_event = {
 				religion_group = magical_traditions_group
 				religion = laibon
 				religion_group = changeling_group
+				religion_group = seasons_court_group
 			}
 		}
 	}
@@ -187,9 +191,11 @@ character_event = {
 					NOT = { trait = promethean }
 					NOT = { trait = geist }
 					NOT = { trait = demon }
+					NOT = { trait = firstbornfae }
 					NOT = { trait = revenant }				
 					OR = {
-						religion_group = changeling_group_group
+						religion_group = changeling_group
+						religion_group = seasons_courts_group
 					}
 					OR = {
 						liege = { mercenary = yes }
@@ -219,13 +225,14 @@ character_event = {
 					NOT = { trait = mage }
 					NOT = { trait = mummy }
 					NOT = { trait = changeling }
+					NOT = { trait = firstbornfae }
 					NOT = { trait = promethean }
 					NOT = { trait = geist }
 					NOT = { trait = demon }
 					NOT = { trait = revenant }
 				}	
 				random_list = {
-					75 = { 
+					80 = { 
 						# mortal
 						add_trait = mortal
 						character_event = { id = mortal_commoner.1 }	
@@ -252,36 +259,7 @@ character_event = {
 						add_trait = changeling
 						character_event = { id = CWOD_changeling_commoner.1 }
 					}
-					1 = {
-						# mummy
-						add_trait = mummy
-										
-						character_event = { id = mummy_commoner.1 }
-					}
-					1 = {
-						# geist
-						add_trait = geist
-						
-						character_event = { id = geist_commoner.1 }
-					}
-					1 = {
-						# demon
-						add_trait = demon
-						add_trait = wyrm_taint
-						character_event = { id = demon_commoner.1 }
-					}
-					1 = {
-						# promethean
-						add_trait = promethean
-							
-						character_event = { id = promethean_commoner.1 }
-					}
-					1 = { 
-						# revenant 
-						add_trait = revenant
-						add_trait = wyrm_taint
-						character_event = { id = CWOD_revenant_commoner.1 }
-					}
+
 				}			
 			}	
 		}

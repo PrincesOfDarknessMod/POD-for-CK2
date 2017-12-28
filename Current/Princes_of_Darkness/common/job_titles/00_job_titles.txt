@@ -59,6 +59,9 @@ job_chancellor = {
 						has_character_flag = swapping_councillors
 					}
 				}
+
+				NOT = { trait = incapable }
+				NOT = { trait = sick_incapable }
 			}
 			opinion = { who = FROM modifier = opinion_fired_from_council }
 			opinion = { who = FROM modifier = opinion_recently_fired }
@@ -132,6 +135,9 @@ job_marshal = {
 						has_character_flag = swapping_councillors
 					}
 				}
+
+				NOT = { trait = incapable }
+				NOT = { trait = sick_incapable }
 			}
 			opinion = { who = FROM modifier = opinion_fired_from_council }
 			opinion = { who = FROM modifier = opinion_recently_fired }
@@ -206,6 +212,9 @@ job_treasurer = {
 						has_character_flag = swapping_councillors
 					}
 				}
+
+				NOT = { trait = incapable }
+				NOT = { trait = sick_incapable }
 			}
 			opinion = { who = FROM modifier = opinion_fired_from_council }
 			opinion = { who = FROM modifier = opinion_recently_fired }
@@ -280,6 +289,9 @@ job_spymaster = {
 						has_character_flag = swapping_councillors
 					}
 				}
+
+				NOT = { trait = incapable }
+				NOT = { trait = sick_incapable }
 			}
 			opinion = { who = FROM modifier = opinion_fired_from_council }
 			opinion = { who = FROM modifier = opinion_recently_fired }
@@ -321,31 +333,6 @@ job_spiritual = {
 		NOT = { trait = torpor }
 		NOT = { trait = wight }		
 	}
-	gain_effect = {
-	}
-	lose_effect = {
-		if = {
-			limit = {
-				FROM = {
-					NOT = {
-						has_character_flag = swapping_councillors
-					}
-				}
-			}
-			opinion = { who = FROM modifier = opinion_fired_from_council }
-			opinion = { who = FROM modifier = opinion_recently_fired }
-		}
-		if = {
-			limit = { has_character_flag = relic_hunter }
-			character_event = { id = MNM.9034 }
-		}
-	}
-	retire_effect = {
-		if = {
-			limit = { has_character_flag = relic_hunter }
-			character_event = { id = MNM.9034 }
-		}
-	}
 	dismiss_trigger = {
 		FROM = {
 			OR = {
@@ -373,6 +360,35 @@ job_spiritual = {
 			}
 		}
 	}
+	gain_effect = {
+	}
+	lose_effect = {
+		if = {
+			limit = {
+				FROM = {
+					NOT = {
+						has_character_flag = swapping_councillors
+					}
+				}
+
+				NOT = { trait = incapable }
+				NOT = { trait = sick_incapable }
+			}
+			opinion = { who = FROM modifier = opinion_fired_from_council }
+			opinion = { who = FROM modifier = opinion_recently_fired }
+		}
+		if = {
+			limit = { has_character_flag = relic_hunter }
+			character_event = { id = MNM.9034 }
+		}
+	}
+	retire_effect = {
+		if = {
+			limit = { has_character_flag = relic_hunter }
+			character_event = { id = MNM.9034 }
+		}
+	}
+	
 	
 	action = action_hunt_heretics
 	action = action_inquisition

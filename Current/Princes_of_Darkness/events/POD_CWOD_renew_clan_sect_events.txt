@@ -13,8 +13,10 @@ character_event = {
 		independent = yes	
 		OR = {
 		has_global_flag = bookmark767
+		has_global_flag = bookmark1215
 		has_global_flag = bookmark1230
 		has_global_flag = bookmark1466
+		has_global_flag = bookmark1350
 		has_global_flag = bookmark1355		
 		}
 		trait = vampire
@@ -33,6 +35,7 @@ character_event = {
 				religion_group = geist_group
 				religion_group = mummy_group
 				religion_group = changeling_group
+				religion_group = seasons_courts_group
 				religion_group = hunter_group
 				religion_group = promethean_group
 				}
@@ -172,6 +175,7 @@ character_event = {
 				religion_group = geist_group
 				religion_group = mummy_group
 				religion_group = changeling_group
+				religion_group = seasons_courts_group
 				religion_group = hunter_group
 				religion_group = promethean_group				
 				}
@@ -292,8 +296,10 @@ character_event = {
 		ai = yes
 		OR = {
 		has_global_flag = bookmark767
+		has_global_flag = bookmark1215
 		has_global_flag = bookmark1230
 		has_global_flag = bookmark1466
+		has_global_flag = bookmark1350
 		has_global_flag = bookmark1355		
 		}
 		trait = vampire
@@ -311,6 +317,7 @@ character_event = {
 				religion_group = geist_group
 				religion_group = mummy_group
 				religion_group = changeling_group
+				religion_group = seasons_courts_group
 				religion_group = hunter_group
 				religion_group = promethean_group				
 				}
@@ -448,6 +455,7 @@ character_event = {
 				religion_group = geist_group
 				religion_group = mummy_group
 				religion_group = changeling_group
+				religion_group = seasons_courts_group
 				religion_group = hunter_group
 				religion_group = promethean_group				
 				}
@@ -747,3 +755,80 @@ character_event = {
 		
 		}
 	}		
+	
+	
+character_event = {
+	id = POD_CWOD_renew_clan_sect.7
+	hide_window = yes
+	ai = yes
+	
+	is_triggered_only = yes
+
+	trigger = {
+		ai = yes
+		OR = {
+			has_global_flag = bookmark767
+			has_global_flag = bookmark1215
+			has_global_flag = bookmark1230
+			has_global_flag = bookmark1466
+			has_global_flag = bookmark1355
+			has_global_flag = bookmark1350
+			has_global_flag = bookmark1505
+			has_global_flag = bookmark1506		
+		}
+		trait = mage
+		
+		NOT = { religion_group = order_of_reason_group }
+		NOT = { religion_group = magical_traditions_group }
+		NOT = { religion_group = daedalan_group }
+		
+	}		
+	
+	immediate = 
+	{ 
+		POD_CWOD_mage_tradition_init_effect = yes
+	}
+	
+	}
+	
+	
+character_event = {
+	id = POD_CWOD_renew_clan_sect.8
+	hide_window = yes
+	ai = yes
+	
+	is_triggered_only = yes
+
+	trigger = {
+		ai = yes
+		OR = 
+		{
+			has_global_flag = bookmark767
+			has_global_flag = bookmark1215
+			has_global_flag = bookmark1230
+			has_global_flag = bookmark1466
+			has_global_flag = bookmark1355
+			has_global_flag = bookmark1350
+			has_global_flag = bookmark1505
+			has_global_flag = bookmark1506				
+		}
+		OR = 
+		{
+			trait = changeling
+			trait = firstbornfae
+		}
+		NOT = { religion_group = seasons_courts_group }
+		NOT = { religion_group = changeling_group }
+		
+	}		
+	
+	immediate = 
+	{ 
+		POD_CWOD_changeling_court_init_effect = yes	
+	}
+	
+	}	
+	
+	
+	
+	

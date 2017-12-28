@@ -1,0 +1,179 @@
+# changeling child events
+
+namespace = POD_CWOD_MAGE_CHILD
+
+character_event = {
+	id = POD_CWOD_MAGE_CHILD.1
+	hide_window = yes
+	max_age = 15
+	min_age = 1
+	
+	trigger = {
+		NOT = { trait = changeling }
+		NOT = { trait = mage }
+		NOT = { trait = firstbornfae }
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		hidden_tooltip = {
+			
+			add_trait = mortal
+			
+			if = {
+				limit = {
+					age = 1
+					is_adult = no
+					NOT = { trait = mage } 
+				}
+				
+				random = {
+				chance = 2
+				
+					modifier = {
+						factor = 20
+						mother = { trait = mage }
+					}			
+
+					modifier = {
+						factor = 20
+						father = { trait = mage }
+					}		
+
+					modifier = {
+						factor = 0.5
+						mother = { trait = mortal }
+					}			
+
+					modifier = {
+						factor = 0.5
+						father = { trait = mortal }
+					}		
+					
+				add_trait = mage
+				}
+				
+# Mage Government
+			if = { 
+				limit = { religion_group = magical_traditions_group }
+				set_government_type = magicka_government
+			}
+			if = {
+				limit = { religion_group = order_of_reason_group }
+				set_government_type = reason_government
+			}
+			if = { 
+				limit = { religion_group = daedalan_group }
+				set_government_type = daedalan_government
+			}
+
+# Mage Sphere Affinity
+		if = { 
+			limit = {	
+				trait = mage
+				NOT = { trait = sphere_affinity_correspondence }
+				NOT = { trait = sphere_affinity_entropy }
+				NOT = { trait = sphere_affinity_forces }
+				NOT = { trait = sphere_affinity_life }
+				NOT = { trait = sphere_affinity_matter}
+				NOT = { trait = sphere_affinity_mind }
+				NOT = { trait = sphere_affinity_prime }
+				NOT = { trait = sphere_affinity_spirit }
+				NOT = { trait = sphere_affinity_time }
+				OR = {	
+					has_global_flag = bookmark767
+					has_global_flag = bookmark1215
+					has_global_flag = bookmark1230
+					has_global_flag = bookmark1350
+					has_global_flag = bookmark1355
+					has_global_flag = bookmark1466
+					has_global_flag = bookmark1505
+					has_global_flag = bookmark1506
+				}											
+			}		
+			random_list = {
+				11 = { add_trait = sphere_affinity_correspondence }
+				11 = { add_trait = sphere_affinity_entropy }
+				11 = { add_trait = sphere_affinity_forces }
+				11 = { add_trait = sphere_affinity_life }
+				11 = { add_trait = sphere_affinity_matter}
+				11 = { add_trait = sphere_affinity_mind }
+				12 = { add_trait = sphere_affinity_prime }
+				11 = { add_trait = sphere_affinity_spirit }
+				11 = { add_trait = sphere_affinity_time }
+			}
+		}
+# Mage Sphere Assignment
+		if = {
+			limit = {
+				trait = mage
+				trait = sphere_affinity_correspondence 
+			}
+			add_trait = sphere_correspondence_1								
+		}
+		if = { 
+			limit = { 
+				trait = mage
+				trait = sphere_affinity_entropy 
+			}
+			add_trait = sphere_entropy_1					
+		}	
+		if = {
+			limit = { 
+				trait = mage
+				trait = sphere_affinity_forces 
+			}
+			add_trait = sphere_forces_1						
+		}	
+		if = { 
+			limit = { 
+				trait = mage
+				trait = sphere_affinity_time 
+			}
+			add_trait = sphere_time_1					
+		}	
+		if = { 
+			limit = { 
+				trait = mage
+				trait = sphere_affinity_life 
+			}
+			add_trait = sphere_life_1								
+		}	
+		if = { 
+			limit = {
+				trait = mage
+				trait = sphere_affinity_matter 
+			}
+			add_trait = sphere_matter_1								
+		}
+		if = { 
+			limit = { 
+				trait = mage
+				trait = sphere_affinity_prime 
+			}
+			add_trait = sphere_prime_1											
+		}	
+		if = {
+			limit = { 
+				trait = mage
+				trait = sphere_affinity_spirit 
+			}
+			add_trait = sphere_spirit_1										
+		}		
+		if = { 
+			limit = {
+				trait = mage
+				trait = sphere_affinity_mind 
+			}
+			add_trait = sphere_mind_1											
+			}
+				
+			}
+									
+		}
+	}
+
+	}	

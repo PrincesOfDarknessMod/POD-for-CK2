@@ -11,27 +11,27 @@ seasons_courts_group = {
 	hostile_within_group = yes	
 	ai_peaceful = no # Will make Hordes lose their super aggressiveness
 	
-	ai_convert_same_group = 1 # try to convert if zealous
-	ai_convert_other_group = 2 # always try to convert
+	ai_convert_same_group = 2 # always try to convert
+	ai_convert_other_group = 0 # no conversion
 
 
 spring_court = {
 #
 		graphical_culture = norsegfx
 
-		icon = 5
-		heresy_icon = 5
+		icon = 31
+		heresy_icon = 31
 		
-		color = { 1.0 1.0 1.0  }
-		crusade_name = CRUSADE
-		scripture_name = THE_BIBLE
-		priest_title = PRIEST
+		color = { 0.0 1.0 0.0  }
+		crusade_name = COURT_WAR
+		scripture_name = THE_LEGENDS
+		priest_title = BARD
 		
 		god_names = {
 			GOD_GOD
 		}
 		evil_god_names = {
-			THE_GENTRY
+			BANALITY
 			}
 		priests_can_marry = yes
 		can_grant_divorce = yes
@@ -45,25 +45,26 @@ spring_court = {
 		max_consorts = 0
 		religious_clothing_head = 3
 		religious_clothing_priest = 3
+		aggression = 2.0
 	}		
 	
 summer_court = {
 #
 		graphical_culture = norsegfx
 
-		icon = 5
-		heresy_icon = 5
+		icon = 48
+		heresy_icon = 48
 		
-		color = { 1.0 1.0 1.0  }
-		crusade_name = CRUSADE
-		scripture_name = THE_BIBLE
-		priest_title = PRIEST
+		color = { 1.0 1.0 0.0  }
+		crusade_name = COURT_WAR
+		scripture_name = THE_LEGENDS
+		priest_title = BARD
 		
 		god_names = {
 			GOD_GOD
 		}
 		evil_god_names = {
-			THE_GENTRY
+			BANALITY
 			}
 		priests_can_marry = yes
 		can_grant_divorce = yes
@@ -77,25 +78,26 @@ summer_court = {
 		max_consorts = 0
 		religious_clothing_head = 3
 		religious_clothing_priest = 3
+		aggression = 1.5
 	}	
 
 autumn_court = {
 #
 		graphical_culture = norsegfx
 
-		icon = 5
-		heresy_icon = 5
+		icon = 33
+		heresy_icon = 33
 		
-		color = { 1.0 1.0 1.0  }
-		crusade_name = CRUSADE
-		scripture_name = THE_BIBLE
-		priest_title = PRIEST
+		color = { 1.0 0.5 0.0  }
+		crusade_name = COURT_WAR
+		scripture_name = THE_LEGENDS
+		priest_title = BARD
 		
 		god_names = {
 			GOD_GOD
 		}
 		evil_god_names = {
-			THE_GENTRY
+			BANALITY
 			}
 		priests_can_marry = yes
 		can_grant_divorce = yes
@@ -109,6 +111,7 @@ autumn_court = {
 		max_consorts = 0
 		religious_clothing_head = 3
 		religious_clothing_priest = 3
+		aggression = 1.0
 	}		
 
 winter_court = {
@@ -119,15 +122,15 @@ winter_court = {
 		heresy_icon = 5
 		
 		color = { 1.0 1.0 1.0  }
-		crusade_name = CRUSADE
-		scripture_name = THE_BIBLE
-		priest_title = PRIEST
+		crusade_name = COURT_WAR
+		scripture_name = THE_LEGENDS
+		priest_title = BARD
 		
 		god_names = {
 			GOD_GOD
 		}
 		evil_god_names = {
-			THE_GENTRY
+			BANALITY
 			}
 		priests_can_marry = yes
 		can_grant_divorce = yes
@@ -141,7 +144,56 @@ winter_court = {
 		max_consorts = 0
 		religious_clothing_head = 3
 		religious_clothing_priest = 3
+		aggression = 0.5
 	}	
+	
+solstice_court = {
+#
+		graphical_culture = norsegfx
+
+		icon = 22
+		heresy_icon = 22
+		
+		color = { 0.7 0.8 0.8  }
+		crusade_name = CRUSADE
+		scripture_name = THE_LEGENDS
+		priest_title = BARD
+		
+		god_names = {
+			GOD_GOD
+		}
+		evil_god_names = {
+			BANALITY
+			}
+		priests_can_marry = yes
+		can_grant_divorce = yes
+		
+		priests_can_inherit = yes
+		
+		female_temple_holders = yes
+		feminist = yes      # Nullifies the negative opinion modifier that vassals normally get if ruler is female or has female heir
+
+		allow_looting = yes
+		max_consorts = 0
+		religious_clothing_head = 3
+		religious_clothing_priest = 3
+		pacifist = yes
+		aggression = 0.1
+	}		
+}
+
+storm_courts_group = {
+#Reformed religions must be listed before their unreformed versions.
+	has_coa_on_barony_only = yes
+	graphical_culture = indiangfx
+	crusade_cb = crusade
+	playable = yes
+	hostile_within_group = yes	
+	ai_peaceful = no # Will make Hordes lose their super aggressiveness
+	
+	ai_convert_same_group = 2 # always try to convert
+	ai_convert_other_group = 0 # no conversion
+
 
 tornado_court = {
 #
@@ -154,8 +206,6 @@ tornado_court = {
 		crusade_name = CRUSADE
 		scripture_name = THE_BIBLE
 		priest_title = PRIEST
-		
-		parent = spring_court
 		
 		god_names = {
 			GOD_GOD
@@ -183,8 +233,6 @@ growing_court = {
 
 		icon = 5
 		heresy_icon = 5
-		
-		parent = spring_court
 		
 		color = { 1.0 1.0 1.0  }
 		crusade_name = CRUSADE
@@ -218,8 +266,6 @@ dead_court = {
 		icon = 5
 		heresy_icon = 5
 		
-		parent = winter_court
-		
 		color = { 1.0 1.0 1.0  }
 		crusade_name = CRUSADE
 		scripture_name = THE_BIBLE
@@ -252,8 +298,6 @@ monsoon_court = {
 		icon = 5
 		heresy_icon = 5
 		
-		parent = summer_court
-		
 		color = { 1.0 1.0 1.0  }
 		crusade_name = CRUSADE
 		scripture_name = THE_BIBLE
@@ -285,8 +329,6 @@ dry_court = {
 
 		icon = 5
 		heresy_icon = 5
-		
-		parent = summer_court
 		
 		color = { 1.0 1.0 1.0  }
 		crusade_name = CRUSADE
@@ -621,8 +663,8 @@ changeling_group = {
 	hostile_within_group = yes	
 	ai_peaceful = no # Will make Hordes lose their super aggressiveness
 	
-	ai_convert_same_group = 2 # try to convert if zealous
-	ai_convert_other_group = 1 # always try to convert
+	ai_convert_same_group = 1 # try to convert if zealous
+	ai_convert_other_group = 0 # no conversion
 
 
 seelie_court = {
@@ -631,7 +673,7 @@ seelie_court = {
 		icon = 48
 		heresy_icon = 50
 		
-		color = { 0.3 0.0 0.6 }
+		color = { 1.0 1.0 1.0 }
 		crusade_name = LEGENDARY_WAR
 		scripture_name = THE_LEGENDS
 		piety_name = IMAGINATION
@@ -684,7 +726,7 @@ unseelie_court = {
 		icon = 5
 		heresy_icon = 14
 	
-		color = { 0.6 0.8 0.9 }
+		color = { 0.2 0.0 0.8 }
 		crusade_name = LEGENDARY_WAR
 		scripture_name = THE_LEGENDS
 		piety_name = IMAGINATION

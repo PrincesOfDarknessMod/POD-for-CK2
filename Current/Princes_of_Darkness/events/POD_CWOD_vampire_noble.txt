@@ -328,8 +328,11 @@ character_event = {
 				if = { 
 					limit = {
 						OR = { 
+							has_global_flag = bookmark767
+							has_global_flag = bookmark1215
 							has_global_flag = bookmark1230
 							has_global_flag = bookmark1355
+							has_global_flag = bookmark1350
 						}
 					}
 					add_trait = lasombra
@@ -353,8 +356,10 @@ character_event = {
 						has_global_flag = bookmark1505
 						has_global_flag = bookmark1506
 						has_global_flag = bookmark767
+						has_global_flag = bookmark1215
 						has_global_flag = bookmark1230
 						has_global_flag = bookmark1466
+						has_global_flag = bookmark1350
 						has_global_flag = bookmark1355
 					}
 					NOT = { trait = assamite }
@@ -402,7 +407,10 @@ character_event = {
 						10 = { 
 							if = { limit = {
 										OR = { 
+												has_global_flag = bookmark767
+												has_global_flag = boookmark1215
 												has_global_flag = bookmark1230
+												has_global_flag = bookmark1350
 												has_global_flag = bookmark1355 
 												}
 											}
@@ -422,7 +430,10 @@ character_event = {
 						10 = { 
 							if = { limit = {
 										OR = { 
+												has_global_flag = bookmark767
+												has_global_flag = boookmark1215
 												has_global_flag = bookmark1230
+												has_global_flag = bookmark1350
 												has_global_flag = bookmark1355 
 												}
 											}
@@ -531,9 +542,11 @@ character_event = {
 						religion = ashirra 
 						OR = {
 							has_global_flag = bookmark767
+							has_global_flag = boookmark1215
 							has_global_flag = bookmark1230
+							has_global_flag = bookmark1350
+							has_global_flag = bookmark1355 
 							has_global_flag = bookmark1466
-							has_global_flag = bookmark1355
 						}
 					}
 					random_list = {
@@ -573,9 +586,11 @@ character_event = {
 						religion_group = vampire_high_clans_group
 						OR = {
 							has_global_flag = bookmark767
+							has_global_flag = boookmark1215
 							has_global_flag = bookmark1230
+							has_global_flag = bookmark1350
+							has_global_flag = bookmark1355 
 							has_global_flag = bookmark1466
-							has_global_flag = bookmark1355
 						}
 					}
 					 if = { 
@@ -715,6 +730,7 @@ character_event = {
 							trait = vampire
 							trait = wyrm_taint
 							age = 100
+							immortal_age = 20
 							dynasty = actually_culture
 							culture = ROOT
 							religion = ROOT
@@ -738,6 +754,7 @@ character_event = {
 							trait = vampire
 							trait = wyrm_taint
 							age = 100
+							immortal_age = 20
 							female = yes
 							dynasty = actually_culture
 							culture = ROOT
@@ -762,6 +779,7 @@ character_event = {
 							trait = vampire
 							trait = wyrm_taint
 							age = 150
+							immortal_age = 30
 							dynasty = actually_culture
 							culture = ROOT
 							religion = ROOT
@@ -785,6 +803,7 @@ character_event = {
 							trait = vampire
 							trait = wyrm_taint
 							age = 150
+							immortal_age = 20
 							female = yes
 							dynasty = actually_culture
 							culture = ROOT
@@ -809,6 +828,7 @@ character_event = {
 							trait = vampire
 							trait = wyrm_taint
 							age = 250
+							immortal_age = 30
 							dynasty = actually_culture
 							culture = ROOT
 							religion = ROOT
@@ -832,6 +852,7 @@ character_event = {
 							trait = vampire
 							trait = wyrm_taint
 							age = 250
+							immortal_age = 20
 							female = yes
 							dynasty = actually_culture
 							culture = ROOT
@@ -856,6 +877,7 @@ character_event = {
 							trait = vampire
 							trait = wyrm_taint
 							age = 1100
+							immortal_age = 30
 							dynasty = actually_culture
 							culture = ROOT
 							religion = ROOT
@@ -881,6 +903,7 @@ character_event = {
 							trait = vampire
 							trait = wyrm_taint
 							age = 1100
+							immortal_age = 20
 							female = yes
 							dynasty = actually_culture
 							culture = ROOT
@@ -931,11 +954,10 @@ character_event = {
 					
 					inherit = ROOT
 				}
-
+				# kill random noble vampire supe
+				death = "yes"
 		}			
-
-		# kill random noble vampire supe
-			death = "yes"			
+	
 			}
 		}	
 	}
