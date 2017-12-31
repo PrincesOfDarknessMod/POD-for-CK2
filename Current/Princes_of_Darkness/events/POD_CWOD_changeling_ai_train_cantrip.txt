@@ -26,9 +26,9 @@ immediate = {
 					trait = primal_1	
 					trait = soothsay_1
 					trait = sovereign_1
-					trait = mind_1
+					trait = fae_1
 					trait = actor_1
-					trait = spirit_1
+					trait = scene_1
 					trait = time_1
 				}
 			}		
@@ -256,6 +256,7 @@ immediate = {
 					trait = actor_1
 					trait = fae_1
 					trait = time_1
+					trait = scene_1
 				}
 			}		
 					#set_character_flag = POD_CWOD_mage_ai_train_flag_to_2
@@ -264,11 +265,7 @@ immediate = {
 						
 							random = {
 							chance = 10
-							modifier = 
-							{
-								factor = 2
-								trait = affinity_chicanery
-							}	
+
 							add_trait = chicanery_2 
 							remove_trait = chicanery_1  } } 
 							
@@ -276,55 +273,35 @@ immediate = {
 						
 							random = {
 							chance = 10
-							modifier = 
-							{
-								factor = 2
-								trait = affinity_legerdemain
-							}
+
 							add_trait = legerdemain_2
 							remove_trait = legerdemain_1 } } 
 							
 						if = { limit = { trait = primal_1 }
 							random = {
 							chance = 10
-							modifier = 
-							{
-								factor = 2
-								trait = affinity_primal
-							}							
+						
 							add_trait = primal_2
 							remove_trait = primal_1 } } 
 							
 						if = { limit = { trait = soothsay_1 }
 							random = {
 							chance = 10
-							modifier = 
-							{
-								factor = 2
-								trait = affinity_soothsay
-							}							
+							
 							add_trait = soothsay_2
 							remove_trait = soothsay_1 } } 
 							
 						if = { limit = { trait = wayfare_1 }
 							random = {
 							chance = 10
-							modifier = 
-							{
-								factor = 2
-								trait = affinity_wayfare
-							}							
+							
 							add_trait = wayfare_2
 							remove_trait = wayfare_1 } } 
 							
 						if = { limit = { trait = sovereign_1 }  
 							random = {
 							chance = 10
-							modifier = 
-							{
-								factor = 2
-								trait = affinity_sovereign
-							}							
+						
 							add_trait = sovereign_2
 							remove_trait = sovereign_1  } } 
 							
@@ -404,11 +381,7 @@ immediate = {
 						if = { limit = { trait = time_1 } 
 							random = {
 							chance = 10
-							modifier = 
-							{
-								factor = 2
-								trait = affinity_time
-							}							
+					
 							add_trait = time_2
 							remove_trait = time_1 } } 
 							

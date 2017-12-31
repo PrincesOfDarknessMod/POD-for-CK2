@@ -59,10 +59,10 @@ character_event = {
 					primary_title = { title = e_giovanni }
 					primary_title = { title = k_lasombra }
 					primary_title = { title = k_tzimisce }
-					primary_title = { title = e_anda_horde }
+					primary_title = { title = e_anda }
 					primary_title = { title = e_shadow_curtain }
 					primary_title = { title = e_crescent_moon }
-					primary_title = { title = e_ashina_khanagate }
+					primary_title = { title = e_ashina_khaganate }
 				}
 			}
 # destroy title
@@ -430,8 +430,12 @@ character_event = {
 				limit = {
 					primary_title = { title =  e_giovanni }
 					OR = {
-						NOT = { dynasty = 2500000 }
-						NOT = { trait = vampire }
+						NOT = { trait = vampire }	
+						NOR = {
+								trait = giovanni
+								trait = cappadocian
+							}
+						
 					}
 				}
 				e_giovanni = { destroy_landed_title = THIS }					
@@ -525,7 +529,7 @@ character_event = {
 
 			if = {
 				limit = {
-					primary_title = { title = e_anda_horde }
+					primary_title = { title = e_anda }
 					OR = {
 						NOT = { trait = vampire }
 						NOT = { religion = anda }
@@ -545,19 +549,19 @@ character_event = {
 						NOT = { religion = silver_fangs }
 					}
 				}
-				crescent_moon = { destroy_landed_title = THIS }					
+				e_crescent_moon = { destroy_landed_title = THIS }					
 			}		
 
 				if = {
 				limit = {
-					primary_title = { title =  e_ashina_khanagate }
+					primary_title = { title =  e_ashina_khaganate }
 					OR = {
 						NOT = { trait = werewolf }
 						NOT = { realm_size = 10 }
 						NOT = { religion = shadow_lords }
 					}
 				}
-				crescent_moon = { destroy_landed_title = THIS }					
+				e_ashina_khaganate = { destroy_landed_title = THIS }					
 			}		
 			
 			

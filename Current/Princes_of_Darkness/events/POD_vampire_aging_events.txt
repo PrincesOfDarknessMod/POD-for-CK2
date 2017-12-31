@@ -325,7 +325,7 @@ character_event = {
 					POD_vampire_awaken_torpor_effect = yes 
 					}
 				}				
- 		else_if = { limit = { trait = bloodpotency_9
+ 		else_if = { limit = { trait = bloodpotency_9 }
 				random = {
 					chance = 5
 					POD_vampire_awaken_torpor_effect = yes 
@@ -340,13 +340,12 @@ character_event = {
 		
 		}
 	}
-	}
 
 character_event = {
-    id = vampire_aging_events.8					
+    id = vampire_aging_events.8
     hide_window = yes
     is_triggered_only = yes
-    
+   
     min_age = 100
     trigger = {
         trait = torpor
@@ -358,7 +357,10 @@ character_event = {
 
     immediate = {  
 	
-		if = { limit = { 
+		if = 
+		{ 
+			limit = 
+			{ 
 				trait = torpor
 				trait = vampire
 				NOT = { has_living_children = yes }
@@ -367,15 +369,17 @@ character_event = {
 				NOT = { num_of_claims = 1 }
 				#NOT = { num_of_rivals = 1 }
 				#NOT = { num_of_friends = 1 }
-				}		
-			random = {
-					chance = 50
-					death = "yes"
-					}
+			}		
+			
+			random = 
+			{
+				chance = 50
+				death = "yes"
 			}
-		
 		}
-    }
+		
+	}
+}
 
 
 

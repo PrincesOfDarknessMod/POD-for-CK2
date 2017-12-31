@@ -2,8 +2,6 @@ spriteTypes = {
 	
 	# File contains society specific clothing
 	
-
-	
 	### Holy Roads ###
 	
 	portraitType = {
@@ -22,6 +20,7 @@ spriteTypes = {
 						portrait_society = order_st_panteleimon
 						portrait_society = bloodline_sangiovanni
 						portrait_society = path_of_redemption
+						portrait_religion = cabal_of_pure_thought
 					}
 				OR = {
 					portrait_culture_group = north_germanic
@@ -76,6 +75,7 @@ spriteTypes = {
 				portrait_society = order_st_panteleimon
 				portrait_society = bloodline_sangiovanni
 				portrait_society = path_of_redemption
+				portrait_religion = cabal_of_pure_thought
 				}
 				OR = {
 					portrait_culture_group = north_germanic
@@ -179,6 +179,7 @@ spriteTypes = {
 				portrait_religion = cainite
 				AND = { portrait_has_trait = lasombra 
 						portrait_religion = sabbat }
+				portrait_religion = choeur_celeste
 				}
 				has_dlc = "Mystics"
 				OR = {
@@ -235,6 +236,7 @@ spriteTypes = {
 						
 						portrait_society = monastic_order_mystikoi
 						portrait_religion = cainite
+						portrait_religion = choeur_celeste
 						AND = { portrait_has_trait = lasombra 
 								portrait_religion = sabbat }
 						portrait_society = via_caeli
@@ -333,7 +335,8 @@ spriteTypes = {
 						portrait_society = via_caeli
 						portrait_society = monastic_order_osite
 						portrait_society = order_st_panteleimon
-						portrait_society = bloodline_sangiovanni							
+						portrait_society = bloodline_sangiovanni
+						portrait_religion = choeur_celeste						
 						}
 				NOT = { portrait_has_trait = blood_form }
 				NOT = { portrait_has_trait = shadow_form }
@@ -421,6 +424,8 @@ spriteTypes = {
 				portrait_society = code_of_tremere
 				portrait_society = derech_lilit
 				portrait_society = path_of_lilith
+				portrait_religion = order_of_hermes
+				portrait_religion = solificati				
 				}
 				NOT = { portrait_has_trait = blood_form }
 				NOT = { portrait_has_trait = shadow_form }
@@ -566,6 +571,8 @@ spriteTypes = {
 				portrait_society = code_of_tremere
 				portrait_society = derech_lilit
 				portrait_society = path_of_lilith
+				portrait_religion = order_of_hermes
+				portrait_religion = solificati
 				}
 				NOT = { portrait_has_trait = blood_form }
 				NOT = { portrait_has_trait = shadow_form }
@@ -752,6 +759,7 @@ spriteTypes = {
 				portrait_society = via_sanguinus
 				portrait_society = path_of_blood
 				portrait_has_trait = assamiteantitribu
+				portrait_religion = ksirafai
 				}
 				portrait_clothing = yes
 				has_dlc = "Mystics"
@@ -815,6 +823,9 @@ spriteTypes = {
 					portrait_society = path_of_night
 					portrait_society = path_of_death_and_the_soul
 					portrait_society = path_of_evil_revelations
+					portrait_religion = nif_ur_en_daah 
+					portrait_religion = chakravanti		
+					portrait_religion = nephandi
 				}
 			}
 		}
@@ -840,7 +851,7 @@ spriteTypes = {
 				2 = {
 					portrait_society_rank = 3
 				}
-				2 = {
+				3 = {
 					portrait_society_rank = 4
 				}
 			}
@@ -854,7 +865,7 @@ spriteTypes = {
 				2 = {
 					portrait_society_rank = 3
 				}
-				2 = {
+				3 = {
 					portrait_society_rank = 4
 				}
 			}
@@ -881,6 +892,9 @@ spriteTypes = {
 					portrait_society = path_of_night
 					portrait_society = path_of_death_and_the_soul
 					portrait_society = path_of_evil_revelations
+					portrait_religion = nif_ur_en_daah 
+					portrait_religion = chakravanti
+					portrait_religion = nephandi
 				}
 				NOT = { portrait_has_trait = blood_form }
 				NOT = { portrait_has_trait = shadow_form }
@@ -976,7 +990,10 @@ spriteTypes = {
             additive_modifier = {
                 value = 10000
                 portrait_age > child			
+				OR = {
 				portrait_society = tariq_el-shaitan
+				portrait_religion = ixoi
+				}
 				portrait_clothing = yes
 				has_dlc = "Mystics"
 				NOT = { portrait_has_trait = blood_form }
@@ -1033,10 +1050,12 @@ spriteTypes = {
 				NOT = { portrait_has_trait = hispo }					
 				OR = {
 				portrait_has_trait = giovanni
-				OR = {
 				portrait_society = via_ossium
 				portrait_society = path_of_bones
-				}
+				portrait_religion = brotherhood_of_the_rule 
+				portrait_religion = syndicate
+				portrait_religion = high_guild
+				portrait_religion = invisible_exchequers
 				}
 				portrait_culture_group = latin
 				has_dlc = "The Republic"	
@@ -1076,10 +1095,12 @@ spriteTypes = {
 				NOT = { portrait_has_trait = hispo }	
 				OR = {
 				portrait_has_trait = giovanni
-				OR = {
 				portrait_society = via_ossium
 				portrait_society = path_of_bones
-				}
+				portrait_religion = brotherhood_of_the_rule 
+				portrait_religion = syndicate
+				portrait_religion = high_guild
+				portrait_religion = invisible_exchequers
 				}
 				portrait_culture_group = latin
 				has_dlc = "The Republic"				
@@ -1250,5 +1271,41 @@ spriteTypes = {
 		}
 	}	
 
+
+
+ portraitType = {
+		effectFile = "gfx/FX/portrait.lua"
+        name = "PORTRAIT_society_assassin_clothing"
+        
+        weight = {
+            additive_modifier = {
+                value = 10000
+                portrait_age > child
+                portrait_society = the_assassins
+				portrait_clothing = yes
+				portrait_religion = ksirafai
+            }
+        }
+        
+        layer = { 
+            "GFX_society_assassin_clothing_behind:c0"
+            "GFX_society_assassin_clothing_front:c2"
+            "GFX_empty:c3"
+            "GFX_society_assassin_headgear_front:c5"
+            "GFX_society_assassin_headgear_behind:c1"
+			"GFX_empty:c6"
+			"GFX_empty:c7"
+            "GFX_empty:c4"
+        }
+        
+		# Hide hair
+		allow_property_values = {
+			1 = {
+				0 = {
+					always = yes
+				}
+			}
+		}
+    }
 	
 }

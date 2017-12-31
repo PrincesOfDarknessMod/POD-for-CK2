@@ -333,7 +333,7 @@ character_event = {
 				culture_group = magyar
 				culture = avar
 				}
-				religion = order_hermes
+				religion = order_of_hermes
 			}
 			
 			dynasty = 4750005
@@ -355,7 +355,10 @@ character_event = {
 				limit = 
 				{ 
 					has_global_flag = bookmark767
-					religion = chakravanti
+					OR = 
+					{
+						religion = hierochthonoi
+					}
 					OR = 
 					{
 						culture = italian 
@@ -407,13 +410,13 @@ character_event = {
 			{
 				limit = 
 				{ 
-					culture_group = western_germanic
+					culture_group = west_germanic
 					NOT = { culture = dutch }
 				}
 				random_list = 
 					{
 						50 = { dynasty = 2500011 }
-						50 = { dyansty = 7600019 }
+						50 = { dynasty = 7600019 }
 					}			
 				
 			}
@@ -427,7 +430,7 @@ character_event = {
 			limit = 
 			{
 				culture_group = celtic
-				religion = chakravanti
+				religion = the_aided
 			}
 			
 			random_list =
@@ -444,7 +447,7 @@ character_event = {
 			limit =
 			{
 				culture_group = byzantine
-				religion = chakravanti
+				religion = hierochthonoi
 			}
 			random_list = 
 			{

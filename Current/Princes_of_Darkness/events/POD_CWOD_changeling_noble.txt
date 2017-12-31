@@ -29,25 +29,17 @@ character_event = {
 							religion_group = changeling_group
 							religion_group = seasons_courts_group
 						}
+						OR = 
+						{
+							trait = changeling
+							trait = firstbornfae
+						}	
+						
 					}
 					
 				# make changeling ruler	
 				POD_CWOD_changeling_court_init_effect = yes
-
-				if = { limit = { ai = yes }
-							create_character = {
-								random_traits = yes
-								age = 30
-								dynasty = actually_culture
-								culture = ROOT
-								religion = ROOT
-							}
-							
-							new_character = {
-									ROOT = { dynasty = PREV }
-									death = "yes"	
-							}				
-						}	
+	
 				
 				if = 
 				{

@@ -127,174 +127,228 @@ POD_CWOD_changeling_court_init_effect =
 	}	
 }
 
-POD_CWOD_changeling_kith_init_effect = {
-			if = { 
-				limit = { 
-					OR = {
-						has_global_flag = bookmark767
-						has_global_flag = bookmark1215
-						has_global_flag = bookmark1230
-						has_global_flag = bookmark1466
-						has_global_flag = bookmark1355
-						has_global_flag = bookmark1350
-						has_global_flag = bookmark1505
-						has_global_flag = bookmark1506						
-					}
-					NOT = { trait = sidhe }
-					NOT = { has_CWOD_changeling_kith_trigger = yes }
-				}
-								
-								
-			if = { 
-				limit = { 
-					OR = { 
-						culture = basque
-						culture = castillan
-						culture = catalan
-						culture = portuguese 
-					} 
-				}
-				random = {	
-					chance = 50 
-					add_trait = eshu
-				}
+POD_CWOD_changeling_kith_init_effect = 
+{
+	if = 
+	{ 
+		limit = 
+		{ 
+			OR = 
+			{
+				has_global_flag = bookmark767
+				has_global_flag = bookmark1215
+				has_global_flag = bookmark1230
+				has_global_flag = bookmark1466
+				has_global_flag = bookmark1355
+				has_global_flag = bookmark1350
+				has_global_flag = bookmark1505
+				has_global_flag = bookmark1506						
 			}
-			if = { 
-				limit = { 
-					OR = { 
-						culture = norman
-						culture = frankish
-						culture = occitan 
-					} 
-				}
-				random_list = {				
-					20 = { add_trait = troll }
-					15 = { add_trait = satyr }
-					15 = { add_trait = sluagh }
-					15 = { add_trait = redcap }
-					15 = { add_trait = eshu }
-					5 = { add_trait = nocker }
-					5 = { add_trait = boggan }
-					5 = { add_trait = piskey }
-					5 = { add_trait = sidhe }
+			
+			NOT = { trait = sidhe }
+			NOT = { has_CWOD_changeling_kith_trigger = yes }
+			
+		}
+												
+		if = 
+		{ 
+			limit = 
+			{ 
+				OR = 
+				{ 
+					culture = basque
+					culture = castillan
+					culture = catalan
+					culture = portuguese 
+				} 
+			}
+			
+			random = 
+			{	
+				chance = 50 
+				add_trait = eshu
+			}
+		}
+		
+		if = 
+		{		
+			limit = 
+			{ 
+				OR = 
+				{ 
+					culture = norman
+					culture = frankish
+					culture = occitan 
+				} 
+			}
+				
+			random_list = 
+			{				
+				20 = { add_trait = troll }
+				15 = { add_trait = satyr }
+				15 = { add_trait = sluagh }
+				15 = { add_trait = redcap }
+				15 = { add_trait = eshu }
+				5 = { add_trait = nocker }
+				5 = { add_trait = boggan }
+				5 = { add_trait = piskey }
+				5 = { add_trait = sidhe }
 					
-				}
 			}
-			if = { 
-				limit = { 	
-					OR = { 
-						culture = english
-						culture = old_saxon
-						culture = saxon 
-					} 
-				}
-				random_list = {				
-					25 = { add_trait = troll }
-					5 = { add_trait = satyr }
-					15 = { add_trait = sluagh }
-					35 = { add_trait = redcap }
-					5 = { add_trait = nocker }
-					5 = { add_trait = boggan }
-					5 = { add_trait = piskey }
-					5 = { add_trait = sidhe }					
-				}
-			}	
-			if = { 
-				limit = {
-					OR = { 
-						culture = frisian
-						culture = dutch
-					} 
-				}
-				random_list = {				
-					25 = { add_trait = troll }
-					5 = { add_trait = satyr }
-					15 = { add_trait = sluagh }
-					15 = { add_trait = redcap }	
-					5 = { add_trait = nocker }
-					5 = { add_trait = boggan }
-					5 = { add_trait = piksey }
-					5 = { add_trait = sidhe }					
-				}
-			}	
-			if = { 
-				limit = { culture = danish } 
-				random_list = {				
-					45 = { add_trait = troll }
-					30 = { add_trait = sluagh }
-					5 = { add_trait = redcap }	
-					5 = { add_trait = nocker }
-					5 = { add_trait = boggan }
-					5 = { add_trait = piskey }
-					5 = { add_trait = sidhe }					
-				}
-			}	
-			if = { 
-				limit = { 
-					OR = { 
-						culture = prussian
-						culture = pommeranian 
-					} 
-				}
-				random_list = {				
-					20 = { add_trait = troll }
-					60 = { add_trait = sluagh }
-					5 = { add_trait = nocker }
-					5 = { add_trait = boggan }
-					5 = { add_trait = piskey }
-					5 = { add_trait = sidhe }					
-				}
-			}	
-			if = { 
-				limit = { 
-					OR = { 
-						culture = lettigallish
-						culture = lithuanian
-						culture = polish 
-					} 
-				}
-				random_list = {				
-					15 = { add_trait = troll }
-					65 = { add_trait = sluagh }
-					5 = { add_trait = nocker }
-					5 = { add_trait = boggan }
-					5 = { add_trait = piskey }
-					5 = { add_trait = sidhe }					
-				}
-			}	
-			if = {
-				limit = { culture = bohemian }
-				random_list = {				
-					5 = { add_trait = troll }
-					60 = { add_trait = sluagh }
-					15 = { add_trait = satyr }	
-					5 = { add_trait = nocker }
-					5 = { add_trait = boggan }
-					5 = { add_trait = piskey }
-					5 = { add_trait = sidhe }					
-				}
-			}	
-			if = {
-				limit = { culture = hungarian } 
-				random_list = {				
-					25 = { add_trait = eshu }
-					25 = { add_trait = satyr }
-					30 = { add_trait = sluagh }
-					5 = { add_trait = nocker }
-					5 = { add_trait = boggan }
-					5 = { add_trait = piskey }
-					5 = { add_trait = sidhe }					
-				}
-			}	
-			if = { 
-				limit = { 
-					OR = { 
-						culture = croatian
-						culture = serbian
-						culture = bulgarian
-						culture = romanian 
-					} 
-				}
+		}
+			
+		if = 
+		{ 
+			limit = 
+			{ 	
+				OR = 
+				{ 
+					culture = english
+					culture = old_saxon
+					culture = saxon 
+				} 
+			}
+			
+			random_list = 
+			{				
+				25 = { add_trait = troll }
+				5 = { add_trait = satyr }
+				15 = { add_trait = sluagh }
+				35 = { add_trait = redcap }
+				5 = { add_trait = nocker }
+				5 = { add_trait = boggan }
+				5 = { add_trait = piskey }
+				5 = { add_trait = sidhe }					
+			}
+		}	
+		
+		if = 
+		{ 
+			limit = 
+			{
+				OR = 
+				{ 
+					culture = frisian
+					culture = dutch
+				} 
+			}
+				
+			random_list = 
+			{				
+				25 = { add_trait = troll }
+				5 = { add_trait = satyr }
+				15 = { add_trait = sluagh }
+				15 = { add_trait = redcap }	
+				5 = { add_trait = nocker }
+				5 = { add_trait = boggan }
+				5 = { add_trait = piskey }
+				5 = { add_trait = sidhe }					
+			}
+		}	
+		
+		if = 
+		{ 
+			limit = { culture = danish } 
+			random_list = 
+			{				
+				45 = { add_trait = troll }
+				30 = { add_trait = sluagh }
+				5 = { add_trait = redcap }	
+				5 = { add_trait = nocker }
+				5 = { add_trait = boggan }
+				5 = { add_trait = piskey }
+				5 = { add_trait = sidhe }					
+			}
+		}	
+		
+		if = 
+		{ 
+			limit = 
+			{ 
+				OR = 
+				{ 
+					culture = prussian
+					culture = pommeranian 
+				} 
+			}
+			
+			random_list = 
+			{				
+				20 = { add_trait = troll }
+				60 = { add_trait = sluagh }
+				5 = { add_trait = nocker }
+				5 = { add_trait = boggan }
+				5 = { add_trait = piskey }
+				5 = { add_trait = sidhe }					
+			}
+		}	
+		
+		if = 
+		{ 
+			limit = 
+			{ 
+				OR = 
+				{ 
+					culture = lettigallish
+					culture = lithuanian
+					culture = polish 
+				} 
+			}
+			
+			random_list = 
+			{				
+				15 = { add_trait = troll }
+				65 = { add_trait = sluagh }
+				5 = { add_trait = nocker }
+				5 = { add_trait = boggan }
+				5 = { add_trait = piskey }
+				5 = { add_trait = sidhe }					
+			}
+		}	
+		
+		if = 
+		{
+			limit = { culture = bohemian }
+			random_list = 
+			{				
+				5 = { add_trait = troll }
+				60 = { add_trait = sluagh }
+				15 = { add_trait = satyr }	
+				5 = { add_trait = nocker }
+				5 = { add_trait = boggan }
+				5 = { add_trait = piskey }
+				5 = { add_trait = sidhe }					
+			}
+		}	
+		
+		if = 
+		{
+			limit = { culture = hungarian } 
+			random_list = 
+			{				
+				25 = { add_trait = eshu }
+				25 = { add_trait = satyr }
+				30 = { add_trait = sluagh }
+				5 = { add_trait = nocker }
+				5 = { add_trait = boggan }
+				5 = { add_trait = piskey }
+				5 = { add_trait = sidhe }					
+			}
+		}	
+		
+		if = 
+		{ 
+			limit = 
+			{ 
+				OR = 
+				{ 
+					culture = croatian
+					culture = serbian
+					culture = bulgarian
+					culture = romanian 
+				} 
+			}
+			
 				random_list = {				
 					25 = { add_trait = eshu }
 					25 = { add_trait = satyr }
@@ -700,6 +754,7 @@ POD_CWOD_changeling_kith_init_effect = {
 						has_global_flag = bookmark1230
 						has_global_flag = bookmark1466
 						has_global_flag = bookmark1355
+						has_global_flag = bookmark1350
 						has_global_flag = bookmark1505
 						has_global_flag = bookmark1506						
 					}
@@ -744,7 +799,7 @@ POD_CWOD_changeling_dynasty_init_effect = {
 		}
 		
 		selkie = {
-			dyansty = 7500018
+			dynasty = 7500018
 		}
 		
 		boggan = {
@@ -852,7 +907,7 @@ POD_CWOD_changeling_dynasty_init_effect = {
 										
 										8 = 
 										{
-											Ailil
+											#Ailil
 											dynasty = 7500005
 										}
 										8 = 
@@ -967,7 +1022,7 @@ POD_CWOD_changeling_dynasty_init_effect = {
 										
 										8 = 
 										{
-											Ailil
+											#Ailil
 											dynasty = 7500005
 										}
 										8 = 
@@ -1010,7 +1065,7 @@ POD_CWOD_changeling_dynasty_init_effect = {
 										
 										15 = 
 										{
-											Ailil
+											#Ailil
 											dynasty = 7500005
 										}
 										15 = 

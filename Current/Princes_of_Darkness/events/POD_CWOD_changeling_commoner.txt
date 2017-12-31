@@ -8,9 +8,14 @@ character_event = {
 	immediate = {
 		#name = "set_inital_changeling_commoner"
 			if = {
-					limit = {
-					age = 16
-					trait = changeling 
+					limit = 
+					{
+						age = 16
+						OR = 
+						{
+						trait = changeling
+						trait = firstbornfae
+						}
 					}			
 # make changeling commoner
 						
@@ -18,6 +23,7 @@ character_event = {
 						POD_CWOD_changeling_fae_init_effect = yes	
 						POD_CWOD_changeling_fae_mien_init_effect = yes
 						POD_CWOD_changeling_court_init_effect = yes
+						
 						if = 
 						{
 							limit =
@@ -42,7 +48,7 @@ character_event = {
 								add_trait = actor_3
 							}
 							
-							piksey = {
+							piskey = {
 								add_trait = actor_3
 							}
 							

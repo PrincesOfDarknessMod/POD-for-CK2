@@ -158,9 +158,7 @@ return_to_human_form_decision = {
 			modifier = {
 				factor = 5
 				FROM = {
-					OR = {
-						in_hiding = no
-					}
+					NOT = { trait = in_hiding }
 				}
 			}				
 			
@@ -243,6 +241,7 @@ shift_zulo_form_decision = {
 						remove_trait = beast_form
 					}	
 				}
+				
 		add_trait = zulo_form		
 		POD_vampire_blood_thirst_increase_effect = yes		
 	}
@@ -259,15 +258,7 @@ shift_zulo_form_decision = {
 						in_battle = yes
 					}
 				}
-			}
-			modifier = {
-				factor = 5
-				FROM = {
-					OR = {
-						in_siege = yes
-					}
-				}
-			}					
+			}			
 			
 			modifier = {
 				factor = 5
@@ -380,7 +371,7 @@ shift_blood_form_decision = {
 			modifier = {
 				factor = 5
 				FROM = {
-						in_hiding = yes
+						trait = in_hiding
 				}
 			}		
 		modifier = {
@@ -477,7 +468,7 @@ shift_beast_form_decision = {
 			modifier = {
 				factor = 5
 				FROM = {
-						in_hiding = yes
+						trait = in_hiding
 				}
 			}		
 		modifier = {
@@ -573,7 +564,7 @@ shift_mist_form_decision = {
 			modifier = {
 				factor = 5
 				FROM = {
-						in_hiding = yes
+						trait = in_hiding
 				}
 			}		
 		modifier = {
@@ -670,7 +661,7 @@ shift_shadow_form_decision = {
 			modifier = {
 				factor = 5
 				FROM = {
-						in_hiding = yes
+						trait = in_hiding
 				}
 			}		
 		modifier = {
