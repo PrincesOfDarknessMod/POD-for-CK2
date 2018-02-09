@@ -285,15 +285,15 @@ character_event = {
 				20 = { dynasty = 7600010 }
 				10 = { dynasty = 7600004 }
 				10 = 
-				{ 
-					dynasty = 4750005
+				{
+					dynasty = 7600002
 					if = 
 						{ 
 							limit = 
 							{
-								NOT = { has_global_flag = bookmark767 }
+								has_global_flag = bookmark767 
 							}
-							dynasty = 7600002
+							dynasty = 4750005
 						}
 				}
 			}
@@ -548,6 +548,26 @@ character_event = {
 		}
 	}
 
+# taftani
+
+	if =
+	{
+		limit =
+		{
+			religion = taftani
+		}
+		random_list = 
+		{
+			12 = { dynasty = 7600044 }
+			12 = { dynasty = 7600045 }
+			12 = { dynasty = 7600046 }
+			12 = { dynasty = 7600047 }
+			12 = { dynasty = 7600048 }			
+			12 = { dynasty = 7600049 }		
+		}
+	}
+	
+	
 # Indian/Tibetan/Chinese akashayana
 		if = 
 		{
@@ -582,6 +602,7 @@ character_event = {
 			
 		}
 		
-
+		POD_CWOD_mage_societies_init_effect = yes
+		POD_CWOD_mage_societies_grand_master_init_effect = yes
 	}
 }

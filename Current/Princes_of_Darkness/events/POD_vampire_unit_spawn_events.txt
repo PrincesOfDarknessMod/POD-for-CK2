@@ -20,17 +20,17 @@ character_event = {
 				spawn_unit = {
 					province = PREV
 					troops = {
-						heavy_infantry = {
+						mass_ghouls = {
 							50 50
 						}
-						heavy_infantry = {
+						mass_ghouls = {
 							50 50
 						}
-						heavy_infantry = {
+						mass_ghouls = {
 							50 50
 						}
 
-						heavy_infantry = {
+						mass_ghouls = {
 							50 50
 						}		
 					}		
@@ -58,7 +58,6 @@ character_event = {
 	option = {
 		name = EVTOPTA_POD_VAMPIRE_UNIT_SPAWN2
 		ROOT = {
-			set_character_flag = POD_SPAWN_MASS_EMBRACE
 			wealth = -200
 				}
 		location = {
@@ -66,16 +65,16 @@ character_event = {
 				spawn_unit = {
 					province = PREV
 					troops = {
-						knights = {
+						mass_vampires = {
 							50 50
 						}
-						knights = {
+						mass_vampires = {
 							50 50
 						}
-						knights = {
+						mass_vampires = {
 							50 50
 						}
-						knights = {
+						mass_vampires = {
 							50 50
 						}						
 					}
@@ -94,4 +93,146 @@ character_event = {
 	option = {
 		name = EVTOPTB_POD_VAMPIRE_UNIT_SPAWN2
 	}	
+}
+character_event = {
+	id = POD_VAMPIRE_UNIT_SPAWN.3
+    desc = EVTDESC_POD_VAMPIRE_UNIT_SPAWN3
+	picture = GFX_evt_mass_embrace
+	border = GFX_event_normal_frame_war
+	
+    is_triggered_only = yes	
+
+	option = {
+		name = EVTOPTA_POD_VAMPIRE_UNIT_SPAWN3
+		ROOT = {
+			wealth = -200
+				}
+		location = {
+			ROOT = {
+				spawn_unit = {
+					province = PREV
+					troops = {
+						mass_gargoyles = {
+							50 50
+						}
+						mass_gargoyles = {
+							50 50
+						}
+						mass_gargoyles = {
+							50 50
+						}
+						mass_gargoyles = {
+							50 50
+						}						
+					}
+				
+				}
+			}
 		}
+		
+		FROM = {
+			character_event = { id = POD_VAMPIRE_BLOOD_THIRST.4 }	
+				}		
+	
+		}
+		
+		
+	option = {
+		name = EVTOPTB_POD_VAMPIRE_UNIT_SPAWN3
+	}	
+}
+character_event = {
+	id = POD_VAMPIRE_UNIT_SPAWN.4
+    desc = EVTDESC_POD_VAMPIRE_UNIT_SPAWN4
+	picture = GFX_evt_mass_embrace
+	border = GFX_event_normal_frame_war
+	
+    is_triggered_only = yes	
+
+	option = {
+		name = EVTOPTA_POD_VAMPIRE_UNIT_SPAWN4
+		ROOT = {
+			set_character_flag = POD_SPAWN_MASS_GHOUL
+			wealth = -200
+				}
+		location = {
+			ROOT = {
+				spawn_unit = {
+					province = PREV
+					troops = {
+						mass_szlachta = {
+							50 50
+						}
+						mass_szlachta = {
+							50 50
+						}
+						mass_szlachta = {
+							50 50
+						}
+						mass_szlachta = {
+							50 50
+						}						
+					}
+				
+				}
+			}
+		}
+		
+		FROM = {
+			character_event = { id = POD_VAMPIRE_BLOOD_THIRST.4 }	
+				}		
+	
+		}
+		
+		
+	option = {
+		name = EVTOPTB_POD_VAMPIRE_UNIT_SPAWN3
+	}	
+}
+character_event = {
+	id = POD_VAMPIRE_UNIT_SPAWN.5
+    desc = EVTDESC_POD_VAMPIRE_UNIT_SPAWN5
+	picture = GFX_evt_mass_embrace
+	border = GFX_event_normal_frame_war
+	
+    is_triggered_only = yes	
+
+	option = {
+		name = EVTOPTA_POD_VAMPIRE_UNIT_SPAWN5
+		ROOT = {
+			wealth = -200
+				}
+		location = {
+			ROOT = {
+				spawn_unit = {
+					province = PREV
+					troops = {
+						vozhd_unit = {
+							20 20
+						}
+						vozhd_unit = {
+							20 20
+						}
+						vozhd_unit = {
+							20 20
+						}
+						vozhd_unit = {
+							20 20
+						}						
+					}
+				
+				}
+			}
+		}
+		
+		FROM = {
+			character_event = { id = POD_VAMPIRE_BLOOD_THIRST.4 }	
+				}		
+	
+		}
+		
+		
+	option = {
+		name = EVTOPTB_POD_VAMPIRE_UNIT_SPAWN5
+	}	
+}

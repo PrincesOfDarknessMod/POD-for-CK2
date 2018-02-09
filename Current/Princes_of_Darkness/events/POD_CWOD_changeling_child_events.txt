@@ -12,6 +12,15 @@ character_event = {
 		NOT = { trait = changeling }
 		NOT = { trait = mage }
 		NOT = { trait = firstbornfae }
+		NOT = { trait = kinain }
+		OR = {
+				mother = { trait = changeling }
+				mother = { trait = firsbornfae }
+				mother = { trait = kinain }
+				father = { trait = changeling }
+				father = { trait = firstbornfae }
+				father = { trait = kinain }
+		}
 	}
 	
 	mean_time_to_happen = {
@@ -22,6 +31,7 @@ character_event = {
 		hidden_tooltip = {
 			
 			add_trait = mortal
+			add_trait = kinain
 			
 			if = {
 				limit = {
@@ -32,27 +42,37 @@ character_event = {
 				}
 				
 				random = {
-				chance = 15
+				chance = 10
 				
 					modifier = {
-						factor = 2
+						factor = 2.5
 						mother = { trait = changeling }
 					}			
 
 					modifier = {
-						factor = 2
+						factor = 2.5
 						father = { trait = changeling }
 					}	
 
 					modifier = {
-						factor = 2
+						factor = 1.5
+						mother = { trait = kinain }
+					}			
+
+					modifier = {
+						factor = 1.5
+						father = { trait = kinain }
+					}			
+					
+					modifier = {
+						factor = 1.1
 						mother = { trait = entranced_mortal }
 					}			
 
 					modifier = {
-						factor = 2
+						factor = 1.1
 						father = { trait = entranced_mortal }
-					}			
+					}							
 					
 					modifier = {
 						factor = 0.5
@@ -75,6 +95,7 @@ character_event = {
 					}				
 		
 				remove_trait = mortal
+				remove_trait = kinain
 				add_trait = changeling
 				
 				if = 
@@ -104,12 +125,12 @@ character_event = {
 					}		
 					
 					modifier = {
-						factor = 0.5
+						factor = 0.1
 						father = { trait = mortal }
 					}
 					
 					modifier = {
-						factor = 0.5
+						factor = 0.1
 						mother = { trait = mortal }
 					}
 
@@ -124,6 +145,7 @@ character_event = {
 					}			
 					
 					remove_trait = mortal
+					remove_trait = kinain
 					remove_trait = changeling
 					add_trait = firstbornfae
 				}
@@ -160,6 +182,7 @@ character_event = {
 							}
 							
 						add_trait = "sidhe"
+						set_government_type = sidhe_government
 					}
 				}	
 
@@ -193,6 +216,7 @@ character_event = {
 							}								
 							
 						add_trait = "clurichaun"
+						set_government_type = commoner_government
 					}
 				}	
 
@@ -226,6 +250,7 @@ character_event = {
 							}								
 							
 						add_trait = "piskey"
+						set_government_type = commoner_government
 					}
 				}	
 
@@ -259,6 +284,7 @@ character_event = {
 							}
 							
 						add_trait = "sluagh"
+						set_government_type = commoner_government
 					}
 				}
 
@@ -292,6 +318,7 @@ character_event = {
 							}
 							
 						add_trait = "troll"
+						set_government_type = commoner_government
 					}
 				}	
 
@@ -325,6 +352,7 @@ character_event = {
 							}
 							
 						add_trait = "redcap"
+						set_government_type = commoner_government
 					}
 				}
 
@@ -358,6 +386,7 @@ character_event = {
 							}								
 							
 						add_trait = "satyr"
+						set_government_type = commoner_government
 					}
 				}					
 				
@@ -391,6 +420,7 @@ character_event = {
 							}								
 							
 						add_trait = "boggan"
+						set_government_type = commoner_government
 					}
 				}		
 
@@ -424,6 +454,7 @@ character_event = {
 							}								
 							
 						add_trait = "nocker"
+						set_government_type = commoner_government
 					}
 				}					
 
@@ -457,6 +488,7 @@ character_event = {
 							} 							
 							
 						add_trait = "eshu"
+						set_government_type = commoner_government
 					}
 				}				
 							

@@ -30,7 +30,7 @@
 		}
 	69.1.1 = {
 		add_trait = vampire
-	add_trait = wyrm_taint
+	    add_trait = wyrm_taint
 		give_nickname=nick_the_shadow
 		effect = { join_society = via_noctis }
 		}
@@ -140,6 +140,7 @@
 	trait = "strategist"
 	trait = "canon" 
 	female = no
+	father = 505151
 	
 	478.6.6 = {
 		birth = 478.6.6 
@@ -148,12 +149,12 @@
 		}
 	576.1.1 = {
 		add_trait = vampire
-	add_trait = wyrm_taint
+		add_trait = wyrm_taint
 		add_trait = "lasombra"
 		add_trait = "neonate"
 		add_trait = "dominate_3"
 		add_trait = "bloodpotency_5"
-		add_trait = "vampgeneration6"
+		add_trait = "vampgeneration7"
 		religion = "lasombra_high"
 		effect = { set_government_type = traditions_government }
 		}
@@ -180,6 +181,9 @@
 		add_trait = "vigor_5"
 		remove_trait = "vigor_3"
 		remove_trait = "zealous"
+		remove_trait = "vampgeneration7"
+		add_trait = "vampgeneration6"
+		add_trait = "diabolist"
 		}
 		
 	989.1.1 = {
@@ -189,7 +193,7 @@
 		}		
 		
 	1215.6.1 = {
-		death = yes
+		death = { death_reason = death_execution_diablerie killer = 505097 } 
 	}	
 }
 
@@ -581,6 +585,7 @@
 	learning = 8
 	dynasty = "4500015"
 	female = no
+	father = 505146
 	687.1.1 = {
 		birth = 687.1.1
 		}
@@ -682,7 +687,7 @@
 }
 
 605131 = {
-	name = "Zamra Matoub" #Prince of Barcelona
+	name = "Zamra Matoub" #Prince of Algiers
 	culture = "maghreb_arabic"
 	religion = "innocent"
 	trait = "fortune_builder"
@@ -690,6 +695,7 @@
 	trait = "ambitious"
 	trait = "cynical"
 	dynasty = 4500045
+	father = 505143
 
 	female = yes
 	1153.1.1 = {
@@ -1185,5 +1191,812 @@
 		}
 
 
+}
+
+
+505140 = {
+# "Sybil", aka "Tersa", Lasombra's Sole Daughter
+	name = "Sybil"
+	dynasty = "4500012"
+	culture = "nahuatl"
+    dna="c0ahd0ib000"
+    properties="pd000f00000000"
+	religion = "innocent"
+	trait = "canon" 
+	female = yes
+	father = 505019
+	
+
+	101.1.1 = {
+		birth = 101.1.1
+		}
+    120.1.1 = {
+	religion = "lasombra_high"
+	add_trait = "vampire"
+	add_trait = "wyrm_taint"
+	add_trait = "lasombra"
+	add_trait = "methuselah"
+	add_trait = "obtenebration_5"
+	add_trait = "dominate_5"
+	add_trait = "vigor_5"
+	add_trait = "auspex_5"
+	add_trait = "cruel"
+	add_trait = "bloodpotency_6"
+	add_trait = "vampgeneration4"
+	add_trait = "elusive_shadow"
+	effect = { join_society = via_noctis }
+	}
+
+	1229.1.1 = {
+		remove_trait = "bookmark990"
+		add_trait = "bookmark1230"
+		add_trait = "torpor"
+		
+	}
+	1354.1.1 = {
+		remove_trait = "bookmark1230"
+		add_trait = "bookmark1355"
+	}	
+	
+	1499.1.1 = {
+		remove_trait = "torpor"
+		remove_trait = "bookmark1355"
+		remove_trait = "lasombra"
+		add_trait = "lasombraantitribu"		
+		add_trait = "bookmark1505"
+	}	
+	1506.1.1 = {
+		remove_trait = "bookmark1505"
+		add_trait = "bookmark1506"
+	}	
+	1999.1.1 = {
+		death = yes
+		}
+
+
+}
+
+
+505141 = {
+# Sejanus, Future Prince of Washington DC
+	name = "Sejanus"
+	dynasty = "4500012"
+	culture = "roman"
+    dna = "cfgff00hab0"
+    properties="ie0i0k00000000"
+	religion = "innocent"
+	trait = "canon" 
+	female = no
+	mother = 505140
+	
+
+	121.1.1 = {
+		birth = 121.1.1
+		}
+	140.1.1 = {
+	religion = "autarkis"
+	add_trait = "vampire"
+	add_trait = "wyrm_taint"
+	add_trait = "lasombra"
+	add_trait = "ancient"
+	add_trait = "obtenebration_5"
+	add_trait = "dominate_5"
+	add_trait = "vigor_5"
+	add_trait = "thaumaturgy_3"
+	add_trait = "attractive"
+	add_trait = "quick"
+	add_trait = "patient"
+	add_trait = "deceitful"
+	add_trait = "ambitious"
+	add_trait = "bloodpotency_6"
+	add_trait = "vampgeneration5"
+	add_trait = "elusive_shadow"
+	add_claim = e_byzantium
+	add_claim = e_sea_of_shadows
+	
+	}
+
+	1229.1.1 = {
+		remove_trait = "bookmark990"
+		add_trait = "bookmark1230"
+		employer = 90040050
+		effect = { join_society = via_humanitas }
+		
+	}
+	1354.1.1 = {
+		remove_trait = "bookmark1230"
+		add_trait = "bookmark1355"
+	}	
+	
+	1499.1.1 = {
+		remove_trait = "torpor"
+		remove_trait = "bookmark1355"
+		remove_trait = "lasombra"
+		set_name = "Marcus Vitel"
+		add_trait = "lasombraantitribu"		
+		add_trait = "bookmark1505"
+		effect = { religion = ventrue }
+		effect = { set_secret_religion = lasombra }
+		effect = { join_society = secret_religious_cult }
+	}	
+	1506.1.1 = {
+		remove_trait = "bookmark1505"
+		add_trait = "bookmark1506"
+	}	
+	1999.1.1 = {
+		death = yes
+		}
+}
+
+
+505143 = {
+# Nahir, Sire of The Prince of Algiers
+	name = "Nahir"
+	dynasty = "4500012"
+	culture = "roman"
+    dna="acb0a0ah000"
+    properties="mc0h0g00000000"
+	religion = "innocent"
+	trait = "canon" 
+	female = no
+	mother = 505140
+	
+
+	640.1.1 = {
+		birth = 640.1.1
+		}
+	659.1.1 = {
+	religion = "lasombra_high"
+	add_trait = "vampire"
+	add_trait = "wyrm_taint"
+	add_trait = "lasombra"
+	add_trait = "elder"
+	add_trait = "obtenebration_5"
+	add_trait = "dominate_5"
+	add_trait = "vigor_5"
+	add_trait = "bloodpotency_4"
+	add_trait = "vampgeneration5"
+	add_trait = "elusive_shadow"
+		religion = ashirra
+	}
+
+	1229.1.1 = {
+		remove_trait = "bookmark990"
+		add_trait = "bookmark1230"
+		employer = 605131
+		
+	}
+	1354.1.1 = {
+		remove_trait = "bookmark1230"
+		add_trait = "bookmark1355"
+	}	
+	
+	1499.1.1 = {
+		remove_trait = "torpor"
+		remove_trait = "bookmark1355"
+		remove_trait = "lasombra"
+		add_trait = "lasombraantitribu"		
+		add_trait = "bookmark1505"
+	}	
+	1506.1.1 = {
+		remove_trait = "bookmark1505"
+		add_trait = "bookmark1506"
+	}	
+	1999.1.1 = {
+		death = yes
+		}
+}
+
+505144 = {
+# Gratiano de Veronese, the Great Liberator
+	name = "Gratiano de Veronese"
+	dynasty = "4500012"
+	culture = "italian"
+	religion = "innocent"
+	trait = "canon" 
+	trait = "ambitious"
+	female = no
+	father = 505019	
+	
+
+	1085.1.1 = {
+		birth = 1085.1.1
+		}
+	1130.1.1 = {
+	religion = "lasombra_high"
+	add_trait = "vampire"
+	add_trait = "wyrm_taint"
+	add_trait = "lasombra"
+	add_trait = "neonate"
+	add_trait = "obtenebration_2"
+	add_trait = "dominate_3"
+	add_trait = "vigor_3"
+	add_trait = "ambitious"
+	add_trait = "schemer"
+	add_trait = "quick"
+	add_trait = "proud"
+	add_trait = "deceitful"
+	add_trait = "bloodpotency_6"
+	add_trait = "vampgeneration4"
+	add_trait = "charismatic_negotiator"
+	add_trait = bloodbound
+	}
+
+	1229.1.1 = {
+		add_trait = "bookmark1230"
+		remove_trait = "neonate"
+		add_trait = "ancilla"
+			}
+	
+	1354.1.1 = {
+		remove_trait = "bookmark1230"
+		add_trait = "bookmark1355"
+	}	
+	
+	1404.1.1 = {
+		 remove_trait = bloodbound
+	}
+	
+	1499.1.1 = {
+		remove_trait = "bookmark1355"
+		add_trait = "bookmark1505"
+		religion = "sabbat"
+		effect = { join_society = via_noctis }
+		}
+	1506.1.1 = {
+		remove_trait = "bookmark1505"
+		add_trait = "bookmark1506"
+	}	
+	1999.1.1 = {
+		death = yes
+		}
+}
+
+505145 = {
+# Karotos
+	name = "Karotos"
+	dynasty = 4500012
+	culture = "greek"
+	religion = "innocent"
+	trait = "canon" 
+	female = no
+	father = "505019"
+	
+	185.1.1 = {
+		birth = 185.1.1
+		}	
+		
+	204.1.1 = {
+	religion = "lasombra_high"
+	add_trait = "vampire"
+	add_trait = "wyrm_taint"
+	add_trait = "lasombra"
+	add_trait = "methuselah"
+	add_trait = "obtenebration_5"
+	add_trait = "dominate_5"
+	add_trait = "bloodpotency_6"
+	add_trait = "vampgeneration4"
+	add_trait = "vigor_5"
+	add_trait = "elusive_shadow"
+	}
+		
+	424.1.1 = {
+		death = yes
+		}
+}
+
+505146 = {
+# Cleobolus
+	name = "Cleobolus"
+	dynasty = 4500012
+	culture = "greek"
+	religion = "lasombra_high"
+	trait = "canon" 
+	female = no
+	father = "505145"
+	
+	205.1.1 = {
+		birth = 205.1.1
+		}
+		
+	223.1.1 = {
+	religion = "lasombra_high"
+	add_trait = "vampire"
+	add_trait = "wyrm_taint"
+	add_trait = "lasombra"
+	add_trait = "methuselah"
+	add_trait = "obtenebration_5"
+	add_trait = "dominate_5"
+	add_trait = "vigor_5"
+	add_trait = "elusive_shadow"
+	add_trait = "bloodpotency_5"
+	add_trait = "vampgeneration5"
+	}
+
+	1073.1.1 = {
+		add_trait = torpor
+		}
+		
+	1229.1.1 = {
+		add_trait = "bookmark1230"
+			}
+		
+	1408.1.1 = {
+		death = yes
+		}
+}
+
+
+505147 = {
+# Gotzon
+	name = "Gotzon"
+	dynasty = 4500012
+	culture = "german"
+	religion = "innocent"
+	trait = "canon" 
+	female = no
+	dna="acb0a0a0000"
+    properties="mc00000caa00f0"
+	father = 505149
+	
+	655.1.1 = {
+		birth = 655.1.1
+		}	
+		
+	708.1.1 = {
+	religion = "lasombra_high"
+	add_trait = "vampire"
+	add_trait = "wyrm_taint"
+	add_trait = "lasombra"
+	add_trait = "neonate"
+	add_trait = "obtenebration_5"
+	add_trait = "dominate_5"
+	add_trait = "bloodpotency_3"
+	add_trait = "vampgeneration5"
+	add_trait = "vigor_5"
+	add_trait = "disfigured"
+	add_trait = "mastermind_theologian"
+	effect = { join_society = via_noctis }
+	}
+
+	794.1.1 = {
+		remove_trait = "neonate"
+		add_trait = "ancilla"
+			}
+
+	994.1.1 = {
+		remove_trait = "ancilla"
+		add_trait = "elder"
+        effect = { leave_society = yes }		
+		effect = { join_society = via_caeli }
+		add_trait = "chaste"
+		employer = 505086
+			}
+			
+	
+	1229.1.1 = {
+		add_trait = "bookmark1230"
+		employer = 505086
+		effect = { add_friend = 505086 }
+			}
+		
+	1999.1.1 = {
+		death = yes
+		}
+}
+
+505148 = {
+# Norbert of Xanten
+	name = "Norbert of Xanten"
+	dynasty = 4500098
+	culture = "german"
+	religion = "innocent"
+	trait = "canon" 
+	female = no
+	father = 505147
+	
+	1080.1.1 = {
+		birth = 1080.1.1
+		}	
+		
+	1134.1.1 = {
+	add_trait = "monk"
+	religion = "lasombra_high"
+	add_trait = "vampire"
+	add_trait = "wyrm_taint"
+	add_trait = "lasombra"
+	add_trait = "neonate"
+	add_trait = "obtenebration_2"
+	add_trait = "dominate_2"
+	add_trait = "bloodpotency_3"
+	add_trait = "vampgeneration6"
+	add_trait = "shrewd"
+	add_trait = "ambitious"
+	add_trait = "theologian"
+	add_trait = "vigor_4"
+	add_trait = "mastermind_theologian"
+	effect = { join_society = via_regalis }
+	}
+	
+	1229.1.1 = {
+		add_trait = "bookmark1230"
+		remove_trait = "neonate"
+		effect = { add_rival = 505086 }
+		add_trait = "ancilla"
+			}
+		
+	1999.1.1 = {
+		death = yes
+		}
+}
+
+505149 = {
+#Boukephos, the dutiful sire.
+	name = "Boukephos"
+	dynasty = "4500012"
+	culture = "greek"
+	dna="adlaj00h0a0"
+    properties="ce0dfk00000000"
+	religion = "innocent"
+	trait = "canon" 
+	female = no
+	father = 505019
+	
+	
+	105.1.1 = {
+		birth = 105.1.1
+		}
+	139.1.1 = {
+	religion = "lasombra_high"
+	add_trait = "vampire"
+	add_trait = "wyrm_taint"
+	add_trait = "lasombra"
+	add_trait = "methuselah"
+	add_trait = "obtenebration_5"
+	add_trait = "dominate_5"
+	add_trait = "vigor_5"
+	add_trait = "bloodpotency_6"
+	add_trait = "vampgeneration4"
+	add_trait = "mastermind_theologian"
+	add_trait = "patient"
+	add_trait = "mystic"
+	effect = { join_society = via_noctis }
+	effect = { society_rank_up = 2 }
+	employer = 505070
+	}	
+	989.1.1 = {
+		add_trait = "bookmark990"
+		}	
+
+	1229.1.1 = {
+		remove_trait = "bookmark990"
+		add_trait = "bookmark1230"
+		employer = 505070
+	}
+	1249.12.30 = {
+		add_trait = "torpor"
+	}
+	1354.1.1 = {
+		remove_trait = "bookmark1230"
+		add_trait = "bookmark1355"
+	}	
+	
+	1499.1.1 = {
+		remove_trait = "bookmark1355"
+		religion = "sabbat"
+		effect = { join_society = path_of_night }
+		effect = { society_rank_up = 2 }
+		add_trait = "bookmark1505"
+	}	
+	1506.1.1 = {
+		remove_trait = "bookmark1505"
+		add_trait = "bookmark1506"
+	}	
+	1999.1.1 = {
+		death = yes
+		}	
+}
+
+505150 = {
+# Marcellus Rufus
+	name = "Marcellus Rufus"
+	dynasty = 4500012
+	culture = "roman"
+	religion = "innocent"
+	trait = "canon" 
+    dna="b0l0a0ig0b0"
+    properties="cm0i0d00000000"
+	female = no
+	father = 505149
+	
+	155.1.1 = {
+		birth = 155.1.1
+		}	
+		
+	188.1.1 = {
+	religion = "autarkis"
+	add_trait = "vampire"
+	add_trait = "wyrm_taint"
+	add_trait = "lasombra"
+	add_trait = "neonate"
+	add_trait = "obtenebration_5"
+	add_trait = "dominate_5"
+	add_trait = "strong"
+	add_trait = "bloodpotency_3"
+	add_trait = "vampgeneration5"
+	add_trait = "vigor_5"
+	add_trait = "fortune_builder"
+	add_trait = "just"
+	add_trait = "wroth"
+	add_trait = "content"
+	effect = { join_society = via_regalis }
+	}
+
+	394.1.1 = {
+		remove_trait = "neonate"
+		add_trait = "ancilla"
+			}
+
+	494.1.1 = {
+		remove_trait = "ancilla"
+		add_trait = "elder"
+			}
+			
+	1114.1.1 = {
+		remove_trait = "elder"
+		add_trait = "ancient"
+			}
+	
+	1229.1.1 = {
+		add_trait = "bookmark1230"
+		wealth = 1000 #gold mines :)
+		}
+		
+	1999.1.1 = {
+		death = yes
+		}
+}
+
+505151 = {
+# Galerius, A guy with Sire's Remorse
+	name = "Galerius"
+	culture = "roman"
+	dynasty = "4500012"
+	religion = "innocent"
+	trait = "amateurish_plotter"
+	trait = "trusting"
+	trait = "diligent"
+	trait = "canon" 
+	female = no
+	father = 505146
+	
+	278.6.6 = {
+		birth = 478.6.6 
+		}
+	316.1.1 = {
+		add_trait = vampire
+		add_trait = wyrm_taint
+		add_trait = "lasombra"
+		add_trait = "neonate"
+		add_trait = "dominate_3"
+		add_trait = "bloodpotency_4"
+		add_trait = "vampgeneration6"
+		religion = "lasombra_high"
+		effect = { set_government_type = eternal_senate }
+		}
+		
+	460.1.1 = {
+		add_trait = "ancilla"
+		remove_trait = "neonate"
+		add_trait = "dominate_5"
+		remove_trait = "dominate_3"
+		add_trait = "obtenebration_3"
+		add_trait = "vigor_3"
+		}
+
+	766.1.1 = {
+		death = { death_reason = death_execution_diablerie killer = 505097 } 
+	}	
+}
+
+505152 = {
+#Elieser de Polanco, Prince of Toledo, future Taskmaster of Mexico City
+
+name = "Elieser de Polanco"
+	culture = "castillan"
+	dynasty = "4500012"
+	religion = "innocent"
+	trait = "grey_eminence"
+	trait = "humble"
+	trait = "diligent"
+	trait = "attractive"
+	trait = "canon" 
+	female = no
+	father =505155
+	
+	
+	988.1.1 = {
+		birth = 988.1.1
+		}	
+		
+	1031.1.1 = {
+	religion = "lasombra_high"
+	add_trait = "vampire"
+	add_trait = "wyrm_taint"
+	add_trait = "lasombra"
+	add_trait = "neonate"
+	add_trait = "obtenebration_3"
+	add_trait = "dominate_2"
+	add_trait = "bloodpotency_3"
+	add_trait = "vampgeneration7"
+	add_trait = "vigor_3"
+	add_trait = "schemer"
+	effect = { join_society = via_noctis }
+	}
+
+	1131.1.1 = {
+		remove_trait = "neonate"
+		add_trait = "ancilla"
+			}
+
+	1229.1.1 = {
+     	add_trait = "bookmark1230"
+		remove_trait = "ancilla"
+		add_trait = "elder"
+			}
+
+	1499.1.1 = {
+		religion = "sabbat"
+		effect = { set_government_type = "milan_government" }
+		effect = { join_society = "path_of_night" }
+				}
+		
+	1999.1.1 = {
+		death = yes
+		}
+}
+
+505153 = {
+#Tercio Bravo, Hero of the Reconquista
+
+name = "Tercio Bravo"
+	culture = "castillan"
+	dynasty = "4500012"
+	religion = "innocent"
+	trait = "brilliant_strategist"
+	trait = "proud"
+	trait = "diligent"
+	trait = "canon" 
+	female = no
+	father = 505149
+	
+	1060.1.1 = {
+		birth = 1060.1.1
+		}	
+		
+	1101.1.1 = {
+	religion = "lasombra_high"
+	add_trait = "vampire"
+	add_trait = "wyrm_taint"
+	add_trait = "lasombra"
+	add_trait = "neonate"
+	add_trait = "obtenebration_3"
+	add_trait = "dominate_1"
+	add_trait = "bloodpotency_3"
+	add_trait = "vampgeneration5"
+	add_trait = "vigor_3"
+	add_trait = "zealous"
+	add_trait = "crusader"
+	add_trait = "holy_warrior"
+	add_trait = "brave"
+	effect = { join_society = via_noctis }
+	}
+
+	1201.1.1 = {
+		remove_trait = "neonate"
+		add_trait = "ancilla"
+		remove_trait = "vigor_3"
+		add_trait = "vigor_5"
+		add_claim = c_toledo
+		add_claim = d_toledo
+		effect = { add_rival = 505152 }
+			}
+
+	1229.1.1 = {
+			add_trait = "bookmark1230"
+			employer = 505126
+			}
+
+	1499.1.1 = {
+		death = yes
+		}
+}
+
+505154 = {
+#Ambrosio Luis Moncada
+
+name = "Ambrosio Luis Moncada"
+	culture = "castillan"
+	dynasty = "4500015"
+	religion = "innocent"
+	trait = "gray_eminence"
+	trait = "proud"
+	trait = "diligent"
+	trait = "canon"
+	learning = 10
+	intrigue = 10	
+	female = no
+	father = 505126
+	
+	1097.1.1 = {
+		birth = 1097.1.1
+		}	
+		
+	1153.1.1 = {
+	religion = "lasombra_high"
+	add_trait = "vampire"
+	add_trait = "wyrm_taint"
+	add_trait = "lasombra"
+	add_trait = "neonate"
+	add_trait = "obtenebration_3"
+	add_trait = "dominate_1"
+	add_trait = "bloodpotency_3"
+	add_trait = "vampgeneration7"
+	add_trait = "vigor_3"
+	add_trait = "gluttonous"
+	add_trait = "erudite"
+	add_trait = "schemer"
+	add_trait = "zealous"
+	add_trait = "lustful"
+	add_trait = "ambitious"
+	effect = { join_society = via_noctis }
+	}
+
+
+	1229.1.1 = {
+			add_trait = "bookmark1230"
+			}
+
+	1499.1.1 = {
+		death = yes
+		}
+}
+
+505155 = {
+#Hector Aguilera
+name = "Hector Aguilera"
+	culture = "castillan"
+	dynasty = "4500012"
+	religion = "innocent"
+	trait = "brilliant_strategist"
+	trait = "proud"
+	trait = "diligent"
+	trait = "canon" 
+	female = no
+	father = 505146
+	
+	820.1.1 = {
+		birth = 820.1.1
+		}	
+		
+	851.1.1 = {
+	religion = "lasombra_high"
+	add_trait = "vampire"
+	add_trait = "wyrm_taint"
+	add_trait = "lasombra"
+	add_trait = "neonate"
+	add_trait = "obtenebration_3"
+	add_trait = "dominate_1"
+	add_trait = "bloodpotency_3"
+	add_trait = "vampgeneration5"
+	add_trait = "vigor_3"
+	add_trait = "administrator"
+	effect = { join_society = via_noctis }
+	}
+
+
+	1095.1.1 = {
+		death = yes
+		}
 
 }

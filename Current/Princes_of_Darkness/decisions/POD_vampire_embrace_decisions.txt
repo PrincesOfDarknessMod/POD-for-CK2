@@ -11,18 +11,269 @@ targetted_decisions = {
 		}
 		
 		potential = {
-			age = 16
-			trait = mortal
-			NOT = { trait = werewolf }
+			OR = 
+			{
+				trait = mortal
+				trait = werewolf 
+				trait = changeling
+				trait = firstbornfae
+				trait = mage
+				trait = revenant
+			}
 			NOT = { trait = mummy }
 			NOT = { trait = promethean }
 			NOT = { trait = geist }
-			NOT = { trait = changeling }
 			NOT = { trait = demon }
 		}
 		
 		effect = {
-		
+
+			if = 
+			{
+				limit = { trait = revenant }
+				remove_trait = revenant
+			}	
+
+			if = 
+			{
+				limit = { trait = changeling }
+				random_list = 
+				{
+					90 = 
+					{
+						death = { death_reason = death_murdered killer = FROM }
+					}
+					10 = 
+					{
+						remove_trait = changeling			
+
+						trigger_switch = 
+						{
+							on_trigger = trait
+							sovereign_1 = 
+							{ 
+								remove_trait = sovereign_1
+								add_trait = dominate_1
+							}
+							sovereign_2 = 
+							{ 
+								remove_trait = sovereign_2
+								add_trait = dominate_2
+							}
+							sovereign_3 = 
+							{ 
+								remove_trait = sovereign_3
+								add_trait = dominate_3
+							}							
+							sovereign_4 = 
+							{ 
+								remove_trait = sovereign_4
+								add_trait = dominate_4
+							}	
+							sovereign_5 = 
+							{ 
+								remove_trait = sovereign_5
+								add_trait = dominate_5
+							}							
+							wayfare_1 = 
+							{ 
+								remove_trait = wayfare_1
+								add_trait = celerity_1
+							}
+							wayfare_2 = 
+							{ 
+								remove_trait = wayfare_2
+								add_trait = celerity_2
+							}
+							wayfare_3 = 
+							{ 
+								remove_trait = wayfare_3
+								add_trait = celerity_3
+							}							
+							wayfare_4 = 
+							{ 
+								remove_trait = wayfare_4
+								add_trait = celerity_4
+							}	
+							wayfare_5 = 
+							{ 
+								remove_trait = wayfare_5
+								add_trait = celerity_5
+							}								
+						}
+						
+						remove_trait = chicanery_1
+						remove_trait = chicanery_2
+						remove_trait = chicanery_3
+						remove_trait = chicanery_4
+						remove_trait = chicanery_5
+						remove_trait = legerdemain_1
+						remove_trait = legerdemain_2
+						remove_trait = legerdemain_3
+						remove_trait = legerdemain_4
+						remove_trait = legerdemain_5
+						remove_trait = soothsay_1
+						remove_trait = soothsay_2
+						remove_trait = soothsay_3
+						remove_trait = soothsay_4
+						remove_trait = soothsay_5						
+						remove_trait = actor_1
+						remove_trait = actor_2
+						remove_trait = actor_3
+						remove_trait = actor_4
+						remove_trait = actor_5						
+						remove_trait = fae_1
+						remove_trait = fae_2
+						remove_trait = fae_3
+						remove_trait = fae_4
+						remove_trait = fae_5
+						remove_trait = nature_1
+						remove_trait = nature_2
+						remove_trait = nature_3
+						remove_trait = nature_4
+						remove_trait = nature_5						
+						remove_trait = prop_1
+						remove_trait = prop_2
+						remove_trait = prop_3
+						remove_trait = prop_4
+						remove_trait = prop_5						
+						remove_trait = scene_1
+						remove_trait = scene_2
+						remove_trait = scene_3
+						remove_trait = scene_4
+						remove_trait = scene_5						
+						remove_trait = time_1
+						remove_trait = time_2
+						remove_trait = time_3
+						remove_trait = time_4
+						remove_trait = time_5
+						add_trait = mytherceria_3
+						add_trait = obtenebration_3
+						set_graphical_culture = sluagh
+						
+					}
+				}
+			}			
+			
+			if = 
+			{
+				limit = { trait = firstbornfae }
+				random_list = 
+				{
+					95 = 
+					{
+						death = { death_reason = death_murdered killer = FROM }
+					}
+					5 = 
+					{
+						remove_trait = firstbornfae	
+						trigger_switch = 
+						{
+							on_trigger = trait
+							sovereign_1 = 
+							{ 
+								remove_trait = sovereign_1
+								add_trait = dominate_1
+							}
+							sovereign_2 = 
+							{ 
+								remove_trait = sovereign_2
+								add_trait = dominate_2
+							}
+							sovereign_3 = 
+							{ 
+								remove_trait = sovereign_3
+								add_trait = dominate_3
+							}							
+							sovereign_4 = 
+							{ 
+								remove_trait = sovereign_4
+								add_trait = dominate_4
+							}	
+							sovereign_5 = 
+							{ 
+								remove_trait = sovereign_5
+								add_trait = dominate_5
+							}							
+							wayfare_1 = 
+							{ 
+								remove_trait = wayfare_1
+								add_trait = celerity_1
+							}
+							wayfare_2 = 
+							{ 
+								remove_trait = wayfare_2
+								add_trait = celerity_2
+							}
+							wayfare_3 = 
+							{ 
+								remove_trait = wayfare_3
+								add_trait = celerity_3
+							}							
+							wayfare_4 = 
+							{ 
+								remove_trait = wayfare_4
+								add_trait = celerity_4
+							}	
+							wayfare_5 = 
+							{ 
+								remove_trait = wayfare_5
+								add_trait = celerity_5
+							}							
+						}
+						remove_trait = chicanery_1
+						remove_trait = chicanery_2
+						remove_trait = chicanery_3
+						remove_trait = chicanery_4
+						remove_trait = chicanery_5
+						remove_trait = legerdemain_1
+						remove_trait = legerdemain_2
+						remove_trait = legerdemain_3
+						remove_trait = legerdemain_4
+						remove_trait = legerdemain_5
+						remove_trait = soothsay_1
+						remove_trait = soothsay_2
+						remove_trait = soothsay_3
+						remove_trait = soothsay_4
+						remove_trait = soothsay_5						
+						remove_trait = actor_1
+						remove_trait = actor_2
+						remove_trait = actor_3
+						remove_trait = actor_4
+						remove_trait = actor_5						
+						remove_trait = fae_1
+						remove_trait = fae_2
+						remove_trait = fae_3
+						remove_trait = fae_4
+						remove_trait = fae_5
+						remove_trait = nature_1
+						remove_trait = nature_2
+						remove_trait = nature_3
+						remove_trait = nature_4
+						remove_trait = nature_5						
+						remove_trait = prop_1
+						remove_trait = prop_2
+						remove_trait = prop_3
+						remove_trait = prop_4
+						remove_trait = prop_5						
+						remove_trait = scene_1
+						remove_trait = scene_2
+						remove_trait = scene_3
+						remove_trait = scene_4
+						remove_trait = scene_5						
+						remove_trait = time_1
+						remove_trait = time_2
+						remove_trait = time_3
+						remove_trait = time_4
+						remove_trait = time_5
+						add_trait = mytherceria_3
+						add_trait = obtenebration_3
+						set_graphical_culture = sluagh					
+						
+					}
+				}
+			}		
+			
 			set_character_flag = FLAG_NWOD_EMBRACE_MORTAL_MINOR_TITLE_FIRED
 			
 			dynasty = FROM
@@ -110,7 +361,6 @@ targetted_decisions = {
 			trait = vampire
 		}
 		potential = {
-			is_adult = yes
 			trait = mortal
 			NOT = { trait = ghoul }
 			NOT = { trait = werewolf }
@@ -139,5 +389,123 @@ targetted_decisions = {
             }
 
 		}
+	}
+	
+	player_embrace_mage_decision = {
+		filter = court
+		ai = no
+		
+		from_potential = {
+			trait = vampire
+			NOT = { trait = vampgeneration15 }				
+		}
+		
+		potential = {
+			age = 16
+			trait = mage
+			NOT = { trait = vampire }
+		}
+		
+		effect = {
+			custom_tooltip = {
+					name = "player_embrace_mage_decision_tooltip"	
+			set_character_flag = FLAG_NWOD_EMBRACE_MORTAL_MINOR_TITLE_FIRED
+			random_list = {
+				20 = {
+					death = { death_reason = death_murdered killer = FROM }
+				}
+				80 = { 
+					dynasty = FROM
+			
+					add_trait = fledgling
+			
+					if = { 
+						limit = { FROM = { is_female = no } }
+						set_father = FROM
+						set_mother = 0
+					}
+					else = {
+						set_father = 0
+						set_mother = FROM
+					}
+					FROM = {
+						POD_vampire_blood_thirst_increase_effect = yes
+					}
+					character_event = { id = vampire_embrace.3 }
+					character_event = { id = vampire_embrace.2
+												days = 1
+												random = 5
+					}			
+
+				}
+			}
+			random_list = {
+				10 = { add_trait = lunatic }
+				90 = { }
+			}
+			}
 		}
 	}
+	player_embrace_mage_ritual_decision = {
+		filter = court
+		ai = no
+		
+		from_potential = {
+			trait = vampire
+			NOT = { trait = vampgeneration15 }
+			OR = {
+				trait = thaumaturgy_3
+				trait = thaumaturgy_4
+				trait = thaumaturgy_5
+			}
+		}
+		
+		
+		potential = {
+			age = 16
+			trait = mage
+			NOT = { trait = vampire }
+		}
+		
+		effect = {
+			wealth = -200
+			custom_tooltip = {
+					name = "player_embrace_mage_ritual_decision_tooltip"	
+			set_character_flag = FLAG_NWOD_EMBRACE_MORTAL_MINOR_TITLE_FIRED
+			random_list = {
+				20 = {
+					death = { death_reason = death_murdered killer = FROM }
+				}
+				80 = { 
+					dynasty = FROM
+			
+					add_trait = fledgling
+			
+					if = { 
+						limit = { FROM = { is_female = no } }
+						set_father = FROM
+						set_mother = 0
+					}
+					else = {
+						set_father = 0
+						set_mother = FROM
+					}
+					FROM = {
+						POD_vampire_blood_thirst_increase_effect = yes
+					}
+					character_event = { id = vampire_embrace.4 }
+					character_event = { id = vampire_embrace.2
+												days = 1
+												random = 5
+					}			
+
+				}
+			}
+			random_list = {
+				10 = { add_trait = lunatic }
+				90 = { }
+			}
+			}
+		}
+	}
+}

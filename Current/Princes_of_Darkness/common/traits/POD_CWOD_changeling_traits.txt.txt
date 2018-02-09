@@ -7,6 +7,7 @@ changeling = {
 	  random = no
 	same_opinion = 5
 	opposite_opinion = -5
+	fertility = -0.15
 	
 	is_visible = {
 		OR = {
@@ -46,6 +47,7 @@ firstbornfae = {
 	health = 1
 	combat_rating = 1
 	immortal = no
+	fertility = -0.25	
 	  random = no
 	same_opinion = 5
 	opposite_opinion = -5	
@@ -81,6 +83,30 @@ firstbornfae = {
 	}	
 }
 
+kinain = {
+	inherit_chance = 0 
+	customizer = yes
+	health = 1
+	immortal = no
+	  random = no
+	same_opinion = 5
+	fertility = 0.15
+	
+	is_visible = {
+		OR = {
+		trait = changeling
+		trait = firstbornfae
+		trait = entranced_mortal
+		trait = auspex_1
+		trait = auspex_2
+		trait = auspex_3
+		trait = auspex_4
+		trait = auspex_5
+		trait = werewolf
+		trait = mage		
+		}
+	}
+}
 
 # Splats
 

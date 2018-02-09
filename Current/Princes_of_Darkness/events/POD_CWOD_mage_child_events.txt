@@ -9,9 +9,11 @@ character_event = {
 	min_age = 1
 	
 	trigger = {
-		NOT = { trait = changeling }
 		NOT = { trait = mage }
-		NOT = { trait = firstbornfae }
+		OR = {
+				mother = { trait = mage }
+				father = { trait = mage }
+		}		
 	}
 	
 	mean_time_to_happen = {

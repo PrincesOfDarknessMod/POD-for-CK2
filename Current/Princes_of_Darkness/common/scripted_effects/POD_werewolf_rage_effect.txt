@@ -4,19 +4,28 @@ POD_werewolf_rage_increase_effect = {
 		limit = { has_character_modifier = dire_rage	}
 		character_event = { id = POD_WEREWOLF_RAGE.5 }			
 	}	
-	else_if = { 
+	if = { 
 		limit = { has_character_modifier = dreadful_rage	}
 		character_event = { id = POD_WEREWOLF_RAGE.4 }			
 	}	
-	else_if = { 
+	if = { 
 		limit = { has_character_modifier = severe_rage	}
 		character_event = { id = POD_WEREWOLF_RAGE.3 }			
 	}	
-	else_if = { 
+	if = { 
 		limit = { has_character_modifier = rage }
 		character_event = { id = POD_WEREWOLF_RAGE.2 }			
 	}		
-	else = { 
+	if = { 
+		limit = {
+					OR =
+					{
+						NOT = { has_character_modifier = rage }
+						NOT = { has_character_modifier = severe_rage }
+						NOT = { has_character_modifier = dreadful_rage }
+						NOT = { has_character_modifier = dire_rage }
+					}
+				}
 		character_event = { id = POD_WEREWOLF_RAGE.1 }			
 	}
 }
@@ -27,17 +36,17 @@ POD_werewolf_rage_decrease_effect = {
 		character_event = { id = POD_WEREWOLF_RAGE.9 }			
 	}	
 
-	else_if = {
+	if = {
 		limit = { has_character_modifier = severe_rage	}
 		character_event = { id = POD_WEREWOLF_RAGE.8 }			
 	}
 
-	else_if = { 
+	if = { 
 		limit = { has_character_modifier = dreadful_rage	}
 		character_event = { id = POD_WEREWOLF_RAGE.7 }			
 	}	
 
-	else_if = { 
+	if = { 
 		limit = { has_character_modifier = dire_rage	}
 		character_event = { id = POD_WEREWOLF_RAGE.6 }			
 	}

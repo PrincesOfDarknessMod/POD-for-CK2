@@ -103,7 +103,7 @@ character_event = {
 				}
 				add_trait = brahmin
 			}	
-			else_if = {
+			if = {
 				limit = {
 					OR = {
 						primary_title = { holding_type = city }
@@ -131,12 +131,12 @@ character_event = {
 						
 						new_character =
 						{
-							save_event_target_as = new_dynasty
+							save_event_target_as = new_dynasty_character
 							ROOT = 
 							{ 
-								dynasty = event_target:new_dynasty 
+								dynasty = event_target:new_dynasty_character
 							}							
-							clear_event_target = event_target:new_dynasty
+							clear_event_target = event_target:new_dynasty_character
 							death = "yes"
 						}					
 							
@@ -144,7 +144,7 @@ character_event = {
 
 		random =
 		{
-			chance = 75
+			chance = 95
 			
 			if = 
 			{ limit = { ai = yes }
@@ -160,12 +160,12 @@ character_event = {
 						
 						new_character =
 						{
-							save_event_target_as = new_dynasty
+							save_event_target_as = new_dynasty_character
 							ROOT = 
 							{ 
-								dynasty = event_target:new_dynasty 
+								dynasty = event_target:new_dynasty_character 
 							}							
-							clear_event_target = event_target:new_dynasty
+							clear_event_target = event_target:new_dynasty_character
 							death = "yes"
 						}					
 							

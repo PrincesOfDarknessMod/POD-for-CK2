@@ -11,7 +11,7 @@ POD_vampire_governments_init_effect = {
 		}
 		set_government_type = estate_government
 	}		
-	else_if = {
+	if = {
 		limit = {
 			OR = {
 				religion = lancea_sanctum
@@ -24,7 +24,7 @@ POD_vampire_governments_init_effect = {
 		}
 		set_government_type = testament_government
 	}
-	else_if = {
+	if = {
 		limit = {
 			OR = {
 				religion_group = pagan_vampire_group
@@ -36,23 +36,23 @@ POD_vampire_governments_init_effect = {
 		}
 		set_government_type = cult_government
 	}	
-	else_if = { 
+	if = { 
 		limit = {
 			religion = unaligned
 		}
 		set_government_type = unaligned_government			
 	}	
-	else_if = { 
+	if = { 
 		limit = {
 			religion = carthian
 		}
 		set_government_type = free_state_government			
 	}
-	else_if = {
+	if = {
 		limit = { religion = al-amin }
 		set_government_type = al-amin_government
-	}
-	else_if = {
+		}
+	if = {
 		limit = { religion_group = dharmic_vampire_group }
 		set_government_type = dharmic_government
 	}			

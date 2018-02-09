@@ -3700,6 +3700,143 @@ train_daimoinon_5_decision = {
 	
 }
 
+
+train_visceratik_1_decision = {
+	potential = {
+			ai = no
+			age = 16
+			trait = vampire
+			NOT = { trait = visceratik_1 }
+			NOT = { trait = visceratik_2 }
+			NOT = { trait = visceratik_3 }
+			NOT = { trait = visceratik_4 }
+			NOT = { trait = visceratik_5 }
+			
+	}
 	
+	allow = {
+		prestige = 200
+			trait = vampire
+			NOT = { trait = visceratik_1 }
+			NOT = { trait = visceratik_2 }
+			NOT = { trait = visceratik_3 }
+			NOT = { trait = visceratik_4 }
+			NOT = { trait = visceratik_5 }
+	}
+	effect = {
+		prestige = -200
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = visceratik_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 0	
+				}
+		}
+
+
+train_visceratik_2_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire
+			trait = visceratik_1 
+	}	
+	
+	allow = {
+		prestige = 400
+		trait = visceratik_1 	
+	}
+	effect = {
+		prestige = -400
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = visceratik_2
+		remove_trait = visceratik_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0	
+		}
+	}
+
+train_visceratik_3_decision = {
+	
+	potential = {
+			ai = no
+
+			trait = vampire
+			trait = visceratik_2
+	}
+	allow = {
+		prestige = 600
+			trait = visceratik_2	
+	}
+	effect = {
+		prestige = -600
+		remove_trait = visceratik_2
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = visceratik_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0
+		}
+	}
+
+train_visceratik_4_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire		
+			trait = visceratik_3
+	}
+	allow = {
+		prestige = 800
+			trait = visceratik_3	
+	}
+	effect = {
+		prestige = -800
+		remove_trait = visceratik_3
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = visceratik_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}
+
+train_visceratik_5_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire			
+			trait = visceratik_4 
+	}
+	allow = {
+		prestige = 1200
+			trait = visceratik_4 		
+	}
+	effect = {
+		prestige = -1200
+		remove_trait = visceratik_4
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = visceratik_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}			
 	
 

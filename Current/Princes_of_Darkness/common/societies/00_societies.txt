@@ -2254,8 +2254,6 @@ hermetics = {
 	
 	active = {
 		has_dlc = "Mystics"
-		has_global_flag = "vanilla_mortal_societies"
-		
 	}
 	indestructible = yes
 	
@@ -2276,6 +2274,7 @@ hermetics = {
 		}
 		learning = 10
 		OR = {
+			religion = order_of_hermes
 			religion_group = christian
 			religion_group = muslim
 			religion_group = jewish_group
@@ -2311,6 +2310,7 @@ hermetics = {
 			religion = zun_pagan
 			religion = zun_pagan_reformed
 			religion = hellenic_pagan
+			religion = order_of_hermes
 		}
 	}
 	
@@ -2325,7 +2325,7 @@ hermetics = {
 	
 	society_rank = {
 		level = 1
-		limit = 200
+		limit = 1000
 		startup_limit = 10
 		modifier = {
 			church_opinion = -10
@@ -2484,6 +2484,7 @@ hermetics = {
 			age = 16
 			is_in_society = no
 			is_dumb_trigger = no
+			trait = mage
 			OR = {
 				NOT = { is_priest = yes }
 				OR = {
@@ -2517,13 +2518,7 @@ hermetics = {
 				}
 			}
 			OR = {
-				religion_group = christian
-				religion_group = muslim
-				religion_group = jewish_group
-				religion_group = zoroastrian_group
-				religion = zun_pagan
-				religion = zun_pagan_reformed
-				religion = hellenic_pagan
+				religion = order_of_hermes
 			}
 		}
 	}

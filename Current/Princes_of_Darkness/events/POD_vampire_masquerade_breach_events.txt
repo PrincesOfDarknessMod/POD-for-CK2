@@ -146,7 +146,8 @@ character_event = {
 		
 	}
 
-	immediate = { 
+	immediate = {
+
 			create_character = {
 				random_traits = yes
 				female = 50
@@ -531,24 +532,34 @@ character_event = {
 			}
 			new_character = { save_event_target_as = new_exposes_masquerade }
 			
-			event_target:vampire_judge_masquerade = {
-				opinion = {
-				who = event_target:new_exposes_masquerade
-				modifier = opinion_breached_masquerade 
-				years = 2
+			event_target:vampire_judge_masquerade = 
+			{
+				opinion = 
+				{
+					who = event_target:new_exposes_masquerade
+					modifier = opinion_breached_masquerade 
+					years = 2
 				}	
 			}
 
 
-			liege = { character_event = { id = POD_VAMPIRE_MASQUERADE_BREACH.3
-									days = 1
-						}	}
+			event_target:vampire_judge_masquerade = 
+			{ 
+				character_event = 
+				{ 
+					id = POD_VAMPIRE_MASQUERADE_BREACH.3
+					days = 1
+				}	
+			}
 
-			liege = { character_event = { id = POD_VAMPIRE_MASQUERADE_BREACH.4
-									days = 2
-						}	}
-
-						
+			event_target:vampire_judge_masquerade = 
+			{ 
+				character_event = 
+				{ 
+					id = POD_VAMPIRE_MASQUERADE_BREACH.4
+					days = 2
+				}	
+			}		
 				
 	}	
 
@@ -650,19 +661,28 @@ character_event = {
 # Kill them	
     option = {
         name = EVTOPTD_POD_VAMPIRE_MASQUERADE_BREACH1
-		event_target:new_exposes_masquerade = { death = { death_reason = death_murder_unknown killer = FROM } }
 		
-                event_target:vampire_judge_masquerade = {
-                    if = {
-                        limit = { NOT = { trait = cruel } }
-                        random = {
-                            chance = 25
-                            add_trait = cruel
-                        }
-                    }
-                }		
+        event_target:vampire_judge_masquerade = 
+		{
+            if = 
+			{
+                limit = 
+				{ 
+					NOT = 
+					{ 
+						trait = cruel 
+					} 
+				}
+                random = 
+				{
+                    chance = 25
+                    add_trait = cruel
+                }
+			}
+        }		
 				
-				random = {
+		random = 
+		{
 				chance = 5
 				
 				modifier = {				
@@ -743,7 +763,16 @@ character_event = {
                 event_target:vampire_judge_masquerade = {
                             add_trait = wounded
 						}
-			}				
+		}	
+
+		event_target:new_exposes_masquerade = 
+		{ 
+			death = 
+			{ 
+				death_reason = 
+					{ death_murder_unknown killer = vampire_judge_masquerade }
+			} 
+		}		
 				
     }
 	
@@ -780,8 +809,11 @@ character_event = {
 			}
 		}	
         name = EVTOPTA_POD_VAMPIRE_MASQUERADE_BREACH4
-		add_favor = event_target:vampire_exposes_masquerade
-
+		event_target:vampire_exposes_masquerade =
+		{
+			reverese_add_favor = event_target:vampire_judge_masquerade
+		}
+		
 		event_target:vampire_judge_masquerade = {
 		remove_opinion = { 
 				who = event_target:vampire_exposes_masquerade
@@ -892,7 +924,7 @@ character_event = {
 				}		
 						
 				
-				imprison = ROOT
+				imprison = event_target:vampire_exposes_masquerade
 			
 			}
 			}

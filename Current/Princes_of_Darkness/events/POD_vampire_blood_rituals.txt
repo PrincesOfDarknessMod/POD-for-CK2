@@ -1,0 +1,335 @@
+#######################################
+# Vampire Blood Rituals
+# 1-3 Gargoyle creation
+# 
+#
+#######################################
+namespace = vampire_blood_rituals
+#Initiate Gargoyle Ritual and choose type
+character_event = {
+	id = vampire_blood_rituals.1
+	picture = GFX_evt_secret_ceremony
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	immediate = { }
+	
+	desc = {
+		text = EVTDESC_POD_VAMPIRE_BLOOD_RITUAL_1
+		picture = GFX_evt_secret_ceremony
+	}
+
+	option = {
+		name = EVTOPTA_EVTDESC_POD_VAMPIRE_BLOOD_RITUAL_1 # Scout
+		FROM = { character_event = { id = vampire_blood_rituals.2 days = 2 } 
+			set_character_flag = POD_CREATE_GARGOYLE_SCOUT
+			wealth = -50
+		}
+	}
+	
+	option = {
+		name = EVTOPTB_EVTDESC_POD_VAMPIRE_BLOOD_RITUAL_1 # Warrior
+		FROM = { character_event = { id = vampire_blood_rituals.2 days = 2 }
+			set_character_flag = POD_CREATE_GARGOYLE_WARRIOR
+			wealth = -50
+		}
+	}
+	
+	option = {
+		name = EVTOPTC_EVTDESC_POD_VAMPIRE_BLOOD_RITUAL_1 # Sentinel
+		FROM = { character_event = { id = vampire_blood_rituals.2 days = 2 } 
+			set_character_flag = POD_CREATE_GARGOYLE_SENTINEL
+			wealth = -50
+		}
+	}
+	
+	option = {
+		name = EVTOPTD_EVTDESC_POD_VAMPIRE_BLOOD_RITUAL_1 # Decline ritual
+		
+		FROM = { character_event = { id = vampire_blood_rituals.2 days = 2 } }
+	}
+}
+#Create gargoyle
+character_event = {
+	id = vampire_blood_rituals.2
+	picture = GFX_evt_magic_ritual
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = { is_female = no }			
+			random_list = {	
+				50 = {
+					create_character = {
+						random_traits = yes
+						trait = vampire
+						female = no
+						dynasty = 4750097
+						culture = nosferatu
+						religion = ROOT
+					}
+					new_character = {
+						add_trait = fledgling
+						if = { limit = { trait = slow } 
+							remove_trait = slow
+						}
+						if = { limit = { trait = imbecile } 
+							remove_trait = imbecile
+						}						
+						if = { limit = { trait = inbred } 
+							remove_trait = inbred
+						}								
+						if = { limit = { FROM = { has_character_flag = POD_CREATE_GARGOYLE_SCOUT } }
+							FROM = { clr_character_flag = POD_CREATE_GARGOYLE_SCOUT }
+							set_character_flag = POD_GARGOYLE_SCOUT
+						}
+						if = { limit = { FROM = { has_character_flag = POD_CREATE_GARGOYLE_WARRIOR } }
+							FROM = { clr_character_flag = POD_CREATE_GARGOYLE_WARRIOR }
+							set_character_flag = POD_GARGOYLE_WARRIOR
+						}
+						if = { limit = { FROM = { has_character_flag = POD_CREATE_GARGOYLE_SENTINEL } }
+							FROM = { clr_character_flag = POD_CREATE_GARGOYLE_SENTINEL }
+							set_character_flag = POD_GARGOYLE_SENTINEL
+						}
+						add_trait = bloodbound
+						opinion = {
+						modifier = opinion_blood_bond_to_domitor
+							who = FROM
+							years = 1000
+						}
+						recalc_succession = yes
+						character_event = { id = vampire_blood_rituals.3
+											days = 1
+						}						
+					}
+				}
+				50 = {
+					create_character = {
+						random_traits = yes
+						trait = vampire
+						female = yes
+						dynasty = 4750097
+						culture = nosferatu
+						religion = ROOT
+					}
+					new_character = {
+						add_trait = fledgling
+						if = { limit = { trait = slow } 
+							remove_trait = slow
+						}
+						if = { limit = { trait = imbecile } 
+							remove_trait = imbecile
+						}						
+						if = { limit = { trait = inbred } 
+							remove_trait = inbred
+						}
+						if = { limit = { FROM = { has_character_flag = POD_CREATE_GARGOYLE_SCOUT } }
+							FROM = { clr_character_flag = POD_CREATE_GARGOYLE_SCOUT }
+							set_character_flag = POD_GARGOYLE_SCOUT
+						}
+						if = { limit = { FROM = { has_character_flag = POD_CREATE_GARGOYLE_WARRIOR } }
+							FROM = { clr_character_flag = POD_CREATE_GARGOYLE_WARRIOR }
+							set_character_flag = POD_GARGOYLE_WARRIOR
+						}
+						if = { limit = { FROM = { has_character_flag = POD_CREATE_GARGOYLE_SENTINEL } }
+							FROM = { clr_character_flag = POD_CREATE_GARGOYLE_SENTINEL }
+							set_character_flag = POD_GARGOYLE_SENTINEL
+						}
+						add_trait = bloodbound
+						opinion = {
+						modifier = opinion_blood_bond_to_domitor
+							who = FROM
+							years = 1000
+						}
+						recalc_succession = yes
+						character_event = { id = vampire_blood_rituals.3
+											days = 1
+						}						
+					}
+				}
+			}	
+		}
+		if = {
+			limit = { is_female = yes }			
+			random_list = {	
+				50 = {
+					create_character = {
+						random_traits = yes
+						trait = vampire
+						female = no
+						dynasty = 4750097
+						culture = nosferatu
+						religion = ROOT
+					}
+					new_character = {
+						add_trait = fledgling
+						if = { limit = { trait = slow } 
+							remove_trait = slow
+						}
+						if = { limit = { trait = imbecile } 
+							remove_trait = imbecile
+						}						
+						if = { limit = { trait = inbred } 
+							remove_trait = inbred
+						}
+						if = { limit = { FROM = { has_character_flag = POD_CREATE_GARGOYLE_SCOUT } }
+							FROM = { clr_character_flag = POD_CREATE_GARGOYLE_SCOUT }
+							set_character_flag = POD_GARGOYLE_SCOUT
+						}
+						if = { limit = { FROM = { has_character_flag = POD_CREATE_GARGOYLE_WARRIOR } }
+							FROM = { clr_character_flag = POD_CREATE_GARGOYLE_WARRIOR }
+							set_character_flag = POD_GARGOYLE_WARRIOR
+						}
+						if = { limit = { FROM = { has_character_flag = POD_CREATE_GARGOYLE_SENTINEL } }
+							FROM = { clr_character_flag = POD_CREATE_GARGOYLE_SENTINEL }
+							set_character_flag = POD_GARGOYLE_SENTINEL
+						}
+						add_trait = bloodbound
+						opinion = {
+						modifier = opinion_blood_bond_to_domitor
+							who = FROM
+							years = 1000
+						} 
+						recalc_succession = yes
+						character_event = { id = vampire_blood_rituals.3
+											days = 1
+						}						
+					}
+				}
+				50 = {
+					create_character = {
+						random_traits = yes
+						trait = vampire													
+						female = yes
+						dynasty = 4750097
+						culture = ROOT
+						religion = ROOT	
+					}
+					new_character = {
+						add_trait = fledgling
+						if = { limit = { trait = slow } 
+							remove_trait = slow
+						}
+						if = { limit = { trait = imbecile } 
+							remove_trait = imbecile
+						}						
+						if = { limit = { trait = inbred } 
+							remove_trait = inbred
+						}
+						if = { limit = { FROM = { has_character_flag = POD_CREATE_GARGOYLE_SCOUT } }
+							FROM = { clr_character_flag = POD_CREATE_GARGOYLE_SCOUT }
+							set_character_flag = POD_GARGOYLE_SCOUT
+						}
+						if = { limit = { FROM = { has_character_flag = POD_CREATE_GARGOYLE_WARRIOR } }
+							FROM = { clr_character_flag = POD_CREATE_GARGOYLE_WARRIOR }
+							set_character_flag = POD_GARGOYLE_WARRIOR
+						}
+						if = { limit = { FROM = { has_character_flag = POD_CREATE_GARGOYLE_SENTINEL } }
+							FROM = { clr_character_flag = POD_CREATE_GARGOYLE_SENTINEL }
+							set_character_flag = POD_GARGOYLE_SENTINEL
+						}
+						add_trait = bloodbound
+						opinion = {
+						modifier = opinion_blood_bond_to_domitor
+							who = FROM
+							years = 1000
+						}
+						recalc_succession = yes
+						
+						character_event = { id = vampire_blood_rituals.3
+											days = 1
+						}
+					}
+				}
+			}	
+		}
+		FROM = {
+			POD_vampire_blood_thirst_increase_effect = yes
+		}
+	}
+	
+	desc = {
+		text = EVTDESC_POD_VAMPIRE_BLOOD_RITUAL_2
+		picture = GFX_evt_secret_ceremony
+	}
+	
+	option = {
+		name = EVTOPTA_EVTDESC_POD_VAMPIRE_BLOOD_RITUAL_2 # Arise
+	}
+}
+#modified fledgling event for gargoyle creation
+character_event = {
+	id = vampire_blood_rituals.3
+	hide_window = yes
+	is_triggered_only = yes
+	 
+	trigger = {
+		trait = fledgling
+	}
+
+	immediate = {
+		set_character_flag = FLAG_POD_EMBRACE_EVENT_FIRED
+		remove_trait = mortal
+		remove_trait = fledgling
+		if = { 
+			limit = { trait = ghoul } 
+			remove_trait = ghoul 
+			remove_trait = vigor_1
+		}	
+		if = { 
+			limit = { trait = revenant } 
+			remove_trait = revenant
+		}		
+		add_trait = vampire
+		add_trait = wyrm_taint
+		add_trait = neonate
+		add_trait = bloodpotency_1
+		add_trait = gargoyle
+		
+		random_list = {
+			20 = {
+				add_trait = vampgeneration8
+			}
+			20 = {
+				add_trait = vampgeneration9
+			}
+			20 = {
+				add_trait = vampgeneration10
+			}
+			20 = {
+				add_trait = vampgeneration11
+			}
+			20 = {
+				add_trait = vampgeneration12
+			}
+		}
+		if = { limit = { has_character_flag = POD_GARGOYLE_SCOUT }
+			clr_character_flag = POD_GARGOYLE_SCOUT
+			add_trait = auspex_1
+			add_trait = protean_1
+			add_trait = celerity_1
+		}
+		if = { limit = { has_character_flag = POD_GARGOYLE_WARRIOR }
+			clr_character_flag = POD_GARGOYLE_WARRIOR
+			add_trait = resilience_1
+			add_trait = protean_1
+			add_trait = celerity_1
+		}
+		if = { limit = { has_character_flag = POD_GARGOYLE_SENTINEL }
+			clr_character_flag = POD_GARGOYLE_SENTINEL
+			add_trait = resilience_1
+			add_trait = vigor_1
+			add_trait = celerity_1
+		}
+
+		add_trait = "flight"
+		add_trait = "visceratik_1"
+		POD_CWOD_vampire_governments_init_effect = yes
+		POD_CWOD_vampire_disciplines_init_effect = yes	
+		POD_vampire_blood_thirst_increase_effect = yes
+		
+	}		
+}
