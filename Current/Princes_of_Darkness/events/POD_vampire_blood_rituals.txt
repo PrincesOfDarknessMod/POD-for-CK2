@@ -68,7 +68,7 @@ character_event = {
 						trait = vampire
 						female = no
 						dynasty = 4750097
-						culture = nosferatu
+						culture = ROOT
 						religion = ROOT
 					}
 					new_character = {
@@ -100,6 +100,8 @@ character_event = {
 							who = FROM
 							years = 1000
 						}
+						set_graphical_culture = nosferatu
+						remove_trait = fair
 						recalc_succession = yes
 						character_event = { id = vampire_blood_rituals.3
 											days = 1
@@ -112,7 +114,7 @@ character_event = {
 						trait = vampire
 						female = yes
 						dynasty = 4750097
-						culture = nosferatu
+						culture = ROOT
 						religion = ROOT
 					}
 					new_character = {
@@ -144,6 +146,8 @@ character_event = {
 							who = FROM
 							years = 1000
 						}
+						set_graphical_culture = nosferatu
+						remove_trait = fair
 						recalc_succession = yes
 						character_event = { id = vampire_blood_rituals.3
 											days = 1
@@ -161,7 +165,7 @@ character_event = {
 						trait = vampire
 						female = no
 						dynasty = 4750097
-						culture = nosferatu
+						culture = ROOT
 						religion = ROOT
 					}
 					new_character = {
@@ -193,6 +197,8 @@ character_event = {
 							who = FROM
 							years = 1000
 						} 
+						set_graphical_culture = nosferatu
+						remove_trait = fair
 						recalc_succession = yes
 						character_event = { id = vampire_blood_rituals.3
 											days = 1
@@ -238,7 +244,8 @@ character_event = {
 							years = 1000
 						}
 						recalc_succession = yes
-						
+						set_graphical_culture = nosferatu
+						remove_trait = fair
 						character_event = { id = vampire_blood_rituals.3
 											days = 1
 						}
@@ -309,24 +316,22 @@ character_event = {
 		if = { limit = { has_character_flag = POD_GARGOYLE_SCOUT }
 			clr_character_flag = POD_GARGOYLE_SCOUT
 			add_trait = auspex_1
-			add_trait = protean_1
-			add_trait = celerity_1
+			add_trait = visceratika_1
+			add_trait = flight_1
 		}
 		if = { limit = { has_character_flag = POD_GARGOYLE_WARRIOR }
 			clr_character_flag = POD_GARGOYLE_WARRIOR
-			add_trait = resilience_1
-			add_trait = protean_1
-			add_trait = celerity_1
+			add_trait = vigor_1
+			add_trait = visceratika_1
+			add_trait = flight_1
 		}
 		if = { limit = { has_character_flag = POD_GARGOYLE_SENTINEL }
 			clr_character_flag = POD_GARGOYLE_SENTINEL
 			add_trait = resilience_1
-			add_trait = vigor_1
-			add_trait = celerity_1
+			add_trait = visceratika_1
+			add_trait = flight_1
 		}
 
-		add_trait = "flight"
-		add_trait = "visceratik_1"
 		POD_CWOD_vampire_governments_init_effect = yes
 		POD_CWOD_vampire_disciplines_init_effect = yes	
 		POD_vampire_blood_thirst_increase_effect = yes

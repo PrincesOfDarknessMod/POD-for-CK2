@@ -1,5 +1,11 @@
 namespace = POD_VAMPIRE_UNIT_SPAWN
-
+##############################
+# Vampire Unit Spawn Events
+# 1 - 5 Player choice spawn events
+# 6 - 7 AI Pulse triggered spawn events
+#
+#
+##############################
 character_event = {
 	id = POD_VAMPIRE_UNIT_SPAWN.1
     desc = EVTDESC_POD_VAMPIRE_UNIT_SPAWN1
@@ -235,4 +241,104 @@ character_event = {
 	option = {
 		name = EVTOPTB_POD_VAMPIRE_UNIT_SPAWN5
 	}	
+}
+
+#Tremere AI Spawns gargoyles bi-annually by chance
+character_event = {
+	id = POD_VAMPIRE_UNIT_SPAWN.6
+	hide_window = yes
+	is_triggered_only = yes
+	only_playable = yes
+	ai = yes
+	min_age  = 50
+	only_capable = yes
+	
+	immediate = {
+		if = { 
+			limit = {
+				AND = {
+					trait = vampire
+					trait = tremere
+					trait = thaumaturgy_5
+				}
+			}	 
+		}
+		random = {
+			chance = 40
+			location = {
+			ROOT = {
+				spawn_unit = {
+					province = PREV
+					troops = {
+						mass_gargoyles = {
+							50 50
+						}
+						mass_gargoyles = {
+							50 50
+						}
+						mass_gargoyles = {
+							50 50
+						}
+						mass_gargoyles = {
+							50 50
+						}						
+					}
+				
+				}
+			}
+			}
+		}
+	}
+}
+
+#Tzimisce AI lords spawn Szlachta bi-annually
+character_event = {
+	id = POD_VAMPIRE_UNIT_SPAWN.7
+	hide_window = yes
+	is_triggered_only = yes
+	only_playable = yes
+	ai = yes
+	min_age  = 50
+	only_capable = yes
+	
+	immediate = {
+		if = { 
+			limit = {
+				AND = {
+					trait = vampire
+					trait = tzimisce
+					OR = {
+						trait = vicissitude_3
+						trait = vicissitude_4
+						trait = vicissitude_5
+					}
+				}
+			}	 
+		}
+		random = {
+			chance = 40
+			location = {
+			ROOT = {
+				spawn_unit = {
+					province = PREV
+					troops = {
+						mass_szlachta = {
+							50 50
+						}
+						mass_szlachta = {
+							50 50
+						}
+						mass_szlachta = {
+							50 50
+						}
+						mass_szlachta = {
+							50 50
+						}						
+					}
+				
+				}
+			}
+			}
+		}
+	}
 }

@@ -3701,33 +3701,34 @@ train_daimoinon_5_decision = {
 }
 
 
-train_visceratik_1_decision = {
+train_viceratika_1_decision = {
 	potential = {
 			ai = no
 			age = 16
 			trait = vampire
-			NOT = { trait = visceratik_1 }
-			NOT = { trait = visceratik_2 }
-			NOT = { trait = visceratik_3 }
-			NOT = { trait = visceratik_4 }
-			NOT = { trait = visceratik_5 }
+			trait = gargoyle
+			NOT = { trait = viceratika_1 }
+			NOT = { trait = viceratika_2 }
+			NOT = { trait = viceratika_3 }
+			NOT = { trait = viceratika_4 }
+			NOT = { trait = viceratika_5 }
 			
 	}
 	
 	allow = {
 		prestige = 200
 			trait = vampire
-			NOT = { trait = visceratik_1 }
-			NOT = { trait = visceratik_2 }
-			NOT = { trait = visceratik_3 }
-			NOT = { trait = visceratik_4 }
-			NOT = { trait = visceratik_5 }
+			NOT = { trait = viceratika_1 }
+			NOT = { trait = viceratika_2 }
+			NOT = { trait = viceratika_3 }
+			NOT = { trait = viceratika_4 }
+			NOT = { trait = viceratika_5 }
 	}
 	effect = {
 		prestige = -200
 		POD_vampire_blood_thirst_increase_effect = yes
 		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
-		add_trait = visceratik_1
+		add_trait = viceratika_1
 	}
 	
 	revoke_allowed = { always = no }
@@ -3737,24 +3738,25 @@ train_visceratik_1_decision = {
 		}
 
 
-train_visceratik_2_decision = {
+train_viceratika_2_decision = {
 	
 	potential = {
 			ai = no
 			trait = vampire
-			trait = visceratik_1 
+			trait = gargoyle
+			trait = viceratika_1 
 	}	
 	
 	allow = {
 		prestige = 400
-		trait = visceratik_1 	
+		trait = viceratika_1 	
 	}
 	effect = {
 		prestige = -400
 		POD_vampire_blood_thirst_increase_effect = yes
 		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
-		add_trait = visceratik_2
-		remove_trait = visceratik_1
+		add_trait = viceratika_2
+		remove_trait = viceratika_1
 	}
 	
 	revoke_allowed = { always = no }
@@ -3763,24 +3765,24 @@ train_visceratik_2_decision = {
 		}
 	}
 
-train_visceratik_3_decision = {
+train_viceratika_3_decision = {
 	
 	potential = {
 			ai = no
-
+			trait = gargoyle
 			trait = vampire
-			trait = visceratik_2
+			trait = viceratika_2
 	}
 	allow = {
 		prestige = 600
-			trait = visceratik_2	
+			trait = viceratika_2	
 	}
 	effect = {
 		prestige = -600
-		remove_trait = visceratik_2
+		remove_trait = viceratika_2
 		POD_vampire_blood_thirst_increase_effect = yes
 		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
-		add_trait = visceratik_3
+		add_trait = viceratika_3
 	}
 	
 	revoke_allowed = { always = no }
@@ -3789,23 +3791,24 @@ train_visceratik_3_decision = {
 		}
 	}
 
-train_visceratik_4_decision = {
+train_viceratika_4_decision = {
 	
 	potential = {
 			ai = no
+			trait = gargoyle
 			trait = vampire		
-			trait = visceratik_3
+			trait = viceratika_3
 	}
 	allow = {
 		prestige = 800
-			trait = visceratik_3	
+			trait = viceratika_3	
 	}
 	effect = {
 		prestige = -800
-		remove_trait = visceratik_3
+		remove_trait = viceratika_3
 		POD_vampire_blood_thirst_increase_effect = yes
 		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
-		add_trait = visceratik_4
+		add_trait = viceratika_4
 			}
 	
 	revoke_allowed = { always = no }
@@ -3814,23 +3817,24 @@ train_visceratik_4_decision = {
 			}
 	}
 
-train_visceratik_5_decision = {
+train_viceratika_5_decision = {
 	
 	potential = {
 			ai = no
+			trait = gargoyle
 			trait = vampire			
-			trait = visceratik_4 
+			trait = viceratika_4 
 	}
 	allow = {
 		prestige = 1200
-			trait = visceratik_4 		
+			trait = viceratika_4 		
 	}
 	effect = {
 		prestige = -1200
-		remove_trait = visceratik_4
+		remove_trait = viceratika_4
 		POD_vampire_blood_thirst_increase_effect = yes
 		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
-		add_trait = visceratik_5
+		add_trait = viceratika_5
 	}
 	
 	revoke_allowed = { always = no }
@@ -3839,4 +3843,146 @@ train_visceratik_5_decision = {
 			}
 	}			
 	
+	
+train_flight_1_decision = {
+	potential = {
+			ai = no
+			age = 16
+			trait = vampire
+			trait = gargoyle
+			NOT = { trait = flight_1 }
+			NOT = { trait = flight_2 }
+			NOT = { trait = flight_3 }
+			NOT = { trait = flight_4 }
+			NOT = { trait = flight_5 }
+			
+	}
+	
+	allow = {
+		prestige = 200
+			trait = vampire
+			NOT = { trait = flight_1 }
+			NOT = { trait = flight_2 }
+			NOT = { trait = flight_3 }
+			NOT = { trait = flight_4 }
+			NOT = { trait = flight_5 }
+	}
+	effect = {
+		prestige = -200
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = flight_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+				factor = 0	
+				}
+		}
 
+
+train_flight_2_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire
+			trait = flight_1 
+			trait = gargoyle
+	}	
+	
+	allow = {
+		prestige = 400
+		trait = flight_1 	
+	}
+	effect = {
+		prestige = -400
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = flight_2
+		remove_trait = flight_1
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0	
+		}
+	}
+
+train_flight_3_decision = {
+	
+	potential = {
+			ai = no
+			trait = gargoyle
+			trait = vampire
+			trait = flight_2
+	}
+	allow = {
+		prestige = 600
+			trait = flight_2	
+	}
+	effect = {
+		prestige = -600
+		remove_trait = flight_2
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = flight_3
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0
+		}
+	}
+
+train_flight_4_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire		
+			trait = flight_3
+			trait = gargoyle
+	}
+	allow = {
+		prestige = 800
+			trait = flight_3	
+	}
+	effect = {
+		prestige = -800
+		remove_trait = flight_3
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = flight_4
+			}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}
+
+train_flight_5_decision = {
+	
+	potential = {
+			ai = no
+			trait = vampire			
+			trait = flight_4 
+			trait = gargoyle
+	}
+	allow = {
+		prestige = 1200
+			trait = flight_4 		
+	}
+	effect = {
+		prestige = -1200
+		remove_trait = flight_4
+		POD_vampire_blood_thirst_increase_effect = yes
+		character_event = { id = POD_VAMPIRE_TRAIN_DISCIPLINE.1  }
+		add_trait = flight_5
+	}
+	
+	revoke_allowed = { always = no }
+	ai_will_do = {
+			factor = 0				
+			}
+	}		
+		
