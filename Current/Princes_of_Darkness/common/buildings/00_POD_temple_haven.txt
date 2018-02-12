@@ -1,0 +1,512 @@
+ # Triggers are in Province scope. The From Scope contains the settlement holder (character)
+ # start trigger is in title scope.
+ 
+ #<tag> = {
+ #	desc = description used in the tooltip of the building
+ #	trigger = used for tech requirement of the building, set to 0 if no requirement so it can be build automatically on new games
+ #	gold_cost = cost to build the building
+ #	build_time = time to build, in days
+ #	
+ #	ai_creation_factor = weight that the AI uses to determine what building to build
+ #	extra_tech_building_start = when starting a new game this building will be pre-built if the province has higher tech than the requirement + this + random 0-1
+ #}
+ 
+# Haven: add fort level
+# Kennel: add blood hounds special unit
+# Brothel: add province blood, add monthly gold
+# Tavern: add province blood, add monthly gold
+# Crypt: add fort level
+# Sewer: add fort level 
+# Smuggler Ring: add ships
+# Hidden Cove: add ships
+# Pirate Fleet: add ships
+# Blacksmith
+# Silversmith: give a damage bonus against werewolves
+# Gargoyle rookery (workshop?): add gargoyles as a special unit
+
+ # Temple
+temple = {
+
+# Basic safe haven
+	tp_haven_1 = {
+		desc = tp_haven_1_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 0 }
+		gold_cost = 75
+		build_time = 30
+		fort_level = 0.1
+		ai_creation_factor = 80
+		extra_tech_building_start = 1.0
+		add_number_to_name = no
+	}
+	tp_haven_2 = {
+		desc = tp_haven_2_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 1 }
+		upgrades_from = tp_haven_1
+		gold_cost = 125
+		build_time = 90
+		fort_level = 0.2
+		ai_creation_factor = 79
+		extra_tech_building_start = 0.0
+		add_number_to_name = no
+	}
+	tp_haven_3 = {
+		desc = tp_haven_3_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 2 }
+		upgrades_from = tp_haven_2
+		gold_cost = 200
+		build_time = 356
+		#fort_level = 0.3
+		ai_creation_factor = 78
+		extra_tech_building_start = 0.0
+		add_number_to_name = no		
+	}
+	tp_haven_4 = {
+		desc = tp_haven_4_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 3 }
+		upgrades_from = tp_haven_3
+		gold_cost = 300
+		build_time = 1000
+		fort_level = 0.4
+		ai_creation_factor = 78
+		extra_tech_building_start = 0.0
+		add_number_to_name = no		
+	}
+	tp_haven_5 = {
+		desc = tp_haven_5_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 4 }
+		upgrades_from = tp_haven_2
+		gold_cost = 400
+		build_time = 1250
+		fort_level = 0.5
+		ai_creation_factor = 78
+		extra_tech_building_start = 0.0
+		add_number_to_name = no		
+	}	
+
+# Temple Guard 
+
+# Bribed Temple Guard (Level 1)
+	tp_temple_guard_1 = {	
+		desc = tp_temple_guard_1_desc
+		trigger = { TECH_TEMPLE_CONSTRUCTION = 0 }
+		gold_cost = 10
+		build_time = 7
+		light_infantry = 1
+		garrison_size = 0.01
+		ai_creation_factor = 99
+		extra_tech_building_start = 0.0
+		# Helps Masquerade
+		add_number_to_name = no
+	}
+
+# Influenced Temple Guard Sergeant (Level 2)	
+	tp_temple_guard_2 = {
+		desc = tp_temple_guard_2_desc
+		upgrades_from = tp_temple_guard_1
+		trigger = { TECH_TEMPLE_CONSTRUCTION = 1 }
+		gold_cost = 50
+		build_time = 30
+		light_infantry = 10
+		heavy_infantry = 5
+		garrison_size = 0.02
+		ai_creation_factor = 98
+		extra_tech_building_start = 0.0
+		# Helps Masquerade
+		add_number_to_name = no
+	}	
+	
+# Ghouled Temple Guard Commander (Level 2.G)
+	tp_temple_guard_2g = {
+		desc = tp_temple_guard_2g_desc
+		potential = {
+			FROM = {
+						trait = vampire
+			}
+		}		
+		prerequisites = { tp_temple_guard_2 }
+		trigger = { TECH_TEMPLE_CONSTRUCTION = 1 }
+		gold_cost = 10
+		build_time = 7
+		heavy_infantry = 10
+		light_infantry = 25	
+		garrison_size = 0.03		
+		ai_creation_factor = 96
+		extra_tech_building_start = 0.0
+		# -1 province blood for ghoul
+		add_number_to_name = no		
+	}	
+
+# Controlled Temple Guard(Level 3)	
+	tp_temple_guard_3 = {
+		desc = tp_temple_guard_3_desc
+		upgrades_from = tp_temple_guard_2
+		trigger = { TECH_TEMPLE_CONSTRUCTION = 2 }
+		gold_cost = 400
+		build_time = 356
+		light_infantry = 50
+		heavy_infantry = 25 
+		garrison_size = 0.03
+		ai_creation_factor = 95
+		extra_tech_building_start = 0.0
+		# Helps Masquerade
+		add_number_to_name = no		
+	}
+	
+# Conditioned Temple Guard (Level 3.C)
+	tp_temple_guard_3c = {
+		desc = tp_temple_guard_3c_desc
+		potential = {
+			FROM = {
+						OR = { 
+							trait = dominate_4
+							trait = dominate_5
+						}
+			}
+		}		
+		prerequisites = { tp_temple_guard_3 }
+		trigger = { TECH_TEMPLE_CONSTRUCTION = 3 }
+		gold_cost = 250
+		build_time = 180
+		heavy_infantry = 10
+		garrison_size = 0.02	
+		light_infantry = 25
+		ai_creation_factor = 97
+		extra_tech_building_start = 0.0
+		add_number_to_name = no		
+	}		
+
+# Monastery
+
+# Bribed Acolyte (Level 1)
+	tp_monastery_1 = {	
+		desc = tp_monastery_1_desc
+		trigger = { TECH_TEMPLE_CONSTRUCTION = 0 }
+		gold_cost = 9
+		build_time = 7
+		light_infantry = 1
+		ai_creation_factor = 99
+		extra_tech_building_start = 0.0
+		# +1 province blood
+		add_number_to_name = no		
+	}
+
+# Influenced Brother (Level 2)	
+	tp_monastery_2 = {
+		desc = tp_monastery_2_desc
+		upgrades_from = tp_monastery_1
+		trigger = { TECH_TEMPLE_CONSTRUCTION = 1 }
+		gold_cost = 50
+		build_time = 30
+		tax_income = 2
+		light_infantry = 3
+		ai_creation_factor = 98
+		extra_tech_building_start = 0.0
+		# +4 province blood
+		add_number_to_name = no		
+	}	
+
+# Ghouled Father Superior (Level 2.G)
+	tp_monastery_2g = {
+		desc = tp_monastery_2g_desc
+		potential = {
+			FROM = {
+						trait = vampire
+			}
+		}		
+		prerequisites = { tp_monastery_2 }
+		trigger = { TECH_TEMPLE_CONSTRUCTION = 1 }
+		gold_cost = 10
+		build_time = 7
+		tax_income = 3
+		light_infantry = 3
+		ai_creation_factor = 96
+		extra_tech_building_start = 0.0
+		# +8 province blood (+9 province blood, -1 for ghoul)
+		add_number_to_name = no		
+	}	
+	
+# Controlled Monastery (Level 3)	
+	tp_monastery_3 = {
+		desc = tp_monastery_3_desc
+		upgrades_from = tp_monastery_2
+		trigger = { TECH_TEMPLE_CONSTRUCTION = 2 }
+		gold_cost = 400
+		build_time = 356
+		tax_income = 3
+		light_infantry = 5
+		ai_creation_factor = 95
+		extra_tech_building_start = 0.0
+		# +9 province blood
+		add_number_to_name = no		
+	}
+	
+# Conditioned Monks (Level 3.C)
+	tp_monastery_3c = {
+		desc = tp_monastery_3c_desc
+		potential = {
+			FROM = {
+						OR = { 
+							trait = dominate_4
+							trait = dominate_5
+						}
+			}
+		}		
+		prerequisites = { tp_monastery_3 }
+		trigger = { TECH_TEMPLE_CONSTRUCTION = 3 }
+		gold_cost = 250
+		build_time = 180
+		tax_income = 3
+		light_infantry = 3
+		ai_creation_factor = 97
+		extra_tech_building_start = 0.0
+		# +8 province blood 
+		add_number_to_name = no		
+	}	
+
+# Nunnery
+
+# Bribed Acolyte (Level 1)
+	tp_convent_1 = {	
+		desc = tp_convent_1_desc
+		trigger = { TECH_TEMPLE_CONSTRUCTION = 0 }
+		gold_cost = 9
+		build_time = 7
+		light_infantry = 1
+		ai_creation_factor = 99
+		extra_tech_building_start = 0.0
+		# +1 province blood
+		add_number_to_name = no		
+	}
+
+# Influenced Sister (Level 2)	
+	tp_convent_2 = {
+		desc = tp_convent_2_desc
+		upgrades_from = tp_convent_1
+		trigger = { TECH_TEMPLE_CONSTRUCTION = 1 }
+		gold_cost = 50
+		build_time = 30
+		tax_income = 2
+		light_infantry = 3
+		ai_creation_factor = 98
+		extra_tech_building_start = 0.0
+		# +4 province blood
+		add_number_to_name = no		
+	}	
+
+# Ghouled Mother Superior (Level 2.G)
+	tp_convent_2g = {
+		desc = tp_convent_2g_desc
+		potential = {
+			FROM = {
+						trait = vampire
+			}
+		}		
+		prerequisites = { tp_convent_2 }
+		trigger = { TECH_TEMPLE_CONSTRUCTION = 1 }
+		gold_cost = 10
+		build_time = 7
+		tax_income = 3
+		light_infantry = 3
+		ai_creation_factor = 96
+		extra_tech_building_start = 0.0
+		# +8 province blood (+9 province blood, -1 for ghoul)
+		add_number_to_name = no		
+	}	
+	
+# Controlled Nunnery (Level 3)	
+	tp_convent_3 = {
+		desc = tp_convent_3_desc
+		upgrades_from = tp_convent_2
+		trigger = { TECH_TEMPLE_CONSTRUCTION = 2 }
+		gold_cost = 400
+		build_time = 356
+		tax_income = 3
+		light_infantry = 5
+		ai_creation_factor = 95
+		extra_tech_building_start = 0.0
+		# +9 province blood
+		add_number_to_name = no		
+	}
+	
+# Conditioned Nuns (Level 3.C)
+	tp_convent_3c = {
+		desc = tp_convent_3c_desc
+		potential = {
+			FROM = {
+						OR = { 
+							trait = dominate_4
+							trait = dominate_5
+						}
+			}
+		}		
+		prerequisites = { tp_convent_3 }
+		trigger = { TECH_TEMPLE_CONSTRUCTION = 3 }
+		gold_cost = 250
+		build_time = 180
+		tax_income = 3
+		light_infantry = 3
+		ai_creation_factor = 97
+		extra_tech_building_start = 0.0
+		# +8 province blood 
+		add_number_to_name = no		
+	}	
+	
+# Smuggler
+
+# Bribed Smuggler (Level 1)
+	tp_smuggler_1 = {	
+		desc = tp_smuggler_1_desc
+		trigger = { TECH_NAVAL = 0 }
+		port = yes
+		gold_cost = 9
+		build_time = 7
+		light_infantry = 1
+		galleys = 1
+		tax_income = 0.5
+		ai_creation_factor = 80
+		extra_tech_building_start = 0.0
+		add_number_to_name = no		
+	}
+
+# Influenced Smuggler Ring (Level 2)	
+	tp_smuggler_2 = {
+		desc = tp_smuggler_2_desc
+		upgrades_from = tp_smuggler_1
+		trigger = { TECH_NAVAL = 1 }
+		port = yes
+		gold_cost = 50
+		build_time = 30
+		galleys = 5
+		tax_income = 1
+		light_infantry = 5
+		ai_creation_factor = 79
+		extra_tech_building_start = 0.0
+		# +4 province blood
+		add_number_to_name = no		
+	}	
+
+# Ghouled Pirate Lord (Level 2.G)
+	tp_smuggler_2g = {
+		desc = tp_smuggler_2g_desc
+		potential = {
+			FROM = {
+						trait = vampire
+			}
+		}		
+		prerequisites = { tp_smuggler_2 }
+		trigger = { TECH_NAVAL = 1 }
+		port = yes
+		gold_cost = 10
+		build_time = 7
+		tax_income = 3
+		light_infantry = 10
+		galleys = 10
+		ai_creation_factor = 77
+		extra_tech_building_start = 0.0
+		# -1 province blood for ghoul		
+		add_number_to_name = no		
+	}	
+	
+# Controlled Pirate Fleet (Level 3)	
+	tp_smuggler_3 = {
+		desc = tp_smuggler_3_desc
+		upgrades_from = tp_smuggler_2
+		trigger = { TECH_NAVAL = 2 }
+		port = yes
+		gold_cost = 400
+		build_time = 356
+		tax_income = 3
+		light_infantry = 10
+		galleys = 10
+		ai_creation_factor = 76
+		extra_tech_building_start = 0.0
+		add_number_to_name = no		
+	}
+
+	
+# Conditioned Pirates (Level 3.C)
+	tp_smuggler_3c = {
+		desc = tp_smuggler_3c_desc
+		potential = {
+			FROM = {
+						OR = { 
+							trait = dominate_4
+							trait = dominate_5
+						}
+			}
+		}		
+		prerequisites = { tp_smuggler_3 }
+		trigger = { TECH_NAVAL = 3 }
+		port = yes
+		gold_cost = 250
+		build_time = 180
+		tax_income = 3
+		light_infantry = 9
+		galleys = 9
+		ai_creation_factor = 78		
+		extra_tech_building_start = 0.0
+		add_number_to_name = no		
+	}
+	
+	# Elysium
+	tp_elysium_1 = {
+		desc = tp_elysium_1_desc
+		potential = {
+			FROM = {
+						trait = vampire
+			}
+		}		
+		trigger = { TECH_NOBLE_CUSTOMS = 1 }
+		gold_cost = 75
+		build_time = 365
+		ai_creation_factor = 80
+		diplomacy = 3
+		monthly_character_prestige = 0.50
+		extra_tech_building_start = 0.0
+		add_number_to_name = no		
+	}
+	
+	# Nosferatu Warrens
+
+	tp_nosferatu_warrens_1 = {
+		desc = tp_nosferatu_warrens_1_desc
+		potential = {
+			FROM = {
+					 trait = nosferatu
+			}
+		}		
+		trigger = { TECH_CONSTRUCTION = 1 }
+		gold_cost = 75
+		build_time = 365
+		ai_creation_factor = 80
+		fort_level = 0.2	
+		intrigue = 1
+		extra_tech_building_start = 0.0
+		add_number_to_name = no		
+	}	
+
+	# Hellhound Kennel
+	tp_hellhound_kennel_1 = {
+		desc = tp_hellhound_kennel_1_desc
+		potential = {
+			FROM = {
+					 trait = vampire
+					 OR = {
+							trait = animalism_1
+							trait = animalism_2
+							trait = animalism_3
+							trait = animalism_4
+							trait = animalism_5							
+						}
+			}
+		}		
+		trigger = { TECH_RECRUITMENT = 1 }
+		gold_cost = 75
+		build_time = 365
+		ai_creation_factor = 80
+		fort_level = 0.2
+		extra_tech_building_start = 0.0
+		add_number_to_name = no		
+	}
+	
+}

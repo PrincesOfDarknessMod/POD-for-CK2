@@ -554,11 +554,11 @@ character_event = {
 
 			event_target:vampire_judge_masquerade = 
 			{ 
-				character_event = 
-				{ 
-					id = POD_VAMPIRE_MASQUERADE_BREACH.4
-					days = 2
-				}	
+				#character_event = 
+				#{ 
+				#	id = POD_VAMPIRE_MASQUERADE_BREACH.4
+				#	days = 2
+				#}	
 			}		
 				
 	}	
@@ -816,19 +816,20 @@ character_event =
 
 		event_target:new_exposes_masquerade = 
 		{ 
+		
 			death = 
-			{ 
-				death_reason = 
-					{ death_murder_unknown killer = vampire_judge_masquerade }
-			} 
+			{
+				death_reason = death_murder_unknown
+				killer = ROOT
+			}
+			
 		}		
 				
     }
 	
 	
 }	
-	
-	
+
 	
 character_event = 
 {
@@ -850,7 +851,8 @@ character_event =
 	{ 
 	
 	}
-	
+
+
 # Forgive them for a favor
 
     option = 
@@ -866,7 +868,7 @@ character_event =
 		
 		event_target:vampire_exposes_masquerade =
 		{
-			reverese_add_favor = event_target:vampire_judge_masquerade
+			reverse_add_favor = event_target:vampire_judge_masquerade
 		}
 		
 		event_target:vampire_judge_masquerade = 
@@ -893,9 +895,9 @@ character_event =
 				modifier = opinion_breached_masquerade 
 			}
 		}	
-    }	
-	
-# Order the Sherrif to Arrest them 
+    }
+
+# Order the Sheriff to Arrest them 
 
     option = 
 	{
@@ -911,8 +913,8 @@ character_event =
 				{				
 					factor = 1.1
 					event_target:vampire_judge_masquerade = { realm_intrigue = 15 }
-				}								
-				
+				}	
+
 				modifier = 
 				{				
 					factor = 1.1
@@ -1001,9 +1003,9 @@ character_event =
 				{				
 					factor = 0.8
 					event_target:event_target:vampire_exposes_masquerade = { intrigue = 45 }
-				}		
-						
-				imprison = event_target:vampire_judge_masquerade 
+				}
+				
+				imprison = ROOT
 			
 			}
 		}
@@ -1016,6 +1018,9 @@ character_event =
 	{
         name = EVTOPTD_POD_VAMPIRE_MASQUERADE_BREACH4
 		
-    }	
+    }					
 	
 }	
+
+	
+	
