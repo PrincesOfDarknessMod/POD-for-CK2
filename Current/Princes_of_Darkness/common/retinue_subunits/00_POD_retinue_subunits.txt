@@ -19,7 +19,6 @@ RETTYPE_VAMPIRES =
 	special_troops = mass_vampires
 	
 	hire_cost = 200
-	grapihical_culture = werewolvesgfx
 	maintenance_multiplier = 0.45
 	
 	potential = {
@@ -45,6 +44,7 @@ RETTYPE_GHOULS =
 	
 	potential = {
 		trait = vampire
+		NOT = { trait = werewolf }
 	}
 }
 
@@ -79,10 +79,8 @@ RETTYPE_VOZHD =
 {
 
 	first_type = 6
-	first_amount = 1
+	first_amount = 100
 	
-	second_type = 2
-	second_amount = 250
 	
 	special_troops = vozhd_unit
 	
@@ -131,7 +129,7 @@ RETTYPE_GARGOYLES =
 RETTYPE_WEREWOLVES =
 {
 	first_type = 6
-	first_amount = 20
+	first_amount = 5
 	
 	second_type = 2
 	second_amount = 250
@@ -143,7 +141,10 @@ RETTYPE_WEREWOLVES =
 	maintenance_multiplier = 0.45
 	
 	potential = {
+		OR = {
+		trait = vampire
 		trait = werewolf
+		}
 	}
 }
 
@@ -187,8 +188,7 @@ RETTYPE_MAGES =
 	potential = {
 		OR =
 		{
-		trait = firstbornfae
-		trait = changeling
+		trait = mage
 		}
 	}
 }
@@ -203,7 +203,7 @@ RETTYPE_KINFOLK =
 	second_amount = 250
 	
 	
-	special_troops = mass_ghouls
+	special_troops = mass_kinfolk
 	
 	hire_cost = 100
 	
@@ -253,6 +253,78 @@ RETTYPE_WRAITHS =
 		{
 		trait = necromancy_5
 		trait = sphere_spirit_5
+		}
+	}
+}
+
+RETYPE_GANGREL =
+{
+	first_type = 6
+	first_amount = 5
+	
+	second_type = 0
+	second_amount = 250
+	
+	special_troops = mass_gangrel
+	
+	hire_cost = 125
+	
+	maintenance_multiplier = 0.45
+	
+	potential = {
+	
+		OR = {
+		trait = vampire
+		trait = gangrel
+		trait = gangrelantitribu
+		}
+	}
+}
+
+RETYPE_assamite =
+{
+	first_type = 6
+	first_amount = 5
+	
+	second_type = 0
+	second_amount = 250
+	
+	special_troops = mass_assamite
+	
+	hire_cost = 125
+	
+	maintenance_multiplier = 0.45
+	
+	potential = {
+	
+		OR = {
+		trait = vampire
+		trait = assamite
+		trait = assamiteantitribu
+		}
+	}
+}
+
+RETYPE_tzimisce =
+{
+	first_type = 6
+	first_amount = 250
+	
+	second_type = 0
+	second_amount = 250
+	
+	special_troops = mass_tzimisce
+	
+	hire_cost = 125
+	
+	maintenance_multiplier = 0.45
+	
+	potential = {
+	
+		OR = {
+		trait = vampire
+		trait = tzimisce
+		trait = tzimisceantitribu
 		}
 	}
 }
