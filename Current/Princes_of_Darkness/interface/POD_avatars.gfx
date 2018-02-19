@@ -1,60 +1,160 @@
 objectTypes = {
 
-	#LIGHT_INFANTRY
-	#HEAVY_INFANTRY
-	#PIKEMEN
-	#LIGHT_CAVALRY
-	#KNIGHTS
-	#ARCHERS
-	#HORSE_ARCHERS
+	#POD Units Start
+
 
 	#######################################################
 	#######################################################
 	#####											  #####
-	#####				Werewolves  				  #####
+	#####				Vampires    				  #####
 	#####											  #####
 	#######################################################
 	#######################################################
 
-	
-	
 	pdxmesh = {
-		name = "westerngfx_mass_Bwerewolves"
-		file = "gfx/models/werewolf/werewolf.mesh"
-	    scale = 0.1f
-
-		 idle   = "gfx\models\holy_order_infantry_idle.xsm"
-		 move   = "gfx\models\holy_order_infantry_moving.xsm"
-		 attack = "gfx\models\holy_order_infantry_attack.xsm"	
-					
-	}
-
-	EMFXActorType = {
-		name = "westerngfx_mass_werewolves"
-		actorfile = "gfx\models\holy_order_jomsviking.xac"
+		name = "westerngfx_mass_vampires"
+		file = "gfx\models\mass_vampires\gerup_pikemen.mesh"
 		
-		 idle   = "gfx\models\holy_order_infantry_idle.xsm"
-		 move   = "gfx\models\holy_order_infantry_moving.xsm"
-		 attack = "gfx\models\holy_order_infantry_attack.xsm"
+		animation = { id = "attack"		type = "gerup_pikeman_attack_animation" }
+		animation = { id = "idle"		type = "gerup_pikeman_idle_animation" }
+		animation = { id = "move"		type = "gerup_pikeman_moving_animation" }
 		
 		scale = 1.0f
-	}
-	
-	
-	EMFXActorType = {
-		name = "westerngfx_mass_werewolves_weapon"
-		actorfile = "gfx\models\Attachments\holy_order_jomsviking_sword.xac"
-
-		scale = 1.0f
-	}
-	
-	EMFXActorType = {
-		name = "westerngfx_mass_werewolves_helmet"
-		actorfile = "gfx\models\Attachments\Helmet_01.xac"
-		scale = 0.00001f
 	}	
 
+	pdxmesh = {
+		name = "westerngfx_mass_vampires_weapon"
+		file = "gfx\models\Attachments\gerup_spear.mesh"
+		scale = 1.0f
+	}
 	
+	pdxmesh = {
+		name = "westerngfx_mass_vampires_shield"
+		file = "gfx\models\Attachments\engup_heavyshield.mesh"
+		scale = 0.9
+	}	
+		
+
+# Assamite Assassin
+		
+	EMFXActorType = {
+		name = "westerngfx_mass_assamite"
+		actorfile = "gfx\models\Mapindicators\Muslim_Spymaster.xac"
+		
+		idle   = "gfx\models\Infantry_Sword_and_Shield_Idle.xsm"
+		move   = "gfx\models\Infantry_Sword_and_Shield_Moving.xsm"
+		attack = "gfx\models\Infantry_Sword_and_Shield_Attack.xsm"	
+		
+		scale = 1.0f
+	}
+	
+	EMFXActorType = {
+		name = "westerngfx_mass_assamite_weapon"
+		actorfile = "gfx\models\Attachments\holy_order_hashshashin_sword.xac"
+		scale = 1.0f
+	}
+	
+	EMFXActorType = {
+		name = "westerngfx_mass_assamite_helmet"
+		actorfile = "gfx\models\Attachments\Helmet_01.xac"  
+		scale = 0.000001f
+	}
+	
+# Assamite Vizier	
+		
+	EMFXActorType = {
+		name = "westerngfx_mass_assamite_vizier"
+		actorfile = "gfx\models\Mapindicators\Muslim_Mullah.xac"
+		
+		idle   = "gfx\models\pikeman_idle.xsm"
+		move   = "gfx\models\Pikeman_Moving.xsm"
+		attack = "gfx\models\Pikeman_Attack.xsm"		
+		
+		scale = 1.0f
+	}
+	
+	EMFXActorType = {
+		name = "westerngfx_mass_assamite_vizier_weapon"
+		actorfile = "gfx\models\Attachments\Spear_01.xac"
+		scale = 1.0f
+	}
+	
+	EMFXActorType = {
+		name = "westerngfx_mass_assamite_vizier_helmet"
+		actorfile = "gfx\models\Attachments\Helmet_01.xac"  
+		scale = 0.000001f
+	}
+
+# Brujah 
+
+	pdxmesh = {
+		name = "westerngfx_mass_brujah"
+		file = "gfx/models/Mapindicators/efc_eastern_marshal_female.mesh"		
+		
+		
+		animation = { id = "attack"		type = "char_infantry_attack_animation" }
+		animation = { id = "idle"		type = "char_infantry_idle_animation" }
+		animation = { id = "move"		type = "char_infantry_moving_animation" }
+		scale = 1.0
+	}
+	
+	pdxmesh = {
+		name = "westerngfx_mass_brujah_weapon"
+		file = "gfx\models\Attachments\westerngfx_early_sword.mesh"
+
+		scale = 1.0f
+	}
+	
+	pdxmesh = {
+		name = "westerngfx_mass_brujah_shield"
+		file = "gfx\models\Attachments\engup_heavyshield.mesh"
+		scale = 0.9
+	}	
+	
+# Cappadocian	
+
+	EMFXActorType = {
+		name = "westerngfx_mass_cappadocian"
+		actorfile = "gfx\models\Mapindicators\Western_lord_spiritual.xac"
+		
+		idle   = "gfx\models\pikeman_idle.xsm"
+		move   = "gfx\models\Pikeman_Moving.xsm"
+		attack = "gfx\models\Pikeman_Attack.xsm"
+		
+		scale = 1.0f
+	}
+
+	EMFXActorType = {
+		name = "westerngfx_mass_cappadocian_weapon"
+		actorfile = "gfx\models\Attachments\Spear_01.xac"
+		scale = 1.0f
+	}	
+	
+# Follower of Set	
+
+	EMFXActorType = {
+		name = "westerngfx_mass_follower_of_set"
+		actorfile = "gfx\models\Mapindicators\Muslim_Steward.xac"
+		
+		idle   = "gfx\models\Infantry_Sword_and_Shield_Idle.xsm"
+		move   = "gfx\models\Infantry_Sword_and_Shield_Moving.xsm"
+		attack = "gfx\models\Infantry_Sword_and_Shield_Attack.xsm"			
+		scale = 1.0f
+	}
+	
+	EMFXActorType = {
+		name = "westerngfx_mass_follower_of_set_weapon"
+		actorfile = "gfx\models\Attachments\holy_order_hashshashin_sword.xac"
+		scale = 1.0f
+	}
+	
+	EMFXActorType = {
+		name = "westerngfx_mass_follower_of_set_helmet"
+		actorfile = "gfx\models\Attachments\Helmet_01.xac"  
+		scale = 0.000001f
+	}	
+	
+# Gangrel Scout
 	
 	EMFXActorType = {
 		name = "westerngfx_mass_gangrel"
@@ -72,65 +172,772 @@ objectTypes = {
 		name = "westerngfx_mass_gangrel_helmet"
 		actorfile = "gfx\models\Attachments\Helmet_01.xac"  
 		scale = 0.000001f
+	}	
+
+# Giovanni	
+		
+	pdxmesh = {
+		name = "westerngfx_mass_giovanni"
+		file = "gfx/models/Mapindicators/cote_western_female_spymaster.mesh"		
+		animation = { id = "idle"		type = "cote_western_female_spymaster_idle_animation" }		
+		
+		scale = 1.0
 	}
-		
+				
 	
-	EMFXActorType = {
-		name = "westerngfx_mass_assamite"
-		actorfile = "gfx\models\Mapindicators\indian_spymaster.xac"
-		
-		idle   = "gfx\models\holy_order_infantry_idle.xsm"
-		move   = "gfx\models\holy_order_infantry_moving.xsm"
-		attack = "gfx\models\holy_order_infantry_attack.xsm"		
-		
+	pdxmesh = {
+		name = "westerngfx_mass_giovanni_weapon"
+		file = "gfx\models\Attachments\char_early_pike.mesh"
 		scale = 1.0f
 	}
+		
 	
-	EMFXActorType = {
-		name = "westerngfx_mass_assamite_weapon"
-		actorfile = "gfx\models\Attachments\holy_order_hashshashin_sword.xac"
-		scale = 1.0f
-	}
-	
-	EMFXActorType = {
-		name = "westerngfx_mass_assamite_helmet"
-		actorfile = "gfx\models\Attachments\Helmet_01.xac"  
-		scale = 0.000001f
+# Lasombra 
+
+	pdxmesh = {
+		name = "westerngfx_mass_lasombra"
+		file = "gfx/models/Mapindicators/cote_western_female_chancellor.mesh"		
+
+		animation = { id = "attack"		type = "char_infantry_attack_animation" }
+		animation = { id = "idle"		type = "char_infantry_idle_animation" }
+		animation = { id = "move"		type = "char_infantry_moving_animation" }
+		scale = 1.0
 	}
 
+	pdxmesh = {
+		name = "westerngfx_mass_lasombra_weapon"
+		file = "gfx\models\Attachments\muslimgfx_early_scimitar.mesh"
+
+		scale = 1.0f
+	}
+	
+
+# Malkavian		
+		
+	EMFXActorType = {
+		name = "westerngfx_mass_malkavian"
+		actorfile = "gfx\models\celtic_archer.xac"
+		
+		
+		idle   = "gfx\models\Infantry_Sword_and_Shield_Idle.xsm"
+		move   = "gfx\models\Infantry_Sword_and_Shield_Moving.xsm"
+		attack = "gfx\models\Infantry_Sword_and_Shield_Attack.xsm"
+		
+		scale = 1.0f
+	}		
+
+	EMFXActorType = {
+		name = "westerngfx_mass_malkavian_weapon"
+		actorfile = "gfx\models\Attachments\holy_order_immortals_axe.xac"
+		scale = 1.0f
+	}	
+	
+	EMFXActorType = {
+		name = "westerngfx_mass_malkavian_shield"
+		actorfile = "gfx\models\Attachments\Axe_01.xac"
+		scale = 1.0f
+	}		
+	
+	EMFXActorType = {
+		name = "westerngfx_mass_malkavian_helmet"
+		actorfile = "gfx\models\Attachments\Helmet_01.xac"  
+		scale = 0.000001f
+	}	
+
+# Nosferatu	*
+	
+	pdxmesh = {
+		name = "westerngfx_mass_nosferatu"
+		file = "gfx\models\engup_archer.mesh"
+		
+		animation = { id = "attack"		type = "char_infantry_attack_animation" }
+		animation = { id = "idle"		type = "char_infantry_idle_animation" }
+		animation = { id = "move"		type = "char_infantry_moving_animation" }
+		
+		scale = 1.0f
+	}		
+	
+# Ravnos
+
+	EMFXActorType = {
+		name = "westerngfx_mass_ravnos"
+		actorfile = "gfx\models\Mapindicators\indian_steward.xac"
+		
+		idle   = "gfx\models\Mapindicators\indian_steward_idle.xsm"
+		move   = "gfx\models\Infantry_Sword_and_Shield_Moving.xsm"
+		attack = "gfx\models\Infantry_Sword_and_Shield_Attack.xsm"		
+		scale = 1.0f
+	}
+	
+	EMFXActorType = {
+		name = "westerngfx_mass_ravnos_weapon"
+		actorfile = "gfx\models\Attachments\holy_order_hashshashin_sword.xac"
+		scale = 1.0f
+	}	
+	
+	EMFXActorType = {
+		name = "muslimgfx_mass_ravnos_helmet"
+		actorfile = "gfx\models\Attachments\Helmet_01.xac"
+		scale = 0.00001f
+	}	
+	
+# Toreador	
+
+	EMFXActorType = {
+		name = "westerngfx_mass_toreador"
+		actorfile = "gfx\models\Mapindicators\Western_Chancellor.xac"
+		
+		idle   = "gfx\models\Infantry_Sword_and_Shield_Idle.xsm"
+		move   = "gfx\models\Infantry_Sword_and_Shield_Moving.xsm"
+		attack = "gfx\models\Infantry_Sword_and_Shield_Attack.xsm"	
+		scale = 1.0f
+	}
+
+	EMFXActorType = {
+		name = "westerngfx_mass_toreador_weapon"
+		actorfile = "gfx\models\Attachments\Sword_01_Longsword.xac"
+
+		scale = 1.0f
+	}
+		
+	EMFXActorType = {
+		name = "westerngfx_mass_toreador_shield"
+		actorfile = "gfx\models\Attachments\Shield_Knight01.xac"
+		scale = 1.0f
+	}	
+	
+# Tremere
+
+		pdxmesh = {
+		name = "westerngfx_mass_tremere"
+		file = "gfx/models/Mapindicators/cote_western_female_stewardess.mesh"		
+
+		animation = { id = "attack"		type = "char_pikeman_attack_animation" }
+		animation = { id = "idle"		type = "char_pikeman_idle_animation" }
+		animation = { id = "move"		type = "char_pikeman_moving_animation" }
+				
+		scale = 1.0f
+	}			
+	
+	pdxmesh = {
+		name = "westerngfx_mass_tremere_weapon"
+		file = "gfx\models\Attachments\char_early_pike.mesh"
+		scale = 1.0f
+	}
+
+	
+
+# Tzimisce Knez
+	
 	EMFXActorType = {
 		name = "westerngfx_mass_tzimisce"
 		actorfile = "gfx\models\Mapindicators\Western_spymaster.xac"
 		
-		idle   = "gfx\models\Mapindicators\Western_spymaster_idle.xsm"
+		idle   = "gfx\models\Infantry_Sword_and_Shield_Idle.xsm"
 		move   = "gfx\models\Infantry_Sword_and_Shield_Moving.xsm"
 		attack = "gfx\models\Infantry_Sword_and_Shield_Attack.xsm"		
 		
 		scale = 1.0f
 	}
-		
+
 	EMFXActorType = {
-		name = "westerngfx_vozhd_unit"
-		actorfile = "gfx\models\indian_elephant.xac"
-		
-		idle   = "gfx\models\indian_elephant_idle.xsm"
-		move   = "gfx\models\indian_elephant_move.xsm"
-		attack = "gfx\models\indian_elephant_attack.xsm"
-		
-		scale = 0.6f
+		name = "westerngfx_mass_tzimisce_weapon"
+		actorfile = "gfx\models\Attachments\holy_order_hashshashin_sword.xac"
+		scale = 0.5f
 	}
 	
 	EMFXActorType = {
-		name = "indiangfx_vozhd_unit"
-		actorfile = "gfx\models\indian_elephant.xac"
+		name = "westerngfx_mass_tzimisce_shield"
+		actorfile = "gfx\models\Attachments\Sword_01_Longsword.xac"
+
+		scale = 0.5f
+	}	
+	
+	EMFXActorType = {
+		name = "westerngfx_mass_tzimisce_helmet"
+		actorfile = "gfx\models\Attachments\Helmet_01.xac"  
+		scale = 0.000001f
+	}	
+	
+	
+# Gargoyles	
+	pdxmesh = {
+		name = "westerngfx_mass_gargoyles"
+		file = "gfx\models\gargoyle\gargoyle.mesh"
+	    scale = 4.0f	
+
+		animation = { id = "attack"		type = "char_infantry_attack_animation" }
+		animation = { id = "idle"		type = "char_infantry_idle_animation" }
+		animation = { id = "move"		type = "char_infantry_moving_animation" }	
+					
+	}			
+		
+	EMFXActorType = {
+		name = "westerngfx_mass_gargoyles_helmet"
+		actorfile = "gfx\models\Attachments\Helmet_01.xac"  
+		scale = 0.000001f
+	}		
+	
+# Ventrue Knight	
+
+	pdxmesh = {
+		name = "westerngfx_mass_ventrue"
+		file = "gfx/models/Mapindicators/cote_western_female_marshal.mesh"		
+				
+		animation = { id = "attack"		type = "char_infantry_attack_animation" }
+		animation = { id = "idle"		type = "char_infantry_idle_animation" }
+		animation = { id = "move"		type = "char_infantry_moving_animation" }
+		scale = 1.0
+	}
+	
+	pdxmesh = {
+		name = "westerngfx_mass_ventrue_weapon"
+		file = "gfx\models\Attachments\westerngfx_early_sword.mesh"
+
+		scale = 1.0f
+	}
+
+	pdxmesh = {
+		name = "westerngfx_mass_ventrue_shield"
+		file = "gfx\models\Attachments\engup_heavyshield.mesh"
+		scale = 0.9
+	}
+	
+	
+# Baali 
+
+	pdxmesh = {
+	name = "westerngfx_mass_baali"
+	file = "gfx/models/Mapindicators/afc_african_marshal_female.mesh"		
+				
+		animation = { id = "attack"		type = "char_infantry_attack_animation" }
+		animation = { id = "idle"		type = "char_infantry_idle_animation" }
+		animation = { id = "move"		type = "char_infantry_moving_animation" }
+		scale = 1.0
+	}
+	
+	pdxmesh = {
+		name = "westerngfx_mass_baali_weapon"
+		file = "gfx\models\Attachments\muslimgfx_early_scimitar.mesh"
+
+		scale = 1.0f
+	}
+
+
+# Anda 
+
+	pdxmesh = {
+		name = "westerngfx_mass_anda"
+		file = "gfx/models/Mapindicators/cote_mongol_marshal_female.mesh"		
+				
+		animation = { id = "attack"		type = "char_infantry_attack_animation" }
+		animation = { id = "idle"		type = "char_infantry_idle_animation" }
+		animation = { id = "move"		type = "char_infantry_moving_animation" }
+		scale = 1.0
+	}
+	
+	pdxmesh = {
+		name = "westerngfx_mass_anda_weapon"
+		file = "gfx\models\Attachments\muslimgfx_early_scimitar.mesh"
+
+		scale = 1.0f
+	}
+
+# Einherjar
+
+	EMFXActorType = {
+		name = "westerngfx_mass_einherjar"
+		actorfile = "gfx\models\holy_order_jomsviking.xac"
+		
+		 idle   = "gfx\models\holy_order_infantry_idle.xsm"
+		 move   = "gfx\models\holy_order_infantry_moving.xsm"
+		 attack = "gfx\models\holy_order_infantry_attack.xsm"
+		
+		scale = 1.0f
+	}
+	
+	EMFXActorType = {
+		name = "westerngfx_mass_einherjar_weapon"
+		actorfile = "gfx\models\Attachments\holy_order_jomsviking_sword.xac"
+
+		scale = 1.0f
+	}
+
+	EMFXActorType = {
+		name = "westerngfx_mass_einherjar_shield"
+		actorfile = "gfx\models\Attachments\holy_order_jomsviking_shield.xac"
+		scale = 1.0f
+	}
+	
+	EMFXActorType = {
+		name = "westerngfx_mass_einherjar_helmet"
+		actorfile = "gfx\models\Attachments\Helmet_01.xac"
+		scale = 0.00001f
+	}
+
+# Laibon
+
+	pdxmesh = {
+		name = "westerngfx_mass_laibon"
+		file = "gfx/models/Mapindicators/afc_african_spiritual.mesh"		
+		
+		animation = { id = "attack"		type = "gerup_pikeman_attack_animation" }
+		animation = { id = "idle"		type = "gerup_pikeman_idle_animation" }
+		animation = { id = "move"		type = "gerup_pikeman_moving_animation" }	
+		scale = 1.0
+	}
+
+	pdxmesh = {
+		name = "westerngfx_mass_laibon_weapon"
+		file = "gfx\models\Attachments\char_early_pike.mesh"
+		scale = 1.0f
+	}
+
+# Cainite Heretic
+
+	pdxmesh = {
+		name = "westerngfx_mass_cainite"
+		file = "gfx/models/Mapindicators/cote_western_female_spiritual.mesh"		
+		
+		animation = { id = "attack"		type = "gerup_pikeman_attack_animation" }
+		animation = { id = "idle"		type = "gerup_pikeman_idle_animation" }
+		animation = { id = "move"		type = "gerup_pikeman_moving_animation" }	
+		scale = 1.0
+	}
+
+	pdxmesh = {
+		name = "westerngfx_mass_cainite_weapon"
+		file = "gfx\models\Attachments\char_early_pike.mesh"
+		scale = 1.0f
+	}
+	
+# Ashirra Hajj
+
+	EMFXActorType = {
+		name = "westerngfx_mass_ashirra_hajj"
+		actorfile = "gfx\models\holy_order_immortals.xac"
+		
+		 idle   = "gfx\models\holy_order_infantry_idle.xsm"
+		 move   = "gfx\models\holy_order_infantry_moving.xsm"
+		 attack = "gfx\models\holy_order_infantry_attack.xsm"
+		
+		scale = 1.0f
+	}
+	
+	EMFXActorType = {
+		name = "westerngfx_mass_ashirra_hajj_weapon"
+		actorfile = "gfx\models\Attachments\holy_order_immortals_axe.xac"
+
+		scale = 1.0f
+	}
+	
+	EMFXActorType = {
+		name = "westerngfx_mass_ashirra_hajj_helmet"
+		actorfile = "gfx\models\Attachments\Helmet_01.xac"
+		scale = 0.00001f
+	}	
+	
+	#######################################################
+	#######################################################
+	#####											  #####
+	#####				Ghouls      				  #####
+	#####											  #####
+	#######################################################
+	#######################################################
+
+	
+	EMFXActorType = {
+		name = "westerngfx_vozhd_unit"
+		actorfile = "gfx\models\vozhd\indian_elephant.xac"
 		
 		idle   = "gfx\models\indian_elephant_idle.xsm"
 		move   = "gfx\models\indian_elephant_move.xsm"
 		attack = "gfx\models\indian_elephant_attack.xsm"
 		
 		scale = 0.6f
+	}	
+
+	
+	
+	EMFXActorType = {
+		name = "westerngfx_mass_szlachta"
+		actorfile = "gfx\models\Western_Heavy_Horse_01.xac"
+		
+		idle   = "gfx\models\Horse_Idle.xsm"
+		move   = "gfx\models\Horse_Moving.xsm"
+		attack = "gfx\models\Horse_Attack.xsm"
+		
+		scale = 0.9f
+	}
+	
+	EMFXActorType = {
+		name = "westerngfx_mass_szlachta_rider"
+		actorfile = "gfx\models\Western_Heavy_Cavalry.xac"
+		
+		idle   = "gfx\models\Cavalry_Sword_and_Shield_Idle.xsm"
+		move   = "gfx\models\Cavalry_Sword_and_Shield_Moving.xsm"
+		attack = "gfx\models\Cavalry_Sword_and_Shield_Attack.xsm"
+		
+		scale = 1.0f
+	}
+	
+	EMFXActorType = {
+		name = "westerngfx_mass_szlachta_weapon"
+		actorfile = "gfx\models\Attachments\Banner_Sword.xac"
+		
+		idle   = "gfx\models\Attachments\Banner_anim.xsm"
+		move   = "gfx\models\Attachments\Banner_anim.xsm"
+		attack = "gfx\models\Attachments\Sword_Anim.xsm"
+		
+		scale = 1.0f
+	}
+	
+	EMFXActorType = {
+		name = "westerngfx_mass_szlachta_helmet"
+		actorfile = "gfx\models\Attachments\Helmet_03.xac"
+		scale = 1.0f
+	}
+	
+	EMFXActorType = {
+		name = "westerngfx_mass_szlachta_shield"
+		actorfile = "gfx\models\Attachments\Shield_Knight01.xac"
+		scale = 1.0f
+	}
+
+	EMFXActorType = {
+		name = "westerngfx_mass_ghouls"
+		actorfile = "gfx\models\Western_Heavy_Infantry.xac"
+		
+		idle   = "gfx\models\Infantry_Sword_and_Shield_Idle.xsm"
+		move   = "gfx\models\Infantry_Sword_and_Shield_Moving.xsm"
+		attack = "gfx\models\Infantry_Sword_and_Shield_Attack.xsm"
+		
+		scale = 1.0f
+	}
+	
+	EMFXActorType = {
+		name = "normangfx_mass_ghouls_helmet"
+		actorfile = "gfx\models\Attachments\Helmet_15.xac"
+		scale = 1.0f
+	}
+	
+	EMFXActorType = {
+		name = "frankishgfx_mass_ghouls_helmet"
+		actorfile = "gfx\models\Attachments\Helmet_16.xac"
+		scale = 1.0f
+	}
+	
+	EMFXActorType = {
+		name = "occitangfx_mass_ghouls_helmet"
+		actorfile = "gfx\models\Attachments\Helmet_16.xac"
+		scale = 1.0f
+	}
+	
+	EMFXActorType = {
+		name = "germangfx_mass_ghouls_helmet"
+		actorfile = "gfx\models\Attachments\Helmet_17.xac"
+		scale = 1.0f
+	}
+	
+	EMFXActorType = {
+		name = "germangfx_mass_ghouls_helmet"
+		actorfile = "gfx\models\Attachments\Helmet_12.xac"
+		scale = 1.0f
+	}
+
+
+	EMFXActorType = {
+		name = "westerngfx_mass_ghouls_weapon"
+		actorfile = "gfx\models\Attachments\Sword_01_Longsword.xac"
+
+		scale = 1.0f
+	}
+	
+	EMFXActorType = {
+		name = "westerngfx_mass_ghouls_helmet"
+		actorfile = "gfx\models\Attachments\Helmet_03.xac"
+		scale = 1.0f
+	}
+
+	EMFXActorType = {
+		name = "westerngfx_mass_ghouls_shield"
+		actorfile = "gfx\models\Attachments\Shield_Kite_02_Checker.xac"
+		scale = 1.0f
 	}
 		
+	EMFXActorType = {
+		name = "germangfx_mass_ghouls_shield"
+		actorfile = "gfx\models\Attachments\Shield_Kite_01_Chevron.xac"
+		scale = 1.0f
+	}
+	
+	EMFXActorType = {
+		name = "englishgfx_mass_ghouls_shield"
+		actorfile = "gfx\models\Attachments\Shield_Tear_01_Checker.xac"
+		scale = 1.0f
+	}
+	
+	EMFXActorType = {
+		name = "normangfx_mass_ghouls_shield"
+		actorfile = "gfx\models\Attachments\Shield_Tear_02_Norman.xac"
+		scale = 1.0f
+	}
+		
+	EMFXActorType = {
+		name = "saxongfx_mass_ghouls_shield"
+		actorfile = "gfx\models\Attachments\Shield_Round_04_Large_Saxon.xac"
+		scale = 1.0f
+	}	
+	
+
+	#######################################################
+	#######################################################
+	#####											  #####
+	#####				Werewolves  				  #####
+	#####											  #####
+	#######################################################
+	#######################################################
+
+	
+	
+	pdxmesh = {
+		name = "westerngfx_mass_werewolves"
+		file = "gfx/models/werewolf/werewolf.mesh"
+	    scale = 0.1f
+
+	}
+	
+	pdxmesh = {
+		name = "westerngfx_mass_black_spiral_dancers"
+		file = "gfx/models/werewolf/green_crinos/werewolf.mesh"
+	    scale = 0.1f
+
+	}	
+	
+	pdxmesh = {
+		name = "westerngfx_mass_black_furies"
+		file = "gfx/models/werewolf/black_crinos/werewolf.mesh"
+	    scale = 0.1f
+
+					
+	}
+	
+	pdxmesh = {
+		name = "westerngfx_mass_bone_gnawers"
+		file = "gfx/models/werewolf/werewolf.mesh"
+	    scale = 0.1f
+
+					
+	}		
+	
+	pdxmesh = {
+		name = "westerngfx_mass_fianna"
+		file = "gfx/models/werewolf/werewolf.mesh"
+	    scale = 0.1f	
+					
+	}
+	
+	
+	pdxmesh = {
+		name = "westerngfx_mass_get_of_fenris"
+		file = "gfx/models/werewolf/red_crinos/werewolf.mesh"
+	    scale = 0.1f
+					
+	}
+	
+	pdxmesh = {
+		name = "westerngfx_mass_warders_of_men"
+		file = "gfx/models/werewolf/werewolf.mesh"
+	    scale = 0.1f	
+					
+	}
+
+	pdxmesh = {
+		name = "westerngfx_mass_red_talons"
+		file = "gfx/models/werewolf/werewolf.mesh"
+	    scale = 0.1f	
+					
+	}	
+	
+	pdxmesh = {
+		name = "westerngfx_mass_shadow_lords"
+		file = "gfx/models/werewolf/black_crinos/werewolf.mesh"
+	    scale = 0.1f
+					
+	}
+	
+	pdxmesh = {
+		name = "westerngfx_mass_silent_striders"
+		file = "gfx/models/werewolf/black_crinos/werewolf.mesh"
+	    scale = 0.1f
+
+					
+	}
+	
+	pdxmesh = {
+		name = "westerngfx_mass_silver_fangs"
+		file = "gfx/models/werewolf/white_crinos/werewolf.mesh"
+	    scale = 0.1f
+					
+	}
+	
+	pdxmesh = {
+		name = "westerngfx_mass_stargazers"
+		file = "gfx/models/werewolf/red_crinos/werewolf.mesh"
+	    scale = 0.1f	
+					
+	}
+	
+	pdxmesh = {
+		name = "westerngfx_mass_white_howlers"
+		file = "gfx/models/werewolf/white_crinos/werewolf.mesh"
+	    scale = 0.1f
+
+		animation = { id = "attack"		type = "char_infantry_attack_animation" }
+		animation = { id = "idle"		type = "char_infantry_idle_animation" }
+		animation = { id = "move"		type = "char_infantry_moving_animation" }	
+					
+	}
+		
+	
+
+	
+	
+	#######################################################
+	#######################################################
+	#####											  #####
+	#####				Mages       				  #####
+	#####											  #####
+	#######################################################
+	#######################################################
+
+# Ksirafai
+
+	EMFXActorType = {
+		name = "westerngfx_mass_ksirafai"
+		actorfile = "gfx\models\Mapindicators\Muslim_Spymaster.xac"
+		
+		idle   = "gfx\models\Infantry_Sword_and_Shield_Idle.xsm"
+		move   = "gfx\models\Infantry_Sword_and_Shield_Moving.xsm"
+		attack = "gfx\models\Infantry_Sword_and_Shield_Attack.xsm"	
+		
+		scale = 1.0f
+	}
+	
+	EMFXActorType = {
+		name = "westerngfx_mass_ksirafai_weapon"
+		actorfile = "gfx\models\Attachments\holy_order_hashshashin_sword.xac"
+		scale = 1.0f
+	}
+	
+	EMFXActorType = {
+		name = "westerngfx_mass_ksirafai_helmet"
+		actorfile = "gfx\models\Attachments\Helmet_01.xac"  
+		scale = 0.000001f
+	}
+	
+# Argonaut
+
+# High Guild
+
+# Artificer
+
+# Craftmason
+
+# Order of Reason
+
+# Cosians
+
+# Daedalans
+
+# 	
+	
+# Hermetic Mage
+
+# Celestial Choirster
+
+# Chakravanti Necromancer
+
+# Akashic Monk
+
+# Spirit Talker Shaman
+
+# Verbena Witches Coven
+
+# Sahajiya Ecstatic
+
+# Ahl-I-Batin Wivier
+
+# Solifact Alchemist
+
+# Valdaermen
+
+# Veneficti Nephandus	
+	
+	#######################################################
+	#######################################################
+	#####											  #####
+	#####				Fae          				  #####
+	#####											  #####
+	#######################################################
+	#######################################################
+	
+	
+	EMFXActorType = {
+		name = "westerngfx_mass_sidhe"
+		actorfile = "gfx\models\holy_order_immortals.xac"
+		
+		 idle   = "gfx\models\holy_order_infantry_idle.xsm"
+		 move   = "gfx\models\holy_order_infantry_moving.xsm"
+		 attack = "gfx\models\holy_order_infantry_attack.xsm"
+		
+		scale = 1.0f
+	}
+	
+
+	EMFXActorType = {
+		name = "westerngfx_mass_sidhe_weapon"
+		actorfile = "gfx\models\Attachments\Sword_01_Longsword.xac"
+
+		scale = 1.0f
+	}
+
+	EMFXActorType = {
+		name = "westerngfx_mass_sidhe_shield"
+		actorfile = "gfx\models\Attachments\holy_order_immortals_shield.xac"
+		scale = 1.0f
+	}
+	
+	EMFXActorType = {
+		name = "westerngfx_mass_sidhe_helmet"
+		actorfile = "gfx\models\Attachments\Helmet_01.xac"
+		scale = 0.00001f
+	}		
+
+# Troll
+
+# Redcap
+
+# Eshu
+
+# Boggan
+
+# Nocker
+
+# Satyr
+
+# Sluagh
+	
+	
+	#######################################################
+	#######################################################
+	#####											  #####
+	#####				Wraith          			  #####
+	#####											  #####
+	#######################################################
+	#######################################################
+	
+
 	
 	
 }

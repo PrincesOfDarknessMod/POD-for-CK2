@@ -13,7 +13,7 @@ RETTYPE_VAMPIRES =
 	first_type = 6
 	first_amount = 5
 	
-	second_type = 3
+	second_type = 0
 	second_amount = 250
 	
 	special_troops = mass_vampires
@@ -24,84 +24,11 @@ RETTYPE_VAMPIRES =
 	potential = {
 		trait = vampire
 	}
-}
-
-RETTYPE_GHOULS =
-{
-
-	first_type = 6
-	first_amount = 20
 	
-	second_type = 0
-	second_amount = 250
-	
-	
-	special_troops = mass_ghouls
-	
-	hire_cost = 100
-	
-	maintenance_multiplier = 0.45
-	
-	potential = {
-		trait = vampire
-		NOT = { trait = werewolf }
-	}
-}
-
-
-RETTYPE_SZLACHTA =
-{
-
-	first_type = 6
-	first_amount = 10
-	
-	second_type = 2
-	second_amount = 250
-	
-	special_troops = mass_szlachta
-	
-	hire_cost = 125
-	
-	maintenance_multiplier = 0.45
-	
-	potential = {
-		OR = 
-		{
-			trait = vicissitude_3
-			trait = vicissitude_4
-			trait = vicissitude_5
-		}
-				
-	}
-}
-
-RETTYPE_VOZHD =
-{
-
-	first_type = 6
-	first_amount = 100
-	
-	
-	special_troops = vozhd_unit
-	
-	hire_cost = 195
-	
-	maintenance_multiplier = 0.45
-	
-	potential = {
-		trait = tzimisce
-		OR = 
-		{
-			trait = vicissitude_3
-			trait = vicissitude_4
-			trait = vicissitude_5
-		}
-		OR =
-		{
-			trait = elder
-			trait = ancient
-			trait = methuselah
-		}
+	modifier = {
+		light_cavalry_offensive = 0.2
+		light_cavalry_defensive = 0.2
+		light_cavalry_morale = 0.1
 	}
 }
 
@@ -124,7 +51,739 @@ RETTYPE_GARGOYLES =
 		trait = thaumaturgy_5
 		
 	}
+	
+	modifier = {
+		archers_offensive = 0.2
+		archers_defensive = 0.2
+	}
 }
+
+
+RETYPE_GANGREL =
+{
+	first_type = 6
+	first_amount = 5
+	
+	second_type = 0
+	second_amount = 250
+	
+	special_troops = mass_gangrel
+	
+	hire_cost = 125
+	
+	maintenance_multiplier = 0.45
+	
+	potential = {
+	
+		OR = {
+		trait = vampire
+#		trait = gangrel
+#		trait = gangrelantitribu
+		}
+	}
+	
+	modifier = {
+		light_infantry_offensive = 0.2
+		light_infantry_defensive = 0.2
+		light_infantry_morale = 0.1
+	}
+}
+
+RETYPE_assamite =
+{
+	first_type = 6
+	first_amount = 5
+	
+	second_type = 0
+	second_amount = 250
+	
+	special_troops = mass_assamite
+	
+	hire_cost = 125
+	
+	maintenance_multiplier = 0.45
+	
+	potential = {
+	
+		OR = {
+		trait = vampire
+#		trait = assamite
+#		trait = assamiteantitribu
+		}
+	}
+	
+	modifier = {
+		light_infantry_offensive = 0.2
+		light_infantry_defensive = 0.2
+		light_infantry_morale = 0.1
+	}
+}
+
+RETYPE_assamite_vizier =
+{
+	first_type = 6
+	first_amount = 5
+	
+	second_type = 0
+	second_amount = 250
+	
+	special_troops = mass_assamite_vizier
+	
+	hire_cost = 125
+	
+	maintenance_multiplier = 0.45
+	
+	potential = {
+	
+		OR = {
+		trait = vampire
+#		trait = assamite
+#		trait = assamiteantitribu
+		}
+	}
+	
+	modifier = {
+		light_infantry_offensive = 0.2
+		light_infantry_defensive = 0.2
+		light_infantry_morale = 0.1
+	}
+}
+
+RETYPE_brujah =
+{
+	first_type = 6
+	first_amount = 5
+	
+	second_type = 0
+	second_amount = 250
+	
+	special_troops = mass_brujah
+	
+	hire_cost = 125
+	
+	maintenance_multiplier = 0.45
+	
+	potential = {
+	
+		OR = {
+		trait = vampire
+#		trait = brujah
+#		trait = brujahantitribu
+		}
+	}
+	
+	modifier = {
+		light_infantry_offensive = 0.2
+		light_infantry_defensive = 0.2
+		light_infantry_morale = 0.1
+	}
+}
+
+RETYPE_cappadocian =
+{
+	first_type = 6
+	first_amount = 5
+	
+	second_type = 0
+	second_amount = 250
+	
+	special_troops = mass_cappadocian
+	
+	hire_cost = 125
+	
+	maintenance_multiplier = 0.45
+	
+	potential = {
+	
+		OR = {
+		trait = vampire
+#		trait = cappadocian
+#		trait = cappadocianantitribu
+		}
+	}
+	
+	modifier = {
+		light_infantry_offensive = 0.2
+		light_infantry_defensive = 0.2
+		light_infantry_morale = 0.1
+	}
+}
+
+RETYPE_follower_of_set =
+{
+	first_type = 6
+	first_amount = 5
+	
+	second_type = 0
+	second_amount = 250
+	
+	special_troops = mass_follower_of_set
+	
+	hire_cost = 125
+	
+	maintenance_multiplier = 0.45
+	
+	potential = {
+	
+		OR = {
+		trait = vampire
+#		trait = followerofset
+#		trait = followerofsetantitribu
+		}
+	}
+	
+	modifier = {
+		light_infantry_offensive = 0.2
+		light_infantry_defensive = 0.2
+		light_infantry_morale = 0.1
+	}
+}
+
+RETYPE_giovanni =
+{
+	first_type = 6
+	first_amount = 5
+	
+	second_type = 0
+	second_amount = 250
+	
+	special_troops = mass_giovanni
+	
+	hire_cost = 125
+	
+	maintenance_multiplier = 0.45
+	
+	potential = {
+	
+		OR = {
+		trait = vampire
+#		trait = giovanni
+#		trait = giovanniantitribu
+		}
+	}
+	
+	modifier = {
+		light_infantry_offensive = 0.2
+		light_infantry_defensive = 0.2
+		light_infantry_morale = 0.1
+	}
+}
+
+RETYPE_lasombra =
+{
+	first_type = 6
+	first_amount = 5
+	
+	second_type = 0
+	second_amount = 250
+	
+	special_troops = mass_lasombra
+	
+	hire_cost = 125
+	
+	maintenance_multiplier = 0.45
+	
+	potential = {
+	
+		OR = {
+		trait = vampire
+#		trait = lasombra
+#		trait = lasombraantitribu
+		}
+	}
+	
+	modifier = {
+		light_infantry_offensive = 0.2
+		light_infantry_defensive = 0.2
+		light_infantry_morale = 0.1
+	}
+}
+
+RETYPE_malkavian =
+{
+	first_type = 6
+	first_amount = 5
+	
+	second_type = 0
+	second_amount = 250
+	
+	special_troops = mass_malkavian
+	
+	hire_cost = 125
+	
+	maintenance_multiplier = 0.45
+	
+	potential = {
+	
+		OR = {
+		trait = vampire
+#		trait = malkavian
+#		trait = malkavianantitribu
+		}
+	}
+	
+	modifier = {
+		light_infantry_offensive = 0.2
+		light_infantry_defensive = 0.2
+		light_infantry_morale = 0.1
+	}
+}
+
+RETYPE_nosferatu =
+{
+	first_type = 6
+	first_amount = 5
+	
+	second_type = 0
+	second_amount = 250
+	
+	special_troops = mass_nosferatu
+	
+	hire_cost = 125
+	
+	maintenance_multiplier = 0.45
+	
+	potential = {
+	
+		OR = {
+		trait = vampire
+#		trait = nosferatu
+#		trait = nosferatuantitribu
+		}
+	}
+	
+	modifier = {
+		light_infantry_offensive = 0.2
+		light_infantry_defensive = 0.2
+		light_infantry_morale = 0.1
+	}
+}
+
+RETYPE_ravnos =
+{
+	first_type = 6
+	first_amount = 5
+	
+	second_type = 0
+	second_amount = 250
+	
+	special_troops = mass_ravnos
+	
+	hire_cost = 125
+	
+	maintenance_multiplier = 0.45
+	
+	potential = {
+	
+		OR = {
+		trait = vampire
+#		trait = ravnos
+#		trait = ravnosantitribu
+		}
+	}
+	
+	modifier = {
+		light_infantry_offensive = 0.2
+		light_infantry_defensive = 0.2
+		light_infantry_morale = 0.1
+	}
+}
+
+RETYPE_toreador =
+{
+	first_type = 6
+	first_amount = 5
+	
+	second_type = 0
+	second_amount = 250
+	
+	special_troops = mass_toreador
+	
+	hire_cost = 125
+	
+	maintenance_multiplier = 0.45
+	
+	potential = {
+	
+		OR = {
+		trait = vampire
+#		trait = toreador
+#		trait = toreadorantitribu
+		}
+	}
+	
+	modifier = {
+		light_infantry_offensive = 0.2
+		light_infantry_defensive = 0.2
+		light_infantry_morale = 0.1
+	}
+}
+
+RETYPE_tremere =
+{
+	first_type = 6
+	first_amount = 5
+	
+	second_type = 0
+	second_amount = 250
+	
+	special_troops = mass_tremere
+	
+	hire_cost = 125
+	
+	maintenance_multiplier = 0.45
+	
+	potential = {
+	
+		OR = {
+		trait = vampire
+#		trait = tremere
+#		trait = tremereantitribu
+		}
+	}
+	
+	modifier = {
+		light_infantry_offensive = 0.2
+		light_infantry_defensive = 0.2
+		light_infantry_morale = 0.1
+	}
+}
+
+
+RETYPE_tzimisce =
+{
+	first_type = 6
+	first_amount = 5
+	
+	second_type = 0
+	second_amount = 250
+	
+	special_troops = mass_tzimisce
+	
+	hire_cost = 125
+	
+	maintenance_multiplier = 0.45
+	
+	potential = {
+	
+		OR = {
+		trait = vampire
+#		trait = tzimisce
+#		trait = tzimisceantitribu
+		}
+	}
+	
+	modifier = {
+		light_infantry_offensive = 0.2
+		light_infantry_defensive = 0.2
+		light_infantry_morale = 0.1
+	}
+}
+
+RETYPE_ventrue =
+{
+	first_type = 6
+	first_amount = 5
+	
+	second_type = 0
+	second_amount = 250
+	
+	special_troops = mass_ventrue
+	
+	hire_cost = 125
+	
+	maintenance_multiplier = 0.45
+	
+	potential = {
+	
+		OR = {
+		trait = vampire
+#		trait = ventrue
+#		trait = ventrueantitribu
+		}
+	}
+	
+	modifier = {
+		light_infantry_offensive = 0.2
+		light_infantry_defensive = 0.2
+		light_infantry_morale = 0.1
+	}
+}
+
+
+RETYPE_baali =
+{
+	first_type = 6
+	first_amount = 5
+	
+	second_type = 0
+	second_amount = 250
+	
+	special_troops = mass_baali
+	
+	hire_cost = 125
+	
+	maintenance_multiplier = 0.45
+	
+	potential = {
+	
+		OR = {
+		trait = vampire
+		}
+#		OR = {
+#			trait = balli
+#			religion = baali
+#			secret_religion = baali
+#		}
+	}
+	
+	modifier = {
+		light_infantry_offensive = 0.2
+		light_infantry_defensive = 0.2
+		light_infantry_morale = 0.1
+	}
+}
+
+RETYPE_einherjar =
+{
+	first_type = 6
+	first_amount = 5
+	
+	second_type = 0
+	second_amount = 250
+	
+	special_troops = mass_einherjar
+	
+	hire_cost = 125
+	
+	maintenance_multiplier = 0.45
+	
+	potential = {
+	
+		OR = {
+		trait = vampire
+		}
+#		religion = einherjar		
+	}
+	
+	modifier = {
+		light_infantry_offensive = 0.2
+		light_infantry_defensive = 0.2
+		light_infantry_morale = 0.1
+	}
+}
+
+RETYPE_laibon =
+{
+	first_type = 6
+	first_amount = 5
+	
+	second_type = 0
+	second_amount = 250
+	
+	special_troops = mass_laibon
+	
+	hire_cost = 125
+	
+	maintenance_multiplier = 0.45
+	
+	potential = {
+	
+		OR = {
+		trait = vampire
+		}
+#		religion = laibon
+	}
+	
+	modifier = {
+		light_infantry_offensive = 0.2
+		light_infantry_defensive = 0.2
+		light_infantry_morale = 0.1
+	}
+}
+
+RETYPE_anda =
+{
+	first_type = 6
+	first_amount = 5
+	
+	second_type = 0
+	second_amount = 250
+	
+	special_troops = mass_anda
+	
+	hire_cost = 125
+	
+	maintenance_multiplier = 0.45
+	
+	potential = {
+	
+		OR = {
+		trait = vampire
+		}
+#		religion = anda
+
+	}
+	
+	modifier = {
+		light_infantry_offensive = 0.2
+		light_infantry_defensive = 0.2
+		light_infantry_morale = 0.1
+	}
+}
+
+RETYPE_cainite =
+{
+	first_type = 6
+	first_amount = 5
+	
+	second_type = 0
+	second_amount = 250
+	
+	special_troops = mass_cainite
+	
+	hire_cost = 125
+	
+	maintenance_multiplier = 0.45
+	
+	potential = {
+	
+		OR = {
+		trait = vampire
+		}
+#		religion = cainite
+
+	}
+	
+	modifier = {
+		light_infantry_offensive = 0.2
+		light_infantry_defensive = 0.2
+		light_infantry_morale = 0.1
+	}
+}
+
+RETYPE_ashirra_hajj =
+{
+	first_type = 6
+	first_amount = 5
+	
+	second_type = 0
+	second_amount = 250
+	
+	special_troops = mass_ashirra_hajj
+	
+	hire_cost = 125
+	
+	maintenance_multiplier = 0.45
+	
+	potential = {
+	
+		OR = {
+		trait = vampire
+		}
+#		religion = ashirra
+
+		
+	}
+	
+	modifier = {
+		light_infantry_offensive = 0.2
+		light_infantry_defensive = 0.2
+		light_infantry_morale = 0.1
+	}
+}
+
+
+RETTYPE_GHOULS =
+{
+
+	first_type = 6
+	first_amount = 20
+	
+	second_type = 0
+	second_amount = 250
+	
+	
+	special_troops = mass_ghouls
+	
+	hire_cost = 100
+	
+	maintenance_multiplier = 0.45
+	
+	potential = {
+		trait = vampire
+#		NOT = { trait = werewolf }
+	}
+	
+	modifier = {
+		light_infantry_offensive = 0.2
+		light_infantry_defensive = 0.2
+		light_infantry_morale = 0.1
+	}
+}
+
+
+RETTYPE_SZLACHTA =
+{
+
+	first_type = 6
+	first_amount = 10
+	
+	second_type = 2
+	second_amount = 250
+	
+	special_troops = mass_szlachta
+	
+	hire_cost = 125
+	
+	maintenance_multiplier = 0.45
+	
+	potential = {
+		OR = 
+		{
+#			trait = vicissitude_3
+#			trait = vicissitude_4
+#			trait = vicissitude_5
+		}	
+	}
+	
+	modifier = {
+		heavy_infantry_offensive = 0.2
+		heavy_infantry_defensive = 0.2
+		heavy_infantry_morale = 0.1
+	}
+}
+
+RETTYPE_VOZHD =
+{
+
+	first_type = 6
+	first_amount = 100
+	
+	
+	special_troops = vozhd_unit
+	
+	hire_cost = 195
+	
+	maintenance_multiplier = 0.45
+	
+	potential = {
+		trait = tzimisce
+		OR = 
+		{
+#			trait = vicissitude_3
+#			trait = vicissitude_4
+#			trait = vicissitude_5
+		}
+		OR =
+		{
+#			trait = elder
+#			trait = ancient
+#			trait = methuselah
+		}
+	}
+}
+
 
 RETTYPE_WEREWOLVES =
 {
@@ -146,7 +805,321 @@ RETTYPE_WEREWOLVES =
 		trait = werewolf
 		}
 	}
+	
+	modifier = {
+		heavy_infantry_offensive = 0.2
+		heavy_infantry_defensive = 0.2
+		heavy_infantry_morale = 0.1
+	}
 }
+
+RETTYPE_BLACK_SPIRAL_DANCERS =
+{
+	first_type = 6
+	first_amount = 5
+	
+	second_type = 2
+	second_amount = 250
+	
+	special_troops = mass_black_spiral_dancers
+	
+	hire_cost = 200
+	
+	maintenance_multiplier = 0.45
+	
+	potential = {
+		OR = {
+		trait = vampire
+		trait = werewolf
+		}
+	}
+	
+	modifier = {
+		heavy_infantry_offensive = 0.2
+		heavy_infantry_defensive = 0.2
+		heavy_infantry_morale = 0.1
+	}
+}
+
+RETTYPE_BLACK_FURIES =
+{
+	first_type = 6
+	first_amount = 5
+	
+	second_type = 2
+	second_amount = 250
+	
+	special_troops = mass_black_furies
+	
+	hire_cost = 200
+	
+	maintenance_multiplier = 0.45
+	
+	potential = {
+		OR = {
+		trait = vampire
+		trait = werewolf
+		}
+	}
+	
+	modifier = {
+		heavy_infantry_offensive = 0.2
+		heavy_infantry_defensive = 0.2
+		heavy_infantry_morale = 0.1
+	}
+}
+
+RETTYPE_BONE_GNAWERS =
+{
+	first_type = 6
+	first_amount = 5
+	
+	second_type = 2
+	second_amount = 250
+	
+	special_troops = mass_bone_gnawers
+	
+	hire_cost = 200
+	
+	maintenance_multiplier = 0.45
+	
+	potential = {
+		OR = {
+		trait = vampire
+		trait = werewolf
+		}
+	}
+	
+	modifier = {
+		heavy_infantry_offensive = 0.2
+		heavy_infantry_defensive = 0.2
+		heavy_infantry_morale = 0.1
+	}
+}
+
+RETTYPE_FIANNA =
+{
+	first_type = 6
+	first_amount = 5
+	
+	second_type = 2
+	second_amount = 250
+	
+	special_troops = mass_fianna
+	
+	hire_cost = 200
+	
+	maintenance_multiplier = 0.45
+	
+	potential = {
+		OR = {
+		trait = vampire
+		trait = werewolf
+		}
+	}
+	
+	modifier = {
+		heavy_infantry_offensive = 0.2
+		heavy_infantry_defensive = 0.2
+		heavy_infantry_morale = 0.1
+	}
+}
+
+RETTYPE_GET_OF_FENRIS =
+{
+	first_type = 6
+	first_amount = 5
+	
+	second_type = 2
+	second_amount = 250
+	
+	special_troops = mass_get_of_fenris
+	
+	hire_cost = 200
+	
+	maintenance_multiplier = 0.45
+	
+	potential = {
+		OR = {
+		trait = vampire
+		trait = werewolf
+		}
+	}
+	
+	modifier = {
+		heavy_infantry_offensive = 0.2
+		heavy_infantry_defensive = 0.2
+		heavy_infantry_morale = 0.1
+	}
+}
+
+RETTYPE_WARDERS_OF_MEN =
+{
+	first_type = 6
+	first_amount = 5
+	
+	second_type = 2
+	second_amount = 250
+	
+	special_troops = mass_warders_of_men
+	
+	hire_cost = 200
+	
+	maintenance_multiplier = 0.45
+	
+	potential = {
+		OR = {
+		trait = vampire
+		trait = werewolf
+		}
+	}
+	
+	modifier = {
+		heavy_infantry_offensive = 0.2
+		heavy_infantry_defensive = 0.2
+		heavy_infantry_morale = 0.1
+	}
+}
+
+RETTYPE_SHADOW_LORDS =
+{
+	first_type = 6
+	first_amount = 5
+	
+	second_type = 2
+	second_amount = 250
+	
+	special_troops = mass_shadow_lords
+	
+	hire_cost = 200
+	
+	maintenance_multiplier = 0.45
+	
+	potential = {
+		OR = {
+		trait = vampire
+		trait = werewolf
+		}
+	}
+	
+	modifier = {
+		heavy_infantry_offensive = 0.2
+		heavy_infantry_defensive = 0.2
+		heavy_infantry_morale = 0.1
+	}
+}
+
+RETTYPE_SILENT_STRIDERS =
+{
+	first_type = 6
+	first_amount = 5
+	
+	second_type = 2
+	second_amount = 250
+	
+	special_troops = mass_silent_striders
+	
+	hire_cost = 200
+	
+	maintenance_multiplier = 0.45
+	
+	potential = {
+		OR = {
+		trait = vampire
+		trait = werewolf
+		}
+	}
+	
+	modifier = {
+		heavy_infantry_offensive = 0.2
+		heavy_infantry_defensive = 0.2
+		heavy_infantry_morale = 0.1
+	}
+}
+
+RETTYPE_SILVER_FANGS =
+{
+	first_type = 6
+	first_amount = 5
+	
+	second_type = 2
+	second_amount = 250
+	
+	special_troops = mass_silver_fangs
+	
+	hire_cost = 200
+	
+	maintenance_multiplier = 0.45
+	
+	potential = {
+		OR = {
+		trait = vampire
+		trait = werewolf
+		}
+	}
+	
+	modifier = {
+		heavy_infantry_offensive = 0.2
+		heavy_infantry_defensive = 0.2
+		heavy_infantry_morale = 0.1
+	}
+}
+
+RETTYPE_STARGAZERS =
+{
+	first_type = 6
+	first_amount = 5
+	
+	second_type = 2
+	second_amount = 250
+	
+	special_troops = mass_werewolves
+	
+	hire_cost = 200
+	
+	maintenance_multiplier = 0.45
+	
+	potential = {
+		OR = {
+		trait = vampire
+		trait = werewolf
+		}
+	}
+	
+	modifier = {
+		heavy_infantry_offensive = 0.2
+		heavy_infantry_defensive = 0.2
+		heavy_infantry_morale = 0.1
+	}
+}
+
+RETTYPE_WHITE_HOWLERS  =
+{
+	first_type = 6
+	first_amount = 5
+	
+	second_type = 2
+	second_amount = 250
+	
+	special_troops = mass_white_howlers
+	
+	hire_cost = 200
+	
+	maintenance_multiplier = 0.45
+	
+	potential = {
+		OR = {
+		trait = storyteller
+		}
+	}
+	
+	modifier = {
+		heavy_infantry_offensive = 0.2
+		heavy_infantry_defensive = 0.2
+		heavy_infantry_morale = 0.1
+	}
+}
+
 
 RETTYPE_FAE =
 {
@@ -165,9 +1138,15 @@ RETTYPE_FAE =
 	potential = {
 		OR =
 		{
-		trait = firstbornfae
-		trait = changeling
+#		trait = firstbornfae
+#		trait = changeling
 		}
+	}
+	
+	modifier = {
+		light_cavalry_offensive = 0.2
+		light_cavalry_defensive = 0.2
+		light_cavalry_morale = 0.1
 	}
 }
 
@@ -188,8 +1167,14 @@ RETTYPE_MAGES =
 	potential = {
 		OR =
 		{
-		trait = mage
+#		trait = mage
 		}
+	}
+	
+	modifier = {
+		light_cavalry_offensive = 0.2
+		light_cavalry_defensive = 0.2
+		light_cavalry_morale = 0.1
 	}
 }
 
@@ -212,6 +1197,12 @@ RETTYPE_KINFOLK =
 	potential = {
 		trait = werewolf
 	}
+	
+	modifier = {
+		light_infantry_offensive = 0.2
+		light_infantry_defensive = 0.2
+		light_infantry_morale = 0.1
+	}
 }
 
 RETTYPE_FOMORI =
@@ -229,8 +1220,14 @@ RETTYPE_FOMORI =
 	maintenance_multiplier = 0.45
 	
 	potential = {
-		trait = werewolf
-		religion = black_spiral_dancers
+#		trait = werewolf
+#		religion = black_spiral_dancers
+	}
+	
+	modifier = {
+		light_infantry_offensive = 0.2
+		light_infantry_defensive = 0.2
+		light_infantry_morale = 0.1
 	}
 }
 
@@ -251,80 +1248,14 @@ RETTYPE_WRAITHS =
 	potential = {
 		OR =
 		{
-		trait = necromancy_5
-		trait = sphere_spirit_5
+#		trait = necromancy_5
+#		trait = sphere_spirit_5
 		}
 	}
-}
-
-RETYPE_GANGREL =
-{
-	first_type = 6
-	first_amount = 5
 	
-	second_type = 0
-	second_amount = 250
-	
-	special_troops = mass_gangrel
-	
-	hire_cost = 125
-	
-	maintenance_multiplier = 0.45
-	
-	potential = {
-	
-		OR = {
-		trait = vampire
-		trait = gangrel
-		trait = gangrelantitribu
-		}
-	}
-}
-
-RETYPE_assamite =
-{
-	first_type = 6
-	first_amount = 5
-	
-	second_type = 0
-	second_amount = 250
-	
-	special_troops = mass_assamite
-	
-	hire_cost = 125
-	
-	maintenance_multiplier = 0.45
-	
-	potential = {
-	
-		OR = {
-		trait = vampire
-		trait = assamite
-		trait = assamiteantitribu
-		}
-	}
-}
-
-RETYPE_tzimisce =
-{
-	first_type = 6
-	first_amount = 250
-	
-	second_type = 0
-	second_amount = 250
-	
-	special_troops = mass_tzimisce
-	
-	hire_cost = 125
-	
-	maintenance_multiplier = 0.45
-	
-	potential = {
-	
-		OR = {
-		trait = vampire
-		trait = tzimisce
-		trait = tzimisceantitribu
-		}
+	modifier = {
+		light_infantry_offensive = 0.2
+		light_infantry_defensive = 0.2
+		light_infantry_morale = 0.1
 	}
 }
