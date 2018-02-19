@@ -47,15 +47,8 @@ RETTYPE_gargoyles =
 	maintenance_multiplier = 0.45
 	
 	potential = {
-		OR = 
-		{
-			AND = 
-			{
 				trait = tremere
 				trait = thaumaturgy_5
-			}
-			
-			trait = gargoyle
 	}
 	
 	modifier = {
@@ -63,6 +56,7 @@ RETTYPE_gargoyles =
 		archers_defensive = 0.2
 	}
 }
+
 
 
 RETYPE_gangrel =
@@ -790,10 +784,7 @@ RETTYPE_WEREWOLVES =
 	maintenance_multiplier = 0.45
 	
 	potential = {
-		OR = {
-		trait = vampire
-		trait = werewolf
-		}
+			trait = werewolf
 	}
 	
 	modifier = {
@@ -851,8 +842,8 @@ RETTYPE_BLACK_FURIES =
 	
 	potential = {
 		OR = {
-		trait = vampire
-		trait = werewolf
+		religion = black_furies
+		trait = satyr
 		}
 	}
 	
@@ -1770,7 +1761,13 @@ RETTYPE_FAE =
 		{
 		trait = firstbornfae
 		trait = changeling
-		trait = vampire
+		religion = verbena
+		religion = the_old_faith
+		religion = verbenae
+		religion = aeduna
+		religion = verbenae
+		religion = fianna
+		trait = kiasyd
 		}
 	}
 	
@@ -1806,6 +1803,7 @@ RETTYPE_SIDHE =
 		religion = verbenae
 		religion = aeduna
 		religion = verbenae
+		religion = fianna
 		}
 	}
 	
@@ -1904,6 +1902,7 @@ RETTYPE_SATYR =
 			religion = sahajiya 
 			religion = seers_of_chronos
 			religion = cult_of_ecstasy
+			religion = black_furies
 		}
 	}
 	
