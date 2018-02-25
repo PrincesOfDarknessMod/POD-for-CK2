@@ -158,4 +158,111 @@ character_event = {
 			}
     }
 	
-	}		
+	}
+
+#Successfully used Dementation
+character_event = {
+    id = POD_VAMPIRE_MENTAL_DISCIPLINE.5
+    desc = EVTDESC_POD_MENTAL_DISCIPLINE5
+	picture = GFX_evt_vampire_mental
+	border = GFX_event_normal_frame_war
+	
+    is_triggered_only = yes
+
+    option = {
+        name = EVTOPTA_POD_VAMPIRE_MENTAL_DISCIPLINE5
+    }
+	
+}
+
+#Remove insane trait	
+character_event = {
+    id = POD_VAMPIRE_MENTAL_DISCIPLINE.6
+    desc = EVTDESC_POD_MENTAL_DISCIPLINE6
+	picture = GFX_evt_vampire_mental
+	border = GFX_event_normal_frame_war
+	
+    is_triggered_only = yes
+	
+	trigger = {
+		is_alive = yes
+	}
+    option = {
+        name = EVTOPTA_POD_VAMPIRE_MENTAL_DISCIPLINE6
+		if = {
+			limit = { trait = lunatic }
+			remove_trait = lunatic
+		}
+    }
+	
+}
+
+#Remove stressed trait	
+character_event = {
+    id = POD_VAMPIRE_MENTAL_DISCIPLINE.7
+    desc = EVTDESC_POD_MENTAL_DISCIPLINE6
+	picture = GFX_evt_vampire_mental
+	border = GFX_event_normal_frame_war
+	
+    is_triggered_only = yes
+	
+	trigger = {
+		is_alive = yes
+	}
+    option = {
+        name = EVTOPTA_POD_VAMPIRE_MENTAL_DISCIPLINE6
+		if = {
+			limit = { trait = stressed }
+			remove_trait = stressed
+		}
+    }
+	
+}
+
+#Remove depressed trait	
+character_event = {
+    id = POD_VAMPIRE_MENTAL_DISCIPLINE.8
+    desc = EVTDESC_POD_MENTAL_DISCIPLINE6
+	picture = GFX_evt_vampire_mental
+	border = GFX_event_normal_frame_war
+	
+    is_triggered_only = yes
+	
+	trigger = {
+		is_alive = yes
+	}
+    option = {
+        name = EVTOPTA_POD_VAMPIRE_MENTAL_DISCIPLINE6
+		if = {
+			limit = { trait = depressed }
+			remove_trait = depressed
+		}
+    }
+	
+}
+
+#Remove wroth/craven trait	
+character_event = {
+    id = POD_VAMPIRE_MENTAL_DISCIPLINE.9
+    desc = EVTDESC_POD_MENTAL_DISCIPLINE6
+	picture = GFX_evt_vampire_mental
+	border = GFX_event_normal_frame_war
+	
+    is_triggered_only = yes
+	
+	trigger = {
+		is_alive = yes
+	}
+    option = {
+        name = EVTOPTA_POD_VAMPIRE_MENTAL_DISCIPLINE6
+		if = {
+			limit = { trait = craven }
+			remove_trait = craven
+		}
+		if = {
+			limit = { trait = wroth }
+			remove_trait = wroth
+		}
+    }
+	
+}

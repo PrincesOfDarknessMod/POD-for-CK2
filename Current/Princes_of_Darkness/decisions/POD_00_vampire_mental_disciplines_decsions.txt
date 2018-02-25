@@ -608,4 +608,1079 @@ targeted_decisions = {
 			}
 		}
 	}
+	
+	dementation_total_insanity_decision = {
+		filter = court
+		ai = no
+		
+		from_potential = {
+			trait = dementation_5
+			NOT = { trait = incapable }
+			prisoner = no
+		}
+		
+		potential = {
+			ai = yes
+		}
+		
+		allow = {
+			in_revolt = no
+			NOT = { war_with = FROM }
+			NOT = { trait = antediluvian }
+			NOT = { trait = torpor }
+			NOT = { trait = wight }
+			NOT = { trait = lunatic }
+			at_location = FROM
+		}
+		
+		effect = {
+			FROM = { POD_vampire_blood_thirst_increase_effect = yes	}
+			random = {
+				chance = 25
+
+				modifier = {				
+					factor = 2
+					ROOT = { dynasty = FROM }
+				}					
+				
+				modifier = {				
+					factor = 2
+					ROOT = { trait = trusting }
+				}			
+				
+				modifier = {				
+					factor = 0.6
+					ROOT = { trait = supe_hunter }
+				}				
+				modifier = {				
+					factor = 0.9
+					ROOT = { trait = neonate }
+				}				
+				modifier = {				
+					factor = 0.5
+					ROOT = { trait = werewolf }
+				}	
+
+				modifier = {				
+					factor = 0.3
+					ROOT = { trait = mage }
+				}					
+				
+				modifier = {				
+					factor = 0.5
+					ROOT = { trait = ancilla }
+				}				
+				modifier = {				
+					factor = 0.3
+					ROOT = { trait = elder }
+				}				
+				modifier = {				
+					factor = 0.2
+					ROOT = { trait = ancient }
+				}				
+				modifier = {
+					factor = 0.1
+					ROOT = { trait = methuselah }
+				}
+
+				modifier = {
+					factor = 0
+					ROOT = { trait = torpor }
+				}
+				
+				modifier = {				
+					factor = 0.5
+					FROM = { trait = neonate }
+				}					
+				modifier = {				
+					factor = 0.7
+					FROM = { trait = ancilla }
+				}				
+				modifier = {				
+					factor = 1.1
+					FROM = { trait = elder }
+				}				
+				modifier = {				
+					factor = 2
+					FROM = { trait = ancient }
+				}				
+				modifier = {
+					factor = 3
+					FROM = { trait = methuselah }
+				}	
+				modifier = {
+					factor = 1.5
+					FROM = { trait = dementation_3 }
+				}	
+				modifier = {
+					factor = 2
+					FROM = { trait = dementation_4 }
+				}		
+				modifier = {
+					factor = 3
+					FROM = { trait = dementation_5 }
+				}					
+				modifier = {
+					factor = 1.5
+					FROM = { trait = bloodpotency_5 }
+				}
+				
+				modifier = {
+					factor = 1.5
+					FROM = { trait = bloodpotency_6 }
+				}
+				
+				modifier = {
+					factor = 1.5
+					FROM = { trait = bloodpotency_7 }
+				}
+				
+				modifier = {
+					factor = 2
+					FROM = { trait = bloodpotency_8 }
+				}
+				
+				modifier = {
+					factor = 3
+					FROM = { trait = bloodpotency_9 }
+				}
+				
+				modifier = {
+					factor = 3
+					FROM = { trait = bloodpotency_10 }
+				}
+				
+				ROOT = { 
+					add_trait = lunatic
+				}
+				FROM = {
+					character_event = { id = POD_VAMPIRE_MENTAL_DISCIPLINE.5 }
+				}
+				random_list = {
+					10 = {
+						ROOT = {
+							character_event = { id = POD_VAMPIRE_MENTAL_DISCIPLINE.6 days = 730 tooltip = insane_tip_2}
+						}					
+					}
+					10 = {
+						ROOT = {
+							character_event = { id = POD_VAMPIRE_MENTAL_DISCIPLINE.6 days = 1825 tooltip = insane_tip_3}
+						}					
+					}
+					10 = {
+						modifier = {				
+							factor = 0.2
+							FROM = { trait = neonate }
+						}					
+						modifier = {				
+							factor = 0.3
+							FROM = { trait = ancilla }
+						}				
+						modifier = {				
+							factor = 1
+							FROM = { trait = elder }
+						}				
+						modifier = {				
+							factor = 1.5
+							FROM = { trait = ancient }
+						}				
+						modifier = {
+							factor = 2
+							FROM = { trait = methuselah }
+						}
+						modifier = {
+							factor = 1.5
+							FROM = { trait = bloodpotency_5 }
+						}
+						modifier = {
+							factor = 1.5
+							FROM = { trait = bloodpotency_6 }
+						}
+						modifier = {
+							factor = 1.5
+							FROM = { trait = bloodpotency_7 }
+						}
+						modifier = {
+							factor = 2
+							FROM = { trait = bloodpotency_8 }
+						}
+						modifier = {
+							factor = 2
+							FROM = { trait = bloodpotency_9 }
+						}
+						modifier = {
+							factor = 2
+							FROM = { trait = bloodpotency_10 }
+						}
+						ROOT = {
+							character_event = { id = POD_VAMPIRE_MENTAL_DISCIPLINE.6 days = 3650 tooltip = insane_tip_4}
+						}					
+					}
+					10 = {
+						modifier = {				
+							factor = 0.2
+							FROM = { trait = neonate }
+						}					
+						modifier = {				
+							factor = 0.3
+							FROM = { trait = ancilla }
+						}				
+						modifier = {				
+							factor = 1
+							FROM = { trait = elder }
+						}				
+						modifier = {				
+							factor = 1.5
+							FROM = { trait = ancient }
+						}				
+						modifier = {
+							factor = 2
+							FROM = { trait = methuselah }
+						}
+						modifier = {
+							factor = 1.5
+							FROM = { trait = bloodpotency_5 }
+						}
+						modifier = {
+							factor = 1.5
+							FROM = { trait = bloodpotency_6 }
+						}
+						modifier = {
+							factor = 1.5
+							FROM = { trait = bloodpotency_7 }
+						}
+						modifier = {
+							factor = 2
+							FROM = { trait = bloodpotency_8 }
+						}
+						modifier = {
+							factor = 2
+							FROM = { trait = bloodpotency_9 }
+						}
+						modifier = {
+							factor = 2
+							FROM = { trait = bloodpotency_10 }
+						}
+						ROOT = {
+							character_event = { id = POD_VAMPIRE_MENTAL_DISCIPLINE.6 days = 7300 tooltip = insane_tip_5}
+						}					
+					}
+				}
+				
+			}
+		}
+	}
+	dementation_confusion_decision = {
+		filter = court
+		ai = no
+		
+		from_potential = {
+			OR = {
+				trait = dementation_4
+				trait = dementation_5
+			}
+			NOT = { trait = incapable }
+			prisoner = no
+		}
+		
+		potential = {
+			ai = yes
+		}
+		
+		allow = {
+			in_revolt = no
+			NOT = { war_with = FROM }
+			NOT = { trait = antediluvian }
+			NOT = { trait = torpor }
+			NOT = { trait = wight }
+			NOT = { trait = lunatic }
+			at_location = FROM
+		}
+		
+		effect = {
+			FROM = { POD_vampire_blood_thirst_increase_effect = yes	}
+			random = {
+				chance = 25
+
+				modifier = {				
+					factor = 2
+					ROOT = { dynasty = FROM }
+				}					
+				
+				modifier = {				
+					factor = 0.5
+					ROOT = { trait = paranoid }
+				}					
+
+				modifier = {				
+					factor = 0.5
+					ROOT = { trait = stubborn }
+				}					
+				
+				modifier = {				
+					factor = 2
+					ROOT = { trait = trusting }
+				}			
+				
+				modifier = {				
+					factor = 0.6
+					ROOT = { trait = supe_hunter }
+				}				
+				modifier = {				
+					factor = 0.9
+					ROOT = { trait = neonate }
+				}				
+				modifier = {				
+					factor = 0.5
+					ROOT = { trait = werewolf }
+				}	
+
+				modifier = {				
+					factor = 0.3
+					ROOT = { trait = mage }
+				}					
+				
+				modifier = {				
+					factor = 0.5
+					ROOT = { trait = ancilla }
+				}				
+				modifier = {				
+					factor = 0.3
+					ROOT = { trait = elder }
+				}				
+				modifier = {				
+					factor = 0.2
+					ROOT = { trait = ancient }
+				}				
+				modifier = {
+					factor = 0.1
+					ROOT = { trait = methuselah }
+				}
+
+				modifier = {
+					factor = 0
+					ROOT = { trait = torpor }
+				}
+				
+				modifier = {				
+					factor = 0.5
+					FROM = { trait = neonate }
+				}					
+				modifier = {				
+					factor = 0.7
+					FROM = { trait = ancilla }
+				}				
+				modifier = {				
+					factor = 1.1
+					FROM = { trait = elder }
+				}				
+				modifier = {				
+					factor = 2
+					FROM = { trait = ancient }
+				}				
+				modifier = {
+					factor = 3
+					FROM = { trait = methuselah }
+				}	
+				modifier = {
+					factor = 1.5
+					FROM = { trait = dementation_3 }
+				}	
+				modifier = {
+					factor = 2
+					FROM = { trait = dementation_4 }
+				}		
+				modifier = {
+					factor = 3
+					FROM = { trait = dementation_5 }
+				}
+				modifier = {
+					factor = 1.5
+					FROM = { trait = bloodpotency_5 }
+				}
+				
+				modifier = {
+					factor = 1.5
+					FROM = { trait = bloodpotency_6 }
+				}
+				
+				modifier = {
+					factor = 1.5
+					FROM = { trait = bloodpotency_7 }
+				}
+				
+				modifier = {
+					factor = 2
+					FROM = { trait = bloodpotency_8 }
+				}
+				
+				modifier = {
+					factor = 3
+					FROM = { trait = bloodpotency_9 }
+				}
+				
+				modifier = {
+					factor = 3
+					FROM = { trait = bloodpotency_10 }
+				}
+				
+				ROOT = { 
+					add_trait = stressed
+				}
+				FROM = {
+					character_event = { id = POD_VAMPIRE_MENTAL_DISCIPLINE.5 }
+				}
+				random_list = {
+					10 = {
+						ROOT = {
+							character_event = { id = POD_VAMPIRE_MENTAL_DISCIPLINE.7 days = 730 tooltip = insane_tip_2}
+						}					
+					}
+					10 = {
+						ROOT = {
+							character_event = { id = POD_VAMPIRE_MENTAL_DISCIPLINE.7 days = 1825 tooltip = insane_tip_3}
+						}					
+					}
+					10 = {
+						modifier = {				
+							factor = 0.2
+							FROM = { trait = neonate }
+						}					
+						modifier = {				
+							factor = 0.3
+							FROM = { trait = ancilla }
+						}				
+						modifier = {				
+							factor = 1
+							FROM = { trait = elder }
+						}				
+						modifier = {				
+							factor = 1.5
+							FROM = { trait = ancient }
+						}				
+						modifier = {
+							factor = 2
+							FROM = { trait = methuselah }
+						}
+						modifier = {
+							factor = 1.5
+							FROM = { trait = bloodpotency_5 }
+						}
+						modifier = {
+							factor = 1.5
+							FROM = { trait = bloodpotency_6 }
+						}
+						modifier = {
+							factor = 1.5
+							FROM = { trait = bloodpotency_7 }
+						}
+						modifier = {
+							factor = 2
+							FROM = { trait = bloodpotency_8 }
+						}
+						modifier = {
+							factor = 2
+							FROM = { trait = bloodpotency_9 }
+						}
+						modifier = {
+							factor = 2
+							FROM = { trait = bloodpotency_10 }
+						}
+						ROOT = {
+							character_event = { id = POD_VAMPIRE_MENTAL_DISCIPLINE.7 days = 3650 tooltip = insane_tip_4}
+						}					
+					}
+					10 = {
+						modifier = {				
+							factor = 0.2
+							FROM = { trait = neonate }
+						}					
+						modifier = {				
+							factor = 0.3
+							FROM = { trait = ancilla }
+						}				
+						modifier = {				
+							factor = 1
+							FROM = { trait = elder }
+						}				
+						modifier = {				
+							factor = 1.5
+							FROM = { trait = ancient }
+						}				
+						modifier = {
+							factor = 2
+							FROM = { trait = methuselah }
+						}
+						modifier = {
+							factor = 1.5
+							FROM = { trait = bloodpotency_5 }
+						}
+						modifier = {
+							factor = 1.5
+							FROM = { trait = bloodpotency_6 }
+						}
+						modifier = {
+							factor = 1.5
+							FROM = { trait = bloodpotency_7 }
+						}
+						modifier = {
+							factor = 2
+							FROM = { trait = bloodpotency_8 }
+						}
+						modifier = {
+							factor = 2
+							FROM = { trait = bloodpotency_9 }
+						}
+						modifier = {
+							factor = 2
+							FROM = { trait = bloodpotency_10 }
+						}
+						ROOT = {
+							character_event = { id = POD_VAMPIRE_MENTAL_DISCIPLINE.7 days = 7300 tooltip = insane_tip_5}
+						}					
+					}
+				}
+				
+			}
+		}
+	}
+	dementation_silencesanemind_decision = {
+		filter = court
+		ai = no
+		
+		from_potential = {
+			OR = {
+				trait = dementation_4
+				trait = dementation_5
+			}
+			NOT = { trait = incapable }
+			prisoner = no
+		}
+		
+		potential = {
+			ai = yes
+		}
+		
+		allow = {
+			in_revolt = no
+			NOT = { war_with = FROM }
+			NOT = { trait = antediluvian }
+			NOT = { trait = torpor }
+			NOT = { trait = wight }
+			NOT = { trait = lunatic }
+			at_location = FROM
+		}
+		
+		effect = {
+			FROM = { POD_vampire_blood_thirst_increase_effect = yes	}
+			random = {
+				chance = 25
+
+				modifier = {				
+					factor = 2
+					ROOT = { dynasty = FROM }
+				}								
+				
+				modifier = {				
+					factor = 2
+					ROOT = { trait = trusting }
+				}			
+				
+				modifier = {				
+					factor = 0.6
+					ROOT = { trait = supe_hunter }
+				}				
+				modifier = {				
+					factor = 0.9
+					ROOT = { trait = neonate }
+				}				
+				modifier = {				
+					factor = 0.5
+					ROOT = { trait = werewolf }
+				}	
+
+				modifier = {				
+					factor = 0.3
+					ROOT = { trait = mage }
+				}					
+				
+				modifier = {				
+					factor = 0.5
+					ROOT = { trait = ancilla }
+				}				
+				modifier = {				
+					factor = 0.3
+					ROOT = { trait = elder }
+				}				
+				modifier = {				
+					factor = 0.2
+					ROOT = { trait = ancient }
+				}				
+				modifier = {
+					factor = 0.1
+					ROOT = { trait = methuselah }
+				}
+
+				modifier = {
+					factor = 0
+					ROOT = { trait = torpor }
+				}
+				
+				modifier = {				
+					factor = 0.5
+					FROM = { trait = neonate }
+				}					
+				modifier = {				
+					factor = 0.7
+					FROM = { trait = ancilla }
+				}				
+				modifier = {				
+					factor = 1.1
+					FROM = { trait = elder }
+				}				
+				modifier = {				
+					factor = 2
+					FROM = { trait = ancient }
+				}				
+				modifier = {
+					factor = 3
+					FROM = { trait = methuselah }
+				}	
+				modifier = {
+					factor = 1.5
+					FROM = { trait = dementation_3 }
+				}	
+				modifier = {
+					factor = 2
+					FROM = { trait = dementation_4 }
+				}		
+				modifier = {
+					factor = 3
+					FROM = { trait = dementation_5 }
+				}
+				
+				modifier = {
+					factor = 1.5
+					FROM = { trait = bloodpotency_5 }
+				}
+				
+				modifier = {
+					factor = 1.5
+					FROM = { trait = bloodpotency_6 }
+				}
+				
+				modifier = {
+					factor = 1.5
+					FROM = { trait = bloodpotency_7 }
+				}
+				
+				modifier = {
+					factor = 2
+					FROM = { trait = bloodpotency_8 }
+				}
+				
+				modifier = {
+					factor = 3
+					FROM = { trait = bloodpotency_9 }
+				}
+				
+				modifier = {
+					factor = 3
+					FROM = { trait = bloodpotency_10 }
+				}
+				
+				
+				
+				ROOT = { 
+					add_trait = depressed
+				}
+				FROM = {
+					character_event = { id = POD_VAMPIRE_MENTAL_DISCIPLINE.5 }
+				}
+				random_list = {
+					10 = {
+						ROOT = {
+							character_event = { id = POD_VAMPIRE_MENTAL_DISCIPLINE.8 days = 730 tooltip = insane_tip_2}
+						}					
+					}
+					10 = {
+						ROOT = {
+							character_event = { id = POD_VAMPIRE_MENTAL_DISCIPLINE.8 days = 1825 tooltip = insane_tip_3}
+						}					
+					}
+					10 = {
+						modifier = {				
+							factor = 0.2
+							FROM = { trait = neonate }
+						}					
+						modifier = {				
+							factor = 0.3
+							FROM = { trait = ancilla }
+						}				
+						modifier = {				
+							factor = 1
+							FROM = { trait = elder }
+						}				
+						modifier = {				
+							factor = 1.5
+							FROM = { trait = ancient }
+						}				
+						modifier = {
+							factor = 2
+							FROM = { trait = methuselah }
+						}
+						modifier = {
+							factor = 1.5
+							FROM = { trait = bloodpotency_5 }
+						}
+						modifier = {
+							factor = 1.5
+							FROM = { trait = bloodpotency_6 }
+						}
+						modifier = {
+							factor = 1.5
+							FROM = { trait = bloodpotency_7 }
+						}
+						modifier = {
+							factor = 2
+							FROM = { trait = bloodpotency_8 }
+						}
+						modifier = {
+							factor = 2
+							FROM = { trait = bloodpotency_9 }
+						}
+						modifier = {
+							factor = 2
+							FROM = { trait = bloodpotency_10 }
+						}
+						
+						ROOT = {
+							character_event = { id = POD_VAMPIRE_MENTAL_DISCIPLINE.8 days = 3650 tooltip = insane_tip_4}
+						}					
+					}
+					10 = {
+						modifier = {				
+							factor = 0.2
+							FROM = { trait = neonate }
+						}					
+						modifier = {				
+							factor = 0.3
+							FROM = { trait = ancilla }
+						}				
+						modifier = {				
+							factor = 1
+							FROM = { trait = elder }
+						}				
+						modifier = {				
+							factor = 1.5
+							FROM = { trait = ancient }
+						}				
+						modifier = {
+							factor = 2
+							FROM = { trait = methuselah }
+						}
+						modifier = {
+							factor = 1.5
+							FROM = { trait = bloodpotency_5 }
+						}
+						modifier = {
+							factor = 1.5
+							FROM = { trait = bloodpotency_6 }
+						}
+						modifier = {
+							factor = 1.5
+							FROM = { trait = bloodpotency_7 }
+						}
+						modifier = {
+							factor = 2
+							FROM = { trait = bloodpotency_8 }
+						}
+						modifier = {
+							factor = 2
+							FROM = { trait = bloodpotency_9 }
+						}
+						modifier = {
+							factor = 2
+							FROM = { trait = bloodpotency_10 }
+						}
+						ROOT = {
+							character_event = { id = POD_VAMPIRE_MENTAL_DISCIPLINE.8 days = 7300 tooltip = insane_tip_5}
+						}					
+					}
+				}
+				
+			}
+		}
+	}
+	dementation_voiceofmadness_decision = {
+		filter = court
+		ai = no
+		
+		from_potential = {
+			OR = {
+				trait = dementation_4
+				trait = dementation_5
+			}
+			NOT = { trait = incapable }
+			prisoner = no
+		}
+		
+		potential = {
+			ai = yes
+		}
+		
+		allow = {
+			in_revolt = no
+			NOT = { war_with = FROM }
+			NOT = { trait = antediluvian }
+			NOT = { trait = torpor }
+			NOT = { trait = wight }
+			NOT = { trait = wroth }
+			NOT = { trait = craven }
+			at_location = FROM
+		}
+		
+		effect = {
+			FROM = { POD_vampire_blood_thirst_increase_effect = yes	}
+			random = {
+				chance = 25
+
+				modifier = {				
+					factor = 2
+					ROOT = { dynasty = FROM }
+				}
+				
+				modifier = {				
+					factor = 2
+					ROOT = { trait = trusting }
+				}			
+				
+				modifier = {				
+					factor = 0.6
+					ROOT = { trait = supe_hunter }
+				}				
+				modifier = {				
+					factor = 0.9
+					ROOT = { trait = neonate }
+				}				
+				modifier = {				
+					factor = 0.5
+					ROOT = { trait = werewolf }
+				}	
+
+				modifier = {				
+					factor = 0.3
+					ROOT = { trait = mage }
+				}					
+				
+				modifier = {				
+					factor = 0.5
+					ROOT = { trait = ancilla }
+				}				
+				modifier = {				
+					factor = 0.3
+					ROOT = { trait = elder }
+				}				
+				modifier = {				
+					factor = 0.2
+					ROOT = { trait = ancient }
+				}				
+				modifier = {
+					factor = 0.1
+					ROOT = { trait = methuselah }
+				}
+
+				modifier = {
+					factor = 0
+					ROOT = { trait = torpor }
+				}
+				
+				modifier = {				
+					factor = 0.5
+					FROM = { trait = neonate }
+				}					
+				modifier = {				
+					factor = 0.7
+					FROM = { trait = ancilla }
+				}				
+				modifier = {				
+					factor = 1.1
+					FROM = { trait = elder }
+				}				
+				modifier = {				
+					factor = 2
+					FROM = { trait = ancient }
+				}				
+				modifier = {
+					factor = 3
+					FROM = { trait = methuselah }
+				}	
+				modifier = {
+					factor = 1.5
+					FROM = { trait = dementation_3 }
+				}	
+				modifier = {
+					factor = 2
+					FROM = { trait = dementation_4 }
+				}		
+				modifier = {
+					factor = 3
+					FROM = { trait = dementation_5 }
+				}
+				modifier = {
+					factor = 1.5
+					FROM = { trait = bloodpotency_5 }
+				}
+				
+				modifier = {
+					factor = 1.5
+					FROM = { trait = bloodpotency_6 }
+				}
+				
+				modifier = {
+					factor = 1.5
+					FROM = { trait = bloodpotency_7 }
+				}
+				
+				modifier = {
+					factor = 2
+					FROM = { trait = bloodpotency_8 }
+				}
+				
+				modifier = {
+					factor = 3
+					FROM = { trait = bloodpotency_9 }
+				}
+				
+				modifier = {
+					factor = 3
+					FROM = { trait = bloodpotency_10 }
+				}				
+				ROOT = {
+					random_list = {
+						10 = {
+							add_trait = wroth
+						}
+						10 = {
+							add_trait = craven
+						}
+					}
+				}
+				FROM = {
+					character_event = { id = POD_VAMPIRE_MENTAL_DISCIPLINE.5 }
+				}
+				random_list = {
+					10 = {
+						ROOT = {
+							character_event = { id = POD_VAMPIRE_MENTAL_DISCIPLINE.9 days = 730 tooltip = insane_tip_2}
+						}					
+					}
+					10 = {
+						ROOT = {
+							character_event = { id = POD_VAMPIRE_MENTAL_DISCIPLINE.9 days = 1825 tooltip = insane_tip_3}
+						}					
+					}
+					10 = {
+						modifier = {				
+							factor = 0.2
+							FROM = { trait = neonate }
+						}					
+						modifier = {				
+							factor = 0.3
+							FROM = { trait = ancilla }
+						}				
+						modifier = {				
+							factor = 1
+							FROM = { trait = elder }
+						}				
+						modifier = {				
+							factor = 1.5
+							FROM = { trait = ancient }
+						}				
+						modifier = {
+							factor = 2
+							FROM = { trait = methuselah }
+						}
+						modifier = {
+							factor = 1.5
+							FROM = { trait = bloodpotency_5 }
+						}
+						modifier = {
+							factor = 1.5
+							FROM = { trait = bloodpotency_6 }
+						}
+						modifier = {
+							factor = 1.5
+							FROM = { trait = bloodpotency_7 }
+						}
+						modifier = {
+							factor = 2
+							FROM = { trait = bloodpotency_8 }
+						}
+						modifier = {
+							factor = 2
+							FROM = { trait = bloodpotency_9 }
+						}
+						modifier = {
+							factor = 2
+							FROM = { trait = bloodpotency_10 }
+						}
+						ROOT = {
+							character_event = { id = POD_VAMPIRE_MENTAL_DISCIPLINE.9 days = 3650 tooltip = insane_tip_4}
+						}					
+					}
+					10 = {
+						modifier = {				
+							factor = 0.2
+							FROM = { trait = neonate }
+						}					
+						modifier = {				
+							factor = 0.3
+							FROM = { trait = ancilla }
+						}				
+						modifier = {				
+							factor = 1
+							FROM = { trait = elder }
+						}				
+						modifier = {				
+							factor = 1.5
+							FROM = { trait = ancient }
+						}				
+						modifier = {
+							factor = 2
+							FROM = { trait = methuselah }
+						}
+						modifier = {
+							factor = 1.5
+							FROM = { trait = bloodpotency_5 }
+						}
+						modifier = {
+							factor = 1.5
+							FROM = { trait = bloodpotency_6 }
+						}
+						modifier = {
+							factor = 1.5
+							FROM = { trait = bloodpotency_7 }
+						}
+						modifier = {
+							factor = 2
+							FROM = { trait = bloodpotency_8 }
+						}
+						modifier = {
+							factor = 2
+							FROM = { trait = bloodpotency_9 }
+						}
+						modifier = {
+							factor = 2
+							FROM = { trait = bloodpotency_10 }
+						}
+						ROOT = {
+							character_event = { id = POD_VAMPIRE_MENTAL_DISCIPLINE.9 days = 7300 tooltip = insane_tip_5}
+						}					
+					}
+				}
+				
+			}
+		}
+	}
 }	

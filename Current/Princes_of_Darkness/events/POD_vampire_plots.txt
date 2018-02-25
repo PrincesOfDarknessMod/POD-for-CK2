@@ -1,0 +1,684 @@
+namespace = POD_vampire_plots
+##################################
+# Vampire Related Plots
+# 1-6 Malkavian Insanity Plot
+# 7-10 Sow Chaos Job - Setite Temptation Job (Unused)
+#
+##################################
+character_event = {
+	id = POD_vampire_plots.1
+	desc = "EVTDESC_POD_INSANITYPLOTACCESS"
+	picture = GFX_evt_courtiers_talking
+	border = GFX_event_normal_frame_intrigue
+	
+	capable_only = yes
+	prisoner = no
+	is_part_of_plot = yes
+	
+	trigger = {
+		has_plot = plot_insanity_character
+		plot_power = 0.3
+		plot_target_char = {
+			age = 16
+			NOT = { trait = incapable }
+			NOT = { is_inaccessible_trigger = yes }
+			NOT = { trait = lunatic }
+		}
+		OR = {
+			NOT = { has_character_flag = insanity_in_motion }
+			had_character_flag = { flag = insanity_in_motion days = 100 }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1200
+		modifier = {
+			factor = 0.5
+			plot_power_contribution = 
+			{
+				plotter = ROOT
+				power = 0.10
+			}
+		}
+		modifier = {
+			factor = 0.5
+			plot_power_contribution = 
+			{
+				plotter = ROOT
+				power = 0.20
+			}
+		}
+		modifier = {
+			factor = 0.5
+			plot_power_contribution = 
+			{
+				plotter = ROOT
+				power = 0.30
+			}
+		}
+		modifier = {
+			factor = 0.5
+			plot_power_contribution = 
+			{
+				plotter = ROOT
+				power = 0.40
+			}
+		}
+		modifier = {
+			factor = 0.5
+			plot_power_contribution = 
+			{
+				plotter = ROOT
+				power = 0.50
+			}
+		}
+		modifier = {
+			factor = 0.5
+			plot_power_contribution = 
+			{
+				plotter = ROOT
+				power = 0.60
+			}
+		}
+		modifier = {
+			factor = 0.5
+			plot_power_contribution = 
+			{
+				plotter = ROOT
+				power = 0.70
+			}
+		}
+		modifier = {
+			factor = 0.5
+			plot_power_contribution = 
+			{
+				plotter = ROOT
+				power = 0.80
+			}
+		}
+		modifier = {
+			factor = 0.4
+			plot_power_contribution = 
+			{
+				plotter = ROOT
+				power = 0.90
+			}
+		}
+		modifier = {
+			factor = 0.4
+			plot_power_contribution = 
+			{
+				plotter = ROOT
+				power = 1.5
+			}
+		}
+	}
+
+	immediate = {
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_INSANITYPLOTACCESS" # Pay for access
+		trigger = {
+			NOT = { 
+				OR = { 
+					trait = obfuscate_2
+					trait = obfuscate_3
+					trait = obfuscate_4
+					trait = obfuscate_5
+				} 
+			}
+		}
+		scaled_wealth = -0.5
+		character_event = { id = POD_vampire_plots.2 days = 3 }
+		set_character_flag = insanity_in_motion
+	}
+	option = {
+		name = "EVTOPTB_POD_INSANITYPLOTACCESS" # Use Obfuscate
+		tooltip_info = intrigue
+		trigger = {
+			OR = { 
+				trait = obfuscate_2
+				trait = obfuscate_3
+				trait = obfuscate_4
+				trait = obfuscate_5
+			} 
+		}
+		
+		character_event = { id = POD_vampire_plots.2 days = 3 }
+		set_character_flag = insanity_in_motion
+	}
+}
+
+character_event = {
+	id = POD_vampire_plots.2
+	desc = "EVTDESC_POD_INSANITYPLOTGO"
+	picture = GFX_evt_courtiers_talking
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		plot_target_char = {
+			is_alive = yes
+			NOT = { trait = lunatic }
+		}
+	}
+	
+	immediate = {
+		plot_target_char = { save_event_target_as = plot_target }
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_INSANITYPLOTGO"
+		set_character_flag = insanity_in_motion
+		hidden_tooltip = {
+			event_target:plot_target = { character_event = { id = POD_vampire_plots.3 days = 27 tooltip = "EVTTOOLTIP7705" } }
+		}
+	}
+}
+
+# Insanity Plot - the Attempt
+character_event = {
+	id = POD_vampire_plots.3
+	desc = "EVTDESC_POD_INSANITYPLOTACTION"
+	picture = GFX_evt_courtiers_talking
+	border = GFX_event_normal_frame_intrigue
+	
+	hide_from = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		save_event_target_as = target_victim
+	}
+	
+	trigger = {
+		FROM = {
+			has_plot = plot_insanity_character
+			plot_target_char = {
+				character = ROOT
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_INSANITYPLOTACTION" # Not good defenses
+		trigger = {
+			NOT = {
+				OR = {
+					trait = methuselah
+					trait = ancient
+					OR = {
+						trait = auspex_2
+						trait = auspex_3
+						trait = auspex_4
+						trait = auspex_5
+					}
+				}
+			}
+		}
+		hidden_tooltip = {
+			random_list = {
+				25 = {
+					hidden_tooltip = {
+						FROM = { character_event = { id = POD_vampire_plots.5 days = 1 } }
+					}
+					add_trait = lunatic
+					character_event = { id = POD_VAMPIRE_MENTAL_DISCIPLINE.6 days = 1825 }
+				}
+				25 = {
+					hidden_tooltip = {
+						FROM = { character_event = { id = POD_vampire_plots.6 days = 1 } }
+					}
+					add_trait = lunatic
+					character_event = { id = POD_VAMPIRE_MENTAL_DISCIPLINE.6 days = 3650 }
+				}
+				25 = {
+					hidden_tooltip = {
+						FROM = { character_event = { id = POD_vampire_plots.6 days = 1 } }
+					}
+					add_trait = lunatic
+					character_event = { id = POD_VAMPIRE_MENTAL_DISCIPLINE.6 days = 7300 }
+				}
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTB_POD_INSANITYPLOTACTION" # Good defenses
+		trigger = {
+			OR = {
+				trait = methuselah
+				trait = ancient
+				OR = {
+					trait = auspex_2
+					trait = auspex_3
+					trait = auspex_4
+					trait = auspex_5
+				}
+			}
+		}
+		hidden_tooltip = {
+			random_list = {
+				25 = {
+					hidden_tooltip = {
+						FROM = { character_event = { id = POD_vampire_plots.5 days = 1 } }
+					}
+					add_trait = lunatic
+					character_event = { id = POD_VAMPIRE_MENTAL_DISCIPLINE.6 days = 365 }
+				}
+				25 = {
+					hidden_tooltip = {
+						FROM = { character_event = { id = POD_vampire_plots.5 days = 1 } }
+					}
+					add_trait = lunatic
+					character_event = { id = POD_VAMPIRE_MENTAL_DISCIPLINE.6 days = 720 }
+				}
+				25 = {
+					hidden_tooltip = {
+						FROM = { character_event = { id = POD_vampire_plots.6 days = 1 } }
+					}
+					add_trait = lunatic
+					character_event = { id = POD_VAMPIRE_MENTAL_DISCIPLINE.6 days = 900 }
+				}
+			}
+		}
+	}
+}
+
+character_event = {
+	id = POD_vampire_plots.4
+	desc = "EVTDESC7710"
+	picture = GFX_evt_courtiers_talking
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		plot_target_char = {
+			is_alive = yes
+		}
+	}
+	
+	immediate = {
+		plot_target_char = { save_event_target_as = plot_target }
+	}
+	
+	option = {
+		name = "EVTOPTA7710"
+		set_character_flag = insanity_in_motion
+		hidden_tooltip = {
+			event_target:plot_target = { character_event = { id = POD_vampire_plots.3 days = 27 tooltip = "EVTTOOLTIP7705" } }
+		}
+	}
+}
+
+# Insanity Plot - Notification: Success, but discovered
+character_event = {
+	id = POD_vampire_plots.5
+	desc = "EVTDESC_POD_INSANITYPLOTNOTICED"
+	picture = GFX_evt_courtiers_talking
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		#character_event = { id = 10 } # Consequences of discovery
+		clear_event_target = target_victim
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_INSANITYPLOTNOTICED"
+	}
+}
+
+# Insanity Plot - Notification: Success, and NOT discovered
+character_event = {
+	id = POD_vampire_plots.6
+	desc = "EVTDESC_POD_INSANITYPLOTSUCCESS"
+	picture = GFX_evt_courtiers_talking
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTA_POD_INSANITYPLOTSUCCESS"
+		clear_event_target = target_victim
+	}
+}
+
+# Sow Chaos Spymaster Activation
+character_event = {
+	id = POD_vampire_plots.7
+	title = "EVTNAME_POD_SOWCHAOSACTION"
+	desc = "EVTDESC_POD_SOWCHAOSACTION"
+	picture = GFX_evt_spymaster
+	border = GFX_event_normal_frame_intrigue
+
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	
+	trigger = {
+		has_job_action = action_sabotage_province
+		OR = {
+			trait = dementation_5
+			trait = chimestry_5
+			trait = dementation_4
+			trait = chimestry_4
+			trait = nightmare_4
+			trait = nightmare_5
+			trait = animalism_4
+			trait = animalism_5
+		}
+		NOT = { has_character_modifier = in_seclusion }
+	}
+	
+	mean_time_to_happen = {
+		months = 160
+		modifier = {
+			factor = 0.6
+			intrigue = 15
+		}
+		modifier = {
+			factor = 0.6
+			intrigue = 30
+		}
+		modifier = {
+			factor = 0.7
+			dementation_4
+		}
+		modifier = {
+			factor = 0.6
+			dementation_5
+		}
+		modifier = {
+			factor = 0.9
+			animalism_4
+		}
+		modifier = {
+			factor = 0.8
+			animalism_5
+		}
+		modifier = {
+			factor = 0.8
+			nightmare_4
+		}
+		modifier = {
+			factor = 0.7
+			nightmare_5
+		}
+		modifier = {
+			factor = 0.8
+			chimestry_4
+		}
+		modifier = {
+			factor = 0.7
+			chimestry_5
+		}
+		modifier = {
+			factor = 0.9
+			obfuscate_2
+		}
+		modifier = {
+			factor = 0.8
+			obfuscate_3
+		}
+		modifier = {
+			factor = 0.7
+			obfuscate_4
+		}
+		modifier = {
+			factor = 0.6
+			obfuscate_5
+		}
+		modifier = {
+			factor = 0.5
+			trait = elder
+		}
+		modifier = {
+			factor = 0.2
+			trait = ancient
+		}
+		modifier = {
+			factor = 0.1
+			trait = methuselah
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_SOWCHAOSACTION"
+		set_character_flag = caused_chaos
+		hidden_tooltip = {
+			location = {
+				random_province_character = {
+					limit = {
+						is_alive = yes
+						NOT = { has_character_modifier = in_seclusion }
+					}
+					character_event = { id = POD_vampire_plots.8 days = 7 }
+				}
+			}
+		}
+	}
+}
+
+#Sow Chaos Effect
+character_event = {
+	id = POD_vampire_plots.8
+	desc = "EVTDESC_POD_SOWCHAOSEFFECT"
+	picture = GFX_evt_spymaster
+	border = GFX_event_normal_frame_intrigue
+
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	is_triggered_only = yes
+	
+	trigger = {
+		is_alive = yes
+		NOT = { trait = torpor }
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_SOWCHAOSEFFECT"
+		hidden_tooltip = {
+			any_courtier = {
+				limit = {
+					is_alive = yes
+					NOT = { has_character_modifier = in_seclusion }
+					NOT = { trait = torpor }
+				}
+				save_event_target_as = target_courtier
+			}
+			if = {
+				limit = {
+					OR = {
+						trait = ancient
+						trait = methuselah
+						trait = auspex_4
+						trait = auspex_5
+						trait = malkavian
+					}
+				}
+				random_list = {
+					10 = { add_trait = stressed }
+					10 = { 
+						opinion = {
+							modifier = opinion_furious
+							who = event_target:target_courtier
+							years = 20
+						}
+					}
+					10 = { 
+						opinion = {
+							modifier = opinion_murder_attempt
+							who = event_target:target_courtier
+							years = 20
+						}
+					}
+					10 = { 
+						opinion = {
+							modifier = grievously_offended
+							who = event_target:target_courtier
+							years = 20
+						}
+					}
+					10 = { 
+						opinion = {
+							modifier = opinion_humiliated_me
+							who = event_target:target_courtier
+							years = 20
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					OR = {
+						trait = elder
+						trait = auspex_3
+					}
+				}
+				random_list = {
+					10 = { add_trait = stressed }
+					10 = { add_trait = wroth }
+					10 = { 
+						opinion = {
+							modifier = opinion_furious
+							who = event_target:target_courtier
+							years = 20
+						}
+					}
+					10 = { 
+						opinion = {
+							modifier = opinion_murder_attempt
+							who = event_target:target_courtier
+							years = 20
+						}
+					}
+					10 = { 
+						opinion = {
+							modifier = grievously_offended
+							who = event_target:target_courtier
+							years = 20
+						}
+					}
+					10 = { 
+						opinion = {
+							modifier = opinion_humiliated_me
+							who = event_target:target_courtier
+							years = 20
+						}
+					}
+				}
+			}
+			else = {
+				random_list = {
+					10 = { add_trait = stressed }
+					10 = { add_trait = depressed }
+					10 = { add_trait = craven }
+					10 = { add_trait = wroth }
+					10 = { add_trait = lunatic }
+					10 = { 
+						opinion = {
+							modifier = opinion_furious
+							who = event_target:target_courtier
+							years = 20
+						}
+					}
+					10 = { 
+						opinion = {
+							modifier = opinion_murder_attempt
+							who = event_target:target_courtier
+							years = 20
+						}
+					}
+					10 = { 
+						opinion = {
+							modifier = grievously_offended
+							who = event_target:target_courtier
+							years = 20
+						}
+					}
+					10 = { 
+						opinion = {
+							modifier = opinion_humiliated_me
+							who = event_target:target_courtier
+							years = 20
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+character_event = {
+	id = POD_vampire_plots.9
+	title = "EVTNAME_POD_SOWCHAOS_SETITE"
+	desc = "EVTDESC_POD_SOWCHAOS_SETITE"
+	picture = GFX_evt_spymaster
+	border = GFX_event_normal_frame_intrigue
+
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	
+	trigger = {
+		has_job_action = action_sabotage_province
+		OR = {
+			trait = setite
+			trait = serpentis_4
+			trait = serpentis_5
+		}
+		NOT = { has_character_modifier = in_seclusion }
+		location = {
+			random_province_character = {
+				is_alive = yes
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_SOWCHAOS_SETITE"
+		set_character_flag = caused_set
+		hidden_tooltip = {
+			location = {
+				random_province_character = {
+					limit = {
+						is_alive = yes
+					}
+					character_event = { id = POD_vampire_plots.10 days = 7 }
+				}
+			}
+		}
+	}
+}
+
+character_event = {
+	id = POD_vampire_plots.10
+	desc = "EVTDESC_POD_SOWCHAOS_SETITE_EFFECT"
+	picture = GFX_evt_spymaster
+	border = GFX_event_normal_frame_intrigue
+
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	is_triggered_only = yes
+	
+	trigger = {
+		is_alive = yes
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_SOWCHAOS_SETITE_EFFECT"
+		hidden_tooltip = {
+			set_character_flag = setite_touched
+		}
+	}
+}

@@ -669,6 +669,55 @@ RETYPE_ashirra_hajj =
 	}
 }
 
+RETTYPE_gargoyles =
+{
+	first_type = 6
+	first_amount = 5
+	
+	second_type = 5
+	second_amount = 100
+	
+	special_troops = mass_gargoyles
+	
+	hire_cost = 195
+	
+	maintenance_multiplier = 0.45
+	
+	potential = {
+				trait = tremere
+				trait = thaumaturgy_5
+	}
+	
+	modifier = {
+		archers_offensive = 0.2
+		archers_defensive = 0.2
+	}
+}
+
+RETTYPE_vampires =
+{
+	first_type = 6
+	first_amount = 5
+	
+	second_type = 0
+	second_amount = 100
+	
+	special_troops = mass_vampires
+	
+	hire_cost = 200
+	maintenance_multiplier = 0.45
+	
+	potential = {
+		trait = vampire
+	}
+	
+	modifier = {
+		light_infantry_offensive = 0.2
+		light_infantry_defensive = 0.2
+		light_infantry_morale = 0.1
+	}
+}
+
 
 RETTYPE_GHOULS =
 {
@@ -1306,7 +1355,36 @@ RETTYPE_VERBENAE  =
 	}
 }		
 
-RETTYPE_SAHJIYA  =
+RETTYPE_VALDAERMEN  =
+{
+	first_type = 6
+	first_amount = 5
+	
+	second_type = 0
+	second_amount = 250
+	
+	special_troops = mass_valdaermen
+	
+	hire_cost = 200
+	
+	maintenance_multiplier = 0.45	
+	
+	potential = {
+		OR = {
+			trait = troll
+			religion = valdaermen
+			religion = get_of_fenris
+		}
+	}
+	
+	modifier = {
+		light_infantry_offensive = 0.2
+		light_infantry_defensive = 0.3
+		light_infantry_morale = 0.1
+	}
+}		
+
+RETTYPE_SAHAJIYA  =
 {
 	first_type = 6
 	first_amount = 5
