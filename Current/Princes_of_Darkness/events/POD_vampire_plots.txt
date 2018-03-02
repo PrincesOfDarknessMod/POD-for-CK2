@@ -2,7 +2,7 @@ namespace = POD_vampire_plots
 ##################################
 # Vampire Related Plots
 # 1-6 Malkavian Insanity Plot
-# 7-10 Sow Chaos Job - Setite Temptation Job (Unused)
+# 7-10 Sow Chaos Plot - Setite Temptation Plot (Unused)
 #
 ##################################
 character_event = {
@@ -376,6 +376,7 @@ character_event = {
 	
 	mean_time_to_happen = {
 		months = 160
+		
 		modifier = {
 			factor = 0.6
 			intrigue = 15
@@ -386,80 +387,81 @@ character_event = {
 		}
 		modifier = {
 			factor = 0.7
-			dementation_4
+			trait = dementation_4
 		}
 		modifier = {
 			factor = 0.6
-			dementation_5
+			trait = dementation_5
 		}
 		modifier = {
 			factor = 0.9
-			animalism_4
+			trait = animalism_4
 		}
 		modifier = {
 			factor = 0.8
-			animalism_5
+			trait = animalism_5
 		}
 		modifier = {
 			factor = 0.8
-			nightmare_4
+			trait = nightmare_4
 		}
 		modifier = {
 			factor = 0.7
-			nightmare_5
+			trait = nightmare_5
 		}
 		modifier = {
 			factor = 0.8
-			chimestry_4
+			trait = chimestry_4
 		}
 		modifier = {
 			factor = 0.7
-			chimestry_5
+			trait = chimestry_5
 		}
 		modifier = {
 			factor = 0.9
-			obfuscate_2
+			trait = obfuscate_2
 		}
 		modifier = {
 			factor = 0.8
-			obfuscate_3
+			trait = obfuscate_3
 		}
 		modifier = {
 			factor = 0.7
-			obfuscate_4
+			trait = obfuscate_4
 		}
 		modifier = {
 			factor = 0.6
-			obfuscate_5
+			trait = obfuscate_5
 		}
 		modifier = {
-			factor = 0.5
 			trait = elder
+			factor = 0.5
 		}
 		modifier = {
-			factor = 0.2
 			trait = ancient
+			factor = 0.2
 		}
 		modifier = {
-			factor = 0.1
 			trait = methuselah
+			factor = 0.1
 		}
 	}
 	
-	option = {
-		name = "EVTOPTA_POD_SOWCHAOSACTION"
-		set_character_flag = caused_chaos
-		hidden_tooltip = {
-			location = {
+	immediate = {
+		location = {
 				random_province_character = {
 					limit = {
 						is_alive = yes
 						NOT = { has_character_modifier = in_seclusion }
 					}
-					character_event = { id = POD_vampire_plots.8 days = 7 }
+					save_event_target_as = chaos_target
 				}
 			}
-		}
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_SOWCHAOSACTION"
+		event_target:chaos_target = { character_event = { id = POD_vampire_plots.8 days = 7 } }
 	}
 }
 

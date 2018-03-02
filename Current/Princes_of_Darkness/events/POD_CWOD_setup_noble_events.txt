@@ -119,7 +119,25 @@ character_event = {
 # get a new dynasty names
 
 			if = 
-			{ limit = { ai = yes }
+			{ limit = { 
+			
+					ai = yes 
+					NOT = { trait = revenant }
+				NOT = { religion = revenant_high_clans }
+				NOT = { religion = revenant_ashirra }
+				NOT = { religion = revenant_anarchs }
+				NOT = { religion = revenant_autarkis }
+				NOT = { religion = revenant_furores }
+				NOT = { religion = revenant_low_clans }
+				NOT = { religion = revenant_baali }
+				NOT = { religion = revenant_masquerade_camarilla }
+				NOT = { religion = revenant_sabbat }
+				NOT = { religion = revenant_inconnu }
+				NOT = { religion = revenant_giovanni }
+				NOT = { religion = revenant_setite }
+				NOT = { religion = revenant_mayaparisataya }
+				NOT = { religion = revenant_assamite }					
+			}
 						create_character = 
 						{
 							random_traits = yes
@@ -147,7 +165,23 @@ character_event = {
 			chance = 95
 			
 			if = 
-			{ limit = { ai = yes }
+			{ limit = { ai = yes 
+						NOT = { trait = revenant }
+				NOT = { religion = revenant_high_clans }
+				NOT = { religion = revenant_ashirra }
+				NOT = { religion = revenant_anarchs }
+				NOT = { religion = revenant_autarkis }
+				NOT = { religion = revenant_furores }
+				NOT = { religion = revenant_low_clans }
+				NOT = { religion = revenant_baali }
+				NOT = { religion = revenant_masquerade_camarilla }
+				NOT = { religion = revenant_sabbat }
+				NOT = { religion = revenant_inconnu }
+				NOT = { religion = revenant_giovanni }
+				NOT = { religion = revenant_setite }
+				NOT = { religion = revenant_mayaparisataya }
+				NOT = { religion = revenant_assamite }						
+						}
 			
 						create_character = 
 						{
@@ -333,7 +367,6 @@ character_event = {
 			set_government_type = hunter_government
 			character_event = { id = CWOD_hunter_noble.1 }
 		}		
-		
 # changeling nobles						
 		if = {
 			limit = {
@@ -516,19 +549,31 @@ character_event = {
 					NOT = { trait = revenant }								
 				is_adult = yes
 				OR = { 				
-					religion = revenant_longinus
-					religion = revenant_abrahamic
-					religion = revenant_unaligned
-					religion = revenant_duolosi
-					religion = revenant-dharma
+						religion = revenant_high_clans 
+						religion = revenant_ashirra 
+						religion = revenant_anarchs 
+						religion = revenant_autarkis 
+						religion = revenant_furores 
+						religion = revenant_low_clans 
+						religion = revenant_baali 
+						religion = revenant_masquerade_camarilla 
+						religion = revenant_sabbat 
+						religion = revenant_inconnu 
+						religion = revenant_giovanni 
+						religion = revenant_setite 
+						religion = revenant_mayaparisataya 
+						religion = revenant_assamite 
 				}
 			}
+			
+			
+			
 			# make revenant ruler
 			add_trait = revenant
-			
-			set_government_type = unaligned_government
-			character_event = { id = revenant_noble.1 }
-		}	
+			add_trait = wyrm_taint
+			character_event = { id = CWOD_revenant_noble.1 }
+		}
+		
 		if = { 
 			limit = {
 				NOT = { 

@@ -69,6 +69,9 @@ character_event = {
 					trait = revenant 
 				}	
 				dynasty = 8000004
+				add_trait = animalism_1
+				add_trait = resilence_1
+				add_trait = vicissitude_1
 			}	
 			if = { 
 				limit = {
@@ -80,6 +83,9 @@ character_event = {
 					trait = revenant 
 				}	
 				dynasty = 8000005
+				add_trait = celerity_1
+				add_trait = dominate_1
+				add_trait = resilience_1
 			}	
 			if = { 
 				limit = { 
@@ -91,6 +97,9 @@ character_event = {
 					trait = revenant 
 				}	
 				dynasty = 8000006
+				add_trait = auspex_1
+				add_trait = majesty_1
+				add_trait = vicissitude_1
 			}	
 			if = { 
 				limit = { 
@@ -102,6 +111,9 @@ character_event = {
 					trait = revenant 
 				}	
 				dynasty = 8000007
+				add_trait = auspex_1
+				add_trait = obfuscate_1
+				add_trait = vicissitude_1
 			}	
 			if = { 
 				limit = { 
@@ -113,6 +125,9 @@ character_event = {
 					trait = revenant 
 				}	
 				dynasty = 8000008
+				add_trait = animalism_1
+				add_trait = majesty_1
+				add_trait = vigor_1
 			}	
 			if = { 
 				limit = { 
@@ -124,6 +139,9 @@ character_event = {
 				trait = revenant 
 				}	
 				dynasty = 8000009
+				add_trait = animalism_1
+				add_trait = dominate_1
+				add_trait = majesty_1
 			}	
 			if = { 
 				limit = { 
@@ -135,6 +153,10 @@ character_event = {
 					trait = revenant 
 				}	
 				dynasty = 8000010
+				add_trait = auspex_1
+				add_trait = protean_1
+				add_trait = vicissitude_1
+				add_trait = wolf-blooded
 			}	
 			if = {
 				limit = { 
@@ -146,6 +168,9 @@ character_event = {
 					trait = revenant 
 				}	
 				dynasty = 8000011
+				add_trait = vicissitude_1
+				add_trait = obfuscate_1
+				add_trait = animalism_1
 			}	
 			if = { 
 				limit = {
@@ -157,6 +182,8 @@ character_event = {
 					trait = revenant 
 				}	
 				dynasty = 8000012
+				add_trait = auspex_1
+				add_trait = dominate_1
 			}	
 			if = { 
 				limit = { 
@@ -168,6 +195,9 @@ character_event = {
 					trait = revenant
 				}	
 				dynasty = 8000013
+				add_trait = animalism_1
+				add_trait = obfuscate_1
+				add_trait = vigor_1
 			}
 			if = { 
 				limit = { 
@@ -179,6 +209,9 @@ character_event = {
 					trait = revenant 
 				}	
 				dynasty = 8000014
+				add_trait = vigor_1
+				add_trait = dominate_1
+				add_trait = auspex_1
 			}	
 			if = { 
 				limit = { 
@@ -190,6 +223,9 @@ character_event = {
 					trait = revenant 
 				}	
 				dynasty = 8000015
+				add_trait = vicissitude_1
+				add_trait = auspex_1
+				add_trait = dominate_1
 			}	
 			if = { 
 				limit = { 
@@ -201,6 +237,9 @@ character_event = {
 					trait = revenant 
 				}	
 				dynasty = 8000016
+				add_trait = vicissitude_1
+				add_trait = animalism_1
+				add_trait = auspex_1
 			}	
 			if = { 
 				limit = { 
@@ -212,6 +251,9 @@ character_event = {
 					trait = revenant
 				}	
 				dynasty = 8000017
+				add_trait = vicissitude_1
+				add_trait = auspex_1
+				add_trait = animalism_1
 			}
 			if = {
 				limit = { 
@@ -223,6 +265,9 @@ character_event = {
 					trait = revenant 
 				}	
 				dynasty = 8000018
+				add_trait = vigor_1
+				add_trait = dominate_1
+				add_traite = obfuscate_1
 			}	
 			if = { 
 				limit = { 
@@ -234,6 +279,9 @@ character_event = {
 					trait = revenant 
 				}	
 				dynasty = 8000019
+				add_trait = celerity_1
+				add_trait = obfuscate_1
+				add_trait = majesty_1
 			}	
 			if = { 
 				limit = { 
@@ -245,7 +293,105 @@ character_event = {
 					trait = revenant 
 				}	
 				dynasty = 8000020
+				add_trait = animalism_1
+				add_trait = auspex_1
+				add_trait = thaumaturgy_1
 			}
+			
+		if = 
+		{ 
+			limit = 
+			{
+				OR = 
+				{
+					has_global_flag = bookmark767
+					has_global_flag = bookmark1215
+					has_global_flag = bookmark1230
+					has_global_flag = bookmark1350
+					has_global_flag = bookmark1355
+					has_global_flag = bookmark1466
+				}
+				
+				OR =
+				{
+					dynasty = 8000004
+					dynasty = 8000005
+					dynasty = 8000006
+					dynasty = 8000007
+					dynasty = 8000008
+					dynasty = 8000009
+					dynasty = 8000010
+					dynasty = 8000011
+					dynasty = 8000013
+					dynasty = 8000014
+					dynasty = 8000015
+					dynasty = 8000016
+					dynasty = 8000017
+					
+				}
+				
+				
+			}
+
+			religion = revenant_high_clans
+			
+		}
+		
+		if = 
+		{ 
+			limit = 
+			{
+				OR = 
+				{
+					has_global_flag = bookmark1505
+					has_global_flag = bookmark1506
+				}
+				
+				dynasty = 8000012	
+				
+			}
+
+			religion = revenant_masquerade_camarilla
+			add_trait = thaumaturgy_1
+		}		
+		
+	
+		if = 
+		{ 
+			limit = 
+			{
+				OR = 
+				{
+					has_global_flag = bookmark1505
+					has_global_flag = bookmark1506
+				}
+				
+				OR =
+				{
+					dynasty = 8000004
+					dynasty = 8000005
+					dynasty = 8000006
+					dynasty = 8000007
+					dynasty = 8000008
+					dynasty = 8000009
+					dynasty = 8000010
+					dynasty = 8000011
+					dynasty = 8000013
+					dynasty = 8000014
+					dynasty = 8000015
+					dynasty = 8000016
+					dynasty = 8000017
+					
+				}
+				
+				
+			}
+
+			religion = revenant_sabbat
+			
+		}			
+			
+			
 # revenant duolosi mercs
 			if = { 
 				limit = { 
@@ -340,6 +486,9 @@ character_event = {
 				add_trait = celerity_1
 				add_trait = resilience_1
 			}
+		
+		POD_CWOD_vampire_governments_init_effect = yes	
+		
 		}
 	}
 }
