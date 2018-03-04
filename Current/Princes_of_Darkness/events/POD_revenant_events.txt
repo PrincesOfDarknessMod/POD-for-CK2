@@ -1,71 +1,57 @@
 # revenant events
 
-namespace = revenant_noble
+namespace = revenant_events
 
 character_event = {
 	id = revenant_events.1
 	#desc = "POD_REVENANT_CHILDREN_DESC"
 	
 	hide_window = yes
-	max_age = 5
-	min_age = 1
+	is_triggered_only = yes
 	
 	trigger = {
 		trait = mortal
 		NOT = { trait = revenant }
-		NOT = { has_character_flag = FLAG_POD_REVENANT_CHECK_EVENT_FIRED }
+		NOT = { trait = ghoul }
 		OR =  {
-				mother = { trait = revenant }
-				father = { trait = revenant } 
-				father = { trait = ghoul }
-				mother = { trait = ghoul } 
-			}
-		}
-	mean_time_to_happen = {
-		years = 5
-		
-		modifier = {
-			factor = 1.5
-		}
-		
-		modifier = {
-			factor = 0.8
-			father = { trait = ghoul }
-		}
-	
-		modifier = {
-			factor = 0.7
-			mother = { trait = ghoul }
-		}
-
-		modifier = {
-			factor = 0.6
-			father = { trait = revenant }
-		}
-		
-		modifier = {
-			factor = 0.5
 			mother = { trait = revenant }
-		}			
+			father = { trait = revenant } 
+			father = { trait = ghoul }
+			mother = { trait = ghoul } 
+		}
 	}
 
+	#both parents ghouls is 65% chance, both parents revenants is 75% chance
 	immediate = {
 		random_list = { 
-						50 = {  set_character_flag = FLAG_POD_REVENANT_CHECK_EVENT_FIRED 
-								set_character_flag = FLAG_POD_NEVER_REVENANT
-							}
-						50 = { 	set_character_flag = FLAG_POD_REVENANT_CHECK_EVENT_FIRED  
-								remove_trait = mortal
-								add_trait = revenant	
-							}
-
+			50 = {
+			}
+			50 = {
+				modifier = {
+					factor = 1.4
+					mother = { trait = ghoul }
+				}
+				modifier = {
+					factor = 1.4
+					father = { trait = ghoul }
+				}
+				modifier = {
+					factor = 1.7
+					mother = { trait = revenant }
+				}
+				modifier = {
+					factor = 1.7
+					father = { trait = revenant }
+				}
+				character_event = { id = revenant_events.3 days = 3 }
 			}
 		}
+	}
 
-	}	
+}
 
 character_event = {
-	id = revenant_noble.2
+	id = revenant_events.2
 	#desc = "POD_REVENANT_DEATH_DESC"
 	
 	hide_window = yes
@@ -95,4 +81,22 @@ character_event = {
 	immediate = {
 			death = "yes"
 		}
+}
+
+character_event = {
+	id = revenant_events.3
+	#desc = "POD_REVENANT_CHILDREN_DESC"
+	
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { trait = revenant }
 	}
+	
+	immediate = {
+		remove_trait = mortal
+		add_trait = revenant
+	}
+
+}

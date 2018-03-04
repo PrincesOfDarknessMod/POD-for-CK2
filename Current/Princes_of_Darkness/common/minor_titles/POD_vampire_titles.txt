@@ -1162,10 +1162,17 @@ title_ghoul = {
 	add_trait = ghoul
 	add_trait = vigor_1
 	opinion = {
-									modifier = opinion_blood_bond_to_domitor_ghoul
-									who = FROM
-									years = 200
-								}
+		modifier = opinion_blood_bond_to_domitor_ghoul
+		who = FROM
+		years = 3000
+	}
+	FROM = {
+		opinion = {
+			modifier = opinion_my_ghoul
+			who = PREV
+			years = 3000
+		}
+	}
 	set_character_flag = FLAG_NWOD_BLOODBOUND
 	
 	character_event = { id = ghoul.1 }

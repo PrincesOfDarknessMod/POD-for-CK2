@@ -32,6 +32,103 @@ RETTYPE_vampires =
 	}
 }
 
+RETTYPE_vampire_cav =
+{
+	first_type = 6
+	first_amount = 5
+	
+	second_type = 4
+	second_amount = 100
+	
+	special_troops = mass_vampc
+	
+	hire_cost = 100
+	maintenance_multiplier = 0.45
+	
+	potential = {
+		trait = vampire
+	}
+	
+	modifier = {
+		knights_offensive = 0.2
+		knights_defensive = 0.2
+		knights_morale = 0.1
+	}
+}
+
+RETTYPE_ghoul_cav =
+{
+	first_type = 6
+	first_amount = 5
+	
+	second_type = 4
+	second_amount = 100
+	
+	special_troops = mass_ghoulc
+	
+	hire_cost = 100
+	maintenance_multiplier = 0.45
+	
+	potential = {
+		trait = vampire
+	}
+	
+	modifier = {
+		knights_offensive = 0.2
+		knights_defensive = 0.2
+		lknights_morale = 0.1
+	}
+}
+
+
+RETTYPE_assamite_vizier_cav =
+{
+	first_type = 6
+	first_amount = 5
+	
+	second_type = 3
+	second_amount = 100
+	
+	special_troops = mass_assamite_vizierc
+	
+	hire_cost = 100
+	maintenance_multiplier = 0.45
+	
+	potential = {
+		trait = vampire
+	}
+	
+	modifier = {
+		light_cavalry_offensive = 0.2
+		light_cavalry_defensive = 0.2
+		light_cavalry_morale = 0.1
+	}
+}
+
+RETTYPE_assamite_cav =
+{
+	first_type = 6
+	first_amount = 5
+	
+	second_type = 3
+	second_amount = 100
+	
+	special_troops = mass_assamitec
+	
+	hire_cost = 100
+	maintenance_multiplier = 0.45
+	
+	potential = {
+		trait = vampire
+	}
+	
+	modifier = {
+		light_cavalry_offensive = 0.2
+		light_cavalry_defensive = 0.2
+		light_cavalry_morale = 0.1
+	}
+}
+
 RETTYPE_gargoyles =
 {
 	first_type = 6
@@ -47,8 +144,11 @@ RETTYPE_gargoyles =
 	maintenance_multiplier = 0.45
 	
 	potential = {
+		OR = {
 				trait = tremere
 				trait = thaumaturgy_5
+				trait = vampire
+			}
 	}
 	
 	modifier = {
@@ -59,7 +159,7 @@ RETTYPE_gargoyles =
 
 
 
-RETYPE_gangrel =
+RETTYPE_gangrel =
 {
 	first_type = 6
 	first_amount = 5
@@ -88,7 +188,7 @@ RETYPE_gangrel =
 	}
 }
 
-RETYPE_assamite =
+RETTYPE_assamite =
 {
 	first_type = 6
 	first_amount = 5
@@ -107,6 +207,7 @@ RETYPE_assamite =
 		OR = {
 		trait = assamite
 		trait = assamiteantitribu
+		trait = vampire
 		}
 	}
 	
@@ -117,7 +218,7 @@ RETYPE_assamite =
 	}
 }
 
-RETYPE_assamite_vizier =
+RETTYPE_assamite_vizier =
 {
 	first_type = 6
 	first_amount = 5
@@ -136,6 +237,7 @@ RETYPE_assamite_vizier =
 		OR = {
 		trait = assamite
 		trait = assamiteantitribu
+		trait = vampire
 		}
 	}
 	
@@ -146,7 +248,7 @@ RETYPE_assamite_vizier =
 	}
 }
 
-RETYPE_brujah =
+RETTYPE_brujah =
 {
 	first_type = 6
 	first_amount = 5
@@ -175,7 +277,7 @@ RETYPE_brujah =
 	}
 }
 
-RETYPE_cappadocian =
+RETTYPE_cappadocian =
 {
 	first_type = 6
 	first_amount = 5
@@ -204,7 +306,7 @@ RETYPE_cappadocian =
 	}
 }
 
-RETYPE_follower_of_set =
+RETTYPE_follower_of_set =
 {
 	first_type = 6
 	first_amount = 5
@@ -233,7 +335,7 @@ RETYPE_follower_of_set =
 	}
 }
 
-RETYPE_giovanni =
+RETTYPE_giovanni =
 {
 	first_type = 6
 	first_amount = 5
@@ -262,7 +364,7 @@ RETYPE_giovanni =
 	}
 }
 
-RETYPE_lasombra =
+RETTYPE_lasombra =
 {
 	first_type = 6
 	first_amount = 5
@@ -291,7 +393,7 @@ RETYPE_lasombra =
 	}
 }
 
-RETYPE_malkavian =
+RETTYPE_malkavian =
 {
 	first_type = 6
 	first_amount = 5
@@ -320,7 +422,7 @@ RETYPE_malkavian =
 	}
 }
 
-RETYPE_nosferatu =
+RETTYPE_nosferatu =
 {
 	first_type = 6
 	first_amount = 5
@@ -349,7 +451,7 @@ RETYPE_nosferatu =
 	}
 }
 
-RETYPE_ravnos =
+RETTYPE_ravnos =
 {
 	first_type = 6
 	first_amount = 5
@@ -378,7 +480,7 @@ RETYPE_ravnos =
 	}
 }
 
-RETYPE_toreador =
+RETTYPE_toreador =
 {
 	first_type = 6
 	first_amount = 5
@@ -407,7 +509,7 @@ RETYPE_toreador =
 	}
 }
 
-RETYPE_tremere =
+RETTYPE_tremere =
 {
 	first_type = 6
 	first_amount = 5
@@ -437,7 +539,7 @@ RETYPE_tremere =
 }
 
 
-RETYPE_tzimisce =
+RETTYPE_tzimisce =
 {
 	first_type = 6
 	first_amount = 5
@@ -466,7 +568,7 @@ RETYPE_tzimisce =
 	}
 }
 
-RETYPE_ventrue =
+RETTYPE_ventrue =
 {
 	first_type = 6
 	first_amount = 5
@@ -496,7 +598,7 @@ RETYPE_ventrue =
 }
 
 
-RETYPE_baali =
+RETTYPE_baali =
 {
 	first_type = 6
 	first_amount = 5
@@ -529,7 +631,7 @@ RETYPE_baali =
 	}
 }
 
-RETYPE_einherjar =
+RETTYPE_einherjar =
 {
 	first_type = 6
 	first_amount = 5
@@ -555,7 +657,7 @@ RETYPE_einherjar =
 	}
 }
 
-RETYPE_laibon =
+RETTYPE_laibon =
 {
 	first_type = 6
 	first_amount = 5
@@ -582,7 +684,7 @@ RETYPE_laibon =
 	}
 }
 
-RETYPE_anda =
+RETTYPE_anda =
 {
 	first_type = 6
 	first_amount = 5
@@ -599,7 +701,7 @@ RETYPE_anda =
 	potential = {
 	
 		OR = {
-
+		trait = vampire
 		religion = anda
 		religion = sons_of_tengri
 		religion = shadow_lords
@@ -615,7 +717,7 @@ RETYPE_anda =
 	}
 }
 
-RETYPE_cainite =
+RETTYPE_cainite =
 {
 	first_type = 6
 	first_amount = 5
@@ -642,7 +744,7 @@ RETYPE_cainite =
 	}
 }
 
-RETYPE_ashirra_hajj =
+RETTYPE_ashirra_hajj =
 {
 	first_type = 6
 	first_amount = 5
@@ -657,9 +759,10 @@ RETYPE_ashirra_hajj =
 	maintenance_multiplier = 0.45
 	
 	potential = {
-
+		OR = {
 		religion = ashirra
-		
+		trait = vampire
+		}
 	}
 	
 	modifier = {
@@ -691,30 +794,6 @@ RETTYPE_gargoyles =
 	modifier = {
 		archers_offensive = 0.2
 		archers_defensive = 0.2
-	}
-}
-
-RETTYPE_vampires =
-{
-	first_type = 6
-	first_amount = 5
-	
-	second_type = 0
-	second_amount = 100
-	
-	special_troops = mass_vampires
-	
-	hire_cost = 200
-	maintenance_multiplier = 0.45
-	
-	potential = {
-		trait = vampire
-	}
-	
-	modifier = {
-		light_infantry_offensive = 0.2
-		light_infantry_defensive = 0.2
-		light_infantry_morale = 0.1
 	}
 }
 
@@ -979,6 +1058,7 @@ RETTYPE_GET_OF_FENRIS =
 		religion = get_of_fenris
 		trait = troll
 		religion = valdaermen
+		trait = vampire
 		}
 	}
 	
@@ -1658,10 +1738,11 @@ RETTYPE_HIGH_GUILD =
 	maintenance_multiplier = 0.45	
 	
 	potential = {
-		trait = mage
 		OR = {
 			religion_group = order_of_reason_group
 			religion_group = daedalan_group
+			trait = vampire
+			trait = mage
 		}
 	}
 	
@@ -1720,6 +1801,7 @@ RETTYPE_CRAFTMASONS =
 		OR = {
 			religion_group = order_of_reason_group
 			religion_group = daedalan_group
+			
 		}
 	}
 	
@@ -1914,6 +1996,7 @@ RETTYPE_TROLL =
 		trait = changeling
 		religion = get_of_fenris
 		religion = valdaermen
+		trait = vampire
 		}
 	}
 	
@@ -2150,6 +2233,7 @@ RETTYPE_WRAITHS =
 	potential = {
 		OR =
 		{
+		trait = vampire
 		trait = necromancy_5
 		trait = sphere_spirit_5		
 		}
