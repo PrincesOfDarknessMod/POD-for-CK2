@@ -303,11 +303,11 @@ objectTypes = {
 
 	EMFXActorType = {
 		name = "westerngfx_mass_cappadocianc"
-		actorfile = "gfx\models\mass_vampires\Western_Heavy_Horse_01.xac"
+		actorfile = "gfx\models\Byzantine_Heavy_Cavalry_Horse.xac"
 		
-		idle   = "gfx\models\Horse_Idle.xsm"
-		move   = "gfx\models\Horse_Moving.xsm"
-		attack = "gfx\models\Horse_Attack.xsm"
+		 idle   = "gfx\models\Horse_2_Idle.xsm"
+		 move   = "gfx\models\Horse_2_Moving.xsm"
+		 attack = "gfx\models\Horse_2_Attack.xsm"
 		
 		scale = 0.9f
 	}
@@ -325,8 +325,7 @@ objectTypes = {
 
 	EMFXActorType = {
 		name = "westerngfx_mass_cappadocianc_weapon"
-		actorfile = "gfx\models\Attachments\Spear_01.xac"
-		
+		actorfile = "gfx\models\Attachments\byzantine_pike.xac"
 		scale = 1.0f
 	}
 		
@@ -545,8 +544,8 @@ objectTypes = {
 		scale = 1.0f
 	}
 
-# anda Cav
-
+# Lasombra Cavalry
+		
 	pdxmesh = {
 		name = "westerngfx_mass_lasombrac"
 		file = "gfx\models\mass_vampires\gerup_heavy_horse.mesh"
@@ -560,7 +559,7 @@ objectTypes = {
 	
 	pdxmesh = {
 		name = "westerngfx_mass_lasombrac_rider"
-		file = "gfx/models/Mapindicators/cote_western_female_chancellor.mesh"
+		file = "gfx\models\itup_heavy_infantry.mesh"
 	
 		animation = { id = "attack"		type = "gerup_heavy_cavalry_attack_animation" }
 		animation = { id = "idle"		type = "gerup_heavy_cavalry_idle_animation" }
@@ -572,7 +571,8 @@ objectTypes = {
 	pdxmesh = {
 		name = "westerngfx_mass_lasombrac_weapon"
 		file = "gfx\models\Attachments\muslimgfx_early_scimitar.mesh"
-		scale = 1.0f
+
+		scale = 1.3f
 	}
 	
 	pdxmesh = {
@@ -580,6 +580,7 @@ objectTypes = {
 		file = "gfx\models\Attachments\engup_heavyshield.mesh"
 		scale = 0.9
 	}		
+		
 
 # Malkavian		
 		
@@ -609,46 +610,57 @@ objectTypes = {
 	
 	EMFXActorType = {
 		name = "westerngfx_mass_malkavian_helmet"
-		actorfile = "gfx\models\Attachments\Helmet_01.xac"  
-		scale = 0.000001f
+		actorfile = "gfx\models\Attachments\Helmet_01.xac"
+		scale = 1.2f
 	}	
 
 # malkavian Cav
 
-	pdxmesh = {
+	EMFXActorType = {
 		name = "westerngfx_mass_malkavianc"
-		file = "gfx\models\mass_vampires\gerup_heavy_horse.mesh"
-	
-		animation = { id = "attack"		type = "gerup_horse_attack_animation" }
-		animation = { id = "idle"		type = "gerup_horse_idle_animation" }
-		animation = { id = "move"		type = "gerup_horse_moving_animation" }
+		actorfile = "gfx\models\mass_vampires\Western_Heavy_Horse_01.xac"
 		
-		scale = 0.9
+		idle   = "gfx\models\Horse_Idle.xsm"
+		move   = "gfx\models\Horse_Moving.xsm"
+		attack = "gfx\models\Horse_Attack.xsm"
+		
+		scale = 0.9f
 	}
 	
-	pdxmesh = {
+	EMFXActorType = {
 		name = "westerngfx_mass_malkavianc_rider"
-		file = "gfx\models\mass_vampires\gerup_pikemen.mesh"
-	
-		animation = { id = "attack"		type = "gerup_heavy_cavalry_attack_animation" }
-		animation = { id = "idle"		type = "gerup_heavy_cavalry_idle_animation" }
-		animation = { id = "move"		type = "gerup_heavy_cavalry_moving_animation" }
-	
-		scale = 0.9
-	}	
-
-	pdxmesh = {
-		name = "westerngfx_mass_malkavianc_weapon"
-		file = "gfx\models\Attachments\gerup_spear.mesh"
+		actorfile = "gfx\models\celtic_archer.xac"
+		
+		idle   = "gfx\models\Cavalry_Sword_and_Shield_Idle.xsm"
+		move   = "gfx\models\Cavalry_Sword_and_Shield_Moving.xsm"
+		attack = "gfx\models\Cavalry_Sword_and_Shield_Attack.xsm"
+		
 		scale = 1.0f
 	}
 	
-	pdxmesh = {
-		name = "westerngfx_mass_malkavianc_shield"
-		file = "gfx\models\Attachments\engup_heavyshield.mesh"
-		scale = 0.9
-	}		
+	EMFXActorType = {
+		name = "westerngfx_mass_malkavianc_weapon"
+		actorfile = "gfx\models\Attachments\Banner_Sword.xac"
+		
+		idle   = "gfx\models\Attachments\Banner_anim.xsm"
+		move   = "gfx\models\Attachments\Banner_anim.xsm"
+		attack = "gfx\models\Attachments\Sword_Anim.xsm"
+		
+		scale = 1.0f
+	}
 	
+	EMFXActorType = {
+		name = "westerngfx_mass_malkavianc_helmet"
+		actorfile = "gfx\models\Attachments\Helmet_02.xac"  
+		scale = 1.2f
+	}
+
+	EMFXActorType = {
+		name = "westerngfx_mass_malkavianc_shield"
+		actorfile = "gfx\models\Attachments\Shield_Round_01_Checker.xac"
+		scale = 1.2f
+	}
+
 # Nosferatu	
 	
 	pdxmesh = {
@@ -663,40 +675,36 @@ objectTypes = {
 	}		
 
 # Nosferatu Cav
-
-	pdxmesh = {
-		name = "westerngfx_mass_nosferatuc"
-		file = "gfx\models\mass_vampires\gerup_heavy_horse.mesh"
 	
-		animation = { id = "attack"		type = "gerup_horse_attack_animation" }
-		animation = { id = "idle"		type = "gerup_horse_idle_animation" }
-		animation = { id = "move"		type = "gerup_horse_moving_animation" }
+	EMFXActorType = {
+		name = "westerngfx_mass_nosferatuc"
+		actorfile = "gfx\models\Horse.xac"
 		
-		scale = 0.9
+		idle   = "gfx\models\Horse_Idle.xsm"
+		move   = "gfx\models\Horse_Moving.xsm"
+		attack = "gfx\models\Horse_Attack.xsm"
+		
+		scale = 0.9f
 	}
 	
-	pdxmesh = {
+	EMFXActorType = {
 		name = "westerngfx_mass_nosferatuc_rider"
-		file = "gfx\models\mass_vampires\gerup_pikemen.mesh"
-	
-		animation = { id = "attack"		type = "gerup_heavy_cavalry_attack_animation" }
-		animation = { id = "idle"		type = "gerup_heavy_cavalry_idle_animation" }
-		animation = { id = "move"		type = "gerup_heavy_cavalry_moving_animation" }
-	
-		scale = 0.9
-	}	
-
-	pdxmesh = {
-		name = "westerngfx_mass_nosferatuc_weapon"
-		file = "gfx\models\Attachments\gerup_spear.mesh"
+		actorfile = "gfx\models\christian_heavy_cavalry.xac"
+		
+		 idle   = "gfx\models\christian_light_cavalry_idle.xsm"
+	 	 move   = "gfx\models\christian_light_cavalry_moving.xsm"
+		 attack = "gfx\models\christian_light_cavalry_attack.xsm"
+		
 		scale = 1.0f
 	}
 	
-	pdxmesh = {
-		name = "westerngfx_mass_nosferatuc_shield"
-		file = "gfx\models\Attachments\engup_heavyshield.mesh"
-		scale = 0.9
-	}	
+	EMFXActorType = {
+		name = "westerngfx_mass_nosferatuc_weapon"
+		actorfile = "gfx\models\Attachments\christian_pike.xac"
+		scale = 1.0f
+	}
+	
+
 	
 # Ravnos
 
@@ -724,39 +732,39 @@ objectTypes = {
 	
 # ravnos Cav
 
-	pdxmesh = {
+	EMFXActorType = {
 		name = "westerngfx_mass_ravnosc"
-		file = "gfx\models\mass_vampires\gerup_heavy_horse.mesh"
-	
-		animation = { id = "attack"		type = "gerup_horse_attack_animation" }
-		animation = { id = "idle"		type = "gerup_horse_idle_animation" }
-		animation = { id = "move"		type = "gerup_horse_moving_animation" }
+		actorfile = "gfx\models\indian_heavy_cavalry_horse.xac"
 		
-		scale = 0.9
-	}
-	
-	pdxmesh = {
-		name = "westerngfx_mass_ravnosc_rider"
-		file = "gfx\models\mass_vampires\gerup_pikemen.mesh"
-	
-		animation = { id = "attack"		type = "gerup_heavy_cavalry_attack_animation" }
-		animation = { id = "idle"		type = "gerup_heavy_cavalry_idle_animation" }
-		animation = { id = "move"		type = "gerup_heavy_cavalry_moving_animation" }
-	
-		scale = 0.9
-	}	
-
-	pdxmesh = {
-		name = "westerngfx_mass_ravnosc_weapon"
-		file = "gfx\models\Attachments\gerup_spear.mesh"
+		idle   = "gfx\models\indian_horse_idle.xsm"
+		move   = "gfx\models\indian_horse_moving.xsm"
+		attack = "gfx\models\indian_horse_attack.xsm"
+		
 		scale = 1.0f
 	}
 	
-	pdxmesh = {
-		name = "westerngfx_mass_ravnosc_shield"
-		file = "gfx\models\Attachments\engup_heavyshield.mesh"
-		scale = 0.9
-	}		
+
+	EMFXActorType = {
+		name = "westerngfx_mass_ravnosc_rider"
+		actorfile = "gfx\models\Mapindicators\indian_marshal.xac"
+		
+		 idle   = "gfx\models\indian_light_cavalry_idle.xsm"
+		 move   = "gfx\models\indian_light_cavalry_moving.xsm"
+		 attack = "gfx\models\indian_light_cavalry_attack.xsm"
+		
+		scale = 1.0f
+		
+	}
+	
+
+	EMFXActorType = {
+		name = "westerngfx_mass_ravnosc_weapon"
+		actorfile = "gfx\models\indian_trident.xac"
+		
+		scale = 1.0f
+	}
+	
+
 	
 # Toreador	
 
@@ -786,40 +794,47 @@ objectTypes = {
 	
 # toreador Cav
 
-	pdxmesh = {
+	EMFXActorType = {
 		name = "westerngfx_mass_toreadorc"
-		file = "gfx\models\mass_vampires\gerup_heavy_horse.mesh"
-	
-		animation = { id = "attack"		type = "gerup_horse_attack_animation" }
-		animation = { id = "idle"		type = "gerup_horse_idle_animation" }
-		animation = { id = "move"		type = "gerup_horse_moving_animation" }
+		actorfile = "gfx\models\christian_horse.xac"
 		
-		scale = 0.9
+		 idle   = "gfx\models\christian_horse_idle.xsm"
+		 move   = "gfx\models\christian_horse_moving.xsm"
+		 attack = "gfx\models\christian_horse_attack.xsm"
+		
+		scale = 0.9f
 	}
 	
-	pdxmesh = {
-		name = "westerngfx_mass_toreadorc_rider"
-		file = "gfx\models\mass_vampires\gerup_pikemen.mesh"
-	
-		animation = { id = "attack"		type = "gerup_heavy_cavalry_attack_animation" }
-		animation = { id = "idle"		type = "gerup_heavy_cavalry_idle_animation" }
-		animation = { id = "move"		type = "gerup_heavy_cavalry_moving_animation" }
-	
-		scale = 0.9
-	}	
 
-	pdxmesh = {
+	EMFXActorType = {
+		name = "westerngfx_mass_toreadorc_rider"
+		actorfile = "gfx\models\christian_archer.xac"
+		
+		 idle   = "gfx\models\christian_heavy_cavalry_tabard_idle.xsm"
+		 move   = "gfx\models\christian_heavy_cavalry_tabard_moving.xsm"
+		 attack = "gfx\models\christian_heavy_cavalry_tabard_attack.xsm"
+		
+		scale = 1.0f
+		}
+
+	EMFXActorType = {
 		name = "westerngfx_mass_toreadorc_weapon"
-		file = "gfx\models\Attachments\gerup_spear.mesh"
+		actorfile = "gfx\models\Attachments\christian_banner_and_sword.xac"
+		
+		idle   = "gfx\models\Attachments\christian_banner_anim.xsm"
+		move   = "gfx\models\Attachments\christian_banner_anim.xsm"
+		attack  =  "gfx\models\Attachments\christian_sword_anim.xsm"
+		
 		scale = 1.0f
 	}
-	
-	pdxmesh = {
+		
+	EMFXActorType = {
 		name = "westerngfx_mass_toreadorc_shield"
-		file = "gfx\models\Attachments\engup_heavyshield.mesh"
-		scale = 0.9
+		actorfile = "gfx\models\Attachments\Shield_Knight01.xac"
+		scale = 1.0f
 	}	
 	
+
 # Tremere
 
 		pdxmesh = {
@@ -854,7 +869,7 @@ objectTypes = {
 	
 	pdxmesh = {
 		name = "westerngfx_mass_tremerec_rider"
-		file = "gfx\models\mass_vampires\gerup_pikemen.mesh"
+		file = "gfx/models/Mapindicators/cote_western_female_stewardess.mesh"
 	
 		animation = { id = "attack"		type = "gerup_heavy_cavalry_attack_animation" }
 		animation = { id = "idle"		type = "gerup_heavy_cavalry_idle_animation" }
@@ -865,15 +880,10 @@ objectTypes = {
 
 	pdxmesh = {
 		name = "westerngfx_mass_tremerec_weapon"
-		file = "gfx\models\Attachments\gerup_spear.mesh"
+		file = "gfx\models\Attachments\char_early_pike.mesh"
 		scale = 1.0f
 	}
 	
-	pdxmesh = {
-		name = "westerngfx_mass_tremerec_shield"
-		file = "gfx\models\Attachments\engup_heavyshield.mesh"
-		scale = 0.9
-	}		
 
 # Tzimisce 
 	
@@ -891,57 +901,61 @@ objectTypes = {
 	EMFXActorType = {
 		name = "westerngfx_mass_tzimisce_weapon"
 		actorfile = "gfx\models\Attachments\holy_order_hashshashin_sword.xac"
-		scale = 0.5f
+		scale = 0.7f
 	}
 	
 	EMFXActorType = {
 		name = "westerngfx_mass_tzimisce_shield"
 		actorfile = "gfx\models\Attachments\Sword_01_Longsword.xac"
 
-		scale = 0.5f
+		scale = 0.7f
 	}	
-	
-	EMFXActorType = {
-		name = "westerngfx_mass_tzimisce_helmet"
-		actorfile = "gfx\models\Attachments\Helmet_01.xac"  
-		scale = 0.000001f
-	}	
+
 	
 # tzimisce Cav
 
-	pdxmesh = {
+
+	EMFXActorType = {
 		name = "westerngfx_mass_tzimiscec"
-		file = "gfx\models\mass_vampires\gerup_heavy_horse.mesh"
-	
-		animation = { id = "attack"		type = "gerup_horse_attack_animation" }
-		animation = { id = "idle"		type = "gerup_horse_idle_animation" }
-		animation = { id = "move"		type = "gerup_horse_moving_animation" }
+		actorfile = "gfx\models\christian_horse.xac"
 		
-		scale = 0.9
+		 idle   = "gfx\models\christian_horse_idle.xsm"
+		 move   = "gfx\models\christian_horse_moving.xsm"
+		 attack = "gfx\models\christian_horse_attack.xsm"
+		
+		scale = 0.9f
 	}
 	
-	pdxmesh = {
-		name = "westerngfx_mass_tzimiscec_rider"
-		file = "gfx\models\mass_vampires\gerup_pikemen.mesh"
-	
-		animation = { id = "attack"		type = "gerup_heavy_cavalry_attack_animation" }
-		animation = { id = "idle"		type = "gerup_heavy_cavalry_idle_animation" }
-		animation = { id = "move"		type = "gerup_heavy_cavalry_moving_animation" }
-	
-		scale = 0.9
-	}	
 
-	pdxmesh = {
+	EMFXActorType = {
+		name = "westerngfx_mass_tzimiscec_rider"
+		actorfile = "gfx\models\Mapindicators\Eastern_Spymaster.xac"
+		
+		 idle   = "gfx\models\christian_heavy_cavalry_tabard_idle.xsm"
+		 move   = "gfx\models\christian_heavy_cavalry_tabard_moving.xsm"
+		 attack = "gfx\models\christian_heavy_cavalry_tabard_attack.xsm"
+		
+		scale = 1.0f
+		}
+
+	EMFXActorType = {
 		name = "westerngfx_mass_tzimiscec_weapon"
-		file = "gfx\models\Attachments\gerup_spear.mesh"
+		actorfile = "gfx\models\Attachments\Spear_02.xac"
+		
 		scale = 1.0f
 	}
-	
-	pdxmesh = {
+		
+	EMFXActorType = {
 		name = "westerngfx_mass_tzimiscec_shield"
-		file = "gfx\models\Attachments\engup_heavyshield.mesh"
-		scale = 0.9
+		actorfile = "gfx\models\Attachments\Sword_01_Longsword.xac"
+		scale = 1.0f
 	}	
+	
+	EMFXActorType = {
+		name = "westerngfx_mass_tzimiscec_helmet"
+		actorfile = "gfx\models\Attachments\Helmet_12.xac"
+		scale = 1.0f
+	}		
 	
 # Gargoyles	
 	pdxmesh = {
@@ -1115,44 +1129,47 @@ objectTypes = {
 	
 	pdxmesh = {
 		name = "westerngfx_mass_anda_weapon"
-		file = "gfx\models\Attachments\muslimgfx_early_scimitar.mesh"
-
-		scale = 1.0f
+		file = "gfx\models\Attachments\jdup_sword.mesh"		
+				
+		scale = 0.9
 	}
 	
 # anda Cav
 
 	pdxmesh = {
 		name = "westerngfx_mass_andac"
-		file = "gfx\models\mass_vampires\gerup_heavy_horse.mesh"
+		file = "gfx\models\jdup_heavy_horse.mesh"
 	
-		animation = { id = "attack"		type = "gerup_horse_attack_animation" }
-		animation = { id = "idle"		type = "gerup_horse_idle_animation" }
-		animation = { id = "move"		type = "gerup_horse_moving_animation" }
+		animation = { id = "attack"		type = "jdup_horse_attack_animation" }
+		animation = { id = "idle"		type = "jdup_horse_idle_animation" }
+		animation = { id = "move"		type = "jdup_horse_moving_animation" }
 		
 		scale = 0.9
 	}
+
 	
 	pdxmesh = {
 		name = "westerngfx_mass_andac_rider"
-		file = "gfx\models\mass_vampires\gerup_pikemen.mesh"
+		file = "gfx/models/Mapindicators/cote_mongol_marshal_female.mesh"
 	
-		animation = { id = "attack"		type = "gerup_heavy_cavalry_attack_animation" }
-		animation = { id = "idle"		type = "gerup_heavy_cavalry_idle_animation" }
-		animation = { id = "move"		type = "gerup_heavy_cavalry_moving_animation" }
+		animation = { id = "attack"		type = "jdup_heavy_cavalry_attack_animation" }
+		animation = { id = "idle"		type = "jdup_heavy_cavalry_idle_animation" }
+		animation = { id = "move"		type = "jdup_heavy_cavalry_moving_animation" }
 	
 		scale = 0.9
 	}	
 
 	pdxmesh = {
 		name = "westerngfx_mass_andac_weapon"
-		file = "gfx\models\Attachments\gerup_spear.mesh"
-		scale = 1.0f
+		file = "gfx\models\Attachments\jdup_sword.mesh"		
+				
+		scale = 0.9
 	}
 	
 	pdxmesh = {
 		name = "westerngfx_mass_andac_shield"
-		file = "gfx\models\Attachments\engup_heavyshield.mesh"
+		file = "gfx\models\Attachments\jdup_sword.mesh"		
+				
 		scale = 0.9
 	}	
 
@@ -1299,75 +1316,39 @@ objectTypes = {
 	
 # cainite Cav
 
-	pdxmesh = {
+	EMFXActorType = {
 		name = "westerngfx_mass_cainitec"
-		file = "gfx\models\mass_vampires\gerup_heavy_horse.mesh"
-	
-		animation = { id = "attack"		type = "gerup_horse_attack_animation" }
-		animation = { id = "idle"		type = "gerup_horse_idle_animation" }
-		animation = { id = "move"		type = "gerup_horse_moving_animation" }
+		actorfile = "gfx\models\christian_horse.xac"
 		
-		scale = 0.9
-	}
-	
-	pdxmesh = {
-		name = "westerngfx_mass_cainitec_rider"
-		file = "gfx\models\mass_vampires\gerup_pikemen.mesh"
-	
-		animation = { id = "attack"		type = "gerup_heavy_cavalry_attack_animation" }
-		animation = { id = "idle"		type = "gerup_heavy_cavalry_idle_animation" }
-		animation = { id = "move"		type = "gerup_heavy_cavalry_moving_animation" }
-	
-		scale = 0.9
-	}	
-
-	pdxmesh = {
-		name = "westerngfx_mass_cainitec_weapon"
-		file = "gfx\models\Attachments\gerup_spear.mesh"
+		idle   = "gfx\models\christian_horse_idle.xsm"
+		move   = "gfx\models\christian_horse_moving.xsm"
+		attack = "gfx\models\christian_horse_attack.xsm"
+		
 		scale = 1.0f
 	}
 	
-	pdxmesh = {
-		name = "westerngfx_mass_cainitec_shield"
-		file = "gfx\models\Attachments\engup_heavyshield.mesh"
-		scale = 0.9
-	}
-
-# cainite Cav
-
-	pdxmesh = {
-		name = "westerngfx_mass_cainitec"
-		file = "gfx\models\mass_vampires\gerup_heavy_horse.mesh"
-	
-		animation = { id = "attack"		type = "gerup_horse_attack_animation" }
-		animation = { id = "idle"		type = "gerup_horse_idle_animation" }
-		animation = { id = "move"		type = "gerup_horse_moving_animation" }
-		
-		scale = 0.9
-	}
-	
-	pdxmesh = {
+	EMFXActorType = {
 		name = "westerngfx_mass_cainitec_rider"
-		file = "gfx\models\mass_vampires\gerup_pikemen.mesh"
+		actorfile = "gfx\models\christian_light_cavalry.xac"
+		
+		 idle   = "gfx\models\christian_light_cavalry_idle.xsm"
+	 	 move   = "gfx\models\christian_light_cavalry_moving.xsm"
+		 attack = "gfx\models\christian_light_cavalry_attack.xsm"
+		
+		scale = 0.95f
+	}
 	
-		animation = { id = "attack"		type = "gerup_heavy_cavalry_attack_animation" }
-		animation = { id = "idle"		type = "gerup_heavy_cavalry_idle_animation" }
-		animation = { id = "move"		type = "gerup_heavy_cavalry_moving_animation" }
-	
-		scale = 0.9
-	}	
-
-	pdxmesh = {
+	EMFXActorType = {
 		name = "westerngfx_mass_cainitec_weapon"
-		file = "gfx\models\Attachments\gerup_spear.mesh"
+		actorfile = "gfx\models\Attachments\christian_pike.xac"
 		scale = 1.0f
 	}
 	
-	pdxmesh = {
-		name = "westerngfx_mass_cainitec_shield"
-		file = "gfx\models\Attachments\engup_heavyshield.mesh"
-		scale = 0.9
-	}	
+	EMFXActorType = {
+		name = "westerngfx_mass_cainitec_helmet"
+		actorfile = "gfx\models\Attachments\Helmet_01.xac"
+		scale = 0.000001f
+	}
 	
 	
 # Ashirra Hajj
@@ -2407,11 +2388,12 @@ objectTypes = {
 
 	EMFXActorType = {
 		name = "westerngfx_mass_sahajiya"
-		actorfile = "gfx\models\Mapindicators\indian_chancellor.xac"
+		actorfile = "gfx\models\indian_light_infantry.xac"
 		
-		idle   = "gfx\models\Mapindicators\indian_chancellor_idle.xsm"
-		move   = "gfx\models\Infantry_Sword_and_Shield_Moving.xsm"
-		attack = "gfx\models\Infantry_Sword_and_Shield_Attack.xsm"				
+		idle   = "gfx\models\indian_infantry_idle.xsm"
+		move   = "gfx\models\indian_infantry_moving.xsm"
+		attack = "gfx\models\indian_infantry_attack.xsm"
+		
 		scale = 1.0f
 	}
 	

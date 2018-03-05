@@ -261,7 +261,7 @@ character_event = {
 				trait = thaumaturgy_5
 			}
 		random = {
-			chance = 40
+			chance = 20
 			location = {
 			ROOT = {
 				spawn_unit = {
@@ -311,7 +311,7 @@ character_event = {
 				}
 			}	 
 		random = {
-			chance = 40
+			chance = 20
 			location = {
 			ROOT = {
 				spawn_unit = {
@@ -337,4 +337,255 @@ character_event = {
 		}
 	}
 	}
+}
+
+character_event = {
+	id = POD_VAMPIRE_UNIT_SPAWN.8
+    desc = EVTDESC_POD_VAMPIRE_UNIT_SPAWN8
+	picture = GFX_evt_mass_embrace
+	border = GFX_event_normal_frame_war
+	
+    is_triggered_only = yes	
+	
+	trigger = {
+		is_alive = yes
+	}
+	
+	immediate = {
+		if = {
+			limit = { is_female = no }			
+			random_list = {	
+				50 = {
+					create_character = {
+						random_traits = yes
+						trait = vampire
+						female = no
+						dynasty = ROOT
+						culture = ROOT
+						religion = ROOT
+						attributes = {
+							martial = 10
+						}
+					}
+					new_character = {
+						save_event_target_as = prodigal_childe
+						set_father = ROOT
+						add_trait = fledgling
+						random_list = {
+							10 = { add_trait = cruel }
+							10 = { add_trait = shrewd }
+							10 = { add_trait = strong }
+							10 = { add_trait = deceitful }
+							10 = { add_trait = genius }
+						}
+						random = {
+							chance = 50
+							add_trait = ambitious
+						}
+						if = { limit = { trait = slow } 
+							remove_trait = slow
+						}
+						if = { limit = { trait = imbecile } 
+							remove_trait = imbecile
+						}						
+						if = { limit = { trait = inbred } 
+							remove_trait = inbred
+						}								
+						
+						recalc_succession = yes
+						character_event = { id = vampire_embrace.2
+											days = 1
+											random = 5
+						}						
+					}
+				}
+				50 = {
+					create_character = {
+						random_traits = yes
+						trait = vampire
+						female = yes
+						dynasty = ROOT
+						culture = ROOT
+						religion = ROOT
+						attributes = {
+							martial = 10
+						}
+					}
+					new_character = {
+						random_list = {
+							10 = { add_trait = cruel }
+							10 = { add_trait = shrewd }
+							10 = { add_trait = strong }
+							10 = { add_trait = deceitful }
+							10 = { add_trait = genius }
+						}
+						random = {
+							chance = 50
+							add_trait = ambitious
+						}
+						save_event_target_as = prodigal_childe
+						set_father = ROOT
+						add_trait = fledgling
+						if = { limit = { trait = slow } 
+							remove_trait = slow
+						}
+						if = { limit = { trait = imbecile } 
+							remove_trait = imbecile
+						}						
+						if = { limit = { trait = inbred } 
+							remove_trait = inbred
+						}							
+						recalc_succession = yes
+						character_event = { id = vampire_embrace.2
+											days = 1
+											random = 5
+						}						
+					}
+				}
+			}	
+		}
+		
+		if = {
+			limit = { is_female = yes }			
+			random_list = {	
+				50 = {
+					create_character = {
+						random_traits = yes
+						trait = vampire
+						female = no
+						dynasty = ROOT
+						culture = ROOT
+						religion = ROOT
+						attributes = {
+							martial = 10
+						}
+					}
+						
+					new_character = {
+						random_list = {
+							10 = { add_trait = cruel }
+							10 = { add_trait = shrewd }
+							10 = { add_trait = strong }
+							10 = { add_trait = deceitful }
+							10 = { add_trait = genius }
+						}
+						random = {
+							chance = 50
+							add_trait = ambitious
+						}
+						save_event_target_as = prodigal_childe
+						set_mother = ROOT
+						add_trait = fledgling
+						if = { limit = { trait = slow } 
+							remove_trait = slow
+						}
+						if = { limit = { trait = imbecile } 
+							remove_trait = imbecile
+						}						
+						if = { limit = { trait = inbred } 
+							remove_trait = inbred
+						}							
+						recalc_succession = yes
+						character_event = { id = vampire_embrace.2
+											days = 1
+											random = 5
+						}						
+					}
+				}
+				50 = {
+					create_character = {
+						random_traits = yes
+						trait = vampire													
+						female = yes
+						dynasty = ROOT
+						culture = ROOT
+						religion = ROOT	
+						attributes = {
+							martial = 10
+						}
+					}
+					new_character = {
+						random_list = {
+							10 = { add_trait = cruel }
+							10 = { add_trait = shrewd }
+							10 = { add_trait = strong }
+							10 = { add_trait = deceitful }
+							10 = { add_trait = genius }
+						}
+						random = {
+							chance = 50
+							add_trait = ambitious
+						}
+						save_event_target_as = prodigal_childe
+						set_mother = ROOT
+						add_trait = fledgling
+						if = { limit = { trait = slow } 
+							remove_trait = slow
+						}
+						if = { limit = { trait = imbecile } 
+							remove_trait = imbecile
+						}						
+						if = { limit = { trait = inbred } 
+							remove_trait = inbred
+						}							
+						recalc_succession = yes
+						
+						character_event = { id = vampire_embrace.2
+											days = 1
+											random = 5
+						}
+					}
+				}
+			}	
+		}
+	}
+	option = {
+		name = EVTOPTA_POD_VAMPIRE_UNIT_SPAWN8
+		#Accept
+		event_target:prodigal_childe = {
+			opinion = {
+				modifier = opinion_grateful
+				who = ROOT
+				years = 100
+            }
+		}
+	}
+		
+		
+	option = {
+		name = EVTOPTB_POD_VAMPIRE_UNIT_SPAWN8
+		#Accept and bloodbind
+		event_target:prodigal_childe = {
+				add_trait = bloodbound
+                opinion = {
+                    modifier = opinion_blood_bond_to_domitor
+                    who = ROOT
+                    years = 1000
+                }   
+                ROOT = {
+                   POD_vampire_blood_thirst_increase_effect = yes
+                }
+		}
+	}
+
+	option = {
+		name = EVTOPTC_POD_VAMPIRE_UNIT_SPAWN8
+		#Imprison
+		event_target:prodigal_childe = {
+			imprison = ROOT
+			opinion = {
+				modifier = opinion_unhappy
+				who = ROOT
+				years = 100
+            } 
+		}
+	}
+	
+	option = {
+		name = EVTOPTD_POD_VAMPIRE_UNIT_SPAWN8
+		#Kill
+		event_target:prodigal_childe = {
+			death = { death_reason = death_execution killer = ROOT }
+		}
+	}	
 }
