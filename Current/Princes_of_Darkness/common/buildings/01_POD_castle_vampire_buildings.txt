@@ -493,4 +493,131 @@ ca_caravans_1 = {
 		extra_tech_building_start = 0.0
 		add_number_to_name = no		
 	}
+
+#Tzimisce Flesh Lab
+#Basic Flesh Lab (Level 1)
+	ca_fleshlab_1 = {	
+		desc = ca_fleshlab_1_desc
+		potential = {
+			FROM = {
+				OR = {
+					trait = vicissitude_3
+					trait = vicissitude_4
+					trait = vicissitude_5
+				}
+			}
+		}
+		trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
+		gold_cost = 9
+		build_time = 7
+		mass_szlachta = 10
+		ai_creation_factor = 99
+		extra_tech_building_start = 0.0
+		# +1 province blood
+		add_number_to_name = no	
+		tech_growth_modifier = 0.1
+		economy_techpoints = 0.01			
+	}
+
+# Small Flesh Lab (Level 2)	
+	ca_fleshlab_2 = {
+		desc = ca_fleshlab_2_desc
+		potential = {
+			FROM = {
+				OR = {
+					trait = vicissitude_3
+					trait = vicissitude_4
+					trait = vicissitude_5
+				}
+			}
+		}
+		upgrades_from = ca_fleshlab_1
+		trigger = { TECH_CASTLE_CONSTRUCTION = 1 }
+		gold_cost = 50
+		build_time = 30
+		tax_income = 1
+		mass_szlachta = 10
+		ai_creation_factor = 98
+		extra_tech_building_start = 0.0
+		# +4 province blood
+		add_number_to_name = no	
+		tech_growth_modifier = 0.2
+		economy_techpoints = 0.02		
+	}	
+
+# Ghouled Assistant (Level 2.G)
+	ca_fleshlab_2g = {
+		desc = ca_fleshlab_2g_desc
+		potential = {
+			FROM = {
+				trait = vampire
+				OR = {
+					trait = vicissitude_3
+					trait = vicissitude_4
+					trait = vicissitude_5
+				}
+			}
+		}		
+		prerequisites = { ca_fleshlab_2 }
+		trigger = { TECH_CASTLE_CONSTRUCTION = 1 }
+		gold_cost = 10
+		build_time = 7
+		tax_income = 1
+		mass_szlachta = 10
+		ai_creation_factor = 96
+		extra_tech_building_start = 0.0
+		# +8 province blood (+9 province blood, -1 for ghoul)
+		add_number_to_name = no		
+		tech_growth_modifier = 0.3
+		economy_techpoints = 0.03		
+	}	
+	
+#Large Flesh Lab (Level 3)	
+	ca_fleshlab_3 = {
+		desc = ca_fleshlab_3_desc
+		potential = {
+			FROM = {
+				OR = {
+					trait = vicissitude_3
+					trait = vicissitude_4
+					trait = vicissitude_5
+				}
+			}
+		}
+		upgrades_from = ca_fleshlab_2
+		trigger = { TECH_CASTLE_CONSTRUCTION = 2 }
+		gold_cost = 400
+		build_time = 356
+		tax_income = 2
+		mass_szlachta = 20
+		retinuesize = 1.2
+		ai_creation_factor = 95
+		extra_tech_building_start = 0.0
+		# +9 province blood
+		add_number_to_name = no		
+		tech_growth_modifier = 0.3
+		economy_techpoints = 0.03		
+	}
+	
+#Masterful Flesh Lab  (Level 3+)
+	ca_fleshlab_3c = {
+		desc = ca_fleshlab_3c_desc
+		potential = {
+			FROM = {
+				OR = {
+					trait = vicissitude_5
+				}
+			}
+		}		
+		prerequisites = { ca_fleshlab_3 }
+		trigger = { TECH_CASTLE_CONSTRUCTION = 3 }
+		gold_cost = 250
+		build_time = 180
+		tax_income = 2
+		mass_szlachta = 30
+		ai_creation_factor = 97
+		extra_tech_building_start = 0.0
+		# +8 province blood 
+		add_number_to_name = no		
+	}
 }
