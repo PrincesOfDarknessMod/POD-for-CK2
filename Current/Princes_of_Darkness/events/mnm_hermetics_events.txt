@@ -3605,7 +3605,7 @@ character_event = {
 				modifier = { learning = 18 factor = 1.1 }
 				set_character_flag = lab_damage
 	    	}
-	    	5 = { #You die in an accident
+	    	0 = { #You die in an accident
 	    		modifier = { event_target:infiltration_target = { has_character_flag = hidden_lab } factor = 1.2 }
 	        	modifier = { event_target:infiltration_target = { has_character_flag = very_hidden_lab } factor = 1.5 }
 	    		trigger = { event_target:infiltration_target = { has_character_flag = built_laboratory } }
@@ -4425,7 +4425,7 @@ character_event = { # Fight goes badly (fired from on_combat_pulse)
 					resolve_severely_injured_effect = yes
 				}
 			}
-			5 = {
+			0 = {
 				death = { death_reason = death_battle }
 			}
 		}

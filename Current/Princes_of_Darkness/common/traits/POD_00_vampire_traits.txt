@@ -636,7 +636,6 @@ baali = {
 		tzimisce
 		ventrue	
 		followerofset
-		baali
 		gangrelantitribu
 		brujahantitribu
 		nosferatuantitribu
@@ -648,7 +647,6 @@ baali = {
 		tzimisceantitribu
 		assamiteantitribu
 		caitiff
-			
 		}
 	inherit_chance = 0 
 	intrigue = 1
@@ -2705,8 +2703,8 @@ dominate_2 = {
 	
 	intrigue = 2
 	command_modifier = {
-		morale_defence = 0.2
-		morale_offence = 0.2
+		morale_defence = 0.1
+		morale_offence = 0.1
 	}
 }
 
@@ -2727,8 +2725,8 @@ dominate_3 = {
 	
 	intrigue = 3
 	command_modifier = {
-		morale_defence = 0.2
-		morale_offence = 0.2
+		morale_defence = 0.1
+		morale_offence = 0.1
 	}
 }
 
@@ -2750,8 +2748,8 @@ dominate_4 = {
 	vassal_opinion = 25
 	intrigue = 4
 	command_modifier = {
-		morale_defence = 0.3
-		morale_offence = 0.3
+		morale_defence = 0.15
+		morale_offence = 0.15
 	}
 }
 
@@ -2773,8 +2771,8 @@ dominate_5 = {
 	vassal_opinion = 25
 	intrigue = 5
 	command_modifier = {
-		morale_defence = 0.4
-		morale_offence = 0.4
+		morale_defence = 0.2
+		morale_offence = 0.2
 	}
 }
 
@@ -2887,7 +2885,7 @@ nightmare_1 = {
 	}
 	# Monstrous Appearance
 	command_modifier = {
-		morale_offence = 0.1
+		morale_offence = 0.05
 		siege = 0.1
 	}
 	martial = 1
@@ -2917,7 +2915,7 @@ nightmare_2 = {
 	
 	martial = 2
 	command_modifier = {
-		morale_offence = 0.2
+		morale_offence = 0.1
 		siege = 0.2
 	}
 }
@@ -2940,7 +2938,7 @@ nightmare_3 = {
 	
 	martial = 3
 	command_modifier = {
-		morale_offence = 0.3
+		morale_offence = 0.15
 		siege = 0.3
 	}
 }
@@ -2964,7 +2962,7 @@ nightmare_4 = {
 	martial = 3
 	intrigue = 1
 	command_modifier = {
-		morale_offence = 0.4
+		morale_offence = 0.2
 		siege = 0.4
 	}
 }
@@ -2988,7 +2986,7 @@ nightmare_5 = {
 	martial = 4
 	intrigue = 1
 	command_modifier = {
-		morale_offence = 0.5
+		morale_offence = 0.25
 		siege = 0.5
 	}
 }
@@ -5644,6 +5642,7 @@ zulo_form = {
 		shadow_form
 		beast_form 
 		snake_form
+		set_godform
 		crinos
 		glabro
 		hispo
@@ -5667,6 +5666,7 @@ blood_form = {
 		shadow_form
 		beast_form 
 		snake_form
+		set_godform
 		crinos
 		glabro
 		hispo
@@ -5690,6 +5690,7 @@ mist_form = {
 		shadow_form
 		beast_form 
 		snake_form
+		set_godform
 		crinos
 		glabro
 		hispo
@@ -5713,6 +5714,7 @@ shadow_form = {
 		mist_form
 		beast_form 
 		snake_form
+		set_godform
 		crinos
 		glabro
 		hispo
@@ -5736,6 +5738,7 @@ beast_form = {
 		shadow_form
 		zulo_form
 		snake_form
+		set_godform
 		crinos
 		glabro
 		hispo
@@ -5759,6 +5762,7 @@ snake_form = {
 		mist_form
 		shadow_form
 		zulo_form
+		set_godform
 		crinos
 		glabro
 		hispo
@@ -6011,6 +6015,29 @@ gargoyle = {
 	same_opinion = 10
 	opposite_opinion = -20
 	random = no
-}			
+}
+
+
+set_godform = {
+	opposites = {
+		zulo_form
+		blood_form
+		shadow_form
+		beast_form 
+		snake_form
+		crinos
+		glabro
+		hispo
+		lupus
+		homid
+		}
 	
+	diplomacy = 3
+	martial = 2
+	combat_rating = 2
+	general_opinion = 5
+	same_opinion = 10
+	inherit_chance = 0 
+	random = no 	
+	}
 	
