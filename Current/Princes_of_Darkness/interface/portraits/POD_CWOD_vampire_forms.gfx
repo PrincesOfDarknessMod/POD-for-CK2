@@ -159,7 +159,29 @@ spriteTypes = {
 		
 		allow_property_values = { }
 		
-		}		
+		}
+	
+		portraitType = {
+		effectFile = "gfx/FX/portrait.lua"
+
+		name = "PORTRAIT_vampire_set_godform"
+		
+		weight = {
+			additive_modifier = {
+				value = 10000			
+				portrait_age > child
+				portrait_clothing = yes					
+				portrait_has_trait = set_godform
+			}
+		}
+		
+		layer = {			
+			"GFX_vampire_set_godform_headgear_front:c5"
+		}
+		
+		allow_property_values = { }
+		
+		}
 
     spriteType = {
         name = "GFX_vampire_mist_form_headgear_front"
@@ -190,7 +212,11 @@ spriteTypes = {
         textureFile = "gfx/characters/vampire_forms/vampire_zulo_form_headgear_front.dds"
         noOfFrames = 1
     }	
-	
+	spriteType = {
+        name = "GFX_vampire_set_godform_headgear_front"
+        textureFile = "gfx/characters/vampire_forms/vampire_set_godform_headgear_front.dds"
+        noOfFrames = 1
+    }
 	
 	
 }
