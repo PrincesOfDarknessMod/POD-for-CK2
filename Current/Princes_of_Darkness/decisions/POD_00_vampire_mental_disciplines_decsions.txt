@@ -592,10 +592,15 @@ targeted_decisions = {
 				death = { death_reason = death_missing	}
 		
                 FROM = {
+				
+					POD_vampire_blood_thirst_decrease_effect = yes
+					
                     add_character_modifier = {
                         name = blood_of_mortal
                         duration = 30
                     }
+					
+					
                     if = {
                         limit = { NOT = { trait = cruel } }
                         random = {
