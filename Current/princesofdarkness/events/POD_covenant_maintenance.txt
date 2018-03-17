@@ -1,0 +1,51 @@
+namespace = covenant_maintenance
+character_event = {
+	id = covenant_maintenance.1
+	hide_window = yes	
+	
+	trigger = {
+		religion_group = innocent_group				
+		OR = {
+			trait = werewolf
+			trait = vampire
+			trait = revenant
+			trait = mage
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}	
+
+	immediate = {
+# convert innocent
+		if = {
+			limit = {
+				religion_group = innocent_group
+				trait = vampire
+			}
+			religion = unaligned					
+		}	
+		if = {
+			limit = {
+				religion_group = innocent_group
+				trait = werewolf
+			}
+			religion = ghost_wolves					
+		}
+		if = {
+			limit = {
+				religion_group = innocent_group
+				trait = revenant
+			}
+			religion = revenant_unaligned					
+		}
+		if = {
+			limit = {
+				religion_group = innocent_group
+				trait = mage
+			}
+			religion = orphan					
+		}	
+	}
+}

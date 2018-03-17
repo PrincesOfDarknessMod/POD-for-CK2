@@ -1,0 +1,305 @@
+POD_CWOD_vampire_inherit_sire_clan_effect = {
+
+	if = {
+		limit = {
+					NOT = { trait = assamite }
+					NOT = { trait = brujah }
+					NOT = { trait = cappadocian }
+					NOT = { trait = giovanni }
+					NOT = { trait = followerofset }
+					NOT = { trait = gangrel }
+					NOT = { trait = lasombra }
+					NOT = { trait = malkavian }
+					NOT = { trait = nosferatu }
+					NOT = { trait = ravnos }
+					NOT = { trait = toreador }
+					NOT = { trait = nosferatu }
+					NOT = { trait = tremere }
+					NOT = { trait = tzimisce }
+					NOT = { trait = ventrue }
+					NOT = { trait = salubri }
+					NOT = { trait = baali }
+					NOT = { trait = gangrelantitribu }
+					NOT = { trait = brujahantitribu }
+					NOT = { trait = nosferatuantitribu }
+					NOT = { trait = malkavianantitribu }
+					NOT = { trait = ventrueantitribu }
+					NOT = { trait = lasombraantitribu }
+					NOT = { trait = ravnosantitribu }
+					NOT = { trait = toreadorantitribu }
+					NOT = { trait = tzimisceantitribu }
+					NOT = { trait = assamiteantitribu }
+					NOT = { trait = caitiff	}	
+		}
+		# indian vampires inherit caste
+
+
+		father = {
+			trigger_switch = {
+				on_trigger = trait
+				kshatriya = { PREV = { add_trait = kshatriya } }
+
+
+				brahmin = { PREV = { add_trait = brahmin } }
+
+
+			}
+		}
+		# vampires inherit sire's clan	
+		
+		father = {
+			trigger_switch = {
+				on_trigger = trait
+				assamite			= { PREV = { add_trait = assamite } }
+
+
+
+				brujah 				= { PREV = {add_trait = brujah } }
+
+
+
+				cappadocian 		= { PREV = {add_trait = cappadocian } }
+
+
+
+				giovanni 			= { PREV = {add_trait = giovanni } }
+
+
+
+				followerofset		= { PREV = {add_trait = followerofset } }
+
+
+
+				gangrel 			= { PREV = {add_trait = gangrel } }
+
+
+
+				lasombra 			= { PREV = {add_trait = lasombra } }
+
+
+
+				malkavian 			= { PREV = { add_trait = malkavian } }
+
+
+
+				nosferatu 			= { PREV = {
+										add_trait = nosferatu   
+										set_graphical_culture = nosferatu } }
+
+
+				ravnos 				= { PREV = {add_trait = ravnos } }
+
+
+
+				toreador 			= { PREV = {add_trait = toreador } }
+
+
+
+				tremere 			= { PREV = {add_trait = tremere } }
+
+
+
+				tzimisce 			= { PREV = {add_trait = tzimisce } }
+
+
+
+				ventrue 			= { PREV = {add_trait = ventrue } }
+
+
+
+				salubri 			= { PREV = {add_trait = salubri } }
+
+
+
+				baali 				= { PREV = {add_trait = baali } }
+
+
+				assamiteantitribu 	= { PREV = {add_trait = assamiteantitribu } }
+
+
+
+				brujahantitribu 	= { PREV = {add_trait = brujahantitribu } }
+
+
+
+				gangrelantitribu 	= { PREV = {add_trait = gangrelantitribu } }
+
+
+
+				lasombraantitribu 	= { PREV = {add_trait = lasombraantitribu } }
+
+
+
+				malkavianantitribu 	= { PREV = {add_trait = malkavianantitribu } }
+
+
+				nosferatuantitribu 	= { PREV = { add_trait = nosferatuantitribu 
+										set_graphical_culture = nosferatu } }
+
+				ravnosantitribu 	= { PREV = {add_trait = ravnosantitribu } }
+
+
+
+				toreadorantitribu	= { PREV = {add_trait = toreadorantitribu } }
+
+
+
+				tremereantitribu 	= { PREV = {add_trait = tremereantitribu } }
+
+
+
+				tzimisceantitribu 	= { PREV = {add_trait = tzimisceantitribu } }
+
+
+				ventrueantitribu 	= { PREV = {add_trait = ventrueantitribu } }
+
+
+
+			}
+		}
+		
+if = {
+		limit = {
+					NOT = { trait = assamite }
+					NOT = { trait = brujah }
+					NOT = { trait = cappadocian }
+					NOT = { trait = giovanni }
+					NOT = { trait = followerofset }
+					NOT = { trait = gangrel }
+					NOT = { trait = lasombra }
+					NOT = { trait = malkavian }
+					NOT = { trait = nosferatu }
+					NOT = { trait = ravnos }
+					NOT = { trait = toreador }
+					NOT = { trait = nosferatu }
+					NOT = { trait = tremere }
+					NOT = { trait = tzimisce }
+					NOT = { trait = ventrue }
+					NOT = { trait = salubri }
+					NOT = { trait = baali }
+					NOT = { trait = gangrelantitribu }
+					NOT = { trait = brujahantitribu }
+					NOT = { trait = nosferatuantitribu }
+					NOT = { trait = malkavianantitribu }
+					NOT = { trait = ventrueantitribu }
+					NOT = { trait = lasombraantitribu }
+					NOT = { trait = ravnosantitribu }
+					NOT = { trait = toreadorantitribu }
+					NOT = { trait = tzimisceantitribu }
+					NOT = { trait = assamiteantitribu }
+					NOT = { trait = caitiff	}	
+		}
+		mother = {
+			trigger_switch = {
+				on_trigger = trait
+				assamite			= { PREV = { add_trait = assamite } }
+
+
+
+				brujah 				= { PREV = {add_trait = brujah } }
+
+
+
+				cappadocian 		= { PREV = {add_trait = cappadocian } }
+
+
+
+				giovanni 			= { PREV = {add_trait = giovanni } }
+
+
+
+				followerofset		= { PREV = {add_trait = followerofset } }
+
+
+
+				gangrel 			= { PREV = {add_trait = gangrel } }
+
+
+
+				lasombra 			= { PREV = {add_trait = lasombra } }
+
+
+
+				malkavian 			= { PREV = { add_trait = malkavian } }
+
+
+
+				nosferatu 			= { PREV = {
+										add_trait = nosferatu   
+										set_graphical_culture = nosferatu } }
+
+
+				ravnos 				= { PREV = {add_trait = ravnos } }
+
+
+
+				toreador 			= { PREV = {add_trait = toreador } }
+
+
+
+				tremere 			= { PREV = {add_trait = tremere } }
+
+
+
+				tzimisce 			= { PREV = {add_trait = tzimisce } }
+
+
+
+				ventrue 			= { PREV = {add_trait = ventrue } }
+
+
+
+				salubri 			= { PREV = {add_trait = salubri } }
+
+
+
+				baali 				= { PREV = {add_trait = baali } }
+
+
+				assamiteantitribu 	= { PREV = {add_trait = assamiteantitribu } }
+
+
+
+				brujahantitribu 	= { PREV = {add_trait = brujahantitribu } }
+
+
+
+				gangrelantitribu 	= { PREV = {add_trait = gangrelantitribu } }
+
+
+
+				lasombraantitribu 	= { PREV = {add_trait = lasombraantitribu } }
+
+
+
+				malkavianantitribu 	= { PREV = {add_trait = malkavianantitribu } }
+
+
+				nosferatuantitribu 	= { PREV = { add_trait = nosferatuantitribu 
+										set_graphical_culture = nosferatu } }
+
+				ravnosantitribu 	= { PREV = {add_trait = ravnosantitribu } }
+
+
+
+				toreadorantitribu	= { PREV = {add_trait = toreadorantitribu } }
+
+
+
+				tremereantitribu 	= { PREV = {add_trait = tremereantitribu } }
+
+
+
+				tzimisceantitribu 	= { PREV = {add_trait = tzimisceantitribu } }
+
+
+				ventrueantitribu 	= { PREV = {add_trait = ventrueantitribu } }
+
+
+
+				}
+			}
+		}
+		
+	}
+}

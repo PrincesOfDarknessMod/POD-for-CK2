@@ -1,0 +1,1242 @@
+# Changeling: the Dreaming Kith initalization effect
+
+POD_CWOD_changeling_fae_init_effect = 
+{
+	if = 
+	{ 
+		limit = 
+		{ 
+			trait = changeling
+			OR = 
+			{
+				has_global_flag = bookmark767
+				has_global_flag = bookmark1215
+				has_global_flag = bookmark1230
+			}
+		}
+		
+		if = 
+		{ 
+			limit = 
+			{ 
+				trait = sidhe 
+			} 
+			remove_trait = changeling
+			add_trait = firstbornfae
+		}
+		
+		if = 
+		{ 
+			limit = 
+			{ 
+				NOT = { trait = sidhe }
+			} 
+			
+			random = 
+			{
+				chance = 75
+				remove_trait = changeling
+				add_trait = firstbornfae
+				
+				modifier = 
+				{
+					factor = 0.6
+					religion = spring_court 
+				}
+
+				modifier = 
+				{
+					factor = 0.4
+					religion = autumn_court 
+				}				
+				
+				modifier = 
+				{
+					factor = 0.1
+					religion = solstice_court
+				}
+				
+			}
+		}		
+		
+		
+	}
+}
+
+POD_CWOD_changeling_court_init_effect = 
+{
+	if = 
+	{ 
+		limit = 
+		{ 
+			OR = 
+			{
+				has_global_flag = bookmark1466
+				has_global_flag = bookmark1350
+				has_global_flag = bookmark1355
+				has_global_flag = bookmark1505
+				has_global_flag = bookmark1506				
+			}
+		}
+		
+		if = 
+		{ 
+			limit = 
+			{
+				NOT = { religion = seelie_court }
+				NOT = { religion = unseelie_court }				
+			}
+			random_list = 
+			{
+				50 = { religion = seelie_court }
+				50 = { religion = unseelie_court }
+			}
+		}		
+	}
+
+	if = 
+	{ 
+		limit = 
+		{ 
+			OR = 
+			{
+				has_global_flag = bookmark767
+				has_global_flag = bookmark1215
+				has_global_flag = bookmark1230
+			}
+		}
+		
+		if = 
+		{ 
+			limit = 
+			{
+				NOT = { religion = spring_court }
+				NOT = { religion = summer_court }
+				NOT = { religion = autumn_court }
+				NOT = { religion = winter_court }
+			}
+			
+			random_list = 
+			{
+				25 = { religion = spring_court }
+				25 = { religion = summer_court }
+				25 = { religion = autumn_court }
+				25 = { religion = winter_court }
+			}
+		}		
+	}	
+}
+
+POD_CWOD_changeling_kith_init_effect = 
+{
+	if = 
+	{ 
+		limit = 
+		{ 
+			OR = 
+			{
+				has_global_flag = bookmark767
+				has_global_flag = bookmark1215
+				has_global_flag = bookmark1230
+				has_global_flag = bookmark1466
+				has_global_flag = bookmark1355
+				has_global_flag = bookmark1350
+				has_global_flag = bookmark1505
+				has_global_flag = bookmark1506						
+			}
+			
+			NOT = { trait = sidhe }
+			NOT = { has_CWOD_changeling_kith_trigger = yes }
+			
+		}
+												
+		if = 
+		{ 
+			limit = 
+			{ 
+				OR = 
+				{ 
+					culture = basque
+					culture = castillan
+					culture = catalan
+					culture = portuguese 
+				} 
+			}
+			
+			random = 
+			{	
+				chance = 50 
+				add_trait = eshu
+			}
+		}
+		
+		if = 
+		{		
+			limit = 
+			{ 
+				OR = 
+				{ 
+					culture = norman
+					culture = frankish
+					culture = occitan 
+				} 
+			}
+				
+			random_list = 
+			{				
+				20 = { add_trait = troll }
+				15 = { add_trait = satyr }
+				15 = { add_trait = sluagh }
+				15 = { add_trait = redcap }
+				15 = { add_trait = eshu }
+				5 = { add_trait = nocker }
+				5 = { add_trait = boggan }
+				5 = { add_trait = piskey }
+				5 = { add_trait = sidhe }
+					
+			}
+		}
+			
+		if = 
+		{ 
+			limit = 
+			{ 	
+				OR = 
+				{ 
+					culture = english
+					culture = old_saxon
+					culture = saxon 
+				} 
+			}
+			
+			random_list = 
+			{				
+				25 = { add_trait = troll }
+				5 = { add_trait = satyr }
+				15 = { add_trait = sluagh }
+				35 = { add_trait = redcap }
+				5 = { add_trait = nocker }
+				5 = { add_trait = boggan }
+				5 = { add_trait = piskey }
+				5 = { add_trait = sidhe }					
+			}
+		}	
+		
+		if = 
+		{ 
+			limit = 
+			{
+				OR = 
+				{ 
+					culture = frisian
+					culture = dutch
+				} 
+			}
+				
+			random_list = 
+			{				
+				25 = { add_trait = troll }
+				5 = { add_trait = satyr }
+				15 = { add_trait = sluagh }
+				15 = { add_trait = redcap }	
+				5 = { add_trait = nocker }
+				5 = { add_trait = boggan }
+				5 = { add_trait = piskey }
+				5 = { add_trait = sidhe }					
+			}
+		}	
+		
+		if = 
+		{ 
+			limit = { culture = danish } 
+			random_list = 
+			{				
+				45 = { add_trait = troll }
+				30 = { add_trait = sluagh }
+				5 = { add_trait = redcap }	
+				5 = { add_trait = nocker }
+				5 = { add_trait = boggan }
+				5 = { add_trait = piskey }
+				5 = { add_trait = sidhe }					
+			}
+		}	
+		
+		if = 
+		{ 
+			limit = 
+			{ 
+				OR = 
+				{ 
+					culture = prussian
+					culture = pommeranian 
+				} 
+			}
+			
+			random_list = 
+			{				
+				20 = { add_trait = troll }
+				60 = { add_trait = sluagh }
+				5 = { add_trait = nocker }
+				5 = { add_trait = boggan }
+				5 = { add_trait = piskey }
+				5 = { add_trait = sidhe }					
+			}
+		}	
+		
+		if = 
+		{ 
+			limit = 
+			{ 
+				OR = 
+				{ 
+					culture = lettigallish
+					culture = lithuanian
+					culture = polish 
+				} 
+			}
+			
+			random_list = 
+			{				
+				15 = { add_trait = troll }
+				65 = { add_trait = sluagh }
+				5 = { add_trait = nocker }
+				5 = { add_trait = boggan }
+				5 = { add_trait = piskey }
+				5 = { add_trait = sidhe }					
+			}
+		}	
+		
+		if = 
+		{
+			limit = { culture = bohemian }
+			random_list = 
+			{				
+				5 = { add_trait = troll }
+				60 = { add_trait = sluagh }
+				15 = { add_trait = satyr }	
+				5 = { add_trait = nocker }
+				5 = { add_trait = boggan }
+				5 = { add_trait = piskey }
+				5 = { add_trait = sidhe }					
+			}
+		}	
+		
+		if = 
+		{
+			limit = { culture = hungarian } 
+			random_list = 
+			{				
+				25 = { add_trait = eshu }
+				25 = { add_trait = satyr }
+				30 = { add_trait = sluagh }
+				5 = { add_trait = nocker }
+				5 = { add_trait = boggan }
+				5 = { add_trait = piskey }
+				5 = { add_trait = sidhe }					
+			}
+		}	
+		
+		if = 
+		{ 
+			limit = 
+			{ 
+				OR = 
+				{ 
+					culture = croatian
+					culture = serbian
+					culture = bulgarian
+					culture = romanian 
+				} 
+			}
+			
+				random_list = {				
+					25 = { add_trait = eshu }
+					25 = { add_trait = satyr }
+					30 = { add_trait = sluagh }
+					5 = { add_trait = nocker }
+					5 = { add_trait = boggan }
+					5 = { add_trait = piskey }
+					5 = { add_trait = sidhe }					
+				}
+			}	
+			if = { 
+				limit = { culture = greek } 
+				random_list = {				
+					5 = { add_trait = eshu }
+					70 = { add_trait = satyr }
+					5 = { add_trait = sluagh }
+					5 = { add_trait = nocker }
+					5 = { add_trait = boggan }
+					5 = { add_trait = piskey }
+					5 = { add_trait = sidhe }					
+				}
+			}	
+			if = { 
+				limit = { 
+					OR = { 
+						culture = armenian
+						culture = assyrian
+						culture = georgian
+						culture = alan 
+					} 
+				}
+				random_list = {				
+					25 = { add_trait = eshu }
+					50 = { add_trait = satyr }
+					5 = { add_trait = sluagh }
+					5 = { add_trait = nocker }
+					5 = { add_trait = boggan }
+					5 = { add_trait = piskey }
+					5 = { add_trait = sidhe }					
+				}
+			}
+			if = { 
+				limit = { culture = russian } 
+				random_list = {				
+					5 = { add_trait = troll }
+					65 = { add_trait = sluagh }
+					5 = { add_trait = satyr }
+					5 = { add_trait = eshu }
+					5 = { add_trait = nocker }
+					5 = { add_trait = boggan }
+					5 = { add_trait = piskey }
+					5 = { add_trait = sidhe }					
+				}
+			}	
+			if = { 
+				limit = { culture = mordvin }
+				random_list = {				
+					5 = { add_trait = troll }
+					65 = { add_trait = sluagh }
+					5 = { add_trait = satyr }
+					5 = { add_trait = eshu }
+					5 = { add_trait = nocker }
+					5 = { add_trait = boggan }
+					5 = { add_trait = piskey }
+					5 = { add_trait = sidhe }					
+				}
+			}		
+			if = {
+				limit = {
+					OR = { 
+						culture = mongol
+						culture = pecheneg
+						culture = cuman
+						culture = khazar
+						culture = karluk
+						culture = kirghiz
+						culture = bolghar
+						culture = khitan
+						culture = uyghur
+						culture = avar 
+						culture_group = chinese_group
+					} 
+				}
+				random_list = {				
+					5 = { add_trait = sluagh }
+					75 = { add_trait = eshu }
+					5 = { add_trait = nocker }
+					5 = { add_trait = boggan }
+					5 = { add_trait = piskey }
+					5 = { add_trait = sidhe }					
+				}
+			}		
+			if = { 
+				limit = { culture = turkish }
+				random_list = {				
+					55 = { add_trait = eshu }
+					25 = { add_trait = satyr }
+					5 = { add_trait = sluagh }
+					5 = { add_trait = nocker }
+					5 = { add_trait = boggan }
+					5 = { add_trait = piskey }
+					5 = { add_trait = sidhe }					
+				}
+			}	
+			if = { 
+				limit = { 
+					OR = { 
+						culture = persian
+						culture = baloch 
+					} 
+				}
+				random = {	
+					chance = 70 
+					add_trait = eshu
+				}
+			}	
+			if = { 
+				limit = { culture = afghan }
+				random = {	
+					chance = 70 
+					add_trait = eshu
+				}
+			}	
+			if = { 
+				limit = { culture = sindhi }
+				random = {	
+					chance = 70 
+					add_trait = eshu
+				}
+			}
+			if = { 
+				limit = { culture = panjabi }
+				random = {	
+					chance = 70 
+					add_trait = eshu
+				}
+			}	
+			if = { 
+				limit = {
+					OR = { 
+						culture = bengali
+						culture = assamese
+						culture = sinhala 
+					}
+				}
+				random = {	
+					chance = 70 
+					add_trait = eshu
+				}
+			}	
+			if = { 	
+				limit = { culture = sinhala  }
+				random = {	
+					chance = 70 
+					add_trait = eshu
+				}
+			}		
+			if = { 
+				limit = { 
+					OR = { 
+						culture = gujurati
+						culture = rajput 
+					} 
+				}
+				random = {	
+					chance = 70 
+					add_trait = eshu
+				}
+			}		
+			if = {
+				limit = { culture = oriya }
+				random = {	
+					chance = 70 
+					add_trait = eshu
+				}
+			}	
+			if = {	
+				limit = { culture = hindustani }
+				random = {	
+					chance = 70 
+					add_trait = eshu
+				}
+			}
+			if = {	
+				limit = { 
+					OR = { 
+							culture_group = tibetan_group 
+							culture = nepali
+							}
+						}
+				random = {	
+					chance = 70 
+					add_trait = eshu
+				}
+			}			
+			
+			
+			if = { 
+				limit = { 
+					OR = { 
+						culture = tamil
+						culture = telugu 
+					} 
+				}
+				random = {	
+					chance = 70 
+					add_trait = eshu
+				}
+			}	
+			if = {
+				limit = { 
+					OR = { 
+						culture = kannada
+						culture = marathi 
+					} 
+				}
+				random = {	
+					chance = 70 
+					add_trait = eshu
+				}	
+			}
+			if = { 
+				limit = { culture = kurdish  }
+				random = {	
+					chance = 70 
+					add_trait = eshu
+				}
+			}	
+			if = { 
+				limit = { culture = levantine_arabic  }
+				random = {	
+					chance = 70 
+					add_trait = eshu
+				}
+			}		
+			if = { 
+				limit = { culture = bedouin_arabic  }
+				random = {	
+					chance = 70 
+					add_trait = eshu
+				}
+			}	
+			if = { 
+				limit = { culture = egyptian_arabic }
+				random = {	
+					chance = 70 
+					add_trait = eshu
+				}
+			}	
+			if = {
+				limit = { culture = maghreb_arabic }
+				random = {	
+					chance = 70 
+					add_trait = eshu
+				}
+			}	
+			if = { 
+				limit = { culture = andalusian_arabic }
+				random = {	
+					chance = 70 
+					add_trait = eshu
+				}
+			}
+			if = { 
+				limit = { culture = nubian }
+				random = {	
+					chance = 70 
+					add_trait = eshu
+				}
+			}
+			if = { 
+				limit = { culture = ethiopian }
+				random = {	
+					chance = 70 
+					add_trait = eshu
+				}
+			}
+			if = { 	
+				limit = { culture = somali }
+				random = {	
+					chance = 70 
+					add_trait = eshu
+				}
+			}
+			if = { 	
+				limit = { culture = manden  }
+				random = {	
+					chance = 70 
+					add_trait = eshu
+				}
+			}
+			if = { 
+				limit = { 
+					OR = { 
+						culture = finnish
+						culture = ugricbaltic
+						culture = samoyed
+						culture = khanty
+						culture = komi 
+						culture = lappish 
+					} 
+				}
+				random_list = {				
+					50 = { add_trait = troll }
+					15 = { add_trait = sluagh }
+					15 = { add_trait = eshu }
+					5 = { add_trait = nocker }
+					5 = { add_trait = boggan }
+					5 = { add_trait = piskey }
+					5 = { add_trait = sidhe }					
+				}
+			}				
+			if = { 
+				limit = { 
+					OR = { 
+						culture = norse
+						culture = norwegian
+						culture = swedish 
+					}
+				}
+				random_list = {				
+					60 = { add_trait = troll }
+					20 = { add_trait = sluagh }
+					5 = { add_trait = nocker }
+					5 = { add_trait = boggan }
+					5 = { add_trait = piskey }
+					5 = { add_trait = sidhe }					
+				}
+			}	
+			if = { 
+				limit = { culture = german  }
+				random_list = {				
+					60 = { add_trait = troll }
+					20 = { add_trait = sluagh }
+					5 = { add_trait = nocker }
+					5 = { add_trait = boggan }
+					5 = { add_trait = piskey }
+					5 = { add_trait = sidhe }					
+				}
+			}	
+			if = { 
+				limit = { 
+					#OR = { 
+						culture = italian 
+					#} 
+				}
+				random_list = {				
+					5 = { add_trait = eshu }
+					70 = { add_trait = satyr }
+					5 = { add_trait = sluagh }
+					5 = { add_trait = nocker }
+					5 = { add_trait = boggan }
+					5 = { add_trait = piskey }
+					5 = { add_trait = sidhe }					
+				}
+			}
+			if = { 
+				limit = {
+					OR = { 
+						culture = irish
+						culture = welsh
+						culture = breton 
+					} 
+				}
+				random_list = {				
+					5 = { add_trait = satyr }
+					5 = { add_trait = sluagh }
+					20 = { add_trait = redcap }
+					40 = { add_trait = clurichaun }
+					5 = { add_trait = nocker }
+					5 = { add_trait = boggan }
+					10 = { add_trait = piskey }
+					10 = { add_trait = sidhe }					
+				}
+			}			
+			if = { 	
+				limit = { 	
+					OR = { 
+						culture = scottish
+						culture = pictish 
+					}
+				}
+				random_list = {				
+					5 = { add_trait = troll }
+					5 = { add_trait = satyr }
+					5 = { add_trait = sluagh }
+					65 = { add_trait = redcap }
+					5 = { add_trait = nocker }
+					5 = { add_trait = boggan }
+					5 = { add_trait = piskey }
+					5 = { add_trait = sidhe }					
+				}
+			}								
+												
+		}
+						
+				
+			if = { 
+				limit = { 
+					OR = {
+						has_global_flag = bookmark767
+						has_global_flag = bookmark1215
+						has_global_flag = bookmark1230
+						has_global_flag = bookmark1466
+						has_global_flag = bookmark1355
+						has_global_flag = bookmark1350
+						has_global_flag = bookmark1505
+						has_global_flag = bookmark1506						
+					}
+					NOT = { has_CWOD_changeling_kith_trigger = yes }
+					NOT = { trait = sidhe }
+				}	
+				
+				random_list = {
+					15 = { add_trait = troll }							
+					15 = { add_trait = redcap }
+					15 = { add_trait = sluagh }
+					15 = { add_trait = satyr }									
+					15  = { add_trait = eshu }	
+					10 = { add_trait = nocker }
+					5 = { add_trait = boggan }
+					5 = { add_trait = piskey }
+					5 = { add_trait = sidhe }							
+					}
+				}							
+}			
+
+POD_CWOD_changeling_dynasty_init_effect = {
+
+	trigger_switch = {
+	
+		on_trigger = trait	
+		
+		clurichaun = {
+			random = 
+			{
+				chance = 15
+				#dynasty = 7500015
+			}
+		}
+		
+		piskey = {
+			random = 
+			{
+				chance = 15
+				#dynasty = 7500016
+			}
+		}
+		
+		selkie = {
+			dynasty = 7500018
+		}
+		
+		boggan = {
+			random = 
+			{
+				chance = 15
+				#dynasty = 7500020
+			}
+		}
+		
+		nocker = {
+			random = 
+			{
+				chance = 15
+				#dynasty = 7500022
+			}
+		}
+		
+		pooka = {
+			random = 
+			{
+				chance = 15
+				#dynasty = 7500023
+			}
+		}
+		
+		sidhe = 
+		{
+				if = 
+				{
+					limit = 
+					{
+						OR = 
+						{
+							has_global_flag = bookmark1466
+							has_global_flag = bookmark1350
+							has_global_flag = bookmark1355
+							has_global_flag = bookmark1505
+							has_global_flag = bookmark1506
+						}						
+					}
+					
+					random = 
+					{
+						chance = 20
+						dynasty = 7500013
+						#dynasty = 7500019
+					}
+				}
+				
+				if = 
+				{
+					limit =
+					{
+						OR = 
+						{
+							has_global_flag = bookmark767
+							has_global_flag = bookmark1215
+							has_global_flag = bookmark1230
+						}
+					}
+					
+					random = 
+					{
+						chance = 20
+						if = { limit = { religion = spring_court } 
+									random_list =
+									{
+										8 =
+										{
+											#Beaumayn
+											dynasty = 7500002
+										}
+										
+										8 = 
+										{
+											#Dougal
+											dynasty = 7500007
+										}
+										8 = 
+										{
+											#Eilund
+											dynasty = 7500008
+										}
+										8 = 
+										{
+											#Fiona
+											dynasty = 7500009
+										}
+										8 = 
+										{
+											#Gwydion
+											dynasty = 7500010
+										}
+										8 =
+										{
+											#Liam
+											dynasty = 7500012
+										}
+										8 =
+										{
+											#Aesin
+											dynasty = 7500001
+										}
+										
+										8 = 
+										{
+											#Ailil
+											dynasty = 7500005
+										}
+										8 = 
+										{
+											#Balor
+											dynasty = 7500006
+										}
+										8 = 
+										{
+											#Daireann
+											dynasty = 7500003
+										}
+										8 = 
+										{
+											#Leanhaun
+											dynasty = 7500011
+										}
+										8 =
+										{
+											#Varcih
+											dynasty = 7500014
+										}								
+										
+										4 =
+										{
+											#Scathach
+											dynasty = 7500013
+										}
+									}						
+								}
+								if = { limit = { religion = summer_court } 								
+									random_list =
+									{
+										15 =
+										{
+											#Beaumayn
+											dynasty = 7500002
+										}
+										
+										15 = 
+										{
+											#Dougal
+											dynasty = 7500007
+										}
+										15 = 
+										{
+											#Eilund
+											dynasty = 7500008
+										}
+										15 = 
+										{
+											#Fiona
+											dynasty = 7500009
+										}
+										15 = 
+										{
+											#Gwydion
+											dynasty = 7500010
+										}
+										15 =
+										{
+											#Liam
+											dynasty = 7500012
+										}
+										10 =
+										{
+											#Scathach
+											dynasty = 7500013
+										}
+									}
+								}
+								
+								if = { limit = { religion = autumn_court }  
+									random_list =
+									{
+										8 =
+										{
+											#Beaumayn
+											dynasty = 7500002
+										}
+										
+										8 = 
+										{
+											#Dougal
+											dynasty = 7500007
+										}
+										8 = 
+										{
+											#Eilund
+											dynasty = 7500008
+										}
+										8 = 
+										{
+											#Fiona
+											dynasty = 7500009
+										}
+										8 = 
+										{
+											#Gwydion
+											dynasty = 7500010
+										}
+										8 =
+										{
+											#Liam
+											dynasty = 7500012
+										}
+										8 =
+										{
+											#Aesin
+											dynasty = 7500001
+										}
+										
+										8 = 
+										{
+											#Ailil
+											dynasty = 7500005
+										}
+										8 = 
+										{
+											#Balor
+											dynasty = 7500006
+										}
+										8 = 
+										{
+											#Daireann
+											dynasty = 7500003
+										}
+										8 = 
+										{
+											#Leanhaun
+											dynasty = 7500011
+										}
+										8 =
+										{
+											#Varcih
+											dynasty = 7500014
+										}								
+										
+										4 =
+										{
+											#Scathach
+											dynasty = 7500013
+										}
+									}						
+								}
+								
+								if = { limit = { religion = winter_court } 
+									random_list =
+									{
+										15 =
+										{
+											#Aesin
+											dynasty = 7500001
+										}
+										
+										15 = 
+										{
+											#Ailil
+											dynasty = 7500005
+										}
+										15 = 
+										{
+											#Balor
+											dynasty = 7500006
+										}
+										15 = 
+										{
+											#Daireann
+											dynasty = 7500003
+										}
+										15 = 
+										{
+											#Leanhaun
+											dynasty = 7500011
+										}
+										15 =
+										{
+											#Varcih
+											dynasty = 7500014
+										}
+										10 =
+										{
+											#Scathach
+											dynasty = 7500013
+										}
+									}						
+								}
+							}
+						}
+					}
+		
+		redcap = {
+			random = 
+			{
+				chance = 15
+				#dynasty = 7500024
+				}
+			}
+			
+		troll = {
+			random = 
+			{
+				chance = 15
+				#dynasty = 7500027
+			}
+		}		
+		
+		sluagh = { 
+			random = 
+			{
+				chance = 15
+				#dynasty = 7500026
+			}
+		}
+		
+		satyr = {
+			random = 
+			{
+				chance = 15
+				#dynasty = 7500017
+			}
+		}
+		
+		eshu = {
+			random = 
+			{
+				chance = 15
+				#dynasty = 7500021
+			}
+		}	
+	}
+}
+
+POD_CWOD_changeling_fae_mien_init_effect = {
+
+	add_trait = fae_mien
+	culture_scope = { save_event_target_as = original_culture }
+			
+	trigger_switch = {
+	on_trigger = trait	
+
+		clurichaun = 
+		{
+			set_graphical_culture = event_target:original_culture
+		}
+
+		piskey = 
+		{
+			set_graphical_culture = event_target:original_culture
+		}
+
+		selkie = 
+		{
+			set_graphical_culture = event_target:original_culture
+		}
+
+		boggan = 
+		{
+			set_graphical_culture = event_target:original_culture
+			random = 
+			{
+				chance = 25
+				add_trait = dwarf
+			}
+		}
+
+		nocker = 
+		{
+			set_graphical_culture = nocker
+		}
+
+		pooka = 
+		{
+			set_graphical_culture = event_target:original_culture
+		}
+
+		sidhe = 
+		{
+			set_graphical_culture = event_target:original_culture
+			random =
+			{
+				chance = 25
+				remove_trait = ugly
+				add_trait = fair
+			}
+		}
+
+		redcap = 
+		{
+			set_graphical_culture = redcap
+			remove_trait = fair
+			random_list = 
+			{
+				5 = { add_trait = hunchback }
+				5 = { add_trait = harelip }
+				5 = { add_trait = clubfooted }
+				5 = { add_trait = lisp }
+				5 = { add_trait = stutter }
+				5 = { add_trait = ugly }
+				5 = { add_trait = scarred }
+			}
+		}	
+	
+		troll = 
+		{
+			set_graphical_culture = troll
+			random = 
+			{
+				chance = 50
+				remove_trait = weak
+				add_trait = strong
+			}	
+		}		
+
+		sluagh = 
+		{ 
+			set_graphical_culture = sluagh 
+		}
+
+		satyr = 
+		{
+			set_graphical_culture = event_target:original_culture
+		}
+
+		eshu = 
+		{
+			set_graphical_culture = event_target:original_culture
+		}
+
+
+	}
+}

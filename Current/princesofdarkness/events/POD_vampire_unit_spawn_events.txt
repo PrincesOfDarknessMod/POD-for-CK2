@@ -1,0 +1,591 @@
+namespace = POD_VAMPIRE_UNIT_SPAWN
+##############################
+# Vampire Unit Spawn Events
+# 1 - 5 Player choice spawn events
+# 6 - 7 AI Pulse triggered spawn events
+#
+#
+##############################
+character_event = {
+	id = POD_VAMPIRE_UNIT_SPAWN.1
+    desc = EVTDESC_POD_VAMPIRE_UNIT_SPAWN1
+	picture = GFX_evt_mass_ghoul
+	border = GFX_event_normal_frame_war
+	
+    is_triggered_only = yes	
+
+	option = {
+		name = EVTOPTA_POD_VAMPIRE_UNIT_SPAWN1
+		ROOT = {
+			POD_vampire_blood_thirst_increase_effect = yes
+			set_character_flag = POD_SPAWN_MASS_GHOUL
+			wealth = -50
+				}
+		location = {
+			ROOT = {
+				spawn_unit = {
+					province = PREV
+					troops = {
+						mass_ghouls = {
+							10 10
+						}
+						mass_ghouls = {
+							10 10
+						}
+						mass_ghouls = {
+							10 10
+						}
+
+						mass_ghouls = {
+							10 10
+						}		
+					}		
+				}
+			}
+		}
+		
+		}
+		
+	option = {
+		name = EVTOPTB_POD_VAMPIRE_UNIT_SPAWN1
+		
+		}
+		
+		}
+		
+character_event = {
+	id = POD_VAMPIRE_UNIT_SPAWN.2
+    desc = EVTDESC_POD_VAMPIRE_UNIT_SPAWN2
+	picture = GFX_evt_mass_embrace
+	border = GFX_event_normal_frame_war
+	
+    is_triggered_only = yes	
+
+	option = {
+		name = EVTOPTA_POD_VAMPIRE_UNIT_SPAWN2
+		ROOT = {
+			wealth = -200
+				}
+		location = {
+			ROOT = {
+				spawn_unit = {
+					province = PREV
+					troops = {
+						mass_vampires = {
+							5 5
+						}
+						mass_vampires = {
+							5 5
+						}
+						mass_vampires = {
+							5 5
+						}
+						mass_vampires = {
+							5 5
+						}						
+					}
+				
+				}
+			}
+		}
+		
+		FROM = {
+			character_event = { id = POD_VAMPIRE_BLOOD_THIRST.4 }	
+				}		
+	
+		}
+		
+		
+	option = {
+		name = EVTOPTB_POD_VAMPIRE_UNIT_SPAWN2
+	}	
+}
+character_event = {
+	id = POD_VAMPIRE_UNIT_SPAWN.3
+    desc = EVTDESC_POD_VAMPIRE_UNIT_SPAWN3
+	picture = GFX_evt_mass_embrace
+	border = GFX_event_normal_frame_war
+	
+    is_triggered_only = yes	
+
+	option = {
+		name = EVTOPTA_POD_VAMPIRE_UNIT_SPAWN3
+		ROOT = {
+			wealth = -200
+				}
+		location = {
+			ROOT = {
+				spawn_unit = {
+					province = PREV
+					troops = {
+						mass_gargoyles = {
+							5 5
+						}
+						mass_gargoyles = {
+							5 5
+						}
+						mass_gargoyles = {
+							5 5
+						}
+						mass_gargoyles = {
+							5 5
+						}						
+					}
+				
+				}
+			}
+		}
+		
+		FROM = {
+			character_event = { id = POD_VAMPIRE_BLOOD_THIRST.4 }	
+				}		
+	
+		}
+		
+		
+	option = {
+		name = EVTOPTB_POD_VAMPIRE_UNIT_SPAWN3
+	}	
+}
+character_event = {
+	id = POD_VAMPIRE_UNIT_SPAWN.4
+    desc = EVTDESC_POD_VAMPIRE_UNIT_SPAWN4
+	picture = GFX_evt_mass_embrace
+	border = GFX_event_normal_frame_war
+	
+    is_triggered_only = yes	
+
+	option = {
+		name = EVTOPTA_POD_VAMPIRE_UNIT_SPAWN4
+		ROOT = {
+			set_character_flag = POD_SPAWN_MASS_GHOUL
+			wealth = -200
+				}
+		location = {
+			ROOT = {
+				spawn_unit = {
+					province = PREV
+					troops = {
+						mass_szlachta = {
+							10 10
+						}
+						mass_szlachta = {
+							10 10
+						}
+						mass_szlachta = {
+							10 10
+						}
+						mass_szlachta = {
+							10 10
+						}						
+					}
+				
+				}
+			}
+		}
+		
+		FROM = {
+			character_event = { id = POD_VAMPIRE_BLOOD_THIRST.4 }	
+				}		
+	
+		}
+		
+		
+	option = {
+		name = EVTOPTB_POD_VAMPIRE_UNIT_SPAWN3
+	}	
+}
+character_event = {
+	id = POD_VAMPIRE_UNIT_SPAWN.5
+    desc = EVTDESC_POD_VAMPIRE_UNIT_SPAWN5
+	picture = GFX_evt_mass_embrace
+	border = GFX_event_normal_frame_war
+	
+    is_triggered_only = yes	
+
+	option = {
+		name = EVTOPTA_POD_VAMPIRE_UNIT_SPAWN5
+		ROOT = {
+			wealth = -200
+				}
+		location = {
+			ROOT = {
+				spawn_unit = {
+					province = PREV
+					troops = {
+						vozhd_unit = {
+							1 1
+						}
+						vozhd_unit = {
+							1 1
+						}
+						vozhd_unit = {
+							1 1
+						}
+						vozhd_unit = {
+							1 1
+						}						
+					}
+				
+				}
+			}
+		}
+		
+		FROM = {
+			character_event = { id = POD_VAMPIRE_BLOOD_THIRST.4 }	
+				}		
+	
+		}
+		
+		
+	option = {
+		name = EVTOPTB_POD_VAMPIRE_UNIT_SPAWN5
+	}	
+}
+
+#Tremere AI Spawns gargoyles bi-annually by chance
+character_event = {
+	id = POD_VAMPIRE_UNIT_SPAWN.6
+	hide_window = yes
+	is_triggered_only = yes
+	only_playable = yes
+	ai = yes
+	min_age  = 50
+	only_capable = yes
+	
+	immediate = {
+		if = { 
+			limit = {
+				trait = vampire
+				trait = tremere
+				trait = thaumaturgy_5
+			}
+		random = {
+			chance = 20
+			location = {
+			ROOT = {
+				spawn_unit = {
+					province = PREV
+					troops = {
+						mass_gargoyles = {
+							5 5
+						}
+						mass_gargoyles = {
+							5 5
+						}
+						mass_gargoyles = {
+							5 5
+						}
+						mass_gargoyles = {
+							5 5
+						}						
+					}
+				
+				}
+			}
+			}
+		}
+		}
+	}
+}
+
+#Tzimisce AI lords spawn Szlachta bi-annually
+character_event = {
+	id = POD_VAMPIRE_UNIT_SPAWN.7
+	hide_window = yes
+	is_triggered_only = yes
+	only_playable = yes
+	ai = yes
+	min_age  = 50
+	only_capable = yes
+	
+	immediate = {
+		if = { 
+			limit = {
+				trait = vampire
+				trait = tzimisce
+				OR = {
+					trait = vicissitude_3
+					trait = vicissitude_4
+					trait = vicissitude_5
+				}
+			}	 
+		random = {
+			chance = 20
+			location = {
+			ROOT = {
+				spawn_unit = {
+					province = PREV
+					troops = {
+						mass_szlachta = {
+							10 10
+						}
+						mass_szlachta = {
+							10 10
+						}
+						mass_szlachta = {
+							10 10
+						}
+						mass_szlachta = {
+							10 10
+						}						
+					}
+				
+				}
+			}
+			}
+		}
+	}
+	}
+}
+
+character_event = {
+	id = POD_VAMPIRE_UNIT_SPAWN.8
+    desc = EVTDESC_POD_VAMPIRE_UNIT_SPAWN8
+	picture = GFX_evt_vampire_conclave_i
+	border = GFX_event_normal_frame_war
+	
+    is_triggered_only = yes	
+	
+	trigger = {
+		is_alive = yes
+	}
+	
+	immediate = {
+		if = {
+			limit = { is_female = no }			
+			random_list = {	
+				50 = {
+					create_character = {
+						random_traits = yes
+						trait = vampire
+						female = no
+						dynasty = ROOT
+						culture = ROOT
+						religion = ROOT
+						attributes = {
+							martial = 10
+						}
+					}
+					new_character = {
+						save_event_target_as = prodigal_childe
+						set_father = ROOT
+						add_trait = fledgling
+						random_list = {
+							10 = { add_trait = cruel }
+							10 = { add_trait = shrewd }
+							10 = { add_trait = strong }
+							10 = { add_trait = deceitful }
+							10 = { add_trait = genius }
+						}
+						random = {
+							chance = 50
+							add_trait = ambitious
+						}
+						if = { limit = { trait = slow } 
+							remove_trait = slow
+						}
+						if = { limit = { trait = imbecile } 
+							remove_trait = imbecile
+						}						
+						if = { limit = { trait = inbred } 
+							remove_trait = inbred
+						}								
+						
+						recalc_succession = yes
+						character_event = { id = vampire_embrace.2
+											days = 1
+											random = 5
+						}						
+					}
+				}
+				50 = {
+					create_character = {
+						random_traits = yes
+						trait = vampire
+						female = yes
+						dynasty = ROOT
+						culture = ROOT
+						religion = ROOT
+						attributes = {
+							martial = 10
+						}
+					}
+					new_character = {
+						random_list = {
+							10 = { add_trait = cruel }
+							10 = { add_trait = shrewd }
+							10 = { add_trait = strong }
+							10 = { add_trait = deceitful }
+							10 = { add_trait = genius }
+						}
+						random = {
+							chance = 50
+							add_trait = ambitious
+						}
+						save_event_target_as = prodigal_childe
+						set_father = ROOT
+						add_trait = fledgling
+						if = { limit = { trait = slow } 
+							remove_trait = slow
+						}
+						if = { limit = { trait = imbecile } 
+							remove_trait = imbecile
+						}						
+						if = { limit = { trait = inbred } 
+							remove_trait = inbred
+						}							
+						recalc_succession = yes
+						character_event = { id = vampire_embrace.2
+											days = 1
+											random = 5
+						}						
+					}
+				}
+			}	
+		}
+		
+		if = {
+			limit = { is_female = yes }			
+			random_list = {	
+				50 = {
+					create_character = {
+						random_traits = yes
+						trait = vampire
+						female = no
+						dynasty = ROOT
+						culture = ROOT
+						religion = ROOT
+						attributes = {
+							martial = 10
+						}
+					}
+						
+					new_character = {
+						random_list = {
+							10 = { add_trait = cruel }
+							10 = { add_trait = shrewd }
+							10 = { add_trait = strong }
+							10 = { add_trait = deceitful }
+							10 = { add_trait = genius }
+						}
+						random = {
+							chance = 50
+							add_trait = ambitious
+						}
+						save_event_target_as = prodigal_childe
+						set_mother = ROOT
+						add_trait = fledgling
+						if = { limit = { trait = slow } 
+							remove_trait = slow
+						}
+						if = { limit = { trait = imbecile } 
+							remove_trait = imbecile
+						}						
+						if = { limit = { trait = inbred } 
+							remove_trait = inbred
+						}							
+						recalc_succession = yes
+						character_event = { id = vampire_embrace.2
+											days = 1
+											random = 5
+						}						
+					}
+				}
+				50 = {
+					create_character = {
+						random_traits = yes
+						trait = vampire													
+						female = yes
+						dynasty = ROOT
+						culture = ROOT
+						religion = ROOT	
+						attributes = {
+							martial = 10
+						}
+					}
+					new_character = {
+						random_list = {
+							10 = { add_trait = cruel }
+							10 = { add_trait = shrewd }
+							10 = { add_trait = strong }
+							10 = { add_trait = deceitful }
+							10 = { add_trait = genius }
+						}
+						random = {
+							chance = 50
+							add_trait = ambitious
+						}
+						save_event_target_as = prodigal_childe
+						set_mother = ROOT
+						add_trait = fledgling
+						if = { limit = { trait = slow } 
+							remove_trait = slow
+						}
+						if = { limit = { trait = imbecile } 
+							remove_trait = imbecile
+						}						
+						if = { limit = { trait = inbred } 
+							remove_trait = inbred
+						}							
+						recalc_succession = yes
+						
+						character_event = { id = vampire_embrace.2
+											days = 1
+											random = 5
+						}
+					}
+				}
+			}	
+		}
+	}
+	option = {
+		name = EVTOPTA_POD_VAMPIRE_UNIT_SPAWN8
+		#Accept
+		event_target:prodigal_childe = {
+			opinion = {
+				modifier = opinion_grateful
+				who = ROOT
+				years = 100
+            }
+		}
+	}
+		
+		
+	option = {
+		name = EVTOPTB_POD_VAMPIRE_UNIT_SPAWN8
+		#Accept and bloodbind
+		event_target:prodigal_childe = {
+				add_trait = bloodbound
+                opinion = {
+                    modifier = opinion_blood_bond_to_domitor
+                    who = ROOT
+                    years = 1000
+                }   
+                ROOT = {
+                   POD_vampire_blood_thirst_increase_effect = yes
+                }
+		}
+	}
+
+	option = {
+		name = EVTOPTC_POD_VAMPIRE_UNIT_SPAWN8
+		#Imprison
+		event_target:prodigal_childe = {
+			imprison = ROOT
+			opinion = {
+				modifier = opinion_unhappy
+				who = ROOT
+				years = 100
+            } 
+		}
+	}
+	
+	option = {
+		name = EVTOPTD_POD_VAMPIRE_UNIT_SPAWN8
+		#Kill
+		event_target:prodigal_childe = {
+			death = { death_reason = death_execution killer = ROOT }
+		}
+	}	
+}

@@ -1,0 +1,592 @@
+##################################################################################################
+# scriptable and usable for event-system below.
+##################################################################################################
+#
+# ICONS:
+#
+# Good 			<=> 		Bad
+#
+#  1 - Martial 				- 19
+#  2 - Learning 			- 20
+#  3 - Diplomacy 			- 21
+#  4 - Stewardship 			- 22
+#  5 - Intrigue 			- 23
+#  6 - Money 				- 24
+#  7 - Prestige 			- 25
+#  8 - Piety 				- 26
+#  9 - Titles 				- 27
+# 10 - Council 				- 28 
+# 11 - Laws 				- 29
+# 12 - Tech 				- 30 
+# 13 - Military 			- 31
+# 14 - Plots 				- 32
+# 15 - Messages 			- 33
+# 16 - Diplomatic actions 	- 34
+# 17 - Church 				- 35
+# 18 - Characters 			- 36
+# 37 - Prison 				- 38
+# 39 - Love 				- 40
+# 41 - Skeleton with bottle - 42
+
+awoken_from_torpor = {
+	combat_rating = -1
+	icon = 42
+}
+
+blood_of_mortal = {
+	intrigue = 1
+	diplomacy = 1
+	icon = 41
+}
+
+blood_of_wolf-blooded = {
+	intrigue = 1
+	combat_rating = 1
+	icon = 41
+}
+
+blood_of_werewolf = {
+	combat_rating = 3
+	icon = 71
+}
+
+blood_of_mage = {
+	learning = 2
+	combat_rating = 1
+	icon = 41
+}
+
+blood_of_demon = {
+	intrigue = 2
+	combat_rating = 1
+	icon = 41
+}
+
+blood_of_changeling = {
+	diplomacy = 3
+	icon = 41
+}
+
+blood_of_fae = {
+	diplomacy = 2
+	intrigue = 2
+	learning = 1
+	icon = 41
+}
+
+blood_of_mummy = {
+	stewardship = 3
+	icon = 41
+}
+
+blood_of_promethean = {
+	combat_rating = 2
+	stewardship = 1
+	icon = 41
+}
+
+blood_of_geist = {
+	intrigue = 3
+	icon = 41
+}
+
+blood_of_revenant = {
+	combat_rating = 1
+	intrigue = 1
+	icon = 41
+}
+
+blood_of_vampire = {
+	intrigue = 2
+	combat_rating = 1
+	icon = 41
+}
+
+blood_thirst = {
+	combat_rating = 1
+	diplomacy = -1
+	icon = 84
+}
+
+severe_blood_thirst = {
+	combat_rating = 2
+	diplomacy = -2
+	icon = 84
+	general_opinion = -5
+}
+
+dreadful_blood_thirst = {
+	combat_rating = 3
+	diplomacy = -3
+	general_opinion = -10	
+	icon = 84
+}
+
+dire_blood_thirst = {
+	combat_rating = 4
+	diplomacy = -4
+	general_opinion = -15
+	icon = 84
+}
+
+rage = {
+	combat_rating = 1
+	diplomacy = -1
+	icon = 84
+}
+
+severe_rage = {
+	combat_rating = 2
+	diplomacy = -2
+	icon = 84
+	general_opinion = -5
+}
+
+dreadful_rage = {
+	combat_rating = 3
+	diplomacy = -3
+	general_opinion = -10	
+	icon = 84
+}
+
+dire_rage = {
+	combat_rating = 4
+	diplomacy = -4
+	general_opinion = -15
+	icon = 84
+}
+
+secret_inconnu_community = {
+	icon = 82
+	is_visible = {
+		society_member_of = secret_religious_society_inconnu
+	}
+}
+
+secret_cainite_community = {
+	icon = 35
+	is_visible = {
+		society_member_of = secret_religious_society_cainite
+	}
+}
+
+secret_baali_community = {
+	icon = 76
+	is_visible = {
+		society_member_of = secret_religious_society_baali
+	}
+}
+
+secret_vampire_promethean_community = {
+	icon = 27
+	is_visible = {
+		society_member_of = secret_religious_society_vampire_promethean
+	}
+}
+
+
+secret_furores_community = {
+	icon = 27
+	is_visible = {
+		society_member_of = secret_religious_society_furores
+	}
+}
+
+secret_autarkis_community = {
+	icon = 27
+	is_visible = {
+		society_member_of = secret_religious_society_autarkis
+	}
+}
+
+secret_tremerelow_community = {
+	icon = 82
+	is_visible = {
+		society_member_of = secret_religious_society_tremerelow
+	}
+}
+
+secret_nosferatulow_community = {
+	icon = 82
+	is_visible = {
+		society_member_of = secret_religious_society_nosferatulow
+	}
+}
+
+secret_malkavianlow_community = {
+	icon = 82
+	is_visible = {
+		society_member_of = secret_religious_society_malkavianlow
+	}
+}
+
+secret_gangrellow_community = {
+	icon = 72
+	is_visible = {
+		society_member_of = secret_religious_society_gangrellow
+	}
+}
+
+secret_anarchs_community = {
+	icon = 27
+	is_visible = {
+		society_member_of = secret_religious_society_anarchs
+	}
+}
+
+secret_anda_community = {
+	icon = 72
+	is_visible = {
+		society_member_of = secret_religious_society_anda
+	}
+}
+
+secret_noiad_community = {
+	icon = 72
+	is_visible = {
+		society_member_of = secret_religious_society_noiad
+	}
+}
+
+secret_einherjar_community = {
+	icon = 72
+	is_visible = {
+		society_member_of = secret_religious_society_einherjar
+	}
+}
+
+secret_vampire_low_clans_community = {
+	icon = 49
+	is_visible = {
+		society_member_of = secret_religious_society_vampire_low_clans
+	}
+}
+
+secret_laibon_community = {
+	icon = 72
+	is_visible = {
+		society_member_of = secret_religious_society_laibon
+	}
+}
+
+
+secret_setite_community = {
+	icon = 51
+	is_visible = {
+		society_member_of = secret_religious_society_setite
+	}
+}
+
+secret_raktasadhu_community = {
+	icon = 44
+	is_visible = {
+		society_member_of = secret_religious_society_raktasadhu
+	}
+}
+
+secret_mayaparisataya_community = {
+	icon = 44
+	is_visible = {
+		society_member_of = secret_religious_society_mayaparisataya
+	}
+}
+
+secret_ashirra_community = {
+	icon = 80
+	is_visible = {
+		society_member_of = secret_religious_society_ashirra
+	}
+}
+
+secret_assamite_community = {
+	icon = 80
+	is_visible = {
+		society_member_of = secret_religious_society_assamite
+	}
+}
+
+secret_ventrue_high_community = {
+	icon = 25
+	is_visible = {
+		society_member_of = secret_religious_society_ventrue_high
+	}
+}
+
+secret_toreador_high_community = {
+	icon = 88
+	is_visible = {
+		society_member_of = secret_religious_society_toreador_high
+	}
+}
+
+secret_lasombra_high_community = {
+	icon = 28
+	is_visible = {
+		society_member_of = secret_religious_society_lasombra_high
+	}
+}
+
+secret_brujah_high_community = {
+	icon = 19
+	is_visible = {
+		society_member_of = secret_religious_society_brujah_high
+	}
+}
+
+secret_cappadocian_high_community = {
+	icon = 42
+	is_visible = {
+		society_member_of = secret_religious_society_cappadocian_high
+	}
+}
+
+secret_salubri_high_community = {
+	icon = 82
+	is_visible = {
+		society_member_of = secret_religious_society_salubri_high
+	}
+}
+
+secret_koldun_community = {
+	icon = 49
+	is_visible = {
+		society_member_of = secret_religious_society_koldun
+	}
+}
+
+secret_tremerecamarilla_community = {
+	icon = 82
+	is_visible = {
+		society_member_of = secret_religious_society_tremerecamarilla
+	}
+}
+
+secret_nosferatucamarilla_community = {
+	icon = 82
+	is_visible = {
+		society_member_of = secret_religious_society_nosferatucamarilla
+	}
+}
+
+secret_malkaviancamarilla_community = {
+	icon = 82
+	is_visible = {
+		society_member_of = secret_religious_society_malkaviancamarilla
+	}
+}
+
+secret_gangrelcamarilla_community = {
+	icon = 72
+	is_visible = {
+		society_member_of = secret_religious_society_gangrelcamarilla
+	}
+}
+
+secret_ventruecamarilla_community = {
+	icon = 25
+	is_visible = {
+		society_member_of = secret_religious_society_ventruecamarilla
+	}
+}
+
+secret_toreadorcamarilla_community = {
+	icon = 88
+	is_visible = {
+		society_member_of = secret_religious_society_toreadorcamarilla
+	}
+}
+
+secret_brujahcamarilla_community = {
+	icon = 19
+	is_visible = {
+		society_member_of = secret_religious_society_brujahcamarilla
+	}
+}
+
+secret_giovanni_community = {
+	icon = 42
+	is_visible = {
+		society_member_of = secret_religious_society_giovanni
+	}
+}
+
+secret_sabbat_community = {
+	icon = 49
+	is_visible = {
+		society_member_of = secret_religious_society_sabbat
+	}
+}
+
+secret_black_spiral_dancers_community = {
+	icon = 82
+	is_visible = {
+		society_member_of = secret_religious_society_black_spiral_dancers
+	}
+}
+
+secret_silver_fangs_community = {
+	icon = 71
+	is_visible = {
+		society_member_of = secret_religious_society_silver_fangs
+	}
+}
+
+secret_black_furies_community = {
+	icon = 71
+	is_visible = {
+		society_member_of = secret_religious_society_black_furies
+	}
+}
+
+secret_red_talons_community = {
+	icon = 72
+	is_visible = {
+		society_member_of = secret_religious_society_red_talons
+	}
+}
+
+secret_stargazers_community = {
+	icon = 79
+	is_visible = {
+		society_member_of = secret_religious_society_stargazers
+	}
+}
+
+secret_shadow_lords_community = {
+	icon = 71
+	is_visible = {
+		society_member_of = secret_religious_society_shadow_lords
+	}
+}
+
+secret_get_of_fenris_community = {
+	icon = 71
+	is_visible = {
+		society_member_of = secret_religious_society_get_of_fenris
+	}
+}
+
+secret_warders_of_men_community = {
+	icon = 30
+	is_visible = {
+		society_member_of = secret_religious_society_warders_of_men
+	}
+}
+
+secret_bone_gnawers_community = {
+	icon = 45
+	is_visible = {
+		society_member_of = secret_religious_society_bonegnawers
+	}
+}
+
+secret_fianna_community = {
+	icon = 48
+	is_visible = {
+		society_member_of = secret_religious_society_fianna
+	}
+}
+
+secret_silent_striders_community = {
+	icon = 71
+	is_visible = {
+		society_member_of = secret_religious_society_silent_striders
+	}
+}
+
+secret_white_howlers_community = {
+	icon = 71
+	is_visible = {
+		society_member_of = secret_religious_society_white_howlers
+	}
+}
+
+invoked_celerity_1 = {
+	combat_rating = 1	
+	icon = 13
+}
+
+invoked_celerity_2 = {
+	combat_rating = 2	
+	icon = 13
+}
+
+invoked_celerity_3 = {
+	combat_rating = 3
+	icon = 13
+}
+
+invoked_celerity_4 = {
+	combat_rating = 4
+	icon = 13
+}
+
+invoked_celerity_5 = {
+	combat_rating = 5
+	icon = 13
+}
+
+invoked_resilience_1 = {
+	combat_rating = 1
+	icon = 13
+}
+
+invoked_resilience_2 = {
+	combat_rating = 2
+	icon = 13
+}
+
+invoked_resilience_3 = {
+	combat_rating = 3	
+	icon = 13
+}
+	
+invoked_resilience_4 = {
+	combat_rating = 4	
+	icon = 13
+}
+
+invoked_resilience_5 = {
+	combat_rating = 5	
+	icon = 13
+}
+
+invoked_vigor_1 = {
+	combat_rating = 1	
+	icon = 13
+}
+
+invoked_vigor_2 = {
+	combat_rating = 2
+
+	icon = 13
+}
+
+invoked_vigor_3 = {
+	combat_rating = 3
+	icon = 13
+}
+
+invoked_vigor_4 = {
+	combat_rating = 4
+	icon = 13
+}
+
+invoked_vigor_5 = {
+	combat_rating = 5	
+	icon = 13
+}
+
+masquerade_breach = {
+	icon = 82
+	local_revolt_risk = 0.1
+	arrest_chance_modifier = -0.1
+	assassinate_chance_modifier = 0.1
+	diplomacy = -2
+	is_visible = {
+		OR = {
+				trait = vampire
+				trait = supe_hunter
+		}
+	}
+}

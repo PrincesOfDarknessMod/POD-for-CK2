@@ -1,0 +1,874 @@
+temple = {
+#Necropolis
+#Bribed Gravedigger (Level 1)
+	tp_necropolis_1 = {	
+		desc = tp_necropolis_1_desc
+		potential = {
+			FROM = {
+				OR = {
+					trait = mortis_3
+					trait = mortis_4
+					trait = mortis_5
+					trait = necromancy_3
+					trait = necromancy_4
+					trait = necromancy_5
+				}
+			}
+		}
+		trigger = { TECH_TEMPLE_CONSTRUCTION = 0 }
+		gold_cost = 9
+		build_time = 7
+		heavy_infantry = 20
+		ai_creation_factor = 99
+		extra_tech_building_start = 0.0
+		# +1 province blood
+		add_number_to_name = no	
+		tech_growth_modifier = 0.1
+		economy_techpoints = 0.01			
+	}
+
+# Influenced Undertaker (Level 2)	
+	tp_necropolis_2 = {
+		desc = tp_necropolis_2_desc
+		potential = {
+			FROM = {
+				OR = {
+					trait = mortis_3
+					trait = mortis_4
+					trait = mortis_5
+					trait = necromancy_3
+					trait = necromancy_4
+					trait = necromancy_5
+				}
+			}
+		}
+		upgrades_from = tp_necropolis_1
+		trigger = { TECH_TEMPLE_CONSTRUCTION = 1 }
+		gold_cost = 50
+		build_time = 30
+		tax_income = 2
+		heavy_infantry = 30
+		ai_creation_factor = 98
+		extra_tech_building_start = 0.0
+		# +4 province blood
+		add_number_to_name = no	
+		tech_growth_modifier = 0.2
+		economy_techpoints = 0.02		
+	}	
+
+# Ghouled Sexton (Level 2.G)
+	tp_necropolis_2g = {
+		desc = tp_necropolis_2g_desc
+		potential = {
+			FROM = {
+				trait = vampire
+				OR = {
+					trait = mortis_3
+					trait = mortis_4
+					trait = mortis_5
+					trait = necromancy_3
+					trait = necromancy_4
+					trait = necromancy_5
+				}
+			}
+		}		
+		prerequisites = { tp_necropolis_2 }
+		trigger = { TECH_TEMPLE_CONSTRUCTION = 1 }
+		gold_cost = 10
+		build_time = 7
+		tax_income = 3
+		heavy_infantry = 20
+		ai_creation_factor = 96
+		extra_tech_building_start = 0.0
+		# +8 province blood (+9 province blood, -1 for ghoul)
+		add_number_to_name = no		
+		tech_growth_modifier = 0.3
+		economy_techpoints = 0.03		
+	}	
+	
+# Controlled Necropolis (Level 3)	
+	tp_necropolis_3 = {
+		desc = tp_necropolis_3_desc
+		potential = {
+			FROM = {
+				OR = {
+					trait = mortis_3
+					trait = mortis_4
+					trait = mortis_5
+					trait = necromancy_3
+					trait = necromancy_4
+					trait = necromancy_5
+				}
+			}
+		}
+		upgrades_from = tp_necropolis_2
+		trigger = { TECH_TEMPLE_CONSTRUCTION = 2 }
+		gold_cost = 400
+		build_time = 356
+		tax_income = 3
+		heavy_infantry = 30
+		retinuesize = 1.2
+		ai_creation_factor = 95
+		extra_tech_building_start = 0.0
+		# +9 province blood
+		add_number_to_name = no		
+		tech_growth_modifier = 0.3
+		economy_techpoints = 0.03		
+	}
+	
+# Zombie Horde (Level 3+)
+	tp_necropolis_3c = {
+		desc = tp_necropolis_3c_desc
+		potential = {
+			FROM = {
+				OR = {
+					trait = mortis_4
+					trait = mortis_5
+					trait = necromancy_4
+					trait = necromancy_5
+				}
+			}
+		}		
+		prerequisites = { tp_necropolis_3 }
+		trigger = { TECH_TEMPLE_CONSTRUCTION = 3 }
+		gold_cost = 250
+		build_time = 180
+		tax_income = 3
+		heavy_infantry = 60
+		ai_creation_factor = 97
+		extra_tech_building_start = 0.0
+		# +8 province blood 
+		add_number_to_name = no		
+	}
+	
+#Gargoyle Rookery
+#Minimal Rookery (Level 1)
+	tp_gargoylerookery_1 = {	
+		desc = tp_gargoylerookery_1_desc
+		potential = {
+			FROM = {
+				OR = {
+					trait = thaumaturgy_3
+					trait = thaumaturgy_4
+					trait = thaumaturgy_5
+				}
+				OR = {
+					trait = tremere
+					trait = tremereantitribu
+				}
+			}
+		}
+		trigger = { TECH_TEMPLE_CONSTRUCTION = 0 }
+		gold_cost = 9
+		build_time = 7
+		mass_gargoyles = 5
+		ai_creation_factor = 99
+		extra_tech_building_start = 0.0
+		# +1 province blood
+		add_number_to_name = no	
+		tech_growth_modifier = 0.1
+		economy_techpoints = 0.01			
+	}
+
+# Small Rookery (Level 2)	
+	tp_gargoylerookery_2 = {
+		desc = tp_gargoylerookery_2_desc
+		potential = {
+			FROM = {
+				OR = {
+					trait = thaumaturgy_3
+					trait = thaumaturgy_4
+					trait = thaumaturgy_5
+				}
+				OR = {
+					trait = tremere
+					trait = tremereantitribu
+				}
+			}
+		}
+		upgrades_from = tp_gargoylerookery_1
+		trigger = { TECH_TEMPLE_CONSTRUCTION = 1 }
+		gold_cost = 50
+		build_time = 30
+		tax_income = 1
+		mass_gargoyles = 10
+		ai_creation_factor = 98
+		extra_tech_building_start = 0.0
+		# +4 province blood
+		add_number_to_name = no	
+		tech_growth_modifier = 0.2
+		economy_techpoints = 0.02		
+	}	
+
+# Ghouled Assistant (Level 2.G)
+	tp_gargoylerookery_2g = {
+		desc = tp_gargoylerookery_2g_desc
+		potential = {
+			FROM = {
+				trait = vampire
+				OR = {
+					trait = thaumaturgy_3
+					trait = thaumaturgy_4
+					trait = thaumaturgy_5
+				}
+				OR = {
+					trait = tremere
+					trait = tremereantitribu
+				}
+			}
+		}		
+		prerequisites = { tp_gargoylerookery_2 }
+		trigger = { TECH_TEMPLE_CONSTRUCTION = 1 }
+		gold_cost = 10
+		build_time = 7
+		tax_income = 1
+		mass_gargoyles = 5
+		ai_creation_factor = 96
+		extra_tech_building_start = 0.0
+		# +8 province blood (+9 province blood, -1 for ghoul)
+		add_number_to_name = no		
+		tech_growth_modifier = 0.3
+		economy_techpoints = 0.03		
+	}	
+	
+#Large Rookery (Level 3)	
+	tp_gargoylerookery_3 = {
+		desc = tp_gargoylerookery_3_desc
+		potential = {
+			FROM = {
+				OR = {
+					trait = thaumaturgy_3
+					trait = thaumaturgy_4
+					trait = thaumaturgy_5
+				}
+				OR = {
+					trait = tremere
+					trait = tremereantitribu
+				}
+			}
+		}
+		upgrades_from = tp_gargoylerookery_2
+		trigger = { TECH_TEMPLE_CONSTRUCTION = 2 }
+		gold_cost = 400
+		build_time = 356
+		tax_income = 2
+		mass_gargoyles = 10
+		retinuesize = 1.2
+		ai_creation_factor = 95
+		extra_tech_building_start = 0.0
+		# +9 province blood
+		add_number_to_name = no		
+		tech_growth_modifier = 0.3
+		economy_techpoints = 0.03		
+	}
+	
+#Masterful Rookery (Level 3+)
+	tp_gargoylerookery_3c = {
+		desc = tp_gargoylerookery_3c_desc
+		potential = {
+			FROM = {
+				OR = {
+					trait = thaumaturgy_5
+				}
+				OR = {
+					trait = tremere
+					trait = tremereantitribu
+				}
+			}
+		}		
+		prerequisites = { tp_gargoylerookery_3 }
+		trigger = { TECH_TEMPLE_CONSTRUCTION = 3 }
+		gold_cost = 250
+		build_time = 180
+		tax_income = 2
+		mass_gargoyles = 20
+		ai_creation_factor = 97
+		extra_tech_building_start = 0.0
+		# +8 province blood 
+		add_number_to_name = no		
+	}
+
+#Oubliette
+#Tiny Oubliette (Level 1)
+	tp_oubliette_1 = {	
+		desc = tp_oubliette_1_desc
+		potential = {
+			FROM = {
+				OR = {
+					trait = obtenebration_2
+					trait = obtenebration_3
+					trait = obtenebration_4
+					trait = obtenebration_5
+				}
+			}
+		}
+		trigger = { TECH_TEMPLE_CONSTRUCTION = 0 }
+		gold_cost = 9
+		build_time = 7
+		heavy_infantry = 20
+		ai_creation_factor = 99
+		extra_tech_building_start = 0.0
+		# +1 province blood
+		add_number_to_name = no	
+		tech_growth_modifier = 0.1
+		economy_techpoints = 0.01			
+	}
+
+# Small Oubliette (Level 2)	
+	tp_oubliette_2 = {
+		desc = tp_oubliette_2_desc
+		potential = {
+			FROM = {
+				OR = {
+					trait = obtenebration_3
+					trait = obtenebration_4
+					trait = obtenebration_5
+				}
+			}
+		}
+		upgrades_from = tp_oubliette_1
+		trigger = { TECH_TEMPLE_CONSTRUCTION = 1 }
+		gold_cost = 50
+		build_time = 30
+		tax_income = 2
+		heavy_infantry = 30
+		ai_creation_factor = 98
+		extra_tech_building_start = 0.0
+		# +4 province blood
+		add_number_to_name = no	
+		tech_growth_modifier = 0.2
+		economy_techpoints = 0.02		
+	}	
+	
+# Large Oubliette (Level 3)	
+	tp_oubliette_3 = {
+		desc = tp_oubliette_3_desc
+		potential = {
+			FROM = {
+				OR = {
+					trait = obtenebration_3
+					trait = obtenebration_4
+					trait = obtenebration_5
+				}
+			}
+		}
+		upgrades_from = tp_oubliette_2
+		trigger = { TECH_TEMPLE_CONSTRUCTION = 2 }
+		gold_cost = 400
+		build_time = 356
+		tax_income = 3
+		heavy_infantry = 30
+		retinuesize = 1.2
+		ai_creation_factor = 95
+		extra_tech_building_start = 0.0
+		# +9 province blood
+		add_number_to_name = no		
+		tech_growth_modifier = 0.3
+		economy_techpoints = 0.03		
+	}
+	
+# Master of Shades (Level 3+)
+	tp_oubliette_3c = {
+		desc = tp_oubliette_3c_desc
+		potential = {
+			FROM = {
+				OR = {
+					trait = obtenebration_5
+				}
+			}
+		}		
+		prerequisites = { tp_oubliette_3 }
+		trigger = { TECH_TEMPLE_CONSTRUCTION = 3 }
+		gold_cost = 250
+		build_time = 180
+		tax_income = 3
+		heavy_infantry = 60
+		ai_creation_factor = 97
+		extra_tech_building_start = 0.0
+		# +8 province blood 
+		add_number_to_name = no
+	}
+
+#Leper Colony
+# Bribed Leper (Level 1)
+	tp_leper_1 = {	
+		desc = tp_leper_1_desc
+		potential = {
+			FROM = {
+						trait = nosferatu
+			}
+		}
+		trigger = { TECH_TEMPLE_CONSTRUCTION = 0 }
+		gold_cost = 9
+		build_time = 7
+		light_infantry = 20
+		ai_creation_factor = 99
+		extra_tech_building_start = 0.0
+		# +1 province blood
+		add_number_to_name = no	
+		tech_growth_modifier = 0.1
+		economy_techpoints = 0.01			
+	}
+
+# Influenced Nun (Level 2)	
+	tp_leper_2 = {
+		desc = tp_leper_2_desc
+		potential = {
+			FROM = {
+						trait = nosferatu
+			}
+		}
+		upgrades_from = tp_leper_1
+		trigger = { TECH_TEMPLE_CONSTRUCTION = 1 }
+		gold_cost = 50
+		build_time = 30
+		tax_income = 2
+		light_infantry = 30
+		ai_creation_factor = 98
+		extra_tech_building_start = 0.0
+		# +4 province blood
+		add_number_to_name = no	
+		tech_growth_modifier = 0.2
+		economy_techpoints = 0.02		
+	}	
+
+# Ghouled Leper Headman (Level 2.G)
+	tp_leper_2g = {
+		desc = tp_leper_2g_desc
+		potential = {
+			FROM = {
+				trait = vampire
+				trait = nosferatu
+			}
+		}		
+		prerequisites = { tp_leper_2 }
+		trigger = { TECH_TEMPLE_CONSTRUCTION = 1 }
+		gold_cost = 10
+		build_time = 7
+		tax_income = 3
+		light_infantry = 40
+		ai_creation_factor = 96
+		extra_tech_building_start = 0.0
+		# +8 province blood (+9 province blood, -1 for ghoul)
+		add_number_to_name = no		
+		tech_growth_modifier = 0.3
+		economy_techpoints = 0.03		
+	}	
+	
+# Controlled Leper Colony (Level 3)	
+	tp_leper_3 = {
+		desc = tp_leper_3_desc
+		potential = {
+			FROM = {
+						trait = nosferatu
+			}
+		}
+		upgrades_from = tp_leper_2
+		trigger = { TECH_TEMPLE_CONSTRUCTION = 2 }
+		gold_cost = 400
+		build_time = 356
+		tax_income = 3
+		light_infantry = 80
+		retinuesize = 1.2
+		ai_creation_factor = 95
+		extra_tech_building_start = 0.0
+		# +9 province blood
+		add_number_to_name = no		
+		tech_growth_modifier = 0.3
+		economy_techpoints = 0.03		
+	}
+	
+# Conditioned Lepers (Level 3.C)
+	tp_leper_3c = {
+		desc = tp_leper_3c_desc
+		potential = {
+			FROM = {
+				trait = nosferatu
+				OR = { 
+					trait = dominate_4
+					trait = dominate_5
+				}
+			}
+		}		
+		prerequisites = { tp_leper_3 }
+		trigger = { TECH_TEMPLE_CONSTRUCTION = 3 }
+		gold_cost = 250
+		build_time = 180
+		tax_income = 3
+		light_infantry = 60
+		ai_creation_factor = 97
+		extra_tech_building_start = 0.0
+		# +8 province blood 
+		add_number_to_name = no		
+	}
+
+#Blood Cult (Setite Version)
+# Meager Cult (Level 1)
+	tp_setitecult_1 = {	
+		desc = tp_setitecult_1_desc
+		potential = {
+			FROM = {
+						trait = followerofset
+			}
+		}
+		trigger = { TECH_TEMPLE_CONSTRUCTION = 0 }
+		gold_cost = 9
+		build_time = 7
+		light_infantry = 20
+		ai_creation_factor = 99
+		extra_tech_building_start = 0.0
+		# +1 province blood
+		add_number_to_name = no	
+		tech_growth_modifier = 0.1
+		economy_techpoints = 0.01			
+	}
+
+# Small Priesthood (Level 2)	
+	tp_setitecult_2 = {
+		desc = tp_setitecult_2_desc
+		potential = {
+			FROM = {
+						trait = followerofset
+			}
+		}
+		upgrades_from = tp_setitecult_1
+		trigger = { TECH_TEMPLE_CONSTRUCTION = 1 }
+		gold_cost = 50
+		build_time = 30
+		tax_income = 2
+		light_infantry = 30
+		ai_creation_factor = 98
+		extra_tech_building_start = 0.0
+		# +4 province blood
+		add_number_to_name = no	
+		tech_growth_modifier = 0.2
+		economy_techpoints = 0.02		
+	}	
+
+# Ghouled Demagogue (Level 2.G)
+	tp_setitecult_2g = {
+		desc = tp_setitecult_2g_desc
+		potential = {
+			FROM = {
+				trait = followerofset
+				trait = vampire
+			}
+		}		
+		prerequisites = { tp_setitecult_2 }
+		trigger = { TECH_TEMPLE_CONSTRUCTION = 1 }
+		gold_cost = 10
+		build_time = 7
+		tax_income = 3
+		light_infantry = 40
+		ai_creation_factor = 96
+		extra_tech_building_start = 0.0
+		# +8 province blood (+9 province blood, -1 for ghoul)
+		add_number_to_name = no		
+		tech_growth_modifier = 0.3
+		economy_techpoints = 0.03		
+	}	
+	
+# Large Cult (Level 3)	
+	tp_setitecult_3 = {
+		desc = tp_setitecult_3_desc
+		potential = {
+			FROM = {
+						trait = followerofset
+			}
+		}
+		upgrades_from = tp_setitecult_2
+		trigger = { TECH_TEMPLE_CONSTRUCTION = 2 }
+		gold_cost = 400
+		build_time = 356
+		tax_income = 3
+		light_infantry = 80
+		retinuesize = 1.2
+		ai_creation_factor = 95
+		extra_tech_building_start = 0.0
+		# +9 province blood
+		add_number_to_name = no		
+		tech_growth_modifier = 0.3
+		economy_techpoints = 0.03		
+	}
+	
+# Conditioned Cultists (Level 3.C)
+	tp_setitecult_3c = {
+		desc = tp_setitecult_3c_desc
+		potential = {
+			FROM = {
+				trait = followerofset
+				OR = { 
+					trait = dominate_4
+					trait = dominate_5
+				}
+			}
+		}		
+		prerequisites = { tp_setitecult_3 }
+		trigger = { TECH_TEMPLE_CONSTRUCTION = 3 }
+		gold_cost = 250
+		build_time = 180
+		tax_income = 3
+		light_infantry = 60
+		ai_creation_factor = 97
+		extra_tech_building_start = 0.0
+		# +8 province blood 
+		add_number_to_name = no		
+	}
+
+#Blood Cult (Malkavian Version)
+# Meager Cult (Level 1)
+	tp_malkaviancult_1 = {	
+		desc = tp_malkaviancult_1_desc
+		potential = {
+			FROM = {
+				OR = { 
+					trait = malkavian
+					trait = malkavianantitribu
+				}
+			}
+		}
+		trigger = { TECH_TEMPLE_CONSTRUCTION = 0 }
+		gold_cost = 9
+		build_time = 7
+		light_infantry = 20
+		ai_creation_factor = 99
+		extra_tech_building_start = 0.0
+		# +1 province blood
+		add_number_to_name = no	
+		tech_growth_modifier = 0.1
+		economy_techpoints = 0.01			
+	}
+
+# Small Priesthood (Level 2)	
+	tp_malkaviancult_2 = {
+		desc = tp_malkaviancult_2_desc
+		potential = {
+			FROM = {
+				OR = { 
+					trait = malkavian
+					trait = malkavianantitribu
+				}
+			}
+		}
+		upgrades_from = tp_malkaviancult_1
+		trigger = { TECH_TEMPLE_CONSTRUCTION = 1 }
+		gold_cost = 50
+		build_time = 30
+		tax_income = 2
+		light_infantry = 30
+		ai_creation_factor = 98
+		extra_tech_building_start = 0.0
+		# +4 province blood
+		add_number_to_name = no	
+		tech_growth_modifier = 0.2
+		economy_techpoints = 0.02		
+	}	
+
+# Ghouled Demagogue (Level 2.G)
+	tp_malkaviancult_2g = {
+		desc = tp_malkaviancult_2g_desc
+		potential = {
+			FROM = {
+				OR = { 
+					trait = malkavian
+					trait = malkavianantitribu
+				}
+				OR = { 
+					trait = vampire
+				}
+			}
+		}		
+		prerequisites = { tp_malkaviancult_2 }
+		trigger = { TECH_TEMPLE_CONSTRUCTION = 1 }
+		gold_cost = 10
+		build_time = 7
+		tax_income = 3
+		light_infantry = 40
+		ai_creation_factor = 96
+		extra_tech_building_start = 0.0
+		# +8 province blood (+9 province blood, -1 for ghoul)
+		add_number_to_name = no		
+		tech_growth_modifier = 0.3
+		economy_techpoints = 0.03		
+	}	
+	
+# Large Cult (Level 3)	
+	tp_malkaviancult_3 = {
+		desc = tp_malkaviancult_3_desc
+		potential = {
+			FROM = {
+				OR = { 
+					trait = malkavian
+					trait = malkavianantitribu
+				}
+			}
+		}
+		upgrades_from = tp_malkaviancult_2
+		trigger = { TECH_TEMPLE_CONSTRUCTION = 2 }
+		gold_cost = 400
+		build_time = 356
+		tax_income = 3
+		light_infantry = 80
+		retinuesize = 1.2
+		ai_creation_factor = 95
+		extra_tech_building_start = 0.0
+		# +9 province blood
+		add_number_to_name = no		
+		tech_growth_modifier = 0.3
+		economy_techpoints = 0.03		
+	}
+	
+# Conditioned Cultists (Level 3.C)
+	tp_malkaviancult_3c = {
+		desc = tp_malkaviancult_3c_desc
+		potential = {
+			FROM = {
+				OR = { 
+					trait = malkavian
+					trait = malkavianantitribu
+				}
+				OR = { 
+					trait = dominate_4
+					trait = dominate_5
+				}
+			}
+		}		
+		prerequisites = { tp_malkaviancult_3 }
+		trigger = { TECH_TEMPLE_CONSTRUCTION = 3 }
+		gold_cost = 250
+		build_time = 180
+		tax_income = 3
+		light_infantry = 60
+		ai_creation_factor = 97
+		extra_tech_building_start = 0.0
+		# +8 province blood 
+		add_number_to_name = no		
+	}
+	
+#Tzimisce Flesh Chapel
+#Basic Flesh Chapel (Level 1)
+	tp_fleshchapel_1 = {	
+		desc = tp_fleshchapel_1_desc
+		potential = {
+			FROM = {
+				OR = {
+					trait = vicissitude_3
+					trait = vicissitude_4
+					trait = vicissitude_5
+				}
+			}
+		}
+		trigger = { TECH_TEMPLE_CONSTRUCTION = 0 }
+		gold_cost = 9
+		build_time = 7
+		vozhd_unit = 5
+		ai_creation_factor = 99
+		extra_tech_building_start = 0.0
+		# +1 province blood
+		add_number_to_name = no	
+		tech_growth_modifier = 0.1
+		economy_techpoints = 0.01			
+	}
+
+# Small Flesh Chapel (Level 2)	
+	tp_fleshchapel_2 = {
+		desc = tp_fleshchapel_2_desc
+		potential = {
+			FROM = {
+				OR = {
+					trait = vicissitude_3
+					trait = vicissitude_4
+					trait = vicissitude_5
+				}
+			}
+		}
+		upgrades_from = tp_fleshchapel_1
+		trigger = { TECH_TEMPLE_CONSTRUCTION = 1 }
+		gold_cost = 50
+		build_time = 30
+		tax_income = 1
+		vozhd_unit = 5
+		ai_creation_factor = 98
+		extra_tech_building_start = 0.0
+		# +4 province blood
+		add_number_to_name = no	
+		tech_growth_modifier = 0.2
+		economy_techpoints = 0.02		
+	}	
+
+# Ghouled Assistant (Level 2.G)
+	tp_fleshchapel_2g = {
+		desc = tp_fleshchapel_2g_desc
+		potential = {
+			FROM = {
+				trait = vampire
+				OR = {
+					trait = vicissitude_3
+					trait = vicissitude_4
+					trait = vicissitude_5
+				}
+			}
+		}		
+		prerequisites = { tp_fleshchapel_2 }
+		trigger = { TECH_TEMPLE_CONSTRUCTION = 1 }
+		gold_cost = 10
+		build_time = 7
+		tax_income = 1
+		vozhd_unit = 5
+		ai_creation_factor = 96
+		extra_tech_building_start = 0.0
+		# +8 province blood (+9 province blood, -1 for ghoul)
+		add_number_to_name = no		
+		tech_growth_modifier = 0.3
+		economy_techpoints = 0.03		
+	}	
+	
+#Large Flesh Chapel (Level 3)	
+	tp_fleshchapel_3 = {
+		desc = tp_fleshchapel_3_desc
+		potential = {
+			FROM = {
+				OR = {
+					trait = vicissitude_3
+					trait = vicissitude_4
+					trait = vicissitude_5
+				}
+			}
+		}
+		upgrades_from = tp_fleshchapel_2
+		trigger = { TECH_TEMPLE_CONSTRUCTION = 2 }
+		gold_cost = 400
+		build_time = 356
+		tax_income = 2
+		vozhd_unit = 5
+		retinuesize = 1.2
+		ai_creation_factor = 95
+		extra_tech_building_start = 0.0
+		# +9 province blood
+		add_number_to_name = no		
+		tech_growth_modifier = 0.3
+		economy_techpoints = 0.03		
+	}
+	
+#Masterful Flesh Chapel  (Level 3+)
+	tp_fleshchapel_3c = {
+		desc = tp_fleshchapel_3c_desc
+		potential = {
+			FROM = {
+				OR = {
+					trait = vicissitude_5
+				}
+			}
+		}		
+		prerequisites = { tp_fleshchapel_3 }
+		trigger = { TECH_TEMPLE_CONSTRUCTION = 3 }
+		gold_cost = 250
+		build_time = 180
+		tax_income = 2
+		vozhd_unit = 10
+		ai_creation_factor = 97
+		extra_tech_building_start = 0.0
+		# +8 province blood 
+		add_number_to_name = no		
+	}
+}

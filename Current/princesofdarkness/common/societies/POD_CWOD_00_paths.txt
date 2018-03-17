@@ -1,0 +1,4882 @@
+###Paths###
+
+### Path of Humanity ###
+
+path_of_humanity = {
+	primary_attribute = diplomacy
+	is_secret = no
+	devil_worshipper = no
+	opinion_to_other_members = +1
+	opinion_to_pretenders = -20			#Pretenders is the opinion you have of people perceived/discovered to be in your society.
+	opinion_to_perceived_members = -20 	#Perceived is the opinion you have of people perceived/discovered to be of a society you're not part of
+	opinion_per_rank_above = +1
+	sound = assassins_interface
+	society_ranks_gfx = generic_ranks
+	
+	active = {
+		OR = {
+			
+			has_global_flag = bookmark1505
+			has_global_flag = bookmark1506
+			has_global_flag = bookmark1666
+			}
+	}
+	indestructible = yes
+
+	can_join_society = {
+		hidden_trigger = {
+			NAND = {
+				ai = yes
+				is_society_rank_full = { 
+					society = path_of_humanity 
+					rank = 1
+				}
+			}
+		}
+		has_path_of_humanity_prerequisites = yes		
+		custom_tooltip = {
+			text = did_not_betray_society
+			NOT = { has_character_flag = betrayed_path_of_humanity }
+		}		
+	}
+
+	show_society = {
+		trait = vampire
+	}
+
+	potential = {
+		trait = vampire
+	}
+
+	society_rank = {
+		level = 1
+		limit = 200
+		startup_limit = 0
+		modifier = {
+			diplomacy = 1
+		}
+		decisions = {
+		}
+	}
+	
+	society_rank = {
+		level = 2
+		limit = 25
+		startup_limit = 0
+		modifier = { 
+			diplomacy = 2 
+		}
+		decisions = {
+		
+		}
+	}
+	
+	society_rank = {
+		level = 3
+		limit = 15 
+		startup_limit = 0
+		modifier = {
+			diplomacy = 3 
+		}
+		decisions = {
+		}
+	}
+
+	society_rank = {
+		level = 4
+		limit = 5 
+		startup_limit = 0
+		modifier = {
+			diplomacy = 4
+		}
+		decisions = {
+		}
+		 
+	}
+
+	monthly_currency_gain = {
+		name = currency_name_path_of_humanity 
+    
+		per_attribute = {
+			name = diplomacy
+			value = 0.5
+		}
+		
+		has_trait = {
+			trait = torpor
+			value = 0
+			}
+			
+		has_trait = {
+			trait = zealous
+			value = 3
+		}
+		has_trait = {
+			trait = erudite
+			value = 3
+		}
+		has_trait = {
+			trait = scholar
+			value = 3
+		}
+		has_trait = {
+			trait = theologian
+			value = 3
+		}
+		has_trait = {
+			trait = kind
+			value = 3
+		}
+		has_trait = {
+			trait = lustful
+			value = 1
+		}
+		has_trait = {
+			trait = robust
+			value = 1
+		}
+		has_trait = {
+			trait = genius
+			value = 1
+		}
+		has_trait = {
+			trait = quick
+			value = 1
+		}
+		has_trait = {
+			trait = shrewd
+			value = 1
+		}
+		has_trait = {
+			trait = diligent
+			value = 1
+		}
+		has_trait = {
+			trait = patient
+			value = 1
+		}
+		has_trait = {
+			trait = temperate
+			value = 1
+		}
+		has_trait = {
+			trait = charitable
+			value = 1
+		}
+		society_rank = {
+			rank = 4
+			value = 10
+		}
+	}
+
+	member_score_per_attribute = 3
+	member_score_per_rank = 100
+
+	member_score = {
+		value = 10
+
+		modifier = {
+			trait = torpor
+			factor = 0.1
+		}			
+		
+		modifier = {
+			trait = methuselah
+			factor = 0.1
+		}
+		modifier = {
+			trait = ancient
+			factor = 0.5
+		}		
+		modifier = {
+			trait = elder
+			factor = 0.9
+		}
+		modifier = {
+			trait = ancilla
+			factor = 2
+		}	
+		
+		modifier =  {
+			trait = neonate 
+			factor = 5
+		}
+		
+		modifier = {
+			trait = zealous
+			factor = 1.3
+		}
+		modifier = {
+			trait = erudite
+			factor = 1.3
+		}
+		modifier = {
+			trait = scholar
+			factor = 1.3
+		}
+		modifier = {
+			trait = theologian
+			factor = 1.3
+		}
+		modifier = {
+			trait = kind
+			factor = 1.3
+		}
+		modifier = {
+			trait = lustful
+			factor = 1.1
+		}
+		modifier = {
+			trait = robust
+			factor = 1.1
+		}
+		modifier = {
+			trait = genius
+			factor = 1.1
+		}
+		modifier = {
+			trait = quick
+			factor = 1.1
+		}
+		modifier = {
+			trait = shrewd
+			factor = 1.1
+		}
+		modifier = {
+			trait = diligent
+			factor = 1.1
+		}
+		modifier = {
+			trait = patient
+			factor = 1.1
+		}
+		modifier = {
+			trait = temperate
+			factor = 1.1
+		}
+		modifier = {
+			trait = charitable
+			factor = 1.1
+		}	
+	}
+	
+	startup_populate = {
+	    trigger = {
+			ai = yes
+	    	controls_religion = no 
+			age = 16
+			trait = vampire
+			diplomacy = 2
+			is_in_society = no
+			NOT = { higher_tier_than = DUKE }
+			NOT = { mercenary = yes }			
+			NOT = { trait = antediluvian }
+			NOT = { trait = methuselah }
+				NOR = {
+				culture_group = arabic
+				culture_group = iranian 
+				culture_group = altaic
+				culture_group = indo_aryan_group
+				culture = sephardi
+				religion = ashirra 
+				religion = einherjar 
+				religion = anda 
+				religion = noiad 
+				religion = koldun 
+				religion = mayaparisataya 
+				religion = assamite 
+				religion = setite 				
+				}			
+		}
+	}
+}
+
+### Path of Honorable Accord ### 
+
+path_of_honorable_accord = {
+	primary_attribute = stewardship
+	is_secret = no
+	devil_worshipper = no
+	opinion_to_other_members = +1
+	opinion_to_pretenders = -20			#Pretenders is the opinion you have of people perceived/discovered to be in your society.
+	opinion_to_perceived_members = -20 	#Perceived is the opinion you have of people perceived/discovered to be of a society you're not part of
+	opinion_per_rank_above = +1
+	sound = assassins_interface
+	society_ranks_gfx = generic_ranks
+	
+	active = {
+		OR = {
+			
+			has_global_flag = bookmark1505
+			has_global_flag = bookmark1506
+			has_global_flag = bookmark1666
+			}
+	}
+	indestructible = yes
+
+	can_join_society = {
+		hidden_trigger = {
+			NAND = {
+				ai = yes
+				is_society_rank_full = { 
+					society = path_of_honorable_accord
+					rank = 1
+				}
+			}
+		}
+	has_path_of_honorable_accord_prerequisites = yes	
+		custom_tooltip = {
+			text = did_not_betray_society
+			NOT = { has_character_flag = betrayed_path_of_honorable_accord }
+		}	
+	}
+
+	show_society = {
+		trait = vampire
+			OR = {
+				religion = sabbat
+				society_member_of = path_of_honorable_accord
+				}
+	}
+
+	potential = {
+		trait = vampire
+	}
+
+	society_rank = {
+		level = 1
+		limit = 100 
+		startup_limit = 0
+		modifier = {
+			stewardship = 1
+		}
+		decisions = {
+		}
+	}
+	
+	society_rank = {
+		level = 2
+		limit = 30
+		startup_limit = 0
+		modifier = { 
+			stewardship = 2 
+		}
+		decisions = {
+		
+		}
+	}
+	
+	society_rank = {
+		level = 3
+		limit = 10
+		startup_limit = 0
+		modifier = {
+			stewardship = 3 
+		}
+		decisions = {
+		}
+	}
+
+	society_rank = {
+		level = 4
+		limit = 5
+		startup_limit = 0
+		modifier = {
+			stewardship = 4
+		}
+		decisions = {
+		}
+		 
+	}
+
+	monthly_currency_gain = {
+		name = currency_name_path_of_honorable_accord 
+    
+		per_attribute = {
+			name = stewardship
+			value = 0.5
+		}
+
+		has_trait = {
+			trait = torpor
+			value = 0
+			}
+			
+		has_trait = {
+			trait = ventrue
+			value = 3
+		}
+		has_trait = {
+			trait = methuselah
+			value = 4
+		}
+		
+		has_trait = {
+			trait = ancient
+			value = 3
+		}
+		
+		has_trait = {
+			trait = elder
+			value = 2
+		}
+		has_trait = {
+			trait = ancilla
+			value = 1
+		}
+		
+		has_trait = {
+			trait = genius
+			value = 1
+		}
+		has_trait = {
+			trait = quick
+			value = 1
+		}
+		has_trait = {
+			trait = shrewd
+			value = 1
+		}
+		has_trait = {
+			trait = diligent
+			value = 1
+		}
+		has_trait = {
+			trait = patient
+			value = 1
+		}
+
+
+		society_rank = {
+			rank = 4
+			value = 10
+		}
+	}
+
+	member_score_per_attribute = 3
+	member_score_per_rank = 100
+
+	member_score = {
+		value = 10
+
+		modifier = {
+			trait = torpor
+			factor = 0.1
+		}	
+		
+		modifier = {
+			trait = majesty_5
+			factor = 5
+		}
+		
+		modifier = {
+			trait = majesty_4
+			factor = 4
+		}
+
+		modifier = {
+			trait = majesty_3
+			factor = 3
+		}
+
+		modifier = {
+			trait = majesty_2
+			factor = 2
+		}		
+		
+		modifier = {
+			trait = majesty_1
+			factor = 1
+		}			
+		
+		modifier = {
+			trait = dominate_5
+			factor = 5
+		}
+		
+		modifier = {
+			trait = dominate_4
+			factor = 4
+		}
+
+		modifier = {
+			trait = dominate_3
+			factor = 3
+		}
+
+		modifier = {
+			trait = dominate_2
+			factor = 2
+		}		
+		
+		modifier = {
+			trait = dominate_1
+			factor = 1
+		}			
+		
+		modifier = {
+			trait = ventrue
+			factor = 1.3
+		}
+		modifier = {
+			trait = methuselah
+			factor = 1.4
+		}
+		modifier = {
+			trait = ancient
+			factor = 1.3
+		}		
+		modifier = {
+			trait = elder
+			factor = 1.2
+		}
+		modifier = {
+			trait = ancilla
+			factor = 1.1
+		}		
+		modifier = {
+			trait = genius
+			factor = 1.1
+		}
+		modifier = {
+			trait = quick
+			factor = 1.1
+		}
+		modifier = {
+			trait = shrewd
+			factor = 1.1
+		}
+		modifier = {
+			trait = diligent
+			factor = 1.1
+		}
+		modifier = {
+			trait = patient
+			factor = 1.1
+		}
+		modifier = {
+			trait = temperate
+			factor = 1.1
+		}
+	
+	}
+	
+	startup_populate = {
+	    trigger = {
+			ai = yes
+	    	controls_religion = no 
+			trait = vampire
+			is_in_society = no
+			NOT = { trait = antediluvian }	
+		}
+	}
+}
+
+
+
+
+### Path of Power & the Inner Voice ### 
+
+path_of_power_and_the_inner_voice = {
+	primary_attribute = stewardship
+	is_secret = no
+	devil_worshipper = no
+	opinion_to_other_members = +1
+	opinion_to_pretenders = -20			#Pretenders is the opinion you have of people perceived/discovered to be in your society.
+	opinion_to_perceived_members = -20 	#Perceived is the opinion you have of people perceived/discovered to be of a society you're not part of
+	opinion_per_rank_above = +1
+	sound = assassins_interface
+	society_ranks_gfx = generic_ranks
+	
+	active = {
+		OR = {
+			
+			has_global_flag = bookmark1505
+			has_global_flag = bookmark1506
+			has_global_flag = bookmark1666
+			}
+	}
+	indestructible = yes
+
+	can_join_society = {
+		hidden_trigger = {
+			NAND = {
+				ai = yes
+				is_society_rank_full = { 
+					society = path_of_power_and_the_inner_voice
+					rank = 1
+				}
+			}
+		}
+	has_path_of_power_and_the_inner_voice_prerequisites = yes	
+		custom_tooltip = {
+			text = did_not_betray_society
+			NOT = { has_character_flag = betrayed_path_of_power_and_the_inner_voice }
+		}	
+	}
+
+	show_society = {
+		trait = vampire
+		OR = {
+		religion = sabbat
+		society_member_of = path_of_power_and_the_inner_voice
+		}
+	}
+
+	potential = {
+		trait = vampire
+	}
+
+	society_rank = {
+		level = 1
+		limit = 100 
+		startup_limit = 0
+		modifier = {
+			stewardship = 1
+		}
+		decisions = {
+		}
+	}
+	
+	society_rank = {
+		level = 2
+		limit = 30
+		startup_limit = 0
+		modifier = { 
+			stewardship = 2 
+		}
+		decisions = {
+		
+		}
+	}
+	
+	society_rank = {
+		level = 3
+		limit = 10
+		startup_limit = 0
+		modifier = {
+			stewardship = 3 
+		}
+		decisions = {
+		}
+	}
+
+	society_rank = {
+		level = 4
+		limit = 5
+		startup_limit = 0
+		modifier = {
+			stewardship = 4
+		}
+		decisions = {
+		}
+		 
+	}
+
+	monthly_currency_gain = {
+		name = currency_name_path_of_power_and_the_inner_voice 
+    
+		per_attribute = {
+			name = stewardship
+			value = 0.5
+		}
+
+		has_trait = {
+			trait = torpor
+			value = 0
+			}
+			
+		has_trait = {
+			trait = ventrue
+			value = 3
+		}
+		has_trait = {
+			trait = methuselah
+			value = 4
+		}
+		
+		has_trait = {
+			trait = ancient
+			value = 3
+		}
+		
+		has_trait = {
+			trait = elder
+			value = 2
+		}
+		has_trait = {
+			trait = ancilla
+			value = 1
+		}
+		
+		has_trait = {
+			trait = genius
+			value = 1
+		}
+		has_trait = {
+			trait = quick
+			value = 1
+		}
+		has_trait = {
+			trait = shrewd
+			value = 1
+		}
+		has_trait = {
+			trait = diligent
+			value = 1
+		}
+		has_trait = {
+			trait = patient
+			value = 1
+		}
+
+
+		society_rank = {
+			rank = 4
+			value = 10
+		}
+	}
+
+	member_score_per_attribute = 3
+	member_score_per_rank = 100
+
+	member_score = {
+		value = 10
+
+		modifier = {
+			trait = torpor
+			factor = 0.1
+		}	
+		
+		modifier = {
+			trait = majesty_5
+			factor = 5
+		}
+		
+		modifier = {
+			trait = majesty_4
+			factor = 4
+		}
+
+		modifier = {
+			trait = majesty_3
+			factor = 3
+		}
+
+		modifier = {
+			trait = majesty_2
+			factor = 2
+		}		
+		
+		modifier = {
+			trait = majesty_1
+			factor = 1
+		}			
+		
+		modifier = {
+			trait = dominate_5
+			factor = 5
+		}
+		
+		modifier = {
+			trait = dominate_4
+			factor = 4
+		}
+
+		modifier = {
+			trait = dominate_3
+			factor = 3
+		}
+
+		modifier = {
+			trait = dominate_2
+			factor = 2
+		}		
+		
+		modifier = {
+			trait = dominate_1
+			factor = 1
+		}			
+		
+		modifier = {
+			trait = ventrue
+			factor = 1.3
+		}
+		modifier = {
+			trait = methuselah
+			factor = 1.4
+		}
+		modifier = {
+			trait = ancient
+			factor = 1.3
+		}		
+		modifier = {
+			trait = elder
+			factor = 1.2
+		}
+		modifier = {
+			trait = ancilla
+			factor = 1.1
+		}		
+		modifier = {
+			trait = genius
+			factor = 1.1
+		}
+		modifier = {
+			trait = quick
+			factor = 1.1
+		}
+		modifier = {
+			trait = shrewd
+			factor = 1.1
+		}
+		modifier = {
+			trait = diligent
+			factor = 1.1
+		}
+		modifier = {
+			trait = patient
+			factor = 1.1
+		}
+		modifier = {
+			trait = temperate
+			factor = 1.1
+		}
+	
+	}
+	
+	startup_populate = {
+	    trigger = {
+			ai = yes
+	    	controls_religion = no 
+			trait = vampire
+			is_in_society = no
+			NOT = { trait = antediluvian }	
+		}
+	}
+}
+
+
+
+### Path of Redemption ###
+path_of_redemption = {
+	primary_attribute = learning
+	is_religious = yes
+	opinion_to_other_members = +1
+	opinion_per_rank_above = +5
+	sound = monastic_orders_interface
+	society_ranks_gfx = monk_ranks
+
+	
+	active = {
+		OR = {
+			
+			has_global_flag = bookmark1505
+			has_global_flag = bookmark1506
+			has_global_flag = bookmark1666
+			}
+	}
+	indestructible = yes
+
+	can_join_society = {
+		hidden_trigger = {
+			NAND = {
+				ai = yes
+				is_society_rank_full = { 
+					society = path_of_redemption
+					rank = 1
+				}
+			}
+		}
+		has_path_of_redemption_prerequisites = yes	
+		custom_tooltip = {
+			text = did_not_betray_society
+			NOT = { has_character_flag = betrayed_path_of_redemption }
+		}
+	}
+	
+	show_society = {
+		trait = vampire
+	}
+	
+	potential = {
+		trait = vampire 
+	}
+	
+	society_rank = {
+		level = 1
+		limit = 100 
+		startup_limit = 0
+		modifier = {
+			monthly_character_piety = 0.05
+		}
+	}
+	
+	society_rank = {
+		level = 2
+		limit = 30
+		startup_limit = 0
+		modifier = { 
+			monthly_character_piety = 0.1
+			learning = 1
+		}
+	}
+	
+	society_rank = {
+		level = 3
+		limit = 10 
+		startup_limit = 0
+		modifier = {
+			monthly_character_piety = 0.2
+			learning = 2
+			build_cost_temple_modifier = -0.25
+		}
+	}
+
+	society_rank = {
+		level = 4
+		limit = 5
+		startup_limit = 0
+		modifier = { 
+			monthly_character_piety = 0.5
+			learning = 3
+			build_cost_temple_modifier = -0.5 
+		}
+	}
+
+	monthly_currency_gain = {
+		name = currency_name_path_of_redemption
+    	
+    	per_attribute = {
+    		name = learning
+    		value = 0.5
+			}
+			
+		has_trait = {
+			trait = torpor
+			value = 0
+			}
+			
+    	has_trait = {
+			trait = monk
+			value = 5
+		}
+		has_trait = {
+			trait = nun
+			value = 5
+		}
+		has_trait = {
+			trait = diligent
+			value = 3
+		}
+
+		has_trait = {
+			trait = kind
+			value = 1
+		}
+		has_trait = {
+			trait = patient
+			value = 1
+		}
+		has_trait = {
+			trait = humble
+			value = 1
+		}
+		has_trait = {
+			trait = zealous
+			value = 1
+		}
+		has_trait = {
+			trait = honest
+			value = 1
+		}
+		has_trait = {
+			trait = erudite
+			value = 1
+		}
+		has_trait = {
+			trait = pilgrim
+			value = 1
+		}
+		has_trait = {
+			trait = theologian
+			value = 1
+		}
+		has_trait = {
+			trait = scholar
+			value = 1
+		}
+		society_rank = {
+			rank = 4
+			value = 10
+		}
+	}
+
+	member_score_per_attribute = 3
+	member_score_per_rank = 100
+
+	member_score = {
+		value = 10
+
+		modifier = {
+			trait = torpor
+			factor = 0.1
+		}	
+		
+		modifier = {
+			is_priest = yes
+			factor = 10
+		}
+		modifier = {
+			trait = monk
+			factor = 5
+		}
+		modifier = {
+			trait = nun
+			factor = 5
+		}
+		modifier = {
+			trait = diligent
+			factor = 1.3
+		}
+
+		modifier = {
+			trait = kind
+			factor = 1.1
+		}
+		modifier = {
+			trait = patient
+			factor = 1.1
+		}
+		modifier = {
+			trait = humble
+			factor = 1.1
+		}
+		modifier = {
+			trait = zealous
+			factor = 1.1
+		}
+		modifier = {
+			trait = honest
+			factor = 1.1
+		}
+		modifier = {
+			trait = erudite
+			factor = 1.1
+		}
+		modifier = {
+			trait = pilgrim
+			factor = 1.1
+		}
+		modifier = {
+			trait = theologian
+			factor = 1.1
+		}
+		modifier = {
+			trait = scholar
+			factor = 1.1
+		}
+	}
+	
+	startup_populate = {
+	    trigger = {
+			ai = yes
+	    	controls_religion = no
+			age = 16
+			trait = vampire
+			is_in_society = no
+			NOT = { higher_tier_than = DUKE }
+			NOT = { trait = antediluvian }			
+			NOT = { trait = diabolist }
+			NOR = {
+				mercenary = yes
+				holy_order = yes
+			}
+			NOT = { trait = cynical }
+			has_secret_religion_trait_trigger = no
+			OR = {
+				trait = zealous
+				trait = scholar
+				trait = theologian
+				trait = monk
+				trait = nun
+				learning = 16
+				is_priest = yes
+			}
+				NOR = {
+				culture_group = arabic
+				culture_group = iranian 
+				culture_group = altaic
+				culture_group = indo_aryan_group
+				culture = sephardi
+				religion = ashirra 
+				religion = einherjar 
+				religion = anda 
+				religion = noiad 
+				religion = koldun 
+				religion = mayaparisataya 
+				religion = assamite 
+				religion = setite				
+				}			
+		}
+	}
+}
+
+### Path of the Beast ###
+
+path_of_the_beast = {
+	primary_attribute = martial
+	is_secret = no
+	devil_worshipper = no
+	opinion_to_other_members = +1
+	opinion_to_pretenders = -20			#Pretenders is the opinion you have of people perceived/discovered to be in your society.
+	opinion_to_perceived_members = -20 	#Perceived is the opinion you have of people perceived/discovered to be of a society you're not part of
+	opinion_per_rank_above = +1
+	sound = assassins_interface
+	society_ranks_gfx = generic_ranks
+	
+	active = {
+		OR = {
+			
+			has_global_flag = bookmark1505
+			has_global_flag = bookmark1506
+			has_global_flag = bookmark1666
+			}
+	}
+	indestructible = yes
+
+	can_join_society = {
+		hidden_trigger = {
+			NAND = {
+				ai = yes
+				is_society_rank_full = { 
+					society = path_of_the_beast
+					rank = 1
+				}
+			}
+		}
+		has_path_of_the_beast_prerequisites = yes	
+		custom_tooltip = {
+			text = did_not_betray_society
+			NOT = { has_character_flag = betrayed_path_of_the_beast }
+		}		
+	}
+
+	show_society = {
+		trait = vampire
+		OR = { 
+			religion = sabbat
+			society_member_of = path_of_the_beast
+			trait = gangrel
+			trait = gangrelantitribu
+			
+			}
+	}
+
+	potential = {
+		trait = vampire
+	}
+
+	society_rank = {
+		level = 1
+		limit = 100 
+		startup_limit = 0
+		modifier = {
+			combat_rating = 1
+		}
+		decisions = {
+		}
+	}
+	
+	society_rank = {
+		level = 2
+		limit = 50
+		startup_limit = 0
+		modifier = { 
+			combat_rating = 2 # bonus to dueling
+		}
+		decisions = {
+		
+		}
+	}
+	
+	society_rank = {
+		level = 3
+		limit = 25 
+		startup_limit = 0
+		modifier = {
+			combat_rating = 3 # bonus to dueling (left over)
+		}
+		decisions = {
+		}
+	}
+
+	society_rank = {
+		level = 4
+		limit = 5 
+		startup_limit = 0
+		modifier = {
+			combat_rating = 4 # bonus to dueling (left over)
+		}
+		decisions = {
+		}
+		 
+	}
+
+	monthly_currency_gain = {
+		name = currency_name_path_of_the_beast
+    
+		per_attribute = {
+			name = martial
+			value = 0.5
+		}
+
+		has_trait = {
+			trait = torpor
+			value = 0
+			}
+			
+		has_trait = {
+			trait = strong
+			value = 1
+		}
+		has_trait = {
+			trait = robust
+			value = 1
+		}
+
+		has_trait = {
+			trait = shrewd
+			value = 1
+		}
+		has_trait = {
+			trait = hunter
+			value = 1
+		}
+		has_trait = {
+			trait = wroth
+			value = 1
+		}
+		has_trait = {
+			trait = brave
+			value = 1
+		}	
+		has_trait = {
+			trait = shy
+			value = 1
+		}	
+		has_trait = {
+			trait = paranoid
+			value = 1
+		}			
+		society_rank = {
+			rank = 4
+			value = 10
+		}
+	}
+
+	member_score_per_attribute = 3
+	member_score_per_rank = 100
+
+	member_score = {
+		value = 10
+
+		modifier = {
+			trait = torpor
+			factor = 0.1
+		}			
+		
+		modifier = {
+			trait = animalism_5
+			factor = 5
+		}
+		
+		modifier = {
+			trait = animalism_4
+			factor = 4
+		}
+
+		modifier = {
+			trait = animalism_3
+			factor = 3
+		}
+
+		modifier = {
+			trait = animalism_2
+			factor = 2
+		}		
+		
+		modifier = {
+			trait = animalism_1
+			factor = 1
+		}	
+		
+		modifier = {
+			trait = methuselah
+			factor = 1.4
+		}
+		modifier = {
+			trait = ancient
+			factor = 1.3
+		}		
+		modifier = {
+			trait = elder
+			factor = 1.2
+		}
+		modifier = {
+			trait = ancilla
+			factor = 1.1
+		}		
+		
+		modifier = {
+			trait = strong
+			factor = 1.1
+		}
+		modifier = {
+			trait = robust
+			factor = 1.1
+		}
+	
+		modifier = {
+			trait = shrewd
+			factor = 1.1
+		}
+		
+		modifier = {
+			trait = hunter
+			factor = 5
+		}
+
+		modifier = {
+			trait = wroth
+			factor = 1.1
+		}		
+		
+		modifier = {
+			trait = brave
+			factor = 1.1
+		}		
+		
+		modifier = {
+			trait = shy
+			factor = 1.1
+		}		
+
+		modifier = {
+			trait = paranoid
+			factor = 1.1
+		}		
+		
+	}
+	
+	startup_populate = {
+	    trigger = {
+			ai = yes
+	    	controls_religion = no
+			trait = vampire
+			combat_rating = 5
+			is_in_society = no
+			NOT = { higher_tier_than = DUKE }
+			NOT = { mercenary = yes }		
+		}
+	}
+}
+	
+
+### Path of Cathari ###
+
+path_of_cathari = {
+	primary_attribute = intrigue
+	is_secret = no
+	devil_worshipper = no
+	opinion_to_other_members = +1
+	opinion_to_pretenders = -20			#Pretenders is the opinion you have of people perceived/discovered to be in your society.
+	opinion_to_perceived_members = -20 	#Perceived is the opinion you have of people perceived/discovered to be of a society you're not part of
+	opinion_per_rank_above = +1
+	sound = assassins_interface
+	society_ranks_gfx = generic_ranks
+	
+	active = {
+		OR = {
+			
+			has_global_flag = bookmark1505
+			has_global_flag = bookmark1506
+			has_global_flag = bookmark1666
+			}
+	}
+	indestructible = yes
+
+	can_join_society = {
+		hidden_trigger = {
+			NAND = {
+				ai = yes
+				is_society_rank_full = { 
+					society = path_of_cathari
+					rank = 1
+				}
+			}
+		}
+		has_path_of_cathari_prerequisites = yes	
+		custom_tooltip = {
+			text = did_not_betray_society
+			NOT = { has_character_flag = betrayed_path_of_cathari }
+		}		
+	}
+
+	show_society = {
+		trait = vampire
+		OR = { 
+			religion = sabbat
+			society_member_of = path_of_cathari
+			trait = lustful
+		}
+	}
+
+	potential = {
+		trait = vampire
+	}
+
+	society_rank = {
+		level = 1
+		limit = 100 
+		startup_limit = 0
+		modifier = {
+			intrigue = 1
+		}
+		decisions = {
+		}
+	}
+	
+	society_rank = {
+		level = 2
+		limit = 100
+		startup_limit = 0
+		modifier = { 
+			intrigue = 2 # bonus to dueling
+		}
+		decisions = {
+		
+		}
+	}
+	
+	society_rank = {
+		level = 3
+		limit = 50
+		startup_limit = 0
+		modifier = {
+			intrigue = 3 # bonus to dueling (left over)
+		}
+		decisions = {
+		}
+	}
+
+	society_rank = {
+		level = 4
+		limit = 5 
+		startup_limit = 0
+		modifier = {
+			intrigue = 4 # bonus to dueling (left over)
+		}
+		decisions = {
+		}
+		 
+	}
+
+	monthly_currency_gain = {
+		name = currency_name_path_of_cathari
+    
+			per_attribute = {
+			name = intrigue
+			value = 0.5
+		}
+
+		has_trait = {
+			trait = torpor
+			value = 0
+			}		
+		
+		has_trait = {
+			trait = ambitious
+			value = 5
+		}
+		has_trait = {
+			trait = genius
+			value = 4
+		}
+		has_trait = {
+			trait = quick
+			value = 3
+		}
+		has_trait = {
+			trait = shrewd
+			value = 3
+		}
+		has_trait = {
+			trait = hedonist
+			value = 3
+		}
+		has_trait = {
+			trait = mystic
+			value = 3
+		}
+		has_trait = {
+			trait = seducer
+			value = 3
+		}
+		has_trait = {
+			trait = seductress
+			value = 3
+		}
+		has_trait = {
+			trait = schemer
+			value = 3
+		}
+		has_trait = {
+			trait = impaler
+			value = 3
+		}
+		has_trait = {
+			trait = lustful
+			value = 1
+		}
+		has_trait = {
+			trait = proud
+			value = 1
+		}
+		has_trait = {
+			trait = greedy
+			value = 1
+		}
+		has_trait = {
+			trait = deceitful
+			value = 1
+		}
+		has_trait = {
+			trait = arbitrary
+			value = 1
+		}
+		society_rank = {
+			rank = 4
+			value = 10
+		}
+	}
+
+	member_score_per_attribute = 3
+	member_score_per_rank = 100
+
+	member_score = {
+		value = 10
+	
+		modifier = {
+			trait = torpor
+			factor = 0.1
+		}	
+		
+		modifier = {
+			trait = ambitious
+			factor = 1.5
+		}
+		modifier = {
+			trait = genius
+			factor = 1.3
+		}
+		modifier = {
+			trait = quick
+			factor = 1.3
+		}
+		modifier = {
+			trait = shrewd
+			factor = 1.3
+		}
+		modifier = {
+			trait = hedonist
+			factor = 1.3
+		}
+		modifier = {
+			trait = mystic
+			factor = 1.3
+		}
+		modifier = {
+			trait = seducer
+			factor = 1.3
+		}
+		modifier = {
+			trait = seductress
+			factor = 1.3
+		}
+		modifier = {
+			trait = schemer
+			factor = 1.3
+		}
+		modifier = {
+			trait = impaler
+			factor = 1.3
+		}
+		modifier = {
+			trait = lustful
+			factor = 1.1
+		}
+		modifier = {
+			trait = proud
+			factor = 1.1
+		}
+		modifier = {
+			trait = greedy
+			factor = 1.1
+		}
+		modifier = {
+			trait = deceitful
+			factor = 1.1
+		}
+		modifier = {
+			trait = arbitrary
+			factor = 1.1
+		}		
+		
+	}
+	
+	startup_populate = {
+	    trigger = {
+			ai = yes
+	    	controls_religion = no
+			trait = vampire
+			intrigue = 5
+			is_in_society = no
+			NOT = { higher_tier_than = DUKE }					
+		}
+	}
+	}	
+
+	
+
+### Path of Evil Revelations ###
+
+path_of_evil_revelations = {
+	primary_attribute = intrigue
+	is_secret = no
+	devil_worshipper = no
+	opinion_to_other_members = +1
+	opinion_to_pretenders = -20			#Pretenders is the opinion you have of people perceived/discovered to be in your society.
+	opinion_to_perceived_members = -20 	#Perceived is the opinion you have of people perceived/discovered to be of a society you're not part of
+	opinion_per_rank_above = +1
+	sound = assassins_interface
+	society_ranks_gfx = generic_ranks
+	
+	active = {
+		OR = {
+			
+			has_global_flag = bookmark1505
+			has_global_flag = bookmark1506
+			has_global_flag = bookmark1666
+			}
+	}
+	indestructible = yes
+
+	can_join_society = {
+		hidden_trigger = {
+			NAND = {
+				ai = yes
+				is_society_rank_full = { 
+					society = path_of_evil_revelations
+					rank = 1
+				}
+			}
+		}
+		has_path_of_evil_revelations_prerequisites = yes	
+		custom_tooltip = {
+			text = did_not_betray_society
+			NOT = { has_character_flag = betrayed_path_of_evil_revelations }
+		}		
+	}
+
+	show_society = {
+		trait = vampire
+		OR = {
+		society_member_of = path_of_evil_revelations
+		society_member_of = path_of_the_hive
+		trait = baali
+		religion = baali
+		}
+	}
+
+	potential = {
+		trait = vampire
+	}
+
+	society_rank = {
+		level = 1
+		limit = 100 
+		startup_limit = 0
+		modifier = {
+			intrigue = 1
+		}
+		decisions = {
+		}
+	}
+	
+	society_rank = {
+		level = 2
+		limit = 100
+		startup_limit = 0
+		modifier = { 
+			intrigue = 2 # bonus to dueling
+		}
+		decisions = {
+		
+		}
+	}
+	
+	society_rank = {
+		level = 3
+		limit = 50
+		startup_limit = 0
+		modifier = {
+			intrigue = 3 # bonus to dueling (left over)
+		}
+		decisions = {
+		}
+	}
+
+	society_rank = {
+		level = 4
+		limit = 5 
+		startup_limit = 0
+		modifier = {
+			intrigue = 4 # bonus to dueling (left over)
+		}
+		decisions = {
+		}
+		 
+	}
+
+	monthly_currency_gain = {
+		name = currency_name_path_of_evil_revelations
+    
+			per_attribute = {
+			name = intrigue
+			value = 0.5
+		}
+
+		has_trait = {
+			trait = torpor
+			value = 0
+			}		
+		
+		has_trait = {
+			trait = ambitious
+			value = 5
+		}
+		has_trait = {
+			trait = genius
+			value = 4
+		}
+		has_trait = {
+			trait = quick
+			value = 3
+		}
+		has_trait = {
+			trait = shrewd
+			value = 3
+		}
+		has_trait = {
+			trait = hedonist
+			value = 3
+		}
+		has_trait = {
+			trait = mystic
+			value = 3
+		}
+		has_trait = {
+			trait = seducer
+			value = 3
+		}
+		has_trait = {
+			trait = seductress
+			value = 3
+		}
+		has_trait = {
+			trait = schemer
+			value = 3
+		}
+		has_trait = {
+			trait = impaler
+			value = 3
+		}
+		has_trait = {
+			trait = lustful
+			value = 1
+		}
+		has_trait = {
+			trait = proud
+			value = 1
+		}
+		has_trait = {
+			trait = greedy
+			value = 1
+		}
+		has_trait = {
+			trait = deceitful
+			value = 1
+		}
+		has_trait = {
+			trait = arbitrary
+			value = 1
+		}
+		society_rank = {
+			rank = 4
+			value = 10
+		}
+	}
+
+	member_score_per_attribute = 3
+	member_score_per_rank = 100
+
+	member_score = {
+		value = 10
+	
+		modifier = {
+			trait = torpor
+			factor = 0.1
+		}	
+		
+		modifier = {
+			trait = ambitious
+			factor = 1.5
+		}
+		modifier = {
+			trait = genius
+			factor = 1.3
+		}
+		modifier = {
+			trait = quick
+			factor = 1.3
+		}
+		modifier = {
+			trait = shrewd
+			factor = 1.3
+		}
+		modifier = {
+			trait = hedonist
+			factor = 1.3
+		}
+		modifier = {
+			trait = mystic
+			factor = 1.3
+		}
+		modifier = {
+			trait = seducer
+			factor = 1.3
+		}
+		modifier = {
+			trait = seductress
+			factor = 1.3
+		}
+		modifier = {
+			trait = schemer
+			factor = 1.3
+		}
+		modifier = {
+			trait = impaler
+			factor = 1.3
+		}
+		modifier = {
+			trait = lustful
+			factor = 1.1
+		}
+		modifier = {
+			trait = proud
+			factor = 1.1
+		}
+		modifier = {
+			trait = greedy
+			factor = 1.1
+		}
+		modifier = {
+			trait = deceitful
+			factor = 1.1
+		}
+		modifier = {
+			trait = arbitrary
+			factor = 1.1
+		}		
+		
+	}
+	
+	startup_populate = {
+	    trigger = {
+			ai = yes
+	    	controls_religion = no
+			trait = vampire
+			intrigue = 5
+			is_in_society = no
+			NOT = { higher_tier_than = DUKE }					
+		}
+	}
+	}	
+
+	
+
+### Path of Bones ###
+path_of_bones = {
+	primary_attribute = learning
+	opinion_to_other_members = +1
+	opinion_per_rank_above = +5
+	sound = monastic_orders_interface
+	society_ranks_gfx = monk_ranks
+
+	active = {
+		OR = {
+			
+			has_global_flag = bookmark1505
+			has_global_flag = bookmark1506
+			has_global_flag = bookmark1666
+			}
+	}
+	indestructible = yes
+
+	can_join_society = {
+		hidden_trigger = {
+			NAND = {
+				ai = yes
+				is_society_rank_full = { 
+					society = path_of_bones
+					rank = 1
+				}
+			}
+		}
+		has_path_of_bones_prerequisites = yes			
+		custom_tooltip = {
+			text = did_not_betray_society
+			NOT = { has_character_flag = betrayed_path_of_bones }
+		}
+	}
+	
+	show_society = {
+		trait = vampire
+		OR = { 
+			religion = giovanni
+			trait = giovanni
+			society_member_of = path_of_bones
+			society_member_of = path_of_death_and_the_soul
+			}
+	}
+	
+	potential = {
+		trait = vampire 
+	}
+	
+	society_rank = {
+		level = 1
+		limit = 100
+		startup_limit = 2
+		modifier = {
+			#economy_techpoints = 0.05
+		}
+		decisions = {
+			hermetics_write_theory_paper # Enables you to write a theorem paper that, if approved, gives you society power
+		}
+	}
+	
+	society_rank = {
+		level = 2
+		limit = 100
+		startup_limit = 0
+		modifier = { 
+			learning = 1
+		}
+		decisions = {
+			hermetics_perform_scrying # Enables you to perform a scrying and gain an omen
+			brew_happiness_potion # Enables you to brew a potion
+		}
+	}
+	
+	society_rank = {
+		level = 3
+		limit = 50
+		startup_limit = 0
+		modifier = {
+			learning = 2
+		}
+		decisions = {
+		}
+	}
+
+	society_rank = {
+		level = 4
+		limit = 10
+		startup_limit = 0
+		modifier = { 
+			learning = 3
+		}
+		decisions = {
+			choose_hermetic_art # Enables you to pick/change your lifestyle trait
+			hermetics_write_magnum_opus # Write an enciphered book of lore (artifact)
+		}
+	}
+
+	monthly_currency_gain = {
+		name = currency_name_path_of_bones
+    	
+    	per_attribute = {
+    		name = learning
+    		value = 0.5
+    	}
+		
+		has_trait = {
+			trait = torpor
+			value = 0
+			}
+			
+    	has_trait = {
+			trait = monk
+			value = 1
+		}
+		has_trait = {
+			trait = nun
+			value = 1
+		}
+		has_trait = {
+			trait = diligent
+			value = 3
+		}
+
+		has_trait = {
+			trait = cappadocian
+			value = 1
+		}
+		has_trait = {
+			trait = patient
+			value = 1
+		}
+		has_trait = {
+			trait = malkavian
+			value = 1
+		}
+		has_trait = {
+			trait = zealous
+			value = 1
+		}
+		has_trait = {
+			trait = honest
+			value = 1
+		}
+		has_trait = {
+			trait = erudite
+			value = 1
+		}
+		has_trait = {
+			trait = pilgrim
+			value = 1
+		}
+		has_trait = {
+			trait = theologian
+			value = 1
+		}
+		has_trait = {
+			trait = scholar
+			value = 1
+		}
+		society_rank = {
+			rank = 4
+			value = 10
+		}
+	}
+
+	member_score_per_attribute = 3
+	member_score_per_rank = 50
+
+	member_score = {
+		value = 10
+
+		modifier = {
+			trait = torpor
+			factor = 0.1
+		}	
+		
+		modifier = {
+			primary_title = { title = e_giovanni }
+			factor = 10
+			}
+
+		modifier = {
+			trait = necromancy_5
+			factor = 5
+		}
+		
+		modifier = {
+			trait = necromancy_4
+			factor = 4
+		}
+
+		modifier = {
+			trait = necromancy_3
+			factor = 3
+		}
+
+		modifier = {
+			trait = necromancy_2
+			factor = 2
+		}		
+		
+		modifier = {
+			trait = necromancy_1
+			factor = 1
+		}			
+
+		modifier = {
+			trait = mortis_5
+			factor = 5
+		}
+		
+		modifier = {
+			trait = mortis_4
+			factor = 4
+		}
+
+		modifier = {
+			trait = mortis_3
+			factor = 3
+		}
+
+		modifier = {
+			trait = mortis_2
+			factor = 2
+		}		
+		
+		modifier = {
+			trait = mortis_1
+			factor = 1
+		}
+
+		modifier = {
+			trait = methuselah
+			factor = 1.4
+		}
+		modifier = {
+			trait = ancient
+			factor = 1.3
+		}		
+		modifier = {
+			trait = elder
+			factor = 1.2
+		}
+		modifier = {
+			trait = ancilla
+			factor = 1.1
+		}		
+		
+		modifier = {
+			is_priest = yes
+			factor = 1.1
+		}
+		modifier = {
+			trait = monk
+			factor = 1.1
+		}
+		modifier = {
+			trait = nun
+			factor = 1.1
+		}
+		modifier = {
+			trait = diligent
+			factor = 1.3
+		}
+
+		modifier = {
+			trait = cappadocian
+			factor = 1.1
+		}
+		modifier = {
+			trait = patient
+			factor = 1.1
+		}
+		modifier = {
+			trait = malkavian
+			factor = 1.1
+		}
+		modifier = {
+			trait = zealous
+			factor = 1.1
+		}
+		modifier = {
+			trait = honest
+			factor = 1.1
+		}
+		modifier = {
+			trait = erudite
+			factor = 1.1
+		}
+		modifier = {
+			trait = pilgrim
+			factor = 1.1
+		}
+		modifier = {
+			trait = theologian
+			factor = 1.1
+		}
+		modifier = {
+			trait = scholar
+			factor = 1.1
+		}
+	}
+	
+	startup_populate = {
+	    trigger = {
+			ai = yes
+	    	controls_religion = no
+			trait = vampire
+			is_in_society = no
+			NOT = { trait = antediluvian }
+			NOR = {
+				mercenary = yes
+				holy_order = yes
+			}
+			NOT = { trait = cynical }
+			OR = {
+				primary_title = { title = e_giovanni }
+			}			
+			has_secret_religion_trait_trigger = no
+			
+		}
+	}
+}
+
+
+
+### Path of Death and the Soul ###
+path_of_death_and_the_soul = {
+	primary_attribute = learning
+	opinion_to_other_members = +1
+	opinion_per_rank_above = +5
+	sound = monastic_orders_interface
+	society_ranks_gfx = monk_ranks
+
+	active = {
+		OR = {
+			
+			has_global_flag = bookmark1505
+			has_global_flag = bookmark1506
+			has_global_flag = bookmark1666
+			}
+	}
+	indestructible = yes
+
+	can_join_society = {
+		hidden_trigger = {
+			NAND = {
+				ai = yes
+				is_society_rank_full = { 
+					society = path_of_death_and_the_soul
+					rank = 1
+				}
+			}
+		}
+		has_path_of_death_and_the_soul_prerequisites = yes			
+		custom_tooltip = {
+			text = did_not_betray_society
+			NOT = { has_character_flag = betrayed_path_of_death_and_the_soul }
+		}
+	}
+	
+	show_society = {
+		trait = vampire
+		OR = { 
+			religion = sabbat
+			society_member_of = path_of_death_and_the_soul
+			society_member_of = path_of_bones
+			}
+	}
+	
+	potential = {
+		trait = vampire 
+	}
+	
+	society_rank = {
+		level = 1
+		limit = 100
+		startup_limit = 2
+		modifier = {
+			#economy_techpoints = 0.05
+		}
+		decisions = {
+			hermetics_write_theory_paper # Enables you to write a theorem paper that, if approved, gives you society power
+		}
+	}
+	
+	society_rank = {
+		level = 2
+		limit = 100
+		startup_limit = 0
+		modifier = { 
+			learning = 1
+		}
+		decisions = {
+			hermetics_perform_scrying # Enables you to perform a scrying and gain an omen
+			brew_happiness_potion # Enables you to brew a potion
+		}
+	}
+	
+	society_rank = {
+		level = 3
+		limit = 50
+		startup_limit = 0
+		modifier = {
+			learning = 2
+		}
+		decisions = {
+		}
+	}
+
+	society_rank = {
+		level = 4
+		limit = 10
+		startup_limit = 0
+		modifier = { 
+			learning = 3
+		}
+		decisions = {
+			choose_hermetic_art # Enables you to pick/change your lifestyle trait
+			hermetics_write_magnum_opus # Write an enciphered book of lore (artifact)
+		}
+	}
+
+	monthly_currency_gain = {
+		name = currency_name_path_of_death_and_the_soul
+    	
+    	per_attribute = {
+    		name = learning
+    		value = 0.5
+    	}
+		
+		has_trait = {
+			trait = torpor
+			value = 0
+			}
+			
+    	has_trait = {
+			trait = monk
+			value = 1
+		}
+		has_trait = {
+			trait = nun
+			value = 1
+		}
+		has_trait = {
+			trait = diligent
+			value = 3
+		}
+
+		has_trait = {
+			trait = cappadocian
+			value = 1
+		}
+		has_trait = {
+			trait = patient
+			value = 1
+		}
+		has_trait = {
+			trait = malkavian
+			value = 1
+		}
+		has_trait = {
+			trait = zealous
+			value = 1
+		}
+		has_trait = {
+			trait = honest
+			value = 1
+		}
+		has_trait = {
+			trait = erudite
+			value = 1
+		}
+		has_trait = {
+			trait = pilgrim
+			value = 1
+		}
+		has_trait = {
+			trait = theologian
+			value = 1
+		}
+		has_trait = {
+			trait = scholar
+			value = 1
+		}
+		society_rank = {
+			rank = 4
+			value = 10
+		}
+	}
+
+	member_score_per_attribute = 3
+	member_score_per_rank = 50
+
+	member_score = {
+		value = 10
+
+		modifier = {
+			trait = torpor
+			factor = 0.1
+		}	
+		
+		modifier = {
+			primary_title = { title = e_giovanni }
+			factor = 10
+			}
+
+		modifier = {
+			trait = necromancy_5
+			factor = 5
+		}
+		
+		modifier = {
+			trait = necromancy_4
+			factor = 4
+		}
+
+		modifier = {
+			trait = necromancy_3
+			factor = 3
+		}
+
+		modifier = {
+			trait = necromancy_2
+			factor = 2
+		}		
+		
+		modifier = {
+			trait = necromancy_1
+			factor = 1
+		}			
+
+		modifier = {
+			trait = mortis_5
+			factor = 5
+		}
+		
+		modifier = {
+			trait = mortis_4
+			factor = 4
+		}
+
+		modifier = {
+			trait = mortis_3
+			factor = 3
+		}
+
+		modifier = {
+			trait = mortis_2
+			factor = 2
+		}		
+		
+		modifier = {
+			trait = mortis_1
+			factor = 1
+		}
+
+		modifier = {
+			trait = methuselah
+			factor = 1.4
+		}
+		modifier = {
+			trait = ancient
+			factor = 1.3
+		}		
+		modifier = {
+			trait = elder
+			factor = 1.2
+		}
+		modifier = {
+			trait = ancilla
+			factor = 1.1
+		}		
+		
+		modifier = {
+			is_priest = yes
+			factor = 1.1
+		}
+		modifier = {
+			trait = monk
+			factor = 1.1
+		}
+		modifier = {
+			trait = nun
+			factor = 1.1
+		}
+		modifier = {
+			trait = diligent
+			factor = 1.3
+		}
+
+		modifier = {
+			trait = cappadocian
+			factor = 1.1
+		}
+		modifier = {
+			trait = patient
+			factor = 1.1
+		}
+		modifier = {
+			trait = malkavian
+			factor = 1.1
+		}
+		modifier = {
+			trait = zealous
+			factor = 1.1
+		}
+		modifier = {
+			trait = honest
+			factor = 1.1
+		}
+		modifier = {
+			trait = erudite
+			factor = 1.1
+		}
+		modifier = {
+			trait = pilgrim
+			factor = 1.1
+		}
+		modifier = {
+			trait = theologian
+			factor = 1.1
+		}
+		modifier = {
+			trait = scholar
+			factor = 1.1
+		}
+	}
+	
+	startup_populate = {
+	    trigger = {
+			ai = yes
+	    	controls_religion = no
+			trait = vampire
+			is_in_society = no
+			NOT = { trait = antediluvian }
+			NOR = {
+				mercenary = yes
+				holy_order = yes
+			}
+			NOT = { trait = cynical }
+			OR = {
+				primary_title = { title = e_giovanni }
+			}			
+			has_secret_religion_trait_trigger = no
+			
+		}
+	}
+}
+
+
+
+### Path of Night ###
+path_of_night = {
+	primary_attribute = intrigue
+	opinion_to_other_members = +1
+	opinion_per_rank_above = +5
+	sound = monastic_orders_interface
+	society_ranks_gfx = generic_ranks
+
+	active = {
+		OR = {
+			
+			has_global_flag = bookmark1505
+			has_global_flag = bookmark1506
+			has_global_flag = bookmark1666
+			}
+	}
+	indestructible = yes
+
+	can_join_society = {
+		hidden_trigger = {
+			NAND = {
+				ai = yes
+				is_society_rank_full = { 
+					society = path_of_night
+					rank = 1
+				}
+			}
+		}
+		has_path_of_night_prerequisites = yes	
+		custom_tooltip = {
+			text = did_not_betray_society
+			NOT = { has_character_flag = betrayed_path_of_night }
+		}
+	}
+	
+	show_society = {
+		trait = vampire
+		OR = { 
+			religion = sabbat
+			society_member_of = path_of_night
+			trait = lasombra
+			trait = lasombraantitribu
+			}
+	}
+	
+	potential = {
+		trait = vampire 
+	}
+	
+	society_rank = {
+		level = 1
+		limit = 100
+		startup_limit = 0
+		modifier = {
+			murder_plot_power_modifier = 0.1 # increased plotpower
+			intrigue = 1
+		}
+		decisions = {
+		}
+	}
+	
+	society_rank = {
+		level = 2
+		limit = 50
+		startup_limit = 0
+		modifier = { 
+			murder_plot_power_modifier = 0.2 # further increased plotpower
+			defensive_plot_power_modifier = 0.1
+			intrigue = 2 
+		}
+		decisions = {
+		
+		}
+	}
+	
+	society_rank = {
+		level = 3
+		limit = 25 
+		startup_limit = 0
+		modifier = {
+			murder_plot_power_modifier = 0.30 # further increased plotpower
+			defensive_plot_power_modifier = 0.15
+			intrigue = 3 # further increase
+			plot_discovery_chance = 0.1 # bonus to plot discovery chance
+		}
+		decisions = {
+		}
+	}
+
+	society_rank = {
+		level = 4
+		limit = 5 
+		startup_limit = 0
+		modifier = {
+			murder_plot_power_modifier = 0.50 # further increased plotpower
+			defensive_plot_power_modifier = 0.25
+			intrigue = 4 # further increase
+			plot_discovery_chance = 0.2 # further bonus to plot discovery chance
+		}
+		decisions = {
+		}
+		 
+	}
+
+	monthly_currency_gain = {
+		name = currency_name_path_of_night
+    	
+    	per_attribute = {
+    		name = intrigue
+    		value = 0.5
+    	}
+		
+		has_trait = {
+			trait = torpor
+			value = 0
+			}
+			
+    	has_trait = {
+			trait = monk
+			value = 1
+		}
+		has_trait = {
+			trait = nun
+			value = 1
+		}
+		has_trait = {
+			trait = diligent
+			value = 3
+		}
+
+		has_trait = {
+			trait = lasombra
+			value = 1
+		}
+		has_trait = {
+			trait = patient
+			value = 1
+		}
+		has_trait = {
+			trait = elusive_shadow
+			value = 1
+		}
+		has_trait = {
+			trait = zealous
+			value = 1
+		}
+		has_trait = {
+			trait = shrewd
+			value = 1
+		}
+		has_trait = {
+			trait = erudite
+			value = 1
+		}
+		has_trait = {
+			trait = pilgrim
+			value = 1
+		}
+		has_trait = {
+			trait = theologian
+			value = 1
+		}
+		has_trait = {
+			trait = scholar
+			value = 1
+		}
+		society_rank = {
+			rank = 4
+			value = 10
+		}
+	}
+
+	member_score_per_attribute = 3
+	member_score_per_rank = 50
+
+	member_score = {
+		value = 10
+
+		modifier = {
+			trait = torpor
+			factor = 0.1
+		}	
+		
+		modifier = {
+			primary_title = { title = e_sea_of_shadows} 
+			factor = 10
+			}
+
+		modifier = {
+			trait = obtenebration_5
+			factor = 5
+		}
+		
+		modifier = {
+			trait = obtenebration_4
+			factor = 4
+		}
+
+		modifier = {
+			trait = obtenebration_3
+			factor = 3
+		}
+
+		modifier = {
+			trait = obtenebration_2
+			factor = 2
+		}		
+		
+		modifier = {
+			trait = obtenebration_1
+			factor = 1
+		}		
+
+		modifier = {
+			trait = methuselah
+			factor = 1.4
+		}
+		modifier = {
+			trait = ancient
+			factor = 1.3
+		}		
+		modifier = {
+			trait = elder
+			factor = 1.2
+		}
+		modifier = {
+			trait = ancilla
+			factor = 1.1
+		}
+		
+		modifier = {
+			trait = diligent
+			factor = 1.3
+		}
+
+		modifier = {
+			trait = lasombra
+			factor = 1.1
+		}
+		modifier = {
+			trait = patient
+			factor = 1.1
+		}
+		modifier = {
+			trait = elusive_shadow
+			factor = 1.1
+		}
+		modifier = {
+			trait = zealous
+			factor = 1.1
+		}
+		modifier = {
+			trait = shrewd
+			factor = 1.1
+		}
+		modifier = {
+			trait = erudite
+			factor = 1.1
+		}
+		modifier = {
+			trait = pilgrim
+			factor = 1.1
+		}
+		modifier = {
+			trait = theologian
+			factor = 1.1
+		}
+		modifier = {
+			trait = scholar
+			factor = 1.1
+		}
+	}
+	
+	startup_populate = {
+	    trigger = {
+			ai = yes
+	    	controls_religion = no
+			trait = vampire
+			is_in_society = no
+			OR = {
+				primary_title = { title = e_sea_of_shadows}
+			}			
+			NOR = {
+				mercenary = yes
+				holy_order = yes
+			}
+			trait = lasombra
+			has_secret_religion_trait_trigger = no
+			OR = {
+				trait = zealous
+				trait = scholar
+				intrigue = 5
+			}			
+		}
+	}
+}
+
+
+### path of the_hive ###
+
+path_of_the_hive = {
+	primary_attribute = intrigue
+	is_secret = yes
+	criminal = yes
+	devil_worshipper = yes
+	opinion_to_other_members = +5
+	opinion_to_pretenders = -40			#Pretenders is the opinion you have of people perceived/discovered to be in your society.
+	opinion_to_perceived_members = -40	#Perceived is the opinion you have of people perceived/discovered to be of a society you're not part of
+	opinion_per_rank_above = +1
+	sound = devil_worshippers_interface
+	society_ranks_gfx = devil_ranks
+	
+	active = {
+		OR = {
+			
+			has_global_flag = bookmark1505
+			has_global_flag = bookmark1506
+			has_global_flag = bookmark1666
+			}
+		}
+
+	indestructible = yes
+	
+	can_join_society = {
+	
+	
+		hidden_trigger = {
+			NAND = {
+				ai = yes
+				is_society_rank_full = { 
+					society = path_of_the_hive
+					rank = 1
+				}
+			}
+		}
+		has_path_of_the_hive_prerequisites = yes	
+		custom_tooltip = {
+			text = did_not_betray_society
+			NOT = { has_character_flag = betrayed_path_of_the_hive }
+		}		
+		
+	}
+
+	show_society = {
+		trait = vampire
+		OR = { 
+			religion = baali
+			society_member_of = path_of_the_hive
+			}
+	}
+
+	potential = {
+		trait = vampire
+	}
+
+	society_rank = {
+		level = 1
+		limit = 100 
+		startup_limit = 0
+		decisions = {
+			prisoner_dark_sacrifice #Available Decision: Sacrifice Prisoner
+			#Over time, lose virtues, gain vices. A Soul Corruption-effect is on a yearly pulse (with a chance to do nothing)
+		}
+		
+		#custom_tooltip = unlockable_DW_powers_at_rank_2;
+	}
+	
+	society_rank = {
+		level = 2
+		limit = 50
+		startup_limit = 0
+		modifier = { 
+			is_visible = {
+				OR = {
+					society_member_of = path_of_the_hive
+					FROM = { is_society_discovered = yes }
+				}
+			}
+			intrigue = 1
+		}
+		decisions = {
+			devil_worshipers_summon_familiar #Available Power: Summon Familiar
+			the_devil_worshipers_tainted_touch #Available Power: Curse people with disease
+			devil_worshipers_demonic_possession #Available Power: Possess someone to make fanatically loyal
+			#Available Power: Abduction plot
+			#unlock new options in Seduction and Spy On?
+		}
+		
+		#custom_tooltip = unlockable_DW_powers_at_rank_3;
+	}
+	
+	society_rank = {
+		level = 3
+		limit = 25 
+		startup_limit = 0
+		modifier = {
+			is_visible = {
+				OR = {
+					society_member_of = path_of_the_hive
+					FROM = { is_society_discovered = yes }
+				}
+			}
+			intrigue = 2
+		}
+		decisions = {
+			devil_worshipers_dark_divorce #Available Power: Dark Divorce
+			devil_worshipers_dark_healing #Available Power: Demonic Healing. Sacrifice a prisoner to heal a random illness or maiming.
+			devil_worshipers_invite_disciple_of_devil #Available Decision: Invite a witch to court
+			#Available Power: Love Potion
+		}
+		
+		#custom_tooltip = unlockable_DW_powers_at_rank_4;
+	}
+
+	society_rank = {
+		level = 4
+		limit = 1 
+		startup_limit = 0
+		modifier = { 
+			is_visible = {
+				OR = {
+					society_member_of = path_of_the_hive
+					FROM = { is_society_discovered = yes }
+				}
+			}
+			intrigue = 3
+		}
+		decisions = {
+			
+			DW_prolong_life #Available Power: Prolong Life
+			DW_demonic_impregnation #Available power: Unholy Impregnation
+		}
+		 
+	}
+
+	plots = {
+	}
+    
+	ambitions = {
+	}
+
+	monthly_currency_gain = {
+		name = currency_name_path_of_the_hive
+    
+		per_attribute = {
+			name = intrigue
+			value = 0.5
+		}
+		
+		has_trait = {
+			trait = torpor
+			value = 0
+			}
+			
+		has_trait = {
+			trait = ambitious
+			value = 5
+		}
+		has_trait = {
+			trait = genius
+			value = 4
+		}
+		has_trait = {
+			trait = quick
+			value = 3
+		}
+		has_trait = {
+			trait = shrewd
+			value = 3
+		}
+		has_trait = {
+			trait = hedonist
+			value = 3
+		}
+		has_trait = {
+			trait = mystic
+			value = 3
+		}
+		has_trait = {
+			trait = seducer
+			value = 3
+		}
+		has_trait = {
+			trait = seductress
+			value = 3
+		}
+		has_trait = {
+			trait = schemer
+			value = 3
+		}
+		has_trait = {
+			trait = impaler
+			value = 3
+		}
+		has_trait = {
+			trait = lustful
+			value = 1
+		}
+		has_trait = {
+			trait = proud
+			value = 1
+		}
+		has_trait = {
+			trait = greedy
+			value = 1
+		}
+		has_trait = {
+			trait = deceitful
+			value = 1
+		}
+		has_trait = {
+			trait = arbitrary
+			value = 1
+		}
+		society_rank = {
+			rank = 4
+			value = 10
+		}
+	}
+
+	member_score_per_attribute = 3
+	member_score_per_rank = 50
+
+	member_score = {
+		value = 10
+
+		modifier = {
+			trait = torpor
+			factor = 0.1
+		}			
+		
+		modifier = {
+			trait = daimoinon_5
+			factor = 5
+		}
+		
+		modifier = {
+			trait = daimoinon_4
+			factor = 4
+		}
+
+		modifier = {
+			trait = daimoinon_3
+			factor = 3
+		}
+
+		modifier = {
+			trait = daimoinon_2
+			factor = 2
+		}		
+		
+		modifier = {
+			trait = daimoinon_1
+			factor = 1
+		}		
+		
+		modifier = {
+			trait = methuselah
+			factor = 1.4
+		}
+		modifier = {
+			trait = ancient
+			factor = 1.3
+		}		
+		modifier = {
+			trait = elder
+			factor = 1.2
+		}
+		modifier = {
+			trait = ancilla
+			factor = 1.1
+		}	
+		
+		modifier = {
+			trait = ambitious
+			factor = 1.5
+		}
+		modifier = {
+			trait = genius
+			factor = 1.3
+		}
+		modifier = {
+			trait = quick
+			factor = 1.3
+		}
+		modifier = {
+			trait = shrewd
+			factor = 1.3
+		}
+		modifier = {
+			trait = hedonist
+			factor = 1.3
+		}
+		modifier = {
+			trait = mystic
+			factor = 1.3
+		}
+		modifier = {
+			trait = seducer
+			factor = 1.3
+		}
+		modifier = {
+			trait = seductress
+			factor = 1.3
+		}
+		modifier = {
+			trait = schemer
+			factor = 1.3
+		}
+		modifier = {
+			trait = impaler
+			factor = 1.3
+		}
+		modifier = {
+			trait = lustful
+			factor = 1.1
+		}
+		modifier = {
+			trait = proud
+			factor = 1.1
+		}
+		modifier = {
+			trait = greedy
+			factor = 1.1
+		}
+		modifier = {
+			trait = deceitful
+			factor = 1.1
+		}
+		modifier = {
+			trait = arbitrary
+			factor = 1.1
+		}
+	}
+	
+	startup_populate = {
+		trigger = {
+			NOT = {
+				has_game_rule = {
+					name = path_of_the_hive
+					value = none
+				}
+			}
+			ai = yes
+			controls_religion = no
+			OR = {
+				has_impious_trait_trigger = yes
+				has_vice_trigger = yes
+				trait = drunkard
+				trait = possessed
+				trait = lunatic
+			}
+			is_in_society = no
+			trait = baali
+			NOT = { higher_tier_than = DUKE }
+			NOR = {
+				mercenary = yes
+				holy_order = yes
+			}
+		}
+	}
+}
+
+
+### Path of Blood ###
+
+path_of_blood = {
+	primary_attribute = intrigue
+	is_secret = no
+	devil_worshipper = no
+	opinion_to_other_members = +1
+	opinion_to_pretenders = -20			#Pretenders is the opinion you have of people perceived/discovered to be in your society.
+	opinion_to_perceived_members = -20 	#Perceived is the opinion you have of people perceived/discovered to be of a society you're not part of
+	opinion_per_rank_above = +1
+	society_rank_up_decision = request_to_rank_up_within_society
+	sound = assassins_interface
+	society_ranks_gfx = generic_ranks
+	
+	active = {
+		OR = {
+			
+			has_global_flag = bookmark1505
+			has_global_flag = bookmark1506
+			has_global_flag = bookmark1666
+			}
+	}
+	indestructible = yes
+
+	can_join_society = {
+		hidden_trigger = {
+			NAND = {
+				ai = yes
+				is_society_rank_full = { 
+					society = path_of_blood
+					rank = 1
+				}
+			}
+		}
+		has_path_of_blood_prerequisites = yes
+		custom_tooltip = {
+			text = did_not_betray_society
+			NOT = { has_character_flag = betrayed_path_of_blood }
+		}
+	}
+
+	show_society = {
+		trait = vampire
+		OR = { 
+			religion = assamite
+			trait = assamite
+			trait = assamiteantitribu
+			society_member_of = path_of_blood
+			}			
+	}
+
+	potential = {
+		trait = vampire
+	}
+
+	society_rank = {
+		level = 1
+		limit = 100
+		startup_limit = 0
+		modifier = {
+			murder_plot_power_modifier = 0.1 # increased plotpower
+		}
+		decisions = {
+			assasCatharis_borrow_money
+			assasCatharis_donate
+			assasCatharis_drug_effect
+		}
+	}
+	
+	society_rank = {
+		level = 2
+		limit = 50
+		startup_limit = 0
+		modifier = { 
+			murder_plot_power_modifier = 0.2 # further increased plotpower
+			defensive_plot_power_modifier = 0.1
+			intrigue = 1 
+			combat_rating = 1 # bonus to dueling
+		}
+		decisions = {
+			assasCatharis_scare_ruler #Available (targeted) Power: Can scare rulers to get a Favor (leave a dagger on their pillow, etc. 
+		}
+	}
+	
+	society_rank = {
+		level = 3
+		limit = 25
+		startup_limit = 0
+		modifier = {
+			murder_plot_power_modifier = 0.30 # further increased plotpower
+			defensive_plot_power_modifier = 0.15
+			intrigue = 2 # further increase
+			combat_rating = 1 # bonus to dueling (left over)
+			plot_discovery_chance = 0.1 # bonus to plot discovery chance
+		}
+		decisions = {
+			assasCatharis_raise_ships #Available Power: Can raise special fleet of Ships
+		}
+	}
+
+	society_rank = {
+		level = 4
+		limit = 5 
+		startup_limit = 0
+		modifier = {
+			murder_plot_power_modifier = 0.50 # further increased plotpower
+			defensive_plot_power_modifier = 0.25
+			intrigue = 3 # further increase
+			combat_rating = 1 # bonus to dueling (left over)
+			plot_discovery_chance = 0.2 # further bonus to plot discovery chance
+		}
+		decisions = {
+			assasCatharis_raise_troops #Available Power: Can raise a special regiment
+			assasCatharis_mark_for_death #Available (targeted) Power: Mark for death (+ assasCatharis_clear_marked_for_death_target i.e. the clearing of the mark)
+		}
+		 
+	}
+
+	monthly_currency_gain = {
+		name = currency_name_path_of_blood
+    
+		per_attribute = {
+			name = intrigue 
+			value = 0.5
+		}	
+
+		has_trait = {
+			trait = torpor
+			value = 0
+			}
+		
+		has_trait = {
+			trait = diabolist
+			value = 10
+		}		
+		has_trait = {
+			trait = zealous
+			value = 3
+		}
+
+		has_trait = {
+			trait = schemer
+			value = 3
+		}
+		has_trait = {
+			trait = strong
+			value = 1
+		}
+		has_trait = {
+			trait = robust
+			value = 1
+		}
+		has_trait = {
+			trait = genius
+			value = 1
+		}
+		has_trait = {
+			trait = quick
+			value = 1
+		}
+		has_trait = {
+			trait = shrewd
+			value = 1
+		}
+		has_trait = {
+			trait = diligent
+			value = 1
+		}
+		has_trait = {
+			trait = patient
+			value = 1
+		}
+		has_trait = {
+			trait = temperate
+			value = 1
+		}
+		society_rank = {
+			rank = 4
+			value = 10
+		}
+	}
+
+	member_score_per_attribute = 3
+	member_score_per_rank = 50
+
+	member_score = {
+		value = 10
+
+		modifier = {
+			trait = torpor
+			factor = 0.1
+		}			
+		
+		modifier = {
+			primary_title = { title = e_assamites }
+			factor = 5
+		}
+
+				
+		modifier = {
+			trait = quietus_5
+			factor = 5
+		}
+		
+		modifier = {
+			trait = quietus_4
+			factor = 4
+		}
+
+		modifier = {
+			trait = quietus_3
+			factor = 3
+		}
+
+		modifier = {
+			trait = quietus_2
+			factor = 2
+		}		
+		
+		modifier = {
+			trait = quietus_1
+			factor = 1
+		}	
+
+		modifier = {
+			trait = methuselah
+			factor = 1.4
+		}
+		modifier = {
+			trait = ancient
+			factor = 1.3
+		}		
+		modifier = {
+			trait = elder
+			factor = 1.2
+		}
+		modifier = {
+			trait = ancilla
+			factor = 1.1
+		}			
+		
+		modifier = {
+			trait = diabolist
+			factor = 1.9
+		}
+		
+		modifier = {
+			trait = zealous
+			factor = 1.3
+		}
+		modifier = {
+			trait = schemer
+			factor = 1.3
+		}
+		modifier = {
+			trait = strong
+			factor = 1.1
+		}
+		modifier = {
+			trait = robust
+			factor = 1.1
+		}
+		modifier = {
+			trait = genius
+			factor = 1.1
+		}
+		modifier = {
+			trait = quick
+			factor = 1.1
+		}
+		modifier = {
+			trait = shrewd
+			factor = 1.1
+		}
+		modifier = {
+			trait = diligent
+			factor = 1.1
+		}
+		modifier = {
+			trait = patient
+			factor = 1.1
+		}
+		modifier = {
+			trait = temperate
+			factor = 1.1
+		}
+
+	}
+	
+	startup_populate = {
+	    trigger = {
+			ai = yes
+			religion = assamite
+			trait = vampire
+			OR = {
+				trait = zealous
+				trait = schemer
+				trait = elusive_shadow
+				trait = deceitful
+				trait = ambitious
+				intrigue = 10
+			}
+			is_in_society = no
+			OR = {
+				primary_title = { title = e_assamites }
+			}
+		}
+	}
+}
+
+
+
+
+
+### Path of Caine ###
+
+path_of_caine = {
+	primary_attribute = intrigue
+	is_secret = no
+	devil_worshipper = no
+	opinion_to_other_members = +1
+	opinion_to_pretenders = -20			#Pretenders is the opinion you have of people perceived/discovered to be in your society.
+	opinion_to_perceived_members = -20 	#Perceived is the opinion you have of people perceived/discovered to be of a society you're not part of
+	opinion_per_rank_above = +1
+	society_rank_up_decision = request_to_rank_up_within_society
+	sound = assassins_interface
+	society_ranks_gfx = generic_ranks
+	
+	active = {
+		OR = {
+			
+			has_global_flag = bookmark1505
+			has_global_flag = bookmark1506
+			has_global_flag = bookmark1666
+			}
+	}
+	indestructible = yes
+
+	can_join_society = {
+		hidden_trigger = {
+			NAND = {
+				ai = yes
+				is_society_rank_full = { 
+					society = path_of_caine
+					rank = 1
+				}
+			}
+		}
+		has_path_of_caine_prerequisites = yes
+		custom_tooltip = {
+			text = did_not_betray_society
+			NOT = { has_character_flag = betrayed_path_of_caine }
+		}
+	}
+
+	show_society = {
+		trait = vampire
+		OR = { 
+			religion = sabbat
+			society_member_of = path_of_caine
+			trait = assamiteantitribu
+			trait = assamite
+			}
+	}
+
+	potential = {
+		trait = vampire
+	}
+
+	society_rank = {
+		level = 1
+		limit = 100
+		startup_limit = 0
+		modifier = {
+			murder_plot_power_modifier = 0.1 # increased plotpower
+		}
+		decisions = {
+			assasCatharis_borrow_money
+			assasCatharis_donate
+			assasCatharis_drug_effect
+		}
+	}
+	
+	society_rank = {
+		level = 2
+		limit = 50
+		startup_limit = 0
+		modifier = { 
+			murder_plot_power_modifier = 0.2 # further increased plotpower
+			defensive_plot_power_modifier = 0.1
+			intrigue = 1 
+			combat_rating = 1 # bonus to dueling
+		}
+		decisions = {
+			assasCatharis_scare_ruler #Available (targeted) Power: Can scare rulers to get a Favor (leave a dagger on their pillow, etc. 
+		}
+	}
+	
+	society_rank = {
+		level = 3
+		limit = 25
+		startup_limit = 0
+		modifier = {
+			murder_plot_power_modifier = 0.30 # further increased plotpower
+			defensive_plot_power_modifier = 0.15
+			intrigue = 2 # further increase
+			combat_rating = 1 # bonus to dueling (left over)
+			plot_discovery_chance = 0.1 # bonus to plot discovery chance
+		}
+		decisions = {
+			assasCatharis_raise_ships #Available Power: Can raise special fleet of Ships
+		}
+	}
+
+	society_rank = {
+		level = 4
+		limit = 5 
+		startup_limit = 0
+		modifier = {
+			murder_plot_power_modifier = 0.50 # further increased plotpower
+			defensive_plot_power_modifier = 0.25
+			intrigue = 3 # further increase
+			combat_rating = 1 # bonus to dueling (left over)
+			plot_discovery_chance = 0.2 # further bonus to plot discovery chance
+		}
+		decisions = {
+			assasCatharis_raise_troops #Available Power: Can raise a special regiment
+			assasCatharis_mark_for_death #Available (targeted) Power: Mark for death (+ assasCatharis_clear_marked_for_death_target i.e. the clearing of the mark)
+		}
+		 
+	}
+
+	monthly_currency_gain = {
+		name = currency_name_path_of_caine
+    
+		per_attribute = {
+			name = intrigue 
+			value = 0.5
+		}	
+
+		has_trait = {
+			trait = torpor
+			value = 0
+			}
+		
+		has_trait = {
+			trait = diabolist
+			value = 10
+		}		
+		has_trait = {
+			trait = zealous
+			value = 3
+		}
+
+		has_trait = {
+			trait = schemer
+			value = 3
+		}
+		has_trait = {
+			trait = strong
+			value = 1
+		}
+		has_trait = {
+			trait = robust
+			value = 1
+		}
+		has_trait = {
+			trait = genius
+			value = 1
+		}
+		has_trait = {
+			trait = quick
+			value = 1
+		}
+		has_trait = {
+			trait = shrewd
+			value = 1
+		}
+		has_trait = {
+			trait = diligent
+			value = 1
+		}
+		has_trait = {
+			trait = patient
+			value = 1
+		}
+		has_trait = {
+			trait = temperate
+			value = 1
+		}
+		society_rank = {
+			rank = 4
+			value = 10
+		}
+	}
+
+	member_score_per_attribute = 3
+	member_score_per_rank = 50
+
+	member_score = {
+		value = 10
+
+		modifier = {
+			trait = torpor
+			factor = 0.1
+		}			
+		
+		modifier = {
+			primary_title = { title = e_assamites }
+			factor = 5
+		}
+
+				
+		modifier = {
+			trait = quietus_5
+			factor = 5
+		}
+		
+		modifier = {
+			trait = quietus_4
+			factor = 4
+		}
+
+		modifier = {
+			trait = quietus_3
+			factor = 3
+		}
+
+		modifier = {
+			trait = quietus_2
+			factor = 2
+		}		
+		
+		modifier = {
+			trait = quietus_1
+			factor = 1
+		}	
+
+		modifier = {
+			trait = methuselah
+			factor = 1.4
+		}
+		modifier = {
+			trait = ancient
+			factor = 1.3
+		}		
+		modifier = {
+			trait = elder
+			factor = 1.2
+		}
+		modifier = {
+			trait = ancilla
+			factor = 1.1
+		}			
+		
+		modifier = {
+			trait = diabolist
+			factor = 1.9
+		}
+		
+		modifier = {
+			trait = zealous
+			factor = 1.3
+		}
+		modifier = {
+			trait = schemer
+			factor = 1.3
+		}
+		modifier = {
+			trait = strong
+			factor = 1.1
+		}
+		modifier = {
+			trait = robust
+			factor = 1.1
+		}
+		modifier = {
+			trait = genius
+			factor = 1.1
+		}
+		modifier = {
+			trait = quick
+			factor = 1.1
+		}
+		modifier = {
+			trait = shrewd
+			factor = 1.1
+		}
+		modifier = {
+			trait = diligent
+			factor = 1.1
+		}
+		modifier = {
+			trait = patient
+			factor = 1.1
+		}
+		modifier = {
+			trait = temperate
+			factor = 1.1
+		}
+
+	}
+	
+	startup_populate = {
+	    trigger = {
+			ai = yes
+			religion = assamite
+			trait = vampire
+			OR = {
+				trait = zealous
+				trait = schemer
+				trait = elusive_shadow
+				trait = deceitful
+				trait = ambitious
+				intrigue = 10
+			}
+			is_in_society = no
+			OR = {
+				primary_title = { title = e_assamites }
+			}
+		}
+	}
+}
+
+
+
+
+### Path of Paradox ###
+
+path_of_paradox = {
+	primary_attribute = intrigue
+	is_secret = no
+	devil_worshipper = no
+	opinion_to_other_members = +1
+	opinion_to_pretenders = -20			#Pretenders is the opinion you have of people perceived/discovered to be in your society.
+	opinion_to_perceived_members = -20 	#Perceived is the opinion you have of people perceived/discovered to be of a society you're not part of
+	opinion_per_rank_above = +1
+	sound = assassins_interface
+	society_ranks_gfx = generic_ranks
+	
+	active = {
+		OR = {
+			
+			has_global_flag = bookmark1505
+			has_global_flag = bookmark1506
+			has_global_flag = bookmark1666
+			}
+	}
+	indestructible = yes
+
+	can_join_society = {
+		hidden_trigger = {
+			NAND = {
+				ai = yes
+				is_society_rank_full = { 
+					society = path_of_paradox 
+					rank = 1
+				}
+			}
+		}
+		has_path_of_paradox_prerequisites = yes
+		custom_tooltip = {
+			text = did_not_betray_society
+			NOT = { has_character_flag = betrayed_path_of_paradox }
+		}		
+	}
+
+	show_society = {
+		trait = vampire
+		OR = { 
+			religion = mayaparisataya
+			society_member_of = path_of_paradox
+			trait = ravnos
+			trait = ravnosantitribu
+			}
+	}
+
+	potential = {
+		trait = vampire
+	}
+
+	society_rank = {
+		level = 1
+		limit = 100 
+		startup_limit = 0
+		modifier = {
+			murder_plot_power_modifier = 0.1 # increased plotpower
+			intrigue = 1
+		}
+		decisions = {
+		}
+	}
+	
+	society_rank = {
+		level = 2
+		limit = 50
+		startup_limit = 0
+		modifier = { 
+			murder_plot_power_modifier = 0.2 # further increased plotpower
+			defensive_plot_power_modifier = 0.1
+			intrigue = 2 
+		}
+		decisions = {
+		
+		}
+	}
+	
+	society_rank = {
+		level = 3
+		limit = 25 
+		startup_limit = 0
+		modifier = {
+			murder_plot_power_modifier = 0.30 # further increased plotpower
+			defensive_plot_power_modifier = 0.15
+			intrigue = 3 # further increase
+			plot_discovery_chance = 0.1 # bonus to plot discovery chance
+		}
+		decisions = {
+		}
+	}
+
+	society_rank = {
+		level = 4
+		limit = 5 
+		startup_limit = 0
+		modifier = {
+			murder_plot_power_modifier = 0.50 # further increased plotpower
+			defensive_plot_power_modifier = 0.25
+			intrigue = 4 # further increase
+			plot_discovery_chance = 0.2 # further bonus to plot discovery chance
+		}
+		decisions = {
+		}
+		 
+	}
+
+	monthly_currency_gain = {
+		name = currency_name_path_of_paradox
+    
+		per_attribute = {
+			name = intrigue
+			value = 0.5
+		}
+
+		has_trait = {
+			trait = torpor
+			value = 0
+			}		
+		
+		has_trait = {
+			trait = chimerstry_5
+			value = 5
+		}			
+		
+		has_trait = {
+			trait = chimerstry_4
+			value = 4
+		}			
+		
+		has_trait = {
+			trait = chimerstry_3
+			value = 3
+		}		
+		
+		has_trait = {
+			trait = chimerstry_2
+			value = 2
+		}
+		
+		has_trait = {
+			trait = chimerstry_1
+			value = 1
+		}		
+		
+		has_trait = {
+			trait = deceitful
+			value = 1
+		}
+		has_trait = {
+			trait = schemer
+			value = 1
+		}
+		has_trait = {
+			trait = shrewd
+			value = 1
+		}
+		has_trait = {
+			trait = elusive_shadow
+			value = 1
+		}
+		has_trait = {
+			trait = ravnos
+			value = 1
+		}
+	
+		society_rank = {
+			rank = 4
+			value = 10
+		}
+	}
+
+	member_score_per_attribute = 3
+	member_score_per_rank = 50
+
+	member_score = {
+		value = 10
+
+		modifier = {
+			trait = torpor
+			factor = 0.1
+		}			
+		
+		modifier = {
+			primary_title = { title = e_ravnos }
+			factor = 5
+		}		
+
+		modifier = {
+			trait = chimerstry_5
+			factor = 1.5
+		}
+		
+		modifier = {
+			trait = chimerstry_4
+			factor = 1.4
+		}
+
+		modifier = {
+			trait = chimerstry_3
+			factor = 1.3
+		}
+
+		modifier = {
+			trait = chimerstry_2
+			factor = 1.2
+		}		
+		
+		modifier = {
+			trait = chimerstry_1
+			factor = 1.1
+		}		
+
+		modifier = {
+			trait = methuselah
+			factor = 1.4
+		}
+		modifier = {
+			trait = ancient
+			factor = 1.3
+		}		
+		modifier = {
+			trait = elder
+			factor = 1.2
+		}
+		modifier = {
+			trait = ancilla
+			factor = 1.1
+		}	
+		
+		modifier = {
+			trait = deceitful
+			factor = 1.1
+		}
+		modifier = {
+			trait = schemer
+			factor = 1.1
+		}
+	
+		modifier = {
+			trait = shrewd
+			factor = 1.1
+		}
+		
+		modifier = {
+			trait = elusive_shadow
+			factor = 1.1
+		}
+
+		modifier = {
+			trait = ravnos
+			factor = 1.1
+		}					
+		
+	}
+	
+	startup_populate = {
+	    trigger = {
+			ai = yes
+	    	controls_religion = no
+			trait = vampire
+			intrigue = 5
+			is_in_society = no
+			OR = {
+				primary_title = { title = e_ravnos }
+			}			
+		}
+	}
+}
+
+### Path of Set ###
+
+path_of_typhon = {
+	primary_attribute = intrigue
+	is_secret = no
+	devil_worshipper = no
+	opinion_to_other_members = +1
+	opinion_to_pretenders = -20			#Pretenders is the opinion you have of people perceived/discovered to be in your society.
+	opinion_to_perceived_members = -20 	#Perceived is the opinion you have of people perceived/discovered to be of a society you're not part of
+	opinion_per_rank_above = +1
+	sound = assassins_interface
+	society_ranks_gfx = generic_ranks
+	
+	active = {
+		OR = {
+			
+			has_global_flag = bookmark1505
+			has_global_flag = bookmark1506
+			has_global_flag = bookmark1666
+			}
+	}
+	indestructible = yes
+
+	can_join_society = {
+		hidden_trigger = {
+			NAND = {
+				ai = yes
+				is_society_rank_full = { 
+					society = path_of_typhon 
+					rank = 1
+				}
+			}
+		}
+		has_path_of_typhon_prerequisites = yes
+		
+		custom_tooltip = {
+			text = did_not_betray_society
+			NOT = { has_character_flag = betrayed_path_of_typhon }
+			}
+	}
+
+	
+	show_society = {
+		trait = vampire
+		OR = { 
+			religion = setite
+			society_member_of = path_of_typhon
+			}
+	}
+
+	potential = {
+		trait = vampire
+	}
+
+	society_rank = {
+		level = 1
+		limit = 100
+		startup_limit = 0
+		modifier = {
+			murder_plot_power_modifier = 0.1 # increased plotpower
+			intrigue = 1
+		}
+		decisions = {
+		}
+	}
+	
+	society_rank = {
+		level = 2
+		limit = 50
+		startup_limit = 0
+		modifier = { 
+			murder_plot_power_modifier = 0.2 # further increased plotpower
+			defensive_plot_power_modifier = 0.1
+			intrigue = 2 
+		}
+		decisions = {
+		
+		}
+	}
+	
+	society_rank = {
+		level = 3
+		limit = 25 
+		startup_limit = 0
+		modifier = {
+			murder_plot_power_modifier = 0.30 # further increased plotpower
+			defensive_plot_power_modifier = 0.15
+			intrigue = 3 # further increase
+			plot_discovery_chance = 0.1 # bonus to plot discovery chance
+		}
+		decisions = {
+		}
+	}
+
+	society_rank = {
+		level = 4
+		limit = 5 
+		startup_limit = 0
+		modifier = {
+			murder_plot_power_modifier = 0.50 # further increased plotpower
+			defensive_plot_power_modifier = 0.25
+			intrigue = 4 # further increase
+			plot_discovery_chance = 0.2 # further bonus to plot discovery chance
+		}
+		decisions = {
+		}
+		 
+	}
+
+	monthly_currency_gain = {
+		name = currency_name_path_of_typhon
+    
+		per_attribute = {
+			name = intrigue
+			value = 0.5
+		}
+
+		has_trait = {
+			trait = torpor
+			value = 0
+			}		
+		
+		has_trait = {
+			trait = deceitful
+			value = 1
+		}
+		has_trait = {
+			trait = schemer
+			value = 1
+		}
+		has_trait = {
+			trait = shrewd
+			value = 1
+		}
+		has_trait = {
+			trait = elusive_shadow
+			value = 1
+		}
+		has_trait = {
+			trait = followerofset
+			value = 1
+		}
+	
+		society_rank = {
+			rank = 4
+			value = 10
+		}
+	}
+
+	member_score_per_attribute = 3
+	member_score_per_rank = 50
+
+	member_score = {
+		value = 10
+
+		modifier = {
+			trait = torpor
+			factor = 0.1
+		}			
+		
+		modifier = {
+			primary_title = { title = e_setite }
+			factor = 5
+		}		
+
+		modifier = {
+			trait = serpentis_5
+			factor = 5
+		}
+		
+		modifier = {
+			trait = serpentis_4
+			factor = 4
+		}
+
+		modifier = {
+			trait = serpentis_3
+			factor = 3
+		}
+
+		modifier = {
+			trait = serpentis_2
+			factor = 2
+		}		
+		
+		modifier = {
+			trait = serpentis_1
+			factor = 1
+		}		
+		
+		modifier = {
+			trait = methuselah
+			factor = 1.4
+		}
+		modifier = {
+			trait = ancient
+			factor = 1.3
+		}		
+		modifier = {
+			trait = elder
+			factor = 1.2
+		}
+		modifier = {
+			trait = ancilla
+			factor = 1.1
+		}	
+		
+		modifier = {
+			trait = deceitful
+			factor = 1.1
+		}
+		modifier = {
+			trait = schemer
+			factor = 1.1
+		}
+	
+		modifier = {
+			trait = shrewd
+			factor = 1.1
+		}
+		
+		modifier = {
+			trait = elusive_shadow
+			factor = 1.1
+		}
+
+		modifier = {
+			trait = followerofset
+			factor = 1.1
+		}					
+		
+	}
+	
+	startup_populate = {
+	    trigger = {
+			ai = yes
+	    	controls_religion = no
+			trait = vampire
+			intrigue = 5
+			is_in_society = no
+			OR = {
+				primary_title = { title = e_setite }
+			}	
+		}
+	}
+	}
+
+
+
+### Path of Metamorphosis  ###
+path_of_metamorphosis  = {
+	primary_attribute = learning
+	is_religious = yes
+	opinion_to_other_members = +1
+	opinion_per_rank_above = +5
+	sound = monastic_orders_interface
+	society_ranks_gfx = monk_ranks
+	
+	active = {
+		OR = {
+			
+			has_global_flag = bookmark1505
+			has_global_flag = bookmark1506
+			has_global_flag = bookmark1666
+			}
+	}
+	indestructible = yes
+
+	can_join_society = {
+		hidden_trigger = {
+			NAND = {
+				ai = yes
+				is_society_rank_full = { 
+					society = path_of_metamorphosis 
+					rank = 1
+				}
+			}
+		}
+		has_path_of_metamorphosis_prerequisites = yes
+		custom_tooltip = {
+			text = did_not_betray_society
+			NOT = { has_character_flag = betrayed_path_of_metamorphosis  }
+		}
+	}
+	
+	show_society = {
+		trait = vampire	
+		OR = { 
+			religion = sabbat
+			religion = oradealeague
+			society_member_of = path_of_metamorphosis
+			trait = tzimisce
+			trait = tzimisceantitribu
+			trait = vicissitude_1
+			trait = vicissitude_2
+			trait = vicissitude_3
+			trait = vicissitude_4
+			trait = vicissitude_5
+			}
+	}
+	
+	potential = {
+		trait = vampire 
+	}
+	
+	society_rank = {
+		level = 1
+		limit = 100
+		startup_limit = 2
+		modifier = {
+			#economy_techpoints = 0.05
+		}
+		decisions = {
+			hermetics_write_theory_paper # Enables you to write a theorem paper that, if approved, gives you society power
+		}
+	}
+	
+	society_rank = {
+		level = 2
+		limit = 100
+		startup_limit = 0
+		modifier = { 
+			learning = 1
+		}
+		decisions = {
+			hermetics_perform_scrying # Enables you to perform a scrying and gain an omen
+			brew_happiness_potion # Enables you to brew a potion
+		}
+	}
+	
+	society_rank = {
+		level = 3
+		limit = 50
+		startup_limit = 0
+		modifier = {
+			learning = 2
+		}
+		decisions = {
+		}
+	}
+
+	society_rank = {
+		level = 4
+		limit = 10
+		startup_limit = 0
+		modifier = { 
+			learning = 3
+		}
+		decisions = {
+			choose_hermetic_art # Enables you to pick/change your lifestyle trait
+			hermetics_write_magnum_opus # Write an enciphered book of lore (artifact)
+		}
+	}
+
+	monthly_currency_gain = {
+		name = currency_name_path_of_metamorphosis 
+    	
+    	per_attribute = {
+    		name = learning
+    		value = 0.5
+    	}	
+		
+		has_trait = {
+			trait = torpor
+			value = 0
+			}		
+		
+		has_trait = {
+			trait = diligent
+			value = 3
+		}
+
+		has_trait = {
+			trait = patient
+			value = 1
+		}
+
+		has_trait = {
+			trait = zealous
+			value = 1
+		}
+
+		has_trait = {
+			trait = erudite
+			value = 1
+		}
+
+		has_trait = {
+			trait = scholar
+			value = 1
+		}
+		society_rank = {
+			rank = 4
+			value = 10
+		}
+	}
+
+	member_score_per_attribute = 3
+	member_score_per_rank = 50
+
+	member_score = {
+		value = 10
+
+		modifier = {
+			trait = torpor
+			factor = 0.1
+		}			
+		
+		modifier = {
+			primary_title = { title = e_voivodate }
+			factor = 5
+		}		
+		
+		modifier = {
+			trait = vicissitude_5
+			factor = 5
+		}
+		
+		modifier = {
+			trait = vicissitude_4
+			factor = 4
+		}
+
+		modifier = {
+			trait = vicissitude_3
+			factor = 3
+		}
+
+		modifier = {
+			trait = vicissitude_2
+			factor = 2
+		}		
+		
+		modifier = {
+			trait = vicissitude_1
+			factor = 1
+		}		
+
+		modifier = {
+			trait = methuselah
+			factor = 1.4
+		}
+		modifier = {
+			trait = ancient
+			factor = 1.3
+		}		
+		modifier = {
+			trait = elder
+			factor = 1.2
+		}
+		modifier = {
+			trait = ancilla
+			factor = 1.1
+		}			
+		
+		modifier = {
+			trait = diligent
+			factor = 1.3
+		}
+
+		modifier = {
+			trait = patient
+			factor = 1.1
+		}
+
+		modifier = {
+			trait = zealous
+			factor = 1.1
+		}
+		modifier = {
+			trait = honest
+			factor = 1.1
+		}
+		modifier = {
+			trait = erudite
+			factor = 1.1
+		}
+		modifier = {
+			trait = scholar
+			factor = 1.1
+		}
+	}
+	
+	startup_populate = {
+	    trigger = {
+			ai = yes
+	    	controls_religion = no
+			trait = vampire
+			is_in_society = no
+			NOR = {
+				mercenary = yes
+				holy_order = yes
+			}
+			NOT = { trait = cynical }
+			has_secret_religion_trait_trigger = no		
+		}
+	}
+}
+
+
+### Path of Lilith ###
+
+path_of_lilith  = {
+	primary_attribute = diplomacy
+	is_secret = no
+	devil_worshipper = no
+	opinion_to_other_members = +1
+	opinion_to_pretenders = -20			#Pretenders is the opinion you have of people perceived/discovered to be in your society.
+	opinion_to_perceived_members = -20 	#Perceived is the opinion you have of people perceived/discovered to be of a society you're not part of
+	opinion_per_rank_above = +1
+	sound = assassins_interface
+	society_ranks_gfx = generic_ranks
+	
+	active = {
+		OR = {
+			
+			has_global_flag = bookmark1505
+			has_global_flag = bookmark1506
+			has_global_flag = bookmark1666
+			}
+	}
+	indestructible = yes
+
+	can_join_society = {
+		hidden_trigger = {
+			NAND = {
+				ai = yes
+				is_society_rank_full = { 
+					society = path_of_lilith
+					rank = 1
+				}
+			}
+		}
+		has_path_of_lilith_prerequisites = yes 
+		custom_tooltip = {
+			text = did_not_betray_society
+			NOT = { has_character_flag = betrayed_path_of_lilith}
+		}			
+	}
+
+	show_society = {
+		OR = {
+		trait = vampire
+		trait = mage	
+		}
+		society_member_of = path_of_lilith
+	}
+
+	potential = {
+		OR ={
+		trait = vampire
+		trait = mage
+		}
+	}
+
+	society_rank = {
+		level = 1
+		limit = 100
+		startup_limit = 0
+		modifier = {
+			diplomacy = 1
+		}
+		decisions = {
+		}
+	}
+	
+	society_rank = {
+		level = 2
+		limit = 50
+		startup_limit = 0
+		modifier = { 
+			diplomacy = 2 
+		}
+		decisions = {
+		
+		}
+	}
+	
+	society_rank = {
+		level = 3
+		limit = 25 
+		startup_limit = 0
+		modifier = {
+			diplomacy = 3 
+		}
+		decisions = {
+		}
+	}
+
+	society_rank = {
+		level = 4
+		limit = 5 
+		startup_limit = 0
+		modifier = {
+			diplomacy = 4
+		}
+		decisions = {
+		}
+		 
+	}
+
+	monthly_currency_gain = {
+		name = currency_name_path_of_lilith 
+    
+		per_attribute = {
+			name = diplomacy
+			value = 0.5
+		}
+		
+		has_trait = {
+			trait = torpor
+			value = 0
+			}
+			
+		has_trait = {
+			trait = mystic
+			value = 3
+		}
+
+		has_trait = {
+			trait = cruel
+			value = 3
+		}
+		has_trait = {
+			trait = lustful
+			value = 5
+		}
+		
+		has_trait = {
+			trait = fair
+			value = 1
+		}
+		
+		has_trait = {
+			trait = robust
+			value = 1
+		}
+		has_trait = {
+			trait = genius
+			value = 1
+		}
+		has_trait = {
+			trait = quick
+			value = 1
+		}
+		has_trait = {
+			trait = shrewd
+			value = 1
+		}
+		has_trait = {
+			trait = diligent
+			value = 1
+		}
+		has_trait = {
+			trait = patient
+			value = 1
+		}
+
+	}
+
+	member_score_per_attribute = 3
+	member_score_per_rank = 50
+
+	member_score = {
+		value = 10
+
+		modifier = {
+			trait = torpor
+			factor = 0.1
+		}			
+		
+		modifier = {
+			trait = methuselah
+			factor = 1.5
+		}
+		modifier = {
+			trait = ancient
+			factor = 1.4
+		}		
+		modifier = {
+			trait = elder
+			factor = 1.3
+		}
+		modifier = {
+			trait = ancilla
+			factor = 1.2
+		}	
+		
+		modifier = {
+			trait = mystic
+			factor = 1.3
+		}
+
+		modifier = {
+			trait = cruel
+			factor = 5
+		}
+		
+		modifier = {
+			trait = lustful
+			factor = 5
+		}
+		
+		modifier = {
+			trait = fair
+			factor = 1.5
+		}	
+		
+		modifier = {
+			trait = robust
+			factor = 1.1
+		}
+		modifier = {
+			trait = genius
+			factor = 1.1
+		}
+		modifier = {
+			trait = quick
+			factor = 1.1
+		}
+		modifier = {
+			trait = shrewd
+			factor = 1.1
+		}
+		modifier = {
+			trait = diligent
+			factor = 1.1
+		}
+		modifier = {
+			trait = patient
+			factor = 1.1
+		}
+
+	}
+	
+	startup_populate = {
+	    trigger = {
+			ai = yes
+	    	controls_religion = no 
+			trait = vampire
+			diplomacy = 2
+			is_in_society = no
+			NOT = { higher_tier_than = DUKE }
+			
+		}
+	}
+	}
+	

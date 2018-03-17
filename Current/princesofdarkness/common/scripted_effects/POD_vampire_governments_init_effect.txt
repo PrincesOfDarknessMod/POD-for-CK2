@@ -1,0 +1,59 @@
+POD_vampire_governments_init_effect = {
+# Vampire Government Elders
+# Vampire Government Elders
+	if = {
+		limit = {
+			OR = {
+				religion = invictus
+				religion = adamantes_athanatoi
+				religion = die_nachteulen
+			}
+		}
+		set_government_type = estate_government
+	}		
+	if = {
+		limit = {
+			OR = {
+				religion = lancea_sanctum
+				religion = icarian
+				religion = gnostic
+				religion = livian
+				religion = shedim
+				religion = banu_shaitan
+			}
+		}
+		set_government_type = testament_government
+	}
+	if = {
+		limit = {
+			OR = {
+				religion_group = pagan_vampire_group
+				religion = ordo_dracul
+				religion_group = forsworn_vampire_group
+			}
+			NOT = { religion = carthian }
+			NOT = { religion = unaligned }
+		}
+		set_government_type = cult_government
+	}	
+	if = { 
+		limit = {
+			religion = unaligned
+		}
+		set_government_type = unaligned_government			
+	}	
+	if = { 
+		limit = {
+			religion = carthian
+		}
+		set_government_type = free_state_government			
+	}
+	if = {
+		limit = { religion = al-amin }
+		set_government_type = al-amin_government
+		}
+	if = {
+		limit = { religion_group = dharmic_vampire_group }
+		set_government_type = dharmic_government
+	}			
+}

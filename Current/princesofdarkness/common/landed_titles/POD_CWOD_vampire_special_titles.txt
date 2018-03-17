@@ -1,0 +1,775 @@
+e_fiefs_of_the_black_cross = {
+		color = { 255 255 255 }
+		capital = 496 # Germany
+		culture = german	
+		dignity = 100
+		short_name = yes
+		dynasty_title_names = no
+		title = "High Lord"
+		title_female = "High Lady"			
+		allow = {
+			trait = ventrue
+			culture = german
+			religion = ventrue_high
+			trait = vampire			
+			NOT = { trait = werewolf }
+			prestige = 500
+			piety = 500
+			realm_size = 50	
+			has_global_flag = bookmark1230
+		}
+		gain_effect = {
+		}
+	}
+
+
+e_voivodate	= {
+# Transylvannia	
+		color = { 255 204 0 }
+		dignity = 5
+		title = "Voivode of Voivodes"
+		title_female = "Voivode of Voivodes"		
+		capital = 539 # Bistritz, Marmaros,
+		creation_requires_capital = no
+		dynasty_title_names = no		
+		culture = romanian
+		allow = {
+			OR = {
+					culture = romanian
+					culture = serbian
+					culture = bulgarian
+					culture = croatian
+					culture = bohemian
+					culture = russian
+					culture = polish
+			}
+			trait = vampire
+			NOT = { trait = werewolf }
+			OR = {
+					AND = { religion = koldun
+							trait = tzimisce
+							has_global_flag = bookmark1230 }
+					AND = {
+							religion = circle_of_the_crone
+							trait = ventrue }
+				}
+			prestige = 1000
+			piety = 1000	
+			realm_size = 50				
+		}
+		gain_effect = {
+		}
+
+}
+
+e_sea_of_shadows = {
+		color = { 0 0 102 }
+		dignity = 5
+		title = "Lord"
+		title_female = "Queen"
+		capital = 343 # Syrakousa, Sicily
+		dynasty_title_names = no
+		culture = italian
+		allow = {
+			OR = { trait = lasombra
+				   AND = { trait = ventrue
+						   OR =  { has_global_flag = bookmark1142
+								   has_global_flag = bookmark1250
+						   }
+						}
+				   }
+			trait = vampire
+			NOT = { trait = werewolf }
+			prestige = 1000
+			piety = 1000	
+			realm_size = 50				
+		}
+		gain_effect = {
+		}
+}
+
+e_avalon = {
+		color = { 102 0 51 }
+		title = "Lord"
+		title_female = "Queen"
+		dignity = 5
+		capital = 32 # London, Middlesex, England
+		dynasty_title_names = no
+		culture = saxon
+		short_name = yes		
+		allow = {
+			OR = {
+					trait = daeva
+					trait = ventrue
+					trait = mekhet
+					trait = toreador
+					trait = lasombra
+				}		
+			trait = vampire
+			NOT = { trait = werewolf }
+			prestige = 1000
+			piety = 1000	
+			realm_size = 25				
+		}
+		gain_effect = {
+		}
+}
+
+e_love = {
+		color = { 178 0 0 }
+		dignity = 5
+		title = "Lord"
+		title_female = "Queen"
+		capital = 112 # Paris, Valois, France
+		dynasty_title_names = no
+		culture = frankish
+		allow = {
+			OR = {
+					trait = daeva
+					trait = ventrue
+					trait = mekhet
+					trait = toreador
+					trait = lasombra
+					trait = brujah
+				}
+			trait = vampire
+			NOT = { trait = werewolf }
+			prestige = 1000
+			piety = 1000	
+			realm_size = 50				
+		}
+		gain_effect = {
+		}
+}
+
+
+e_midgard = {
+# Domain of Odin, the All-Father	
+		color = { 102 102 0 }
+		dignity = 5
+		capital = 290 # Uppsala
+		creation_requires_capital = no	
+		dynasty_title_names = no		
+		culture = norse
+		title = "The All High"
+		title_female = "Crone"
+		allow = {
+			culture = norse
+			trait = gangrel
+			trait = vampire
+			NOT = { trait = werewolf }
+			OR = {
+			religion = einherjar
+			}
+			prestige = 1000
+			piety = 1000	
+			realm_size = 50				
+		}
+		gain_effect = {
+		}
+}	
+	
+e_anda = {
+		color = { 204 102 51 }
+		capital = 1457 #Kara Korum
+		culture = mongol	
+		dignity = 100
+		short_name = yes
+		dynasty_title_names = no
+		title = "Khan"
+		title_female = "Khan"			
+		allow = {
+			trait = gangrel	
+			culture = mongol
+			religion = anda
+			trait = vampire			
+			NOT = { trait = werewolf }
+			prestige = 500
+			piety = 500
+			realm_size = 50	
+			has_global_flag = bookmark1230
+		}
+		gain_effect = {
+		}
+	}
+	
+	
+e_ashirra = {
+		color = { 255 178 102 }
+		capital = 496 # Medina
+		culture = levantine_arabic		
+		caliphate = yes			
+		controls_religion = ashirra			
+		short_name = yes
+		dynasty_title_names = no
+		dignity = 100		
+		title = "Caliph"
+		title_female = "Calipha"			
+		allow = {
+			religion = ashirra
+			trait = vampire
+			NOT = { trait = werewolf }
+			prestige = 500
+			piety = 500
+			realm_size = 15				
+			OR = {
+					has_global_flag = bookmark1230
+					has_global_flag = bookmark1505
+					}
+		}
+		gain_effect = {
+		}
+	}
+
+e_inconnu = {
+		color = { 255 255 255 }
+		capital = 239 # Geneve, Burgundy, Switzerland
+		culture = frankish				
+		short_name = yes
+		caliphate = yes			
+		dynasty_title_names = no
+		controls_religion = inconnu		
+		dignity = 100
+		title = "Prince"
+		title_female = "Prince"
+		allow = {
+			religion = inconnu
+			trait = vampire
+			NOT = { trait = werewolf }
+			prestige = 500
+			piety = 500
+			realm_size = 15		
+			OR = {
+					has_global_flag = bookmark1230
+					has_global_flag = bookmark1505
+					}			
+		}
+		gain_effect = {
+		}
+	}
+
+# Independents
+
+e_oradealeague= {
+		color = { 128 128 0 }
+		capital = 533 # Oradea, Nagyvarad, Bihor, Transylvannia, Hungary;
+		culture = romanian
+		short_name = yes
+		caliphate = yes		
+		dynasty_title_names = no		
+		controls_religion = oradealeague
+		title = "Voivode"
+		title_female = "Voivode"			
+		dignity = 100		
+		allow = {
+			religion = oradealeague
+			trait = tzimisceantitribu			
+			trait = vampire
+			NOT = { trait = werewolf }
+			prestige = 500
+			piety = 500
+			realm_size = 15		
+			has_global_flag = bookmark1505
+		}
+		gain_effect = {
+		}
+	}
+
+e_assamites = {
+		color = { 210 105 30 }
+		capital = 663 # Alamut, Rayy (Tehran)	Hamadan	Persia
+		culture = persian
+		caliphate = yes			
+		controls_religion = assamite		
+		short_name = yes
+		dynasty_title_names = no
+		dignity = 100
+		title = "Eldest"
+		title_female = "Eldest"			
+		allow = {
+			religion = assamite
+			trait = assamite 
+			trait = vampire
+			NOT = { trait = werewolf }
+			prestige = 500
+			piety = 500
+			realm_size = 15		
+			OR = {
+					has_global_flag = bookmark1230
+					has_global_flag = bookmark1505
+					}	
+		}
+		gain_effect = {
+		}
+	}
+
+e_giovanni = {
+		color = { 178 0 127 }
+		capital = 356 # Venezia, Italy
+		culture = italian
+		caliphate = yes	
+		dynasty_title_names = no
+#		controls_religion = giovanni
+		title = "Patriarch"
+		title_female = "Matriarch"			
+		short_name = yes
+		dignity = 100
+		allow = {
+			OR = {
+				religion = giovanni
+				religion = cappadocian_high
+				}
+			OR = {
+				trait = giovanni 
+				trait = cappadocian
+			}
+			culture = italian
+			trait = vampire
+			NOT = { trait = werewolf }
+			prestige = 500
+			piety = 500
+			realm_size = 10			
+			OR = {
+			has_global_flag = bookmark1230
+			has_global_flag = bookmark1242
+			has_global_flag = bookmark1355
+			has_global_flag = bookmark1505
+			has_global_flag = bookmark1506
+			}
+		}
+		gain_effect = {
+		}
+	}
+
+e_ravnos = {
+		color = { 0 0 204 }
+		culture = hindustani
+		caliphate = yes		
+		dynasty_title_names = no
+		controls_religion = mayaparisataya		
+		short_name = yes
+		dignity = 100
+		allow = {
+			religion = mayaparisataya
+			trait = ravnos 
+			trait = vampire
+			NOT = { trait = werewolf }
+			prestige = 500
+			piety = 500
+			realm_size = 10			
+			has_global_flag = bookmark1505
+		}
+		gain_effect = {
+		}
+	}
+
+e_setite = {
+		color = { 0 0 0 }
+		culture = egyptian_arabic
+		caliphate = yes		
+		dynasty_title_names = no
+		controls_religion = setite		
+		short_name = yes
+		dignity = 100
+		title = "Pharaoh"
+		title_female = "Queen"			
+		allow = {
+			religion = setite
+			trait = followerofset
+			trait = vampire
+			NOT = { trait = werewolf }
+			prestige = 500
+			piety = 500
+			realm_size = 10			
+			has_global_flag = bookmark1505
+		}
+		gain_effect = {
+		}
+	}
+
+#Vykos buffer state between Rustovitch and Jurgen 
+	
+k_obertus = {
+		color = { 178 0 127 }
+		culture = romanian
+		dynasty_title_names = no	
+		short_name = no
+		dignity = 100
+		title = "First Scholar"
+		title_female = "First Scholar"	
+		allow = {
+			always = no
+		}
+		gain_effect = {
+		}
+	}
+
+#Tanit's faction during the Baali civil war
+	
+k_moloch = {
+		color = { 139 0 0 }
+		culture = persian
+		dynasty_title_names = no	
+		short_name = no
+		dignity = 100
+		title = "Domitor"
+		title_female = "Domitor"	
+		allow = {
+			always = no
+		}
+		gain_effect = {
+		}
+	}
+
+#Azaneal's faction during the Baali civil war
+	
+k_angellisater = {
+		color = { 128 0 128 }
+		culture = persian
+		dynasty_title_names = no	
+		short_name = no
+		dignity = 100
+		title = "Shaitan"
+		title_female = "Shaitan"	
+		allow = {
+			always = no
+		}
+		gain_effect = {
+		}
+	}		
+
+# Vampire the Masquerade, 1500 Convention of Thorns, Camarilla vs. Sabbat
+
+e_brujahcamarilla= {
+		color = { 102 25 25 }
+		capital = 482 # Athens, Greece
+		culture = greek
+		title = "Councilor"
+		title_female = "Councilor"		
+		caliphate = yes			
+		dynasty_title_names = no
+		controls_religion = brujahcamarilla		
+		short_name = yes
+		dignity = 100
+		allow = {
+			trait = brujah
+			religion = brujahcamarilla
+			trait = vampire
+			NOT = { trait = werewolf }
+			prestige = 500
+			piety = 500
+			realm_size = 15
+			has_global_flag = bookmark1505			
+		}
+		gain_effect = {
+		}
+	}
+
+e_gangrelcamarilla= {
+		color = { 139 69 19 }
+		capital = 534 # Peremyshl, Galich, Ruthenia, Russia
+		title = "Councilor"
+		title_female = "Councilor"		
+		caliphate = yes		
+		dynasty_title_names = no		
+		controls_religion = gangrelcamarilla		
+		short_name = yes
+		dignity = 100
+		allow = {
+			trait = gangrel
+			religion = gangrelcamarilla
+			trait = vampire
+			NOT = { trait = werewolf }
+			prestige = 500
+			piety = 500
+			realm_size = 15		
+			has_global_flag = bookmark1505
+		}
+		gain_effect = {
+		}
+	}
+
+e_malkaviancamarilla= {
+		color = { 255 204 0 }
+		capital = 362 # Domazlice, Bohemia, location of the Great Prank ritual
+		culture = english	
+		title = "Councilor"
+		title_female = "Councilor"		
+		caliphate = yes			
+		dynasty_title_names = no
+		controls_religion = malkaviancamarilla		
+		short_name = yes
+		dignity = 100
+		allow = {
+			trait = malkavian
+			religion = malkaviancamarilla
+			trait = vampire
+			NOT = { trait = werewolf }
+			prestige = 500
+			piety = 500
+			realm_size = 15		
+			has_global_flag = bookmark1505
+		}
+		gain_effect = {
+		}
+	}
+
+e_nosferatucamarilla= {
+		color = { 128 128 128 }
+		capital = 360 # Munchen, Oberbayern, Bavaria
+		culture = german
+		title = "Councilor"
+		title_female = "Councilor"		
+		caliphate = yes		
+		dynasty_title_names = no
+		controls_religion = nosferatucamarilla		
+		short_name = yes
+		dignity = 100
+		allow = {
+			trait = nosferatu
+			religion = nosferatucamarilla
+			trait = vampire
+			NOT = { trait = werewolf }
+			prestige = 500
+			piety = 500
+			realm_size = 15		
+			has_global_flag = bookmark1505
+		}
+		gain_effect = {
+		}
+	}
+
+e_tremere= {
+		color = { 0 102 0 }
+		capital = 449 # Vienna, Austria
+		culture = german
+		title = "Councilor"
+		title_female = "Councilor"		
+		caliphate = yes	
+		dynasty_title_names = no
+		controls_religion = tremerelow	
+		short_name = yes
+		dignity = 100
+		allow = {
+			trait = tremere
+			religion = tremerelow
+			trait = vampire
+			NOT = { trait = werewolf }
+			prestige = 500
+			piety = 500
+			realm_size = 3	
+			OR = {
+			has_global_flag = bookmark1230
+			has_global_flag = bookmark1242
+			}
+		}
+		gain_effect = {
+		}
+	}
+	
+e_tremerecamarilla= {
+		color = { 0 102 0 }
+		capital = 449 # Vienna, Austria
+		culture = german
+		title = "Councilor"
+		title_female = "Councilor"		
+		caliphate = yes		
+		dynasty_title_names = no
+		controls_religion = tremerecamarilla		
+		short_name = yes
+		dignity = 100
+		allow = {
+			trait = tremere
+			religion = tremerecamarilla
+			trait = vampire
+			NOT = { trait = werewolf }
+			prestige = 500
+			piety = 500
+			realm_size = 15	
+			has_global_flag = bookmark1505
+		}
+		gain_effect = {
+		}
+	}
+
+e_toreadorcamarilla = {
+		color = { 255 0 0 }
+		capital = 108 # Maine, Anjou, France
+		culture = frankish
+		title = "Councilor"
+		title_female = "Councilor"		
+		caliphate = yes		
+		dynasty_title_names = no
+		controls_religion = toreadorcamarilla		
+		short_name = yes
+		dignity = 100
+		allow = {
+			trait = toreador
+			religion = toreadorcamarilla
+			trait = vampire
+			NOT = { trait = werewolf }
+			prestige = 500
+			piety = 500
+			realm_size = 15		
+			has_global_flag = bookmark1505
+		}
+		gain_effect = {
+		}
+	}
+
+e_ventruecamarilla= {
+		color = { 76 0 153 }
+		capital = 253 # Württemberg	Swabia	Germany
+		culture = german
+		title = "Councilor"
+		title_female = "Councilor"		
+		caliphate = yes			
+		dynasty_title_names = no
+		controls_religion = ventruecamarilla		
+		short_name = yes
+		dignity = 100
+		allow = {
+			trait = ventrue	
+			religion = ventruecamarilla
+			trait = vampire
+			NOT = { trait = werewolf }
+			prestige = 500
+			piety = 500
+			realm_size = 15	
+			has_global_flag = bookmark1505
+		}
+		gain_effect = {
+		}
+	}
+
+
+
+e_sabbat = {
+		color = { 0 0 102 }
+		capital = 197 # Madrid, Toledo, Anadalusia,	Hispania
+		culture = castillan 
+		title = "Regent"
+		title_female = "Regent"		
+		caliphate = yes	
+		dynasty_title_names = no
+		short_name = yes
+		dignity = 200
+		allow = {
+			OR = {
+					trait = lasombra
+					trait = tzimisce
+					trait = brujahantitribu
+					trait = gangrelantitribu
+					trait = malkavianantitribu
+					trait = nosferatuantitribu
+					trait = toreadorantitribu
+					trait = tremereantitribu
+					trait = ventrueantitribu
+				}
+			religion = sabbat
+			trait = vampire
+			NOT = { trait = werewolf }
+			prestige = 1000
+			piety = 1000
+			realm_size = 25		
+			has_global_flag = bookmark1505			
+		}
+		gain_effect = {
+		}
+	}
+
+k_lasombra = {
+		color = { 0 0 102 }
+		culture = castillan 
+		title = "Amici Noctis"
+		title_female = "Amici Noctis"					
+		short_name = yes
+		dynasty_title_names = no
+		dignity = 100
+		allow = {
+			trait = lasombra
+			religion = sabbat
+			trait = vampire
+			NOT = { trait = werewolf }
+			prestige = 1000
+			piety = 1000
+			realm_size = 25	
+			has_global_flag = bookmark1505			
+		}
+		gain_effect = {
+		}
+	}
+
+k_tzimisce = {
+		color = { 255 204 0 }
+		culture = romanian
+		title = "Voivode of Voivodes"
+		title_female = "Voivode of Voivodes"					
+		short_name = yes
+		dynasty_title_names = no
+		dignity = 100
+		allow = {
+			trait = tzimisce
+			religion = sabbat
+			trait = vampire
+			NOT = { trait = werewolf }
+			prestige = 1000
+			piety = 1000
+			realm_size = 25		
+			has_global_flag = bookmark1505			
+		}
+		gain_effect = {
+		}
+	}
+		
+e_shadow_curtain = {
+		color = { 197 200 204 }
+		capital = 575 # Moscow
+		culture = russian
+		title = "Tsar"
+		title_female = "Little Grandmother"		
+		caliphate = no	
+		short_name = no
+		dynasty_title_names = no
+		dignity = 100
+		allow = {
+			trait = nosferatu
+			trait = vampire
+			NOT = { trait = werewolf }
+			prestige = 500
+			piety = 500
+			realm_size = 25	
+			has_global_flag = bookmark1230
+		}
+		gain_effect = {
+		}
+	}
+	
+k_erciyes = {
+		color = { 32 0 24 }
+		capital = 737 # Ericyes
+		culture = armenian	
+		dignity = 100
+		short_name = yes
+		dynasty_title_names = no
+		title = "Master"
+		title_female = "Mistress"			
+		dynasty_title_names = no
+		allow = {
+			trait = cappadocian	
+			OR = { 
+			culture = armenian
+			culture = greek 
+			}
+			religion = cappadocian_high
+			trait = vampire			
+			NOT = { trait = werewolf }
+			prestige = 500
+			piety = 500
+			realm_size = 25	
+			has_global_flag = bookmark1230
+				}
+		gain_effect = {
+		}
+	}	
+	

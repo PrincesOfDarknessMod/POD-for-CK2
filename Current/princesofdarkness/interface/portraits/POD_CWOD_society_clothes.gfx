@@ -1,0 +1,1311 @@
+spriteTypes = {
+	
+	# File contains society specific clothing
+	
+	### Holy Roads ###
+	
+	portraitType = {
+		effectFile = "gfx/FX/portrait.lua"
+		name = "PORTRAIT_society_caeli_clothing_male"
+		
+		weight = {
+			additive_modifier = {
+				value = 10000
+				portrait_age > child
+				portrait_is_female = no
+				portrait_clothing = yes
+				OR = { 
+						portrait_society = via_caeli
+						portrait_society = monastic_order_osite
+						portrait_society = order_st_panteleimon
+						portrait_society = bloodline_sangiovanni
+						portrait_society = path_of_redemption
+						portrait_religion = cabal_of_pure_thought
+					}
+				OR = {
+					portrait_culture_group = north_germanic
+					portrait_culture_group = central_germanic
+					portrait_culture_group = west_germanic
+					portrait_culture_group = latin
+					portrait_culture_group = iberian
+					portrait_culture_group = celtic
+					}
+				NOT = { portrait_has_trait = blood_form }
+				NOT = { portrait_has_trait = shadow_form }
+				NOT = { portrait_has_trait = mist_form }
+				NOT = { portrait_has_trait = zulo_form }
+				NOT = { portrait_has_trait = beast_form }
+				NOT = { portrait_has_trait = crinos }
+				NOT = { portrait_has_trait = lupus }
+				NOT = { portrait_has_trait = hispo }						
+				# NOT = { portrait_tier = king }
+			}
+		}
+		
+		layer = {
+			"GFX_society_benedictine_male_clothing_behind:c0"
+			"GFX_society_benedictine_male_clothing_front:c2"
+			"GFX_society_benedictine_male_headgear_front:c5"
+			"GFX_western_male_hair_behind_midage"
+			"GFX_western_male_hair_midage"
+			"GFX_empty:c3"
+			"GFX_empty:c1"
+			"GFX_empty:c4"
+		}
+		
+		# Tonsure hairstyle, no beard
+		allow_property_values = {
+		}
+	}
+	
+	portraitType = {
+		effectFile = "gfx/FX/portrait.lua"
+		name = "PORTRAIT_society_caeli_clothing_female"
+		
+		weight = {
+			additive_modifier = {
+				value = 10000
+				portrait_age > child
+				portrait_is_female = yes
+				portrait_clothing = yes
+				has_dlc = "Mystics"
+				OR = {
+				portrait_society = via_caeli
+				portrait_society = monastic_order_osite
+				portrait_society = order_st_panteleimon
+				portrait_society = bloodline_sangiovanni
+				portrait_society = path_of_redemption
+				portrait_religion = cabal_of_pure_thought
+				}
+				OR = {
+					portrait_culture_group = north_germanic
+					portrait_culture_group = central_germanic
+					portrait_culture_group = west_germanic
+					portrait_culture_group = latin
+					portrait_culture_group = iberian
+					portrait_culture_group = celtic
+					}
+				NOT = { portrait_has_trait = blood_form }
+				NOT = { portrait_has_trait = shadow_form }
+				NOT = { portrait_has_trait = mist_form }
+				NOT = { portrait_has_trait = zulo_form }
+				NOT = { portrait_has_trait = beast_form }
+				NOT = { portrait_has_trait = crinos }
+				NOT = { portrait_has_trait = lupus }
+				NOT = { portrait_has_trait = hispo }						
+				# NOT = { portrait_tier = king }
+			}
+		}
+		
+		layer = { 
+			"GFX_society_benedictine_female_clothing_behind:c0"
+			"GFX_society_benedictine_female_clothing_front:c2"
+			"GFX_empty:c3"
+			"GFX_society_benedictine_female_headgear_behind:c1"
+			"GFX_society_benedictine_female_headgear_front:c5"
+			"GFX_empty:c4"
+		}
+		
+		# Hide hair
+		allow_property_values = {
+			1 = {
+				0 = {
+					always = yes
+				}
+			}
+		}
+	}	
+	
+	portraitType = {
+		effectFile = "gfx/FX/portrait.lua"
+		name = "PORTRAIT_society_western_cainite_clothing_male"
+		
+		weight = {
+			additive_modifier = {
+				value = 10000
+				portrait_age > child
+				portrait_is_female = no
+				portrait_clothing = yes
+				portrait_religion = cainite
+				has_dlc = "Mystics"
+				OR = {
+					portrait_culture_group = north_germanic
+					portrait_culture_group = central_germanic
+					portrait_culture_group = west_germanic
+					portrait_culture_group = latin
+					portrait_culture_group = iberian
+					portrait_culture_group = celtic
+					}	
+				NOT = { portrait_has_trait = blood_form }
+				NOT = { portrait_has_trait = shadow_form }
+				NOT = { portrait_has_trait = mist_form }
+				NOT = { portrait_has_trait = zulo_form }
+				NOT = { portrait_has_trait = beast_form }
+				NOT = { portrait_has_trait = crinos }
+				NOT = { portrait_has_trait = lupus }
+				NOT = { portrait_has_trait = hispo }	
+				#NOT = { portrait_tier = king }
+			}
+		}
+		
+		layer = { 
+			"GFX_society_dominican_male_clothing_behind:c0"
+			"GFX_society_dominican_male_clothing_front:c2"
+			"GFX_society_dominican_male_headgear_behind:c1"
+			"GFX_society_dominican_male_headgear_front:c5"
+			"GFX_society_dominican_male_headgear_mid:c3"
+			"GFX_western_male_hair_behind_midage"
+			"GFX_western_male_hair_midage"
+			"GFX_empty:c4"
+		}
+		
+		# Tonsure hairstyle, no beard
+		allow_property_values = {
+		}
+	}
+	
+	
+	portraitType = {
+		effectFile = "gfx/FX/portrait.lua"
+		name = "PORTRAIT_society_western_cainite_clothing_female"
+		
+		weight = {
+			additive_modifier = {
+				value = 10000
+				portrait_age > child
+				portrait_is_female = yes
+				portrait_clothing = yes
+				OR = {
+				portrait_religion = cainite
+				AND = { portrait_has_trait = lasombra 
+						portrait_religion = sabbat }
+				portrait_religion = choeur_celeste
+				}
+				has_dlc = "Mystics"
+				OR = {
+					portrait_culture_group = north_germanic
+					portrait_culture_group = central_germanic
+					portrait_culture_group = west_germanic
+					portrait_culture_group = latin
+					portrait_culture_group = iberian
+					portrait_culture_group = celtic
+					}
+				NOT = { portrait_has_trait = blood_form }
+				NOT = { portrait_has_trait = shadow_form }
+				NOT = { portrait_has_trait = mist_form }
+				NOT = { portrait_has_trait = zulo_form }
+				NOT = { portrait_has_trait = beast_form }
+				NOT = { portrait_has_trait = crinos }
+				NOT = { portrait_has_trait = lupus }
+				NOT = { portrait_has_trait = hispo }						
+				#NOT = { portrait_tier = king }
+			}
+		}
+		
+		layer = { 
+			"GFX_empty:c0"
+			"GFX_empty:c2"
+			"GFX_empty:c3"
+			"GFX_society_dominican_female_headgear_behind:c1"
+			"GFX_society_dominican_female_headgear_front:c5"
+			"GFX_empty:c4"
+		}
+		
+		# Hide hair
+		allow_property_values = {
+			1 = {
+				0 = {
+					always = yes
+				}
+			}
+		}
+	}	
+
+	portraitType = {
+		effectFile = "gfx/FX/portrait.lua"
+		name = "PORTRAIT_society_eastern_cainite_clothing_male"
+		
+		weight = {
+			additive_modifier = {
+				value = 10000
+				portrait_age > child
+				portrait_is_female = no
+				portrait_clothing = yes
+				has_dlc = "Mystics"
+				OR = {
+						
+						portrait_society = monastic_order_mystikoi
+						portrait_religion = cainite
+						portrait_religion = choeur_celeste
+						AND = { portrait_has_trait = lasombra 
+								portrait_religion = sabbat }
+						portrait_society = via_caeli
+						portrait_society = monastic_order_osite
+						portrait_society = order_st_panteleimon
+						portrait_society = bloodline_sangiovanni						
+					}
+				OR = {
+						portrait_culture_group = east_slavic														
+						portrait_culture_group = south_slavic
+						portrait_culture_group = byzantine
+						portrait_culture_group = west_slavic
+						portrait_culture_group = magyar
+						portrait_culture_group = baltic
+						portrait_culture_group = east_african
+						}
+				NOT = { portrait_has_trait = blood_form }
+				NOT = { portrait_has_trait = shadow_form }
+				NOT = { portrait_has_trait = mist_form }
+				NOT = { portrait_has_trait = zulo_form }
+				NOT = { portrait_has_trait = beast_form }
+				NOT = { portrait_has_trait = crinos }
+				NOT = { portrait_has_trait = lupus }
+				NOT = { portrait_has_trait = hispo }							
+				#NOT = { portrait_tier = king }
+			}
+		}
+		
+		layer = { 
+			"GFX_society_orthodox_monk_male_clothing_behind:c0"
+			"GFX_society_orthodox_monk_male_clothing_front:c2"
+			"GFX_society_orthodox_monk_male_headgear_behind:c1"
+			"GFX_society_orthodox_monk_male_headgear_front:c5"
+			"GFX_empty:c3"
+			"GFX_empty:c4"
+		}
+		
+		# Ranks, slot 3 is for Greek orthodox, 4 for Russian orthodox.
+		allow_property_values = {
+			3 = {
+				0 = {
+					portrait_society_rank = 1
+				}
+				1 = {
+					portrait_society_rank = 2
+				}
+				2 = {
+					portrait_society_rank = 3
+				}
+				3 = {
+					portrait_society_rank = 4
+					portrait_culture = greek
+				}
+				4 = {
+					portrait_society_rank = 4
+					NOT = { portrait_culture = greek }
+				}
+			}
+			5 = {
+				0 = {
+					portrait_society_rank = 1
+				}
+				1 = {
+					portrait_society_rank = 2
+				}
+				2 = {
+					portrait_society_rank = 3
+				}
+				3 = {
+					portrait_society_rank = 4
+					NOT = { portrait_culture = russian }
+				}
+				4 = {
+					portrait_society_rank = 4
+					portrait_culture = russian
+				}
+			}
+		}
+	}
+
+	portraitType = {
+		effectFile = "gfx/FX/portrait.lua"
+		name = "PORTRAIT_society_eastern_cainite_clothing_female"
+		
+		weight = {
+			additive_modifier = {
+				value = 10000
+				portrait_age > child
+				portrait_is_female = yes
+				portrait_clothing = yes
+				has_dlc = "Mystics"
+				OR = {
+						portrait_society = monastic_order_mystikoi
+						AND = { portrait_has_trait = lasombra 
+								portrait_religion = sabbat }
+						portrait_society = via_caeli
+						portrait_society = monastic_order_osite
+						portrait_society = order_st_panteleimon
+						portrait_society = bloodline_sangiovanni
+						portrait_religion = choeur_celeste						
+						}
+				NOT = { portrait_has_trait = blood_form }
+				NOT = { portrait_has_trait = shadow_form }
+				NOT = { portrait_has_trait = mist_form }
+				NOT = { portrait_has_trait = zulo_form }
+				NOT = { portrait_has_trait = beast_form }
+				NOT = { portrait_has_trait = crinos }
+				NOT = { portrait_has_trait = lupus }
+				NOT = { portrait_has_trait = hispo }			
+				#NOT = { portrait_tier = king }
+			}
+		}
+		
+		layer = { 
+			"GFX_empty:c0"
+			"GFX_empty:c2"
+			"GFX_empty:c3"
+			"GFX_society_orthodox_monk_female_headgear_behind:c1"
+			"GFX_society_orthodox_monk_female_headgear_front:c5"
+			"GFX_empty:c4"
+		}
+		
+		# Hide hair, ranks, slot 3 is for Greek orthodox, 4 for Russian orthodox.
+		allow_property_values = {
+			1 = {
+				0 = {
+					always = yes
+				}
+			}
+			3 = {
+				0 = {
+					portrait_society_rank = 1
+				}
+				1 = {
+					portrait_society_rank = 2
+				}
+				2 = {
+					portrait_society_rank = 3
+				}
+				3 = {
+					portrait_society_rank = 4
+					portrait_culture = greek
+				}
+				4 = {
+					portrait_society_rank = 4
+					NOT = { portrait_culture = greek }
+				}
+			}
+			5 = {
+				0 = {
+					portrait_society_rank = 1
+				}
+				1 = {
+					portrait_society_rank = 2
+				}
+				2 = {
+					portrait_society_rank = 3
+				}
+				3 = {
+					portrait_society_rank = 4
+					NOT = { portrait_culture = russian }
+				}
+				4 = {
+					portrait_society_rank = 4
+					portrait_culture = russian
+				}
+			}
+		}
+	}
+
+### Mages ###
+
+	portraitType = {
+		effectFile = "gfx/FX/portrait.lua"
+		name = "PORTRAIT_society_mage_clothing_male"
+		
+		weight = {
+			additive_modifier = {
+				value = 10000
+				portrait_age > child
+				portrait_is_female = no
+				portrait_clothing = yes
+				has_dlc = "Mystics"
+				OR = {
+				portrait_society = code_of_tremere
+				portrait_society = derech_lilit
+				portrait_society = path_of_lilith
+				portrait_religion = order_of_hermes
+				portrait_religion = solificati				
+				}
+				NOT = { portrait_has_trait = blood_form }
+				NOT = { portrait_has_trait = shadow_form }
+				NOT = { portrait_has_trait = mist_form }
+				NOT = { portrait_has_trait = zulo_form }
+				NOT = { portrait_has_trait = beast_form }
+				NOT = { portrait_has_trait = crinos }
+				NOT = { portrait_has_trait = lupus }
+				NOT = { portrait_has_trait = hispo }	
+				NOT = { portrait_tier = king }
+			}
+		}
+		
+		layer = { 
+			"GFX_society_hermetic_male_clothing_behind:c0"
+			"GFX_society_hermetic_male_clothing_front:c2"
+			"GFX_society_hermetic_male_headgear_behind:c1"
+			"GFX_society_hermetic_male_headgear_front:c5"
+			"GFX_society_hermetic_male_headgear_mid:c3"
+			"GFX_empty:c4"
+		}
+		
+		# Appropriate clothing
+		allow_property_values = {
+			3 = {
+				0 = { # Western
+					OR = {
+						portrait_culture_group = west_germanic
+						portrait_culture_group = central_germanic
+						portrait_culture_group = latin
+						portrait_culture_group = iberian
+						portrait_culture_group = celtic
+					}
+				}
+				1 = { # Nordic
+					OR = {
+						portrait_culture_group = north_germanic
+						portrait_culture_group = finno_ugric
+					}					
+				}
+				2 = { # Baltic/Slavic
+					OR = {
+						portrait_culture_group = baltic
+						portrait_culture_group = east_slavic
+						portrait_culture_group = west_slavic
+						portrait_culture_group = south_slavic
+					}
+				}
+				3 = { # Muslim
+					OR = {
+						portrait_culture_group = altaic
+						portrait_culture_group = arabic
+						portrait_culture_group = iranian
+						portrait_culture_group = israelite
+					}
+				}
+				4 = { # Indian
+					OR = {
+						portrait_culture_group = indo_aryan_group
+						portrait_culture_group = dravidian_group	
+					}
+				}
+				5 = { # Central Asian
+					portrait_culture_group = magyar
+				}
+				6 = { # West African
+					portrait_culture_group = west_african
+				}
+				7 = { # East African
+					portrait_culture_group = east_african
+				}
+				8 = { # Byzantine
+					portrait_culture_group = byzantine
+				}
+			}
+			5 = {
+				0 = { # Western
+					OR = {
+						portrait_culture_group = west_germanic
+						portrait_culture_group = central_germanic
+						portrait_culture_group = latin
+						portrait_culture_group = iberian
+						portrait_culture_group = celtic
+					}
+				}
+				1 = { # Nordic
+					OR = {
+						portrait_culture_group = north_germanic
+						portrait_culture_group = finno_ugric
+					}					
+				}
+				2 = { # Baltic/Slavic
+					OR = {
+						portrait_culture_group = baltic
+						portrait_culture_group = east_slavic
+						portrait_culture_group = west_slavic
+						portrait_culture_group = south_slavic
+					}
+				}
+				3 = { # Muslim
+					OR = {
+						portrait_culture_group = altaic
+						portrait_culture_group = arabic
+						portrait_culture_group = iranian
+						portrait_culture_group = israelite
+					}
+				}
+				4 = { # Indian
+					OR = {
+						portrait_culture_group = indo_aryan_group
+						portrait_culture_group = dravidian_group	
+					}
+				}
+				5 = { # Central Asian
+					portrait_culture_group = magyar
+				}
+				6 = { # West African
+					portrait_culture_group = west_african
+				}
+				7 = { # East African
+					portrait_culture_group = east_african
+				}
+				8 = { # Byzantine
+					portrait_culture_group = byzantine
+				}
+			}
+		}
+	}	
+	
+	portraitType = {
+		effectFile = "gfx/FX/portrait.lua"
+
+		name = "PORTRAIT_society_mage_clothing_female"
+		
+		weight = {
+			additive_modifier = {
+				value = 10000
+				portrait_age > child
+				portrait_is_female = yes
+				portrait_clothing = yes
+				has_dlc = "Mystics"
+				OR = {
+				portrait_society = code_of_tremere
+				portrait_society = derech_lilit
+				portrait_society = path_of_lilith
+				portrait_religion = order_of_hermes
+				portrait_religion = solificati
+				}
+				NOT = { portrait_has_trait = blood_form }
+				NOT = { portrait_has_trait = shadow_form }
+				NOT = { portrait_has_trait = mist_form }
+				NOT = { portrait_has_trait = zulo_form }
+				NOT = { portrait_has_trait = beast_form }
+				NOT = { portrait_has_trait = crinos }
+				NOT = { portrait_has_trait = lupus }
+				NOT = { portrait_has_trait = hispo }				
+				# NOT = { portrait_tier = king }
+			}
+		}
+		
+		layer = { 
+			"GFX_society_hermetic_female_clothing_behind:c0"
+			"GFX_society_hermetic_female_clothing_front:c2"
+			"GFX_society_hermetic_female_headgear_behind:c1"
+			"GFX_society_hermetic_female_headgear_front:c5"
+			"GFX_society_hermetic_female_headgear_mid:c3"
+			"GFX_empty:c4"
+		}
+		
+		# Hide hair on 3rd, 4th, and 9th slot ( slavic, muslim, byzantine )
+		allow_property_values = {
+			1 = {
+				0 = {
+					OR = {
+						portrait_culture_group = baltic
+						portrait_culture_group = east_slavic
+						portrait_culture_group = west_slavic
+						portrait_culture_group = south_slavic
+						
+						portrait_culture_group = altaic
+						portrait_culture_group = arabic
+						portrait_culture_group = iranian
+						portrait_culture_group = israelite
+						
+						portrait_culture_group = byzantine
+					}
+				}
+			}
+			3 = {
+				0 = { # Western
+					OR = {
+						portrait_culture_group = west_germanic
+						portrait_culture_group = central_germanic
+						portrait_culture_group = latin
+						portrait_culture_group = iberian
+						portrait_culture_group = celtic
+					}
+				}
+				1 = { # Nordic
+					OR = {
+						portrait_culture_group = north_germanic
+						portrait_culture_group = finno_ugric
+					}					
+				}
+				2 = { # Baltic/Slavic
+					OR = {
+						portrait_culture_group = baltic
+						portrait_culture_group = east_slavic
+						portrait_culture_group = west_slavic
+						portrait_culture_group = south_slavic
+					}
+				}
+				3 = { # Muslim
+					OR = {
+						portrait_culture_group = altaic
+						portrait_culture_group = arabic
+						portrait_culture_group = iranian
+						portrait_culture_group = israelite
+					}
+				}
+				4 = { # Indian
+					OR = {
+						portrait_culture_group = indo_aryan_group
+						portrait_culture_group = dravidian_group	
+					}
+				}
+				5 = { # Central Asian
+					portrait_culture_group = magyar
+				}
+				6 = { # West African
+					portrait_culture_group = west_african
+				}
+				7 = { # East African
+					portrait_culture_group = east_african
+				}
+				8 = { # Byzantine
+					portrait_culture_group = byzantine
+				}
+			}
+			5 = {
+				0 = { # Western
+					OR = {
+						portrait_culture_group = west_germanic
+						portrait_culture_group = central_germanic
+						portrait_culture_group = latin
+						portrait_culture_group = iberian
+						portrait_culture_group = celtic
+					}
+				}
+				1 = { # Nordic
+					OR = {
+						portrait_culture_group = north_germanic
+						portrait_culture_group = finno_ugric
+					}					
+				}
+				2 = { # Baltic/Slavic
+					OR = {
+						portrait_culture_group = baltic
+						portrait_culture_group = east_slavic
+						portrait_culture_group = west_slavic
+						portrait_culture_group = south_slavic
+					}
+				}
+				3 = { # Muslim
+					OR = {
+						portrait_culture_group = altaic
+						portrait_culture_group = arabic
+						portrait_culture_group = iranian
+						portrait_culture_group = israelite
+					}
+				}
+				4 = { # Indian
+					OR = {
+						portrait_culture_group = indo_aryan_group
+						portrait_culture_group = dravidian_group	
+					}
+				}
+				5 = { # Central Asian
+					portrait_culture_group = magyar
+				}
+				6 = { # West African
+					portrait_culture_group = west_african
+				}
+				7 = { # East African
+					portrait_culture_group = east_african
+				}
+				8 = { # Byzantine
+					portrait_culture_group = byzantine
+				}
+			}
+		}
+	}	
+	
+	
+	# the_assamites
+    
+    spriteType = {
+        name = "GFX_society_assamite_clothing_behind"
+        textureFile = "gfx/characters/societies/mom_assamite_clothing_behind.dds"
+        noOfFrames = 4
+    }
+    
+    spriteType = {
+        name = "GFX_society_assamite_clothing_front"
+        textureFile = "gfx/characters/societies/mom_assamite_clothing_front.dds"
+        noOfFrames = 4
+    }
+    
+    spriteType = {
+        name = "GFX_society_assamite_headgear_front"
+        textureFile = "gfx/characters/societies/mom_assamite_headgear_front.dds"
+        noOfFrames = 4
+    }
+
+    spriteType = {
+        name = "GFX_society_assamite_headgear_behind"
+        textureFile = "gfx/characters/societies/mom_assamite_headgear_behind.dds"
+        noOfFrames = 4
+    }
+    
+    portraitType = {
+		effectFile = "gfx/FX/portrait.lua"
+
+        name = "PORTRAIT_society_assamite_clothing"
+        
+        weight = {
+            additive_modifier = {
+                value = 10000
+                portrait_age > child			
+				OR = {
+				portrait_society = via_sanguinus
+				portrait_society = path_of_blood
+				portrait_has_trait = assamiteantitribu
+				portrait_religion = ksirafai
+				}
+				portrait_clothing = yes
+				has_dlc = "Mystics"
+				NOT = { portrait_has_trait = blood_form }
+				NOT = { portrait_has_trait = shadow_form }
+				NOT = { portrait_has_trait = mist_form }
+				NOT = { portrait_has_trait = zulo_form }
+				NOT = { portrait_has_trait = beast_form }
+				NOT = { portrait_has_trait = crinos }
+				NOT = { portrait_has_trait = lupus }
+				NOT = { portrait_has_trait = hispo }					
+            }
+        }
+        
+        layer = { 
+            "GFX_society_assamite_clothing_behind:c0"
+            "GFX_society_assamite_clothing_front:c2"
+            "GFX_empty:c3"
+            "GFX_society_assamite_headgear_front:c5"
+            "GFX_society_assamite_headgear_behind:c1"
+            "GFX_empty:c4"
+        }
+        
+		# Hide hair
+		allow_property_values = {
+			1 = {
+				0 = {
+					always = yes
+				}
+			}
+		}
+    }
+	
+### INFERNALISTS ###	
+	
+	portraitType = {
+		effectFile = "gfx/FX/portrait.lua"
+
+		name = "PORTRAIT_society_infernalist_clothing_male"
+		
+		weight = {
+			additive_modifier = {
+				value = 10000
+				portrait_age > child
+				portrait_is_female = no
+				portrait_clothing = yes
+				has_dlc = "Mystics"
+				NOT = { portrait_has_trait = blood_form }
+				NOT = { portrait_has_trait = shadow_form }
+				NOT = { portrait_has_trait = mist_form }
+				NOT = { portrait_has_trait = zulo_form }
+				NOT = { portrait_has_trait = beast_form }
+				NOT = { portrait_has_trait = crinos }
+				NOT = { portrait_has_trait = lupus }
+				NOT = { portrait_has_trait = hispo }					
+				OR = {
+					portrait_society = via_hyron
+					portrait_society = via_peccati
+					portrait_society = via_noctis
+					portrait_society = path_of_the_hive
+					portrait_society = path_of_night
+					portrait_society = path_of_death_and_the_soul
+					portrait_society = path_of_evil_revelations
+					portrait_religion = nif_ur_en_daah 
+					portrait_religion = chakravanti		
+					portrait_religion = nephandi
+				}
+			}
+		}
+		
+		layer = { 
+			"GFX_society_satanist_male_clothing_behind:c0"
+			"GFX_society_satanist_male_clothing_front:c2"
+			"GFX_society_satanist_male_headgear_mid:c3"
+			"GFX_society_satanist_male_headgear_front:c5"
+			"GFX_society_satanist_male_headgear_behind:c1"
+			"GFX_empty:c4"
+		}
+		
+		# Correct rank
+		allow_property_values = {
+			3 = {
+				0 = {
+					portrait_society_rank = 1
+				}
+				1 = {
+					portrait_society_rank = 2
+				}
+				2 = {
+					portrait_society_rank = 3
+				}
+				3 = {
+					portrait_society_rank = 4
+				}
+			}
+			5 = {
+				0 = {
+					portrait_society_rank = 1
+				}
+				1 = {
+					portrait_society_rank = 2
+				}
+				2 = {
+					portrait_society_rank = 3
+				}
+				3 = {
+					portrait_society_rank = 4
+				}
+			}
+		}
+	}
+
+	portraitType = {
+		effectFile = "gfx/FX/portrait.lua"
+
+		name = "PORTRAIT_society_infernalist_clothing_female"
+		
+		weight = {
+			additive_modifier = {
+				value = 10000
+				portrait_age > child
+				portrait_is_female = yes
+				portrait_clothing = yes
+				has_dlc = "Mystics"
+				OR = {
+					portrait_society = via_hyron
+					portrait_society = via_peccati
+					portrait_society = via_noctis
+					portrait_society = path_of_the_hive
+					portrait_society = path_of_night
+					portrait_society = path_of_death_and_the_soul
+					portrait_society = path_of_evil_revelations
+					portrait_religion = nif_ur_en_daah 
+					portrait_religion = chakravanti
+					portrait_religion = nephandi
+				}
+				NOT = { portrait_has_trait = blood_form }
+				NOT = { portrait_has_trait = shadow_form }
+				NOT = { portrait_has_trait = mist_form }
+				NOT = { portrait_has_trait = zulo_form }
+				NOT = { portrait_has_trait = beast_form }
+				NOT = { portrait_has_trait = crinos }
+				NOT = { portrait_has_trait = lupus }
+				NOT = { portrait_has_trait = hispo }					
+			}
+		}
+		
+		layer = { 
+			"GFX_society_satanist_female_clothing_behind:c0"
+			"GFX_society_satanist_female_clothing_front:c2"
+			"GFX_empty:c3"
+			"GFX_society_satanist_female_headgear_front:c5"
+			"GFX_society_satanist_female_headgear_behind:c1"
+			"GFX_empty:c4"
+		}
+		
+		# No hair, correct rank
+		allow_property_values = {
+			1 = {
+				0 = {
+					always = yes
+				}
+			}
+			3 = {
+				0 = {
+					portrait_society_rank = 1
+				}
+				1 = {
+					portrait_society_rank = 2
+				}
+				2 = {
+					portrait_society_rank = 3
+				}
+				2 = {
+					portrait_society_rank = 4
+				}
+			}
+			5 = {
+				0 = {
+					portrait_society_rank = 1
+				}
+				1 = {
+					portrait_society_rank = 2
+				}
+				2 = {
+					portrait_society_rank = 3
+				}
+				2 = {
+					portrait_society_rank = 4
+				}
+			}
+		}
+	}
+	
+	
+### tariq_el-shaitan	
+	
+    spriteType = {
+        name = "GFX_society_shaitan_clothing_behind"
+        textureFile = "gfx/characters/societies/mom_shaitan_clothing_behind.dds"
+        noOfFrames = 4
+    }
+    
+    spriteType = {
+        name = "GFX_society_shaitan_clothing_front"
+        textureFile = "gfx/characters/societies/mom_shaitan_clothing_front.dds"
+        noOfFrames = 4
+    }
+    
+    spriteType = {
+        name = "GFX_society_shaitan_headgear_front"
+        textureFile = "gfx/characters/societies/mom_shaitan_headgear_front.dds"
+        noOfFrames = 4
+    }
+
+    spriteType = {
+        name = "GFX_society_shaitan_headgear_behind"
+        textureFile = "gfx/characters/societies/mom_shaitan_headgear_behind.dds"
+        noOfFrames = 4
+    }
+    
+    portraitType = {
+		effectFile = "gfx/FX/portrait.lua"
+
+        name = "PORTRAIT_society_shaitan_clothing"
+        
+        weight = {
+            additive_modifier = {
+                value = 10000
+                portrait_age > child			
+				OR = {
+				portrait_society = tariq_el-shaitan
+				portrait_religion = ixoi
+				}
+				portrait_clothing = yes
+				has_dlc = "Mystics"
+				NOT = { portrait_has_trait = blood_form }
+				NOT = { portrait_has_trait = shadow_form }
+				NOT = { portrait_has_trait = mist_form }
+				NOT = { portrait_has_trait = zulo_form }
+				NOT = { portrait_has_trait = beast_form }
+				NOT = { portrait_has_trait = crinos }
+				NOT = { portrait_has_trait = lupus }
+				NOT = { portrait_has_trait = hispo }					
+            }
+        }
+        
+        layer = { 
+            "GFX_society_shaitan_clothing_behind:c0"
+            "GFX_society_shaitan_clothing_front:c2"
+            "GFX_empty:c3"
+            "GFX_society_shaitan_headgear_front:c5"
+            "GFX_society_shaitan_headgear_behind:c1"
+            "GFX_empty:c4"
+        }
+        
+		# Hide hair
+		allow_property_values = {
+			1 = {
+				0 = {
+					always = yes
+				}
+			}
+		}
+    }	
+	
+	
+### Giovanni ###
+
+	portraitType = {
+		effectFile = "gfx/FX/portrait.lua"
+
+		name = "PORTRAIT_society_giovanni_clothing_male"
+		
+		weight = {
+			additive_modifier = {
+				value = 10000
+				portrait_age > child
+				portrait_is_female = no
+				portrait_clothing = yes
+				NOT = { portrait_has_trait = blood_form }
+				NOT = { portrait_has_trait = shadow_form }
+				NOT = { portrait_has_trait = mist_form }
+				NOT = { portrait_has_trait = zulo_form }
+				NOT = { portrait_has_trait = beast_form }
+				NOT = { portrait_has_trait = crinos }
+				NOT = { portrait_has_trait = lupus }
+				NOT = { portrait_has_trait = hispo }					
+				OR = {
+				portrait_has_trait = giovanni
+				portrait_society = via_ossium
+				portrait_society = path_of_bones
+				portrait_religion = brotherhood_of_the_rule 
+				portrait_religion = syndicate
+				portrait_religion = high_guild
+				portrait_religion = invisible_exchequers
+				}
+				portrait_culture_group = latin
+				has_dlc = "The Republic"	
+				# NOT = { portrait_tier = king }
+			}
+		}
+		
+		layer = {
+			"GFX_merchant_male_clothes_behind:c0"
+			"GFX_merchant_male_clothes:c2"
+			"GFX_merchant_male_headgear_behind:c1"			
+			"GFX_merchant_male_headgear:c5"
+		}
+		
+		allow_property_values = {
+		}
+	}
+	
+	portraitType = {
+		effectFile = "gfx/FX/portrait.lua"
+
+		name = "PORTRAIT_society_giovanni_clothing_female"
+		
+		weight = {
+			additive_modifier = {
+				value = 10000
+				portrait_age > child
+				portrait_is_female = yes
+				portrait_clothing = yes
+				NOT = { portrait_has_trait = blood_form }
+				NOT = { portrait_has_trait = shadow_form }
+				NOT = { portrait_has_trait = mist_form }
+				NOT = { portrait_has_trait = zulo_form }
+				NOT = { portrait_has_trait = beast_form }
+				NOT = { portrait_has_trait = crinos }
+				NOT = { portrait_has_trait = lupus }
+				NOT = { portrait_has_trait = hispo }	
+				OR = {
+				portrait_has_trait = giovanni
+				portrait_society = via_ossium
+				portrait_society = path_of_bones
+				portrait_religion = brotherhood_of_the_rule 
+				portrait_religion = syndicate
+				portrait_religion = high_guild
+				portrait_religion = invisible_exchequers
+				}
+				portrait_culture_group = latin
+				has_dlc = "The Republic"				
+				# NOT = { portrait_tier = king }
+			}
+		}
+		
+		layer = { 
+			"GFX_merchant_female_clothes_behind:c0"
+			"GFX_merchant_female_clothes:c2"
+			"GFX_merchant_female_headgear_behind:c1"
+			"GFX_merchant_female_headgear:c5"
+		}
+		
+		allow_property_values = {
+		}
+	}	
+	
+
+### Setite ###
+
+    spriteType = {
+        name = "GFX_society_setite_male_clothing_behind"
+        textureFile = "gfx/characters/societies/setite_male_clothing_behind.dds"
+        noOfFrames = 12
+    }
+    
+    spriteType = {
+        name = "GFX_society_setite_male_clothing_front"
+        textureFile = "gfx/characters/societies/setite_male_clothes.dds"
+        noOfFrames = 12
+    }
+    
+    spriteType = {
+        name = "GFX_society_setite_male_headgear_front"
+        textureFile = "gfx/characters/societies/setite_male_headgear.dds"
+        noOfFrames = 12
+    }
+
+    spriteType = {
+        name = "GFX_society_setite_male_headgear_behind"
+        textureFile = "gfx/characters/societies/setite_male_headgear_behind.dds"
+        noOfFrames = 12
+    }
+
+	portraitType = {
+		effectFile = "gfx/FX/portrait.lua"
+
+		name = "PORTRAIT_society_setite_clothing_male"
+		
+		weight = {
+			additive_modifier = {
+				value = 10000
+				portrait_age > child
+				portrait_is_female = no
+				portrait_clothing = yes
+				NOT = { portrait_has_trait = blood_form }
+				NOT = { portrait_has_trait = shadow_form }
+				NOT = { portrait_has_trait = mist_form }
+				NOT = { portrait_has_trait = zulo_form }
+				NOT = { portrait_has_trait = beast_form }
+				NOT = { portrait_has_trait = crinos }
+				NOT = { portrait_has_trait = lupus }
+				NOT = { portrait_has_trait = hispo }				
+				OR = {
+				portrait_has_trait = followerofset
+				portrait_society = via_serpentis
+				portrait_society = path_of_typhon
+				portrait_religion = setite
+				portrait_religion = revenant_setite
+				}
+				# NOT = { portrait_tier = king }
+			}
+		}
+		
+		layer = {
+			"GFX_society_setite_male_clothing_behind:c0"
+			"GFX_society_setite_male_clothing_front:c2"
+			"GFX_society_setite_male_headgear_behind:c1"			
+			"GFX_society_setite_male_headgear_front:c5"
+		}
+		
+		allow_property_values = {
+		}
+	}
+
+    spriteType = {
+        name = "GFX_society_setite_female_clothing_behind"
+        textureFile = "gfx/characters/societies/setite_female_clothing_behind.dds"
+        noOfFrames = 12
+    }
+    
+    spriteType = {
+        name = "GFX_society_setite_female_clothing_front"
+        textureFile = "gfx/characters/societies/setite_female_clothes.dds"
+        noOfFrames = 12
+    }
+    
+    spriteType = {
+        name = "GFX_society_setite_female_headgear_front"
+        textureFile = "gfx/characters/societies/setite_female_headgear.dds"
+        noOfFrames = 12
+    }
+
+    spriteType = {
+        name = "GFX_society_setite_female_headgear_behind"
+        textureFile = "gfx/characters/societies/setite_female_headgear_behind.dds"
+        noOfFrames = 12
+    }
+
+
+	spriteType = {
+		name = "GFX_society_setite_female_hair_behind"
+		texturefile = "gfx/characters/societies/setite_female_hair_behind_1.dds"
+		noOfFrames = 11
+		norefcount = yes
+		can_be_lowres = yes
+	}
+	
+	spriteType = {
+		name = "GGFX_society_setite_female_hair"
+		texturefile = "gfx/characters/societies/setite_female_hair_1.dds"
+		noOfFrames = 11
+		norefcount = yes
+		can_be_lowres = yes
+	}	
+	
+	portraitType = {
+		effectFile = "gfx/FX/portrait.lua"
+
+		name = "PORTRAIT_society_setite_clothing_female"
+		
+		weight = {
+			additive_modifier = {
+				value = 10000
+				portrait_age > child
+				portrait_is_female = yes
+				portrait_clothing = yes
+				NOT = { portrait_has_trait = blood_form }
+				NOT = { portrait_has_trait = shadow_form }
+				NOT = { portrait_has_trait = mist_form }
+				NOT = { portrait_has_trait = zulo_form }
+				NOT = { portrait_has_trait = beast_form }
+				NOT = { portrait_has_trait = crinos }
+				NOT = { portrait_has_trait = lupus }
+				NOT = { portrait_has_trait = hispo }
+				OR = {
+				portrait_has_trait = followerofset
+				portrait_society = via_serpentis
+				portrait_society = path_of_typhon
+				portrait_religion = setite
+				portrait_religion = revenant_setite
+				}		
+				# NOT = { portrait_tier = king }
+			}
+		}
+		
+		layer = { 
+			"GFX_society_setite_female_clothing_behind:c0"
+			"GFX_society_setite_female_clothing_front:c2"
+			"GFX_society_setite_female_headgear_behind:c1"
+			"GFX_society_setite_female_hair_behind:p1:y"
+			"GFX_society_setite_female_hair:p1:y"  
+			"GFX_society_setite_female_headgear_front:c5"
+		}
+		
+		allow_property_values = {
+		}
+	}	
+
+
+
+ portraitType = {
+		effectFile = "gfx/FX/portrait.lua"
+        name = "PORTRAIT_society_assassin_clothing"
+        
+        weight = {
+            additive_modifier = {
+                value = 10000
+                portrait_age > child
+                portrait_society = the_assassins
+				portrait_clothing = yes
+				portrait_religion = ksirafai
+            }
+        }
+        
+        layer = { 
+            "GFX_society_assassin_clothing_behind:c0"
+            "GFX_society_assassin_clothing_front:c2"
+            "GFX_empty:c3"
+            "GFX_society_assassin_headgear_front:c5"
+            "GFX_society_assassin_headgear_behind:c1"
+			"GFX_empty:c6"
+			"GFX_empty:c7"
+            "GFX_empty:c4"
+        }
+        
+		# Hide hair
+		allow_property_values = {
+			1 = {
+				0 = {
+					always = yes
+				}
+			}
+		}
+    }
+	
+}

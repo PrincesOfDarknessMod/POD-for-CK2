@@ -1,0 +1,45 @@
+
+targetted_decisions = {
+
+	awaken_torpor_dynast_decision = {
+		filter = dynasty
+		ai = no
+		from_potential = {
+			trait = vampire
+			NOT = { trait = vampgeneration15 }
+			NOT = { trait = vampgeneration14 }
+			NOT = { trait = vampgeneration13 }
+		}
+		potential = {}
+		
+		
+		allow = {
+			age = 16		
+			dynasty = FROM # we should test if the filter makes this redundant or not
+			trait = vampire
+			trait = torpor
+			NOT = { trait = vampgeneration3 }
+			NOT = { trait = vampgeneration2 }
+			NOT = { trait = vampgeneration1 }
+			FROM = { prestige = 500 }
+		}
+				
+		effect = {
+			random = {
+				chance = 75
+				remove_trait = torpor
+				remove_trait = in_hiding
+				add_character_modifier = {
+                     name = awoken_from_torpor
+                     duration = 390
+                }
+			}
+
+			FROM = {	
+				prestige = -500
+                POD_vampire_blood_thirst_increase_effect = yes
+			}
+		}
+	}
+}
+	

@@ -1,0 +1,390 @@
+# Setup random new noble characters as supernaturals or mortals
+
+namespace = setup_noble
+character_event = {
+	id = setup_noble.1
+	hide_window = yes
+	is_triggered_only = yes
+	
+	only_rulers = yes
+	
+	trigger = {
+		is_landed = yes
+		NOT = { has_character_flag = FLAG_POD_SETUP_NOBLE_FIRED }
+		OR = {
+			has_global_flag = bookmark1142	
+			has_global_flag = bookmark1250	
+			has_global_flag = bookmark1533
+		}
+		capital_scope = {  
+			OR = { 
+				has_province_flag = POD_WOD_province_supe_religion
+				religion_group = longinus_group
+				religion_group = abrahamic_vampire_group
+				religion_group = pagan_vampire_group
+				religion_group = forsworn_vampire_group
+				religion_group = camarilla_group
+				religion_group = dharmic_vampire_group
+				religion_group = pure_group
+				religion_group = forsaken_group
+				religion_group = bale_hounds_group		
+				religion_group = hunter_group
+				religion_group = pyramid_group
+				religion_group = diamond_group
+				religion_group = scelesti_group
+				religion_group = timori_group
+				religion_group = pharmakons_group
+				religion_group = apostates_group
+				religion = orphan
+			}
+		}		
+		NOT = { trait = mortal }
+		NOT = { trait = vampire }
+		NOT = { trait = werewolf }
+		NOT = { trait = mage }
+		NOT = { trait = mummy }
+		NOT = { trait = changeling }
+		NOT = { trait = promethean }
+		NOT = { trait = geist }
+		NOT = { trait = demon }
+		NOT = { trait = fledgling }
+		NOT = { trait = revenant }
+		NOT = { trait = supe_hunter }
+		NOT = { trait = POD_vampire_RD_immortal_fix }
+		NOT = { trait = storyteller }	
+
+	}
+	
+		
+	immediate = {
+		set_character_flag = FLAG_POD_SETUP_NOBLE_FIRED
+	
+	if = { limit = {
+				 NOT = { trait = POD_vampire_RD_immortal_fix }
+				 }	
+		capital_scope = {	
+			reverse_religion = ROOT
+			reverse_culture = ROOT
+		}	
+		
+# setup Indian caste
+		if = {
+			limit = {
+				ROOT = {
+					primary_title = { holding_type = temple	}
+				}
+				OR = { 		
+					culture = bengali
+					culture = oriya
+					culture = assamese
+					culture = hindustani
+					culture = gujurati
+					culture = panjabi
+					culture = rajput
+					culture = sindhi
+					culture = marathi
+					culture = sinhala
+					culture = tamil
+					culture = telugu
+					culture = kannada 
+				}
+			}
+			add_trait = brahmin
+		}	
+		if = { 
+			limit = { 
+				OR = {
+
+
+					ROOT = { primary_title = { holding_type = castle } } 
+					mercenary = yes
+					holy_order = yes
+					is_patrician = yes 
+				}
+				OR = { 
+					culture = bengali
+					culture = oriya
+					culture = assamese
+					culture = hindustani
+					culture = gujurati
+					culture = panjabi
+					culture = rajput
+					culture = sindhi
+					culture = marathi
+					culture = sinhala
+					culture = tamil
+					culture = telugu
+					culture = kannada 
+				}												 
+			}
+			add_trait = kshatriya
+		}	
+		if = {
+			limit = {
+				OR = {
+					ROOT = { primary_title = { holding_type = city } }
+					is_patrician = yes																		
+				}
+				OR = { 	
+					culture = bengali
+					culture = oriya
+					culture = assamese
+					culture = hindustani
+					culture = gujurati
+					culture = panjabi
+					culture = rajput
+					culture = sindhi
+					culture = marathi
+					culture = sinhala
+					culture = tamil
+					culture = telugu
+					culture = kannada 
+				}												 
+			}											
+			add_trait = vaishya
+		}
+
+		if = {
+			limit = {
+				is_adult = yes
+				NOR = { trait = vampire }
+				NOT = { religion = revenant_longinus }
+				NOT = { religion = revenant_abrahamic }
+				NOT = { religion = revenant_unaligned }
+				NOT = { religion = revenant-dharma }
+				NOT = { religion = revenant_duolosi }
+				NOT = { trait = storyteller }				
+				OR = { 
+					religion_group = longinus_group
+					religion_group = abrahamic_vampire_group
+					religion_group = pagan_vampire_group
+					religion_group = forsworn_vampire_group
+					religion_group = camarilla_group
+					religion_group = dharmic_vampire_group
+				}
+			}	
+			add_trait = vampire
+			set_government_type = unaligned_government
+			character_event = { id = vampire_noble.1 }	
+		}
+		
+		if = {
+			limit = {
+				is_adult = yes
+				OR = {
+					religion_group = pure_group
+					religion_group = forsaken_group
+					religion_group = bale_hounds_group
+				}
+				OR = {
+					has_global_flag = bookmark232
+					has_global_flag = bookmark412
+					has_global_flag = bookmark480
+					has_global_flag = bookmark543
+					has_global_flag = bookmark947
+					has_global_flag = bookmark1142	
+					has_global_flag = bookmark1250	
+				}						
+				OR = {		
+					is_landed = yes
+					mercenary = yes
+					holy_order = yes
+					is_patrician = yes
+					num_of_duke_titles = 1
+				}	
+			}
+
+			# make werewolf ruler
+			add_trait = werewolf
+			set_government_type = pure_government
+			character_event = { id = werewolf_noble.1 }		
+		}	
+		if = {
+			limit = {
+				OR = {	
+					is_landed = yes
+					mercenary = yes
+					holy_order = yes
+					is_patrician = yes
+					num_of_duke_titles = 1
+				}
+				is_adult = yes
+				OR = {
+					religion_group = pyramid_group
+					religion_group = diamond_group
+					religion_group = scelesti_group
+					religion_group = timori_group
+					religion_group = pharmakons_group
+					religion_group = apostates_group
+				}
+			}
+			add_trait = mage
+			character_event = { id = mage_noble.1 }
+		}
+		if = {
+			limit = {
+				OR = {	
+					is_landed = yes
+					mercenary = yes
+					holy_order = yes
+					is_patrician = yes
+					num_of_duke_titles = 1
+				}
+				is_adult = yes
+				religion_group = hunter_group
+			}
+			# make supe hunter ruler
+			add_trait = mortal
+			add_trait = supe_hunter
+			set_government_type = hunter_government
+			character_event = { id = hunter_noble.1 }
+		}
+		if = {
+			limit = {
+				OR = {
+					is_landed = yes
+					mercenary = yes
+					holy_order = yes
+					is_patrician = yes
+					num_of_duke_titles = 1
+				}
+				is_adult = yes
+				religion_group = changeling_group
+			}
+			add_trait = changeling
+			set_government_type = unaligned_government
+			character_event = { id = changeling_noble.1 }
+		}		
+		if = {
+			limit = {
+				OR = {	
+					is_landed = yes
+					mercenary = yes
+					holy_order = yes
+					is_patrician = yes
+					num_of_duke_titles = 1
+				}
+				is_adult = yes
+				religion_group = promethean_group
+			}
+			# make promethean ruler
+			add_trait = promethean
+			
+			character_event = { id = promethean_noble.1 }
+		}	
+		if = {
+			limit = {
+				OR = {	
+					is_landed = yes
+					mercenary = yes
+					holy_order = yes
+					is_patrician = yes
+					num_of_duke_titles = 1
+				}
+				is_adult = yes
+				religion_group = mummy_group
+			}
+			add_trait = mummy
+			
+			set_government_type = unaligned_government
+			character_event = { id = mummy_noble.1 }
+		}		
+		if = {
+			limit = {
+				OR = {		
+					is_landed = yes
+					mercenary = yes
+					holy_order = yes
+					is_patrician = yes
+					num_of_duke_titles = 1
+				}
+				is_adult = yes
+				religion_group = geist_group
+			}
+			add_trait = geist
+			
+			character_event = { id = geist_noble.1 }
+		}	
+		if = {
+			limit = {
+				OR = {	
+					is_landed = yes
+					mercenary = yes
+					holy_order = yes
+					is_patrician = yes
+					num_of_duke_titles = 1
+				}
+				is_adult = yes
+				religion_group = demon_group
+			}
+			add_trait = demon
+			set_government_type = unaligned_government
+			character_event = { id = demon_noble.1 }
+		}		
+		if = {
+			limit = {
+				OR = {	
+					is_landed = yes
+					mercenary = yes
+					holy_order = yes
+					is_patrician = yes
+					num_of_duke_titles = 1
+				}
+				is_adult = yes
+				OR = { 				
+					religion = revenant_longinus
+					religion = revenant_abrahamic
+					religion = revenant_unaligned
+					religion = revenant_duolosi
+					religion = revenant-dharma
+				}
+			}
+			add_trait = revenant
+			
+			set_government_type = unaligned_government
+			character_event = { id = revenant_noble.1 }
+		}	
+		if = { 
+			limit = {
+				NOR = { 
+					religion_group = longinus_group
+					religion_group = abrahamic_vampire_group
+					religion_group = pagan_vampire_group
+					religion_group = forsworn_vampire_group
+					religion_group = camarilla_group
+					religion_group = dharmic_vampire_group
+					religion_group = pure_group
+					religion_group = forsaken_group
+					religion_group = bale_hounds_group
+					religion_group = mage_group			
+					religion_group = hunter_group
+					religion_group = promethean_group
+					religion_group = changeling_group
+					religion_group = mummy_group
+					religion_group = geist_group
+					religion_group = demon_group
+					religion_group = innocent_group		
+					religion_group = pyramid_group
+					religion_group = diamond_group
+					religion_group = scelesti_group
+					religion_group = timori_group
+					religion_group = pharmakons_group
+					religion_group = apostates_group	
+				}
+			}	
+			religion = innocent
+		}	
+		if = {
+			limit = {
+				is_landed = yes
+				is_adult = yes
+				religion_group = innocent_group
+			}
+			add_trait = mortal
+			set_government_type = unaligned_government
+			character_event = { id = mortal_noble.1 }
+		}	
+
+	}
+	}
+}	

@@ -1,0 +1,608 @@
+namespace = CWOD_mage_noble
+character_event = {
+	id = CWOD_mage_noble.1
+	hide_window = yes	
+	is_triggered_only = yes
+
+	immediate = {
+		if = {
+			limit = {
+				age = 16
+				trait = mage
+
+				OR = {
+					has_global_flag = bookmark767
+					has_global_flag = bookmark1215
+					has_global_flag = bookmark1230
+					has_global_flag = bookmark1350
+					has_global_flag = bookmark1355
+					has_global_flag = bookmark1466
+					has_global_flag = bookmark1505
+					has_global_flag = bookmark1506
+				}					
+			}	
+# make mage ruler
+# Mage Faction
+
+			POD_CWOD_mage_tradition_init_effect = yes
+
+# Mage Government
+			if = { 
+				limit = { religion_group = magical_traditions_group }
+				set_government_type = magicka_government
+			}
+			if = {
+				limit = { religion_group = order_of_reason_group }
+				set_government_type = reason_government
+			}
+			if = { 
+				limit = { religion_group = daedalan_group }
+				set_government_type = daedalan_government
+			}
+		}
+# Mage Sphere Affinity
+		if = { 
+			limit = {	
+				trait = mage
+				NOT = { trait = sphere_affinity_correspondence }
+				NOT = { trait = sphere_affinity_entropy }
+				NOT = { trait = sphere_affinity_forces }
+				NOT = { trait = sphere_affinity_life }
+				NOT = { trait = sphere_affinity_matter}
+				NOT = { trait = sphere_affinity_mind }
+				NOT = { trait = sphere_affinity_prime }
+				NOT = { trait = sphere_affinity_spirit }
+				NOT = { trait = sphere_affinity_time }
+				OR = {	
+					has_global_flag = bookmark767
+					has_global_flag = bookmark1215
+					has_global_flag = bookmark1230
+					has_global_flag = bookmark1350
+					has_global_flag = bookmark1355
+					has_global_flag = bookmark1466
+					has_global_flag = bookmark1505
+					has_global_flag = bookmark1506
+				}											
+			}		
+			random_list = {
+				11 = { add_trait = sphere_affinity_correspondence }
+				11 = { add_trait = sphere_affinity_entropy }
+				11 = { add_trait = sphere_affinity_forces }
+				11 = { add_trait = sphere_affinity_life }
+				11 = { add_trait = sphere_affinity_matter}
+				11 = { add_trait = sphere_affinity_mind }
+				12 = { add_trait = sphere_affinity_prime }
+				11 = { add_trait = sphere_affinity_spirit }
+				11 = { add_trait = sphere_affinity_time }
+			}
+		}
+# Mage Sphere Assignment
+		if = {
+			limit = {
+				trait = mage
+				trait = sphere_affinity_correspondence 
+			}
+			add_trait = sphere_correspondence_3
+			random_list = {
+				34 = { add_trait = sphere_prime_1 }
+				33 = { add_trait = sphere_mind_1 }
+				33 = { add_trait = sphere_spirit_1 }
+			}
+			random_list = { 
+				50 = { add_trait = sphere_life_1 }
+				50 = { add_trait = sphere_entropy_1 }
+			}
+			random_list = {
+				50 = { add_trait = sphere_time_1 }
+				50 = { add_trait = sphere_forces_1 }
+			}								
+		}
+		if = { 
+			limit = { 
+				trait = mage
+				trait = sphere_affinity_entropy 
+			}
+			add_trait = sphere_entropy_3
+			random_list = {
+				34 = { add_trait = sphere_prime_1 }
+				33 = { add_trait = sphere_mind_1 }
+				33 = { add_trait = sphere_spirit_1 }
+			}
+			random_list = { 
+				50 = { add_trait = sphere_correspondence_1 }
+				50 = { add_trait = sphere_matter_1 }
+			}
+			random_list = {
+				50 = { add_trait = sphere_time_1 }
+				50 = { add_trait = sphere_forces_1 }
+			}								
+		}	
+		if = {
+			limit = { 
+				trait = mage
+				trait = sphere_affinity_forces 
+			}
+			add_trait = sphere_forces_3
+			random_list = {
+				34 = { add_trait = sphere_prime_1 }
+				33 = { add_trait = sphere_mind_1 }
+				33 = { add_trait = sphere_spirit_1 }
+			}
+			random_list = { 
+				50 = { add_trait = sphere_correspondence_1 }
+				50 = { add_trait = sphere_matter_1 }
+			}
+			random_list = {
+				50 = { add_trait = sphere_entropy_1 }
+				50 = { add_trait = sphere_life_1 }
+			}								
+		}	
+		if = { 
+			limit = { 
+				trait = mage
+				trait = sphere_affinity_time 
+			}
+			add_trait = sphere_time_3
+			random_list = {
+				34 = { add_trait = sphere_prime_1 }
+				33 = { add_trait = sphere_mind_1 }
+				33 = { add_trait = sphere_spirit_1 }
+			}
+			random_list = { 
+				50 = { add_trait = sphere_correspondence_1 }
+				50 = { add_trait = sphere_matter_1 }
+			}
+			random_list = {
+				50 = { add_trait = sphere_entropy_1 }
+				50 = { add_trait = sphere_life_1 }
+			}								
+		}	
+		if = { 
+			limit = { 
+				trait = mage
+				trait = sphere_affinity_life 
+			}
+			add_trait = sphere_life_3
+			random_list = {
+				34 = { add_trait = sphere_prime_1 }
+				33 = { add_trait = sphere_mind_1 }
+				33 = { add_trait = sphere_spirit_1 }
+			}
+			random_list = { 
+				50 = { add_trait = sphere_correspondence_1 }
+				50 = { add_trait = sphere_matter_1 }
+			}
+			random_list = {
+				50 = { add_trait = sphere_time_1 }
+				50 = { add_trait = sphere_forces_1 }
+			}								
+		}	
+		if = { 
+			limit = {
+				trait = mage
+				trait = sphere_affinity_matter 
+			}
+			add_trait = sphere_matter_3
+			random_list = {
+				34 = { add_trait = sphere_prime_1 }
+				33 = { add_trait = sphere_mind_1 }
+				33 = { add_trait = sphere_spirit_1 }
+			}
+			random_list = { 
+				50 = { add_trait = sphere_life_1 }
+				50 = { add_trait = sphere_entropy_1 }
+			}
+			random_list = {
+				50 = { add_trait = sphere_time_1 }
+				50 = { add_trait = sphere_forces_1 }
+			}								
+		}
+		if = { 
+			limit = { 
+				trait = mage
+				trait = sphere_affinity_prime 
+			}
+			add_trait = sphere_prime_3
+			random_list = { 
+				50 = { add_trait = sphere_life_1 }
+				50 = { add_trait = sphere_entropy_1 }
+			}
+			random_list = {
+				50 = { add_trait = sphere_time_1 }
+				50 = { add_trait = sphere_forces_1 }
+			}	
+			random_list = { 
+				50 = { add_trait = sphere_correspondence_1 }
+				50 = { add_trait = sphere_matter_1 }
+			}											
+		}	
+		if = {
+			limit = { 
+				trait = mage
+				trait = sphere_affinity_spirit 
+			}
+			add_trait = sphere_spirit_3
+			random_list = { 
+				50 = { add_trait = sphere_life_1 }
+				50 = { add_trait = sphere_entropy_1 }
+			}
+			random_list = {
+				50 = { add_trait = sphere_time_1 }
+				50 = { add_trait = sphere_forces_1 }
+			}	
+			random_list = { 
+				50 = { add_trait = sphere_correspondence_1 }
+				50 = { add_trait = sphere_matter_1 }
+			}											
+		}		
+		if = { 
+			limit = {
+				trait = mage
+				trait = sphere_affinity_mind 
+			}
+			add_trait = sphere_mind_3
+			random_list = { 
+				50 = { add_trait = sphere_life_1 }
+				50 = { add_trait = sphere_entropy_1 }
+			}
+			random_list = {
+				50 = { add_trait = sphere_time_1 }
+				50 = { add_trait = sphere_forces_1 }
+			}	
+			random_list = { 
+				50 = { add_trait = sphere_correspondence_1 }
+				50 = { add_trait = sphere_matter_1 }
+			}											
+		}
+		
+# Mage Dynasties	
+
+# Order of Hermes
+		if = 
+		{
+			limit = 
+			{
+				OR = 
+				{
+					culture_group = central_germanic
+					culture_group = west_germanic
+					culture_group = north_germanic
+					culture_group = celtic
+					culture_group = baltic
+					culture_group = altaic
+					culture_group = west_slavic
+				}
+				religion = order_of_hermes
+			}
+			
+			random_list = 
+			{
+				10 = { dynasty = 7600001 }
+				20 = { dynasty = 7600002 }
+				10 = { dynasty = 7600003 }
+				10 = { dynasty = 7600007 }
+				10 = { dynasty = 7600009 }
+				20 = { dynasty = 7600010 }
+				10 = { dynasty = 7600004 }
+				10 = 
+				{
+					dynasty = 7600002
+					if = 
+						{ 
+							limit = 
+							{
+								has_global_flag = bookmark767 
+							}
+							dynasty = 4750005
+						}
+				}
+			}
+		}
+		
+		if = 
+		{
+			limit = 
+			{
+				OR = 
+				{
+				culture_group = latin
+				culture_group = iberian
+				culture_group = byzantine
+				culture_group = east_slavic
+				culture_group = south_slavic
+				}
+				
+				religion = order_of_hermes
+			}
+			
+			random_list = 
+			{
+				25 = { dynasty = 7600006 }
+				25 = { dynasty = 7600008 }
+				25 = { dynasty = 7600011 }
+				25 = { dynasty = 7600005 }
+			}
+		}	
+
+		if = 
+		{
+			limit =
+			{
+				OR = 
+				{
+				culture_group = magyar
+				culture = avar
+				}
+				religion = order_of_hermes
+			}
+			
+			dynasty = 4750005
+			
+			if = 
+				{ 
+					limit = 
+					{
+						NOT = { has_global_flag = bookmark767 }
+					}
+					dynasty = 7600002
+				}
+		}
+		
+# Giovanni Necromancers
+
+			if = 
+			{ 
+				limit = 
+				{ 
+					has_global_flag = bookmark767
+					OR = 
+					{
+						religion = hierochthonoi
+					}
+					OR = 
+					{
+						culture = italian 
+						culture = lombard
+					}
+				}
+				
+				random_list = 
+				{
+					20 = { dynasty = 2500000 }
+					20 = { dynasty = 2500001 } 
+					20 = { dynasty = 2500002 } 
+					20 = { dynasty = 2500008 }
+					10 = { dynasty = 2500009 }
+					10 = { dynasty = 7600020 }
+				}	
+
+			if = 
+			{
+				limit = { culture = pictish }
+				dynasty = 2500003
+			}	
+			if = 
+			{ 
+				limit = { culture = dutch }
+				dynasty = 2500004
+			}
+			if = 
+			{
+				limit = { culture = visigothic }
+				dynasty = 2500005
+			}
+			if = 
+			{ 
+				limit = { culture = suebi }
+				dynasty = 2500006
+			}
+			if = 
+			{
+				limit = { culture = occitan }
+				dynasty = 2500007
+			}
+			if = 
+			{
+				limit = { culture_group = central_germanic }
+				dynasty = 2500010
+			}	
+			if = 
+			{
+				limit = 
+				{ 
+					culture_group = west_germanic
+					NOT = { culture = dutch }
+				}
+				random_list = 
+					{
+						50 = { dynasty = 2500011 }
+						50 = { dynasty = 7600019 }
+					}			
+				
+			}
+		}
+
+		
+# Irish Euthanatoi
+
+		if = 
+		{
+			limit = 
+			{
+				culture_group = celtic
+				religion = the_aided
+			}
+			
+			random_list =
+			{
+				35 = { dynasty = 7600016 }
+				35 = { dynasty = 7600017 }
+				30 = { dynasty = 7600018 }
+			}
+		}
+		
+# Greek Euthanatoi		
+		if = 
+		{
+			limit =
+			{
+				culture_group = byzantine
+				religion = hierochthonoi
+			}
+			random_list = 
+			{
+				20 = { dynasty = 7600021 }
+				20 = { dynasty = 7600022 }
+				20 = { dynasty = 7600023 }
+				20 = { dynasty = 7600024 }
+				20 = { dynasty = 7600025 }				
+			}
+		}
+		
+# Indian/Tibetan Chakravanti
+		if = 
+		{
+			limit =
+			{
+				religion = chakravanti
+				OR =
+				{
+					culture_group = indo_aryan_group
+					culture_group = dravidian_group
+					culture_group = tibetan_group
+					culture_group = chinese_group
+				}
+			}
+			random_list =
+			{
+				15 = { dynasty = 7600026 }
+				15 = { dynasty = 7600027 }
+				14 = { dynasty = 7600028 }
+				14 = { dynasty = 7600029 }
+				14 = { dynasty = 7600030 }
+				14 = { dynasty = 7600031 }
+				14 = { dynasty = 7600032 }
+			}
+		}
+		
+# Kha'vadi
+
+	if = 
+	{
+		limit = 
+		{
+			culture_group = west_african 
+			religion = spirit-talkers
+		}
+		dynasty = 7600034
+	}
+
+	if = 
+	{
+		limit = 
+		{
+			culture_group = east_african 
+			religion = spirit-talkers
+		}
+		dynasty = 7600033
+	}	
+	
+	if = 
+	{
+		limit =
+		{
+			culture_group = egyptian_arabic
+			religion = spirit-talkers	
+		}
+		dynasty = 7600036
+	}
+	
+	if = 
+	{
+		limit =
+		{
+			OR = 
+			{
+				culture = bedouin_arabic
+				culture = maghreb_arabic
+			}
+			religion = spirit-talkers	
+		}
+		dynasty = 7600035
+	}
+		
+	
+# Arabic Messianic Voices
+
+	if = 
+	{
+		limit = 
+		{
+			culture_group = arabic 
+			religion = messianic_voices
+		}
+		random_list =
+		{
+			50 = { dynasty = 7600037 }
+			50 = { dynasty = 7600038 }
+		}
+	}
+
+# taftani
+
+	if =
+	{
+		limit =
+		{
+			religion = taftani
+		}
+		random_list = 
+		{
+			12 = { dynasty = 7600044 }
+			12 = { dynasty = 7600045 }
+			12 = { dynasty = 7600046 }
+			12 = { dynasty = 7600047 }
+			12 = { dynasty = 7600048 }			
+			12 = { dynasty = 7600049 }		
+		}
+	}
+	
+	
+# Indian/Tibetan/Chinese akashayana
+		if = 
+		{
+			limit =
+			{
+				religion = akashayana
+				OR =
+				{
+					culture_group = indo_aryan_group
+					culture_group = dravidian_group
+					culture_group = tibetan_group
+					culture_group = chinese_group
+				}
+			}
+			random_list =
+			{
+				25 = { dynasty = 7600039 }
+				25 = { dynasty = 7600040 }
+				25 = { dynasty = 7600041 }
+				25 = { dynasty = 7600042 }
+			}
+		}
+
+		if = 
+		{
+			limit =
+			{
+				religion = akashayana
+				culture_group = iranian
+			}
+			dynasty = 7600043
+			
+		}
+		
+		POD_CWOD_mage_societies_init_effect = yes
+		POD_CWOD_mage_societies_grand_master_init_effect = yes
+	}
+}

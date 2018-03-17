@@ -1,0 +1,2026 @@
+namespace = vampire_embrace
+character_event = {
+	id = vampire_embrace.1
+	hide_window = yes
+	only_rulers = yes
+	trigger = {
+		is_vampire_trigger = yes
+		age = 25
+		ai = yes
+		NOT = { num_of_children = 6 }
+		NOT = { trait = bloodpotency_1 }
+		has_blood_thirst = no
+
+		OR = {		
+			is_landed = yes
+			mercenary = yes
+			rebel = yes
+			holy_order = yes
+			is_patrician = yes
+			num_of_duke_titles = 1
+		}			
+	}	
+	
+	mean_time_to_happen = {
+		years = 25
+			
+		modifier = {
+			factor = 2
+		}
+
+		modifier = {
+			#SLOWITDOWN
+			factor = 8
+		}
+		
+		modifier = {
+			factor = 0.1
+			trait = canon
+		}
+		
+		modifier = {
+			factor = 0.2
+			trait = lustful 
+		}
+
+		modifier = {
+			factor = 5
+			trait = neonate 
+		}
+		 
+		 modifier = {
+			factor = 3
+			trait = ancilla 
+		}
+		
+		modifier = {
+			factor = 0.5
+			trait = elder 
+		}
+		
+		modifier = {
+			factor = 0.2
+			trait = ancient
+		}		
+		
+		modifier = {
+			factor = 0.1
+			trait = methuselah
+		}	
+		
+		modifier = {
+			factor = 0.1
+			num_of_children = 0 
+		}
+		
+		modifier = {
+			factor = 0.5
+			num_of_children = 1 
+		}
+		modifier = {
+			factor = 2
+			num_of_children = 2 
+		}	
+		modifier = {
+			factor = 8
+			num_of_children = 3
+		}	
+		modifier = {
+			factor = 9
+			num_of_children = 4
+		}
+
+		modifier = {
+			factor = 10
+			num_of_children = 5 
+		}	
+		
+		modifier = {
+			factor = 0.4
+			num_of_baron_titles = 1 
+			}
+			
+		modifier = {
+			factor = 0.2
+			trait = proud 
+			}
+			
+		modifier = {
+			factor = 2
+			religion = lancea_sanctum 
+			}		
+			
+		modifier = {
+			factor = 2
+			trait = content 
+			}
+			
+		modifier = {
+			factor = 0.2
+			trait = ambitious 
+			}
+			
+		modifier = {
+			factor = 2
+			trait = nosferatu 
+			}
+			
+		modifier = {
+			factor = 0.2
+			trait = envious 
+			}
+		
+		modifier = {
+			factor = 0.2
+			trait = lunatic 
+			}
+		
+		modifier = {
+			factor = 0.2
+			trait = arbitrary 
+			}
+			
+		modifier = {
+			factor = 2
+			trait = kinslayer 
+			}
+		
+		modifier = {
+			factor = 2
+			trait = humble 
+			}
+		
+		modifier = {
+			factor = 2
+			trait = patient 
+			}
+		
+		modifier = {
+			factor = 0.5
+			 independent = yes 
+			}
+		
+		modifier = {
+			factor = 0.4
+			 num_of_count_titles = 1 
+			}		
+		modifier = {
+			factor = 0.3
+			num_of_duke_titles = 1 
+			}
+			
+		modifier = {
+			factor = 0.2
+			num_of_king_titles = 1	
+					}		
+			
+		modifier = {
+			factor = 0.1
+			num_of_emperor_titles = 1 
+					}
+			
+		modifier = {
+			factor = 0.5
+			wealth = 300 	
+		  }			
+		modifier = {
+			factor = 0
+			has_character_modifier = dire_blood_thirst
+				}
+		modifier = {
+			factor = 0
+			has_character_modifier = dreadful_blood_thirst
+				}				
+      }	
+
+	immediate = { 
+		if = {
+			limit = { is_female = no }			
+			random_list = {	
+				50 = {
+					create_character = {
+						random_traits = yes
+						trait = vampire
+						female = no
+						dynasty = ROOT
+						culture = ROOT
+						religion = ROOT
+					}
+					new_character = {
+						set_father = ROOT
+						add_trait = fledgling
+						if = { limit = { trait = slow } 
+							remove_trait = slow
+						}
+						if = { limit = { trait = imbecile } 
+							remove_trait = imbecile
+						}						
+						if = { limit = { trait = inbred } 
+							remove_trait = inbred
+						}								
+						
+						recalc_succession = yes
+						character_event = { id = vampire_embrace.2
+											days = 1
+											random = 5
+						}						
+					}
+				}
+				50 = {
+					create_character = {
+						random_traits = yes
+						trait = vampire
+						female = yes
+						dynasty = ROOT
+						culture = ROOT
+						religion = ROOT
+					}
+					new_character = {
+						set_father = ROOT
+						add_trait = fledgling
+						if = { limit = { trait = slow } 
+							remove_trait = slow
+						}
+						if = { limit = { trait = imbecile } 
+							remove_trait = imbecile
+						}						
+						if = { limit = { trait = inbred } 
+							remove_trait = inbred
+						}							
+						recalc_succession = yes
+						character_event = { id = vampire_embrace.2
+											days = 1
+											random = 5
+						}						
+					}
+				}
+			}	
+		}
+		if = {
+			limit = { is_female = yes }			
+			random_list = {	
+				50 = {
+					create_character = {
+						random_traits = yes
+						trait = vampire
+						female = no
+						dynasty = ROOT
+						culture = ROOT
+						religion = ROOT
+					}
+					new_character = {
+						set_mother = ROOT
+						add_trait = fledgling
+						if = { limit = { trait = slow } 
+							remove_trait = slow
+						}
+						if = { limit = { trait = imbecile } 
+							remove_trait = imbecile
+						}						
+						if = { limit = { trait = inbred } 
+							remove_trait = inbred
+						}							
+						recalc_succession = yes
+						character_event = { id = vampire_embrace.2
+											days = 1
+											random = 5
+						}						
+					}
+				}
+				50 = {
+					create_character = {
+						random_traits = yes
+						trait = vampire													
+						female = yes
+						dynasty = ROOT
+						culture = ROOT
+						religion = ROOT	
+					}
+					new_character = {
+						set_mother = ROOT
+						add_trait = fledgling
+						if = { limit = { trait = slow } 
+							remove_trait = slow
+						}
+						if = { limit = { trait = imbecile } 
+							remove_trait = imbecile
+						}						
+						if = { limit = { trait = inbred } 
+							remove_trait = inbred
+						}							
+						recalc_succession = yes
+						
+						character_event = { id = vampire_embrace.2
+											days = 1
+											random = 5
+						}
+					}
+				}
+			}	
+		}				
+		set_character_flag = FLAG_POD_RECENT_VAMPIRE_CHILDE	
+		#POD_vampire_blood_thirst_increase_effect = yes
+	}
+}
+	
+character_event = {
+	id = vampire_embrace.2
+	hide_window = yes
+	is_triggered_only = yes
+	 
+	trigger = {
+		trait = fledgling
+	}
+
+	immediate = {
+		set_character_flag = FLAG_POD_EMBRACE_EVENT_FIRED
+		remove_trait = mortal
+		remove_trait = fledgling
+		if = { 
+			limit = { trait = ghoul } 
+			remove_trait = ghoul 
+			remove_trait = vigor_1
+		}	
+		if = { 
+			limit = { trait = revenant } 
+			remove_trait = revenant
+		}		
+		add_trait = vampire
+		add_trait = wyrm_taint
+		add_trait = neonate
+		add_trait = bloodpotency_1
+
+		if = { 
+			limit = { father = { is_vampire_trigger = yes } }
+			father = {
+				reverse_religion = ROOT
+				set_character_flag = FLAG_POD_RECENT_VAMPIRE_CHILDE
+			}
+
+			if = { 
+				limit = { father = { trait = kshatriya } }
+				add_trait = kshatriya
+			}
+			if = { 
+				limit = { father = { trait = brahmin } }
+				add_trait = brahmin
+			}	
+			if = { 
+				limit = { father = { trait = vaishya } }
+				add_trait = vaishya
+			}	
+			if = {
+				limit = {
+					OR = {
+						has_global_flag = bookmark767
+						has_global_flag = bookmark1215
+						has_global_flag = bookmark1230
+						has_global_flag = bookmark1350
+						has_global_flag = bookmark1355
+						has_global_flag = bookmark1466
+						has_global_flag = bookmark1505
+						has_global_flag = bookmark1506
+					}
+				}
+				if = { 
+					limit = { father = { trait = vampgeneration3 } }
+					add_trait = vampgeneration4
+				}
+				if = { 
+					limit = { father = { trait = vampgeneration4 } }
+					add_trait = vampgeneration5
+				}
+				if = { 
+					limit = { father = { trait = vampgeneration5 } }
+					add_trait = vampgeneration6
+				}
+				if = { 
+					limit = { father = { trait = vampgeneration6 } }
+					add_trait = vampgeneration7
+				}	
+				if = { 
+					limit = { father = { trait = vampgeneration7 } }
+					add_trait = vampgeneration8
+				}	
+				if = { 
+					limit = { father = { trait = vampgeneration8 } }
+					add_trait = vampgeneration9
+				}	
+				if = { 
+					limit = { father = { trait = vampgeneration9 } }
+					add_trait = vampgeneration10
+				}	
+				if = { 
+					limit = { father = { trait = vampgeneration10 } }
+					add_trait = vampgeneration11
+				}	
+				if = { 
+					limit = { father = { trait = vampgeneration11 } }
+					add_trait = vampgeneration12
+				}	
+				if = { 
+					limit = { father = { trait = vampgeneration12 } }
+					add_trait = vampgeneration13
+				}	
+				if = { 
+					limit = { father = { trait = vampgeneration13 } }
+					add_trait = vampgeneration14
+				}	
+				if = { 
+					limit = { father = { trait = vampgeneration14 } }
+					add_trait = vampgeneration15
+				}		
+			}														
+			if = { 
+				limit = { father = { trait = daeva } }
+				add_trait = daeva 										
+			}
+			if = { 
+				limit = { father= { trait = gangrel } }
+				add_trait = gangrel
+			}	
+			if = { 
+				limit = { father= { trait = gangrelantitribu } }
+				add_trait = gangrelantitribu
+			}																
+			if = { 
+				limit = { father= { trait = mekhet } }
+				add_trait = mekhet 
+			}
+			if = { 
+				limit = { father= { trait = nosferatu} }
+				remove_trait = fair
+				add_trait = nosferatu 
+				set_graphical_culture = nosferatu
+			}
+			if = { 
+				limit = { father= { trait = nosferatuantitribu } }
+				remove_trait = fair
+				add_trait = nosferatuantitribu 
+				set_graphical_culture = nosferatu
+			}		
+			if = { 
+				limit = { father= { trait = ventrue } }
+				add_trait = ventrue 
+			}			
+			if = { 
+				limit = { father= { trait = ventrueantitribu } }
+				add_trait = ventrueantitribu 
+			}		
+			if = { 
+				limit = { father= { trait = petrovnavich } }
+				add_trait = petrovnavich 
+				add_trait = vii															
+				random_list = {
+					70 = { 
+						add_trait = auspex_1
+						add_trait = vigor_1
+						add_trait = dominate_1
+						}
+					10 = {
+						add_trait = auspex_3
+						}
+					10 = {
+						add_trait = vigor_3
+						}
+					10 = {
+						add_trait = dominate_3
+						}
+				}														
+			}
+			if = { 
+				limit = { father= { trait = alexander } }
+				add_trait = alexander 
+				add_trait = vii
+				random_list = {
+					70 = { 
+						add_trait = nightmare_1
+						add_trait = protean_1
+						add_trait = vigor_1
+						}
+					10 = {
+						add_trait = nightmare_3
+						}
+					10 = {
+						add_trait = protean_3
+						}
+					10 = {
+						add_trait = vigor_3
+						}
+				}															
+			}
+			if = { 
+				limit = { father= { trait = grigorovich } }
+				add_trait = grigorovich
+				add_trait = vii															
+				random_list = {
+					70 = { 
+						add_trait = celerity_1
+						add_trait = obfuscate_1
+						add_trait = protean_1
+						}
+					10 = {
+						add_trait = celerity_3
+						}
+					10 = {
+						add_trait = obfuscate_3
+						}
+					10 = {
+						add_trait = protean_3
+						}
+				}															
+			}
+			if = {
+				limit = { father= { trait = irinavici } }
+				add_trait = irinavici 
+				add_trait = vii															
+				random_list = {
+					70 = { 
+						add_trait = auspex_1
+						add_trait = majesty_1
+						add_trait = nightmare_1
+						}
+					10 = {
+						add_trait = auspex_3
+						}
+					10 = {
+						add_trait = majesty_3
+						}
+					10 = {
+						add_trait = nightmare_3
+						}
+				}															
+			}
+			if = { 
+				limit = { father= { trait = semeonovic } }
+				add_trait = semeonovic 
+				add_trait = vii															
+				random_list = {
+					70 = { 
+						add_trait = auspex_1
+						add_trait = majesty_1
+						add_trait = resilience_1
+						}
+					10 = {
+						add_trait = auspex_3
+						}
+					10 = {
+						add_trait = majesty_3
+						}
+					10 = {
+						add_trait = resilience_3
+						}
+				}															
+			}
+			if = { 
+				limit = { father= { trait = marisovich } }
+				add_trait = marisovich 
+				add_trait = vii															
+				random_list = {
+					70 = { 
+						add_trait = auspex_1
+						add_trait = dominate_1
+						add_trait = obfuscate_1
+						}
+					10 = {
+						add_trait = auspex_3
+						}
+					10 = {
+						add_trait = dominate_3
+						}
+					10 = {
+						add_trait = obfuscate_3
+						}
+				}															
+			}
+			if = {
+				limit = { father= { trait = dubrov } }
+				add_trait = dubrov
+				add_trait = vii															
+				random_list = {
+					70 = { 
+						add_trait = protean_1
+						add_trait = obfuscate_1
+						add_trait = resilience_1
+						}
+					10 = {
+						add_trait = protean_3
+						}
+					10 = {
+						add_trait = obfuscate_3
+						}
+					10 = {
+						add_trait = resilience_3
+						}
+				}															
+			}
+			if = {
+				limit = { father= { trait = julii } }
+				add_trait = julii 
+				random_list = {
+					70 = { 
+						add_trait = animalism_1
+						add_trait = dominate_1
+						add_trait = resilience_1
+						}
+					10 = {
+						add_trait = animalism_3
+						}
+					10 = {
+						add_trait = dominate_3
+						}
+					10 = {
+						add_trait = resilience_3
+						}
+				}															
+			}
+			if = { 
+				limit = { father= { trait = akhud } }
+				add_trait = akhud
+				random_list = {
+					70 = { 
+						add_trait = celerity_1
+						add_trait = protean_1
+						add_trait = obfuscate_1
+						}
+					10 = {
+						add_trait = celerity_3
+						}
+					10 = {
+						add_trait = protean_3
+						}
+					10 = {
+						add_trait = obfuscate_3
+						}
+				}	
+			}
+			if = {
+				limit = { father= { trait = brujah } }
+				add_trait = brujah
+			}
+			if = { 
+				limit = { father= { trait = brujahantitribu } }
+				add_trait = brujahantitribu	
+			}		
+			if = { 
+				limit = { father= { trait = assamite } }
+				add_trait = assamite
+			}	
+			if = { 
+				limit = { father= { trait = assamiteantitribu } }
+				add_trait = assamiteantitribu		
+			}		
+			if = { 
+				limit = { father= { trait = cappadocian } }
+				add_trait = cappadocian
+			}				
+			if = { 
+				limit = { father= { trait = giovanni } }
+				add_trait = giovanni
+			}	
+			if = { 
+				limit = { father= { trait = followerofset } }
+				add_trait = followerofset
+			}	
+			if = {
+				limit = { father= { trait = lasombra } }
+				add_trait = lasombra
+			}	
+			if = { 
+				limit = { father= { trait = lasombraantitribu } }
+				add_trait = lasombra
+			}	
+			if = { 
+				limit = { father= { trait = malkavian } }
+				add_trait = malkavian
+				add_trait = lunatic	
+			}	
+			if = { 
+				limit = { father= { trait = malkavianantitribu } }
+				add_trait = malkavian
+			}	
+			if = { 
+				limit = { father= { trait = ravnos } }
+				add_trait = ravnos
+			}
+			if = { 
+				limit = { father= { trait = ravnosantitribu } }
+				add_trait = ravnosantitribu
+			}		
+			if = {
+				limit = { father= { trait = toreador } }
+				add_trait = toreador	
+			}
+			if = { 
+				limit = { father= { trait = toreadorantitribu } }
+				add_trait = toreadorantitribu
+			}
+			if = {
+				limit = { father= { trait = tremere } }
+				add_trait = tremere
+			}	
+			if = {
+				limit = { father= { trait = salubri } }
+				add_trait = salubri
+			}	
+			if = { 
+				limit = { father= { trait = tzimisce } }
+				add_trait = tzimisce
+			}
+			if = { 
+				limit = { father= { trait = tzimisceantitribu } }
+				add_trait = tzimisceantitribu
+			}
+			if = {
+				limit = { father= { trait = baali } }
+				add_trait = baali	
+			}
+			if = { 
+				limit = { father = { trait = caitiff } }
+				add_trait = caitiff	
+			}	
+			}
+			
+		if = { 
+			limit = { mother = { is_vampire_trigger = yes } }
+			mother = {
+				reverse_religion = ROOT
+				set_character_flag = FLAG_POD_RECENT_VAMPIRE_CHILDE
+			}
+			if = { 
+				limit = { mother = { trait = kshatriya } }
+				add_trait = kshatriya
+			}
+			if = { 
+				limit = { mother = { trait = brahmin } }
+				add_trait = brahmin
+			}	
+			if = { 
+				limit = { mother = { trait = vaishya } }
+				add_trait = vaishya
+			}												
+			if = { 
+				limit = {
+					OR = {
+						has_global_flag = bookmark767
+						has_global_flag = bookmark1215
+						has_global_flag = bookmark1230
+						has_global_flag = bookmark1350
+						has_global_flag = bookmark1355
+						has_global_flag = bookmark1466
+						has_global_flag = bookmark1505
+						has_global_flag = bookmark1506
+					}
+				}
+				if = {
+					limit = { mother = { trait = vampgeneration4 } }
+					add_trait = vampgeneration5
+				}
+				if = {
+					limit = { mother = { trait = vampgeneration5 } }
+					add_trait = vampgeneration6
+				}
+				if = { 
+					limit = { mother = { trait = vampgeneration6 } }
+					add_trait = vampgeneration7
+				}		
+				if = { 
+					limit = { mother = { trait = vampgeneration7 } }
+					add_trait = vampgeneration8
+				}	
+				if = { 
+					limit = { mother = { trait = vampgeneration8 } }
+					add_trait = vampgeneration9
+				}	
+				if = { 
+					limit = { mother = { trait = vampgeneration9 } }
+					add_trait = vampgeneration10
+				}	
+				if = { 
+					limit = { mother = { trait = vampgeneration10 } }
+					add_trait = vampgeneration11
+				}	
+				if = { 
+					limit = { mother = { trait = vampgeneration11 } }
+					add_trait = vampgeneration12
+				}	
+				if = { 
+					limit = { mother = { trait = vampgeneration12 } }
+					add_trait = vampgeneration13
+				}	
+				if = { 
+					limit = { mother = { trait = vampgeneration13 } }
+					add_trait = vampgeneration14
+				}	
+				if = { 
+					limit = { mother = { trait = vampgeneration14 } }
+					add_trait = vampgeneration15
+				}			
+			}
+			if = { 
+				limit = { mother = { trait = daeva } }
+				add_trait = daeva 
+			}
+			if = { 
+				limit = { mother= { trait = gangrel } }
+				add_trait = gangrel
+			}
+			if = { 
+				limit = { mother= { trait = gangrelantitribu } }
+				add_trait = gangrelantitribu
+			}		
+			if = { 
+				limit = { mother= { trait = nosferatuantitribu } }
+				remove_trait = fair
+				add_trait = nosferatuantitribu 
+				set_graphical_culture = nosferatu
+
+			}	
+			if = { 
+				limit = { mother= { trait = ventrueantitribu } }
+				add_trait = ventrueantitribu 
+			}		
+			if = {
+				limit = { mother= { trait = mekhet } }
+				add_trait = mekhet 
+			}
+			if = {
+				limit = { mother= { trait = nosferatu} }
+				remove_trait = fair
+				add_trait = nosferatu 
+				set_graphical_culture = nosferatu
+			}
+			if = {
+				limit = { mother= { trait = ventrue } }
+				add_trait = ventrue 
+			}	
+			
+			if = { 
+				limit = { mother= { trait =  petrovnavich } }
+				add_trait = petrovnavich 
+				add_trait = vii															
+				random_list = {
+					70 = { 
+						add_trait = auspex_1
+						add_trait = vigor_1
+						add_trait = dominate_1
+						}
+					10 = {
+						add_trait = auspex_3
+						}
+					10 = {
+						add_trait = vigor_3
+						}
+					10 = {
+						add_trait = dominate_3
+						}
+				}														
+			}
+			if = { 
+				limit = { mother= { trait = alexander } }
+				add_trait = alexander 
+				add_trait = vii															
+				random_list = {
+					70 = { 
+						add_trait = nightmare_1
+						add_trait = protean_1
+						add_trait = vigor_1
+						}
+					10 = {
+						add_trait = nightmare_3
+						}
+					10 = {
+						add_trait = protean_3
+						}
+					10 = {
+						add_trait = vigor_3
+						}
+				}															
+			}
+			if = { 
+				limit = { mother= { trait = grigorovich } }
+				add_trait = grigorovich
+				add_trait = vii														
+				random_list = {
+					70 = { 
+						add_trait = celerity_1
+						add_trait = obfuscate_1
+						add_trait = protean_1
+						}
+					10 = {
+						add_trait = celerity_3
+						}
+					10 = {
+						add_trait = obfuscate_3
+						}
+					10 = {
+						add_trait = protean_3
+						}
+				}															
+			}
+			if = {
+				limit = { mother= { trait = irinavici } }
+				add_trait = irinavici 
+				add_trait = vii															
+				random_list = {
+					70 = { 
+						add_trait = auspex_1
+						add_trait = majesty_1
+						add_trait = nightmare_1
+						}
+					10 = {
+						add_trait = auspex_3
+						}
+					10 = {
+						add_trait = majesty_3
+						}
+					10 = {
+						add_trait = nightmare_3
+						}
+				}															
+			}
+			if = { 
+				limit = { mother= { trait = semeonovic } }
+				add_trait = semeonovic 
+				add_trait = vii															
+				random_list = {
+					70 = { 
+						add_trait = auspex_1
+						add_trait = majesty_1
+						add_trait = resilience_1
+						}
+					10 = {
+						add_trait = auspex_3
+						}
+					10 = {
+						add_trait = majesty_3
+						}
+					10 = {
+						add_trait = resilience_3
+						}
+				}															
+			}
+			if = { 
+				limit = { mother= { trait = marisovich } }
+				add_trait = marisovich 
+				add_trait = vii															
+				random_list = {
+					70 = { 
+						add_trait = auspex_1
+						add_trait = dominate_1
+						add_trait = obfuscate_1
+						}
+					10 = {
+						add_trait = auspex_3
+						}
+					10 = {
+						add_trait = dominate_3
+						}
+					10 = {
+						add_trait = obfuscate_3
+						}
+				}															
+			}
+			if = { 
+				limit = { mother= { trait = dubrov } }
+				add_trait = dubrov
+				add_trait = vii															
+				random_list = {
+					70 = { 
+						add_trait = protean_1
+						add_trait = obfuscate_1
+						add_trait = resilience_1
+					}
+					10 = {
+						add_trait = protean_3
+						}
+					10 = {
+						add_trait = obfuscate_3
+						}
+					10 = {
+						add_trait = resilience_3
+						}
+				}															
+			}
+			if = {
+				limit = { mother= { trait = julii } }
+				add_trait = julii 
+				random_list = {
+					70 = { 
+						add_trait = animalism_1
+						add_trait = dominate_1
+						add_trait = resilience_1
+						}
+					10 = {
+						add_trait = animalism_3
+						}
+					10 = {
+						add_trait = dominate_3
+						}
+					10 = {
+						add_trait = resilience_3
+						}
+				}															
+			}
+			if = {
+				limit = { mother= { trait = akhud } }
+				add_trait = akhud 
+				random_list = {
+					70 = { 
+						add_trait = celerity_1
+						add_trait = protean_1
+						add_trait = obfuscate_1
+						}
+					10 = {
+						add_trait = celerity_3
+						}
+					10 = {
+						add_trait = protean_3
+						}
+					10 = {
+						add_trait = obfuscate_3
+						}
+				}	
+			}
+			if = { 
+				limit = { mother= { trait = brujah } }
+				add_trait = brujah		
+			}
+			if = { 
+				limit = { mother= { trait = brujahantitribu } }
+				add_trait = brujahantitribu	
+			}		
+			if = { 
+				limit = { mother= { trait = assamite } }
+				add_trait = assamite
+			}	
+			if = { 
+				limit = { mother= { trait = assamiteantitribu } }
+				add_trait = assamiteantitribu	
+			}	
+			if = { 
+				limit = { mother= { trait = cappadocian } }
+				add_trait = cappadocian
+			}		
+			if = { 
+				limit = { mother= { trait = giovanni } }
+				add_trait = giovanni	
+			}	
+			if = { 
+				limit = { mother= { trait = followerofset } }
+				add_trait = followerofset
+			}	
+			if = { 
+				limit = { mother= { trait = lasombra } }
+				add_trait = lasombra
+			}	
+			if = { 
+				limit = { mother= { trait = lasombraantitribu } }
+				add_trait = lasombra
+			}	
+			if = { 
+				limit = { mother= { trait = malkavian } }
+				add_trait = malkavian	
+			}	
+			if = {
+				limit = { mother= { trait = malkavianantitribu } }
+				add_trait = malkavian
+			}			
+			if = { 
+				limit = { mother= { trait = ravnos } }
+				add_trait = ravnos
+			}
+			if = { 
+				limit = { mother= { trait = ravnosantitribu } }
+				add_trait = ravnosantitribu	
+			}	
+			if = { 
+				limit = { mother= { trait = toreador } }
+				add_trait = toreador		
+			}
+			if = { 
+				limit = { mother= { trait = toreadorantitribu } }
+				add_trait = toreadorantitribu
+			}	
+			if = { 
+				limit = { mother= { trait = tremere } }
+				add_trait = tremere
+			}	
+			if = {
+				limit = { mother= { trait = salubri } }
+				add_trait = salubri
+			}	
+			if = { 
+				limit = { mother= { trait = tzimisce } }
+				add_trait = tzimisce
+			}
+			if = { 
+				limit = { mother= { trait = tzimisceantitribu } }
+				add_trait = tzimisceantitribu
+			}
+			if = { 
+				limit = { mother= { trait = baali } }
+				add_trait = baali	
+			}
+			if = {
+				limit = { mother= { trait = caitiff } }
+				add_trait = caitiff
+			}	
+			}
+
+if = {
+		limit = {			
+			OR = {
+			has_global_flag = bookmark1142	
+			has_global_flag = bookmark1250	
+			has_global_flag = bookmark1533
+			}	
+		}
+			POD_vampire_governments_init_effect = yes
+			POD_vampire_disciplines_init_effect = yes	
+	}
+			
+if = {
+		limit = {
+					OR = {
+			has_global_flag = bookmark767
+			has_global_flag = bookmark1215
+			has_global_flag = bookmark1230
+			has_global_flag = bookmark1350
+			has_global_flag = bookmark1355
+			has_global_flag = bookmark1466
+			has_global_flag = bookmark1505
+			has_global_flag = bookmark1506
+						}
+				}
+			POD_CWOD_vampire_governments_init_effect = yes
+			POD_CWOD_vampire_disciplines_init_effect = yes	
+			if = { limit = {
+						religion = einherjar
+						}
+						set_graphical_culture = norse
+						
+						}
+						
+			random_list = {
+						50 = { 	
+								if = { 
+										limit = {
+											OR = { 
+												has_global_flag = bookmark767
+												has_global_flag = bookmark1215
+												has_global_flag = bookmark1230
+												has_global_flag = bookmark1350
+												has_global_flag = bookmark1355
+												has_global_flag = bookmark1466			
+												}	
+												is_in_society = no	
+												}
+											POD_CWOD_vampire_roads_init_effect = yes
+											}
+
+								if = { 
+										limit = {
+											OR = { 
+													has_global_flag = bookmark1505
+													has_global_flag = bookmark1506				
+												}	
+												is_in_society = no	
+												}
+											POD_CWOD_vampire_paths_init_effect = yes
+								}
+							}
+						}			
+			}
+			
+		POD_vampire_blood_thirst_increase_effect = yes	
+
+		#If Vampire was a mage, give relevant powers and clear flags
+		if = { limit = { has_character_flag = FLAG_NWOD_EMBRACE_MAGE_POWERS }
+			clr_character_flag = FLAG_NWOD_EMBRACE_MAGE_POWERS
+			if = { limit = { has_character_flag = FLAG_NWOD_EMBRACE_MAGE_THAUM_1 }
+			add_trait = thaumaturgy_1
+			clr_character_flag = FLAG_NWOD_EMBRACE_MAGE_THAUM_1
+			}
+			if = { limit = { has_character_flag = FLAG_NWOD_EMBRACE_MAGE_THAUM_2 }
+				add_trait = thaumaturgy_2
+				clr_character_flag = FLAG_NWOD_EMBRACE_MAGE_THAUM_2
+			}
+			if = { limit = { has_character_flag = FLAG_NWOD_EMBRACE_MAGE_THAUM_3 }
+				add_trait = thaumaturgy_3
+				clr_character_flag = FLAG_NWOD_EMBRACE_MAGE_THAUM_3
+			}
+			if = { limit = { has_character_flag = FLAG_NWOD_EMBRACE_MAGE_NECRO_1 }
+				add_trait = necromancy_1
+				clr_character_flag = FLAG_NWOD_EMBRACE_MAGE_NECRO_1
+			}
+			if = { limit = { has_character_flag = FLAG_NWOD_EMBRACE_MAGE_NECRO_2 }
+				add_trait = necromancy_2
+				clr_character_flag = FLAG_NWOD_EMBRACE_MAGE_NECRO_2
+			}
+			if = { limit = { has_character_flag = FLAG_NWOD_EMBRACE_MAGE_NECRO_3 }
+				add_trait = necromancy_3
+				clr_character_flag = FLAG_NWOD_EMBRACE_MAGE_NECRO_3
+			}
+		}
+		POD_vampire_blood_thirst_increase_effect = yes
+	}		
+}
+
+#Mage Embrace Event to handle traits and conversion
+character_event = {
+	id = vampire_embrace.3
+	hide_window = yes
+	is_triggered_only = yes
+	 
+	trigger = {
+		trait = fledgling
+	}
+
+	immediate = {
+		#check mage traits and remove them after placing flags for powers
+		#Check Generic Mage Power
+		set_character_flag = FLAG_NWOD_EMBRACE_MAGE_POWERS
+			if = { limit = { combat_rating < 15 }
+				set_character_flag = FLAG_NWOD_EMBRACE_MAGE_THAUM_1
+			}
+			else_if = {
+				limit = { combat_rating < 30 }
+				set_character_flag = FLAG_NWOD_EMBRACE_MAGE_THAUM_2
+			}
+			else = {
+				set_character_flag = FLAG_NWOD_EMBRACE_MAGE_THAUM_3
+			}
+			
+			#Check for Necromancy
+			if = { limit = { trait = sphere_spirit_1 }
+				set_character_flag = FLAG_NWOD_EMBRACE_MAGE_NECRO_1
+			}
+			else_if = {
+				limit = { trait = sphere_spirit_2 }
+				set_character_flag = FLAG_NWOD_EMBRACE_MAGE_NECRO_1
+			}
+			else_if = {
+				limit = { trait = sphere_spirit_3 }
+				set_character_flag = FLAG_NWOD_EMBRACE_MAGE_NECRO_2
+			}
+			else_if = {
+				limit = { trait = sphere_spirit_4 }
+				set_character_flag = FLAG_NWOD_EMBRACE_MAGE_NECRO_2
+			}
+			else_if = {
+				limit = { trait = sphere_spirit_5 }
+				set_character_flag = FLAG_NWOD_EMBRACE_MAGE_NECRO_3
+			}
+			
+			#Check and Remove Mage Traits
+			remove_trait = mage
+			if = { limit = { trait = thyrsus }
+				remove_trait = thyrsus
+			}
+			if = { limit = { trait = obrimos }
+				remove_trait = obrimos
+			}
+			if = { limit = { trait = moros }
+				remove_trait = moros
+			}
+			if = { limit = { trait = mastigos }
+				remove_trait = mastigos
+			}
+			if = { limit = { trait = acanthus }
+				remove_trait = acanthus
+			}
+			if = { limit = { trait = arcanum_spirit_1 }
+				remove_trait = arcanum_spirit_1
+			}
+			if = { limit = { trait = arcanum_spirit_2 }
+				remove_trait = arcanum_spirit_2
+			}
+			if = { limit = { trait = arcanum_spirit_3 }
+				remove_trait = arcanum_spirit_3
+			}
+			if = { limit = { trait = arcanum_spirit_4 }
+				remove_trait = arcanum_spirit_4
+			}
+			if = { limit = { trait = arcanum_spirit_5 }
+				remove_trait = arcanum_spirit_5
+			}
+			if = { limit = { trait = arcanum_death_1 }
+				remove_trait = arcanum_death_1
+			}
+			if = { limit = { trait = arcanum_death_2 }
+				remove_trait = arcanum_death_2
+			}
+			if = { limit = { trait = arcanum_death_3 }
+				remove_trait = arcanum_death_3
+			}
+			if = { limit = { trait = arcanum_death_4 }
+				remove_trait = arcanum_death_4
+			}
+			if = { limit = { trait = arcanum_death_5 }
+				remove_trait = arcanum_death_5
+			}
+			if = { limit = { trait = arcanum_life_1 }
+				remove_trait = arcanum_life_1
+			}
+			if = { limit = { trait = arcanum_life_2 }
+				remove_trait = arcanum_life_2
+			}
+			if = { limit = { trait = arcanum_life_3 }
+				remove_trait = arcanum_life_3
+			}
+			if = { limit = { trait = arcanum_life_4 }
+				remove_trait = arcanum_life_4
+			}
+			if = { limit = { trait = arcanum_life_5 }
+				remove_trait = arcanum_life_5
+			}
+			if = { limit = { trait = arcanum_forces_1 }
+				remove_trait = arcanum_forces_1
+			}
+			if = { limit = { trait = arcanum_forces_2 }
+				remove_trait = arcanum_forces_2
+			}
+			if = { limit = { trait = arcanum_forces_3 }
+				remove_trait = arcanum_forces_3
+			}
+			if = { limit = { trait = arcanum_forces_4 }
+				remove_trait = arcanum_forces_4
+			}
+			if = { limit = { trait = arcanum_forces_5 }
+				remove_trait = arcanum_forces_5
+			}
+			if = { limit = { trait = arcanum_matter_1 }
+				remove_trait = arcanum_matter_1
+			}
+			if = { limit = { trait = arcanum_matter_2 }
+				remove_trait = arcanum_matter_2
+			}
+			if = { limit = { trait = arcanum_matter_3 }
+				remove_trait = arcanum_matter_3
+			}
+			if = { limit = { trait = arcanum_matter_4 }
+				remove_trait = arcanum_matter_4
+			}
+			if = { limit = { trait = arcanum_matter_5 }
+				remove_trait = arcanum_matter_5
+			}
+			if = { limit = { trait = arcanum_mind_1 }
+				remove_trait = arcanum_mind_1
+			}
+			if = { limit = { trait = arcanum_mind_2 }
+				remove_trait = arcanum_mind_2
+			}
+			if = { limit = { trait = arcanum_mind_3 }
+				remove_trait = arcanum_mind_3
+			}
+			if = { limit = { trait = arcanum_mind_4 }
+				remove_trait = arcanum_mind_4
+			}
+			if = { limit = { trait = arcanum_mind_5 }
+				remove_trait = arcanum_mind_5
+			}
+			if = { limit = { trait = arcanum_prime_1 }
+				remove_trait = arcanum_prime_1
+			}
+			if = { limit = { trait = arcanum_prime_2 }
+				remove_trait = arcanum_prime_2
+			}
+			if = { limit = { trait = arcanum_prime_3 }
+				remove_trait = arcanum_prime_3
+			}
+			if = { limit = { trait = arcanum_prime_4 }
+				remove_trait = arcanum_prime_4
+			}
+			if = { limit = { trait = arcanum_prime_5 }
+				remove_trait = arcanum_prime_5
+			}
+			if = { limit = { trait = arcanum_spirit_1 }
+				remove_trait = arcanum_spirit_1
+			}
+			if = { limit = { trait = arcanum_spirit_2 }
+				remove_trait = arcanum_spirit_2
+			}
+			if = { limit = { trait = arcanum_spirit_3 }
+				remove_trait = arcanum_spirit_3
+			}
+			if = { limit = { trait = arcanum_spirit_4 }
+				remove_trait = arcanum_spirit_4
+			}
+			if = { limit = { trait = arcanum_spirit_5 }
+				remove_trait = arcanum_spirit_5
+			}
+			if = { limit = { trait = arcanum_space_1 }
+				remove_trait = arcanum_space_1
+			}
+			if = { limit = { trait = arcanum_space_2 }
+				remove_trait = arcanum_space_2
+			}
+			if = { limit = { trait = arcanum_space_3 }
+				remove_trait = arcanum_space_3
+			}
+			if = { limit = { trait = arcanum_space_4 }
+				remove_trait = arcanum_space_4
+			}
+			if = { limit = { trait = arcanum_space_5 }
+				remove_trait = arcanum_space_5
+			}
+			if = { limit = { trait = arcanum_time_1 }
+				remove_trait = arcanum_time_1
+			}
+			if = { limit = { trait = arcanum_time_2 }
+				remove_trait = arcanum_time_2
+			}
+			if = { limit = { trait = arcanum_time_3 }
+				remove_trait = arcanum_time_3
+			}
+			if = { limit = { trait = arcanum_time_4 }
+				remove_trait = arcanum_time_4
+			}
+			if = { limit = { trait = arcanum_time_5}
+				remove_trait = arcanum_time_5
+			}
+			if = { limit = { trait = sphere_correspondence_1 }
+				remove_trait = sphere_correspondence_1
+			}
+			if = { limit = { trait = sphere_correspondence_2 }
+				remove_trait = sphere_correspondence_2
+			}
+			if = { limit = { trait = sphere_correspondence_3 }
+				remove_trait = sphere_correspondence_3
+			}
+			if = { limit = { trait = sphere_correspondence_4 }
+				remove_trait = sphere_correspondence_4
+			}
+			if = { limit = { trait = sphere_correspondence_5 }
+				remove_trait = sphere_correspondence_5
+			}
+			if = { limit = { trait = sphere_entropy_1 }
+				remove_trait = sphere_entropy_1
+			}
+			if = { limit = { trait = sphere_entropy_2 }
+				remove_trait = sphere_entropy_2
+			}
+			if = { limit = { trait = sphere_entropy_3 }
+				remove_trait = sphere_entropy_3
+			}
+			if = { limit = { trait = sphere_entropy_4 }
+				remove_trait = sphere_entropy_4
+			}
+			if = { limit = { trait = sphere_entropy_5 }
+				remove_trait = sphere_entropy_5
+			}
+			if = { limit = { trait = sphere_life_1 }
+				remove_trait = sphere_life_1
+			}
+			if = { limit = { trait = sphere_life_2 }
+				remove_trait = sphere_life_2
+			}
+			if = { limit = { trait = sphere_life_3 }
+				remove_trait = sphere_life_3
+			}
+			if = { limit = { trait = sphere_life_4 }
+				remove_trait = sphere_life_4
+			}
+			if = { limit = { trait = sphere_life_5 }
+				remove_trait = sphere_life_5
+			}
+			if = { limit = { trait = sphere_forces_1 }
+				remove_trait = sphere_forces_1
+			}
+			if = { limit = { trait = sphere_forces_2 }
+				remove_trait = sphere_forces_2
+			}
+			if = { limit = { trait = sphere_forces_3 }
+				remove_trait = sphere_forces_3
+			}
+			if = { limit = { trait = sphere_forces_4 }
+				remove_trait = sphere_forces_4
+			}
+			if = { limit = { trait = sphere_forces_5 }
+				remove_trait = sphere_forces_5
+			}
+			if = { limit = { trait = sphere_matter_1 }
+				remove_trait = sphere_matter_1
+			}
+			if = { limit = { trait = sphere_matter_2 }
+				remove_trait = sphere_matter_2
+			}
+			if = { limit = { trait = sphere_matter_3 }
+				remove_trait = sphere_matter_3
+			}
+			if = { limit = { trait = sphere_matter_4 }
+				remove_trait = sphere_matter_4
+			}
+			if = { limit = { trait = sphere_matter_5 }
+				remove_trait = sphere_matter_5
+			}
+			if = { limit = { trait = sphere_mind_1 }
+				remove_trait = sphere_mind_1
+			}
+			if = { limit = { trait = sphere_mind_2 }
+				remove_trait = sphere_mind_2
+			}
+			if = { limit = { trait = sphere_mind_3 }
+				remove_trait = sphere_mind_3
+			}
+			if = { limit = { trait = sphere_mind_4 }
+				remove_trait = sphere_mind_4
+			}
+			if = { limit = { trait = sphere_mind_5 }
+				remove_trait = sphere_mind_5
+			}
+			if = { limit = { trait = sphere_prime_1 }
+				remove_trait = sphere_prime_1
+			}
+			if = { limit = { trait = sphere_prime_2 }
+				remove_trait = sphere_prime_2
+			}
+			if = { limit = { trait = sphere_prime_3 }
+				remove_trait = sphere_prime_3
+			}
+			if = { limit = { trait = sphere_prime_4 }
+				remove_trait = sphere_prime_4
+			}
+			if = { limit = { trait = sphere_prime_5 }
+				remove_trait = sphere_prime_5
+			}
+			if = { limit = { trait = sphere_spirit_1 }
+				remove_trait = sphere_spirit_1
+			}
+			if = { limit = { trait = sphere_spirit_2 }
+				remove_trait = sphere_spirit_2
+			}
+			if = { limit = { trait = sphere_spirit_3 }
+				remove_trait = sphere_spirit_3
+			}
+			if = { limit = { trait = sphere_spirit_4 }
+				remove_trait = sphere_spirit_4
+			}
+			if = { limit = { trait = sphere_spirit_5 }
+				remove_trait = sphere_spirit_5
+			}
+			if = { limit = { trait = sphere_time_1 }
+				remove_trait = sphere_time_1
+			}
+			if = { limit = { trait = sphere_time_2 }
+				remove_trait = sphere_time_2
+			}
+			if = { limit = { trait = sphere_time_3 }
+				remove_trait = sphere_time_3
+			}
+			if = { limit = { trait = sphere_time_4 }
+				remove_trait = sphere_time_4
+			}
+			if = { limit = { trait = sphere_time_5 }
+				remove_trait = sphere_time_5
+			}
+			if = { limit = { trait = sphere_affinity_correspondence }
+				remove_trait = sphere_affinity_correspondence
+			}
+			if = { limit = { trait = sphere_affinity_entropy }
+				remove_trait = sphere_affinity_entropy
+			}
+			if = { limit = { trait = sphere_affinity_forces }
+				remove_trait = sphere_affinity_forces
+			}
+			if = { limit = { trait = sphere_affinity_life }
+				remove_trait = sphere_affinity_life
+			}
+			if = { limit = { trait = sphere_affinity_matter }
+				remove_trait = sphere_affinity_matter
+			}
+			if = { limit = { trait = sphere_affinity_mind }
+				remove_trait = sphere_affinity_mind
+			}
+			if = { limit = { trait = sphere_affinity_prime }
+				remove_trait = sphere_affinity_prime
+			}
+			if = { limit = { trait = sphere_affinity_time }
+				remove_trait = sphere_affinity_time
+			}
+			if = { limit = { trait = sphere_affinity_prime }
+				remove_trait = sphere_affinity_prime
+			}
+	}
+}
+
+#Ritual Mage Embrace Event to handle traits and conversion
+character_event = {
+	id = vampire_embrace.4
+	hide_window = yes
+	is_triggered_only = yes
+	 
+	trigger = {
+		trait = fledgling
+	}
+
+	immediate = {
+		#check mage traits and remove them after placing flags for powers
+		#Check Generic Mage Power
+		set_character_flag = FLAG_NWOD_EMBRACE_MAGE_POWERS
+			if = { limit = { combat_rating < 15 }
+				set_character_flag = FLAG_NWOD_EMBRACE_MAGE_THAUM_1
+			}
+			else_if = {
+				limit = { combat_rating < 30 }
+				set_character_flag = FLAG_NWOD_EMBRACE_MAGE_THAUM_2
+			}
+			else = {
+				set_character_flag = FLAG_NWOD_EMBRACE_MAGE_THAUM_3
+			}
+			
+			#Check for Necromancy
+			if = { limit = { trait = sphere_spirit_1 }
+				set_character_flag = FLAG_NWOD_EMBRACE_MAGE_NECRO_1
+			}
+			else_if = {
+				limit = { trait = sphere_spirit_2 }
+				set_character_flag = FLAG_NWOD_EMBRACE_MAGE_NECRO_1
+			}
+			else_if = {
+				limit = { trait = sphere_spirit_3 }
+				set_character_flag = FLAG_NWOD_EMBRACE_MAGE_NECRO_2
+			}
+			else_if = {
+				limit = { trait = sphere_spirit_4 }
+				set_character_flag = FLAG_NWOD_EMBRACE_MAGE_NECRO_2
+			}
+			else_if = {
+				limit = { trait = sphere_spirit_5 }
+				set_character_flag = FLAG_NWOD_EMBRACE_MAGE_NECRO_3
+			}
+			
+			#Check and Remove Mage Traits
+			remove_trait = mage
+			if = { limit = { trait = thyrsus }
+				remove_trait = thyrsus
+			}
+			if = { limit = { trait = obrimos }
+				remove_trait = obrimos
+			}
+			if = { limit = { trait = moros }
+				remove_trait = moros
+			}
+			if = { limit = { trait = mastigos }
+				remove_trait = mastigos
+			}
+			if = { limit = { trait = acanthus }
+				remove_trait = acanthus
+			}
+			if = { limit = { trait = arcanum_spirit_1 }
+				remove_trait = arcanum_spirit_1
+			}
+			if = { limit = { trait = arcanum_spirit_2 }
+				remove_trait = arcanum_spirit_2
+			}
+			if = { limit = { trait = arcanum_spirit_3 }
+				remove_trait = arcanum_spirit_3
+			}
+			if = { limit = { trait = arcanum_spirit_4 }
+				remove_trait = arcanum_spirit_4
+			}
+			if = { limit = { trait = arcanum_spirit_5 }
+				remove_trait = arcanum_spirit_5
+			}
+			if = { limit = { trait = arcanum_death_1 }
+				remove_trait = arcanum_death_1
+			}
+			if = { limit = { trait = arcanum_death_2 }
+				remove_trait = arcanum_death_2
+			}
+			if = { limit = { trait = arcanum_death_3 }
+				remove_trait = arcanum_death_3
+			}
+			if = { limit = { trait = arcanum_death_4 }
+				remove_trait = arcanum_death_4
+			}
+			if = { limit = { trait = arcanum_death_5 }
+				remove_trait = arcanum_death_5
+			}
+			if = { limit = { trait = arcanum_life_1 }
+				remove_trait = arcanum_life_1
+			}
+			if = { limit = { trait = arcanum_life_2 }
+				remove_trait = arcanum_life_2
+			}
+			if = { limit = { trait = arcanum_life_3 }
+				remove_trait = arcanum_life_3
+			}
+			if = { limit = { trait = arcanum_life_4 }
+				remove_trait = arcanum_life_4
+			}
+			if = { limit = { trait = arcanum_life_5 }
+				remove_trait = arcanum_life_5
+			}
+			if = { limit = { trait = arcanum_forces_1 }
+				remove_trait = arcanum_forces_1
+			}
+			if = { limit = { trait = arcanum_forces_2 }
+				remove_trait = arcanum_forces_2
+			}
+			if = { limit = { trait = arcanum_forces_3 }
+				remove_trait = arcanum_forces_3
+			}
+			if = { limit = { trait = arcanum_forces_4 }
+				remove_trait = arcanum_forces_4
+			}
+			if = { limit = { trait = arcanum_forces_5 }
+				remove_trait = arcanum_forces_5
+			}
+			if = { limit = { trait = arcanum_matter_1 }
+				remove_trait = arcanum_matter_1
+			}
+			if = { limit = { trait = arcanum_matter_2 }
+				remove_trait = arcanum_matter_2
+			}
+			if = { limit = { trait = arcanum_matter_3 }
+				remove_trait = arcanum_matter_3
+			}
+			if = { limit = { trait = arcanum_matter_4 }
+				remove_trait = arcanum_matter_4
+			}
+			if = { limit = { trait = arcanum_matter_5 }
+				remove_trait = arcanum_matter_5
+			}
+			if = { limit = { trait = arcanum_mind_1 }
+				remove_trait = arcanum_mind_1
+			}
+			if = { limit = { trait = arcanum_mind_2 }
+				remove_trait = arcanum_mind_2
+			}
+			if = { limit = { trait = arcanum_mind_3 }
+				remove_trait = arcanum_mind_3
+			}
+			if = { limit = { trait = arcanum_mind_4 }
+				remove_trait = arcanum_mind_4
+			}
+			if = { limit = { trait = arcanum_mind_5 }
+				remove_trait = arcanum_mind_5
+			}
+			if = { limit = { trait = arcanum_prime_1 }
+				remove_trait = arcanum_prime_1
+			}
+			if = { limit = { trait = arcanum_prime_2 }
+				remove_trait = arcanum_prime_2
+			}
+			if = { limit = { trait = arcanum_prime_3 }
+				remove_trait = arcanum_prime_3
+			}
+			if = { limit = { trait = arcanum_prime_4 }
+				remove_trait = arcanum_prime_4
+			}
+			if = { limit = { trait = arcanum_prime_5 }
+				remove_trait = arcanum_prime_5
+			}
+			if = { limit = { trait = arcanum_spirit_1 }
+				remove_trait = arcanum_spirit_1
+			}
+			if = { limit = { trait = arcanum_spirit_2 }
+				remove_trait = arcanum_spirit_2
+			}
+			if = { limit = { trait = arcanum_spirit_3 }
+				remove_trait = arcanum_spirit_3
+			}
+			if = { limit = { trait = arcanum_spirit_4 }
+				remove_trait = arcanum_spirit_4
+			}
+			if = { limit = { trait = arcanum_spirit_5 }
+				remove_trait = arcanum_spirit_5
+			}
+			if = { limit = { trait = arcanum_space_1 }
+				remove_trait = arcanum_space_1
+			}
+			if = { limit = { trait = arcanum_space_2 }
+				remove_trait = arcanum_space_2
+			}
+			if = { limit = { trait = arcanum_space_3 }
+				remove_trait = arcanum_space_3
+			}
+			if = { limit = { trait = arcanum_space_4 }
+				remove_trait = arcanum_space_4
+			}
+			if = { limit = { trait = arcanum_space_5 }
+				remove_trait = arcanum_space_5
+			}
+			if = { limit = { trait = arcanum_time_1 }
+				remove_trait = arcanum_time_1
+			}
+			if = { limit = { trait = arcanum_time_2 }
+				remove_trait = arcanum_time_2
+			}
+			if = { limit = { trait = arcanum_time_3 }
+				remove_trait = arcanum_time_3
+			}
+			if = { limit = { trait = arcanum_time_4 }
+				remove_trait = arcanum_time_4
+			}
+			if = { limit = { trait = arcanum_time_5}
+				remove_trait = arcanum_time_5
+			}
+			if = { limit = { trait = sphere_correspondence_1 }
+				remove_trait = sphere_correspondence_1
+				add_trait = majesty_1
+			}
+			if = { limit = { trait = sphere_correspondence_2 }
+				remove_trait = sphere_correspondence_2
+				add_trait = majesty_1
+			}
+			if = { limit = { trait = sphere_correspondence_3 }
+				remove_trait = sphere_correspondence_3
+				add_trait = majesty_2
+			}
+			if = { limit = { trait = sphere_correspondence_4 }
+				remove_trait = sphere_correspondence_4
+				add_trait = majesty_2
+			}
+			if = { limit = { trait = sphere_correspondence_5 }
+				remove_trait = sphere_correspondence_5
+				add_trait = majesty_3
+			}
+			if = { limit = { trait = sphere_entropy_1 }
+				remove_trait = sphere_entropy_1
+				add_trait = mortis_1
+			}
+			if = { limit = { trait = sphere_entropy_2 }
+				remove_trait = sphere_entropy_2
+				add_trait = mortis_1
+			}
+			if = { limit = { trait = sphere_entropy_3 }
+				remove_trait = sphere_entropy_3
+				add_trait = mortis_2
+			}
+			if = { limit = { trait = sphere_entropy_4 }
+				remove_trait = sphere_entropy_4
+				add_trait = mortis_2
+			}
+			if = { limit = { trait = sphere_entropy_5 }
+				remove_trait = sphere_entropy_5
+				add_trait = mortis_3
+			}
+			if = { limit = { trait = sphere_life_1 }
+				remove_trait = sphere_life_1
+				add_trait = resilience_1
+			}
+			if = { limit = { trait = sphere_life_2 }
+				remove_trait = sphere_life_2
+				add_trait = resilience_1
+			}
+			if = { limit = { trait = sphere_life_3 }
+				remove_trait = sphere_life_3
+				add_trait = resilience_2
+			}
+			if = { limit = { trait = sphere_life_4 }
+				remove_trait = sphere_life_4
+				add_trait = resilience_2
+			}
+			if = { limit = { trait = sphere_life_5 }
+				remove_trait = sphere_life_5
+				add_trait = resilience_3
+			}
+			if = { limit = { trait = sphere_forces_1 }
+				remove_trait = sphere_forces_1
+				add_trait = vigor_1
+			}
+			if = { limit = { trait = sphere_forces_2 }
+				remove_trait = sphere_forces_2
+				add_trait = vigor_1
+			}
+			if = { limit = { trait = sphere_forces_3 }
+				remove_trait = sphere_forces_3
+				add_trait = vigor_2
+			}
+			if = { limit = { trait = sphere_forces_4 }
+				remove_trait = sphere_forces_4
+				add_trait = vigor_2
+			}
+			if = { limit = { trait = sphere_forces_5 }
+				remove_trait = sphere_forces_5
+				add_trait = vigor_3
+			}
+			if = { limit = { trait = sphere_matter_1 }
+				remove_trait = sphere_matter_1
+				add_trait = protean_1
+			}
+			if = { limit = { trait = sphere_matter_2 }
+				remove_trait = sphere_matter_2
+				add_trait = protean_1
+			}
+			if = { limit = { trait = sphere_matter_3 }
+				remove_trait = sphere_matter_3
+				add_trait = protean_2
+			}
+			if = { limit = { trait = sphere_matter_4 }
+				remove_trait = sphere_matter_4
+				add_trait = protean_2
+			}
+			if = { limit = { trait = sphere_matter_5 }
+				remove_trait = sphere_matter_5
+				add_trait = protean_3
+			}
+			if = { limit = { trait = sphere_mind_1 }
+				remove_trait = sphere_mind_1
+				add_trait = dominate_1
+			}
+			if = { limit = { trait = sphere_mind_2 }
+				remove_trait = sphere_mind_2
+				add_trait = dominate_1
+			}
+			if = { limit = { trait = sphere_mind_3 }
+				remove_trait = sphere_mind_3
+				add_trait = dominate_2
+			}
+			if = { limit = { trait = sphere_mind_4 }
+				remove_trait = sphere_mind_4
+				add_trait = dominate_2
+			}
+			if = { limit = { trait = sphere_mind_5 }
+				remove_trait = sphere_mind_5
+				add_trait = dominate_3
+			}
+			if = { limit = { trait = sphere_prime_1 }
+				remove_trait = sphere_prime_1
+				add_trait = auspex_1
+			}
+			if = { limit = { trait = sphere_prime_2 }
+				remove_trait = sphere_prime_2
+				add_trait = auspex_1
+			}
+			if = { limit = { trait = sphere_prime_3 }
+				remove_trait = sphere_prime_3
+				add_trait = auspex_2
+			}
+			if = { limit = { trait = sphere_prime_4 }
+				remove_trait = sphere_prime_4
+				add_trait = auspex_2
+			}
+			if = { limit = { trait = sphere_prime_5 }
+				remove_trait = sphere_prime_5
+				add_trait = auspex_3
+			}
+			if = { limit = { trait = sphere_spirit_1 }
+				remove_trait = sphere_spirit_1
+			}
+			if = { limit = { trait = sphere_spirit_2 }
+				remove_trait = sphere_spirit_2
+			}
+			if = { limit = { trait = sphere_spirit_3 }
+				remove_trait = sphere_spirit_3
+			}
+			if = { limit = { trait = sphere_spirit_4 }
+				remove_trait = sphere_spirit_4
+			}
+			if = { limit = { trait = sphere_spirit_5 }
+				remove_trait = sphere_spirit_5
+			}
+			if = { limit = { trait = sphere_time_1 }
+				remove_trait = sphere_time_1
+				add_trait = celerity_1
+			}
+			if = { limit = { trait = sphere_time_2 }
+				remove_trait = sphere_time_2
+				add_trait = celerity_1
+			}
+			if = { limit = { trait = sphere_time_3 }
+				remove_trait = sphere_time_3
+				add_trait = celerity_2
+			}
+			if = { limit = { trait = sphere_time_4 }
+				remove_trait = sphere_time_4
+				add_trait = celerity_2
+			}
+			if = { limit = { trait = sphere_time_5 }
+				remove_trait = sphere_time_5
+				add_trait = celerity_3
+			}
+			if = { limit = { trait = sphere_affinity_correspondence }
+				remove_trait = sphere_affinity_correspondence
+			}
+			if = { limit = { trait = sphere_affinity_entropy }
+				remove_trait = sphere_affinity_entropy
+			}
+			if = { limit = { trait = sphere_affinity_forces }
+				remove_trait = sphere_affinity_forces
+			}
+			if = { limit = { trait = sphere_affinity_life }
+				remove_trait = sphere_affinity_life
+			}
+			if = { limit = { trait = sphere_affinity_matter }
+				remove_trait = sphere_affinity_matter
+			}
+			if = { limit = { trait = sphere_affinity_mind }
+				remove_trait = sphere_affinity_mind
+			}
+			if = { limit = { trait = sphere_affinity_prime }
+				remove_trait = sphere_affinity_prime
+			}
+			if = { limit = { trait = sphere_affinity_time }
+				remove_trait = sphere_affinity_time
+			}
+			if = { limit = { trait = sphere_affinity_prime }
+				remove_trait = sphere_affinity_prime
+			}
+	}
+}
+	
+	

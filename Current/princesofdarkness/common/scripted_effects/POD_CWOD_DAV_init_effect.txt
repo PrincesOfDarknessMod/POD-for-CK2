@@ -1,0 +1,1064 @@
+# 1230 War of Princes 1355 After the Black Death
+POD_CWOD_bookmark_DAV_init_effect = {
+			if = { 
+				limit = { 
+					OR = {
+						has_global_flag = bookmark767
+						has_global_flag = bookmark1215
+						has_global_flag = bookmark1230
+						has_global_flag = bookmark1466
+						has_global_flag = bookmark1350
+						has_global_flag = bookmark1355
+					}
+					NOT = { has_CWOD_clan_trigger = yes }
+					NOT = { true_religion = inconnu }
+				} 
+				if = { 
+					limit = { 
+						OR = {
+							culture = occitan
+							culture = frankish
+							culture = norman
+							culture_group = byzantine
+							culture = ashkenazi
+						}
+					} 	
+					random_list = {
+						5 = { 
+							add_trait = brujah
+							religion = brujah_high
+						}		
+						5 = { 
+							add_trait = brujah
+							religion = brujah_high
+							set_secret_religion = vampire_promethean
+							join_society = secret_religious_cult
+						}	
+						5 = { 
+							add_trait = cappadocian
+							religion = cappadocian_high
+						}												
+						10 = { 
+							add_trait = lasombra
+							religion = lasombra_high
+						}
+						25 = { 
+							add_trait = toreador
+							religion = toreador_high
+						}
+						5 = {
+							add_trait = toreador
+							religion = toreador_high
+							set_secret_religion = vampire_promethean
+							join_society = secret_religious_cult
+						}
+						5 = { 
+							add_trait = tzimisce
+							religion = koldun
+						}	
+						5 = {
+							add_trait = tremere
+							religion = tremerelow
+							if = { 
+								limit = 
+								{
+								has_global_flag = bookmark767
+								}
+								add_trait = gangrel
+								religion = gangrellow
+							}
+						}
+						15 = { 
+							add_trait = ventrue
+							religion = ventrue_high
+						}	
+						1 = { 
+							add_trait = assamite
+							religion = assamite
+						}	
+						1 = { 
+							add_trait = followerofset
+							religion = setite
+						}	
+						5 = { 
+							add_trait = gangrel
+							religion = gangrellow
+						}	
+						5 = { 
+							add_trait = malkavian
+							religion = malkavianlow
+						}	
+						5 = { 
+							add_trait = nosferatu
+							set_graphical_culture = nosferatu
+							religion = nosferatulow
+						}	
+						4 = { 
+							add_trait = ravnos
+							religion = mayaparisataya
+						}	
+					}
+				}	
+				if = { 
+					limit = { 
+						OR = {
+							culture = english
+							culture = saxon
+							culture = dutch
+							culture = german
+							culture = prussian
+						}
+					} 	
+					random_list = {
+						5 = { 
+							add_trait = brujah
+							religion = brujah_high
+						}
+						5 = { 
+							add_trait = brujah
+							religion = brujah_high
+							set_secret_religion = vampire_promethean
+							join_society = secret_religious_cult
+						}
+						5 = { 
+							add_trait = cappadocian
+							religion = cappadocian_high
+						}												
+						10 = { 
+							add_trait = lasombra
+							religion = lasombra_high
+						}
+						10 = { 
+							add_trait = toreador
+							religion = toreador_high
+						}
+						5 = { 
+							add_trait = toreador
+							religion = toreador_high
+							set_secret_religion = vampire_promethean
+							join_society = secret_religious_cult
+						}
+						5 = 
+						{
+							add_trait = tremere
+							religion = tremerelow
+							if =
+							{ 
+								limit = 
+								{
+								has_global_flag = bookmark767
+								}
+								add_trait = gangrel
+								religion = gangrellow
+							}
+						}
+						5 = { 
+							add_trait = tzimisce
+							religion = koldun												
+						}	
+						25 = { 
+							add_trait = ventrue
+							religion = ventrue_high
+						}	
+						5 = {
+							add_trait = ventrue
+							religion = ventrue_high
+							set_secret_religion = vampire_promethean
+							join_society = secret_religious_cult
+						}
+						1 = { 
+							add_trait = assamite
+							religion = assamite
+						}	
+						1 = { 
+							add_trait = followerofset
+							religion = setite
+						}	
+						5 = { 
+							add_trait = gangrel
+							religion = einherjar
+							set_graphical_culture = norse
+						}	
+						5 = { 
+							add_trait = malkavian
+							religion = malkavianlow
+						}	
+						5 = { 
+							add_trait = nosferatu
+							set_graphical_culture = nosferatu
+							religion = nosferatulow
+						}	
+						4 = { 
+							add_trait = ravnos
+							religion = mayaparisataya
+						}	
+					}		
+				}
+			
+			if = { 
+				limit = { 
+					OR = {
+						culture = italian
+						culture_group = iberian														
+					}
+				} 	
+				random_list = {
+					5 = { 
+						add_trait = brujah 
+							religion = brujah_high
+							set_secret_religion = vampire_promethean
+							join_society = secret_religious_cult
+					}
+					5 = {
+						add_trait = brujah 
+						religion = brujah_high
+					}
+					5 = { 
+						add_trait = cappadocian 
+						religion = cappadocian_high
+					}												
+					30 = { 
+						add_trait = lasombra
+						religion = lasombra_high
+					}
+					5 = { 
+						add_trait = lasombra
+							religion = lasombra_high
+							set_secret_religion = vampire_promethean
+							join_society = secret_religious_cult
+					}
+					15 = { 
+						add_trait = toreador
+						religion = toreador_high
+					}
+					5 = { 
+						add_trait = toreador
+							religion = toreador_high
+							set_secret_religion = vampire_promethean
+							join_society = secret_religious_cult
+					}
+					2 = { 
+						add_trait = tzimisce 
+						religion = koldun
+					}	
+					10 = { 
+						add_trait = ventrue
+						religion = ventrue_high
+					}	
+					1 = { 
+						add_trait = assamite
+						religion = assamite
+					}	
+					1 = { 
+						add_trait = followerofset
+						religion = setite
+					}	
+					5 = { 
+						add_trait = gangrel
+						religion = gangrellow
+					}	
+					5 = { 
+						add_trait = malkavian
+						religion = malkavianlow
+					}	
+					5 = { 
+						add_trait = nosferatu
+						set_graphical_culture = nosferatu
+						religion = nosferatulow
+					}	
+					1 = { 
+						add_trait = ravnos
+						religion = mayaparisataya
+					}	
+					1 = { 
+						add_trait = baali
+						religion = baali
+					}
+				}
+			}
+			if = { 
+				limit = { 
+					OR = {	
+						culture_group = east_slavic														
+						culture_group = south_slavic
+						culture = polish
+						culture = lettigallish
+						culture = lithuanian
+					}
+				} 	
+				random_list = {
+					5 = { 
+						add_trait = brujah 
+						religion = brujah_high
+					}
+					5 = { 
+						add_trait = brujah 
+							religion = brujah_high
+							set_secret_religion = vampire_promethean
+							join_society = secret_religious_cult
+					}
+					5 = { 
+						add_trait = cappadocian 
+						religion = cappadocian_high
+					}												
+					5 = { 
+						add_trait = lasombra
+						religion = lasombra_high
+					}
+					5 = { 
+						add_trait = toreador
+						religion = toreador_high
+					}
+					35 = { 
+						add_trait = tzimisce 
+						religion = koldun
+					}													
+					5 = {
+						add_trait = tzimisce 
+							religion = koldun
+							set_secret_religion = vampire_promethean
+							join_society = secret_religious_cult
+					}
+					5 = {
+						add_trait = tremere
+						religion = tremerelow
+						if = 
+						{ 
+							limit = 
+							{
+							has_global_flag = bookmark767
+							}
+							add_trait = gangrel
+							religion = gangrellow
+						}
+					}
+					10 = { 
+						add_trait = ventrue
+						religion = ventrue_high
+					}	
+					1 = { 
+						add_trait = assamite
+						religion = assamite
+					}	
+					1 = { 
+						add_trait = followerofset
+						religion = setite
+					}	
+					5 = { 
+						add_trait = gangrel
+						religion = gangrellow
+					}	
+					5 = { 
+						add_trait = malkavian
+						religion = malkavianlow
+					}	
+					8 = { 
+						add_trait = nosferatu
+						set_graphical_culture = nosferatu
+						religion = nosferatulow
+					}	
+					5 = { 
+						add_trait = ravnos
+						religion = mayaparisataya
+					}	
+					5 = { 
+						add_trait = baali
+						religion = baali
+					}
+				}
+			}
+			if = { 
+				limit = { 
+					OR = {
+						culture = levantine_arabic
+						culture = bedouin_arabic
+						culture = andalusian_arabic
+						culture = sephardi
+					}
+				} 	
+				random_list = {
+					5 = { 
+						add_trait = brujah 
+						religion = ashirra
+					}
+					5 = { 
+						add_trait = brujah 
+							religion = brujah_high
+							set_secret_religion = vampire_promethean
+							join_society = secret_religious_cult
+					}
+					5 = { 
+						add_trait = cappadocian 
+						religion = ashirra
+					}												
+					20 = { 
+						add_trait = lasombra
+						religion = ashirra
+					}
+					5 = { 
+						add_trait = toreador
+						religion = ashirra
+					}
+					1 = { 
+						add_trait = tzimisce 
+						religion = ventrue_high
+					}	
+					5 = { 
+						add_trait = ventrue
+						religion = ashirra
+					}	
+					15 = { 
+						add_trait = assamite
+						religion = assamite
+					}	
+					15 = { 
+						add_trait = followerofset
+						religion = setite
+					}	
+					5 = { 
+						add_trait = gangrel
+						religion = ashirra
+					}	
+					5 = { 
+						add_trait = malkavian
+						religion = ashirra
+					}	
+					5 = { 
+						add_trait = nosferatu
+						set_graphical_culture = nosferatu
+						religion = ashirra
+						
+					}	
+					5 = { 
+						add_trait = ravnos
+						religion = mayaparisataya
+					}	
+					
+					2 = { 
+						add_trait = salubri
+						religion = ashirra
+					}
+					5 = {
+								add_trait = baali
+								religion = ashirra
+								set_secret_religion = baali
+								join_society = secret_religious_cult
+					}
+				}
+			}
+			if = { 
+				limit = { 
+					OR = {
+						culture = maghreb_arabic
+						culture = egyptian_arabic
+					}
+				} 	
+				random_list = {
+					5 = { 
+						add_trait = brujah 
+						religion = ashirra
+					}
+					5 = { 
+						add_trait = brujah 
+							religion = ashirra
+							set_secret_religion = vampire_promethean
+							join_society = secret_religious_cult
+					}
+					5 = { 
+						add_trait = cappadocian 
+						religion = ashirra
+					}												
+					10 = { 
+						add_trait = lasombra
+						religion = ashirra
+					}
+					5 = { 
+						add_trait = toreador
+						religion = ashirra
+					}
+					1 = { 
+						add_trait = tzimisce 
+						religion = ventrue_high
+					}	
+					5 = { 
+						add_trait = ventrue
+						religion = ashirra
+					}	
+					10 = { 
+						add_trait = assamite
+						religion = assamite
+					}	
+					30 = { 
+						add_trait = followerofset
+						religion = setite
+					}	
+					5 = { 
+						add_trait = gangrel
+						religion = ashirra
+					}	
+					5 = { 
+						add_trait = malkavian
+						religion = ashirra
+					}	
+					5 = { 
+						add_trait = nosferatu
+						set_graphical_culture = nosferatu
+						religion = ashirra
+					}	
+					5 = { 
+						add_trait = ravnos
+						religion = mayaparisataya
+					}	
+					2 = { 
+						add_trait = salubri
+						religion = ashirra
+					}
+					5 = {
+								add_trait = baali
+								religion = ashirra
+								set_secret_religion = baali
+								join_society = secret_religious_cult
+					}
+				}
+			}	
+			if = { 
+				limit = { 
+					OR = {
+						culture = turkish
+						culture_group = iranian
+					}
+				} 	
+				random_list = {
+					5 = { 
+						add_trait = brujah 
+						religion = ashirra
+					}
+					5 = { 
+						add_trait = brujah 
+							religion = ashirra
+							set_secret_religion = vampire_promethean
+							join_society = secret_religious_cult
+					}
+					5 = { 
+						add_trait = cappadocian 
+						religion = ashirra
+					}												
+					10 = { 
+						add_trait = lasombra
+						religion = ashirra
+					}
+					5 = { 
+						add_trait = toreador
+						religion = ashirra
+					}
+					1 = { 
+						add_trait = tzimisce 
+						religion = ventrue_high
+					}	
+					5 = { 
+						add_trait = ventrue
+						religion = ashirra
+					}	
+					30 = { 
+						add_trait = assamite
+						religion = assamite
+					}	
+					10 = { 
+						add_trait = followerofset
+						religion = setite
+					}	
+					5 = { 
+						add_trait = gangrel
+						religion = ashirra
+					}	
+					5 = { 
+						add_trait = malkavian
+						religion = ashirra
+					}	
+					5 = { 
+						add_trait = nosferatu
+						set_graphical_culture = nosferatu
+						religion = ashirra
+					}	
+					5 = { 
+						add_trait = ravnos
+						religion = mayaparisataya
+					}	
+
+					2 = { 
+						add_trait = salubri
+						religion = ashirra
+					}
+					5 = {
+								add_trait = baali
+								religion = ashirra
+								set_secret_religion = baali
+								join_society = secret_religious_cult
+					}
+				}
+			}	
+			if = { 
+				limit = { 
+					OR = {
+						culture = bengali
+						culture = oriya
+						culture = assamese
+						culture = hindustani
+						culture = gujurati
+						culture = panjabi
+						culture = rajput
+						culture = sindhi
+						culture = marathi
+						culture = sinhala
+						culture = tamil
+						culture = telugu
+						culture = kannada
+					}
+				} 	
+				random_list = {
+					60 = { 
+						religion = mayaparisataya 											
+						if = { 
+							limit = { trait = brahmin } 
+							random_list = {
+								10 = { add_trait = malkavian }
+								15 = { add_trait = ventrue }
+								15 = { add_trait = followerofset }
+								60 = { add_trait = ravnos }
+							}
+						}	
+						if = { 
+							limit = { trait = kshatriya } 
+							random_list = {
+								20 = { add_trait = assamite }
+								15 = { add_trait = brujah }
+								15 = { add_trait = tzimisce }
+								50 = { add_trait = ravnos }
+							}
+						}
+						if = { 
+							limit = { trait = vaishya } 
+							add_trait = ravnos
+						}															
+					}
+					40 = {
+						religion = ashirra
+						random_list = {
+							5 = { 
+								add_trait = brujah 
+								religion = ashirra
+							}
+							5 = { 
+								add_trait = brujah 
+								religion = ashirra
+								set_secret_religion = vampire_promethean
+								join_society = secret_religious_cult
+							}
+							5 = { 
+								add_trait = cappadocian 
+								religion = ashirra
+							}												
+							10 = { 
+								add_trait = lasombra
+								religion = ashirra
+							}
+							5 = { 
+								add_trait = toreador
+								religion = ashirra
+							}	
+							5 = { 
+								add_trait = ventrue
+								religion = ashirra
+							}	
+							30 = { 
+								add_trait = assamite
+								religion = assamite
+							}	
+							10 = { 
+								add_trait = followerofset
+								religion = setite
+							}	
+							8 = { 
+								add_trait = gangrel
+								religion = ashirra
+							}	
+							5 = { 
+								add_trait = malkavian
+								religion = ashirra
+							}	
+							5 = { 
+								add_trait = nosferatu
+								set_graphical_culture = nosferatu
+								religion = ashirra
+							}		
+							5 = { 
+								add_trait = salubri
+								religion = ashirra
+							}
+							5 = {
+								add_trait = baali
+								religion = ashirra
+								set_secret_religion = baali
+								join_society = secret_religious_cult
+							}														
+						}
+					}
+				}
+			}	
+			if = { 
+				limit = { 
+					OR = {
+						culture_group = north_germanic
+						culture_group = celtic
+						culture_group = finno_ugric
+						culture_group = altaic
+					}
+					NOT = { culture = turkish }
+				} 	
+				random_list = {
+					13 = { 
+						add_trait = brujah					
+						religion = brujah_high
+						if = { 
+							limit = { culture_group = north_germanic } 
+							religion = einherjar 
+							set_graphical_culture = norse
+						}						
+					}
+					5 = { 
+						add_trait = cappadocian
+						religion = cappadocian_high												
+					}												
+					1 = { 
+						add_trait = lasombra
+						religion = lasombra_high
+					}
+					5 = { 
+						add_trait = toreador
+						religion = toreador_high
+					}
+					5 = { 
+						add_trait = tzimisce
+						religion = koldun												
+					}	
+					5 = { 
+						add_trait = ventrue
+						religion = ventrue_high
+					}	
+					1 = { 
+						add_trait = assamite
+						religion = assamite
+					}	
+					5 = { 
+						add_trait = followerofset
+						religion = setite
+					}	
+					35 = { 
+						add_trait = gangrel
+						if = { 
+							limit = { culture_group = north_germanic } 
+							religion = einherjar 
+							set_graphical_culture = norse
+						}
+						if = { 
+							limit = { culture_group = altaic } 
+							religion = anda 
+						}
+						if = {
+							limit = { culture_group = finno_ugric } 
+							religion = noiad 
+						}
+						if = { 
+							limit = { culture_group = celtic }
+							religion = gangrellow 
+						}
+					}	
+					5 = { 
+						add_trait = malkavian
+						religion = malkavianlow
+					}	
+					8 = { 
+						add_trait = nosferatu
+						set_graphical_culture = nosferatu
+						religion = nosferatulow
+					}	
+					5 = { 
+						add_trait = ravnos
+						religion = mayaparisataya
+					}
+					5 = {
+								add_trait = baali
+								religion = vampire_low_clans
+								set_secret_religion = baali
+								join_society = secret_religious_cult
+					}
+					2 = {
+						add_trait = salubri
+						religion = vampire_low_clans
+					}
+				}
+			}
+			if = { 
+				limit = { 
+					culture_group = magyar
+				} 	
+				random_list = {
+				
+					26 = { 
+						add_trait = tremere
+						religion = tremerelow
+						if = 
+						{ 
+							limit = 
+							{
+							has_global_flag = bookmark767
+							}
+							add_trait = gangrel
+							religion = gangrellow
+						}						
+					}
+					
+					5 = { 
+						add_trait = brujah 
+						religion = brujah_high
+					}
+					5 = { 
+						add_trait = brujah 
+							religion = brujah_high
+							set_secret_religion = vampire_promethean
+							join_society = secret_religious_cult
+					}
+					5 = { 
+						add_trait = cappadocian 
+						religion = cappadocian_high
+					}												
+					10 = { 
+						add_trait = lasombra
+						religion = lasombra_high
+					}
+					5 = { 
+						add_trait = toreador
+						religion = toreador_high
+					}
+					15 = { 
+						add_trait = tzimisce 
+						religion = koldun
+					}	
+					10 = { 
+						add_trait = ventrue
+						religion = ventrue_high
+					}	
+					2 = { 
+						add_trait = assamite
+						religion = assamite
+					}	
+					1 = { 
+						add_trait = followerofset
+						religion = setite
+					}	
+					5 = { 
+						add_trait = gangrel
+						religion = gangrellow
+					}	
+					5 = { 
+						add_trait = malkavian
+						religion = malkavianlow
+					}	
+					5 = { 
+						add_trait = nosferatu
+						set_graphical_culture = nosferatu
+						religion = nosferatulow
+					}	
+					1 = { 
+						add_trait = ravnos
+						religion = mayaparisataya
+					}	
+
+				}
+			}
+			if = { 
+				limit = { 
+					OR = {
+						culture = manden
+						culture = nubian
+						culture = ethiopian
+					}
+				} 									
+				random_list = {
+					7 = { 
+						add_trait = brujah
+						religion = laibon
+					}
+					7 = { 
+						add_trait = cappadocian
+						religion = laibon												
+					}												
+					10 = { 
+						add_trait = lasombra
+						religion = laibon
+					}
+					7 = { 
+						add_trait = toreador
+						religion = laibon
+					}
+					7 = { 
+						add_trait = tzimisce
+						religion = laibon												
+					}	
+					10 = { 
+						add_trait = ventrue
+						religion = ashirra
+					}	
+					7 = { 
+						add_trait = assamite
+						religion = assamite
+					}	
+					7 = { 
+						add_trait = followerofset
+						religion = setite
+					}	
+					7 = { 
+						add_trait = gangrel
+						religion = laibon
+					}	
+					7 = { 
+						add_trait = malkavian
+						religion = laibon
+					}	
+					8 = { 
+						add_trait = nosferatu
+						set_graphical_culture = nosferatu
+						religion = laibon
+					}	
+					7 = { 
+						add_trait = ravnos
+						religion = mayaparisataya
+					}	
+
+					7 = {
+								add_trait = baali
+								religion = laibon
+								set_secret_religion = baali
+								join_society = secret_religious_cult
+					}
+					2 = {
+						add_trait = salubri
+						religion = laibon
+					}
+				}
+			}	
+
+			if = { 
+				limit = { 
+					OR = { 
+						has_global_flag = bookmark767
+						has_global_flag = bookmark1215
+						has_global_flag = bookmark1230
+						has_global_flag = bookmark1466
+						has_global_flag = bookmark1350
+						has_global_flag = bookmark1355
+						}
+					}
+			
+				
+				
+				}
+						
+			
+		
+					# Gotta Catch 'em All!
+
+			if = { 
+				limit = { 
+					OR = {
+						has_global_flag = bookmark767
+						has_global_flag = bookmark1215
+						has_global_flag = bookmark1230
+						has_global_flag = bookmark1466
+						has_global_flag = bookmark1350
+						has_global_flag = bookmark1355
+					}
+					NOT = { has_CWOD_clan_trigger = yes }											
+				} 									
+				random_list = {
+					7 = { 
+						add_trait = brujah
+						religion = brujah_high
+					}
+					7 = { 
+						add_trait = cappadocian
+						religion = cappadocian_high												
+					}												
+					7 = { 
+						add_trait = lasombra
+						religion = lasombra_high
+					}
+					7 = { 
+						add_trait = toreador
+						religion = toreador_high
+					}
+					7 = { 
+						add_trait = tzimisce
+						religion = koldun												
+					}	
+					7 = {
+						add_trait = tremere
+						religion = tremerelow
+						if =
+						{ 
+							limit = 
+							{
+							has_global_flag = bookmark767
+							}
+							add_trait = gangrel
+							religion = gangrellow
+						}
+					}
+					7 = { 
+						add_trait = ventrue
+						religion = ventrue_high
+					}	
+					6 = { 
+						add_trait = assamite
+						religion = assamite
+					}	
+					6 = { 
+						add_trait = followerofset
+						religion = setite
+					}	
+					6 = { 
+						add_trait = gangrel
+						religion = gangrellow
+					}	
+					6 = { 
+						add_trait = malkavian
+						religion = malkavianlow
+					}	
+					6 = { 
+						add_trait = nosferatu
+						set_graphical_culture = nosferatu
+						religion = nosferatulow
+					}	
+					7 = { 
+						add_trait = ravnos
+						religion = mayaparisataya
+					}	
+
+					6 = {
+								add_trait = baali
+								religion = vampire_low_clans
+								set_secret_religion = baali
+								join_society = secret_religious_cult
+					}
+					6 = {
+						add_trait = salubri
+						religion = vampire_low_clans
+					}
+				}
+			}	
+			
+			
+
+		}
+	
+	}

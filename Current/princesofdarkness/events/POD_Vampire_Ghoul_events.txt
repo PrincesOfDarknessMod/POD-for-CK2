@@ -1,0 +1,808 @@
+namespace=POD_vampire_ghoul_events
+##################################
+#	Ghoul Events
+#	1 	 	Control Event (Spawns other events, called bi-annually)
+#	2 - 5 	Specific Event Controllers (Spawns their type of events)
+#	6 - 8 	Good Events
+#	9 - 15	Bad Events
+#	16 - 19 Flavor Events
+#	20		Ghoul New Domitor
+#
+##################################
+#Ghoul Event Controller - Keep overhead small with only 1 triggered event that spawns other events
+character_event = {
+    id = POD_vampire_ghoul_events.1
+	
+	hide_window = yes
+	capable_only = yes
+	min_age = 16
+	prisoner = no
+    is_triggered_only = yes
+
+	
+	trigger = {
+		trait = ghoul
+		is_alive = yes
+	}
+	
+	#Setup to spawn 8% chance of event every 2 years.  4% chance of event annually per ghoul
+	#If the max 5 ghouls are alive that means 35% chance per 2 years of a ghoul event spawning
+	#Check if Domitor is alive before proceeding, if not send to acquire new domitor
+    immediate = {
+		save_event_target_as = ghoul_one
+		any_opinion_modifier_target = {
+				limit = {
+					reverse_has_opinion_modifier = {
+						who = ROOT
+						modifier = opinion_blood_bond_to_domitor_ghoul
+					}
+				}
+			save_event_target_as = ghoul_domitor
+		}
+		if = {
+			limit = { event_target:ghoul_domitor = { is_alive = yes } }
+			random_list = {
+				10 = {
+					#Good
+					character_event = { id = POD_vampire_ghoul_events.2 days = 1 }
+				}
+				7 = {
+					#Bad
+					character_event = { id = POD_vampire_ghoul_events.3 days = 1 }
+				}
+				10 = {
+					#Flavor
+					character_event = { id = POD_vampire_ghoul_events.4 days = 1 }
+				}
+				310 = {
+					#No event
+				}
+			}
+		}else = {
+			#ghoul no domitor
+			character_event = { id = POD_vampire_ghoul_events.5 days = 1 }
+		}
+	}
+}
+
+#Good Ghoul Event Controller
+character_event = {
+    id = POD_vampire_ghoul_events.2
+	
+    is_triggered_only = yes
+	hide_window = yes
+
+    immediate = {
+		random_list = {
+			20 = {
+				event_target:ghoul_domitor = { character_event = { id = POD_vampire_ghoul_events.6 days = 1 } }
+			}
+			5 = {
+				event_target:ghoul_domitor = { character_event = { id = POD_vampire_ghoul_events.7 days = 1 } }
+			}
+			5 = {
+				event_target:ghoul_domitor = { character_event = { id = POD_vampire_ghoul_events.8 days = 1 } }
+			}
+		}
+	}
+}
+
+#Bad Ghoul Event Controller
+character_event = {
+    id = POD_vampire_ghoul_events.3
+	
+    is_triggered_only = yes
+	hide_window = yes
+
+    immediate = {
+		event_target:ghoul_domitor = {
+			any_opinion_modifier_target = {
+				limit = {
+					AND = {
+						has_opinion_modifier = {
+							who = event_target:ghoul_domitor
+							modifier = opinion_blood_bond_to_domitor_ghoul
+						}
+						NOT = { character = ROOT }
+						NOT = { is_rival = ROOT }
+					}
+				}
+				save_event_target_as = ghoul_two
+			}
+		}
+		random_list = {
+			15 = {
+				modifier = { 
+					NOT = {
+						event_target:ghoul_two = { is_alive = yes }
+					}					
+					factor = 0
+				}
+				event_target:ghoul_domitor = { character_event = { id = POD_vampire_ghoul_events.9 days = 1 } }
+			}
+			5 = {
+				event_target:ghoul_domitor = { character_event = { id = POD_vampire_ghoul_events.10 days = 1 } }
+			}
+			5 = {
+				event_target:ghoul_domitor = { character_event = { id = POD_vampire_ghoul_events.11 days = 1 } }
+			}
+			5 = {
+				event_target:ghoul_domitor = { character_event = { id = POD_vampire_ghoul_events.12 days = 1 } }
+			}
+			5 = {
+				modifier = {
+					ROOT = { age > 80 }
+					factor = 2
+				}
+				modifier = {
+					ROOT = { age > 130 }
+					factor = 3
+				}
+				event_target:ghoul_domitor = { character_event = { id = POD_vampire_ghoul_events.13 days = 1 } }
+			}
+			5 = {
+				modifier = {
+					ROOT = { age > 40 }
+					factor = 0
+				}
+				event_target:ghoul_domitor = { character_event = { id = POD_vampire_ghoul_events.14 days = 1 } }
+			}
+		}
+	}
+}
+
+#Flavor Ghoul Event Controller
+character_event = {
+    id = POD_vampire_ghoul_events.4
+	
+    is_triggered_only = yes
+	hide_window = yes
+
+    immediate = {
+		if = {
+			limit = {
+				had_character_flag = {
+					flag = DOMITOR_REFUSED_EMBRACE
+					days = 18250
+				}
+				clr_character_flag = DOMITOR_REFUSED_EMBRACE
+			}
+		}
+		any_spouse = {
+			limit = { 
+				trait = mortal 
+				NOT = { trait = ghoul }
+			}
+			save_event_target_as = mortal_spouse
+		}
+		random_list = {
+			5 = {
+				event_target:ghoul_domitor = { character_event = { id = POD_vampire_ghoul_events.16 days = 1 } }
+			}
+			5 = {
+				modifier = {
+					event_target:mortal_spouse = { is_alive = yes }
+					factor = 6
+				}
+				modifier = {
+					NOT = { event_target:mortal_spouse = { is_alive = yes } }
+					factor = 0
+				}
+				event_target:ghoul_domitor = { character_event = { id = POD_vampire_ghoul_events.17 days = 1 } }
+			}
+			5 = {
+				modifier = {
+					age > 180
+					factor = 5
+				}
+				modifier = {
+					age > 210
+					factor = 5
+				}
+				modifier = {
+					age < 150
+					factor = 0
+				}
+				event_target:ghoul_domitor = { character_event = { id = POD_vampire_ghoul_events.18 days = 1 } }
+			}
+			5 = {
+				modifier = {
+					age > 120
+					factor = 5
+				}
+				modifier = {
+					age > 190
+					factor = 15
+				}
+				modifier = {
+					has_character_flag = DOMITOR_REFUSED_EMBRACE
+					factor = 0
+				}
+				event_target:ghoul_domitor = { character_event = { id = POD_vampire_ghoul_events.19 days = 1 } }
+			}
+		}
+	}
+}
+
+#No Domitor controller
+character_event = {
+    id = POD_vampire_ghoul_events.5
+	
+    is_triggered_only = yes
+	hide_window = yes
+
+    immediate = {
+		if = {
+			limit = {
+				host = {
+					ai = yes
+				}
+			}
+			event_target:ghoul_one = { death = { death_reason = death_suicide killer = event_target:ghoul_one } }
+		}else = {
+			event_target:ghoul_domitor = { character_event = { id = POD_vampire_ghoul_events.20 days = 1 } }
+		}
+	}
+}
+#Gold gift
+character_event = {
+    id = POD_vampire_ghoul_events.6
+    desc = EVTDESC_POD_GHOUL_GIFT_DOMITOR_GOLD
+	picture = GFX_evt_ghoul_gifts_gold
+	border = GFX_event_normal_frame_intrigue
+	
+    is_triggered_only = yes
+	trigger = {
+		is_alive = yes
+	}
+	
+    immediate = {
+	}
+	
+	option = {
+		name = EVTOPTA_POD_GHOUL_GIFT_DOMITOR_GOLD
+		wealth = 50
+	}
+	option = {
+		name = EVTOPTB_POD_GHOUL_GIFT_DOMITOR_GOLD
+		wealth = 50
+	}
+}
+#Artifact Gift
+character_event = {
+    id = POD_vampire_ghoul_events.7
+    desc = EVTDESC_POD_GHOUL_GIFT_DOMITOR_ITEM
+	picture = GFX_evt_ghoul_present_gift
+	border = GFX_event_normal_frame_intrigue
+	
+    is_triggered_only = yes
+	trigger = {
+		is_alive = yes
+	}
+	
+    immediate = {
+		random_list = {
+			5 = {
+				FROM = { add_artifact = iron_crown } 
+			}
+			5 = {
+				FROM = { add_artifact = engraved_sword } 
+			}
+			5 = {
+				FROM = { add_artifact = engraved_crown }
+			}
+			5 = {
+				FROM = { add_artifact = ceremonial_axe }
+			}
+			5 = {
+				FROM = { add_artifact = circlet_of_twilight }
+			}
+			5 = {
+				FROM = { add_artifact = silver_staff }
+			}
+			5 = {
+				FROM = { add_artifact = engraved_dagger }
+			}
+			5 = {
+				FROM = { add_artifact = the_lily_crown }
+			}
+			5 = {
+				FROM = { add_artifact = noble_scepter }
+			}
+			5 = {
+				FROM = { add_artifact = engraved_sword }
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_POD_GHOUL_GIFT_DOMITOR_ITEM
+		FROM = {
+			random_artifact = {
+				transfer_artifact = { from = FROM to = event_target:ghoul_domitor }
+			}
+		}
+	}
+	option = {
+		name = EVTOPTB_POD_GHOUL_GIFT_DOMITOR_ITEM
+		FROM = {
+			random_artifact = {
+				transfer_artifact = { from = FROM to = event_target:ghoul_domitor }
+			}
+		}
+	}
+}
+
+#Influence gift
+character_event = {
+    id = POD_vampire_ghoul_events.8
+    desc = EVTDESC_POD_GHOUL_GIFT_DOMITOR_TECH
+	picture = GFX_evt_ghoul_present_gift
+	border = GFX_event_normal_frame_intrigue
+	
+    is_triggered_only = yes
+	trigger = {
+		is_alive = yes
+	}
+	
+    immediate = {
+	}
+	
+	option = {
+		name = EVTOPTA_POD_GHOUL_GIFT_DOMITOR_TECH
+		wealth = -50
+		culture_techpoints = 50
+	}
+	option = {
+		name = EVTOPTB_POD_GHOUL_GIFT_DOMITOR_TECH
+		wealth = -50
+		economy_techpoints = 50
+	}
+	option = {
+		name = EVTOPTC_POD_GHOUL_GIFT_DOMITOR_TECH
+		wealth = -50
+		military_techpoints = 50
+	}
+	option = {
+		name = EVTOPTD_POD_GHOUL_GIFT_DOMITOR_TECH
+	}
+}
+
+#Ghoul Jealousy
+character_event = {
+    id = POD_vampire_ghoul_events.9
+    desc = EVTDESC_POD_GHOUL_JEALOUS
+	picture = GFX_evt_ghoul_request
+	border = GFX_event_normal_frame_intrigue
+	
+    is_triggered_only = yes
+	trigger = {
+		is_alive = yes 
+	}
+	
+    immediate = {
+	}
+	
+	option = {
+		name = EVTOPTA_POD_GHOUL_JEALOUS
+		
+		event_target:ghoul_one = { add_rival = event_target:ghoul_two }
+	}
+	option = {
+		name = EVTOPTB_POD_GHOUL_JEALOUS
+		
+		event_target:ghoul_one = { add_rival = event_target:ghoul_two }
+	}
+}
+
+character_event = {
+    id = POD_vampire_ghoul_events.10
+    desc = EVTDESC_POD_GHOUL_KIDNAPPED
+	picture = GFX_evt_vampire_or_ghoul_generic_spookiness
+	border = GFX_event_normal_frame_intrigue
+	
+    is_triggered_only = yes
+	trigger = {
+		is_alive = yes 
+	}
+	
+    immediate = {
+		if = {
+			limit = {
+				num_of_rivals > 0
+			}
+			random_rival = { save_event_target_as = ghoul_kidnapper } 
+		}else = {
+			random_neighbor_independent_ruler = { save_event_target_as = ghoul_kidnapper }
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_POD_GHOUL_KIDNAPPED
+		event_target:ghoul_one = { imprison = event_target:ghoul_kidnapper }
+		root = {
+			opinion = {
+				modifier = grievously_offended
+				who = event_target:ghoul_kidnapper
+				years = 30
+			}
+		}
+	}
+	option = {
+		name = EVTOPTB_POD_GHOUL_KIDNAPPED
+		event_target:ghoul_one = { imprison = event_target:ghoul_kidnapper }
+		
+		ROOT = {
+			remove_opinion = {
+				who = event_target:ghoul_one
+				modifier = opinion_my_ghoul
+			}
+		}
+		event_target:ghoul_one = {
+			remove_opinion = {
+				who = event_target:ghoul_domitor
+				modifier = opinion_blood_bond_to_domitor_ghoul
+			}
+			remove_trait = bloodbound
+			remove_trait = ghoul
+			add_trait = mortal
+		}
+	}
+}
+
+character_event = {
+    id = POD_vampire_ghoul_events.11
+    desc = EVTDESC_POD_GHOUL_SUICIDE
+	picture = GFX_evt_ghoul_suicide
+	border = GFX_event_normal_frame_intrigue
+	
+    is_triggered_only = yes
+	trigger = {
+		is_alive = yes 
+	}
+	
+    immediate = {
+	}
+	
+	option = {
+		name = EVTOPTA_POD_GHOUL_SUICIDE
+		
+		event_target:ghoul_one = { death = { death_reason = death_suicide killer = event_target:ghoul_one } }
+	}
+	option = {
+		name = EVTOPTB_POD_GHOUL_SUICIDE
+		
+		event_target:ghoul_one = { death = { death_reason = death_suicide killer = event_target:ghoul_one } }
+	}
+}
+
+character_event = {
+    id = POD_vampire_ghoul_events.12
+    desc = EVTDESC_POD_GHOUL_PROTECT_DEATH
+	picture = GFX_evt_ghoul_dies_defending
+	border = GFX_event_normal_frame_intrigue
+	
+    is_triggered_only = yes
+	trigger = {
+		is_alive = yes 
+	}
+	
+    immediate = {
+	}
+	
+	option = {
+		name = EVTOPTA_POD_GHOUL_PROTECT_DEATH
+		
+		event_target:ghoul_one = { death = { death_reason = death_battle } }
+	}
+	option = {
+		name = EVTOPTB_POD_GHOUL_PROTECT_DEATH
+		
+		event_target:ghoul_one = { death = { death_reason = death_battle } }
+	}
+}
+
+character_event = {
+    id = POD_vampire_ghoul_events.13
+    desc = EVTDESC_POD_GHOUL_LOSE_TO_BEAST
+	picture = GFX_evt_vampire_frenzy
+	border = GFX_event_normal_frame_intrigue
+	
+    is_triggered_only = yes
+	trigger = {
+		is_alive = yes 
+	}
+	
+    immediate = {
+	}
+	
+	option = {
+		name = EVTOPTA_POD_GHOUL_LOSE_TO_BEAST
+		
+		if = {
+			limit = { event_target:ghoul_one = { trait = wroth } }
+			event_target:ghoul_one = { add_trait = lunatic }
+		}else = {
+			event_target:ghoul_one = { add_trait = wroth }
+		}
+	}
+	option = {
+		name = EVTOPTB_POD_GHOUL_LOSE_TO_BEAST
+		
+		if = {
+			limit = { event_target:ghoul_one = { trait = wroth } }
+			event_target:ghoul_one = { add_trait = lunatic }
+		} else = {
+			event_target:ghoul_one = { add_trait = wroth }
+		}
+	}
+}
+
+character_event = {
+    id = POD_vampire_ghoul_events.14
+    desc = EVTDESC_POD_GHOUL_REBELLION
+	picture = GFX_evt_ghoul_beating
+	border = GFX_event_normal_frame_intrigue
+	
+    is_triggered_only = yes
+	trigger = {
+		is_alive = yes 
+	}
+	
+    immediate = {
+	}
+	
+	option = {
+		name = EVTOPTA_POD_GHOUL_REBELLION
+		
+		random_demesne_province = {
+			province_event = { id = POD_vampire_ghoul_events.15 }
+		}
+	}
+}
+province_event = {
+	id = POD_vampire_ghoul_events.15
+	
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		event_target:ghoul_one = {
+			create_title = {
+				tier = COUNT
+				landless = yes
+				temporary = yes
+				rebel = yes
+				culture = ROOT
+				name = "PEASANT_REVOLT"
+				holder = THIS
+			}
+			spawn_ghoul_rebel_army_effect = yes
+			ROOT = {
+				owner = {
+					top_liege = {
+						reverse_war = {
+							target = PREVPREVPREV
+							casus_belli = peasant_revolt
+							thirdparty_title = ROOT # The county
+						}
+						reverse_opinion = {
+							who = PREVPREVPREV
+							modifier = opinion_evil_tyrant
+						}
+					}
+				}
+			}
+		}
+	}
+}
+character_event = {
+    id = POD_vampire_ghoul_events.16
+    desc = EVTDESC_POD_GHOUL_INJURY
+	picture = GFX_evt_ghoul_request
+	border = GFX_event_normal_frame_intrigue
+	
+    is_triggered_only = yes
+	trigger = {
+		is_alive = yes 
+	}
+	
+    immediate = {
+		event_target:ghoul_one = {
+			add_trait = severely_injured
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_POD_GHOUL_INJURY
+		event_target:ghoul_one = {
+			remove_trait = severely_injured
+		}
+		POD_vampire_blood_thirst_increase_effect = yes
+	}
+	option = {
+		name = EVTOPTB_POD_GHOUL_INJURY
+		
+	}
+}
+character_event = {
+    id = POD_vampire_ghoul_events.17
+    desc = EVTDESC_POD_GHOUL_SPOUSE
+	picture = GFX_evt_ghoul_request
+	border = GFX_event_normal_frame_intrigue
+	
+    is_triggered_only = yes
+	trigger = {
+		is_alive = yes 
+	}
+	
+    immediate = {
+	}
+	
+	option = {
+		name = EVTOPTA_POD_GHOUL_SPOUSE
+		event_target:mortal_spouse = {
+			add_trait = ghoul
+			add_trait = vigor_1
+			add_trait = bloodbound
+			opinion = {
+				modifier = opinion_blood_bond_to_domitor_ghoul
+				who = ROOT
+				years = 3000
+			}
+			ROOT = {
+				opinion = {
+					modifier = opinion_my_ghoul
+					who = PREV
+					years = 3000
+				}
+			}
+			set_character_flag = FLAG_NWOD_BLOODBOUND
+			character_event = { id = ghoul.1 }
+		}
+		
+		POD_vampire_blood_thirst_increase_effect = yes
+	}
+	option = {
+		name = EVTOPTB_POD_GHOUL_SPOUSE
+		
+		event_target:ghoul_one = {
+			opinion = {
+				modifier = opinion_ignored_demands 
+				who = ROOT 
+				years = 10 
+			}
+		}
+		
+	}
+}
+
+character_event = {
+    id = POD_vampire_ghoul_events.18
+    desc = EVTDESC_POD_GHOUL_OLD_FEEBLE
+	picture = GFX_evt_ghoul_request
+	border = GFX_event_normal_frame_intrigue
+	
+    is_triggered_only = yes
+	trigger = {
+		is_alive = yes 
+	}
+	
+    immediate = {
+		event_target:ghoul_one = { add_trait = feeble }
+	}
+	
+	option = {
+		name = EVTOPTA_POD_GHOUL_OLD_FEEBLE
+		event_target:ghoul_one = {
+			remove_trait = feeble
+		}
+		POD_vampire_blood_thirst_increase_effect = yes
+	}
+	option = {
+		name = EVTOPTB_POD_GHOUL_OLD_FEEBLE
+		event_target:ghoul_one = {
+			opinion = {
+				modifier = opinion_ignored_demands 
+				who = ROOT 
+				years = 10 
+			}
+		}
+	}
+}
+
+character_event = {
+    id = POD_vampire_ghoul_events.19
+    desc = EVTDESC_POD_GHOUL_REQUEST_EMBRACE
+	picture = GFX_evt_ghoul_request
+	border = GFX_event_normal_frame_intrigue
+	
+    is_triggered_only = yes
+	trigger = {
+		is_alive = yes 
+	}
+	
+    immediate = {
+	}
+	
+	option = {
+		name = EVTOPTA_POD_GHOUL_REQUEST_EMBRACE
+		event_target:ghoul_one = {
+		set_character_flag = FLAG_NWOD_EMBRACE_MORTAL_MINOR_TITLE_FIRED
+			
+		dynasty = ROOT
+		add_trait = fledgling
+			
+		if = { 
+			limit = { ROOT = { is_female = no } }
+			set_father = ROOT
+			set_mother = 0
+		}else = {
+			set_father = 0
+			set_mother = ROOT
+		}	
+			
+		ROOT = {
+			POD_vampire_blood_thirst_increase_effect = yes
+        }
+		character_event = { 
+			id = vampire_embrace.2
+			days = 1
+			random = 5
+		}
+		}
+	}
+	option = {
+		name = EVTOPTB_POD_GHOUL_REQUEST_EMBRACE
+		event_target:ghoul_one = {
+			opinion = {
+				modifier = opinion_ignored_demands 
+				who = ROOT 
+				years = 50 
+			}
+			set_character_flag = DOMITOR_REFUSED_EMBRACE
+		}
+	}
+}
+
+character_event = {
+    id = POD_vampire_ghoul_events.20
+    desc = EVTDESC_POD_GHOUL_SEEKS_DOMITOR
+	picture = GFX_evt_ghoul_seeks_domitor
+	border = GFX_event_normal_frame_intrigue
+	
+    is_triggered_only = yes
+	trigger = {
+		is_alive = yes
+	}
+	
+    immediate = {
+	}
+	
+	option = {
+		name = EVTOPTA_POD_GHOUL_SEEKS_DOMITOR
+		
+		event_target:ghoul_one = {
+			opinion = {
+				modifier = opinion_blood_bond_to_domitor_ghoul
+				who = ROOT
+				years = 3000
+			}
+			ROOT = {
+				opinion = {
+					modifier = opinion_my_ghoul
+					who = PREV
+					years = 3000
+				}
+			}
+		}
+		
+		POD_vampire_blood_thirst_increase_effect = yes
+	}
+	option = {
+		name = EVTOPTB_POD_GHOUL_SEEKS_DOMITOR
+		hidden_tooltip = {
+			event_target:ghoul_one = { death = { death_reason = death_suicide killer = event_target:ghoul_one } }
+		}
+	}
+}

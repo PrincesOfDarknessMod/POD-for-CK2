@@ -1,0 +1,171 @@
+namespace = ruler_designer
+character_event = {
+	id = ruler_designer.1
+	hide_window = yes	
+	ai = no
+	
+	trigger = {
+		trait = POD_vampire_RD_immortal_fix
+	}	
+	
+mean_time_to_happen = {
+	days = 1
+}	
+	
+	immediate = {
+				hidden_tooltip = {
+			if = {
+					limit = { trait = POD_vampire_RD_immortal_fix }			
+					add_trait = vampire
+					add_trait = wyrm_taint
+					remove_trait = POD_vampire_RD_immortal_fix 
+					set_character_flag = FLAG_POD_vampire_RD_immortal_fix_fired 
+					
+					if = {
+							limit = {
+										OR = {
+												trait = nosferatu
+												trait = nosferatuantitribu
+												}
+											}
+								set_graphical_culture = nosferatu
+								}
+					
+					if = { 
+							limit = {
+											NOT = { trait = bloodpotency_1 }
+											NOT = { trait = bloodpotency_2 }
+											NOT = { trait = bloodpotency_3 }
+											NOT = { trait = bloodpotency_4 }
+											NOT = { trait = bloodpotency_5 }
+											NOT = { trait = bloodpotency_6 }
+											NOT = { trait = bloodpotency_7 }
+											NOT = { trait = bloodpotency_8 }
+											NOT = { trait = bloodpotency_9 }
+											NOT = { trait = bloodpotency_10 }
+							}
+						add_trait = bloodpotency_1
+					}
+					
+					if = {
+							limit = {
+										NOT = { trait = neonate }
+										NOT = { trait = ancilla }
+										NOT = { trait = elder }
+												}
+									add_trait = neonate
+									}
+					
+					if = {
+							limit  = {		
+									OR = {
+										has_global_flag = bookmark767
+										has_global_flag = bookmark1215
+										has_global_flag = bookmark1230
+										has_global_flag = bookmark1350
+										has_global_flag = bookmark1355
+										has_global_flag = bookmark1466
+										has_global_flag = bookmark1505
+										has_global_flag = bookmark1506
+									}							
+											NOT = { trait = vampgeneration15 }
+											NOT = { trait = vampgeneration14 }
+											NOT = { trait = vampgeneration13 }
+											NOT = { trait = vampgeneration12 }
+											NOT = { trait = vampgeneration11 }
+											NOT = { trait = vampgeneration10 }
+											NOT = { trait = vampgeneration9 }
+											NOT = { trait = vampgeneration8 }
+											NOT = { trait = vampgeneration7 }
+											NOT = { trait = vampgeneration6 }
+											NOT = { trait = vampgeneration5 }
+											NOT = { trait = vampgeneration4 }							
+							}
+						
+						add_trait = vampgeneration12
+					}	
+					if = {
+							limit  = {
+										OR = {
+											has_global_flag = bookmark767
+											has_global_flag = bookmark1215
+											has_global_flag = bookmark1230
+											has_global_flag = bookmark1350
+											has_global_flag = bookmark1355
+											has_global_flag = bookmark1466
+											has_global_flag = bookmark1505
+											has_global_flag = bookmark1506
+										}
+										NOR = {
+											trait = assamite
+											trait = brujah
+											trait = cappadocian
+											trait = gangrel
+											trait = followerofset
+											trait = giovanni
+											trait = lasombra
+											trait = malkavian
+											trait = nosferatu
+											trait = ravnos
+											trait = salubri
+											trait = toreador
+											trait = tremere
+											trait = tzimisce
+											trait = ventrue
+											trait = baali
+											trait = brujahantitribu
+											trait = gangrelantitribu
+											trait = nosferatuantitribu
+											trait = malkavianantitribu
+											trait = toreadorantitribu
+											trait = ventrueantitribu
+											trait = lasombraantitribu
+											trait = ravnosantitribu
+											trait = tzimisceantitribu
+											trait = assamiteantitribu
+											trait = caitiff	
+										}
+									}
+						add_trait = caitiff
+						add_trait = vigor_1
+						add_trait = celerity_1
+						add_trait = resilience_1
+						}
+					if = {
+							limit = {
+							
+									OR = {
+										has_global_flag = bookmark767
+										has_global_flag = bookmark1215
+										has_global_flag = bookmark1230
+										has_global_flag = bookmark1350
+										has_global_flag = bookmark1355
+										has_global_flag = bookmark1466
+										has_global_flag = bookmark1505
+										has_global_flag = bookmark1506
+									}
+									NOR = { 
+										religion_group = vampire_high_clans_group
+										religion_group = vampire_low_clans_group
+										religion_group = ashirra_vampire_group
+										religion_group = baali_group
+										religion_group = masquerade_camarilla_group
+										religion_group = sabbat_group
+										religion_group = inconnu_group
+										religion_group = masquerade_independent_group
+										religion = laibon
+									}
+							}
+							religion = vampire_low_clans
+							
+							}						
+
+
+							
+				}
+						
+			}
+		}
+	}		
+	
+	

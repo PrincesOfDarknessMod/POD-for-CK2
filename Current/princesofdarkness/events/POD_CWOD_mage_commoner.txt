@@ -1,0 +1,305 @@
+namespace = CWOD_mage_commoner
+character_event = {
+	id = CWOD_mage_commoner.1
+	hide_window = yes	
+	is_triggered_only = yes
+
+	immediate = {
+		if = {
+			limit = {
+				age = 16
+				trait = mage 
+				NOT = { trait = mortal }
+				NOT = { trait = vampire }
+				NOT = { trait = werewolf }
+				NOT = { trait = mummy }
+				NOT = { trait = changeling }
+				NOT = { trait = promethean }
+				NOT = { trait = geist }
+				NOT = { trait = demon }
+				NOT = { trait = fledgling }		
+				OR = {
+					has_global_flag = bookmark767
+					has_global_flag = bookmark1215
+					has_global_flag = bookmark1230
+					has_global_flag = bookmark1350
+					has_global_flag = bookmark1355
+					has_global_flag = bookmark1466
+					has_global_flag = bookmark1505
+					has_global_flag = bookmark1506
+				}			
+			}	
+# make mage commoner
+# Mage Faction
+
+			POD_CWOD_mage_tradition_init_effect = yes
+
+# Mage Government
+			if = {
+				limit = { religion_group = magical_traditions_group }
+				set_government_type = magicka_government
+			}
+			if = { 
+				limit = { religion_group = order_of_reason_group }
+				set_government_type = reason_government
+			}
+			if = {
+				limit = { religion_group = daedalan_group }
+				set_government_type = daedalan_government
+			}	
+# Mage Sphere Affinity
+			if = { 
+				limit = {	
+					trait = mage
+					NOT = { trait = sphere_affinity_correspondence }
+					NOT = { trait = sphere_affinity_entropy }
+					NOT = { trait = sphere_affinity_forces }
+					NOT = { trait = sphere_affinity_life }
+					NOT = { trait = sphere_affinity_matter}
+					NOT = { trait = sphere_affinity_mind }
+					NOT = { trait = sphere_affinity_prime }
+					NOT = { trait = sphere_affinity_spirit }
+					NOT = { trait = sphere_affinity_time }
+					OR = {
+						has_global_flag = bookmark767
+						has_global_flag = bookmark1215
+						has_global_flag = bookmark1230
+						has_global_flag = bookmark1350
+						has_global_flag = bookmark1355
+						has_global_flag = bookmark1466
+						has_global_flag = bookmark1505
+						has_global_flag = bookmark1506
+					}											
+				}
+				random_list = {
+					11 = { add_trait = sphere_affinity_correspondence }
+					11 = { add_trait = sphere_affinity_entropy }
+					11 = { add_trait = sphere_affinity_forces }
+					11 = { add_trait = sphere_affinity_life }
+					11 = { add_trait = sphere_affinity_matter}
+					11 = { add_trait = sphere_affinity_mind }
+					12 = { add_trait = sphere_affinity_prime }
+					11 = { add_trait = sphere_affinity_spirit }
+					11 = { add_trait = sphere_affinity_time }
+				}
+			}
+# Mage Sphere Assignment
+			if = { 
+				limit = { 
+					trait = mage
+					trait = sphere_affinity_correspondence 
+				}
+				add_trait = sphere_correspondence_3
+				random_list = {
+					34 = { add_trait = sphere_prime_1 }
+					33 = { add_trait = sphere_mind_1 }
+					33 = { add_trait = sphere_spirit_1 }
+				}
+				random_list = { 
+					50 = { add_trait = sphere_life_1 }
+					50 = { add_trait = sphere_entropy_1 }
+				}
+				random_list = {
+					50 = { add_trait = sphere_time_1 }
+					50 = { add_trait = sphere_forces_1 }
+				}								
+			}
+			if = { 
+				limit = { 
+					trait = mage
+					trait = sphere_affinity_entropy 
+				}
+				add_trait = sphere_entropy_3
+				random_list = {
+					34 = { add_trait = sphere_prime_1 }
+					33 = { add_trait = sphere_mind_1 }
+					33 = { add_trait = sphere_spirit_1 }
+				}
+				random_list = { 
+					50 = { add_trait = sphere_correspondence_1 }
+					50 = { add_trait = sphere_matter_1 }
+				}
+				random_list = {
+					50 = { add_trait = sphere_time_1 }
+					50 = { add_trait = sphere_forces_1 }
+				}								
+			}	
+			if = { 
+				limit = {
+					trait = mage
+					trait = sphere_affinity_forces 
+				}
+				add_trait = sphere_forces_3
+				random_list = {
+					34 = { add_trait = sphere_prime_1 }
+					33 = { add_trait = sphere_mind_1 }
+					33 = { add_trait = sphere_spirit_1 }
+				}
+				random_list = { 
+					50 = { add_trait = sphere_correspondence_1 }
+					50 = { add_trait = sphere_matter_1 }
+				}
+				random_list = {
+					50 = { add_trait = sphere_entropy_1 }
+					50 = { add_trait = sphere_life_1 }
+				}								
+			}	
+			if = { 
+				limit = { 
+					trait = mage
+					trait = sphere_affinity_time 
+				}
+				add_trait = sphere_time_3
+				random_list = {
+					34 = { add_trait = sphere_prime_1 }
+					33 = { add_trait = sphere_mind_1 }
+					33 = { add_trait = sphere_spirit_1 }
+				}
+				random_list = { 
+					50 = { add_trait = sphere_correspondence_1 }
+					50 = { add_trait = sphere_matter_1 }
+				}
+				random_list = {
+					50 = { add_trait = sphere_entropy_1 }
+					50 = { add_trait = sphere_life_1 }
+				}								
+			}	
+			if = {
+				limit = { 	
+					trait = mage
+					trait = sphere_affinity_life 
+				}
+				add_trait = sphere_life_3
+				random_list = {
+					34 = { add_trait = sphere_prime_1 }
+					33 = { add_trait = sphere_mind_1 }
+					33 = { add_trait = sphere_spirit_1 }
+				}
+				random_list = { 
+					50 = { add_trait = sphere_correspondence_1 }
+					50 = { add_trait = sphere_matter_1 }
+				}
+				random_list = {
+					50 = { add_trait = sphere_time_1 }
+					50 = { add_trait = sphere_forces_1 }
+				}								
+			}	
+			if = { 
+				limit = {
+					trait = mage
+					trait = sphere_affinity_matter 
+				}
+				add_trait = sphere_matter_3
+				random_list = {
+					34 = { add_trait = sphere_prime_1 }
+					33 = { add_trait = sphere_mind_1 }
+					33 = { add_trait = sphere_spirit_1 }
+				}
+				random_list = { 
+					50 = { add_trait = sphere_life_1 }
+					50 = { add_trait = sphere_entropy_1 }
+				}
+				random_list = {
+					50 = { add_trait = sphere_time_1 }
+					50 = { add_trait = sphere_forces_1 }
+				}								
+			}
+			if = { 
+				limit = {
+					trait = mage
+					trait = sphere_affinity_prime 
+				}
+				add_trait = sphere_prime_3
+				random_list = { 
+					50 = { add_trait = sphere_life_1 }
+					50 = { add_trait = sphere_entropy_1 }
+				}
+				random_list = {
+					50 = { add_trait = sphere_time_1 }
+					50 = { add_trait = sphere_forces_1 }
+				}	
+				random_list = { 
+					50 = { add_trait = sphere_correspondence_1 }
+					50 = { add_trait = sphere_matter_1 }
+				}											
+			}	
+			if = { 
+				limit = {	
+					trait = mage
+					trait = sphere_affinity_spirit 
+				}
+				add_trait = sphere_spirit_3
+				random_list = { 
+					50 = { add_trait = sphere_life_1 }
+					50 = { add_trait = sphere_entropy_1 }
+				}
+				random_list = {
+					50 = { add_trait = sphere_time_1 }
+					50 = { add_trait = sphere_forces_1 }
+				}	
+				random_list = { 
+					50 = { add_trait = sphere_correspondence_1 }
+					50 = { add_trait = sphere_matter_1 }
+				}											
+			}	
+			if = { 
+				limit = { 
+					trait = mage
+					trait = sphere_affinity_mind 
+				}
+				add_trait = sphere_mind_3
+				random_list = { 
+					50 = { add_trait = sphere_life_1 }
+					50 = { add_trait = sphere_entropy_1 }
+				}
+				random_list = {
+					50 = { add_trait = sphere_time_1 }
+					50 = { add_trait = sphere_forces_1 }
+				}	
+				random_list = { 
+					50 = { add_trait = sphere_correspondence_1 }
+					50 = { add_trait = sphere_matter_1 }
+				}											
+			}		
+# Mage Dynasties
+		}
+	}
+}
+
+character_event = {
+	id = CWOD_mage_commoner.2
+	hide_window = yes
+	max_age = 25
+	min_age = 16
+	
+	trigger = {
+		trait = mage
+		OR = {
+			NOT = { trait = sphere_affinity_correspondence }
+			NOT = { trait = sphere_affinity_entropy }
+			NOT = { trait = sphere_affinity_forces }
+			NOT = { trait = sphere_affinity_life }
+			NOT = { trait = sphere_affinity_matter}
+			NOT = { trait = sphere_affinity_mind }
+			NOT = { trait = sphere_affinity_prime }
+			NOT = { trait = sphere_affinity_spirit }
+			NOT = { trait = sphere_affinity_time }
+		}
+		OR = {
+			has_global_flag = bookmark767
+			has_global_flag = bookmark1215
+			has_global_flag = bookmark1230
+			has_global_flag = bookmark1350
+			has_global_flag = bookmark1355
+			has_global_flag = bookmark1466
+			has_global_flag = bookmark1505
+			has_global_flag = bookmark1506
+		}	
+	}
+	mean_time_to_happen = {
+		days = 365
+	}
+	immediate = {
+		character_event = { id = mage_commoner.1 }
+	}
+}	

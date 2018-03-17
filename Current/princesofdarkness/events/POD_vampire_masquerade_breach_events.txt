@@ -1,0 +1,1026 @@
+
+namespace = POD_VAMPIRE_MASQUERADE_BREACH
+
+# Exposed Hunt
+
+character_event = {
+    id = POD_VAMPIRE_MASQUERADE_BREACH.1
+    desc = EVTDESC_POD_VAMPIRE_MASQUERADE_BREACH1
+	picture = GFX_evt_vampire_masquerade_breach
+	border = GFX_event_normal_frame_war
+
+	only_rulers = yes
+	ai = no
+	
+	trigger = {
+		trait = vampire
+		ai = no		
+	}		
+	
+	mean_time_to_happen = {
+		years = 100
+
+		modifier = {
+			location = {
+				has_province_modifier = masquerade_breach
+			}
+			factor = 2
+		}
+		
+		modifier = {
+			factor = 2
+		}
+
+		modifier = {
+			factor = 0.1
+			trait = imbecile
+		}			
+		
+		modifier = {
+			factor = 0.2
+			trait = slow
+		}			
+
+		modifier = {
+			factor = 0.7
+			trait = arbitrary
+		}	
+
+		modifier = {
+			factor = 0.5
+			trait = lunatic
+		}		
+
+		modifier = {
+			factor = 0.5
+			trait = nosferatu
+		}
+
+		modifier = {
+			factor = 0.9
+			trait = gangrel
+		}
+
+		
+		modifier = {
+			factor = 0.9
+			trait = impaler
+		}				
+		
+		modifier = {
+			factor = 0.9
+			trait = gluttonous
+		}		
+		
+		modifier = {
+			factor = 0.9
+			trait = slothful
+		}	
+
+		modifier = {
+			factor = 2
+			trait = in_hiding
+		}
+		
+		modifier = {
+			factor = 1.1
+			trait = deceitful
+		}	
+
+		modifier = {
+			factor = 1.1
+			trait = craven
+		}			
+		
+		modifier = {
+			factor = 1.1
+			trait = paranoid
+		}		
+		
+		modifier = {
+			factor = 1.1
+			trait = temperate
+		}
+
+		modifier = {
+			factor = 1.1
+			trait = diligent
+		}		
+
+		modifier = {
+			factor = 1.1
+			trait = schemer
+		}
+		
+		modifier = {
+			factor = 1.1
+			trait = shrewd
+		}	
+		
+		modifier = {
+			factor = 1.1
+			trait = obfuscate_1
+		}			
+
+		modifier = {
+			factor = 1.2
+			trait = obfuscate_2
+		}		
+
+		modifier = {
+			factor = 1.3
+			trait = obfuscate_3
+		}		
+
+		modifier = {
+			factor = 1.4
+			trait = obfuscate_4
+		}		
+
+		modifier = {
+			factor = 2
+			trait = obfuscate_5
+		}				
+
+	
+		
+	}
+
+	immediate = {
+
+			create_character = {
+				random_traits = yes
+				female = 50
+				trait = mortal
+				trait = knows_too_much
+				religion = innocent
+			}
+			new_character = { save_event_target_as = new_exposes_masquerade }
+			opinion = {
+				who = FROM
+				modifier = opinion_breached_masquerade 
+				years = 2
+			}			
+	}
+	
+# Dominate Forgetful Mind
+    option = {
+        name = EVTOPTA_POD_VAMPIRE_MASQUERADE_BREACH1
+		  trigger = {
+			FROM = { 
+				OR = { 
+					trait = dominate_3
+					trait = dominate_4
+					trait = dominate_5
+					}
+				}	
+		  }		
+		tooltip_info = dominate_3
+		  
+		FROM = { POD_vampire_blood_thirst_increase_effect = yes
+				remove_opinion = { 
+				who = event_target:new_exposes_masquerade
+				modifier = opinion_breached_masquerade }
+		}	
+
+		event_target:new_exposes_masquerade = {
+                add_character_modifier = {
+                    name = mod_confused
+                    duration = 30
+                    }
+				add_trait = stressed
+				remove_trait = knows_too_much
+		}
+    }
+
+# Ignore them	
+    option = {
+        name = EVTOPTB_POD_VAMPIRE_MASQUERADE_BREACH1
+		event_target:new_exposes_masquerade = {
+				add_trait = knows_too_much
+				add_trait = stressed
+				}
+
+		capital_scope = {
+			add_province_modifier = { 					
+				name = masquerade_breach
+				years = 2
+			}
+		}		
+		
+		event_target:vampire_hunt_target = {
+                mother = {
+                    opinion = {
+                        modifier = opinion_killed_close_kin
+                        who = FROM
+                    }
+                }
+                father = {
+                    opinion = {
+                        modifier = opinion_killed_close_kin
+                        who = FROM
+                    }
+                }
+                spouse = {
+                    opinion = {
+                        modifier = opinion_killed_close_kin
+                        who = FROM
+                    }
+                }
+                any_child = {
+                    opinion = {
+                        modifier = opinion_killed_father
+                        who = FROM
+                    }
+                }
+                if = {
+                    limit = {
+                        FROM = {
+                            NOT = { dynasty = event_target:vampire_hunt_target }
+                            NOT = { sibling = event_target:vampire_hunt_target }
+                        }
+                    }
+                    any_sibling = {
+                        opinion = {
+                            modifier = opinion_killed_close_kin
+                            who = FROM
+                        }
+                    }
+                }
+                death = {
+                    death_reason = death_execution_eaten
+                    killer = FROM
+                }				
+
+		}
+    }	
+	
+	
+# Bribe them	
+    option = {
+        name = EVTOPTC_POD_VAMPIRE_MASQUERADE_BREACH1
+		event_target:new_exposes_masquerade = { 	
+				wealth = 20
+				religion = criminal
+				if = { limit = { trait = honest }
+					remove_trait = honest	
+					}
+				if = { limit = { NOT = { trait = deceitful } } 
+				add_trait = deceitful	}
+				}
+		FROM = { wealth = -20
+				remove_opinion = { 
+				who = event_target:new_exposes_masquerade
+				modifier = opinion_breached_masquerade }
+		}
+    }
+
+# Kill them	
+    option = {
+        name = EVTOPTD_POD_VAMPIRE_MASQUERADE_BREACH1
+		event_target:new_exposes_masquerade = { death = { death_reason = death_murder_unknown killer = FROM } }
+		
+                FROM = {
+                    if = {
+                        limit = { NOT = { trait = cruel } }
+                        random = {
+                            chance = 25
+                            add_trait = cruel
+                        }
+                    }
+                }		
+				
+				random = {
+				chance = 5
+				
+				modifier = {				
+					factor = 1.1
+					event_target:new_exposes_masquerade = { combat_rating = 1 }
+				}	
+				
+				modifier = {				
+					factor = 1.2
+					event_target:new_exposes_masquerade = { combat_rating = 5 }
+				}				
+				
+				modifier = {				
+					factor = 1.3
+					event_target:new_exposes_masquerade = { combat_rating = 10 }
+				}					
+				
+				modifier = {				
+					factor = 1.4
+					event_target:new_exposes_masquerade = { combat_rating = 15 }
+				}									
+				
+				modifier = {				
+					factor = 1.5
+					event_target:new_exposes_masquerade = { combat_rating = 20 }
+				}					
+				
+				modifier = {				
+					factor = 1.6
+					event_target:new_exposes_masquerade = { combat_rating = 25 }
+				}					
+				
+				modifier = {				
+					factor = 0.9
+					FROM = { combat_rating = 1 }
+				}	
+				
+				modifier = {				
+					factor = 0.8
+					FROM = { combat_rating = 5 }
+				}				
+				
+				modifier = {				
+					factor = 0.7
+					FROM = { combat_rating = 10 }
+				}					
+				
+				modifier = {				
+					factor = 0.6
+					FROM = { combat_rating = 15 }
+				}									
+				
+				modifier = {				
+					factor = 0.5
+					FROM = { combat_rating = 20 }
+				}					
+				
+				modifier = {				
+					factor = 0.4
+					FROM = { combat_rating = 25 }
+				}					
+				
+				modifier = {				
+					factor = 0.3
+					FROM = { combat_rating = 30 }
+				}				
+
+				modifier = {				
+					factor = 0.2
+					FROM = { combat_rating = 35 }
+				}				
+				
+				modifier = {				
+					factor = 0.1
+					FROM = { combat_rating = 40 }
+				}
+				
+                FROM = {
+                            add_trait = wounded
+						}
+			}				
+				
+    }
+	
+	
+	}
+	
+
+# AI vamp masquerade breach
+
+character_event = {
+    id = POD_VAMPIRE_MASQUERADE_BREACH.2
+    hide_window = yes
+	
+	trigger = {
+		trait = vampire
+		liege = { ai = no }
+		NOT = { primary_title = { higher_tier_than = BARON } }
+	}		
+	
+	mean_time_to_happen = {
+		years = 50
+		
+		modifier = {
+			location = {
+				has_province_modifier = masquerade_breach
+			}
+			factor = 2
+		}
+		
+		modifier = {
+			factor = 2
+		}
+
+		modifier = {
+			factor = 0.1
+			trait = imbecile
+		}			
+		
+		modifier = {
+			factor = 0.2
+			trait = slow
+		}			
+
+		modifier = {
+			factor = 0.7
+			trait = arbitrary
+		}	
+
+		modifier = {
+			factor = 0.5
+			trait = lunatic
+		}		
+
+		
+		modifier = {
+			factor = 0.9
+			trait = impaler
+		}				
+		
+		modifier = {
+			factor = 0.9
+			trait = gluttonous
+		}		
+		
+		modifier = {
+			factor = 0.9
+			trait = slothful
+		}	
+
+		modifier = {
+			factor = 2
+			trait = in_hiding
+		}
+		
+		modifier = {
+			factor = 1.1
+			trait = deceitful
+		}	
+
+		modifier = {
+			factor = 1.1
+			trait = craven
+		}			
+		
+		modifier = {
+			factor = 1.1
+			trait = paranoid
+		}		
+		
+		modifier = {
+			factor = 1.1
+			trait = temperate
+		}
+
+		modifier = {
+			factor = 1.1
+			trait = diligent
+		}		
+
+		modifier = {
+			factor = 1.1
+			trait = schemer
+		}
+		
+		modifier = {
+			factor = 1.1
+			trait = shrewd
+		}	
+		
+		modifier = {
+			factor = 1.1
+			trait = obfuscate_1
+		}			
+
+		modifier = {
+			factor = 1.2
+			trait = obfuscate_2
+		}		
+
+		modifier = {
+			factor = 1.3
+			trait = obfuscate_3
+		}		
+
+		modifier = {
+			factor = 1.4
+			trait = obfuscate_4
+		}		
+
+		modifier = {
+			factor = 2
+			trait = obfuscate_5
+		}				
+
+	
+		
+	}
+
+	immediate = {
+
+			liege = { save_event_target_as = vampire_judge_masquerade }
+			FROM = { save_event_target_as = vampire_exposes_masquerade }
+			
+			event_target:vampire_judge_masquerade = {
+				opinion = {
+				who = event_target:vampire_exposes_masquerade
+				modifier = opinion_breached_masquerade 
+				years = 2
+				}	
+			}
+			
+			create_character = {
+				random_traits = yes
+				female = 50
+				trait = mortal
+				trait = knows_too_much
+				religion = innocent
+			}
+			new_character = { save_event_target_as = new_exposes_masquerade }
+			
+			event_target:vampire_judge_masquerade = 
+			{
+				opinion = 
+				{
+					who = event_target:new_exposes_masquerade
+					modifier = opinion_breached_masquerade 
+					years = 2
+				}	
+			}
+
+
+			event_target:vampire_judge_masquerade = 
+			{ 
+				character_event = 
+				{ 
+					id = POD_VAMPIRE_MASQUERADE_BREACH.3
+					days = 1
+				}	
+			}
+
+			event_target:vampire_judge_masquerade = 
+			{ 
+				#character_event = 
+				#{ 
+				#	id = POD_VAMPIRE_MASQUERADE_BREACH.4
+				#	days = 2
+				#}	
+			}		
+				
+	}	
+
+}
+	
+character_event = 
+{
+    id = POD_VAMPIRE_MASQUERADE_BREACH.3
+    desc = EVTDESC_POD_VAMPIRE_MASQUERADE_BREACH3
+	picture = GFX_evt_vampire_masquerade_breach
+	border = GFX_event_normal_frame_war
+	only_playable = yes
+	ai = no
+    is_triggered_only = yes	
+
+	trigger = 
+	{
+		trait = vampire
+		ai = no		
+	}		
+
+	immediate = 
+	{ 
+
+	
+	}
+	
+# Dominate Forgetful Mind
+    option = 
+	{
+        name = EVTOPTA_POD_VAMPIRE_MASQUERADE_BREACH1
+		 
+		trigger = 
+		{
+			event_target:vampire_judge_masquerade = 
+			{ 
+				OR = 
+				{ 
+					trait = dominate_3
+					trait = dominate_4
+					trait = dominate_5
+				}
+			}	
+		  }	
+		  
+		tooltip_info = dominate_3
+		  
+		event_target:vampire_judge_masquerade = 
+		{ 
+			POD_vampire_blood_thirst_increase_effect = yes	
+		
+			remove_opinion = 
+			{ 
+				who = event_target:new_exposes_masquerade
+				modifier = opinion_breached_masquerade }
+			}
+		
+		event_target:new_exposes_masquerade = 
+		{
+            add_character_modifier = 
+			{
+                name = mod_confused
+                duration = 30
+            }
+				
+			add_trait = stressed
+			remove_trait = knows_too_much
+		}
+    }
+
+# Ignore them	
+    option = 
+	{
+        name = EVTOPTB_POD_VAMPIRE_MASQUERADE_BREACH1
+		event_target:new_exposes_masquerade = 
+		{
+			add_trait = knows_too_much
+			add_trait = stressed
+		}
+
+		location = 
+		{
+			add_province_modifier = 
+			{ 					
+				name = masquerade_breach
+				years = 2
+			}
+		}		
+		
+
+    }	
+	
+	
+# Bribe them	
+    option = 
+	{
+        name = EVTOPTC_POD_VAMPIRE_MASQUERADE_BREACH1
+		event_target:new_exposes_masquerade = 
+		{ 	
+			wealth = 20
+			religion = criminal
+			
+			if = 
+			{ 
+				limit = { trait = honest }
+				remove_trait = honest	
+			}
+			
+			if = 
+			{ 
+				limit = { NOT = { trait = deceitful } }
+				
+				add_trait = deceitful	
+			}
+		}
+		
+		event_target:vampire_judge_masquerade = 
+		{ 
+			wealth = -20
+
+			remove_opinion = 
+			{ 
+				who = event_target:new_exposes_masquerade
+				modifier = opinion_breached_masquerade 
+			}
+		}		
+		
+	}
+
+
+# Kill them	
+    option = 
+	{
+        name = EVTOPTD_POD_VAMPIRE_MASQUERADE_BREACH1
+		
+        event_target:vampire_judge_masquerade = 
+		{
+            if = 
+			{
+                limit = 
+				{ 
+					NOT = 
+					{ 
+						trait = cruel 
+					} 
+				}
+                random = 
+				{
+                    chance = 25
+                    add_trait = cruel
+                }
+			}
+        }		
+				
+		random = 
+		{
+				chance = 5
+				
+				modifier = 
+				{				
+					factor = 1.1
+					event_target:new_exposes_masquerade = { combat_rating = 1 }
+				}	
+				
+				modifier = 
+				{				
+					factor = 1.2
+					event_target:new_exposes_masquerade = { combat_rating = 5 }
+				}				
+				
+				modifier = 
+				{				
+					factor = 1.3
+					event_target:new_exposes_masquerade = { combat_rating = 10 }
+				}					
+				
+				modifier = 
+				{				
+					factor = 1.4
+					event_target:new_exposes_masquerade = { combat_rating = 15 }
+				}									
+				
+				modifier = 
+				{				
+					factor = 1.5
+					event_target:new_exposes_masquerade = { combat_rating = 20 }
+				}					
+				
+				modifier = 
+				{				
+					factor = 1.6
+					event_target:new_exposes_masquerade = { combat_rating = 25 }
+				}					
+				
+				modifier = 
+				{				
+					factor = 0.9
+					event_target:vampire_judge_masquerade= { combat_rating = 1 }
+				}	
+				
+				modifier = 
+				{				
+					factor = 0.8
+					event_target:vampire_judge_masquerade = { combat_rating = 5 }
+				}				
+				
+				modifier = 
+				{				
+					factor = 0.7
+					event_target:vampire_judge_masquerade = { combat_rating = 10 }
+				}					
+				
+				modifier = 
+				{				
+					factor = 0.6
+					event_target:vampire_judge_masquerade = { combat_rating = 15 }
+				}									
+				
+				modifier = 
+				{				
+					factor = 0.5
+					event_target:vampire_judge_masquerade = { combat_rating = 20 }
+				}					
+				
+				modifier = 
+				{				
+					factor = 0.4
+					event_target:vampire_judge_masquerade = { combat_rating = 25 }
+				}					
+				
+				modifier = 
+				{				
+					factor = 0.3
+					event_target:vampire_judge_masquerade= { combat_rating = 30 }
+				}				
+
+				modifier = 
+				{				
+					factor = 0.2
+					event_target:vampire_judge_masquerade = { combat_rating = 35 }
+				}				
+				
+				modifier = 
+				{				
+					factor = 0.1
+					event_target:vampire_judge_masquerade = { combat_rating = 40 }
+				}
+				
+                event_target:vampire_judge_masquerade = 
+				{
+                    add_trait = wounded
+				}
+		}	
+
+		event_target:new_exposes_masquerade = 
+		{ 
+		
+			death = 
+			{
+				death_reason = death_murder_unknown
+				killer = ROOT
+			}
+			
+		}		
+				
+    }
+	
+	
+}	
+
+	
+character_event = 
+{
+    id = POD_VAMPIRE_MASQUERADE_BREACH.4
+    desc = EVTDESC_POD_VAMPIRE_MASQUERADE_BREACH4
+	picture = GFX_evt_vampire_judgement
+	border = GFX_event_normal_frame_war
+	only_playable = yes
+	ai = no
+    is_triggered_only = yes	
+
+	trigger = 
+	{
+		trait = vampire
+		ai = no		
+	}		
+
+	immediate = 
+	{ 
+	
+	}
+
+
+# Forgive them for a favor
+
+    option = 
+	{
+		name = EVTOPTA_POD_VAMPIRE_MASQUERADE_BREACH4
+		trigger = 
+		{
+			NOT = 
+			{
+				holds_favor_on = event_target:vampire_judge_masquerade
+			}
+		}	
+		
+		event_target:vampire_exposes_masquerade =
+		{
+			reverse_add_favor = event_target:vampire_judge_masquerade
+		}
+		
+		event_target:vampire_judge_masquerade = 
+		{
+			remove_opinion = 
+			{ 
+				who = event_target:vampire_exposes_masquerade
+				modifier = opinion_breached_masquerade 
+			}
+		}		
+		
+    }
+	
+# Forgive them	
+
+    option = 
+	{
+        name = EVTOPTB_POD_VAMPIRE_MASQUERADE_BREACH4
+		event_target:vampire_judge_masquerade = 
+		{
+			remove_opinion = 
+			{ 
+				who = event_target:vampire_exposes_masquerade
+				modifier = opinion_breached_masquerade 
+			}
+		}	
+    }
+
+# Order the Sheriff to Arrest them 
+
+    option = 
+	{
+        name = EVTOPTC_POD_VAMPIRE_MASQUERADE_BREACH4
+		event_target:vampire_exposes_masquerade = 
+		{
+
+			random = 
+			{
+				chance = 25								
+				
+				modifier = 
+				{				
+					factor = 1.1
+					event_target:vampire_judge_masquerade = { realm_intrigue = 15 }
+				}	
+
+				modifier = 
+				{				
+					factor = 1.1
+					event_target:vampire_judge_masquerade = { realm_intrigue = 20 }
+				}				
+
+				modifier = 
+				{				
+					factor = 1.1
+					event_target:vampire_judge_masquerade = { realm_intrigue = 25 }
+				}				
+				
+				modifier = 
+				{				
+					factor = 1.1
+					event_target:vampire_judge_masquerade = { realm_intrigue = 30 }
+				}					
+				
+				modifier = 
+				{				
+					factor = 1.2
+					event_target:vampire_judge_masquerade = { realm_intrigue = 35 }
+				}						
+				
+				modifier = 
+				{				
+					factor = 1.2
+					event_target:vampire_judge_masquerade = { realm_intrigue = 40 }
+				}					
+				
+				modifier = 
+				{				
+					factor = 1.2
+					event_target:vampire_judge_masquerade = { realm_intrigue = 45 }
+				}		
+
+				modifier = 
+				{				
+					factor = 1.3
+					event_target:vampire_judge_masquerade = { realm_intrigue = 50 }
+				}						
+
+				modifier = 
+				{				
+					factor = 0.9
+					event_target:event_target:vampire_exposes_masquerade = { intrigue = 10 }
+				}				
+				
+				modifier = 
+				{				
+					factor = 0.9
+					event_target:event_target:vampire_exposes_masquerade = { intrigue = 15 }
+				}		
+
+				modifier = 
+				{				
+					factor = 0.8
+					event_target:event_target:vampire_exposes_masquerade = { intrigue = 20 }
+				}	
+
+				modifier = 
+				{				
+					factor = 0.8
+					event_target:event_target:vampire_exposes_masquerade = { intrigue = 25 }
+				}					
+				
+				modifier = 
+				{				
+					factor = 0.8
+					event_target:event_target:vampire_exposes_masquerade = { intrigue = 30 }
+				}					
+				
+				modifier = 
+				{				
+					factor = 0.8
+					event_target:event_target:vampire_exposes_masquerade = { intrigue = 35 }
+				}						
+				
+				modifier = 
+				{				
+					factor = 0.8
+					event_target:event_target:vampire_exposes_masquerade = { intrigue = 40 }
+				}						
+						
+				modifier =
+				{				
+					factor = 0.8
+					event_target:event_target:vampire_exposes_masquerade = { intrigue = 45 }
+				}
+				
+				imprison = ROOT
+			
+			}
+		}
+		
+	}
+
+# This is not forgiven or forgotten
+	
+    option = 
+	{
+        name = EVTOPTD_POD_VAMPIRE_MASQUERADE_BREACH4
+		
+    }					
+	
+}	
+
+	
+	

@@ -1,0 +1,135 @@
+is_vampire_trigger = {
+        trait = vampire
+}
+
+is_werewolf_trigger = {
+    OR = {
+        trait = werewolf
+        is_abomination_trigger = yes
+    }
+}
+
+
+has_vicissitude = {
+	OR = { 
+		trait = vicissitude_1
+		trait = vicissitude_2
+		trait = vicissitude_3
+		trait = vicissitude_4
+		trait = vicissitude_5
+		}
+	}
+
+is_abomination_trigger = { # Added in case Fera are ever added to the game
+    trait = werewolf_abomination
+}
+
+is_vampire_the_requiem = {
+		OR = {
+			has_global_flag = bookmark1142	
+			has_global_flag = bookmark1250	
+			has_global_flag = bookmark1533
+		}
+	}
+
+is_vampire_the_masquerade = {
+	OR = {
+			has_global_flag = bookmark1230
+			has_global_flag = bookmark1355
+	}
+}
+	
+
+has_blood_thirst = {
+	OR = {
+	 has_character_modifier = dire_blood_thirst
+	 has_character_modifier = dreadful_blood_thirst
+	 has_character_modifier = severe_blood_thirst
+	 has_character_modifier = blood_thirst
+	
+	}
+	
+}
+
+has_POD_race_trigger = {
+	OR = {
+		trait = vampire 
+		trait = werewolf 
+		trait = mage 
+		trait = mummy 
+		trait = changeling 
+		trait = promethean 
+		trait = geist 
+		trait = demon 
+		trait = fledgling 
+		trait = revenant 
+		trait = supe_hunter 
+		trait = ghoul
+		trait = POD_vampire_RD_immortal_fix 
+		trait = storyteller 
+		trait = wolf-blooded
+		trait = mortal
+	}
+}
+
+is_supe_trigger = {
+	OR = {
+		trait = vampire 
+		trait = werewolf 
+		trait = mage 
+		trait = mummy 
+		trait = changeling 
+		trait = promethean 
+		trait = geist 
+		trait = demon 
+		trait = fledgling 
+		trait = revenant 
+		trait = supe_hunter 
+		trait = ghoul
+		trait = POD_vampire_RD_immortal_fix 
+		trait = storyteller 
+		trait = wolf-blooded
+	}
+}
+
+is_supe_immortal_trigger = {
+	OR = {
+		trait = vampire 
+		trait = werewolf 
+		trait = mummy 
+		trait = promethean 
+		trait = geist 
+		trait = fledgling 
+		trait = revenant
+		trait = ghoul
+		trait = POD_vampire_RD_immortal_fix 
+		trait = storyteller 	
+	}
+}
+
+has_supe_disease_immunity_trigger = {
+	OR = {
+		trait = vampire 
+		trait = mummy 
+		trait = promethean 
+		trait = geist 
+		trait = fledgling 
+		trait = POD_vampire_RD_immortal_fix 
+		trait = storyteller 
+		}
+}
+
+has_supe_regeneration_trigger = {
+	OR = {
+		trait = vampire 
+		trait = werewolf 
+		trait = mummy 
+		trait = promethean 
+		trait = geist 
+		trait = demon 
+		trait = fledgling 
+		trait = revenant 
+		trait = POD_vampire_RD_immortal_fix 
+		trait = storyteller 	
+	}
+}

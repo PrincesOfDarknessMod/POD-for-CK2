@@ -1,0 +1,1965 @@
+namespace = vampire_noble
+character_event = {
+	id = vampire_noble.1
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		if = { limit = { 
+				is_adult = yes 
+				trait = vampire
+				}	
+			}	
+
+				add_trait = elder
+				add_trait = bloodpotency_5
+            # remove family ties
+				set_mother = 0
+				set_father = 0
+				if = {
+					limit = { is_female = yes }
+					any_child = { set_mother = 0 }
+				}
+				if = {
+					limit = { is_female = no }
+					any_child = { set_father = 0 }
+				}					
+# assign Vampire clan
+				if = {
+					limit = {  
+						primary_title = {
+							title =  d_order_of_sir_martin  
+						}
+					}	 
+					remove_trait = fair
+					add_trait = nosferatu	
+					set_graphical_culture = nosferatu
+				}
+				if = { 
+					limit = {  
+						primary_title = {
+							title =  d_noctuku  
+						}		 
+					}
+					remove_trait = fair
+					add_trait = nosferatu	
+					set_graphical_culture = nosferatu
+					dynasty = 5000096
+				}	
+				if = { 
+					limit = {  
+						primary_title = {
+							title = d_childer_of_the_morrigan  
+						}
+					}		
+					add_trait = gangrel	
+				}	
+				if = { 
+					limit = {  
+						primary_title = {
+							title = d_larvae  
+						}				
+					}
+					add_trait = gangrel	
+					dynasty = 3000096
+				}
+				if = { 
+					limit = {  
+						primary_title = {
+							title = d_angustri 
+						}
+					}	
+					add_trait = mekhet
+					dynasty = 4000096
+				}	
+				if = {
+					limit = {  
+						primary_title = {
+							title = d_last_state  
+						}				
+					}
+					add_trait = ventrue	
+					}	
+				if = { 
+					limit = {  
+						primary_title = {
+							title = d_carnival 
+						}
+					}	
+					add_trait = daeva
+					dynasty = 2000096
+					random_list = {
+						60 = { add_trait = freak }
+						20 = { add_trait = dwarf }
+						20 = { add_trait = disfigured }
+					}
+					}
+				if = { 
+					limit = { 
+						primary_title = {
+							title = d_rayeen_al-fen 
+						}
+					}
+					add_trait = daeva	
+				}
+				if = {
+					limit = { 
+						primary_title = {
+							title = d_bayt_mushakis
+						}
+					}		
+					add_trait = daeva	
+				}	
+				if = { 
+					limit = { 
+						primary_title = {
+							title = d_wahsheen  
+						}
+					}	
+					add_trait = gangrel	
+				}	
+				if = { 
+					limit = { 
+						primary_title = {
+							title = d_bayt_muirim  
+						}
+					}		
+					add_trait = gangrel	
+				}		
+				if = { 
+					limit = { 
+						primary_title = {
+							title = d_assamites  
+						}
+					}		
+					add_trait = mekhet	
+				}	
+				if = { 
+					limit = { 
+						primary_title = {
+							title = d_banu_haqim 
+						}
+					}		
+					add_trait = mekhet	
+				}	
+				if = { 
+					limit = { 
+						primary_title = {
+							title = d_qabilat_al-mawt 
+						}
+					}		
+					add_trait = mekhet	
+				}	
+				if = {
+					limit = { 
+						primary_title = {
+							title = d_walid_set 
+						}
+					}	
+					add_trait = mekhet	
+				}			
+				if = { 
+					limit = { 
+						primary_title = {
+							title = d_bayt_mutasharid 
+						}
+					}		
+					remove_trait = fair
+					add_trait = nosferatu	
+					set_graphical_culture = nosferatu
+				}	
+				if = {
+					limit = { 
+						primary_title = {
+							title = d_bayt_majnoon 
+						}
+					}	
+					add_trait = ventrue	
+					add_trait = lunatic
+				}
+				if = {
+					limit = { 
+						primary_title = {
+							title = d_qabilat_al-khayal 
+						}
+					}	
+					add_trait = ventrue	
+				}			
+				if = { 
+					limit = { 
+						primary_title = {
+							title = d_nepheshim  
+						}
+					}	
+					add_trait = gangrel	
+				}	
+				if = {
+					limit = { 
+						primary_title = {
+							OR = {
+								title = d_hidden  
+								title = d_archons
+								title = d_antinomians
+								title = d_faustians
+								title = d_djinn
+								title = d_hyletics
+								title = d_manus_nigrum
+								title = d_talmahera
+								title = d_baali
+								title = d_sabbat
+							}
+						}
+					}
+					random_list = {
+						20 = { dynasty = 8000028 }
+						80 = { set_character_flag = POD_vampire_forsworn_NOT_Therion_dynasty}
+					}
+				}			
+				if = { 
+					limit = {		
+						NOT = { trait = daeva }
+						NOT = { trait = gangrel }
+						NOT = { trait = mekhet }
+						NOT = { trait = nosferatu }
+						NOT = { trait = ventrue }
+						NOT = { trait = julii }
+						NOT = { trait = akhud }
+						NOT = { trait = petrovnavich }
+						NOT = { trait = semeonovic }
+						NOT = { trait = alexander }
+						NOT = { trait = grigorovich }
+						NOT = { trait = irinavici }
+						NOT = { trait = marisovich }
+						NOT = { trait = dubrov }
+					}
+					random_list = {
+						2 = {
+							add_trait = "vii"
+						}
+						20 = { add_trait = "daeva"}
+						10 = { add_trait = "gangrel" }
+						20 = { add_trait = "mekhet"	}		
+						15 = { add_trait = "nosferatu" }
+						33 = { 
+							add_trait = "ventrue"
+							if = { 
+								limit = {
+									has_global_flag = bookmark232
+									has_global_flag = bookmark412														
+								}
+								random_list = {
+									20 = {
+										remove_trait = ventrue
+										add_trait = gangrel
+									}
+									20 = {
+										remove_trait = ventrue
+										add_trait = daeva
+									}
+									20 = { 
+										remove_trait = ventrue
+										add_trait = mekhet
+									}
+									20 = {
+										remove_trait = ventrue
+										remove_trait = fair
+										add_trait = nosferatu
+									}
+								}
+							}
+							
+						}
+					}
+				}
+# Vampire Religious shuffle				
+				if = {
+					limit = {
+						OR = {
+							has_global_flag = bookmark1142
+							has_global_flag = bookmark1250
+							has_global_flag = bookmark1533	
+						}
+					}
+# CHRISTIAN ZOMBIE VAMPIRES! I AM THE FATHER! THE FATHER OF NOTHING!
+					if = { 
+						limit = { 
+							religion = lancea_sanctum 
+							primary_title = { holding_type = temple	}
+							NOT = { is_feudal = yes } 
+							NOT = { is_patrician = yes }
+							NOT = { mercenary = yes }
+							NOT = { holy_order = yes }
+						}
+						random_list = {
+							80 = { religion = lancea_sanctum }
+							1 = { religion = gnostic }
+							1 = { religion = livian }
+							1 = { religion = nameless }
+							1 = { religion = pandaemonium }
+							1 = { religion = roaring_serpent }
+							1 = { religion = mercy_seat}
+							1 = { religion = unaligned } 
+							1 = { religion = invictus }
+							1 = { religion = die_nachteulen }
+							1 = { religion = circle_of_the_crone }
+						}	
+					}
+					if = { 
+						limit = { 
+							religion = lancea_sanctum 
+							OR = { is_feudal =  yes 
+							is_patrician = yes }
+							NOT = { mercenary = yes }
+							NOT = { holy_order = yes }
+						}
+						random_list = {
+							77 = { religion = lancea_sanctum }
+							10 = { religion = invictus } 
+							7 = { religion = unaligned }
+							1 = { religion = die_nachteulen }
+							1 = { religion = nameless }
+							1 = { religion = pandaemonium }
+							1 = { religion = roaring_serpent }
+							1 = { religion = mercy_seat}
+							1 = { religion = circle_of_the_crone } 
+						}	
+					}		
+					if = { 
+						limit = { 
+							religion = invictus 
+							NOT = { primary_title = { holding_type = temple	} }
+							NOT = { mercenary = yes }
+							NOT = { holy_order = yes }	
+						}
+						random_list = {
+							69 = { religion = invictus }
+							5 = { religion = lancea_sanctum } 
+							5 = { religion = unaligned }
+							10 = { religion = die_nachteulen }
+							5 = { religion = circle_of_the_crone } 
+							1 = { religion = nameless }
+							2 = { religion = pandaemonium }
+							1 = { religion = roaring_serpent }
+							1 = { religion = mercy_seat}
+						}	
+					}
+					if = { 
+						limit = { 
+							religion = invictus 
+							primary_title = { holding_type = temple	}	
+						}
+						random_list = {
+							78 = { religion = lancea_sanctum }
+							5 = { religion = die_nachteulen }	
+							5 = { religion = invictus }																						
+							5 = { religion = unaligned }
+							1 = { religion = circle_of_the_crone } 
+							1 = { religion = nameless }
+							1 = { religion = pandaemonium }
+							1 = { religion = roaring_serpent }
+							1 = { religion = mercy_seat}																		
+							1 = { religion = gnostic }
+							1 = { religion = livian }
+						}	
+					}	
+					if = { 
+						limit = { 
+							religion = adamantes_athanatoi 
+							OR = {
+							is_feudal =  yes 
+							is_patrician = yes }
+							NOT = { mercenary = yes }
+							NOT = { holy_order = yes }
+						}
+						random_list = {
+							66 = { religion = adamantes_athanatoi }
+							20 = { religion = lancea_sanctum } 
+							5 = { religion = unaligned }
+							5 = { religion = circle_of_the_crone } 
+							1 = { religion = nameless }
+							1 = { religion = pandaemonium }
+							1 = { religion = roaring_serpent }
+							1 = { religion = mercy_seat }	
+						}	
+					}
+					if = { 
+						limit = {
+							religion = adamantes_athanatoi 
+							NOT = { is_feudal = yes }
+							NOT = { is_patrician = yes }
+							NOT = { mercenary = yes }
+							NOT = { holy_order = yes }
+						}
+						random_list = {
+							83 = { religion = lancea_sanctum }
+							1 = { religion = adamantes_athanatoi }																						
+							5 = { religion = unaligned }
+							5 = { religion = circle_of_the_crone } 
+							1 = { religion = nameless }
+							1 = { religion = pandaemonium }
+							1 = { religion = roaring_serpent }
+							1 = { religion = mercy_seat }
+							1 = { religion = gnostic }
+							1 = { religion = livian }
+						}	
+					}			
+					if = { 
+						limit = { 
+							religion = circle_of_the_crone 
+							primary_title = { holding_type = temple	} 
+							NOT = { is_feudal = yes } 
+							NOT = { is_patrician = yes }
+							NOT = { mercenary = yes }
+							NOT = { holy_order = yes }
+						}
+						random_list = {
+							54 = { religion = circle_of_the_crone }
+							1 = { religion = die_nachteulen }	
+							1 = { religion = invictus }																						
+							22 = { religion = unaligned }
+							10 = { religion = livian }
+							2 = { religion = nameless }
+							3 = { religion = pandaemonium }
+							3 = { religion = roaring_serpent }
+							2 = { religion = mercy_seat }
+							1 = { religion = lancea_sanctum } 
+							1 = { religion = gnostic }
+						}	
+					}		
+					if = { 
+						limit = { 
+							religion = circle_of_the_crone 
+							NOT = { primary_title = { holding_type = temple	} }
+							NOT = { mercenary = yes }
+							NOT = { holy_order = yes }		
+						}
+						random_list = {
+							43 = { religion = circle_of_the_crone }
+							10 = { religion = die_nachteulen }	
+							15 = { religion = invictus }																						
+							20 = { religion = unaligned }
+							1 = { religion = lancea_sanctum } 
+							1 = { religion = gnostic }
+							1 = { religion = livian }
+							1 = { religion = nameless }
+							1 = { religion = pandaemonium }
+							2 = { religion = roaring_serpent }
+							1 = { religion = mercy_seat }
+						}	
+					}		
+					if = { 
+						limit = { 
+							religion = banu_shaitan 
+							NOT = { primary_title = { holding_type = temple	} }
+							NOT = { mercenary = yes }
+							NOT = { holy_order = yes }	
+						}
+						random_list = {
+							65 = { religion = al-amin }
+							10 = { religion = banu_shaitan }																	
+							20 = { religion = unaligned }
+							5 = { religion = smokeless_throne }
+						}	
+					}			
+					if = { 
+						limit = { 
+							religion = banu_shaitan 
+							primary_title = { holding_type = temple	}
+							NOT = { mercenary = yes }
+							NOT = { holy_order = yes }
+						}
+						random_list = {
+							73 = { religion = banu_shaitan }
+							10 = { religion = lancea_sanctum }																							
+							5 = { religion = unaligned }
+							5 = { religion = smokeless_throne }
+							5 = { religion = circle_of_the_crone }
+						}	
+					}	
+					if = { 
+						limit = { 
+							religion = al-amin 
+							primary_title = { holding_type = temple	}
+							NOT = { mercenary = yes }
+							NOT = { holy_order = yes }
+						}
+						random_list = {
+							43 = { religion = banu_shaitan }
+							10 = { religion = al-amin }	
+							15 = { religion = smokeless_throne }																			
+							5 = { religion = unaligned }
+							5 = { religion = circle_of_the_crone }
+							20 = { religion = lancea_sanctum }
+						}	
+					}	
+					if = { 
+						limit = { 
+							religion = al-amin 
+							NOT = { primary_title = { holding_type = temple	} }
+							NOT = { mercenary = yes }
+							NOT = { holy_order = yes }	
+						}
+						random_list = {
+							58 = { religion = al-amin }
+							10 = { religion = banu_shaitan }	
+							15 = { religion = smokeless_throne }												
+							5 = { religion = unaligned }
+							5 = { religion = circle_of_the_crone }
+							5 = { religion = lancea_sanctum }
+						}	
+					}	
+					if = {
+						limit = { 
+							learning = 5	
+							NOT = { trait = theban_1 }
+							NOT = { trait = theban_2 }
+							NOT = { trait = theban_3 }
+							NOT = { trait = theban_4 }
+							NOT = { trait = theban_5 }
+							NOT = { trait = cruac_1 }
+							NOT = { trait = cruac_2 }
+							NOT = { trait = cruac_3 }
+							NOT = { trait = cruac_4 }
+							NOT = { trait = cruac_5 }
+							NOT = { trait = vii }
+						}
+						if = { 
+							limit = { 
+								NOT = { religion = circle_of_the_crone }
+								OR = {
+									religion = lancea_sanctum
+									religion = icarian
+									religion = livian
+									religion = gnostic 
+									religion = banu_shaitan
+								}
+								NOT = { trait = theban_1 }
+								NOT = { trait = theban_2 }
+								NOT = { trait = theban_3 }
+								NOT = { trait = theban_4 }
+								NOT = { trait = theban_5 }
+							}																								
+							if = {
+								limit = { 
+									trait = neonate 
+									NOT = { religion = circle_of_the_crone }
+									OR = {
+										religion = lancea_sanctum
+										religion = icarian
+										religion = livian
+										religion = gnostic 
+										religion = banu_shaitan
+									}
+								}	
+								add_trait = theban_1
+							}
+							if = {
+								limit = { 
+									trait = ancilla
+									NOT = { religion = circle_of_the_crone }
+									OR = {
+										religion = lancea_sanctum
+										religion = icarian
+										religion = livian
+										religion = gnostic 
+										religion = banu_shaitan
+									}
+								}
+								add_trait = theban_3
+							}
+							if = {
+								limit = { 
+									trait = elder
+									NOT = { religion = circle_of_the_crone }
+									OR = {
+										religion = lancea_sanctum
+										religion = icarian
+										religion = livian
+										religion = gnostic 
+										religion = banu_shaitan
+									}
+								}
+								add_trait = theban_5																			
+							}
+						}
+						if = { 
+							limit = { 
+								religion = circle_of_the_crone 
+								NOR = {
+									religion = lancea_sanctum
+									religion = icarian
+									religion = livian
+									religion = gnostic 
+									religion = banu_shaitan
+								}
+							}
+							if = {
+								limit = { 
+									trait = neonate
+									religion = circle_of_the_crone 
+									NOR = {
+										religion = lancea_sanctum
+										religion = icarian
+										religion = gnostic 
+										religion = banu_shaitan
+									}
+								}
+								add_trait = cruac_1
+							}
+							if = {
+								limit = {	
+									trait = ancilla 
+									religion = circle_of_the_crone 
+									NOR = {
+										religion = lancea_sanctum
+										religion = icarian
+										religion = gnostic 
+										religion = banu_shaitan
+									}
+								}
+								add_trait = cruac_3
+							}
+							if = {
+								limit = { 	
+									trait = elder
+									religion = circle_of_the_crone 
+									NOR = {
+										religion = lancea_sanctum
+										religion = icarian
+										religion = gnostic 
+										religion = banu_shaitan
+									}
+								}
+								add_trait = cruac_5
+							}
+						}
+					}
+				}		
+				
+				POD_dynasty_effect = yes
+
+# Unique Forsworn/Belial's Brood bloodline
+				if = {
+					limit = {
+						trait = "vampire"
+						religion_group = "forsworn_vampire_group"
+					}
+					random_list = {
+						 10 = { dynasty = 8000028 }
+						 90 = { set_character_flag = POD_vampire_forsworn_NOT_Therion_dynasty}
+					}
+				}
+				
+				POD_vampire_disciplines_init_effect = yes
+				POD_vampire_governments_init_effect = yes
+				
+# Player Vampire Next Generation
+
+if = { limit = {ai = no }
+
+				random_list = {							
+					10 = {
+						# Create Young Ancilla
+						create_character = {
+							random_traits = yes
+							trait = vampire
+							age = 100
+							dynasty = ROOT
+							culture = ROOT
+							religion = ROOT	
+						}
+						new_character = {
+							inherit = PREV
+							set_father = ROOT
+							add_trait = ancilla
+							add_trait = bloodpotency_2								
+						}
+					}
+					10 = {
+						# Create Young Ancilla
+						create_character = {
+							random_traits = yes
+							trait = vampire
+							age = 100
+							female = yes
+							dynasty = ROOT
+							culture = ROOT
+							religion = ROOT
+						}
+						new_character = {
+							inherit = PREV
+							set_father = ROOT
+							add_trait = ancilla
+							
+							add_trait = bloodpotency_2								
+						}
+					}
+					20 = {
+						# Create Old Ancilla
+						create_character = {
+							random_traits = yes
+							trait = vampire
+							age = 150
+							dynasty = ROOT
+							culture = ROOT
+							religion = ROOT							
+						}
+						new_character = {
+							inherit = PREV
+							set_father = ROOT
+							add_trait = ancilla
+							
+							add_trait = bloodpotency_3								
+						}
+					}
+					20 = {
+						# Create Old Ancilla
+						create_character = {
+							random_traits = yes
+							trait = vampire
+							age = 150
+							female = yes
+							dynasty = ROOT
+							culture = ROOT
+							religion = ROOT
+						}
+						new_character = {
+							inherit = PREV
+							set_father = ROOT
+							add_trait = ancilla
+							
+							add_trait = bloodpotency_3
+								
+						}
+					}
+					20 = {
+						# Create Elder
+						create_character = {
+							random_traits = yes
+							trait = vampire
+							age = 250
+							dynasty = ROOT
+							culture = ROOT
+							religion = ROOT
+						}
+						new_character = {
+							inherit = PREV
+							set_father = ROOT
+							add_trait = elder
+							
+							add_trait = bloodpotency_4
+						}
+					}
+					20 = {
+						# Create Elder
+						create_character = {
+							random_traits = yes
+							trait = vampire
+							age = 250
+							female = yes
+							dynasty = ROOT
+							culture = ROOT
+							religion = ROOT													
+						}
+						new_character = {
+							inherit = PREV
+							set_father = ROOT
+							add_trait = elder
+							
+							add_trait = bloodpotency_4
+						}
+					}
+				}	
+
+				new_character = { 			
+					if = {
+						limit = {
+							is_adult = yes
+							trait = "vampire"
+							NOT = { trait = "daeva" }
+							NOT = { trait = "gangrel" }
+							NOT = { trait = "mekhet" }
+							NOT = { trait = "nosferatu" }
+							NOT = { trait = "ventrue" }
+							NOT = { trait = "julii" }
+							NOT = { trait = akhud }
+							NOT = { trait = petrovnavich }
+							NOT = { trait = semeonovic }
+							NOT = { trait = alexander }
+							NOT = { trait = grigorovich }
+							NOT = { trait = irinavici }
+							NOT = { trait = marisovich }
+							NOT = { trait = dubrov }													
+						}
+					# indian vampires inherit caste
+						if = {
+							limit = { father = { trait = kshatriya } }
+							add_trait = kshatriya
+						}
+						if = { 
+							limit = { father = { trait = brahmin } }
+							add_trait = brahmin
+						}
+					# vampires inherit sire's clan	
+						if = { 
+							limit = { ROOT = { trait = julii } }
+							add_trait = julii
+						}
+						if = {
+							limit = { ROOT = { trait = akhud } }
+							add_trait = akhud
+						}
+						if = {
+							limit = { ROOT = { trait = daeva } }
+							add_trait = daeva
+						}
+						if = { 
+							limit = { ROOT = { trait = gangrel } }
+							add_trait = gangrel 
+						}
+						if = { 
+							limit = { ROOT = { trait = mekhet } }
+							add_trait = mekhet 
+						}
+						if = { 
+							limit = { ROOT = { trait = nosferatu } }
+							add_trait = nosferatu 
+							set_graphical_culture = nosferatu
+						}
+						if = { 
+							limit = { ROOT = { trait = ventrue } }
+							add_trait = ventrue 
+						}		
+						if = { 
+							limit = { ROOT = { trait = vii } }
+							add_trait = vii
+						}
+						if = { 
+							limit = { ROOT = { trait = petrovnavich } }
+							add_trait = petrovnavich
+						}
+						if = { 
+							limit = { ROOT = { trait = alexander } }
+							add_trait = alexander
+						}
+						if = { 	
+							limit = { ROOT = { trait = grigorovich } }
+							add_trait = grigorovich
+						}	
+						if = { 
+							limit = { ROOT = { trait = irinavici } }
+							add_trait = irinavici
+						}	
+						if = { 
+							limit = { ROOT = { trait = semeonovic } }
+							add_trait = semeonovic
+						}
+						if = { 
+							limit = { ROOT = { trait = marisovich } }
+							add_trait = marisovich
+						}															
+						if = { 
+							limit = { ROOT = { trait = dubrov } }
+							add_trait = dubrov
+						}	
+
+					POD_vampire_governments_init_effect = yes	
+					POD_vampire_disciplines_init_effect = yes
+							
+							# Galloi
+						if = {
+							limit = {
+								dynasty = 5000097 
+							}
+							religion = circle_of_the_crone 
+							add_trait = fair
+							remove_trait = ugly 
+						}
+																
+					}						
+				}				
+				
+		}			
+
+	
+# AI Vampire: The Next Generation  ( creating a virtual history )
+				
+if = { limit = {ai = yes }
+
+				random_list = {							
+					10 = {
+						# Create Young Ancilla
+						create_character = {
+							random_traits = yes
+							trait = vampire
+							age = 100
+							dynasty = culture
+							culture = ROOT
+							religion = ROOT
+						}
+						new_character = {
+							inherit = PREV
+							set_father = ROOT
+							add_trait = ancilla
+							add_trait = bloodpotency_2								
+						}
+					}
+					10 = {
+						# Create Young Ancilla
+						create_character = {
+							random_traits = yes
+							trait = vampire
+							age = 100
+							female = yes
+							dynasty = culture
+							culture = ROOT
+							religion = ROOT
+						}
+						new_character = {
+							inherit = PREV
+							set_father = ROOT
+							add_trait = ancilla
+							
+							add_trait = bloodpotency_2								
+						}
+					}
+					20 = {
+						# Create Old Ancilla
+						create_character = {
+							random_traits = yes
+							trait = vampire
+							age = 150
+							dynasty = culture
+							culture = ROOT
+							religion = ROOT							
+						}
+						new_character = {
+							inherit = PREV
+							set_father = ROOT
+							add_trait = ancilla
+							
+							add_trait = bloodpotency_3								
+						}
+					}
+					20 = {
+						# Create Old Ancilla
+						create_character = {
+							random_traits = yes
+							trait = vampire
+							age = 150
+							female = yes
+							dynasty = culture
+							culture = ROOT
+							religion = ROOT
+						}
+						new_character = {
+							inherit = PREV
+							set_father = ROOT
+							add_trait = ancilla
+							
+							add_trait = bloodpotency_3
+								
+						}
+					}
+					20 = {
+						# Create Elder
+						create_character = {
+							random_traits = yes
+							trait = vampire
+							age = 250
+							dynasty = culture
+							culture = ROOT
+							religion = ROOT
+						}
+						new_character = {
+							inherit = PREV
+							set_father = ROOT
+							add_trait = elder
+							
+							add_trait = bloodpotency_4
+						}
+					}
+					20 = {
+						# Create Elder
+						create_character = {
+							random_traits = yes
+							trait = vampire
+							age = 250
+							female = yes
+							dynasty = culture
+							culture = ROOT
+							religion = ROOT													
+						}
+						new_character = {
+							inherit = PREV
+							set_father = ROOT
+							add_trait = elder
+							
+							add_trait = bloodpotency_4
+						}
+					}
+				}	
+				
+				new_character = { 	
+						
+					if = {
+						limit = {
+							is_adult = yes
+							trait = "vampire"
+							NOT = { trait = "daeva" }
+							NOT = { trait = "gangrel" }
+							NOT = { trait = "mekhet" }
+							NOT = { trait = "nosferatu" }
+							NOT = { trait = "ventrue" }
+							NOT = { trait = "julii" }
+							NOT = { trait = akhud }
+							NOT = { trait = petrovnavich }
+							NOT = { trait = semeonovic }
+							NOT = { trait = alexander }
+							NOT = { trait = grigorovich }
+							NOT = { trait = irinavici }
+							NOT = { trait = marisovich }
+							NOT = { trait = dubrov }													
+						}
+					# indian vampires inherit caste
+						if = {
+							limit = { father = { trait = kshatriya } }
+							add_trait = kshatriya
+						}
+						if = { 
+							limit = { father = { trait = brahmin } }
+							add_trait = brahmin
+						}
+					# vampires inherit sire's clan	
+						if = { 
+							limit = { ROOT = { trait = julii } }
+							add_trait = julii
+						}
+						if = {
+							limit = { ROOT = { trait = akhud } }
+							add_trait = akhud
+						}
+						if = {
+							limit = { ROOT = { trait = daeva } }
+							add_trait = daeva
+						}
+						if = { 
+							limit = { ROOT = { trait = gangrel } }
+							add_trait = gangrel 
+						}
+						if = { 
+							limit = { ROOT = { trait = mekhet } }
+							add_trait = mekhet 
+						}
+						if = { 
+							limit = { ROOT = { trait = nosferatu } }
+							add_trait = nosferatu 
+							set_graphical_culture = nosferatu
+						}
+						if = { 
+							limit = { ROOT = { trait = ventrue } }
+							add_trait = ventrue 
+						}		
+						if = { 
+							limit = { ROOT = { trait = vii } }
+							add_trait = vii
+						}
+						if = { 
+							limit = { ROOT = { trait = petrovnavich } }
+							add_trait = petrovnavich
+						}
+						if = { 
+							limit = { ROOT = { trait = alexander } }
+							add_trait = alexander
+						}
+						if = { 	
+							limit = { ROOT = { trait = grigorovich } }
+							add_trait = grigorovich
+						}	
+						if = { 
+							limit = { ROOT = { trait = irinavici } }
+							add_trait = irinavici
+						}	
+						if = { 
+							limit = { ROOT = { trait = semeonovic } }
+							add_trait = semeonovic
+						}
+						if = { 
+							limit = { ROOT = { trait = marisovich } }
+							add_trait = marisovich
+						}															
+						if = { 
+							limit = { ROOT = { trait = dubrov } }
+							add_trait = dubrov
+						}
+											
+# vampire religious sorcery
+						if = {
+							limit = { 
+								learning = 5
+								trait = "vampire"
+								NOT = { trait = vii }
+							}
+							if = { 
+								limit = { 
+									OR = {
+										religion = lancea_sanctum
+										religion = icarian
+										religion = livian
+										religion = gnostic
+									}
+									NOT = { trait = theban_1 }
+									NOT = { trait = theban_2 }
+									NOT = { trait = theban_3 }
+									NOT = { trait = theban_4 }
+									NOT = { trait = theban_5 }
+								}
+								if = {
+									limit = { trait = neonate }
+									add_trait = theban_1
+								}
+								if = {
+									limit = { trait = ancilla }
+									add_trait = theban_3
+								}
+								if = {
+									limit = { trait = elder}
+									add_trait = theban_5																			
+								}
+							}	
+							if = { 
+								 limit = { 
+									religion = circle_of_the_crone 
+									NOT = { trait = cruac_1 }
+									NOT = { trait = cruac_2 }
+									NOT = { trait = cruac_3 }
+									NOT = { trait = cruac_4 }
+									NOT = { trait = cruac_5 }
+								}
+								if = {
+									limit = { trait = neonate }
+									add_trait = cruac_1
+								}
+								if = {
+									limit = { trait = ancilla }
+									add_trait = cruac_3
+								}
+								if = {
+									limit = { trait = elder}
+									add_trait = cruac_5
+								}
+							}
+							if = { 
+								limit = { 
+									religion = banu_shaitan 
+									NOT = { trait = theban_1 }
+									NOT = { trait = theban_2 }
+									NOT = { trait = theban_3 }
+									NOT = { trait = theban_4 }
+									NOT = { trait = theban_5 }
+								}
+								if = {
+									limit = { trait = neonate }
+									add_trait = theban_1
+								}
+								if = {
+									limit = { trait = ancilla }
+									add_trait = theban_3
+								}
+								if = {
+									limit = { trait = elder}
+									add_trait = theban_5
+								}
+							}
+						}
+# Vampire Government Elders
+						if = {
+							limit = {
+								OR = {
+									religion = invictus
+									religion = adamantes_athanatoi
+									religion = die_nachteulen
+								}
+							}
+							set_government_type = estate_government
+						}			
+						if = {
+							limit = {
+								OR = {
+									religion = lancea_sanctum
+									religion = icarian
+									religion = gnostic
+									religion = livian
+									religion = shedim
+									religion = banu_shaitan
+								}
+							}
+							set_government_type = testament_government
+						}
+						if = {
+							limit = {
+								OR = {
+									religion_group = pagan_vampire_group
+									religion = ordo_dracul
+									religion_group = forsworn_vampire_group
+								}
+								NOT = { religion = carthian }
+								NOT = { religion = unaligned }
+							}
+							set_government_type = cult_government
+						}	
+						if = { 
+							limit = { religion = carthian }
+							set_government_type = free_state_government			
+						}
+						if = { 
+							limit = { religion = unaligned }
+							set_government_type = unaligned_government			
+						}			
+						if = {
+							limit = { religion = al-amin }
+							set_government_type = al-amin_government
+						}
+						if = {
+							limit = {
+								religion_group = dharmic_vampire_group	
+							}
+							set_government_type = dharmic_government
+						}										
+# assigning vampire ruler childe disciplines
+						if = {
+							limit = {
+								trait = "ancilla"
+								trait = "daeva"
+							}
+							random_list = {
+								70 = {
+									add_trait = celerity_2
+									add_trait = majesty_3
+									add_trait = vigor_2
+								}
+								10 = {
+									add_trait = celerity_5
+									add_trait = majesty_1
+									add_trait = vigor_1
+								}
+								10 = {
+									add_trait = celerity_1
+									add_trait = majesty_5
+									add_trait = vigor_1
+								}
+								10 = {
+									add_trait = celerity_1
+									add_trait = majesty_1
+									add_trait = vigor_5
+								}
+							}
+						}
+						if = {
+							limit = {
+								trait = "elder"
+								trait = "daeva"
+							}
+							random_list = {
+								40 = {
+									add_trait = celerity_3
+									add_trait = majesty_5
+									add_trait = vigor_3
+								}
+								30 = {
+									add_trait = celerity_5
+									add_trait = majesty_3
+									add_trait = vigor_3
+								}
+								30 = {
+									add_trait = celerity_3
+									add_trait = majesty_3
+									add_trait = vigor_5
+								}
+							}
+						}
+						if = {
+							limit = {
+								trait = "ancilla"
+								trait = "gangrel"
+							}
+							random_list = {
+								70 = {
+									add_trait = animalism_2
+									add_trait = protean_3
+									add_trait = resilience_2
+								}
+								10 = {
+									add_trait = animalism_5
+									add_trait = protean_1
+									add_trait = resilience_1
+								}
+								10 = {
+									add_trait = animalism_1
+									add_trait = protean_5
+									add_trait = resilience_1
+								}
+								10 = {
+									add_trait = animalism_1
+									add_trait = protean_1
+									add_trait = resilience_5
+								}
+							}
+						}
+						if = {
+							limit = {
+								trait = "elder"
+								trait = "gangrel"
+							}
+							random_list = {
+								40 = {
+									add_trait = animalism_3
+									add_trait = protean_5
+									add_trait = resilience_3
+								}
+								30 = {
+									add_trait = animalism_5
+									add_trait = protean_3
+									add_trait = resilience_3
+								}
+								30 = {
+									add_trait = animalism_3
+									add_trait = protean_3
+									add_trait = resilience_5
+								}
+							}
+						}
+						if = {
+							limit = {
+								trait = "mekhet"
+								trait = "ancilla"
+							}
+							random_list = {
+								70 = {
+									add_trait = celerity_2
+									add_trait = auspex_3
+									add_trait = obfuscate_2
+								}
+								10 = {
+									add_trait = celerity_5
+									add_trait = auspex_1
+									add_trait = obfuscate_1
+								}
+								10 = {
+									add_trait = celerity_1
+									add_trait = auspex_5
+									add_trait = obfuscate_1
+								}
+								10 = {
+									add_trait = celerity_1
+									add_trait = auspex_1
+									add_trait = obfuscate_5
+								}
+							}
+						}
+						if = {
+							limit = {
+								trait = "mekhet"
+								trait = "elder"
+							}
+							random_list = {
+								40 = {
+									add_trait = celerity_3
+									add_trait = auspex_5
+									add_trait = obfuscate_3
+								}
+								30 = {
+									add_trait = celerity_5
+									add_trait = auspex_3
+									add_trait = obfuscate_3
+								}
+								30 = {
+									add_trait = celerity_3
+									add_trait = auspex_3
+									add_trait = obfuscate_5
+								}
+							}
+						}																	
+							# Galloi
+						if = {
+							limit = {
+								dynasty = 5000097 
+							}
+							religion = circle_of_the_crone 
+							add_trait = fair
+							remove_trait = ugly 
+						}
+						if = {
+							limit = {
+								trait = "nosferatu"
+								trait = "ancilla"
+							}
+							add_trait = disfigured
+							random_list = {
+								70 = {
+									add_trait = obfuscate_2
+									add_trait = nightmare_3
+									add_trait = vigor_2
+								}
+								10 = {
+									add_trait = obfuscate_5
+									add_trait = nightmare_1
+									add_trait = vigor_1
+								}
+								10 = {
+									add_trait = obfuscate_1
+									add_trait = nightmare_5
+									add_trait = vigor_1
+								}
+								10 = {
+									add_trait = obfuscate_1
+									add_trait = nightmare_1
+									add_trait = vigor_5
+								}
+							}
+						}
+						if = {
+							limit = {
+								trait = "nosferatu"
+								trait = "elder"
+							}
+							add_trait = disfigured
+							random_list = {
+								40 = {
+									add_trait = obfuscate_3
+									add_trait = nightmare_5
+									add_trait = vigor_3
+								}
+								30 = {
+									add_trait = obfuscate_5
+									add_trait = nightmare_3
+									add_trait = vigor_3
+								}
+								30 = {
+									add_trait = obfuscate_3
+									add_trait = nightmare_3
+									add_trait = vigor_5
+								}
+							}
+						}																	
+						if = {
+							limit = {
+								trait = "ventrue"
+								trait = "ancilla"
+							}
+							random_list = {
+								70 = {
+									add_trait = animalism_2
+									add_trait = dominate_3
+									add_trait = resilience_2
+								}
+								10 = {
+									add_trait = animalism_5
+									add_trait = dominate_1
+									add_trait = resilience_1
+								}
+								10 = {
+									add_trait = animalism_1
+									add_trait = dominate_5
+									add_trait = resilience_1
+								}
+								10 = {
+									add_trait = animalism_1
+									add_trait = dominate_1
+									add_trait = resilience_5
+								}
+							}
+						}
+						if = {
+							limit = {
+								trait = "ventrue"
+								trait = "elder"
+							}
+							random_list = {
+								40 = {
+									add_trait = animalism_3
+									add_trait = dominate_5
+									add_trait = resilience_3
+								}
+								30 = {
+									add_trait = animalism_5
+									add_trait = dominate_3
+									add_trait = resilience_3
+								}
+								30 = {
+									add_trait = animalism_3
+									add_trait = dominate_3
+									add_trait = resilience_5
+								}
+							}
+						}	
+						if = {
+							limit = {
+								trait = "julii"
+								trait = "ancilla"
+							}
+							random_list = {
+								70 = {
+									add_trait = animalism_2
+									add_trait = dominate_3
+									add_trait = resilience_2
+								}
+								10 = {
+									add_trait = animalism_5
+									add_trait = dominate_1
+									add_trait = resilience_1
+								}
+								10 = {
+									add_trait = animalism_1
+									add_trait = dominate_5
+									add_trait = resilience_1
+								}
+								10 = {
+									add_trait = animalism_1
+									add_trait = dominate_1
+									add_trait = resilience_5
+								}
+							}
+						}
+						if = {
+							limit = {
+								trait = "julii"
+								trait = "elder"
+							}
+							random_list = {
+								40 = {
+									add_trait = animalism_3
+									add_trait = dominate_5
+									add_trait = resilience_3
+								}
+								30 = {
+									add_trait = animalism_5
+									add_trait = dominate_3
+									add_trait = resilience_3
+								}
+								30 = {
+									add_trait = animalism_3
+									add_trait = dominate_3
+									add_trait = resilience_5
+								}
+							}
+						}	
+						if = {
+							limit = {
+								trait = "akhud"
+								trait = "ancilla"
+							}
+							random_list = {
+								70 = {
+									add_trait = celerity_2
+									add_trait = auspex_3
+									add_trait = obfuscate_2
+								}
+								10 = {
+									add_trait = celerity_5
+									add_trait = auspex_1
+									add_trait = obfuscate_1
+								}
+								10 = {
+									add_trait = celerity_1
+									add_trait = auspex_5
+									add_trait = obfuscate_1
+								}
+								10 = {
+									add_trait = celerity_1
+									add_trait = auspex_1
+									add_trait = obfuscate_5
+								}
+							}
+						}
+						if = {
+							limit = {
+								trait = "akhud"
+								trait = "elder"
+							}
+							random_list = {
+								40 = {
+									add_trait = celerity_3
+									add_trait = auspex_5
+									add_trait = obfuscate_3
+								}
+								30 = {
+									add_trait = celerity_5
+									add_trait = auspex_3
+									add_trait = obfuscate_3
+								}
+								30 = {
+									add_trait = celerity_3
+									add_trait = auspex_3
+									add_trait = obfuscate_5
+								}
+							}
+						}
+						if = {
+							limit = {
+								trait = "petrovnavich"
+								trait = "ancilla"
+							}
+							random_list = {
+								70 = {
+									add_trait = vigor_2
+									add_trait = auspex_3
+									add_trait = dominate_2
+								}
+								10 = {
+									add_trait = vigor_5
+									add_trait = auspex_1
+									add_trait = dominate_1
+								}
+								10 = {
+									add_trait = vigor_1
+									add_trait = auspex_5
+									add_trait = dominate_1
+								}
+								10 = {
+									add_trait = vigor_1
+									add_trait = auspex_1
+									add_trait = dominate_5
+								}
+							}
+						}
+						if = {
+							limit = {
+								trait = "petrovnavich"
+								trait = "elder"
+							}
+							random_list = {
+								40 = {
+									add_trait = vigor_3
+									add_trait = auspex_5
+									add_trait = dominate_3
+								}
+								30 = {
+									add_trait = vigor_5
+									add_trait = auspex_3
+									add_trait = dominate_3
+								}
+								30 = {
+									add_trait = vigor_3
+									add_trait = auspex_3
+									add_trait = dominate_5
+								}
+							}
+						}
+						if = {
+							limit = {
+								trait = "alexander"
+								trait = "ancilla"
+							}
+							random_list = {
+								70 = {
+									add_trait = nightmare_2
+									add_trait = protean_3
+									add_trait = vigor_2
+								}
+								10 = {
+									add_trait = nightmare_5
+									add_trait = protean_1
+									add_trait = vigor_1
+								}
+								10 = {
+									add_trait = nightmare_1
+									add_trait = protean_5
+									add_trait = vigor_1
+								}
+								10 = {
+									add_trait = nightmare_1
+									add_trait = protean_1
+									add_trait = vigor_5
+								}
+							}
+						}
+						if = {
+							limit = {
+								trait = "alexander"
+								trait = "elder"
+							}
+							random_list = {
+								40 = {
+									add_trait = nightmare_3
+									add_trait = protean_5
+									add_trait = vigor_3
+								}
+								30 = {
+									add_trait = nightmare_5
+									add_trait = protean_3
+									add_trait = vigor_3
+								}
+								30 = {
+									add_trait = nightmare_3
+									add_trait = protean_3
+									add_trait = vigor_5
+								}
+							}
+						}	
+						if = {
+							limit = {
+								trait = "grigorovich"
+								trait = "ancilla"
+							}
+							random_list = {
+								70 = {
+									add_trait = celerity_2
+									add_trait = protean_3
+									add_trait = obfuscate_2
+								}
+								10 = {
+									add_trait = celerity_5
+									add_trait = protean_1
+									add_trait = obfuscate_1
+								}
+								10 = {
+									add_trait = celerity_1
+									add_trait = protean_5
+									add_trait = obfuscate_1
+								}
+								10 = {
+									add_trait = celerity_1
+									add_trait = protean_1
+									add_trait = obfuscate_5
+								}
+							}
+						}
+						if = {
+							limit = {
+								trait = "grigorovich"
+								trait = "elder"
+							}
+							random_list = {
+								40 = {
+									add_trait = celerity_3
+									add_trait = protean_5
+									add_trait = obfuscate_3
+								}
+								30 = {
+									add_trait = celerity_5
+									add_trait = protean_3
+									add_trait = obfuscate_3
+								}
+								30 = {
+									add_trait = celerity_3
+									add_trait = protean_3
+									add_trait = obfuscate_5
+								}
+							}
+						}	
+						if = {
+							limit = {
+								trait = "irinavici"
+								trait = "ancilla"
+							}
+							random_list = {
+								70 = {
+									add_trait = majesty_2
+									add_trait = auspex_3
+									add_trait = obfuscate_2
+								}
+								10 = {
+									add_trait = majesty_5
+									add_trait = auspex_1
+									add_trait = nightmare_1
+								}
+								10 = {
+									add_trait = majesty_1
+									add_trait = auspex_5
+									add_trait = nightmare_1
+								}
+								10 = {
+									add_trait = majesty_1
+									add_trait = auspex_1
+									add_trait = nightmare_5
+								}
+							}
+						}
+						if = {
+							limit = {
+								trait = "irinavici"
+								trait = "elder"
+							}
+							random_list = {
+								40 = {
+									add_trait = majesty_3
+									add_trait = auspex_5
+									add_trait = nightmare_3
+								}
+								30 = {
+									add_trait = majesty_5
+									add_trait = auspex_3
+									add_trait = nightmare_3
+								}
+								30 = {
+									add_trait = majesty_3
+									add_trait = auspex_3
+									add_trait = nightmare_5
+								}
+							}
+						}		
+						if = {
+							limit = {
+								trait = "semeonovic"
+								trait = "ancilla"
+							}
+							random_list = {
+								70 = {
+									add_trait = majesty_2
+									add_trait = auspex_3
+									add_trait = resilience_2
+								}
+								10 = {
+									add_trait = majesty_5
+									add_trait = auspex_1
+									add_trait = resilience_1
+								}
+								10 = {
+									add_trait = majesty_1
+									add_trait = auspex_5
+									add_trait = resilience_1
+								}
+								10 = {
+									add_trait = majesty_1
+									add_trait = auspex_1
+									add_trait = resilience_5
+								}
+							}
+						}
+						if = {
+							limit = {
+								trait = "semeonovic"
+								trait = "elder"
+							}
+							random_list = {
+								40 = {
+									add_trait = majesty_3
+									add_trait = auspex_5
+									add_trait = resilience_3
+								}
+								30 = {
+									add_trait = majesty_5
+									add_trait = auspex_3
+									add_trait = resilience_3
+								}
+								30 = {
+									add_trait = majesty_3
+									add_trait = auspex_3
+									add_trait = resilience_5
+								}
+							}
+						}		
+						if = {
+							limit = {
+								trait = "marisovich"
+								trait = "ancilla"
+							}
+							random_list = {
+								70 = {
+									add_trait = dominate_2
+									add_trait = auspex_3
+									add_trait = obfuscate_2
+								}
+								10 = {
+									add_trait = dominate_5
+									add_trait = auspex_1
+									add_trait = obfuscate_1
+								}
+								10 = {
+									add_trait = dominate_1
+									add_trait = auspex_5
+									add_trait = obfuscate_1
+								}
+								10 = {
+									add_trait = dominate_1
+									add_trait = auspex_1
+									add_trait = obfuscate_5
+								}
+							}
+						}
+						if = {
+							limit = {
+								trait = "marisovich"
+								trait = "elder"
+							}
+							random_list = {
+								40 = {
+									add_trait = dominate_3
+									add_trait = auspex_5
+									add_trait = obfuscate_3
+								}
+								30 = {
+									add_trait = dominate_5
+									add_trait = auspex_3
+									add_trait = obfuscate_3
+								}
+								30 = {
+									add_trait = dominate_3
+									add_trait = auspex_3
+									add_trait = obfuscate_5
+								}
+							}
+						}		
+						if = {
+							limit = {
+								trait = "dubrov"
+								trait = "ancilla"
+							}
+							random_list = {
+								70 = {
+									add_trait = protean_2
+									add_trait = resilience_3
+									add_trait = obfuscate_2
+								}
+								10 = {
+									add_trait = protean_5
+									add_trait = resilience_1
+									add_trait = obfuscate_1
+								}
+								10 = {
+									add_trait = protean_1
+									add_trait = resilience_5
+									add_trait = obfuscate_1
+								}
+								10 = {
+									add_trait = protean_1
+									add_trait = resilience_1
+									add_trait = obfuscate_5
+								}
+							}
+						}
+						if = {
+							limit = {
+								trait = "dubrov"
+								trait = "elder"
+							}
+							random_list = {
+								40 = {
+									add_trait = protean_3
+									add_trait = resilience_5
+									add_trait = obfuscate_3
+								}
+								30 = {
+									add_trait = protean_5
+									add_trait = resilience_3
+									add_trait = obfuscate_3
+								}
+								30 = {
+									add_trait = protean_3
+									add_trait = resilience_3
+									add_trait = obfuscate_5
+								}
+							}
+						}				
+					}		
+				POD_dynasty_effect = yes
+				}				
+		}		
+
+	
+
+		# kill random noble vampire supe
+			death = "yes"	
+			}				
+	}

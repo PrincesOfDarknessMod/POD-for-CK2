@@ -1,0 +1,268 @@
+
+namespace = POD_VAMPIRE_MENTAL_DISCIPLINE
+
+# Summon
+
+character_event = {
+    id = POD_VAMPIRE_MENTAL_DISCIPLINE.1
+    desc = EVTDESC_POD_MENTAL_DISCIPLINE1
+	picture = GFX_evt_vampire_mental
+	border = GFX_event_normal_frame_war
+	
+    is_triggered_only = yes
+
+    option = {
+        name = EVTOPTA_POD_VAMPIRE_MENTAL_DISCIPLINE1
+    }
+	
+	}
+	
+# Entrance	
+	
+	character_event = {
+    id = POD_VAMPIRE_MENTAL_DISCIPLINE.2
+    desc = EVTDESC_POD_MENTAL_DISCIPLINE2
+	picture = GFX_evt_vampire_mental
+	border = GFX_event_normal_frame_war
+	
+    is_triggered_only = yes
+
+    option = {
+        name = EVTOPTA_POD_VAMPIRE_MENTAL_DISCIPLINE2
+    }
+	
+	}
+
+# Mesmerize	
+	
+	character_event = {
+    id = POD_VAMPIRE_MENTAL_DISCIPLINE.3
+    desc = EVTDESC_POD_MENTAL_DISCIPLINE3
+	picture = GFX_evt_vampire_mental
+	border = GFX_event_normal_frame_war
+	
+    is_triggered_only = yes
+
+    option = {
+        name = EVTOPTA_POD_VAMPIRE_MENTAL_DISCIPLINE3
+    }
+	
+	}
+
+# Succesful Hunting
+
+	character_event = {
+    id = POD_VAMPIRE_MENTAL_DISCIPLINE.4
+    desc = EVTDESC_POD_MENTAL_DISCIPLINE4
+	picture = GFX_evt_vampire_wolf_hunt
+	border = GFX_event_normal_frame_war
+	
+    is_triggered_only = yes
+
+    option = {
+        name = EVTOPTA_POD_VAMPIRE_MENTAL_DISCIPLINE4
+
+		        FROM = {
+							POD_vampire_blood_thirst_decrease_effect = yes
+					}	
+						
+				FROM = { 
+					random = {
+					chance = 5
+					
+				modifier = {				
+					factor = 0.9
+					FROM = { intrigue = 1 }
+				}	
+				
+				modifier = {				
+					factor = 0.8
+					FROM = { intrigue = 5 }
+				}				
+				
+				modifier = {				
+					factor = 0.7
+					FROM = { intrigue = 10 }
+				}					
+				
+				modifier = {				
+					factor = 0.6
+					FROM = { intrigue = 15 }
+				}									
+				
+				modifier = {				
+					factor = 0.5
+					FROM = { intrigue = 20 }
+				}					
+				
+				modifier = {				
+					factor = 0.4
+					FROM = { intrigue = 25 }
+				}					
+				
+				modifier = {				
+					factor = 0.3
+					FROM = { intrigue = 30 }
+				}				
+
+				modifier = {				
+					factor = 0.2
+					FROM = { intrigue = 35 }
+				}				
+				
+				modifier = {				
+					factor = 0.1
+					FROM = { intrigue = 40 }
+				}
+				
+				modifier = {				
+					factor = 0.9
+					FROM = { trait = obfuscate_1 }
+				}					
+								
+				modifier = {				
+					factor = 0.8
+					FROM = { trait = obfuscate_2 }
+				}					
+				
+				modifier = {				
+					factor = 0.7
+					FROM = { trait = obfuscate_3 }
+				}					
+				
+				modifier = {				
+					factor = 0.6
+					FROM = { trait = obfuscate_4 }
+				}	
+				
+				modifier = {				
+					factor = 0.5
+					FROM = { trait = obfuscate_5 }
+				}		
+
+				modifier = {				
+					factor = 0.1
+					FROM = { trait = snake_form }
+				}
+				
+				modifier = {				
+					factor = 0.1
+					FROM = { trait = beast_form }
+				}
+												
+					FROM = {
+						character_event = { id = POD_VAMPIRE_MASQUERADE_BREACH.1 }			
+					}	
+				
+				}
+			}
+    }
+	
+	}
+
+#Successfully used Dementation
+character_event = {
+    id = POD_VAMPIRE_MENTAL_DISCIPLINE.5
+    desc = EVTDESC_POD_MENTAL_DISCIPLINE5
+	picture = GFX_evt_vampire_mental
+	border = GFX_event_normal_frame_war
+	
+    is_triggered_only = yes
+
+    option = {
+        name = EVTOPTA_POD_VAMPIRE_MENTAL_DISCIPLINE5
+    }
+	
+}
+
+#Remove insane trait	
+character_event = {
+    id = POD_VAMPIRE_MENTAL_DISCIPLINE.6
+    desc = EVTDESC_POD_MENTAL_DISCIPLINE6
+	picture = GFX_evt_vampire_mental
+	border = GFX_event_normal_frame_war
+	
+    is_triggered_only = yes
+	
+	trigger = {
+		is_alive = yes
+	}
+    option = {
+        name = EVTOPTA_POD_VAMPIRE_MENTAL_DISCIPLINE6
+		if = {
+			limit = { trait = lunatic }
+			remove_trait = lunatic
+		}
+    }
+	
+}
+
+#Remove stressed trait	
+character_event = {
+    id = POD_VAMPIRE_MENTAL_DISCIPLINE.7
+    desc = EVTDESC_POD_MENTAL_DISCIPLINE6
+	picture = GFX_evt_vampire_mental
+	border = GFX_event_normal_frame_war
+	
+    is_triggered_only = yes
+	
+	trigger = {
+		is_alive = yes
+	}
+    option = {
+        name = EVTOPTA_POD_VAMPIRE_MENTAL_DISCIPLINE6
+		if = {
+			limit = { trait = stressed }
+			remove_trait = stressed
+		}
+    }
+	
+}
+
+#Remove depressed trait	
+character_event = {
+    id = POD_VAMPIRE_MENTAL_DISCIPLINE.8
+    desc = EVTDESC_POD_MENTAL_DISCIPLINE6
+	picture = GFX_evt_vampire_mental
+	border = GFX_event_normal_frame_war
+	
+    is_triggered_only = yes
+	
+	trigger = {
+		is_alive = yes
+	}
+    option = {
+        name = EVTOPTA_POD_VAMPIRE_MENTAL_DISCIPLINE6
+		if = {
+			limit = { trait = depressed }
+			remove_trait = depressed
+		}
+    }
+	
+}
+
+#Remove wroth/craven trait	
+character_event = {
+    id = POD_VAMPIRE_MENTAL_DISCIPLINE.9
+    desc = EVTDESC_POD_MENTAL_DISCIPLINE6
+	picture = GFX_evt_vampire_mental
+	border = GFX_event_normal_frame_war
+	
+    is_triggered_only = yes
+	
+	trigger = {
+		is_alive = yes
+	}
+    option = {
+        name = EVTOPTA_POD_VAMPIRE_MENTAL_DISCIPLINE6
+		if = {
+			limit = { trait = craven }
+			remove_trait = craven
+		}
+		if = {
+			limit = { trait = wroth }
+			remove_trait = wroth
+		}
+    }
+	
+}
