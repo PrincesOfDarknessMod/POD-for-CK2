@@ -118,7 +118,7 @@
 	trait = "canon" 
 	female = no
 	culture = "roman"
-	dynasty = "3500097"
+	dynasty = "3500098"
 	disallow_random_traits = yes
 	trait = "just"
 	trait = "charitable"
@@ -138,6 +138,7 @@
 		add_trait = "vigor_1"
 		add_trait = "majesty_1"
 		religion = "brujah_high"
+		add_trait = "grey_eminence"
 		add_trait = "vampgeneration5"
 		add_trait = "bloodpotency_6"
 		}
@@ -209,7 +210,7 @@
 	trait = "tough_soldier"
 	trait = "aggressive_leader"
 	mother = 505016
-	dynasty = 3500019
+	dynasty = 3500099
 	trait = "canon" 
 	female = no
 	employer = 9999999
@@ -262,7 +263,7 @@
 	culture = "italian"
 	trait = "brilliant_strategist"
 	father = 605102
-	dynasty = 3500019
+	dynasty = 3500099
 	trait = "quick"
 	trait = "canon" 
 	female = yes
@@ -271,6 +272,7 @@
 	martial = 7
 	learning = 6	
 	trait = "fair"
+	religion = "innocent"
 	
 	1066.1.1 = {
 		birth = 1066.1.1
@@ -280,7 +282,7 @@
 		add_trait = vampire
 		add_trait = wyrm_taint
 		add_trait = brujah
-		religion = brujah_high
+		religion = "brujah_high"
 		add_trait = "vigor_3"
 		add_trait = "bloodpotency_1"
 		add_trait = "vampgeneration5"
@@ -294,14 +296,14 @@
 	}
 
 	1229.1.1 = {
-		remove_trait = "neonate"
-		remove_trait = "bloodpotency_1"
-		remove_trait = "vigor_3"
 		add_trait = "ancilla"
+		remove_trait = "neonate"
 		add_trait = "bloodpotency_3"
+		remove_trait = "bloodpotency_3"
 		remove_trait = "bookmark990"
 		add_trait = "bookmark1230"
-		add_trait = "vigor_4"		
+		add_trait = "vigor_4"
+		remove_trait = "vigor_3"
 		add_trait = "celerity_3"
 	}		
 	
@@ -660,7 +662,7 @@
 # Mercia, the first Anarch
 	name = "Robin Leeland"
 	culture = "english"
-	dynasty = "3500019"
+	dynasty = 3500100
 	religion = "anarchs"
 	trait = "vampire"
 	trait = "wyrm_taint"	
@@ -712,7 +714,7 @@
 # Thessalonike, Constantinople's survivor
 	name = "Natalya Svyatoslav"
 	culture = "russian"
-	dynasty = "3500019"
+	dynasty = 3500101
 	religion = "brujah_high"
 	trait = "vampire"
 	trait = "wyrm_taint"	
@@ -744,21 +746,16 @@
 		remove_trait = "bookmark1230"
 		add_trait = "bookmark1355"
 	}	
-	1506.1.1 = {
-		remove_trait = "bookmark1505"
-		add_trait = "bookmark1506"
-	
+	1453.1.1 = {
+		death = yes	
 	}	
-	1999.1.1 = {
-		death = yes
-		}	
 }
 
 790108 = {
 # Scholar of the Beast
 	name = "Alessandro de Garcia"
 	culture = "catalan"
-	dynasty = "3500019"
+	dynasty = 3500102
 	religion = "brujah_high"
 	trait = "vampire"
 	trait = "wyrm_taint"	
@@ -768,7 +765,7 @@
 	trait = "vigor_2"
 	trait = "resilience_2"
 	trait = "bloodpotency_6"
-	trait = "scholarly_theologian"
+	trait = "martial_cleric"
 	trait = "vampgeneration7"
 	trait = "canon" 
 	female = no
@@ -817,7 +814,7 @@
 	trait = "vigor_5"
 	trait = "resilience_3"
 	trait = "bloodpotency_6"
-	trait = "scholarly_theologian"
+	trait = "martial_cleric"
 	trait = "vampgeneration7"
 	trait = "canon" 
 	give_nickname = nick_the_eternal_caliph
@@ -829,7 +826,6 @@
 	1229.1.1 = {
 		effect = { set_government_type = ashirra_government}
 		add_trait = "bookmark1230"
-		effect = { add_friend = 790105 }
 	}			
 	1354.1.1 = {
 		remove_trait = "bookmark1230"
@@ -854,7 +850,7 @@
 # Aachen
 	name = "Cocceius"
 	culture = "roman"
-	dynasty = "3500019"
+	dynasty = 3500098
 	religion = "brujah_high"
 	trait = "vampire"
 	trait = "wyrm_taint"	
@@ -909,8 +905,8 @@
 # German Promethean
 	name = "Lucius Cornelius Scipio"
 	culture = "roman"
-	dynasty = "3500019"
-	religion = "brujah_high"
+	dynasty = 3500098
+	religion = "vampire_promethean"
 	trait = "vampire"
 	trait = "wyrm_taint"	
 	trait = "brujah"
@@ -955,12 +951,12 @@
 # Leader of the Silent Fury rebel group of Germany
 	name = "Armin Brenner"
 	culture = "german"
-	dynasty = "3500019"
+	dynasty = 3500100
 	religion = "furores"
 	trait = "vampire"
 	trait = "wyrm_taint"	
 	trait = "brujah"
-	trait = "ancilla"
+	trait = "neonate"
 	trait = "celerity_1"
 	trait = "majesty_2"
 	trait = "dominate_1"
@@ -999,12 +995,12 @@
 # Norman Dictator
 	name = "Herleva"
 	culture = "norman"
-	dynasty = "3500019"
+	dynasty = 3500100
 	religion = "brujah_high"
 	trait = "vampire"
 	trait = "wyrm_taint"	
 	trait = "brujah"
-	trait = "ancilla"
+	trait = "neonate"
 	trait = "celerity_1"
 	trait = "majesty_1"
 	trait = "vigor_2"
@@ -1031,7 +1027,7 @@
 		add_trait = "bookmark1355"
 	}	
 	1506.1.1 = {
-		remove_trait = "ancilla"
+		remove_trait = "neonate"
 		add_trait = "elder"
 		remove_trait = "bookmark1505"
 		add_trait = "bookmark1506"
@@ -1046,8 +1042,8 @@
 # Dictator of New Lacadaemonia
 	name = "Hektor"
 	culture = "greek"
-	dynasty = "3500019"
-	religion = "furores"
+	dynasty = 3500101
+	religion = "vampire_promethean"
 	trait = "vampire"
 	trait = "wyrm_taint"	
 	trait = "brujah"
@@ -1100,7 +1096,7 @@
 # Corinth
 	name = "Periander"
 	culture = "greek"
-	dynasty = "3500019"
+	dynasty = 3500101
 	religion = "brujah_high"
 	trait = "vampire"
 	trait = "wyrm_taint"	
@@ -1158,7 +1154,7 @@
 	trait = "canon" 
 	female = yes
 	culture = "roman"
-	dynasty = "3500097"
+	dynasty = 3500098 
 	father = 505085
 	disallow_random_traits = yes
 	trait = "just"
@@ -1179,6 +1175,7 @@
 		add_trait = "vigor_1"
 		add_trait = "majesty_1"
 		religion = "brujah_high"
+		add_trait = "grey_eminence"
 		add_trait = "vampgeneration6"
 		add_trait = "bloodpotency_6"
 		}
@@ -1238,7 +1235,7 @@
 
 	name = "Selina"
 	culture = "frankish"
-	dynasty = "3500019"
+	dynasty = 3500102
 	religion = "brujah_high"
 	trait = "vampire"
 	trait = "wyrm_taint"	
@@ -1283,6 +1280,99 @@
 
 	}	
 	1506.1.1 = {
+		remove_trait = "bookmark1505"
+		add_trait = "bookmark1506"
+	
+	}	
+	1999.1.1 = {
+		death = yes
+		}	
+}
+
+
+790171 = {
+# Lisbon
+	name = "Macario"
+	culture = "portuguese"
+	dynasty = 3500102
+	religion = "brujah_high"
+	trait = "vampire"
+	trait = "wyrm_taint"	
+	trait = "brujah"
+	trait = "neonate"
+	trait = "celerity_1"
+	trait = "majesty_1"
+	trait = "vigor_2"
+	trait = "bloodpotency_6"
+	trait = "naive_appeaser"
+	trait = "vampgeneration8"
+	trait = "content"
+	trait = "trusting"
+	trait = "slow"
+	trait = "canon" 
+	female = no
+	disallow_random_traits = yes
+
+	1200.1.1 = {
+		birth = 1200.1.1 
+		}	
+	1229.1.1 = {
+		effect = { set_government_type = traditions_government }
+		add_trait = "bookmark1230"
+	}			
+	1354.1.1 = {
+		remove_trait = "bookmark1230"
+		add_trait = "bookmark1355"
+	}	
+	1506.1.1 = {
+		remove_trait = "neonate"
+		add_trait = "elder"
+		remove_trait = "bookmark1505"
+		add_trait = "bookmark1506"
+	
+	}	
+	1999.1.1 = {
+		death = yes
+		}	
+}
+
+790172 = {
+# Coimbra
+	name = "Guillermo"
+	culture = "portuguese"
+	dynasty = 3500102
+	religion = "brujah_high"
+	trait = "vampire"
+	trait = "wyrm_taint"	
+	trait = "brujah"
+	trait = "elder"
+	trait = "celerity_1"
+	trait = "majesty_4"
+	trait = "vigor_2"
+	trait = "bloodpotency_6"
+	trait = "charismatic_negotiator"
+	trait = "vampgeneration9"
+	trait = "patient"
+	trait = "gregarious"
+	trait = "kind"
+	trait = "canon" 
+	female = no
+	disallow_random_traits = yes
+
+	1000.1.1 = {
+		birth = 1000.1.1 
+		}	
+	1229.1.1 = {
+		effect = { set_government_type = traditions_government }
+		effect = { set_secret_religion = vampire_promethean }
+		add_trait = "bookmark1230"
+	}			
+	1354.1.1 = {
+		remove_trait = "bookmark1230"
+		add_trait = "bookmark1355"
+	}	
+	1506.1.1 = {
+
 		remove_trait = "bookmark1505"
 		add_trait = "bookmark1506"
 	

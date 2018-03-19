@@ -4763,4 +4763,60 @@ character_event = {
 		
 	}
 	
-}	
+}
+
+character_event = {
+	#Fix Custom Vampire Govt Issue
+	id = storyteller.16
+	hide_window = yes	
+	is_triggered_only = yes #from on_startup, given that it only needs firing at start, it is inefficient to put it as mtth
+	
+	only_rulers = yes
+	ai = no
+	
+	trigger = {
+		is_save_game = no
+		ai = no
+		trait = POD_vampire_RD_immortal_fix
+	}
+	
+	immediate = {
+		if = {
+			limit = { 
+				OR = {
+					religion_group = vampire_high_clans_group
+					religion_group = masquerade_camarilla_group
+					religion_group = inconnu_group
+				}
+			}
+			set_government_type = traditions_government
+		}
+		if = {
+			limit = { 
+				OR = {
+					religion_group = vampire_low_clans_group
+					religion_group = masquerade_independent_group
+				}
+			}
+			set_government_type = free_state_government
+		}
+		if = {
+			limit = { religion_group = ashirra_vampire_group }
+			set_government_type = ashirra_government
+		}
+		if = {
+			limit = { religion_group = sabbat_group }
+			set_government_type = milan_government
+		}
+		if = {
+			limit = { 
+				OR = {
+					religion_group = baali_group
+					religion = setite
+				}
+			}
+			set_government_type = cult_government
+		}
+		
+	}	
+}
