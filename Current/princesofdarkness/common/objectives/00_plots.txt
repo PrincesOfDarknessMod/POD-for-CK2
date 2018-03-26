@@ -660,6 +660,11 @@ plot_kill_character = {
 	potential = {
 		prisoner = no
 		age = 16
+		OR = {
+			NOT = { has_character_flag = plotted_kill_vanilla }
+			had_character_flag = { flag = plotted_kill_vanilla days = 1460 }
+			ai = no
+		}
 		NOT = { trait = incapable }
 		NOT = {
 			AND = {
@@ -739,7 +744,8 @@ plot_kill_character = {
 	}
 	
 	target_potential = {
-		NOT = { any_spouse = { character = FROM } } # This case is covered by another plot
+		#NOT = { any_spouse = { character = FROM } } # This case is covered by another plot
+		NOT = { is_elder_vampire = yes }
 	}
 	
 	# Target character scope
@@ -749,7 +755,7 @@ plot_kill_character = {
 			NOT = { character = FROM }  # Not against myself! (unself I am bonkers)
 			trait = lunatic
 		}
-		NOT = { any_spouse = { character = FROM } } # This case is covered by another plot
+		#NOT = { any_spouse = { character = FROM } } # This case is covered by another plot
 		NOT = { has_blood_oath_with = FROM }
 		
 		is_within_diplo_range = FROM
@@ -1037,6 +1043,14 @@ plot_kill_character = {
 			}
 		}
 	}
+	creation_effect = {
+		change_variable = { which = global_vanilla_plot_count value = 1 }
+		if = {
+			limit = { has_character_flag = plotted_kill_vanilla }
+			clr_character_flag = plotted_kill_vanilla
+		}
+		set_character_flag = plotted_kill_vanilla
+	}
 	
 	success = {
 		is_alive = no
@@ -1062,232 +1076,6 @@ plot_kill_character = {
 
 
 # Get a spouse killed
-plot_kill_spouse = {
-	type = spouse
-	intrigue_plot = yes
-	murder_plot = yes
-	society_plot = {
-		ROOT = {
-			society_member_of = the_assassins
-			society_rank >= 2
-		}
-		OR = {
-			FROM = { 
-				NOR = {
-					religion = shiite
-					secret_religion = shiite
-				}
-			}
-			ROOT = {
-				has_quest = quest_the_assassins_assassination
-				quest_target = { character = FROM }
-			}
-		}
-	}
-	
-	# Plotter scope
-	potential = {
-		prisoner = no
-		age = 16
-		is_married = yes
-		NOT = { trait = incapable }
-		NOT = {
-			AND = {
-				ai = yes
-				trait = honest
-			}
-		}
-		NOT = {
-			AND = {
-				ai = yes
-				trait = kind
-			}
-		}
-	}
-	
-	# Target allow trigger for when players target a specific character in the GUI
-	player_allow = {
-		NOT = { is_lover = FROM }
-		assassination_interaction_trigger = yes
-	}
-	
-	# Target character scope
-	allow = {
-		NOT = { is_lover = FROM }
-		
-		OR = {
-			# Human
-			FROM = { ai = no }
-			
-			# Male plotter without sons wanting to kill an old/barren wife
-			AND = {
-				age = 40
-				FROM = {
-					is_female = no
-					OR = {
-						is_ruler = yes
-						is_primary_heir = yes
-					}
-					# No sons
-					NOT = {
-						any_child = {
-							is_alive = yes
-							is_female = no
-						}
-					}
-					NOT = { opinion = { who = ROOT value = 50 } }
-				}
-			}
-			
-			# Female plotter disliking her husband but loving her child - the legal heir
-			FROM = {
-				is_female = yes
-				num_of_children = 1
-				any_child = {
-					is_alive = yes
-					any_heir_title = {
-						holder = ROOT
-					}
-					NOT = { trait = incapable }
-					their_opinion = { who = FROM value = 75 }
-				}
-			}
-			
-			# Spouse has a lover...
-			AND = {
-				has_lover = yes
-				any_lover = {
-					NOT = { character = FROM }
-				}
-			}
-
-			# Insane plotter...
-			FROM = { 
-				OR = {
-					trait = lunatic 
-					trait = possessed
-				}
-			}
-		}
-
-		OR = {
-			FROM = { ai = no }
-			FROM = { NOT = { opinion = { who = ROOT value = -25 } } }
-		}
-	}
-	
-	chance = {
-		factor = 10
-		
-		modifier = {
-			factor = 0.01
-			FROM = { trait = content }
-		}
-		modifier = {
-			factor = 0.2
-			FROM = { pacifist = yes }
-		}		
-		modifier = {
-			factor = 0
-			their_opinion = { who = FROM value = 25 }
-		}
-		modifier = {
-			factor = 0
-			their_opinion = { who = FROM value = 0 }
-			NOT = {
-				OR = {
-					FROM = { trait = envious }
-					FROM = { trait = deceitful }
-					FROM = { trait = ambitious }
-				}
-			}		
-		}
-		modifier = {
-			factor = 1.5
-			NOT = { their_opinion = { who = FROM value = -25 } }
-		}
-		modifier = {
-			factor = 1.5
-			NOT = { their_opinion = { who = FROM value = -50 } }
-		}
-		modifier = {
-			factor = 2.0
-			NOT = { their_opinion = { who = FROM value = -75 } }
-		}
-		modifier = {
-			factor = 2.0
-			FROM = { trait = deceitful }
-		}
-		modifier = {
-			factor = 1.5
-			FROM = { trait = paranoid }
-		}
-		modifier = {
-			factor = 1.25
-			FROM = { trait = lunatic }
-		}
-		modifier = {
-			factor = 1.25
-			FROM = { trait = possessed }
-		}
-		modifier = {
-			factor = 1.25
-			FROM = { trait = intricate_webweaver }
-		}
-		modifier = {
-			factor = 1.5
-			FROM = { trait = elusive_shadow }
-		}
-		modifier = {
-			factor = 2.0
-			age = 40
-			FROM = {
-				is_female = no
-				NOT = {
-					any_child = {
-						is_alive = yes
-						is_female = no
-					}
-				}
-			}
-		}
-		modifier = {
-			factor = 50
-			FROM = { has_quest = quest_the_assassins_assassination }
-			is_quest_target_of = FROM
-		}
-	}
-	
-	success = {
-		is_alive = no
-		hidden_tooltip = {
-			FROM = { has_character_flag = murder_in_motion }
-		}
-	}
-	abort = {
-		is_alive = no
-		FROM = {
-			trait = incapable
-		}
-	}
-	abort_effect = {
-		FROM = { clr_character_flag = murder_in_motion }
-	}
-	effect = {
-		FROM = {
-			clr_character_flag = murder_in_motion
-			# Achievement
-			hidden_tooltip = {
-				if = {
-					limit = {
-						ai = no
-					}
-					set_character_flag = achievement_spouse_killer
-				}
-			}
-		}
-	}
-}
 
 # Cut down a fellow vassal to size
 plot_weaken_fellow_vassal = {
@@ -2692,6 +2480,1051 @@ plot_insanity_character = {
 			# Clear flags
 			hidden_tooltip = {
 				clr_character_flag = insanity_in_motion
+			}
+		}
+	}
+}
+
+plot_kill_elder = {
+	type = realm_characters_plus # All characters in the same realm, plus rivals and relatives of self, parents, children and spouse, and quest target
+	intrigue_plot = yes
+	murder_plot = yes
+	society_plot = {
+		ROOT = {
+			society_member_of = the_assassins
+			society_rank >= 2
+		}
+		OR = {
+			FROM = { 
+				NOR = {
+					religion = shiite
+					secret_religion = shiite
+				}
+			}
+			ROOT = {
+				has_quest = quest_the_assassins_assassination
+				quest_target = { character = FROM }
+			}
+		}
+	}
+	
+	# Plotter scope
+	potential = {
+		prisoner = no
+		OR = {
+			age = 150
+			ai = no
+		}
+		OR = {
+			NOT = { has_character_flag = plotted_kill_elder }
+			had_character_flag = { flag = plotted_kill_elder days = 5475 }
+			ai = no
+		}
+		NOT = { }
+		NOT = { trait = incapable }
+		NOT = {
+			AND = {
+				ai = yes
+				trait = honest
+			}
+		}
+		NOT = {
+			AND = {
+				ai = yes
+				trait = kind
+			}
+		}
+		NOT = {
+			AND = {
+				ai = yes
+				trait = just
+			}
+		}
+		
+		hidden_tooltip = {
+			OR = {
+				ai = no # Human
+				
+				# Pretender to a title
+				any_pretender_title = {
+					always = yes
+				}
+				
+				# Heir to a title
+				any_heir_title = {
+					always = yes
+				}
+				
+				# Character's child is heir or pretender to a title that I don't hold
+				any_child = {
+					OR = {
+						any_pretender_title = {
+							NOT = { holder = ROOT }
+							NOT = { current_heir = { character = ROOT } }
+						}
+						any_heir_title = {
+							NOT = { holder = ROOT }
+						}
+					}
+				}
+				
+				# Spouse is pretender to a title
+				spouse = {
+					any_pretender_title = {
+						NOT = { current_heir = { character = ROOT } }
+					}
+					any_heir_title = {
+						NOT = { holder = ROOT }
+					}
+				}
+	
+				# A lover of spouse...
+				spouse = {
+					has_lover = yes
+				}
+				
+				# Is nuts...
+				trait = lunatic
+				trait = possessed
+			}
+		}
+	}
+	
+	# Target allow trigger for when players target a specific character in the GUI
+	
+	player_allow = {
+		NOT = { is_child_of = FROM } # Not my own children
+		is_within_diplo_range = FROM
+		NOT = { has_blood_oath_with = FROM }
+		assassination_interaction_trigger = yes
+	}
+	
+	target_potential = {
+		#NOT = { any_spouse = { character = FROM } } # This case is covered by another plot
+		is_elder_vampire = yes
+	}
+	
+	# Target character scope
+	allow = {
+		OR = {
+			NOT = { character = FROM }  # Not against myself! (unself I am bonkers)
+			trait = lunatic
+		}
+		#NOT = { any_spouse = { character = FROM } } # This case is covered by another plot
+		NOT = { has_blood_oath_with = FROM }
+		
+		is_within_diplo_range = FROM
+		
+		# Don't kill my lovers, or their children
+		NOT = {
+			FROM = {
+				any_lover = {
+					OR = {
+						character = ROOT
+						is_father = ROOT
+						is_mother = ROOT
+					}
+				}
+			}
+		}
+		
+		NOT = { is_friend = FROM }
+		
+		FROM = {
+			OR = {
+				# Get rid of the current heir if I'm a pretender
+				AND = {
+					any_pretender_title = {
+						current_heir = { character = ROOT }
+					}
+					OR = {
+						ai = no
+						trait = deceitful
+						trait = ambitious
+						trait = arbitrary
+						NOT = { opinion = { who = ROOT value = 0 } }
+					}
+				}
+				
+				# Kill a ruler if I'm the heir
+				AND = {
+					any_heir_title = {
+						holder = ROOT
+					}
+					OR = {
+						ai = no
+						trait = deceitful
+						trait = ambitious
+						trait = arbitrary
+						NOT = { opinion = { who = ROOT value = 0 } }
+					}
+				}
+				
+				# Gets rid of obstacles in the way of a child's succession
+				AND = {
+					any_child = {
+						OR = {
+							any_pretender_title = {
+								current_heir = { character = ROOT }
+							}
+							any_heir_title = {
+								holder = ROOT
+							}
+						}
+					}
+					NOT = { is_close_relative = ROOT }
+					OR = {
+						ai = no
+						trait = deceitful
+						trait = ambitious
+						trait = arbitrary
+						NOT = { opinion = { who = ROOT value = 0 } }
+					}
+				}
+				
+				# Get rid of the current heir to a title the character's spouse is a pretender to
+				AND = {
+					spouse = {	
+						any_pretender_title = {
+							current_heir = { character = ROOT }
+						}
+					}
+					NOT = { is_close_relative = ROOT }
+					OR = {
+						ai = no
+						trait = deceitful
+						trait = ambitious
+						trait = arbitrary
+						NOT = { opinion = { who = ROOT value = 0 } }
+					}
+				}
+				
+				# Get rid of a ruler the spouse is heir to
+				AND = {
+					spouse = {
+						any_heir_title = {
+							holder = ROOT
+						}
+					}
+					NOT = { is_close_relative = ROOT }
+					OR = {
+						ai = no
+						trait = deceitful
+						trait = ambitious
+						trait = arbitrary
+						AND = {
+							is_female = no
+							NOT = { opinion = { who = ROOT value = 0 } }
+						}
+						AND = {
+							is_female = yes
+							NOT = { opinion = { who = ROOT value = -33 } }
+						}
+					}
+				}
+
+				# A lover of spouse...
+				spouse = {
+					has_lover = yes
+					any_lover = {
+						character = ROOT
+					}
+					OR = {
+						ai = no
+						NOT = { opinion = { who = ROOT value = 0 } }
+					}
+				}
+				
+				# Go nuts...
+				AND = {
+					same_liege = ROOT
+					OR = {
+						trait = lunatic
+						trait = possessed
+					}
+				}
+				
+				# Rivals
+				any_rival = {
+					character = ROOT
+				}
+				
+				ROOT = { is_murder_quest_target_of_prev_trigger = yes }
+			}
+		}
+	}
+	
+	# ROOT = target FROM = joiner FROMFROM = plotter
+	allow_join = {
+		ROOT = {
+			NOT = { is_child_of = FROM } # Not my own children
+		}
+	}
+	
+	chance = {
+		factor = 2
+
+		modifier = {
+			factor = 50
+			FROM = { has_quest = quest_the_assassins_assassination }
+			is_quest_target_of = FROM
+		}
+		modifier = {
+			factor = 0.01
+			FROM = {
+				trait = content
+				NOT = { trait = lunatic } 
+				NOT = { trait = possessed }
+			}
+		}
+		
+		modifier = {
+			factor = 0.2
+			FROM = { pacifist = yes }
+		}
+		
+		modifier = {
+			factor = 2.0
+			FROM = {
+				trait = envious
+				OR = {
+					any_pretender_title = {
+						current_heir = { character = ROOT }
+					}
+					any_heir_title = {
+						holder = ROOT
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 1.5
+			FROM = { trait = arbitrary }
+		}
+		modifier = {
+			factor = 2.0
+			FROM = { trait = cruel }
+		}
+		modifier = {
+			factor = 2.0
+			FROM = { trait = deceitful }
+		}
+		modifier = {
+			factor = 3.0
+			FROM = { trait = ambitious }
+		}
+		modifier = {
+			factor = 0
+			their_opinion = { who = FROM value = 25 }
+			NOT = {
+				FROM = { ROOT = { is_murder_quest_target_of_prev_trigger = yes } } #MNM murder missions
+			}
+		}
+		modifier = {
+			factor = 0
+			their_opinion = { who = FROM value = 0 }
+			NOT = {
+				OR = {
+					FROM = { trait = envious }
+					FROM = { trait = deceitful }
+					FROM = { trait = ambitious }
+					FROM = { ROOT = { is_murder_quest_target_of_prev_trigger = yes } } #MNM murder missions
+				}
+			}		
+		}
+		modifier = {
+			factor = 1.5
+			NOT = { their_opinion = { who = FROM value = -25 } }
+		}
+		modifier = {
+			factor = 2.0
+			NOT = { their_opinion = { who = FROM value = -50 } }
+		}
+		modifier = {
+			factor = 2.0
+			NOT = { their_opinion = { who = FROM value = -75 } }
+		}
+		modifier = {
+			# Subtle balance against nepotism: Kill off members of powerful dynasties
+			factor = 2.0
+			top_liege = {
+				higher_tier_than = COUNT
+				dynasty = ROOT
+				dynasty_realm_power = 0.25
+			}
+		}
+		modifier = {
+			# Subtle balance against nepotism: Kill off members of powerful dynasties
+			factor = 2.0
+			top_liege = {
+				higher_tier_than = COUNT
+				dynasty = ROOT
+				dynasty_realm_power = 0.4
+			}
+		}
+		modifier = {
+			# Subtle balance against nepotism: Kill off members of powerful dynasties
+			factor = 2.0
+			top_liege = {
+				higher_tier_than = COUNT
+				dynasty = ROOT
+				dynasty_realm_power = 0.6
+			}
+		}
+		
+		modifier = {
+			factor = 4.0
+			plot_target_char = {
+				sibling = FROM
+				ai = yes
+				top_liege = { character = father }
+			}
+			FROM = {
+				religion_group = muslim
+				top_liege = { character = father }
+			}
+		}
+		modifier = {
+			factor = 2.0
+			plot_target_char = {
+				sibling = FROM
+				ai = yes
+				top_liege = { character = father }
+				is_landed = no
+			}
+			FROM = {
+				religion_group = muslim
+				top_liege = { character = father }
+			}
+		}
+	}
+	
+	creation_effect = {
+		change_variable = { which = global_elder_plot_count value = 1 }
+		if = {
+			limit = { has_character_flag = plotted_kill_elder }
+			clr_character_flag = plotted_kill_elder
+		}
+		#set_character_flag = plotted_kill_elder
+	}
+	success = {
+		OR = {
+			is_alive = no
+			trait = torpor
+		}
+		hidden_tooltip = {
+			FROM = { has_character_flag = murder_in_motion }
+		}
+	}
+	abort = {
+		OR = {
+			is_alive = no
+			trait = torpor
+		}
+	}
+	abort_effect = {
+		FROM = { clr_character_flag = murder_in_motion }
+	}
+	effect = {
+		FROM = {
+			# Clear flags
+			hidden_tooltip = {
+				clr_character_flag = murder_in_motion
+			}
+		}
+	}
+}
+
+#Vampire political plots
+# Scheme a character into owing you - NOT THE SAME AS BUYING LOYALTY.  SIMULATES PUTTING SOMEONE IN A BAD SPOT, WHICH YOU FIX, MAKING THEM OWE YOU
+plot_scheme_loyalty = {
+	type = realm_characters_plus # All characters in the same realm, plus rivals and relatives of self, parents, children and spouse, and quest target
+	intrigue_plot = yes
+	murder_plot = yes
+	
+	# Plotter scope
+	potential = {
+		ai = no
+		prisoner = no
+		age = 16
+		NOT = { trait = incapable }
+	}
+	
+	# Target allow trigger for when players target a specific character in the GUI
+	player_allow = {
+		is_within_diplo_range = FROM
+	}
+	
+	target_potential = {
+		NOT = { owes_favor_to = FROM }
+		NOT = { is_foe = FROM }
+		prisoner = no
+		NOT = { trait = torpor }
+	}
+	
+	# Target character scope
+	allow = {
+		OR = {
+			NOT = { character = FROM }  # Not against myself! (unself I am bonkers)
+			trait = lunatic
+		}
+		is_within_diplo_range = FROM
+		NOT = { is_friend = FROM }
+	}
+	
+	# ROOT = target FROM = joiner FROMFROM = plotter
+	allow_join = {
+		NOT = { FROM = { is_foe = FROMFROM } }
+	}
+	
+	chance = {
+		factor = 1
+	}
+	creation_effect = {
+		change_variable = { which = global_loyalscheme_plot_count value = 1 }
+		FROMFROM = {
+			if = {
+				limit = { has_character_flag = political_plot_ongoing }
+				clr_character_flag = political_plot_ongoing
+			}
+		}
+	}
+	
+	success = {
+		owes_favor_to = FROMFROM
+	}
+	abort = {
+		OR = {
+			is_alive = no
+			trait = torpor
+			is_foe = FROMFROM
+		}
+	}
+	abort_effect = {
+		FROMFROM = {
+			if = {
+				limit = { has_character_flag = political_plot_ongoing }
+				clr_character_flag = political_plot_ongoing
+			}
+		}
+	}
+	effect = {
+		FROMFROM = {
+			if = {
+				limit = { has_character_flag = political_plot_ongoing }
+				clr_character_flag = political_plot_ongoing
+			}
+		}
+	}
+}
+
+# Scheme a character into being your friend - setup meeting them, talk with them, help them out with a few things...
+plot_scheme_friendship = {
+	type = realm_characters_plus # All characters in the same realm, plus rivals and relatives of self, parents, children and spouse, and quest target
+	intrigue_plot = yes
+	murder_plot = yes
+	
+	# Plotter scope
+	potential = {
+		ai = no
+		prisoner = no
+		age = 16
+		NOT = { trait = incapable }
+	}
+	
+	# Target allow trigger for when players target a specific character in the GUI
+	player_allow = {
+		is_within_diplo_range = FROM
+	}
+	
+	target_potential = {
+		NOT = { is_friend = FROM }
+		NOT = { is_foe = FROM }
+		prisoner = no
+		NOT = { trait = torpor }
+	}
+	
+	# Target character scope
+	allow = {
+		OR = {
+			NOT = { character = FROM }  # Not against myself! (unself I am bonkers)
+			trait = lunatic
+		}
+		is_within_diplo_range = FROM
+		NOT = { is_friend = FROM }
+	}
+	
+	# ROOT = target FROM = joiner FROMFROM = plotter
+	allow_join = {
+		NOT = { FROM = { is_foe = FROMFROM } }
+	}
+	
+	chance = {
+		factor = 1
+	}
+	creation_effect = {
+		change_variable = { which = global_loyalfriend_plot_count value = 1 }
+		FROMFROM = {
+			if = {
+				limit = { has_character_flag = political_plot_ongoing }
+				clr_character_flag = political_plot_ongoing
+			}
+		}
+	}
+	
+	success = {
+		is_friend = FROMFROM
+	}
+	abort = {
+		OR = {
+			is_alive = no
+			trait = torpor
+			is_foe = FROMFROM
+		}
+	}
+	abort_effect = {
+		FROMFROM = {
+			if = {
+				limit = { has_character_flag = political_plot_ongoing }
+				clr_character_flag = political_plot_ongoing
+			}
+		}
+	}
+	effect = {
+		FROMFROM = {
+			if = {
+				limit = { has_character_flag = political_plot_ongoing }
+				clr_character_flag = political_plot_ongoing
+			}
+		}
+	}
+}
+
+# Kidnap target character
+plot_kidnap = {
+	type = realm_characters_plus # All characters in the same realm, plus rivals and relatives of self, parents, children and spouse, and quest target
+	intrigue_plot = yes
+	murder_plot = yes
+	
+	# Plotter scope
+	potential = {
+		ai = no
+		prisoner = no
+		age = 16
+		NOT = { trait = incapable }
+	}
+	
+	# Target allow trigger for when players target a specific character in the GUI
+	player_allow = {
+		is_within_diplo_range = FROM
+	}
+	
+	target_potential = {
+		NOT = { is_friend = FROM }
+		prisoner = no
+		NOT = { primary_title = { higher_tier_than = BARON } }
+		NOT = { trait = torpor }
+	}
+	
+	# Target character scope
+	allow = {
+		OR = {
+			NOT = { character = FROM }  # Not against myself! (unself I am bonkers)
+			trait = lunatic
+		}
+		is_within_diplo_range = FROM
+		NOT = { is_friend = FROM }
+	}
+	
+	# ROOT = target FROM = joiner FROMFROM = plotter
+	allow_join = {
+		NOT = { FROM = { is_foe = FROMFROM } }
+	}
+	
+	chance = {
+		factor = 1
+	}
+	creation_effect = {
+		change_variable = { which = global_kidnap_plot_count value = 1 }
+		FROMFROM = {
+			if = {
+				limit = { has_character_flag = political_plot_ongoing }
+				clr_character_flag = political_plot_ongoing
+			}
+		}
+	}
+	
+	success = {
+		prisoner = yes
+	}
+	abort = {
+		OR = {
+			is_alive = no
+			trait = torpor
+		}
+	}
+	abort_effect = {
+		FROMFROM = {
+			if = {
+				limit = { has_character_flag = political_plot_ongoing }
+				clr_character_flag = political_plot_ongoing
+			}
+		}
+	}
+	effect = {
+		FROMFROM = {
+			if = {
+				limit = { has_character_flag = political_plot_ongoing }
+				clr_character_flag = political_plot_ongoing
+			}
+		}
+	}
+}
+
+# Scheme a character into drinking your blood three times (without using force, that is simulated with the prison decision)
+plot_bloodbind_target = {
+	type = realm_characters_plus # All characters in the same realm, plus rivals and relatives of self, parents, children and spouse, and quest target
+	intrigue_plot = yes
+	murder_plot = yes
+	
+	# Plotter scope
+	potential = {
+		ai = no
+		prisoner = no
+		age = 16
+		NOT = { trait = incapable }
+		trait = vampire
+	}
+	
+	# Target allow trigger for when players target a specific character in the GUI
+	player_allow = {
+		is_within_diplo_range = FROM
+	}
+	
+	target_potential = {
+		prisoner = no
+		trait = vampire
+		NOT = { trait = bloodbound }
+		NOT = { trait = torpor }
+		NOT = {
+			higher_tier_than = COUNT
+		}
+	}
+	
+	# Target character scope
+	allow = {
+		OR = {
+			NOT = { character = FROM }  # Not against myself! (unself I am bonkers)
+			trait = lunatic
+		}
+		is_within_diplo_range = FROM
+	}
+	
+	# ROOT = target FROM = joiner FROMFROM = plotter
+	allow_join = {
+		NOT = { FROM = { is_foe = FROMFROM } }
+	}
+	
+	chance = {
+		factor = 1
+	}
+	creation_effect = {
+		change_variable = { which = global_bloodbound_plot_count value = 1 }
+		FROMFROM = {
+			if = {
+				limit = { has_character_flag = political_plot_ongoing }
+				clr_character_flag = political_plot_ongoing
+			}
+		}
+	}
+	
+	success = {
+		trait = bloodbound
+	}
+	abort = {
+		OR = {
+			is_alive = no
+			trait = torpor
+			prisoner = yes
+		}
+	}
+	abort_effect = {
+		FROMFROM = {
+			if = {
+				limit = { has_character_flag = political_plot_ongoing }
+				clr_character_flag = political_plot_ongoing
+			}
+		}
+	}
+	effect = {
+		FROMFROM = {
+			if = {
+				limit = { has_character_flag = political_plot_ongoing }
+				clr_character_flag = political_plot_ongoing
+			}
+		}
+	}
+}
+
+# Scheme to awaken torpored vampire
+plot_awaken_target = {
+	type = realm_characters_plus # All characters in the same realm, plus rivals and relatives of self, parents, children and spouse, and quest target
+	intrigue_plot = yes
+	murder_plot = yes
+	
+	# Plotter scope
+	potential = {
+		ai = no
+		prisoner = no
+		age = 16
+		NOT = { trait = incapable }
+		trait = vampire
+	}
+	
+	# Target allow trigger for when players target a specific character in the GUI
+	player_allow = {
+		is_within_diplo_range = FROM
+	}
+	
+	target_potential = {
+		trait = torpor
+		NOT = { trait = antediluvian }
+		NOT = { trait = vampgeneration1 }
+		NOT = { trait = vampgeneration2 }
+		NOT = { trait = vampgeneration3 }
+	}
+	
+	# Target character scope
+	allow = {
+		OR = {
+			NOT = { character = FROM }  # Not against myself! (unself I am bonkers)
+			trait = lunatic
+		}
+		is_within_diplo_range = FROM
+	}
+	
+	# ROOT = target FROM = joiner FROMFROM = plotter
+	allow_join = {
+		NOT = { FROM = { is_foe = FROMFROM } }
+	}
+	
+	chance = {
+		factor = 1
+	}
+	creation_effect = {
+		change_variable = { which = global_awaken_plot_count value = 1 }
+		FROMFROM = {
+			if = {
+				limit = { has_character_flag = political_plot_ongoing }
+				clr_character_flag = political_plot_ongoing
+			}
+		}
+	}
+	
+	success = {
+		NOT = { trait = torpor }
+	}
+	abort = {
+		is_alive = no
+	}
+	abort_effect = {
+		FROMFROM = {
+			if = {
+				limit = { has_character_flag = political_plot_ongoing }
+				clr_character_flag = political_plot_ongoing
+			}
+		}
+	}
+	effect = {
+		FROMFROM = {
+			if = {
+				limit = { has_character_flag = political_plot_ongoing }
+				clr_character_flag = political_plot_ongoing
+			}
+		}
+	}
+}
+
+# Scheme a character into being blamed for a crime against their liege, which results in them possibly being exiled
+plot_frame_crime = {
+	type = realm_characters_plus # All characters in the same realm, plus rivals and relatives of self, parents, children and spouse, and quest target
+	intrigue_plot = yes
+	murder_plot = yes
+	
+	# Plotter scope
+	potential = {
+		ai = no
+		prisoner = no
+		age = 16
+		NOT = { trait = incapable }
+	}
+	
+	# Target allow trigger for when players target a specific character in the GUI
+	player_allow = {
+		is_within_diplo_range = FROM
+	}
+	
+	target_potential = {
+		NOT = { is_friend = FROM }
+		prisoner = no
+		NOT = { trait = torpor }
+		is_ruler = no
+	}
+	
+	# Target character scope
+	allow = {
+		OR = {
+			NOT = { character = FROM }  # Not against myself! (unself I am bonkers)
+			trait = lunatic
+		}
+		is_within_diplo_range = FROM
+		NOT = { is_friend = FROM }
+	}
+	
+	# ROOT = target FROM = joiner FROMFROM = plotter
+	allow_join = {
+		NOT = { FROM = { is_foe = FROMFROM } }
+	}
+	
+	chance = {
+		factor = 1
+	}
+	creation_effect = {
+		change_variable = { which = global_frame_crime_plot_count value = 1 }
+		FROMFROM = {
+			if = {
+				limit = { has_character_flag = political_plot_ongoing }
+				clr_character_flag = political_plot_ongoing
+			}
+		}
+		if = {
+			limit = { has_character_flag = PLOT_EXILED_COMPLETE }
+			clr_character_flag = PLOT_EXILED_COMPLETE
+		}
+	}
+	
+	success = {
+		has_character_flag = PLOT_EXILED_COMPLETE
+	}
+	abort = {
+		OR = {
+			is_alive = no
+			trait = torpor
+			is_ruler = yes
+		}
+	}
+	abort_effect = {
+		FROMFROM = {
+		if = {
+			limit = { has_character_flag = political_plot_ongoing }
+			clr_character_flag = political_plot_ongoing
+		}
+		}
+	}
+	effect = {
+		FROMFROM = {
+		if = {
+			limit = { has_character_flag = political_plot_ongoing }
+			clr_character_flag = political_plot_ongoing
+		}
+		}
+		if = {
+			limit = { has_character_flag = PLOT_EXILED_COMPLETE }
+			clr_character_flag = PLOT_EXILED_COMPLETE
+		}
+	}
+}
+
+# Scheme a character into being your friend - setup meeting them, talk with them, help them out with a few things...
+plot_seed_of_rebellion = {
+	type = realm_characters_plus # All characters in the same realm, plus rivals and relatives of self, parents, children and spouse, and quest target
+	intrigue_plot = yes
+	murder_plot = yes
+	
+	# Plotter scope
+	potential = {
+		ai = no
+		prisoner = no
+		age = 16
+		NOT = { trait = incapable }
+	}
+	
+	# Target allow trigger for when players target a specific character in the GUI
+	player_allow = {
+		is_within_diplo_range = FROM
+	}
+	
+	target_potential = {
+		prisoner = no
+		NOT = { trait = torpor }
+		NOT = {
+			liege = {
+				is_rival = PREV
+			}
+		}
+		event_target:pol_target = {
+			liege = {
+				is_alive = yes
+			}
+		}
+	}
+	
+	# Target character scope
+	allow = {
+		OR = {
+			NOT = { character = FROM }  # Not against myself! (unself I am bonkers)
+			trait = lunatic
+		}
+		is_within_diplo_range = FROM
+	}
+	
+	# ROOT = target FROM = joiner FROMFROM = plotter
+	allow_join = {
+		NOT = { FROM = { is_foe = FROMFROM } }
+	}
+	
+	chance = {
+		factor = 1
+	}
+	creation_effect = {
+		change_variable = { which = global_seedrebellion_plot_count value = 1 }
+		FROMFROM = {
+			if = {
+				limit = { has_character_flag = political_plot_ongoing }
+				clr_character_flag = political_plot_ongoing
+			}
+		}
+	}
+	
+	success = {
+		liege = {
+			is_rival = PREV
+		}
+	}
+	abort = {
+		OR = {
+			is_alive = no
+			trait = torpor
+		}
+		event_target:pol_target = {
+			liege = {
+				is_alive = no
+			}
+		}
+	}
+	abort_effect = {
+		FROMFROM = {
+			if = {
+				limit = { has_character_flag = political_plot_ongoing }
+				clr_character_flag = political_plot_ongoing
+			}
+		}
+	}
+	effect = {
+		FROMFROM = {
+			if = {
+				limit = { has_character_flag = political_plot_ongoing }
+				clr_character_flag = political_plot_ongoing
 			}
 		}
 	}

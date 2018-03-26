@@ -1,0 +1,5014 @@
+namespace = POD_vampire_kill_plots
+##############################################
+#	Elder vampire kill plots
+#	by AJ
+#
+#
+#
+#
+#
+##############################################
+### Elder Plot
+# Where it all begins...
+character_event = {
+	id = POD_vampire_kill_plots.1
+	desc = "EVTDESC_POD_ATTACKELDER_DECISION_1"
+	picture = GFX_evt_ghoul_nos_basement_conspiracy
+	border = GFX_event_normal_frame_intrigue
+	
+	capable_only = yes
+	prisoner = no
+	is_part_of_plot = yes
+	
+	trigger = {
+		has_plot = plot_kill_elder
+		plot_target_char = {
+			NOT = { is_murder_quest_target_of_root_trigger = yes }
+			is_elder_vampire = yes
+			NOT = { trait = incapable }
+			prisoner = no
+			NOT = { is_inaccessible_trigger = yes }
+			NOT = { trait = torpor }
+		}
+		OR = {
+			NOT = { has_character_flag = murder_in_motion }
+			had_character_flag = { flag = murder_in_motion days = 100 }
+		}
+		plot_power_contribution = 
+		{
+			plotter = ROOT
+			power = 0.025
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 2800
+		
+		modifier = {
+			factor = 0.7
+			plot_power_contribution = 
+			{
+				plotter = ROOT
+				power = 0.10
+			}
+		}
+		modifier = {
+			factor = 0.7
+			plot_power_contribution = 
+			{
+				plotter = ROOT
+				power = 0.20
+			}
+		}
+		modifier = {
+			factor = 0.7
+			plot_power_contribution = 
+			{
+				plotter = ROOT
+				power = 0.30
+			}
+		}
+		modifier = {
+			factor = 0.7
+			plot_power_contribution = 
+			{
+				plotter = ROOT
+				power = 0.40
+			}
+		}
+		modifier = {
+			factor = 0.7
+			plot_power_contribution = 
+			{
+				plotter = ROOT
+				power = 0.50
+			}
+		}
+		modifier = {
+			factor = 0.7
+			plot_power_contribution = 
+			{
+				plotter = ROOT
+				power = 0.60
+			}
+		}
+		modifier = {
+			factor = 0.7
+			plot_power_contribution = 
+			{
+				plotter = ROOT
+				power = 0.70
+			}
+		}
+		modifier = {
+			factor = 0.6
+			any_backed_character = {
+				has_plot = plot_kill_elder
+				ROOT = {
+					plot_power_contribution = 
+					{
+						plotter = PREV
+						power = 0.10
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.6
+			any_backed_character = {
+				has_plot = plot_kill_elder
+				ROOT = {
+					plot_power_contribution = 
+					{
+						plotter = PREV
+						power = 0.20
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.6
+			any_backed_character = {
+				has_plot = plot_kill_elder
+				ROOT = {
+					plot_power_contribution = 
+					{
+						plotter = PREV
+						power = 0.30
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.6
+			any_backed_character = {
+				has_plot = plot_kill_elder
+				ROOT = {
+					plot_power_contribution = 
+					{
+						plotter = PREV
+						power = 0.40
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.6
+			any_backed_character = {
+				has_plot = plot_kill_elder
+				ROOT = {
+					plot_power_contribution = 
+					{
+						plotter = PREV
+						power = 0.50
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.6
+			any_backed_character = {
+				has_plot = plot_kill_elder
+				ROOT = {
+					plot_power_contribution = 
+					{
+						plotter = PREV
+						power = 0.60
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.6
+			any_backed_character = {
+				has_plot = plot_kill_elder
+				ROOT = {
+					plot_power_contribution = 
+					{
+						plotter = PREV
+						power = 0.70
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.6
+			any_backed_character = {
+				has_plot = plot_kill_elder
+				ROOT = {
+					plot_power_contribution = 
+					{
+						plotter = PREV
+						power = 0.80
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.6
+			any_backed_character = {
+				has_plot = plot_kill_elder
+				ROOT = {
+					plot_power_contribution = 
+					{
+						plotter = PREV
+						power = 0.90
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.43
+			any_backed_character = {
+				has_plot = plot_kill_elder
+				plot_power = 1.0
+			}
+		}
+		modifier = {
+			factor = 0.43
+			any_backed_character = {
+				has_plot = plot_kill_elder
+				plot_power = 1.5
+			}
+		}
+		modifier = {
+			factor = 0.43
+			any_backed_character = {
+				has_plot = plot_kill_elder
+				plot_power = 2.0
+			}
+		}
+		modifier = {
+			factor = 1.5
+			plot_target_char = {
+				has_defensive_discipline = yes
+			}
+		}
+		modifier = {
+			factor = 1.3
+			plot_target_char = {
+				intrigue = 10
+			}
+		}
+		modifier = {
+			factor = 1.5
+			plot_target_char = {
+				intrigue = 20
+			}
+		}
+		modifier = {
+			factor = 2
+			plot_target_char = {
+				intrigue = 30
+			}
+		}
+		modifier = {
+			factor = 2
+			plot_target_char = {
+				intrigue = 40
+			}
+		}
+		modifier = {
+			factor = 0.8
+			intrigue = 10
+		}
+		modifier = {
+			factor = 0.6
+			intrigue = 20
+		}
+		modifier = {
+			factor = 0.5
+			intrigue = 30
+		}
+		modifier = {
+			factor = 0.3
+			intrigue = 40
+		}
+		modifier = {
+			factor = 1.5
+			plot_target_char = {
+				primary_title = { higher_tier_than = BARON }
+			}
+		}
+		modifier = {
+			factor = 1.5
+			plot_target_char = {
+				primary_title = { higher_tier_than = COUNT }
+			}
+		}
+		modifier = {
+			factor = 2
+			plot_target_char = {
+				primary_title = { higher_tier_than = DUKE }
+			}
+		}
+		modifier = {
+			factor = 2
+			plot_target_char = {
+				primary_title = { higher_tier_than = KING }
+			}
+		}
+	}
+	
+	immediate = {
+		plot_target_char = { save_event_target_as = plot_target }
+		save_event_target_as = plot_creator
+		
+		trigger_switch = {
+			on_trigger = trait
+			vampgeneration1 = {
+				set_variable = { which = my_gen value = 1 }
+			}
+			vampgeneration2 = {
+				set_variable = { which = my_gen value = 2 }
+			}
+			vampgeneration3 = {
+				set_variable = { which = my_gen value = 3 }
+			}
+			vampgeneration4 = {
+				set_variable = { which = my_gen value = 4 }
+			}
+			vampgeneration5 = {
+				set_variable = { which = my_gen value = 5 }
+			}
+			vampgeneration6 = {
+				set_variable = { which = my_gen value = 6 }
+			}
+			vampgeneration7 = {
+				set_variable = { which = my_gen value = 7 }
+			}
+			vampgeneration8 = {
+				set_variable = { which = my_gen value = 8 }
+			}
+			vampgeneration9 = {
+				set_variable = { which = my_gen value = 9 }
+			}
+			vampgeneration10 = {
+				set_variable = { which = my_gen value = 10 }
+			}
+			vampgeneration11 = {
+				set_variable = { which = my_gen value = 11 }
+			}
+			vampgeneration12 = {
+				set_variable = { which = my_gen value = 12 }
+			}
+			vampgeneration13 = {
+				set_variable = { which = my_gen value = 13 }
+			}
+			vampgeneration14 = {
+				set_variable = { which = my_gen value = 14 }
+			}
+			vampgeneration15 = {
+				set_variable = { which = my_gen value = 15 }
+			}
+		}
+		plot_target_char = {
+			trigger_switch = {
+			on_trigger = trait
+			vampgeneration1 = {
+				ROOT =  { set_variable = { which = their_gen value = 1 } }
+			}
+			vampgeneration2 = {
+				ROOT =  { set_variable = { which = their_gen value = 2 } }
+			}
+			vampgeneration3 = {
+				ROOT =  { set_variable = { which = their_gen value = 3 } }
+			}
+			vampgeneration4 = {
+				ROOT =  { set_variable = { which = their_gen value = 4 } }
+			}
+			vampgeneration5 = {
+				ROOT =  { set_variable = { which = their_gen value = 5 } }
+			}
+			vampgeneration6 = {
+				ROOT =  { set_variable = { which = their_gen value = 6 } }
+			}
+			vampgeneration7 = {
+				ROOT =  { set_variable = { which = their_gen value = 7 } }
+			}
+			vampgeneration8 = {
+				ROOT =  { set_variable = { which = their_gen value = 8 } }
+			}
+			vampgeneration9 = {
+				ROOT =  { set_variable = { which = their_gen value = 9 } }
+			}
+			vampgeneration10 = {
+				ROOT =  { set_variable = { which = their_gen value = 10 } }
+			}
+			vampgeneration11 = {
+				ROOT =  { set_variable = { which = their_gen value = 11 } }
+			}
+			vampgeneration12 = {
+				ROOT =  { set_variable = { which = their_gen value = 12 } }
+			}
+			vampgeneration13 = {
+				ROOT =  { set_variable = { which = their_gen value = 13 } }
+			}
+			vampgeneration14 = {
+				ROOT =  { set_variable = { which = their_gen value = 14 } }
+			}
+			vampgeneration15 = {
+				ROOT =  { set_variable = { which = their_gen value = 15 } }
+			}
+			}
+		}
+	}
+	
+		option = {
+		name = "EVTOPTA_POD_ATTACKELDER_DECISION_1" # Diablerize
+		trigger = {
+			plot_power = 0.2
+			wealth = 10
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 2
+				attribute_diff = {
+					character = event_target:plot_target
+					attribute = martial
+					value = 10
+				}
+			}
+			modifier = {
+				factor = 0.1
+				OR = {
+					trait = craven
+					trait = kind
+					trait = just
+					trait = content
+				}
+			}
+			modifier = {
+				factor = 1.3
+				OR = {
+					trait = wroth
+					trait = ambitious
+					trait = cruel
+				}
+			}
+			modifier = {
+				factor = 2
+				NOT = { check_variable = { which = their_gen which = my_gen } }
+			}
+			modifier = {
+				factor = 0
+				trait = craven
+			}
+			modifier = {
+				factor = 0
+				event_target:plot_target = {
+					attribute_diff = {
+						character = ROOT
+						attribute = martial
+						value = 10
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				event_target:plot_target = {
+					attribute_diff = {
+						character = ROOT
+						attribute = martial
+						value = 1
+					}
+				}
+			}
+		}
+		#WoD central bank prints money for AI
+		if = {
+			limit = { ai = no }
+			wealth = -10
+		}
+		set_character_flag = murder_in_motion
+		hidden_tooltip = {
+			set_variable = { which = their_gen value = 0 }
+			set_variable = { which = my_gen value = 0 }
+			change_variable = { which = global_elder_diablerie_count value = 1 }
+		}
+		character_event = { id = POD_vampire_kill_plots.2 days = 1 }
+	}
+	
+	option = {
+		name = "EVTOPTB_POD_ATTACKELDER_DECISION_1" # Daylight Haven Attack
+		trigger = {
+			plot_power = 0.2
+			wealth = 50
+			#cannot attack gangrel hiding in earth
+			event_target:plot_target = {
+					NOT = { trait = protean_5 }
+			}
+		}
+		ai_chance = {
+			factor = 25
+		}
+		#WoD central bank prints money for AI
+		if = {
+			limit = { ai = no }
+			wealth = -50
+		}
+		set_character_flag = murder_in_motion
+		hidden_tooltip = {
+			set_variable = { which = their_gen value = 0 }
+			set_variable = { which = my_gen value = 0 }
+			change_variable = { which = global_elder_havenattack_count value = 1 }
+		}
+		character_event = { id = POD_vampire_kill_plots.11 days = 1 }
+	}
+	
+	option = {
+		name = "EVTOPTC_POD_ATTACKELDER_DECISION_1" # Use someone to lead an attack
+		trigger = {
+			plot_power = 0.2
+			wealth = 50
+		}
+		ai_chance = {
+			factor = 25
+		}
+		#WoD central bank prints money for AI
+		if = {
+			limit = { ai = no }
+			wealth = -50
+		}
+		set_character_flag = murder_in_motion
+		hidden_tooltip = {
+			set_variable = { which = their_gen value = 0 }
+			set_variable = { which = my_gen value = 0 }
+		}
+		character_event = { id = POD_vampire_kill_plots.24 days = 1}
+	}
+	
+	option = {
+		name = "EVTOPTD_POD_ATTACKELDER_DECISION_1" # Can't afford / Backout
+		ai_chance = {
+			factor = 0
+		}
+		clr_character_flag = murder_in_motion
+	}
+}
+
+#Diablerie attack
+character_event = {
+	id = POD_vampire_kill_plots.2
+	desc = "EVTDESC_POD_ATTACKELDER_DIABLERIZE_2"
+	picture = GFX_evt_spymaster
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	
+	option = {
+		name = "EVTOPTA_POD_ATTACKELDER_DIABLERIZE_2" # Attack.  Fortune favors the bold!
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 5
+				trait = craven
+			}
+		}
+		save_event_target_as = plot_attacker
+		event_target:plot_target = { character_event = { id = POD_vampire_kill_plots.3 days = 30 } }
+		
+	}
+	option = {
+		name = "EVTOPTB_POD_ATTACKELDER_DIABLERIZE_2" # Cancel Attack. Wuss.
+		ai_chance = {
+			factor = 0
+			modifier = {
+				factor = 5
+				trait = craven
+			}
+		}
+		clr_character_flag = murder_in_motion
+	}
+}
+
+character_event = {
+	id = POD_vampire_kill_plots.3
+	desc = "EVTDESC_POD_ATTACKELDER_DIABLERIZE_3"
+	picture = GFX_evt_spymaster
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	trigger = {
+		is_alive = yes
+		NOT = { trait = torpor }
+		NOT = { is_inaccessible_trigger = yes }
+	}
+	
+	immediate = {
+		random_list = {
+			10 = {
+				modifier = {
+					factor = 2
+					event_target:plot_attacker = {
+						attribute_diff = {
+							character = event_target:plot_target
+							attribute = martial
+							value = 10
+						}
+					}
+				}
+				modifier = {
+					factor = 1.3
+					event_target:plot_attacker = {
+						attribute_diff = {
+							character = event_target:plot_target
+							attribute = martial
+							value = 1
+						}
+					}
+				}
+				modifier = {
+					factor = 1.2
+					event_target:plot_attacker = {
+						trait = elder
+					}
+				}
+				modifier = {
+					factor = 1.4
+					event_target:plot_attacker = {
+						trait = ancient
+					}
+				}
+				modifier = {
+					factor = 1.5
+					event_target:plot_attacker = {
+						trait = methuselah
+					}
+				}
+				modifier = {
+					factor = 1.5
+					event_target:plot_attacker = {
+						has_powerful_generation = yes
+					}
+				}
+				modifier = {
+					factor = 1.2
+					event_target:plot_attacker = {
+						has_strong_generation = yes
+					}
+				}
+				modifier = {
+					factor = 0.8
+					trait = elder
+				}
+				modifier = {
+					factor = 0.5
+					trait = ancient
+				}
+				modifier = {
+					factor = 0.4
+					trait = methuselah
+				}
+				modifier = {
+					factor = 0.5
+					has_powerful_generation = yes
+				}
+				modifier = {
+					factor = 0.8
+					has_strong_generation = yes
+				}
+				modifier = {
+					factor = 0.3
+					has_defensive_discipline = yes
+				}
+				modifier = {
+					factor = 0.5
+					attribute_diff = {
+						character = event_target:plot_attacker
+						attribute = martial
+						value = 10
+					}
+				}
+				modifier = {
+					factor = 0.8
+					attribute_diff = {
+						character = event_target:plot_attacker
+						attribute = martial
+						value = 1
+					}
+				}
+				#Attack Success
+				random_list = {
+					5 = {
+						modifier = {
+							factor = 2
+							trait = ancient
+						}
+						modifier = {
+							factor = 1.5
+							trait = methuselah
+						}
+						modifier = {
+							factor = 2
+							has_powerful_generation = yes
+						}
+						modifier = {
+							factor = 2
+							has_defensive_discipline = yes
+						}
+						#Target Enters Torpor
+						set_character_flag = target_enters_torpor
+						change_variable = { which = global_elder_diablerie_successtorpor_count value = 1 }
+					}
+					5 = {
+						modifier = {
+							factor = 1.5
+							event_target:plot_attacker = {
+								attribute_diff = {
+									character = event_target:plot_target
+									attribute = martial
+									value = 10
+								}
+							}
+						}
+						modifier = {
+							factor = 1.5
+							event_target:plot_attacker = {
+								trait = ancient
+							}
+						}
+						modifier = {
+							factor = 1.5
+							event_target:plot_attacker = {
+								trait = methuselah
+							}
+						}
+						modifier = {
+							factor = 1.5
+							event_target:plot_attacker = {
+								has_powerful_generation = yes
+							}
+						}
+						#Target Diablerized
+						set_character_flag = target_diablerized
+						change_variable = { which = global_elder_diablerie_successdiablerie_count value = 1 }
+					}
+				}
+			}
+			10 = {
+				#Attack fails
+				random_list = {
+					5 = {
+						#Both vampires maimed
+						set_character_flag = both_maimed
+						change_variable = { which = global_elder_diablerie_failuremaimed_count value = 1 }
+					}
+					5 = {
+						#Both vampires injured
+						modifier = {
+							factor = 3
+							event_target:plot_attacker = {
+								attribute_diff = {
+									character = event_target:plot_target
+									attribute = martial
+									value = 8
+								}
+							}
+						}
+						set_character_flag = both_injured
+						change_variable = { which = global_elder_diablerie_failureinjured_count value = 1 }
+					}
+					5 = {
+						modifier = {
+							factor = 0.1
+							event_target:plot_attacker = { has_defensive_discipline = yes }
+						}
+						modifier = {
+							factor = 0.7
+							event_target:plot_attacker = {
+								trait = elder
+							}
+						}
+						modifier = {
+							factor = 0.4
+							event_target:plot_attacker = {
+								trait = ancient
+							}
+						}
+						modifier = {
+							factor = 0.3
+							event_target:plot_attacker = {
+								trait = methuselah
+							}
+						}
+						modifier = {
+							factor = 0.5
+							event_target:plot_attacker = {
+								has_powerful_generation = yes
+							}
+						}
+						modifier = {
+							factor = 0.8
+							event_target:plot_attacker = {
+								has_strong_generation = yes
+							}
+						}
+						#Attacker dies
+						set_character_flag = attacker_dead
+						change_variable = { which = global_elder_diablerie_failuredeath_count value = 1 }
+					}
+				}
+			}
+		}
+		random_list = {
+			10 = {
+				modifier = {
+					factor = 2
+					event_target:plot_creator = {
+						intrigue = 10
+					}
+				}
+				modifier = {
+					factor = 1.5
+					event_target:plot_creator = {
+						intrigue = 20
+					}
+				}
+				modifier = {
+					factor = 1.5
+					event_target:plot_creator = {
+						intrigue = 30
+					}
+				}
+				modifier = {
+					factor = 1.5
+					event_target:plot_creator = {
+						intrigue = 40
+					}
+				}
+				#Not found out
+				set_character_flag = plotter_not_discovered
+			}
+			10 = {
+				modifier = {
+					factor = 2
+					intrigue = 10
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 20
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 30
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 40
+				}
+				#Found out
+				set_character_flag = plotter_discovered
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_ATTACKELDER_DIABLERIZE_3" # Diablerie successful
+		trigger = {
+			has_character_flag = target_diablerized
+		}
+		if = {
+			limit = {
+				has_character_flag = plotter_not_discovered
+			}
+			event_target:plot_creator = { character_event = { id = POD_vampire_kill_plots.5 }
+			}
+			clr_character_flag = plotter_not_discovered
+		}
+		if = {
+			limit = {
+				has_character_flag = plotter_discovered
+			}
+				event_target:plot_creator = { character_event = { id = POD_vampire_kill_plots.5 }
+			}
+			clr_character_flag = plotter_discovered
+		}
+		clr_character_flag = target_diablerized
+	}
+	option = {
+		name = "EVTOPTB_POD_ATTACKELDER_DIABLERIZE_3" # Target enters Torpor
+		trigger = {
+			has_character_flag = target_enters_torpor
+		}
+		if = {
+			limit = {
+				has_character_flag = plotter_not_discovered
+			}
+			event_target:plot_creator = { character_event = { id = POD_vampire_kill_plots.6 }
+			}
+			clr_character_flag = plotter_not_discovered
+		}
+		if = {
+			limit = {
+				has_character_flag = plotter_discovered
+			}
+			event_target:plot_creator = { character_event = { id = POD_vampire_kill_plots.7 }
+			}
+			clr_character_flag = plotter_discovered
+		}
+		clr_character_flag = target_enters_torpor
+		if = { limit = { has_character_flag = plotter_discovered } clr_character_flag = plotter_discovered }
+		if = { limit = { has_character_flag = plotter_not_discovered } clr_character_flag = plotter_not_discovered }
+	}
+	option = {
+		name = "EVTOPTC_POD_ATTACKELDER_DIABLERIZE_3" # Attack Fails both injured
+		trigger = {
+			has_character_flag = both_injured
+		}
+		
+		if = {
+			limit = {
+				has_character_flag = plotter_not_discovered
+			}
+			event_target:plot_creator = { character_event = { id = POD_vampire_kill_plots.8 }
+			}
+			clr_character_flag = plotter_not_discovered
+		}
+		if = {
+			limit = {
+				has_character_flag = plotter_discovered
+			}
+			event_target:plot_creator = { character_event = { id = POD_vampire_kill_plots.8 }
+			}
+			clr_character_flag = plotter_discovered
+		}
+		clr_character_flag = both_injured
+	}
+	option = {
+		name = "EVTOPTD_POD_ATTACKELDER_DIABLERIZE_3" # Attack Fails both maimed
+		trigger = {
+			has_character_flag = both_maimed
+		}
+		
+		if = {
+			limit = {
+				has_character_flag = plotter_not_discovered
+			}
+			event_target:plot_creator = { character_event = { id = POD_vampire_kill_plots.9 }
+			}
+			clr_character_flag = plotter_not_discovered
+		}
+		if = {
+			limit = {
+				has_character_flag = plotter_discovered
+			}
+			event_target:plot_creator = { character_event = { id = POD_vampire_kill_plots.9 }
+			}
+			clr_character_flag = plotter_discovered
+		}
+		clr_character_flag = both_maimed
+	}
+	option = {
+		name = "EVTOPTE_POD_ATTACKELDER_DIABLERIZE_3" # Attack Fails attacker dies
+		trigger = {
+			has_character_flag = attacker_dead
+		}
+		
+		if = {
+			limit = {
+				has_character_flag = plotter_not_discovered
+			}
+			event_target:plot_creator = { character_event = { id = POD_vampire_kill_plots.10 }
+			}
+			clr_character_flag = plotter_not_discovered
+		}
+		if = {
+			limit = {
+				has_character_flag = plotter_discovered
+			}
+			event_target:plot_creator = { character_event = { id = POD_vampire_kill_plots.10 }
+			}
+			clr_character_flag = plotter_discovered
+		}
+		clr_character_flag = attacker_dead
+	}
+}
+
+# Diablerie successful
+character_event = {
+	id = POD_vampire_kill_plots.5
+	desc = "EVTDESC_POD_ATTACKELDER_DIABLERIZE_5"
+	picture = GFX_evt_whispers
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		is_alive = yes
+		NOT = { trait = torpor }
+	}
+	immediate = {
+		change_variable = { which = elder_diablerie_successdiablerie_count value = 1 }
+	}
+	option = {
+		name = "EVTOPTA_POD_ATTACKELDER_DIABLERIZE_5" # Aww yeah
+		add_character_modifier = {
+			name = blood_of_vampire
+			duration = 356
+		}
+		add_trait = diabolist
+		POD_vampire_blood_thirst_decrease_effect = yes
+		
+		trigger_switch = {
+			on_trigger = trait
+			bloodpotency_1 = {
+				if = { 
+					limit = {
+						ROOT = {
+							OR = {    
+								trait = bloodpotency_2
+								trait = bloodpotency_3
+								trait = bloodpotency_4
+								trait = bloodpotency_5
+								trait = bloodpotency_6
+								trait = bloodpotency_7
+								trait = bloodpotency_8
+								trait = bloodpotency_9
+								trait = bloodpotency_10
+							}
+						}
+					}
+					remove_trait = bloodpotency_1
+					add_trait = bloodpotency_2
+				}
+			}
+            bloodpotency_2 = {
+				if = { 
+					limit = {
+						ROOT = {
+							OR = {    
+								trait = bloodpotency_3
+								trait = bloodpotency_4
+								trait = bloodpotency_5
+								trait = bloodpotency_6
+								trait = bloodpotency_7
+								trait = bloodpotency_8
+								trait = bloodpotency_9
+								trait = bloodpotency_10
+							}
+						}
+					}
+					remove_trait = bloodpotency_2
+					add_trait = bloodpotency_3
+				}
+			}
+            bloodpotency_3 = {
+				if = { 
+					limit = {
+						ROOT = {
+							OR = {    
+								trait = bloodpotency_4
+								trait = bloodpotency_5
+								trait = bloodpotency_6
+								trait = bloodpotency_7
+								trait = bloodpotency_8
+								trait = bloodpotency_9
+								trait = bloodpotency_10
+							}
+						}
+					}
+					remove_trait = bloodpotency_3
+					add_trait = bloodpotency_4
+				}
+			}
+            bloodpotency_4 = {
+				if = { 
+					limit = {
+						ROOT = {
+							OR = {    
+								trait = bloodpotency_5
+								trait = bloodpotency_6
+								trait = bloodpotency_7
+								trait = bloodpotency_8
+								trait = bloodpotency_9
+								trait = bloodpotency_10
+							}
+						}
+					}
+					remove_trait = bloodpotency_4
+					add_trait = bloodpotency_5
+				}
+			}
+            bloodpotency_5 = {
+				if = { 
+					limit = {
+						ROOT = {
+							OR = {    
+								trait = bloodpotency_6
+								trait = bloodpotency_7
+								trait = bloodpotency_8
+								trait = bloodpotency_9
+								trait = bloodpotency_10
+							}
+						}
+					}
+					remove_trait = bloodpotency_5
+					add_trait = bloodpotency_6
+				}
+			}
+            bloodpotency_6 = {
+				if = { 
+					limit = {
+						ROOT = {
+							OR = {    
+								trait = bloodpotency_7
+								trait = bloodpotency_8
+								trait = bloodpotency_9
+								trait = bloodpotency_10
+							}
+						}
+					}
+					remove_trait = bloodpotency_6
+					add_trait = bloodpotency_7
+				}
+			}
+            bloodpotency_7 = {
+				if = { 
+					limit = {
+						ROOT = {
+							OR = {    
+								trait = bloodpotency_8
+								trait = bloodpotency_9
+								trait = bloodpotency_10
+							}
+						}
+					}
+					remove_trait = bloodpotency_7
+					add_trait = bloodpotency_8
+				}
+			}
+            bloodpotency_8 = {
+				if = { 
+					limit = {
+						ROOT = {
+							OR = {    
+								trait = bloodpotency_9
+								trait = bloodpotency_10
+							}
+						}
+					}
+					remove_trait = bloodpotency_8
+					add_trait = bloodpotency_9
+				}
+			}
+            bloodpotency_9 = {
+				if = { 
+					limit = {
+						ROOT = {
+							OR = {    
+								trait = bloodpotency_10
+							}
+						}
+					}
+					remove_trait = bloodpotency_9
+					add_trait = bloodpotency_10
+				}
+			}
+		}
+		if = { 
+			limit = {
+				OR = {
+					has_global_flag = bookmark767
+					has_global_flag = bookmark1230
+					has_global_flag = bookmark1466
+					has_global_flag = bookmark1355
+				}
+			}
+			event_target:plot_target = {
+			trigger_switch = {
+				on_trigger = trait
+				vampgeneration1 = {
+					ROOT = {
+						remove_trait = vampgeneration15
+						remove_trait = vampgeneration14
+						remove_trait = vampgeneration13
+						remove_trait = vampgeneration12
+						remove_trait = vampgeneration11
+						remove_trait = vampgeneration10
+						remove_trait = vampgeneration9
+						remove_trait = vampgeneration8
+						remove_trait = vampgeneration7
+						remove_trait = vampgeneration6
+						remove_trait = vampgeneration5
+						remove_trait = vampgeneration4
+						remove_trait = vampgeneration3
+						remove_trait = vampgeneration2
+						add_trait = vampgeneration1
+					}
+				}
+				vampgeneration2 = {
+					ROOT = {
+						if = {	
+							limit = {
+								NOR = {
+									trait = vampgeneration1
+									trait = vampgeneration2
+								}
+							}
+							remove_trait = vampgeneration15
+							remove_trait = vampgeneration14
+							remove_trait = vampgeneration13
+							remove_trait = vampgeneration12
+							remove_trait = vampgeneration11
+							remove_trait = vampgeneration10
+							remove_trait = vampgeneration9
+							remove_trait = vampgeneration8
+							remove_trait = vampgeneration7
+							remove_trait = vampgeneration6
+							remove_trait = vampgeneration5
+							remove_trait = vampgeneration4
+							remove_trait = vampgeneration3
+							add_trait = vampgeneration2
+						}
+					}
+				}
+				vampgeneration3 = {
+					ROOT = {
+						if = {	
+							limit = {
+								NOR = {
+									trait = vampgeneration1
+									trait = vampgeneration2
+									trait = vampgeneration3
+								}
+							}
+							remove_trait = vampgeneration15
+							remove_trait = vampgeneration14
+							remove_trait = vampgeneration13
+							remove_trait = vampgeneration12
+							remove_trait = vampgeneration11
+							remove_trait = vampgeneration10
+							remove_trait = vampgeneration9
+							remove_trait = vampgeneration8
+							remove_trait = vampgeneration7
+							remove_trait = vampgeneration6
+							remove_trait = vampgeneration5
+							remove_trait = vampgeneration4
+							add_trait = vampgeneration3
+						}
+					}
+				}
+				vampgeneration4 = {
+					ROOT = {
+						if = {	
+							limit = {
+								NOR = {
+									trait = vampgeneration1
+									trait = vampgeneration2
+									trait = vampgeneration3
+									trait = vampgeneration4
+								}
+							}
+							remove_trait = vampgeneration15
+							remove_trait = vampgeneration14
+							remove_trait = vampgeneration13
+							remove_trait = vampgeneration12
+							remove_trait = vampgeneration11
+							remove_trait = vampgeneration10
+							remove_trait = vampgeneration9
+							remove_trait = vampgeneration8
+							remove_trait = vampgeneration7
+							remove_trait = vampgeneration6
+							remove_trait = vampgeneration5
+							add_trait = vampgeneration4
+						}
+					}
+				}
+				vampgeneration5 = {
+					ROOT = {
+						if = {	
+							limit = {
+								NOR = {
+									trait = vampgeneration1
+									trait = vampgeneration2
+									trait = vampgeneration3
+									trait = vampgeneration4
+									trait = vampgeneration5
+								}
+							}
+							remove_trait = vampgeneration15
+							remove_trait = vampgeneration14
+							remove_trait = vampgeneration13
+							remove_trait = vampgeneration12
+							remove_trait = vampgeneration11
+							remove_trait = vampgeneration10
+							remove_trait = vampgeneration9
+							remove_trait = vampgeneration8
+							remove_trait = vampgeneration7
+							remove_trait = vampgeneration6
+							add_trait = vampgeneration5
+						}
+					}
+				}
+				vampgeneration6 = {
+					ROOT = {
+						if = {	
+							limit = {
+								NOR = {
+									trait = vampgeneration1
+									trait = vampgeneration2
+									trait = vampgeneration3
+									trait = vampgeneration4
+									trait = vampgeneration5
+									trait = vampgeneration6
+								}
+							}
+							remove_trait = vampgeneration15
+							remove_trait = vampgeneration14
+							remove_trait = vampgeneration13
+							remove_trait = vampgeneration12
+							remove_trait = vampgeneration11
+							remove_trait = vampgeneration10
+							remove_trait = vampgeneration9
+							remove_trait = vampgeneration8
+							remove_trait = vampgeneration7
+							add_trait = vampgeneration6
+						}
+					}
+				}
+				vampgeneration7 = {
+					ROOT = {
+						if = {	
+							limit = {
+								NOR = {
+									trait = vampgeneration1
+									trait = vampgeneration2
+									trait = vampgeneration3
+									trait = vampgeneration4
+									trait = vampgeneration5
+									trait = vampgeneration6
+									trait = vampgeneration7
+								}
+							}
+							remove_trait = vampgeneration15
+							remove_trait = vampgeneration14
+							remove_trait = vampgeneration13
+							remove_trait = vampgeneration12
+							remove_trait = vampgeneration11
+							remove_trait = vampgeneration10
+							remove_trait = vampgeneration9
+							remove_trait = vampgeneration8
+							add_trait = vampgeneration7
+						}
+					}
+				}
+				vampgeneration8 = {
+					ROOT = {
+						if = {	
+							limit = {
+								NOR = {
+									trait = vampgeneration1
+									trait = vampgeneration2
+									trait = vampgeneration3
+									trait = vampgeneration4
+									trait = vampgeneration5
+									trait = vampgeneration6
+									trait = vampgeneration7
+									trait = vampgeneration8
+								}
+							}
+							remove_trait = vampgeneration15
+							remove_trait = vampgeneration14
+							remove_trait = vampgeneration13
+							remove_trait = vampgeneration12
+							remove_trait = vampgeneration11
+							remove_trait = vampgeneration10
+							remove_trait = vampgeneration9
+							add_trait = vampgeneration8
+						}
+					}
+				}
+				vampgeneration9 = {
+					ROOT = {
+						if = {	
+							limit = {
+								NOR = {
+									trait = vampgeneration1
+									trait = vampgeneration2
+									trait = vampgeneration3
+									trait = vampgeneration4
+									trait = vampgeneration5
+									trait = vampgeneration6
+									trait = vampgeneration7
+									trait = vampgeneration8
+									trait = vampgeneration9
+								}
+							}
+							remove_trait = vampgeneration15
+							remove_trait = vampgeneration14
+							remove_trait = vampgeneration13
+							remove_trait = vampgeneration12
+							remove_trait = vampgeneration11
+							remove_trait = vampgeneration10
+							add_trait = vampgeneration9
+						}
+					}
+				}
+				vampgeneration10 = {
+					ROOT = {
+						if = {	
+							limit = {
+								NOR = {
+									trait = vampgeneration1
+									trait = vampgeneration2
+									trait = vampgeneration3
+									trait = vampgeneration4
+									trait = vampgeneration5
+									trait = vampgeneration6
+									trait = vampgeneration7
+									trait = vampgeneration8
+									trait = vampgeneration9
+									trait = vampgeneration10
+								}
+							}
+							remove_trait = vampgeneration15
+							remove_trait = vampgeneration14
+							remove_trait = vampgeneration13
+							remove_trait = vampgeneration12
+							remove_trait = vampgeneration11
+							add_trait = vampgeneration10
+						}
+					}
+				}
+				vampgeneration11 = {
+					ROOT = {
+						if = {	
+							limit = {
+								NOR = {
+									trait = vampgeneration1
+									trait = vampgeneration2
+									trait = vampgeneration3
+									trait = vampgeneration4
+									trait = vampgeneration5
+									trait = vampgeneration6
+									trait = vampgeneration7
+									trait = vampgeneration8
+									trait = vampgeneration9
+									trait = vampgeneration10
+									trait = vampgeneration11
+								}
+							}
+							remove_trait = vampgeneration15
+							remove_trait = vampgeneration14
+							remove_trait = vampgeneration13
+							remove_trait = vampgeneration12
+							add_trait = vampgeneration11
+						}
+					}
+				}
+				vampgeneration12 = {
+					ROOT = {
+						if = {	
+							limit = {
+								NOR = {
+									trait = vampgeneration1
+									trait = vampgeneration2
+									trait = vampgeneration3
+									trait = vampgeneration4
+									trait = vampgeneration5
+									trait = vampgeneration6
+									trait = vampgeneration7
+									trait = vampgeneration8
+									trait = vampgeneration9
+									trait = vampgeneration10
+									trait = vampgeneration11
+									trait = vampgeneration12
+								}
+							}
+							remove_trait = vampgeneration15
+							remove_trait = vampgeneration14
+							remove_trait = vampgeneration13
+							add_trait = vampgeneration12
+						}
+					}
+				}
+				vampgeneration13 = {
+					ROOT = {
+						if = {	
+							limit = {
+								NOR = {
+									trait = vampgeneration1
+									trait = vampgeneration2
+									trait = vampgeneration3
+									trait = vampgeneration4
+									trait = vampgeneration5
+									trait = vampgeneration6
+									trait = vampgeneration7
+									trait = vampgeneration8
+									trait = vampgeneration9
+									trait = vampgeneration10
+									trait = vampgeneration11
+									trait = vampgeneration12
+									trait = vampgeneration13
+								}
+							}
+							remove_trait = vampgeneration15
+							remove_trait = vampgeneration14
+							add_trait = vampgeneration13
+						}
+					}
+				}
+				vampgeneration14 = {
+					ROOT = {
+						if = {	
+							limit = {
+								NOR = {
+									trait = vampgeneration1
+									trait = vampgeneration2
+									trait = vampgeneration3
+									trait = vampgeneration4
+									trait = vampgeneration5
+									trait = vampgeneration6
+									trait = vampgeneration7
+									trait = vampgeneration8
+									trait = vampgeneration9
+									trait = vampgeneration10
+									trait = vampgeneration11
+									trait = vampgeneration12
+									trait = vampgeneration13
+									trait = vampgeneration14
+								}
+							}
+							remove_trait = vampgeneration15
+							add_trait = vampgeneration14
+						}
+					}
+				}
+				}
+				mother = {
+					opinion = {
+						modifier = opinion_killed_close_kin
+						who = ROOT
+					}
+				}
+				father = {
+					opinion = {
+						modifier = opinion_killed_close_kin
+						who = ROOT
+					}
+				}
+				spouse = {
+					opinion = {
+						modifier = opinion_killed_close_kin
+						who = ROOT
+					}
+				}
+				any_child = {
+					opinion = {
+						modifier = opinion_killed_father
+						who = ROOT
+					}
+				}
+				if = {
+					limit = {
+						FROM = {
+							NOT = { dynasty = ROOT }
+							NOT = { sibling = ROOT }
+						}
+					}
+					any_sibling = {
+					opinion = {
+						modifier = opinion_killed_close_kin
+							who = FROM
+						}
+					}
+				}
+				death = {
+					death_reason = death_execution_diablerie
+					killer = ROOT
+				}
+			}
+		}
+		
+		
+		
+		if = {
+			limit = { NOT = { trait = cruel } }
+			random = {
+				chance = 25
+				add_trait = cruel
+				hidden_tooltip = { character_event = { id = 38259 } }
+			}
+		}
+	}
+}
+
+# Diablerie attack success torpor - not found out
+character_event = {
+	id = POD_vampire_kill_plots.6
+	desc = "EVTDESC_POD_ATTACKELDER_DIABLERIZE_6"
+	picture = GFX_evt_whispers
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		is_alive = yes
+		NOT = { trait = torpor }
+	}
+	
+	immediate = {
+		change_variable = { which = elder_diablerie_successtorpor_count value = 1 }
+	}
+	option = {
+		name = "EVTOPTA_POD_ATTACKELDER_DIABLERIZE_6" # Aww yeah
+		
+		event_target:plot_target = {
+			trigger_switch = {
+			on_trigger = trait
+				zulo_form = {
+					remove_trait = zulo_form
+				}
+				blood_form = {
+					remove_trait = blood_form
+				}
+				mist_form = {
+					remove_trait = mist_form
+				}
+				shadow_form = {
+					remove_trait = shadow_form
+				}	
+			}
+			add_rival = ROOT
+			add_trait = torpor
+			add_trait = in_hiding
+						
+			if = { limit = { is_in_society = yes } leave_society = yes }
+						
+			abdicate = yes 
+		}
+	}
+}
+
+# Diablerie attack success torpor - found out
+character_event = {
+	id = POD_vampire_kill_plots.7
+	desc = "EVTDESC_POD_ATTACKELDER_DIABLERIZE_7"
+	picture = GFX_evt_whispers
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		is_alive = yes
+		NOT = { trait = torpor }
+	}
+	immediate = {
+		change_variable = { which = elder_diablerie_successtorpor_count value = 1 }
+	}
+	option = {
+		name = "EVTOPTA_POD_ATTACKELDER_DIABLERIZE_7" # Aww yeah
+		event_target:plot_target = {
+				trigger_switch = {
+				on_trigger = trait
+				zulo_form = {
+					remove_trait = zulo_form
+				}
+				blood_form = {
+					remove_trait = blood_form
+				}
+				mist_form = {
+					remove_trait = mist_form
+				}
+				shadow_form = {
+					remove_trait = shadow_form
+				}	
+			}
+			add_trait = torpor
+			add_trait = in_hiding
+			add_rival = ROOT
+							
+			if = { limit = { is_in_society = yes } leave_society = yes }
+							
+			abdicate = yes 
+			mother = {
+				opinion = {
+					modifier = opinion_killed_close_kin
+					who = ROOT
+				}
+			}
+			father = {
+				opinion = {
+					modifier = opinion_killed_close_kin
+					who = ROOT
+				}
+			}
+			spouse = {
+				opinion = {
+					modifier = opinion_killed_close_kin
+					who = ROOT
+				}
+			}
+			any_child = {
+				opinion = {
+					modifier = opinion_killed_father
+					who = ROOT
+				}
+			}
+			if = {
+				limit = {
+					FROM = {
+						NOT = { dynasty = ROOT }
+						NOT = { sibling = ROOT }
+					}
+				}
+				any_sibling = {
+					opinion = {
+						modifier = opinion_killed_close_kin
+						who = ROOT
+					}
+				}
+			}
+		}
+	}
+}
+
+#Failure Injured
+character_event = {
+	id = POD_vampire_kill_plots.8
+	desc = "EVTDESC_POD_ATTACKELDER_DIABLERIZE_8"
+	picture = GFX_evt_whispers
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	trigger = {
+		is_alive = yes
+		NOT = { trait = torpor }
+	}
+	immediate = {
+		change_variable = { which = elder_diablerie_failureinjured_count value = 1 }
+	}
+	option = {
+		name = "EVTOPTA_POD_ATTACKELDER_DIABLERIZE_8" # Aww yeah
+		
+		event_target:plot_target = {
+			add_trait = severely_injured
+		}
+		add_trait = severely_injured
+		event_target:plot_target = {
+			add_rival = ROOT
+		}
+	}
+}
+
+#Failure Maimed
+character_event = {
+	id = POD_vampire_kill_plots.9
+	desc = "EVTDESC_POD_ATTACKELDER_DIABLERIZE_9"
+	picture = GFX_evt_whispers
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	trigger = {
+		is_alive = yes
+		NOT = { trait = torpor }
+	}
+	immediate = {
+		change_variable = { which = elder_diablerie_failuremaimed_count value = 1 }
+	}
+	option = {
+		name = "EVTOPTA_POD_ATTACKELDER_DIABLERIZE_9" # Aww yeah
+		
+		event_target:plot_target = {
+			add_trait = maimed
+		}
+		add_trait = maimed
+		event_target:plot_target = {
+			add_rival = ROOT
+		}
+	}
+}
+
+#Failure Death
+character_event = {
+	id = POD_vampire_kill_plots.10
+	desc = "EVTDESC_POD_ATTACKELDER_DIABLERIZE_10"
+	picture = GFX_evt_whispers
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	trigger = {
+		is_alive = yes
+		NOT = { trait = torpor }
+	}
+	immediate = {
+		change_variable = { which = elder_diablerie_failuredeath_count value = 1 }
+	}
+	option = {
+		name = "EVTOPTA_POD_ATTACKELDER_DIABLERIZE_10" # Aww yeah
+		
+		death = {
+			death_reason = death_battle
+			killer = event_target:plot_target
+		}
+	}
+}
+
+#Haven attack start
+character_event = {
+	id = POD_vampire_kill_plots.11
+	desc = "EVTDESC_POD_ATTACKELDER_HAVEN_11"
+	picture = GFX_evt_vampire_manor_i
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		#check for ghouls who are ok at combat
+		random_courtier = {
+			limit = {
+				has_opinion_modifier = {
+					who = ROOT
+					modifier = opinion_blood_bond_to_domitor_ghoul
+				}
+				martial = 10
+			}
+			ROOT = { 
+				set_character_flag = has_ghouls
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_ATTACKELDER_HAVEN_11" # Send a ghoul
+		trigger = {
+			has_character_flag = has_ghouls
+		}
+		ai_chance = {
+			factor = 10
+		}
+
+		clr_character_flag = has_ghouls
+		character_event = { id = POD_vampire_kill_plots.12 }
+	}
+	option = {
+		name = "EVTOPTB_POD_ATTACKELDER_HAVEN_11" # Prepare someone expendable
+		ai_chance = {
+			factor = 10
+		}
+		if = {
+			limit = { has_character_flag = has_ghouls }
+			clr_character_flag = has_ghouls
+		}
+		random_list = {	
+				50 = {
+					create_character = {
+						random_traits = yes
+						trait = mortal
+						trait = ghoul
+						female = no
+						culture = ROOT
+						religion = ROOT
+						attributes = {
+							martial = 10
+						}
+					}
+						
+					new_character = {
+						random_list = {
+							10 = { add_trait = cruel }
+							10 = { add_trait = shrewd }
+							10 = { add_trait = strong }
+							10 = { add_trait = deceitful }
+						}
+						random = {
+							chance = 25
+							add_trait = ambitious
+						}
+						save_event_target_as = plot_attacker
+						if = { limit = { trait = slow } 
+							remove_trait = slow
+						}
+						if = { limit = { trait = imbecile } 
+							remove_trait = imbecile
+						}						
+						if = { limit = { trait = inbred } 
+							remove_trait = inbred
+						}
+						add_trait = vigor_1
+						add_trait = bloodbound
+						opinion = {
+							modifier = opinion_blood_bond_to_domitor_ghoul
+								who = ROOT
+								years = 3000
+						}
+						ROOT = {
+							opinion = {
+								modifier = opinion_my_ghoul
+									who = event_target:plot_attacker
+									years = 3000
+							}
+						}
+						set_character_flag = FLAG_NWOD_BLOODBOUND
+						character_event = { id = ghoul.1 }
+						ROOT = {
+							POD_vampire_blood_thirst_increase_effect = yes
+						}
+					}
+				}
+				50 = {
+					create_character = {
+						random_traits = yes
+						trait = mortal
+						trait = ghoul													
+						female = yes
+						culture = ROOT
+						religion = ROOT	
+						attributes = {
+							martial = 10
+						}
+					}
+					new_character = {
+						random_list = {
+							10 = { add_trait = cruel }
+							10 = { add_trait = shrewd }
+							10 = { add_trait = strong }
+							10 = { add_trait = deceitful }
+						}
+						random = {
+							chance = 25
+							add_trait = ambitious
+						}
+						save_event_target_as = plot_attacker
+						if = { limit = { trait = slow } 
+							remove_trait = slow
+						}
+						if = { limit = { trait = imbecile } 
+							remove_trait = imbecile
+						}						
+						if = { limit = { trait = inbred } 
+							remove_trait = inbred
+						}
+						
+						add_trait = vigor_1
+						add_trait = bloodbound
+						opinion = {
+							modifier = opinion_blood_bond_to_domitor_ghoul
+								who = ROOT
+								years = 3000
+						}
+						ROOT = {
+							opinion = {
+								modifier = opinion_my_ghoul
+									who = event_target:plot_attacker
+									years = 3000
+							}
+						}
+						set_character_flag = FLAG_NWOD_BLOODBOUND
+						character_event = { id = ghoul.1 }
+						ROOT = {
+							POD_vampire_blood_thirst_increase_effect = yes
+						}
+					}
+				}
+		}
+		show_portrait = event_target:plot_attacker
+		event_target:plot_target = { character_event = { id = POD_vampire_kill_plots.13 days = 30 } }
+	}
+	option = {
+		name = "EVTOPTC_POD_ATTACKELDER_HAVEN_11" # Cancel Attack. Wuss.
+		ai_chance = {
+			factor = 0
+		}
+		if = {
+			limit = { has_character_flag = has_ghouls }
+			clr_character_flag = has_ghouls
+		}
+		clr_character_flag = murder_in_motion
+	}
+}
+
+#pick ghoul to make haven attack
+character_event = {
+	id = POD_vampire_kill_plots.12
+	desc = "EVTDESC_POD_ATTACKELDER_HAVEN_12"
+	picture = GFX_evt_ghoul_request
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		random_courtier = {
+			limit = {
+				has_opinion_modifier = {
+					who = ROOT
+					modifier = opinion_blood_bond_to_domitor_ghoul
+				}
+				martial = 10
+			}
+			set_character_flag = ghoul_1
+			save_event_target_as = ghoul_number_1
+		}
+		random_courtier = {
+			limit = {
+				has_opinion_modifier = {
+					who = ROOT
+					modifier = opinion_blood_bond_to_domitor_ghoul
+				}
+				martial = 10
+				NOT = { has_character_flag = ghoul_1 }
+			}
+			set_character_flag = ghoul_2
+			save_event_target_as = ghoul_number_2
+		}
+		random_courtier = {
+			limit = {
+				has_opinion_modifier = {
+					who = ROOT
+					modifier = opinion_blood_bond_to_domitor_ghoul
+				}
+				martial = 10
+				NOT = { has_character_flag = ghoul_1 }
+				NOT = { has_character_flag = ghoul_2 }
+			}
+			save_event_target_as = ghoul_number_3
+		}
+		event_target:ghoul_number_1 = {
+			if = {
+				limit = { has_character_flag = ghoul_1 }
+				clr_character_flag = ghoul_1
+			}
+		}
+		event_target:ghoul_number_2 = {
+			if = {
+				limit = { has_character_flag = ghoul_2 }
+				clr_character_flag = ghoul_2
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_ATTACKELDER_HAVEN_12" # Ghoul 1 leads
+		trigger = {
+			event_target:ghoul_number_1 = { is_alive = yes }
+		}
+		ai_chance = {
+			factor = 5
+		}
+		show_portrait = event_target:ghoul_number_1
+		
+		event_target:ghoul_number_1 = {
+			save_event_target_as = plot_attacker
+		}
+		event_target:plot_target = { character_event = { id = POD_vampire_kill_plots.13 days = 30 } }
+	}
+	option = {
+		name = "EVTOPTB_POD_ATTACKELDER_HAVEN_12" #  Ghoul 2 leads
+		trigger = {
+			event_target:ghoul_number_2 = { is_alive = yes }
+		}
+		ai_chance = {
+			factor = 5
+		}
+		show_portrait = event_target:ghoul_number_2
+		
+		event_target:ghoul_number_2 = {
+			save_event_target_as = plot_attacker
+		}
+		event_target:plot_target = { character_event = { id = POD_vampire_kill_plots.13 days = 30 } }
+	}
+	option = {
+		name = "EVTOPTC_POD_ATTACKELDER_HAVEN_12" #  Ghoul 3 leads
+		trigger = {
+			event_target:ghoul_number_3 = { is_alive = yes }
+		}
+		ai_chance = {
+			factor = 5
+		}
+		show_portrait = event_target:ghoul_number_3
+		
+		event_target:ghoul_number_3 = {
+			save_event_target_as = plot_attacker
+		}
+		event_target:plot_target = { character_event = { id = POD_vampire_kill_plots.13 days = 30 } }
+	}
+	option = {
+		name = "EVTOPTD_POD_ATTACKELDER_HAVEN_12" # Cancel Attack. Wuss.
+		ai_chance = {
+			factor = 0
+		}
+		clr_character_flag = murder_in_motion
+	}
+}
+
+character_event = {
+	id = POD_vampire_kill_plots.13
+	desc = "EVTDESC_POD_ATTACKELDER_HAVEN_13"
+	picture = GFX_evt_spymaster
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	trigger = {
+		is_alive = yes
+		NOT = { trait = torpor }
+		NOT = { is_inaccessible_trigger = yes }
+	}
+	
+	immediate = {
+		random_list = {
+			10 = {
+				modifier = {
+					factor = 0.6
+					primary_title = { higher_tier_than = BARON }
+				}
+				modifier = {
+					factor = 0.5
+					primary_title = { higher_tier_than = COUNT }
+				}
+				modifier = {
+					factor = 0.05
+					primary_title = { higher_tier_than = DUKE }
+				}
+				#Attack Success
+				random_list = {
+					5 = {
+						#Target Enters Torpor
+						set_character_flag = target_enters_torpor
+						change_variable = { which = global_elder_haven_successtorpor_count value = 1 }
+					}
+					5 = {
+						#Target Killed
+						set_character_flag = target_killed
+						change_variable = { which = global_elder_haven_successkill_count value = 1 }
+					}
+				}
+			}
+			10 = {
+				#Attack fails
+				random_list = {
+					5 = {
+						#Both vampires maimed
+						set_character_flag = servant_dead
+						change_variable = { which = global_elder_haven_failureservantdead_count value = 1 }
+					}
+					5 = {
+						#Both vampires injured
+						set_character_flag = two_dead
+						change_variable = { which = global_elder_haven_failuretwodead_count value = 1 }
+					}
+					5 = {
+						modifier = {
+							factor = 0.5
+							event_target:plot_attacker = {
+								martial = 16
+							}
+						}
+						modifier = {
+							factor = 0.5
+							event_target:plot_attacker = {
+								intrigue = 16
+							}
+						}
+						#Attacker dies
+						set_character_flag = attacker_dead
+						change_variable = { which = global_elder_haven_failuredeath_count value = 1 }
+					}
+				}
+			}
+		}
+		random_list = {
+			10 = {
+				modifier = {
+					factor = 2
+					event_target:plot_creator = {
+						intrigue = 10
+					}
+				}
+				modifier = {
+					factor = 1.5
+					event_target:plot_creator = {
+						intrigue = 20
+					}
+				}
+				modifier = {
+					factor = 1.5
+					event_target:plot_creator = {
+						intrigue = 30
+					}
+				}
+				modifier = {
+					factor = 1.5
+					event_target:plot_creator = {
+						intrigue = 40
+					}
+				}
+				#Not found out
+				set_character_flag = plotter_not_discovered
+			}
+			10 = {
+				modifier = {
+					factor = 2
+					intrigue = 10
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 20
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 30
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 40
+				}
+				#Found out
+				set_character_flag = plotter_discovered
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_ATTACKELDER_HAVEN_13" # Haven attack successful
+		trigger = {
+			has_character_flag = target_killed
+		}
+		if = {
+			limit = {
+				has_character_flag = plotter_not_discovered
+			}
+			event_target:plot_creator = { character_event = { id = POD_vampire_kill_plots.14 }
+			}
+			clr_character_flag = plotter_not_discovered
+		}
+		if = {
+			limit = {
+				has_character_flag = plotter_discovered
+			}
+				event_target:plot_creator = { character_event = { id = POD_vampire_kill_plots.15 }
+			}
+			clr_character_flag = plotter_discovered
+		}
+		clr_character_flag = target_killed
+	}
+	option = {
+		name = "EVTOPTB_POD_ATTACKELDER_HAVEN_13" # Target enters Torpor
+		trigger = {
+			has_character_flag = target_enters_torpor
+		}
+		if = {
+			limit = {
+				has_character_flag = plotter_not_discovered
+			}
+			event_target:plot_creator = { character_event = { id = POD_vampire_kill_plots.16 }
+			}
+			clr_character_flag = plotter_not_discovered
+		}
+		if = {
+			limit = {
+				has_character_flag = plotter_discovered
+			}
+			event_target:plot_creator = { character_event = { id = POD_vampire_kill_plots.17 }
+			}
+			clr_character_flag = plotter_discovered
+		}
+		clr_character_flag = target_enters_torpor
+		if = { limit = { has_character_flag = plotter_discovered } clr_character_flag = plotter_discovered }
+		if = { limit = { has_character_flag = plotter_not_discovered } clr_character_flag = plotter_not_discovered }
+	}
+	option = {
+		name = "EVTOPTC_POD_ATTACKELDER_HAVEN_13" # Attack Fails servant_dead
+		trigger = {
+			has_character_flag = servant_dead
+		}
+		
+		if = {
+			limit = {
+				has_character_flag = plotter_not_discovered
+			}
+			event_target:plot_creator = { character_event = { id = POD_vampire_kill_plots.18 }
+			}
+			clr_character_flag = plotter_not_discovered
+		}
+		if = {
+			limit = {
+				has_character_flag = plotter_discovered
+			}
+			event_target:plot_creator = { character_event = { id = POD_vampire_kill_plots.19 }
+			}
+			clr_character_flag = plotter_discovered
+		}
+		clr_character_flag = servant_dead
+	}
+	option = {
+		name = "EVTOPTD_POD_ATTACKELDER_HAVEN_13" # Attack Fails two dead
+		trigger = {
+			has_character_flag = two_dead
+		}
+		
+		if = {
+			limit = {
+				has_character_flag = plotter_not_discovered
+			}
+			event_target:plot_creator = { character_event = { id = POD_vampire_kill_plots.20 }
+			}
+			clr_character_flag = plotter_not_discovered
+		}
+		if = {
+			limit = {
+				has_character_flag = plotter_discovered
+			}
+			event_target:plot_creator = { character_event = { id = POD_vampire_kill_plots.21 }
+			}
+			clr_character_flag = plotter_discovered
+		}
+		clr_character_flag = two_dead
+	}
+	option = {
+		name = "EVTOPTE_POD_ATTACKELDER_HAVEN_13" # Attack Fails attacker dies
+		trigger = {
+			has_character_flag = attacker_dead
+		}
+		
+		if = {
+			limit = {
+				has_character_flag = plotter_not_discovered
+			}
+			event_target:plot_creator = { character_event = { id = POD_vampire_kill_plots.22 }
+			}
+			clr_character_flag = plotter_not_discovered
+		}
+		if = {
+			limit = {
+				has_character_flag = plotter_discovered
+			}
+			event_target:plot_creator = { character_event = { id = POD_vampire_kill_plots.23 }
+			}
+			clr_character_flag = plotter_discovered
+		}
+		clr_character_flag = attacker_dead
+	}
+}
+
+
+# Haven attack success target killed - not found out
+character_event = {
+	id = POD_vampire_kill_plots.14
+	desc = "EVTDESC_POD_ATTACKELDER_HAVEN_14"
+	picture = GFX_evt_ghoul_beating
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		is_alive = yes
+		NOT = { trait = torpor }
+	}
+	
+	immediate = {
+		change_variable = { which = elder_haven_successkill_count value = 1 }
+	}
+	option = {
+		name = "EVTOPTA_POD_ATTACKELDER_HAVEN_14" # Aww yeah
+		
+		event_target:plot_target = {
+			trigger_switch = {
+			on_trigger = trait
+				zulo_form = {
+					remove_trait = zulo_form
+				}
+				blood_form = {
+					remove_trait = blood_form
+				}
+				mist_form = {
+					remove_trait = mist_form
+				}
+				shadow_form = {
+					remove_trait = shadow_form
+				}	
+			}
+			death = {
+				death_reason = death_haven_attack_unknown
+			}
+		}
+	}
+}
+
+# Haven attack success target killed - found out
+character_event = {
+	id = POD_vampire_kill_plots.15
+	desc = "EVTDESC_POD_ATTACKELDER_HAVEN_15"
+	picture = GFX_evt_ghoul_beating
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		is_alive = yes
+		NOT = { trait = torpor }
+	}
+	
+	immediate = {
+		change_variable = { which = elder_haven_successkill_count value = 1 }
+	}
+	option = {
+		name = "EVTOPTA_POD_ATTACKELDER_HAVEN_15" # Aww yeah
+		
+		event_target:plot_target = {
+			trigger_switch = {
+			on_trigger = trait
+				zulo_form = {
+					remove_trait = zulo_form
+				}
+				blood_form = {
+					remove_trait = blood_form
+				}
+				mist_form = {
+					remove_trait = mist_form
+				}
+				shadow_form = {
+					remove_trait = shadow_form
+				}	
+			}
+			death = {
+				death_reason = death_haven_attack
+				killer = event_target:plot_creator
+			}
+			mother = {
+				opinion = {
+					modifier = opinion_killed_close_kin
+					who = ROOT
+				}
+			}
+			father = {
+				opinion = {
+					modifier = opinion_killed_close_kin
+					who = ROOT
+				}
+			}
+			spouse = {
+				opinion = {
+					modifier = opinion_killed_close_kin
+					who = ROOT
+				}
+			}
+			any_child = {
+				opinion = {
+					modifier = opinion_killed_father
+					who = ROOT
+				}
+			}
+			if = {
+				limit = {
+					FROM = {
+						NOT = { dynasty = ROOT }
+						NOT = { sibling = ROOT }
+					}
+				}
+				any_sibling = {
+					opinion = {
+						modifier = opinion_killed_close_kin
+						who = ROOT
+					}
+				}
+			}
+		}
+	}
+}
+
+# Haven attack success target torpor - not found out
+character_event = {
+	id = POD_vampire_kill_plots.16
+	desc = "EVTDESC_POD_ATTACKELDER_HAVEN_16"
+	picture = GFX_evt_ghoul_beating
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		is_alive = yes
+		NOT = { trait = torpor }
+	}
+	
+	immediate = {
+		change_variable = { which = elder_haven_successtorpor_count value = 1 }
+	}
+	option = {
+		name = "EVTOPTA_POD_ATTACKELDER_HAVEN_16" # Aww yeah
+		
+		event_target:plot_target = {
+			trigger_switch = {
+			on_trigger = trait
+				zulo_form = {
+					remove_trait = zulo_form
+				}
+				blood_form = {
+					remove_trait = blood_form
+				}
+				mist_form = {
+					remove_trait = mist_form
+				}
+				shadow_form = {
+					remove_trait = shadow_form
+				}	
+			}
+			add_rival = ROOT
+			add_trait = torpor
+			add_trait = in_hiding
+						
+			if = { limit = { is_in_society = yes } leave_society = yes }
+						
+			abdicate = yes 
+		}
+	}
+}
+
+# Haven attack success target torpor - found out
+character_event = {
+	id = POD_vampire_kill_plots.17
+	desc = "EVTDESC_POD_ATTACKELDER_HAVEN_17"
+	picture = GFX_evt_ghoul_beating
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		is_alive = yes
+		NOT = { trait = torpor }
+	}
+	
+	immediate = {
+		change_variable = { which = elder_haven_successtorpor_count value = 1 }
+	}
+	option = {
+		name = "EVTOPTA_POD_ATTACKELDER_HAVEN_17" # Aww yeah
+		
+		event_target:plot_target = {
+			trigger_switch = {
+			on_trigger = trait
+				zulo_form = {
+					remove_trait = zulo_form
+				}
+				blood_form = {
+					remove_trait = blood_form
+				}
+				mist_form = {
+					remove_trait = mist_form
+				}
+				shadow_form = {
+					remove_trait = shadow_form
+				}	
+			}
+			add_rival = ROOT
+			add_trait = torpor
+			add_trait = in_hiding
+						
+			if = { limit = { is_in_society = yes } leave_society = yes }
+						
+			abdicate = yes
+			
+			mother = {
+				opinion = {
+					modifier = opinion_killed_close_kin
+					who = ROOT
+				}
+			}
+			father = {
+				opinion = {
+					modifier = opinion_killed_close_kin
+					who = ROOT
+				}
+			}
+			spouse = {
+				opinion = {
+					modifier = opinion_killed_close_kin
+					who = ROOT
+				}
+			}
+			any_child = {
+				opinion = {
+					modifier = opinion_killed_father
+					who = ROOT
+				}
+			}
+			if = {
+				limit = {
+					FROM = {
+						NOT = { dynasty = ROOT }
+						NOT = { sibling = ROOT }
+					}
+				}
+				any_sibling = {
+					opinion = {
+						modifier = opinion_killed_close_kin
+						who = ROOT
+					}
+				}
+			}
+		}
+	}
+}
+
+# Haven attack failure target has courtier killed - not found out
+character_event = {
+	id = POD_vampire_kill_plots.18
+	desc = "EVTDESC_POD_ATTACKELDER_HAVEN_18"
+	picture = GFX_evt_ghoul_beating
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		is_alive = yes
+		NOT = { trait = torpor }
+	}
+	
+	immediate = {
+		change_variable = { which = elder_haven_failureservantdead_count value = 1 }
+	}
+	option = {
+		name = "EVTOPTA_POD_ATTACKELDER_HAVEN_18" # Aww yeah
+		
+		event_target:plot_target = {
+			any_courtier = {
+				limit = {
+					has_opinion_modifier = {
+						who = event_target:plot_target
+						modifier = opinion_blood_bond_to_domitor_ghoul
+					}
+				}
+				event_target:plot_target = { set_character_flag = has_ghoul_to_kill }
+			}
+			if = {
+				limit = {
+					has_character_flag = has_ghoul_to_kill
+				}
+				clr_character_flag = has_ghoul_to_kill
+				random_courtier = {
+					limit = {
+						has_opinion_modifier = {
+							who = event_target:plot_target
+							modifier = opinion_blood_bond_to_domitor_ghoul
+						}
+					}
+					death = {
+						death_reason = death_haven_attack
+					}
+				}
+			} else = {
+				random_courtier = {
+					limit = {
+						NOT = { character = event_target:plot_target }
+						NOT = { is_elder_vampire = yes }
+					}
+					death = {
+						death_reason = death_haven_attack
+					}
+				}
+			}
+		}
+	}
+}
+
+# Haven attack failure target has courtier killed - found out
+character_event = {
+	id = POD_vampire_kill_plots.19
+	desc = "EVTDESC_POD_ATTACKELDER_HAVEN_19"
+	picture = GFX_evt_ghoul_beating
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		is_alive = yes
+		NOT = { trait = torpor }
+	}
+	
+	immediate = {
+		change_variable = { which = elder_haven_failureservantdead_count value = 1 }
+	}
+	option = {
+		name = "EVTOPTA_POD_ATTACKELDER_HAVEN_19" # Aww yeah
+		
+		event_target:plot_target = {
+			any_courtier = {
+				limit = {
+					has_opinion_modifier = {
+						who = event_target:plot_target
+						modifier = opinion_blood_bond_to_domitor_ghoul
+					}
+				}
+				event_target:plot_target = { set_character_flag = has_ghoul_to_kill }
+			}
+			if = {
+				limit = {
+					has_character_flag = has_ghoul_to_kill
+				}
+				clr_character_flag = has_ghoul_to_kill
+				random_courtier = {
+					limit = {
+						has_opinion_modifier = {
+							who = event_target:plot_target
+							modifier = opinion_blood_bond_to_domitor_ghoul
+						}
+					}
+					death = {
+						death_reason = death_haven_attack
+						killer = event_target:plot_creator
+					}
+				}
+			} else = {
+				random_courtier = {
+					limit = {
+						NOT = { character = event_target:plot_target }
+						NOT = { is_elder_vampire = yes }
+					}
+					death = {
+						death_reason = death_haven_attack
+						killer = event_target:plot_attacker
+					}
+				}
+			}
+			opinion = {
+				modifier = attempted_murder
+				who = ROOT
+			}
+		}
+	}
+}
+
+# Haven attack failure attacker two deaths - not found out
+character_event = {
+	id = POD_vampire_kill_plots.20
+	desc = "EVTDESC_POD_ATTACKELDER_HAVEN_20"
+	picture = GFX_evt_ghoul_dies_defending
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		is_alive = yes
+		NOT = { trait = torpor }
+	}
+	
+	immediate = {
+		change_variable = { which = elder_haven_failuretwodead_count value = 1 }
+	}
+	option = {
+		name = "EVTOPTA_POD_ATTACKELDER_HAVEN_20" # Aww yeah
+		
+		event_target:plot_target = {
+			any_courtier = {
+				limit = {
+					has_opinion_modifier = {
+						who = event_target:plot_target
+						modifier = opinion_blood_bond_to_domitor_ghoul
+					}
+				}
+				event_target:plot_target = { set_character_flag = has_ghoul_to_kill }
+			}
+			if = {
+				limit = {
+					has_character_flag = has_ghoul_to_kill
+				}
+				clr_character_flag = has_ghoul_to_kill
+				random_courtier = {
+					limit = {
+						has_opinion_modifier = {
+							who = event_target:plot_target
+							modifier = opinion_blood_bond_to_domitor_ghoul
+						}
+					}
+					death = {
+						death_reason = death_haven_attack
+						killer = event_target:plot_attacker
+					}
+				}
+			} else = {
+				random_courtier = {
+					limit = {
+						NOT = { character = event_target:plot_target }
+						NOT = { is_elder_vampire = yes }
+					}
+					death = {
+						death_reason = death_haven_attack
+					}
+				}
+			}
+		}
+		event_target:plot_attacker = {
+			death = {
+				death_reason = death_battle
+				killer = event_target:plot_target
+			}
+		}
+	}
+}
+
+# Haven attack failure attacker two deaths - found out
+character_event = {
+	id = POD_vampire_kill_plots.21
+	desc = "EVTDESC_POD_ATTACKELDER_HAVEN_21"
+	picture = GFX_evt_ghoul_dies_defending
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		is_alive = yes
+		NOT = { trait = torpor }
+	}
+	
+	immediate = {
+		change_variable = { which = elder_haven_failuretwodead_count value = 1 }
+	}
+	option = {
+		name = "EVTOPTA_POD_ATTACKELDER_HAVEN_21" # Aww yeah
+		
+		event_target:plot_target = {
+			any_courtier = {
+				limit = {
+					has_opinion_modifier = {
+						who = event_target:plot_target
+						modifier = opinion_blood_bond_to_domitor_ghoul
+					}
+				}
+				set_character_flag = has_ghoul_to_kill
+			}
+			if = {
+				limit = {
+					has_character_flag = has_ghoul_to_kill
+				}
+				clr_character_flag = has_ghoul_to_kill
+				random_courtier = {
+					limit = {
+						has_opinion_modifier = {
+							who = event_target:plot_target
+							modifier = opinion_blood_bond_to_domitor_ghoul
+						}
+					}
+					death = {
+						death_reason = death_haven_attack
+						killer = event_target:plot_creator
+					}
+				}
+			} else = {
+				random_courtier = {
+					limit = {
+						NOT = { character = event_target:plot_target }
+						NOT = { is_elder_vampire = yes }
+					}
+					death = {
+						death_reason = death_haven_attack
+						killer = event_target:plot_attacker
+					}
+				}
+			}
+			opinion = {
+				modifier = attempted_murder
+				who = ROOT
+			}
+			event_target:plot_attacker = {
+				death = {
+					death_reason = death_battle
+					killer = event_target:plot_target
+				}
+			}
+		}
+	}
+}
+
+# Haven attack failure attacker killed - not found out
+character_event = {
+	id = POD_vampire_kill_plots.22
+	desc = "EVTDESC_POD_ATTACKELDER_HAVEN_22"
+	picture = GFX_evt_ghoul_dies_defending
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		is_alive = yes
+		NOT = { trait = torpor }
+	}
+	
+	immediate = {
+		change_variable = { which = elder_haven_failuredeath_count value = 1 }
+	}
+	option = {
+		name = "EVTOPTA_POD_ATTACKELDER_HAVEN_22" # Aww yeah
+		
+		event_target:plot_attacker = {
+			death = {
+				death_reason = death_battle
+				killer = event_target:plot_target
+			}
+		}
+	}
+}
+
+# Haven attack failure attacker killed - found out
+character_event = {
+	id = POD_vampire_kill_plots.23
+	desc = "EVTDESC_POD_ATTACKELDER_HAVEN_23"
+	picture = GFX_evt_ghoul_dies_defending
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		is_alive = yes
+		NOT = { trait = torpor }
+	}
+	
+	immediate = {
+		change_variable = { which = elder_haven_failuredeath_count value = 1 }
+	}
+	option = {
+		name = "EVTOPTA_POD_ATTACKELDER_HAVEN_23" # Aww yeah
+		
+		event_target:plot_attacker = {
+			death = {
+				death_reason = death_battle
+				killer = event_target:plot_target
+			}
+		}
+		event_target:plot_target = {
+			opinion = {
+				modifier = attempted_murder
+				who = ROOT
+			}
+		}
+	}
+}
+
+
+
+#Delegated attack start
+character_event = {
+	id = POD_vampire_kill_plots.24
+	desc = "EVTDESC_POD_ATTACKELDER_DELEGATE_24"
+	picture = GFX_evt_vampire_manor_i
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		#check for vampires who are ok at combat and like you
+		random_realm_character = {
+			limit = {
+				trait = vampire
+				martial = 10
+				prisoner = no
+				NOT = { is_inaccessible_trigger = yes }
+				NOT = { trait = torpor }
+				OR = { 
+					opinion = { who = ROOT value = 40 }
+					owes_favor_to = ROOT
+				}
+				ai = yes
+			}
+			ROOT = { 
+				set_character_flag = has_vampire
+			}
+		}
+		#check for vampires who are ok at combat and hate the target
+		event_target:plot_target = {
+			random_realm_character = {
+				limit = {
+					trait = vampire
+					martial = 10
+					prisoner = no
+					NOT = { is_inaccessible_trigger = yes }
+					NOT = { trait = torpor }
+					ai = yes
+					OR = {
+						NOT = { opinion = { who = event_target:plot_target value = -40 } }
+						is_foe = event_target:plot_target
+					}
+				}
+				ROOT = { 
+					set_character_flag = has_vampire_rivals
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_ATTACKELDER_DELEGATE_24" # Send a vampire
+		trigger = {
+			has_character_flag = has_vampire
+		}
+		ai_chance = {
+			factor = 10
+		}
+		if = {
+			limit = { has_character_flag = has_vampire_rivals }
+			clr_character_flag = has_vampire_rivals
+		}
+		hidden_tooltip = {
+			change_variable = { which = global_elder_sendsomeone_count value = 1 }
+			change_variable = { which = global_elder_sendmine_count value = 1 }
+		}
+		clr_character_flag = has_vampire
+		set_character_flag = use_own_vampire
+		character_event = { id = POD_vampire_kill_plots.25 }
+	}
+	option = {
+		name = "EVTOPTB_POD_ATTACKELDER_DELEGATE_24" # Use an enemy of target
+		trigger = {
+			has_character_flag = has_vampire_rivals
+		}
+		ai_chance = {
+			factor = 13
+		}
+		hidden_tooltip = {
+			change_variable = { which = global_elder_sendsomeone_count value = 1 }
+			change_variable = { which = global_elder_sendenemy_count value = 1 }
+		}
+		if = {
+			limit = { has_character_flag = has_vampire }
+			clr_character_flag = has_vampire
+		}
+		clr_character_flag = has_vampire_rivals
+		character_event = { id = POD_vampire_kill_plots.25 }
+	}
+	option = {
+		name = "EVTOPTC_POD_ATTACKELDER_DELEGATE_24" # Cancel Attack. Wuss.
+		ai_chance = {
+			factor = 0
+		}
+		if = {
+			limit = { has_character_flag = has_vampire }
+			clr_character_flag = has_vampire
+		}
+		character_event = { id = POD_vampire_kill_plots.24 days = 1}
+		clr_character_flag = murder_in_motion
+	}
+}
+
+#pick vampire to delegate attack to
+character_event = {
+	id = POD_vampire_kill_plots.25
+	desc = "EVTDESC_POD_ATTACKELDER_DELEGATE_25"
+	picture = GFX_evt_ghoul_request
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				has_character_flag = use_own_vampire
+			}
+			random_realm_character = {
+				limit = {
+					trait = vampire
+					martial = 10
+					prisoner = no
+					NOT = { is_inaccessible_trigger = yes }
+					NOT = { trait = torpor }
+					OR = { 
+						opinion = { who = ROOT value = 40 }
+						owes_favor_to = ROOT
+					}
+					ai = yes
+				}
+				set_character_flag = vamp_1
+				save_event_target_as = vampire_number_1
+			}
+			random_realm_character = {
+				limit = {
+					trait = vampire
+					martial = 10
+					prisoner = no
+					NOT = { is_inaccessible_trigger = yes }
+					NOT = { trait = torpor }
+					OR = { 
+						opinion = { who = ROOT value = 40 }
+						owes_favor_to = ROOT
+					}
+					NOT = { has_character_flag = vamp_1 }
+					ai = yes
+				}
+				set_character_flag = vamp_2
+				save_event_target_as = vampire_number_2
+			}
+			random_realm_character = {
+				limit = {
+					trait = vampire
+					martial = 10
+					prisoner = no
+					NOT = { is_inaccessible_trigger = yes }
+					NOT = { trait = torpor }
+					OR = { 
+						opinion = { who = ROOT value = 40 }
+						owes_favor_to = ROOT
+					}
+					NOT = { has_character_flag = vamp_1 }
+					NOT = { has_character_flag = vamp_2 }
+					ai = yes
+				}
+				#set_character_flag = vamp_3
+				save_event_target_as = vampire_number_3
+			}
+		}else = {
+			event_target:plot_target = {
+			random_realm_character = {
+				limit = {
+					trait = vampire
+					martial = 10
+					prisoner = no
+					NOT = { is_inaccessible_trigger = yes }
+					NOT = { trait = torpor }
+					ai = yes
+					OR = {
+						NOT = { opinion = { who = event_target:plot_target value = -40 } }
+						is_foe = event_target:plot_target
+					}
+				}
+				set_character_flag = vamp_1
+				save_event_target_as = vampire_number_1
+			}
+			random_realm_character = {
+				limit = {
+					trait = vampire
+					martial = 10
+					prisoner = no
+					NOT = { is_inaccessible_trigger = yes }
+					NOT = { trait = torpor }
+					ai = yes
+					OR = {
+						NOT = { opinion = { who = event_target:plot_target value = -40 } }
+						is_foe = event_target:plot_target
+					}
+					NOT = { has_character_flag = vamp_1 }
+				}
+				set_character_flag = vamp_2
+				save_event_target_as = vampire_number_2
+			}
+			random_realm_character = {
+				limit = {
+					trait = vampire
+					martial = 10
+					prisoner = no
+					NOT = { is_inaccessible_trigger = yes }
+					NOT = { trait = torpor }
+					ai = yes
+					OR = {
+						NOT = { opinion = { who = event_target:plot_target value = -40 } }
+						is_foe = event_target:plot_target
+					}
+					NOT = { has_character_flag = vamp_1 }
+					NOT = { has_character_flag = vamp_2 }
+				}
+				#set_character_flag = vamp_3
+				save_event_target_as = vampire_number_3
+			}
+			}
+		}
+		#clear flags
+		event_target:vampire_number_1 = {
+			if = {
+				limit = { has_character_flag = vamp_1 }
+				clr_character_flag = vamp_1
+			}
+		}
+		event_target:vampire_number_2 = {
+			if = {
+				limit = { has_character_flag = vamp_2 }
+				clr_character_flag = vamp_2
+			}
+		}
+		if = {
+			limit = { has_character_flag = use_own_vampire }
+			clr_character_flag = use_own_vampire
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_ATTACKELDER_DELEGATE_25" # Vamp 1 leads
+		trigger = {
+			event_target:vampire_number_1 = { is_alive = yes }
+		}
+		ai_chance = {
+			factor = 5
+		}
+		show_portrait = event_target:vampire_number_1
+		change_variable = { which = global_elder_picksomeone1_count value = 1 }
+		event_target:vampire_number_1 = {
+			save_event_target_as = plot_attacker
+		}
+		event_target:plot_target = { character_event = { id = POD_vampire_kill_plots.26 days = 30 } }
+	}
+	option = {
+		name = "EVTOPTB_POD_ATTACKELDER_DELEGATE_25" #  Vamp 2 leads
+		trigger = {
+			event_target:vampire_number_2 = { is_alive = yes }
+		}
+		ai_chance = {
+			factor = 5
+		}
+		show_portrait = event_target:vampire_number_2
+		change_variable = { which = global_elder_picksomeone2_count value = 1 }
+		event_target:vampire_number_2 = {
+			save_event_target_as = plot_attacker
+		}
+		event_target:plot_target = { character_event = { id = POD_vampire_kill_plots.26 days = 30 } }
+	}
+	option = {
+		name = "EVTOPTC_POD_ATTACKELDER_DELEGATE_25" #  Vamp 3 leads
+		trigger = {
+			event_target:vampire_number_3 = { is_alive = yes }
+		}
+		ai_chance = {
+			factor = 5
+		}
+		show_portrait = event_target:vampire_number_3
+		change_variable = { which = global_elder_picksomeone3_count value = 1 }
+		event_target:vampire_number_3 = {
+			save_event_target_as = plot_attacker
+		}
+		event_target:plot_target = { character_event = { id = POD_vampire_kill_plots.26 days = 30 } }
+	}
+	option = {
+		name = "EVTOPTD_POD_ATTACKELDER_DELEGATE_25" # Cancel Attack. Wuss.
+		ai_chance = {
+			factor = 0
+		}
+		change_variable = { which = global_elder_picksomeonecancel_count value = 1 }
+		clr_character_flag = murder_in_motion
+	}
+}
+#Delegate target event
+character_event = {
+	id = POD_vampire_kill_plots.26
+	desc = "EVTDESC_POD_ATTACKELDER_DELEGATE_26"
+	picture = GFX_evt_spymaster
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	trigger = {
+		is_alive = yes
+		NOT = { trait = torpor }
+		NOT = { is_inaccessible_trigger = yes }
+	}
+	
+	immediate = {
+		random_list = {
+			10 = {
+				modifier = {
+					factor = 2
+					event_target:plot_attacker = {
+						attribute_diff = {
+							character = event_target:plot_target
+							attribute = martial
+							value = 10
+						}
+					}
+				}
+				modifier = {
+					factor = 1.5
+					event_target:plot_attacker = {
+						attribute_diff = {
+							character = event_target:plot_target
+							attribute = martial
+							value = 1
+						}
+					}
+				}
+				modifier = {
+					factor = 1.2
+					event_target:plot_attacker = {
+						trait = elder
+					}
+				}
+				modifier = {
+					factor = 1.4
+					event_target:plot_attacker = {
+						trait = ancient
+					}
+				}
+				modifier = {
+					factor = 1.5
+					event_target:plot_attacker = {
+						trait = methuselah
+					}
+				}
+				modifier = {
+					factor = 1.5
+					event_target:plot_attacker = {
+						has_powerful_generation = yes
+					}
+				}
+				modifier = {
+					factor = 1.2
+					event_target:plot_attacker = {
+						has_strong_generation = yes
+					}
+				}
+				modifier = {
+					factor = 0.8
+					trait = elder
+				}
+				modifier = {
+					factor = 0.5
+					trait = ancient
+				}
+				modifier = {
+					factor = 0.4
+					trait = methuselah
+				}
+				modifier = {
+					factor = 0.5
+					has_powerful_generation = yes
+				}
+				modifier = {
+					factor = 0.8
+					has_strong_generation = yes
+				}
+				modifier = {
+					factor = 0.3
+					has_defensive_discipline = yes
+				}
+				modifier = {
+					factor = 0.5
+					attribute_diff = {
+						character = event_target:plot_attacker
+						attribute = martial
+						value = 10
+					}
+				}
+				modifier = {
+					factor = 0.8
+					attribute_diff = {
+						character = event_target:plot_attacker
+						attribute = martial
+						value = 1
+					}
+				}
+				#Attack Success
+				random_list = {
+					5 = {
+						modifier = {
+							factor = 2
+							trait = ancient
+						}
+						modifier = {
+							factor = 1.5
+							trait = methuselah
+						}
+						modifier = {
+							factor = 2
+							has_powerful_generation = yes
+						}
+						modifier = {
+							factor = 2
+							has_defensive_discipline = yes
+						}
+						#Target Enters Torpor
+						set_character_flag = target_enters_torpor
+						change_variable = { which = global_elder_delegate_successtorpor_count value = 1 }
+					}
+					5 = {
+						modifier = {
+							factor = 1.5
+							event_target:plot_attacker = {
+								attribute_diff = {
+									character = event_target:plot_target
+									attribute = martial
+									value = 10
+								}
+							}
+						}
+						modifier = {
+							factor = 1.5
+							event_target:plot_attacker = {
+								trait = ancient
+							}
+						}
+						modifier = {
+							factor = 1.5
+							event_target:plot_attacker = {
+								trait = methuselah
+							}
+						}
+						modifier = {
+							factor = 1.5
+							event_target:plot_attacker = {
+								has_powerful_generation = yes
+							}
+						}
+						
+						#Target Diablerized
+						set_character_flag = target_diablerized
+						change_variable = { which = global_elder_delegate_successdiablerie_count value = 1 }
+					}
+				}
+			}
+			10 = {
+				#Attack fails
+				random_list = {
+					5 = {
+						#Both vampires maimed
+						set_character_flag = both_maimed
+						change_variable = { which = global_elder_delegate_failuremaimed_count value = 1 }
+					}
+					5 = {
+						#Both vampires injured
+						modifier = {
+							factor = 3
+							event_target:plot_attacker = {
+								attribute_diff = {
+									character = event_target:plot_target
+									attribute = martial
+									value = 8
+								}
+							}
+						}
+						set_character_flag = both_injured
+						change_variable = { which = global_elder_delegate_failureinjured_count value = 1 }
+					}
+					5 = {
+						modifier = {
+							factor = 0.1
+							event_target:plot_attacker = { has_defensive_discipline = yes }
+						}
+						modifier = {
+							factor = 0.7
+							event_target:plot_attacker = {
+								trait = elder
+							}
+						}
+						modifier = {
+							factor = 0.4
+							event_target:plot_attacker = {
+								trait = ancient
+							}
+						}
+						modifier = {
+							factor = 0.3
+							event_target:plot_attacker = {
+								trait = methuselah
+							}
+						}
+						modifier = {
+							factor = 0.5
+							event_target:plot_attacker = {
+								has_powerful_generation = yes
+							}
+						}
+						modifier = {
+							factor = 0.8
+							event_target:plot_attacker = {
+								has_strong_generation = yes
+							}
+						}
+						#Attacker dies
+						set_character_flag = attacker_dead
+						change_variable = { which = global_elder_delegate_failuredeath_count value = 1 }
+					}
+				}
+			}
+		}
+		random_list = {
+			10 = {
+				modifier = {
+					factor = 2
+					event_target:plot_creator = {
+						intrigue = 10
+					}
+				}
+				modifier = {
+					factor = 1.5
+					event_target:plot_creator = {
+						intrigue = 20
+					}
+				}
+				modifier = {
+					factor = 1.5
+					event_target:plot_creator = {
+						intrigue = 30
+					}
+				}
+				modifier = {
+					factor = 1.5
+					event_target:plot_creator = {
+						intrigue = 40
+					}
+				}
+				#Not found out
+				set_character_flag = plotter_not_discovered
+			}
+			10 = {
+				modifier = {
+					factor = 2
+					intrigue = 10
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 20
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 30
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 40
+				}
+				#Found out
+				set_character_flag = plotter_discovered
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_ATTACKELDER_DELEGATE_26" # Diablerie successful
+		trigger = {
+			has_character_flag = target_diablerized
+		}
+		if = {
+			limit = {
+				has_character_flag = plotter_not_discovered
+			}
+			event_target:plot_creator = { character_event = { id = POD_vampire_kill_plots.27 }
+			}
+			clr_character_flag = plotter_not_discovered
+		}
+		if = {
+			limit = {
+				has_character_flag = plotter_discovered
+			}
+				event_target:plot_creator = { character_event = { id = POD_vampire_kill_plots.28 }
+			}
+			clr_character_flag = plotter_discovered
+		}
+		clr_character_flag = target_diablerized
+	}
+	option = {
+		name = "EVTOPTB_POD_ATTACKELDER_DELEGATE_26" # Target enters Torpor
+		trigger = {
+			has_character_flag = target_enters_torpor
+		}
+		if = {
+			limit = {
+				has_character_flag = plotter_not_discovered
+			}
+			event_target:plot_creator = { character_event = { id = POD_vampire_kill_plots.29 }
+			}
+			clr_character_flag = plotter_not_discovered
+		}
+		if = {
+			limit = {
+				has_character_flag = plotter_discovered
+			}
+			event_target:plot_creator = { character_event = { id = POD_vampire_kill_plots.30 }
+			}
+			clr_character_flag = plotter_discovered
+		}
+		clr_character_flag = target_enters_torpor
+		if = { limit = { has_character_flag = plotter_discovered } clr_character_flag = plotter_discovered }
+		if = { limit = { has_character_flag = plotter_not_discovered } clr_character_flag = plotter_not_discovered }
+	}
+	option = {
+		name = "EVTOPTC_POD_ATTACKELDER_DELEGATE_26" # Attack Fails both injured
+		trigger = {
+			has_character_flag = both_injured
+		}
+		
+		if = {
+			limit = {
+				has_character_flag = plotter_not_discovered
+			}
+			event_target:plot_creator = { character_event = { id = POD_vampire_kill_plots.31 }
+			}
+			clr_character_flag = plotter_not_discovered
+		}
+		if = {
+			limit = {
+				has_character_flag = plotter_discovered
+			}
+			event_target:plot_creator = { character_event = { id = POD_vampire_kill_plots.32 }
+			}
+			clr_character_flag = plotter_discovered
+		}
+		clr_character_flag = both_injured
+	}
+	option = {
+		name = "EVTOPTD_POD_ATTACKELDER_DELEGATE_26" # Attack Fails both maimed
+		trigger = {
+			has_character_flag = both_maimed
+		}
+		
+		if = {
+			limit = {
+				has_character_flag = plotter_not_discovered
+			}
+			event_target:plot_creator = { character_event = { id = POD_vampire_kill_plots.33 }
+			}
+			clr_character_flag = plotter_not_discovered
+		}
+		if = {
+			limit = {
+				has_character_flag = plotter_discovered
+			}
+			event_target:plot_creator = { character_event = { id = POD_vampire_kill_plots.34 }
+			}
+			clr_character_flag = plotter_discovered
+		}
+		clr_character_flag = both_maimed
+	}
+	option = {
+		name = "EVTOPTE_POD_ATTACKELDER_DELEGATE_26" # Attack Fails attacker dies
+		trigger = {
+			has_character_flag = attacker_dead
+		}
+		
+		if = {
+			limit = {
+				has_character_flag = plotter_not_discovered
+			}
+			event_target:plot_creator = { character_event = { id = POD_vampire_kill_plots.35 }
+			}
+			clr_character_flag = plotter_not_discovered
+		}
+		if = {
+			limit = {
+				has_character_flag = plotter_discovered
+			}
+			event_target:plot_creator = { character_event = { id = POD_vampire_kill_plots.36 }
+			}
+			clr_character_flag = plotter_discovered
+		}
+		clr_character_flag = attacker_dead
+	}
+}
+
+# Delegate attack success target killed - not found out
+character_event = {
+	id = POD_vampire_kill_plots.27
+	desc = "EVTDESC_POD_ATTACKELDER_DELEGATE_27"
+	picture = GFX_evt_ghoul_beating
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		is_alive = yes
+		NOT = { trait = torpor }
+	}
+	
+	immediate = {
+		change_variable = { which = elder_delegate_successkill_count value = 1 }
+		
+		plot_target_char = {
+			trigger_switch = {
+			on_trigger = trait
+			vampgeneration1 = {
+				ROOT =  { set_variable = { which = target_gen value = 1 } }
+			}
+			vampgeneration2 = {
+				ROOT =  { set_variable = { which = target_gen value = 2 } }
+			}
+			vampgeneration3 = {
+				ROOT =  { set_variable = { which = target_gen value = 3 } }
+			}
+			vampgeneration4 = {
+				ROOT =  { set_variable = { which = target_gen value = 4 } }
+			}
+			vampgeneration5 = {
+				ROOT =  { set_variable = { which = target_gen value = 5 } }
+			}
+			vampgeneration6 = {
+				ROOT =  { set_variable = { which = target_gen value = 6 } }
+			}
+			vampgeneration7 = {
+				ROOT =  { set_variable = { which = target_gen value = 7 } }
+			}
+			vampgeneration8 = {
+				ROOT =  { set_variable = { which = target_gen value = 8 } }
+			}
+			vampgeneration9 = {
+				ROOT =  { set_variable = { which = target_gen value = 9 } }
+			}
+			vampgeneration10 = {
+				ROOT =  { set_variable = { which = target_gen value = 10 } }
+			}
+			vampgeneration11 = {
+				ROOT =  { set_variable = { which = target_gen value = 11 } }
+			}
+			vampgeneration12 = {
+				ROOT =  { set_variable = { which = target_gen value = 12 } }
+			}
+			vampgeneration13 = {
+				ROOT =  { set_variable = { which = target_gen value = 13 } }
+			}
+			vampgeneration14 = {
+				ROOT =  { set_variable = { which = target_gen value = 14 } }
+			}
+			vampgeneration15 = {
+				ROOT =  { set_variable = { which = target_gen value = 15 } }
+			}
+			}
+			event_target:plot_attacker = {
+			trigger_switch = {
+			on_trigger = trait
+			vampgeneration1 = {
+				ROOT =  { set_variable = { which = attacker_gen value = 1 } }
+			}
+			vampgeneration2 = {
+				ROOT =  { set_variable = { which = attacker_gen value = 2 } }
+			}
+			vampgeneration3 = {
+				ROOT =  { set_variable = { which = attacker_gen value = 3 } }
+			}
+			vampgeneration4 = {
+				ROOT =  { set_variable = { which = attacker_gen value = 4 } }
+			}
+			vampgeneration5 = {
+				ROOT =  { set_variable = { which = attacker_gen value = 5 } }
+			}
+			vampgeneration6 = {
+				ROOT =  { set_variable = { which = attacker_gen value = 6 } }
+			}
+			vampgeneration7 = {
+				ROOT =  { set_variable = { which = attacker_gen value = 7 } }
+			}
+			vampgeneration8 = {
+				ROOT =  { set_variable = { which = attacker_gen value = 8 } }
+			}
+			vampgeneration9 = {
+				ROOT =  { set_variable = { which = attacker_gen value = 9 } }
+			}
+			vampgeneration10 = {
+				ROOT =  { set_variable = { which = attacker_gen value = 10 } }
+			}
+			vampgeneration11 = {
+				ROOT =  { set_variable = { which = attacker_gen value = 11 } }
+			}
+			vampgeneration12 = {
+				ROOT =  { set_variable = { which = attacker_gen value = 12 } }
+			}
+			vampgeneration13 = {
+				ROOT =  { set_variable = { which = attacker_gen value = 13 } }
+			}
+			vampgeneration14 = {
+				ROOT =  { set_variable = { which = attacker_gen value = 14 } }
+			}
+			vampgeneration15 = {
+				ROOT =  { set_variable = { which = attacker_gen value = 15 } }
+			}
+			}
+		}
+		}
+		if = {
+			limit = { NOT = { check_variable = { which = target_gen which = attacker_gen } } }
+			set_character_flag = generation_change_yes
+		}
+		set_variable = { which = target_gen value = 0 }
+		set_variable = { which = attacker_gen value = 0 }
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_ATTACKELDER_DELEGATE_27" # Aww yeah
+		
+		event_target:plot_target = {
+			trigger_switch = {
+			on_trigger = trait
+				zulo_form = {
+					remove_trait = zulo_form
+				}
+				blood_form = {
+					remove_trait = blood_form
+				}
+				mist_form = {
+					remove_trait = mist_form
+				}
+				shadow_form = {
+					remove_trait = shadow_form
+				}
+			}
+				if = {
+					limit = {
+						ROOT = { has_character_flag = generation_change_yes }
+					}
+					ROOT = { clr_character_flag = generation_change_yes }
+					event_target:plot_attacker = {
+						add_character_modifier = {
+							name = blood_of_vampire
+							duration = 356
+						}
+						add_trait = diabolist
+						POD_vampire_blood_thirst_decrease_effect = yes
+						trigger_switch = {
+						on_trigger = trait
+						vampgeneration1 = {
+							remove_trait = vampgeneration1
+						}
+						vampgeneration2 = {
+							remove_trait = vampgeneration2
+						}
+						vampgeneration3 = {
+							remove_trait = vampgeneration3
+						}
+						vampgeneration4 = {
+							remove_trait = vampgeneration4
+						}
+						vampgeneration5 = {
+							remove_trait = vampgeneration5
+						}
+						vampgeneration6 = {
+							remove_trait = vampgeneration6
+						}
+						vampgeneration7 = {
+							remove_trait = vampgeneration7
+						}	
+						vampgeneration8 = {
+							remove_trait = vampgeneration8
+						}
+						vampgeneration9 = {
+							remove_trait = vampgeneration9
+						}
+						vampgeneration10 = {
+							remove_trait = vampgeneration10
+						}
+						vampgeneration11 = {
+							remove_trait = vampgeneration11
+						}
+						vampgeneration12 = {
+							remove_trait = vampgeneration12
+						}
+						vampgeneration13 = {
+							remove_trait = vampgeneration13
+						}
+						vampgeneration14 = {
+							remove_trait = vampgeneration14
+						}
+						vampgeneration15 = {
+							remove_trait = vampgeneration15
+						}
+					}
+					}
+					trigger_switch = {
+					on_trigger = trait
+					vampgeneration1 = {
+						event_target:plot_attacker = { add_trait = vampgeneration1 }
+					}
+					vampgeneration2 = {
+						event_target:plot_attacker = { add_trait = vampgeneration2 }
+					}
+					vampgeneration3 = {
+						event_target:plot_attacker = { add_trait = vampgeneration3 }
+					}
+					vampgeneration4 = {
+						event_target:plot_attacker = { add_trait = vampgeneration4 }
+					}
+					vampgeneration5 = {
+						event_target:plot_attacker = { add_trait = vampgeneration5 }
+					}
+					vampgeneration6 = {
+						event_target:plot_attacker = { add_trait = vampgeneration6 }
+					}
+					vampgeneration7 = {
+						event_target:plot_attacker = { add_trait = vampgeneration7 }
+					}
+					vampgeneration8 = {
+						event_target:plot_attacker = { add_trait = vampgeneration8 }
+					}
+					vampgeneration9 = {
+						event_target:plot_attacker = { add_trait = vampgeneration9 }
+					}
+					vampgeneration10 = {
+						event_target:plot_attacker = { add_trait = vampgeneration10 }
+					}
+					vampgeneration11 = {
+						event_target:plot_attacker = { add_trait = vampgeneration11 }
+					}
+					vampgeneration12 = {
+						event_target:plot_attacker = { add_trait = vampgeneration12 }
+					}
+					vampgeneration13 = {
+						event_target:plot_attacker = { add_trait = vampgeneration13 }
+					}
+					vampgeneration14 = {
+						event_target:plot_attacker = { add_trait = vampgeneration14 }
+					}
+					vampgeneration15 = {
+						event_target:plot_attacker = { add_trait = vampgeneration15 }
+					}
+					}
+				}
+			}
+			event_target:plot_attacker = {
+				trigger_switch = {
+				on_trigger = trait
+				bloodpotency_1 = {
+				if = { 
+					limit = {
+						event_target:plot_target = {
+							OR = {    
+								trait = bloodpotency_2
+								trait = bloodpotency_3
+								trait = bloodpotency_4
+								trait = bloodpotency_5
+								trait = bloodpotency_6
+								trait = bloodpotency_7
+								trait = bloodpotency_8
+								trait = bloodpotency_9
+								trait = bloodpotency_10
+							}
+						}
+					}
+					remove_trait = bloodpotency_1
+					add_trait = bloodpotency_2
+				}
+				}
+				bloodpotency_2 = {
+				if = { 
+					limit = {
+						event_target:plot_target = {
+							OR = {    
+								trait = bloodpotency_3
+								trait = bloodpotency_4
+								trait = bloodpotency_5
+								trait = bloodpotency_6
+								trait = bloodpotency_7
+								trait = bloodpotency_8
+								trait = bloodpotency_9
+								trait = bloodpotency_10
+							}
+						}
+					}
+					remove_trait = bloodpotency_2
+					add_trait = bloodpotency_3
+				}
+				}
+				bloodpotency_3 = {
+				if = { 
+					limit = {
+						event_target:plot_target = {
+							OR = {    
+								trait = bloodpotency_4
+								trait = bloodpotency_5
+								trait = bloodpotency_6
+								trait = bloodpotency_7
+								trait = bloodpotency_8
+								trait = bloodpotency_9
+								trait = bloodpotency_10
+							}
+						}
+					}
+					remove_trait = bloodpotency_3
+					add_trait = bloodpotency_4
+				}
+				}
+				bloodpotency_4 = {
+				if = { 
+					limit = {
+						event_target:plot_target = {
+							OR = {    
+								trait = bloodpotency_5
+								trait = bloodpotency_6
+								trait = bloodpotency_7
+								trait = bloodpotency_8
+								trait = bloodpotency_9
+								trait = bloodpotency_10
+							}
+						}
+					}
+					remove_trait = bloodpotency_4
+					add_trait = bloodpotency_5
+				}
+				}
+				bloodpotency_5 = {
+				if = { 
+					limit = {
+						event_target:plot_target = {
+							OR = {    
+								trait = bloodpotency_6
+								trait = bloodpotency_7
+								trait = bloodpotency_8
+								trait = bloodpotency_9
+								trait = bloodpotency_10
+							}
+						}
+					}
+					remove_trait = bloodpotency_5
+					add_trait = bloodpotency_6
+				}
+				}
+				bloodpotency_6 = {
+				if = { 
+					limit = {
+						event_target:plot_target = {
+							OR = {    
+								trait = bloodpotency_7
+								trait = bloodpotency_8
+								trait = bloodpotency_9
+								trait = bloodpotency_10
+							}
+						}
+					}
+					remove_trait = bloodpotency_6
+					add_trait = bloodpotency_7
+				}
+				}
+				bloodpotency_7 = {
+				if = { 
+					limit = {
+						event_target:plot_target = {
+							OR = {    
+								trait = bloodpotency_8
+								trait = bloodpotency_9
+								trait = bloodpotency_10
+							}
+						}
+					}
+					remove_trait = bloodpotency_7
+					add_trait = bloodpotency_8
+				}
+				}
+				bloodpotency_8 = {
+				if = { 
+					limit = {
+						event_target:plot_target = {
+							OR = {    
+								trait = bloodpotency_9
+								trait = bloodpotency_10
+							}
+						}
+					}
+					remove_trait = bloodpotency_8
+					add_trait = bloodpotency_9
+				}
+				}
+				bloodpotency_9 = {
+				if = { 
+					limit = {
+						event_target:plot_target = {
+							OR = {    
+								trait = bloodpotency_10
+							}
+						}
+					}
+					remove_trait = bloodpotency_9
+					add_trait = bloodpotency_10
+				}
+				}
+			}
+			}
+			
+			
+			event_target:plot_target = {
+			death = {
+				death_reason = death_execution_diablerie_unknown
+			}
+			}
+	}
+}
+
+
+# Delegate attack success target killed - found out
+character_event = {
+	id = POD_vampire_kill_plots.28
+	desc = "EVTDESC_POD_ATTACKELDER_DELEGATE_28"
+	picture = GFX_evt_ghoul_beating
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		is_alive = yes
+		NOT = { trait = torpor }
+	}
+	
+	immediate = {
+		change_variable = { which = elder_delegate_successkill_count value = 1 }
+		
+		plot_target_char = {
+			trigger_switch = {
+			on_trigger = trait
+			vampgeneration1 = {
+				ROOT =  { set_variable = { which = target_gen value = 1 } }
+			}
+			vampgeneration2 = {
+				ROOT =  { set_variable = { which = target_gen value = 2 } }
+			}
+			vampgeneration3 = {
+				ROOT =  { set_variable = { which = target_gen value = 3 } }
+			}
+			vampgeneration4 = {
+				ROOT =  { set_variable = { which = target_gen value = 4 } }
+			}
+			vampgeneration5 = {
+				ROOT =  { set_variable = { which = target_gen value = 5 } }
+			}
+			vampgeneration6 = {
+				ROOT =  { set_variable = { which = target_gen value = 6 } }
+			}
+			vampgeneration7 = {
+				ROOT =  { set_variable = { which = target_gen value = 7 } }
+			}
+			vampgeneration8 = {
+				ROOT =  { set_variable = { which = target_gen value = 8 } }
+			}
+			vampgeneration9 = {
+				ROOT =  { set_variable = { which = target_gen value = 9 } }
+			}
+			vampgeneration10 = {
+				ROOT =  { set_variable = { which = target_gen value = 10 } }
+			}
+			vampgeneration11 = {
+				ROOT =  { set_variable = { which = target_gen value = 11 } }
+			}
+			vampgeneration12 = {
+				ROOT =  { set_variable = { which = target_gen value = 12 } }
+			}
+			vampgeneration13 = {
+				ROOT =  { set_variable = { which = target_gen value = 13 } }
+			}
+			vampgeneration14 = {
+				ROOT =  { set_variable = { which = target_gen value = 14 } }
+			}
+			vampgeneration15 = {
+				ROOT =  { set_variable = { which = target_gen value = 15 } }
+			}
+			}
+			event_target:plot_attacker = {
+			trigger_switch = {
+			on_trigger = trait
+			vampgeneration1 = {
+				ROOT =  { set_variable = { which = attacker_gen value = 1 } }
+			}
+			vampgeneration2 = {
+				ROOT =  { set_variable = { which = attacker_gen value = 2 } }
+			}
+			vampgeneration3 = {
+				ROOT =  { set_variable = { which = attacker_gen value = 3 } }
+			}
+			vampgeneration4 = {
+				ROOT =  { set_variable = { which = attacker_gen value = 4 } }
+			}
+			vampgeneration5 = {
+				ROOT =  { set_variable = { which = attacker_gen value = 5 } }
+			}
+			vampgeneration6 = {
+				ROOT =  { set_variable = { which = attacker_gen value = 6 } }
+			}
+			vampgeneration7 = {
+				ROOT =  { set_variable = { which = attacker_gen value = 7 } }
+			}
+			vampgeneration8 = {
+				ROOT =  { set_variable = { which = attacker_gen value = 8 } }
+			}
+			vampgeneration9 = {
+				ROOT =  { set_variable = { which = attacker_gen value = 9 } }
+			}
+			vampgeneration10 = {
+				ROOT =  { set_variable = { which = attacker_gen value = 10 } }
+			}
+			vampgeneration11 = {
+				ROOT =  { set_variable = { which = attacker_gen value = 11 } }
+			}
+			vampgeneration12 = {
+				ROOT =  { set_variable = { which = attacker_gen value = 12 } }
+			}
+			vampgeneration13 = {
+				ROOT =  { set_variable = { which = attacker_gen value = 13 } }
+			}
+			vampgeneration14 = {
+				ROOT =  { set_variable = { which = attacker_gen value = 14 } }
+			}
+			vampgeneration15 = {
+				ROOT =  { set_variable = { which = attacker_gen value = 15 } }
+			}
+			}
+		}
+		}
+		if = {
+			limit = { NOT = { check_variable = { which = target_gen which = attacker_gen } } }
+			set_character_flag = generation_change_yes
+		}
+		set_variable = { which = target_gen value = 0 }
+		set_variable = { which = attacker_gen value = 0 }
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_ATTACKELDER_DELEGATE_28" # Aww yeah
+		
+		event_target:plot_target = {
+			trigger_switch = {
+			on_trigger = trait
+				zulo_form = {
+					remove_trait = zulo_form
+				}
+				blood_form = {
+					remove_trait = blood_form
+				}
+				mist_form = {
+					remove_trait = mist_form
+				}
+				shadow_form = {
+					remove_trait = shadow_form
+				}
+			}
+				if = {
+					limit = {
+						ROOT = { has_character_flag = generation_change_yes }
+					}
+					ROOT = { clr_character_flag = generation_change_yes }
+					event_target:plot_attacker = {
+						add_character_modifier = {
+							name = blood_of_vampire
+							duration = 356
+						}
+						add_trait = diabolist
+						POD_vampire_blood_thirst_decrease_effect = yes
+						trigger_switch = {
+						on_trigger = trait
+						vampgeneration1 = {
+							remove_trait = vampgeneration1
+						}
+						vampgeneration2 = {
+							remove_trait = vampgeneration2
+						}
+						vampgeneration3 = {
+							remove_trait = vampgeneration3
+						}
+						vampgeneration4 = {
+							remove_trait = vampgeneration4
+						}
+						vampgeneration5 = {
+							remove_trait = vampgeneration5
+						}
+						vampgeneration6 = {
+							remove_trait = vampgeneration6
+						}
+						vampgeneration7 = {
+							remove_trait = vampgeneration7
+						}	
+						vampgeneration8 = {
+							remove_trait = vampgeneration8
+						}
+						vampgeneration9 = {
+							remove_trait = vampgeneration9
+						}
+						vampgeneration10 = {
+							remove_trait = vampgeneration10
+						}
+						vampgeneration11 = {
+							remove_trait = vampgeneration11
+						}
+						vampgeneration12 = {
+							remove_trait = vampgeneration12
+						}
+						vampgeneration13 = {
+							remove_trait = vampgeneration13
+						}
+						vampgeneration14 = {
+							remove_trait = vampgeneration14
+						}
+						vampgeneration15 = {
+							remove_trait = vampgeneration15
+						}
+					}
+					}
+					trigger_switch = {
+					on_trigger = trait
+					vampgeneration1 = {
+						event_target:plot_attacker = { add_trait = vampgeneration1 }
+					}
+					vampgeneration2 = {
+						event_target:plot_attacker = { add_trait = vampgeneration2 }
+					}
+					vampgeneration3 = {
+						event_target:plot_attacker = { add_trait = vampgeneration3 }
+					}
+					vampgeneration4 = {
+						event_target:plot_attacker = { add_trait = vampgeneration4 }
+					}
+					vampgeneration5 = {
+						event_target:plot_attacker = { add_trait = vampgeneration5 }
+					}
+					vampgeneration6 = {
+						event_target:plot_attacker = { add_trait = vampgeneration6 }
+					}
+					vampgeneration7 = {
+						event_target:plot_attacker = { add_trait = vampgeneration7 }
+					}
+					vampgeneration8 = {
+						event_target:plot_attacker = { add_trait = vampgeneration8 }
+					}
+					vampgeneration9 = {
+						event_target:plot_attacker = { add_trait = vampgeneration9 }
+					}
+					vampgeneration10 = {
+						event_target:plot_attacker = { add_trait = vampgeneration10 }
+					}
+					vampgeneration11 = {
+						event_target:plot_attacker = { add_trait = vampgeneration11 }
+					}
+					vampgeneration12 = {
+						event_target:plot_attacker = { add_trait = vampgeneration12 }
+					}
+					vampgeneration13 = {
+						event_target:plot_attacker = { add_trait = vampgeneration13 }
+					}
+					vampgeneration14 = {
+						event_target:plot_attacker = { add_trait = vampgeneration14 }
+					}
+					vampgeneration15 = {
+						event_target:plot_attacker = { add_trait = vampgeneration15 }
+					}
+					}
+				}
+			}
+			event_target:plot_attacker = {
+				trigger_switch = {
+				on_trigger = trait
+				bloodpotency_1 = {
+				if = { 
+					limit = {
+						event_target:plot_target = {
+							OR = {    
+								trait = bloodpotency_2
+								trait = bloodpotency_3
+								trait = bloodpotency_4
+								trait = bloodpotency_5
+								trait = bloodpotency_6
+								trait = bloodpotency_7
+								trait = bloodpotency_8
+								trait = bloodpotency_9
+								trait = bloodpotency_10
+							}
+						}
+					}
+					remove_trait = bloodpotency_1
+					add_trait = bloodpotency_2
+				}
+				}
+				bloodpotency_2 = {
+				if = { 
+					limit = {
+						event_target:plot_target = {
+							OR = {    
+								trait = bloodpotency_3
+								trait = bloodpotency_4
+								trait = bloodpotency_5
+								trait = bloodpotency_6
+								trait = bloodpotency_7
+								trait = bloodpotency_8
+								trait = bloodpotency_9
+								trait = bloodpotency_10
+							}
+						}
+					}
+					remove_trait = bloodpotency_2
+					add_trait = bloodpotency_3
+				}
+				}
+				bloodpotency_3 = {
+				if = { 
+					limit = {
+						event_target:plot_target = {
+							OR = {    
+								trait = bloodpotency_4
+								trait = bloodpotency_5
+								trait = bloodpotency_6
+								trait = bloodpotency_7
+								trait = bloodpotency_8
+								trait = bloodpotency_9
+								trait = bloodpotency_10
+							}
+						}
+					}
+					remove_trait = bloodpotency_3
+					add_trait = bloodpotency_4
+				}
+				}
+				bloodpotency_4 = {
+				if = { 
+					limit = {
+						event_target:plot_target = {
+							OR = {    
+								trait = bloodpotency_5
+								trait = bloodpotency_6
+								trait = bloodpotency_7
+								trait = bloodpotency_8
+								trait = bloodpotency_9
+								trait = bloodpotency_10
+							}
+						}
+					}
+					remove_trait = bloodpotency_4
+					add_trait = bloodpotency_5
+				}
+				}
+				bloodpotency_5 = {
+				if = { 
+					limit = {
+						event_target:plot_target = {
+							OR = {    
+								trait = bloodpotency_6
+								trait = bloodpotency_7
+								trait = bloodpotency_8
+								trait = bloodpotency_9
+								trait = bloodpotency_10
+							}
+						}
+					}
+					remove_trait = bloodpotency_5
+					add_trait = bloodpotency_6
+				}
+				}
+				bloodpotency_6 = {
+				if = { 
+					limit = {
+						event_target:plot_target = {
+							OR = {    
+								trait = bloodpotency_7
+								trait = bloodpotency_8
+								trait = bloodpotency_9
+								trait = bloodpotency_10
+							}
+						}
+					}
+					remove_trait = bloodpotency_6
+					add_trait = bloodpotency_7
+				}
+				}
+				bloodpotency_7 = {
+				if = { 
+					limit = {
+						event_target:plot_target = {
+							OR = {    
+								trait = bloodpotency_8
+								trait = bloodpotency_9
+								trait = bloodpotency_10
+							}
+						}
+					}
+					remove_trait = bloodpotency_7
+					add_trait = bloodpotency_8
+				}
+				}
+				bloodpotency_8 = {
+				if = { 
+					limit = {
+						event_target:plot_target = {
+							OR = {    
+								trait = bloodpotency_9
+								trait = bloodpotency_10
+							}
+						}
+					}
+					remove_trait = bloodpotency_8
+					add_trait = bloodpotency_9
+				}
+				}
+				bloodpotency_9 = {
+				if = { 
+					limit = {
+						event_target:plot_target = {
+							OR = {    
+								trait = bloodpotency_10
+							}
+						}
+					}
+					remove_trait = bloodpotency_9
+					add_trait = bloodpotency_10
+				}
+				}
+			}
+			}
+			event_target:plot_target = {
+			mother = {
+				opinion = {
+					modifier = opinion_killed_close_kin
+					who = ROOT
+				}
+				opinion = {
+					modifier = opinion_killed_close_kin
+					who = event_target:plot_attacker
+				}
+			}
+			father = {
+				opinion = {
+					modifier = opinion_killed_close_kin
+					who = ROOT
+				}
+				opinion = {
+					modifier = opinion_killed_close_kin
+					who = event_target:plot_attacker
+				}
+			}
+			spouse = {
+				opinion = {
+					modifier = opinion_killed_close_kin
+					who = ROOT
+				}
+				opinion = {
+					modifier = opinion_killed_close_kin
+					who = event_target:plot_attacker
+				}
+			}
+			any_child = {
+				opinion = {
+					modifier = opinion_killed_father
+					who = ROOT
+				}
+				opinion = {
+					modifier = opinion_killed_father
+					who = event_target:plot_attacker
+				}
+			}
+			if = {
+				limit = {
+					FROM = {
+						NOT = { dynasty = event_target:plot_attacker }
+						NOT = { sibling = event_target:plot_attacker }
+					}
+				}
+				any_sibling = {
+					opinion = {
+						modifier = opinion_killed_close_kin
+						who = event_target:plot_attacker
+					}
+				}
+			}
+			if = {
+				limit = {
+					FROM = {
+						NOT = { dynasty = ROOT }
+						NOT = { sibling = ROOT }
+					}
+				}
+				any_sibling = {
+					opinion = {
+						modifier = opinion_killed_close_kin
+						who = ROOT
+					}
+				}
+			}
+			
+			
+			death = {
+				death_reason = death_execution_diablerie
+				killer = event_target:plot_attacker
+			}
+			}
+	}
+}
+
+
+
+
+
+			
+# Delegate attack success target torpor - not found out
+character_event = {
+	id = POD_vampire_kill_plots.29
+	desc = "EVTDESC_POD_ATTACKELDER_DELEGATE_29"
+	picture = GFX_evt_ghoul_beating
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		is_alive = yes
+		NOT = { trait = torpor }
+	}
+	
+	immediate = {
+		change_variable = { which = elder_delegate_successtorpor_count value = 1 }
+	}
+	option = {
+		name = "EVTOPTA_POD_ATTACKELDER_DELEGATE_29" # Aww yeah
+		
+		event_target:plot_target = {
+			trigger_switch = {
+			on_trigger = trait
+				zulo_form = {
+					remove_trait = zulo_form
+				}
+				blood_form = {
+					remove_trait = blood_form
+				}
+				mist_form = {
+					remove_trait = mist_form
+				}
+				shadow_form = {
+					remove_trait = shadow_form
+				}	
+			}
+			add_rival = event_target:plot_attacker
+			add_trait = torpor
+			add_trait = in_hiding
+						
+			if = { limit = { is_in_society = yes } leave_society = yes }
+						
+			abdicate = yes 
+		}
+	}
+}
+
+# Delegate attack success target torpor - found out
+character_event = {
+	id = POD_vampire_kill_plots.30
+	desc = "EVTDESC_POD_ATTACKELDER_DELEGATE_30"
+	picture = GFX_evt_ghoul_beating
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		is_alive = yes
+		NOT = { trait = torpor }
+	}
+	
+	immediate = {
+		change_variable = { which = elder_delegate_successtorpor_count value = 1 }
+	}
+	option = {
+		name = "EVTOPTA_POD_ATTACKELDER_DELEGATE_30" # Aww yeah
+		
+		event_target:plot_target = {
+			trigger_switch = {
+			on_trigger = trait
+				zulo_form = {
+					remove_trait = zulo_form
+				}
+				blood_form = {
+					remove_trait = blood_form
+				}
+				mist_form = {
+					remove_trait = mist_form
+				}
+				shadow_form = {
+					remove_trait = shadow_form
+				}	
+			}
+			add_rival = ROOT
+			add_rival = event_target:plot_attacker
+			add_trait = torpor
+			add_trait = in_hiding
+						
+			if = { limit = { is_in_society = yes } leave_society = yes }
+						
+			abdicate = yes
+			
+			mother = {
+				opinion = {
+					modifier = opinion_killed_close_kin
+					who = ROOT
+				}
+				opinion = {
+					modifier = opinion_killed_close_kin
+					who = event_target:plot_attacker
+				}
+			}
+			father = {
+				opinion = {
+					modifier = opinion_killed_close_kin
+					who = ROOT
+				}
+				opinion = {
+					modifier = opinion_killed_close_kin
+					who = event_target:plot_attacker
+				}
+			}
+			spouse = {
+				opinion = {
+					modifier = opinion_killed_close_kin
+					who = ROOT
+				}
+				opinion = {
+					modifier = opinion_killed_close_kin
+					who = event_target:plot_attacker
+				}
+			}
+			any_child = {
+				opinion = {
+					modifier = opinion_killed_father
+					who = ROOT
+				}
+				opinion = {
+					modifier = opinion_killed_father
+					who = event_target:plot_attacker
+				}
+			}
+			if = {
+				limit = {
+					FROM = {
+						NOT = { dynasty = event_target:plot_attacker }
+						NOT = { sibling = event_target:plot_attacker }
+					}
+				}
+				any_sibling = {
+					opinion = {
+						modifier = opinion_killed_close_kin
+						who = event_target:plot_attacker
+					}
+				}
+			}
+			if = {
+				limit = {
+					FROM = {
+						NOT = { dynasty = ROOT }
+						NOT = { sibling = ROOT }
+					}
+				}
+				any_sibling = {
+					opinion = {
+						modifier = opinion_killed_close_kin
+						who = ROOT
+					}
+				}
+			}
+		}
+	}
+}
+
+# Delegate attack failure target both injured - not found out
+character_event = {
+	id = POD_vampire_kill_plots.31
+	desc = "EVTDESC_POD_ATTACKELDER_DELEGATE_31"
+	picture = GFX_evt_ghoul_beating
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		is_alive = yes
+		NOT = { trait = torpor }
+	}
+	
+	immediate = {
+		change_variable = { which = elder_delegate_failureinjured_count value = 1 }
+	}
+	option = {
+		name = "EVTOPTA_POD_ATTACKELDER_DELEGATE_31" # Aww yeah
+		
+		event_target:plot_target = {
+			add_trait = severely_injured
+		}
+		event_target:plot_attacker = {
+			add_trait = severely_injured
+		}
+		
+		event_target:plot_target = {
+			add_rival = event_target:plot_attacker
+		}
+	}
+}
+
+# Delegate attack failure target both injured - found out
+character_event = {
+	id = POD_vampire_kill_plots.32
+	desc = "EVTDESC_POD_ATTACKELDER_DELEGATE_32"
+	picture = GFX_evt_ghoul_beating
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		is_alive = yes
+		NOT = { trait = torpor }
+	}
+	
+	immediate = {
+		change_variable = { which = elder_delegate_failureinjured_count value = 1 }
+	}
+	option = {
+		name = "EVTOPTA_POD_ATTACKELDER_DELEGATE_32" # Aww yeah
+		
+		event_target:plot_target = {
+			add_trait = severely_injured
+			opinion = {
+				modifier = attempted_murder
+				who = ROOT
+			}
+		}
+		event_target:plot_attacker = {
+			add_trait = severely_injured
+		}
+		
+		event_target:plot_target = {
+			add_rival = event_target:plot_attacker
+		}
+	}
+}
+
+# Delegate attack failure target both maimed - not found out
+character_event = {
+	id = POD_vampire_kill_plots.33
+	desc = "EVTDESC_POD_ATTACKELDER_DELEGATE_33"
+	picture = GFX_evt_ghoul_dies_defending
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		is_alive = yes
+		NOT = { trait = torpor }
+	}
+	
+	immediate = {
+		change_variable = { which = elder_delegate_failuremaimed_count value = 1 }
+	}
+	option = {
+		name = "EVTOPTA_POD_ATTACKELDER_DELEGATE_33" # Aww yeah
+		
+		event_target:plot_target = {
+			add_trait = maimed
+		}
+		event_target:plot_attacker = {
+			add_trait = maimed
+		}
+		
+		event_target:plot_target = {
+			add_rival = event_target:plot_attacker
+		}
+	}
+}
+
+# Delegate attack failure target both maimed - found out
+character_event = {
+	id = POD_vampire_kill_plots.34
+	desc = "EVTDESC_POD_ATTACKELDER_DELEGATE_34"
+	picture = GFX_evt_ghoul_dies_defending
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		is_alive = yes
+		NOT = { trait = torpor }
+	}
+	
+	immediate = {
+		change_variable = { which = elder_delegate_failuremaimed_count value = 1 }
+	}
+	option = {
+		name = "EVTOPTA_POD_ATTACKELDER_DELEGATE_34" # Aww yeah
+		
+		event_target:plot_target = {
+			add_trait = maimed
+			opinion = {
+				modifier = attempted_murder
+				who = ROOT
+			}
+		}
+		event_target:plot_attacker = {
+			add_trait = maimed
+		}
+		
+		event_target:plot_target = {
+			add_rival = event_target:plot_attacker
+		}
+	}
+}
+
+# Haven attack failure attacker killed - not found out
+character_event = {
+	id = POD_vampire_kill_plots.35
+	desc = "EVTDESC_POD_ATTACKELDER_DELEGATE_35"
+	picture = GFX_evt_ghoul_dies_defending
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		is_alive = yes
+		NOT = { trait = torpor }
+	}
+	
+	immediate = {
+		change_variable = { which = elder_delegate_failuredeath_count value = 1 }
+	}
+	option = {
+		name = "EVTOPTA_POD_ATTACKELDER_DELEGATE_35" # Aww yeah
+		
+		event_target:plot_attacker = {
+			death = {
+				death_reason = death_battle
+				killer = event_target:plot_target
+			}
+		}
+	}
+}
+
+# Haven attack failure attacker killed - found out
+character_event = {
+	id = POD_vampire_kill_plots.36
+	desc = "EVTDESC_POD_ATTACKELDER_DELEGATE_36"
+	picture = GFX_evt_ghoul_dies_defending
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		is_alive = yes
+		NOT = { trait = torpor }
+	}
+	
+	immediate = {
+		change_variable = { which = elder_delegate_failuredeath_count value = 1 }
+	}
+	option = {
+		name = "EVTOPTA_POD_ATTACKELDER_DELEGATE_36" # Aww yeah
+		
+		event_target:plot_attacker = {
+			death = {
+				death_reason = death_battle
+				killer = event_target:plot_target
+			}
+		}
+		event_target:plot_target = {
+			opinion = {
+				modifier = attempted_murder
+				who = ROOT
+			}
+		}
+	}
+}
+
+# Vampire plot stats event
+character_event = {
+	id = POD_vampire_kill_plots.100
+	desc = "EVTDESC_POD_ATTACKELDERSTATS"
+	picture = GFX_evt_vampire_rumbles_and_intrigues_i
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	trigger = {
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_ATTACKELDERSTATS"
+		character_event = { id = POD_vampire_kill_plots.101 }
+	}
+	option = {
+		name = "EVTOPTB_POD_ATTACKELDERSTATS" 
+		character_event = { id = POD_vampire_kill_plots.102 }
+	}
+	option = {
+		name = "EVTOPTC_POD_ATTACKELDERSTATS"
+		character_event = { id = POD_vampire_kill_plots.103 }
+	}
+	option = {
+		name = "EVTOPTD_POD_ATTACKELDERSTATS"
+		character_event = { id = POD_generic_kill_plots.100 }
+	}
+}
+
+# Vampire plot stats event
+character_event = {
+	id = POD_vampire_kill_plots.101
+	desc = "EVTDESC_POD_ATTACKELDERSTATS1"
+	picture = GFX_evt_vampire_rumbles_and_intrigues_i
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	trigger = {
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_ATTACKELDERSTATS1"
+		character_event = { id = POD_vampire_kill_plots.100 }
+	}
+}
+
+# Vampire plot stats event
+character_event = {
+	id = POD_vampire_kill_plots.102
+	desc = "EVTDESC_POD_ATTACKELDERSTATS2"
+	picture = GFX_evt_vampire_rumbles_and_intrigues_i
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	trigger = {
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_ATTACKELDERSTATS2"
+		character_event = { id = POD_vampire_kill_plots.100 }
+	}
+}
+
+
+# Vampire plot stats event
+character_event = {
+	id = POD_vampire_kill_plots.103
+	desc = "EVTDESC_POD_ATTACKELDERSTATS3"
+	picture = GFX_evt_vampire_rumbles_and_intrigues_i
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	trigger = {
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_ATTACKELDERSTATS3"
+		character_event = { id = POD_vampire_kill_plots.100 }
+	}
+}
+

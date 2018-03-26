@@ -1,0 +1,2157 @@
+namespace = POD_vampire_political_plots
+##############################################
+#	Political Plots for PoD (player only)
+#	Vampire themed
+#	by AJ
+#
+#
+#
+#
+##############################################
+### Political Plots
+# Where it all begins...
+character_event = {
+	id = POD_vampire_political_plots.1
+	hide_window = yes
+	
+	ai = no
+	capable_only = yes
+	prisoner = no
+	is_part_of_plot = yes
+	
+	trigger = {
+		ai = no
+		OR = {
+			has_plot = plot_seed_of_rebellion
+			has_plot = plot_frame_crime
+			has_plot = plot_awaken_target
+			has_plot = plot_bloodbind_target
+			has_plot = plot_kidnap
+			has_plot = plot_scheme_friendship
+			has_plot = plot_scheme_loyalty
+		}
+		plot_target_char = {
+			ai = yes
+			NOT = { is_murder_quest_target_of_root_trigger = yes }
+			NOT = { trait = incapable }
+			prisoner = no
+			NOT = { is_inaccessible_trigger = yes }
+			NOT = { trait = torpor }
+		}
+		plot_power_contribution = 
+		{
+			plotter = ROOT
+			power = 0.025
+		}
+		NOT = { has_character_flag = political_plot_ongoing }
+	}
+	
+	mean_time_to_happen = {
+		months = 800
+		modifier = {
+			factor = 0.5
+			plot_power = 0.5
+		}
+		modifier = {
+			factor = 0.5
+			plot_power = 1.0
+		}
+		modifier = {
+			factor = 0.4
+			plot_power = 1.5
+		}
+		modifier = {
+			factor = 0.4
+			plot_power = 2.0
+		}
+		modifier = {
+			factor = 0.6
+			intrigue = 10
+		}
+		modifier = {
+			factor = 0.6
+			intrigue = 20
+		}
+		modifier = {
+			factor = 0.5
+			intrigue = 30
+		}
+		modifier = {
+			factor = 0.4
+			intrigue = 40
+		}
+		
+	}
+	
+	immediate = {
+		plot_target_char = { save_event_target_as = pol_target }
+		save_event_target_as = pol_plot_creator
+		trigger_switch = {
+			on_trigger = has_plot
+			plot_scheme_loyalty = {
+				character_event = { id = POD_vampire_political_plots.2 }
+			}
+			plot_scheme_friendship = {
+				character_event = { id = POD_vampire_political_plots.4 }
+			}
+			plot_seed_of_rebellion = {
+				character_event = { id = POD_vampire_political_plots.6 }
+			}
+			plot_frame_crime = {
+				character_event = { id = POD_vampire_political_plots.8 }
+			}
+			plot_awaken_target = {
+				character_event = { id = POD_vampire_political_plots.10 }
+			}
+			plot_bloodbind_target = {
+				character_event = { id = POD_vampire_political_plots.12 }
+			}
+			plot_kidnap = {
+				character_event = { id = POD_vampire_political_plots.14 }
+			}
+		}
+	}
+}
+character_event = {
+	id = POD_vampire_political_plots.2
+	desc = "EVTDESC_POD_POLITICALPLOTS_SCHEMELOYALTY_1"
+	picture = GFX_evt_vampire_rumbles_and_intrigues_i
+	border = GFX_event_normal_frame_intrigue
+	
+	ai = no
+	capable_only = yes
+	prisoner = no
+	is_triggered_only = yes
+	
+	trigger = {
+		ai = no
+		NOT = { is_inaccessible_trigger = yes }
+		NOT = { trait = torpor }
+	}
+	
+	immediate = {
+		set_character_flag = political_plot_ongoing
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_POLITICALPLOTS_SCHEMELOYALTY_1"
+		trigger = {
+			OR = {
+				trait = dominate_3
+				trait = dominate_4
+				trait = dominate_5
+				trait = nightmare_4
+				trait = nightmare_5
+				trait = majesty_4
+				trait = majesty_5
+			}
+		}
+		POD_vampire_blood_thirst_increase_effect = yes
+		hidden_tooltip = {
+			random_list = {
+				5 = {
+					character_event = { id = POD_vampire_political_plots.3 days = 60 tooltip = tooltip_disciplines }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.3 days = 90 tooltip = tooltip_disciplines }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.3 days = 120 tooltip = tooltip_disciplines }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.3 days = 140 tooltip = tooltip_disciplines }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.3 days = 180 tooltip = tooltip_disciplines }
+				}
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTB_POD_POLITICALPLOTS_SCHEMELOYALTY_1"
+		trigger = {
+			OR = {
+				trait = mortis_3
+				trait = mortis_4
+				trait = mortis_5
+				trait = necromancy_3
+				trait = necromancy_4
+				trait = necromancy_5
+				trait = thaumaturgy_4
+				trait = thaumaturgy_5
+			}
+		}
+		POD_vampire_blood_thirst_increase_effect = yes
+		hidden_tooltip = {
+			random_list = {
+				5 = {
+					character_event = { id = POD_vampire_political_plots.3 days = 60 tooltip = tooltip_disciplines }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.3 days = 90 tooltip = tooltip_disciplines }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.3 days = 120 tooltip = tooltip_disciplines }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.3 days = 140 tooltip = tooltip_disciplines }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.3 days = 180 tooltip = tooltip_disciplines }
+				}
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTC_POD_POLITICALPLOTS_SCHEMELOYALTY_1"
+		trigger = {
+			wealth = 75
+		}
+		wealth = -75
+		hidden_tooltip = {
+			random_list = {
+				5 = {
+					character_event = { id = POD_vampire_political_plots.3 days = 60 }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.3 days = 90 }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.3 days = 120 }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.3 days = 140 }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.3 days = 180 }
+				}
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTD_POD_POLITICALPLOTS_SCHEMELOYALTY_1"
+		hidden_tooltip = {
+			clr_character_flag = political_plot_ongoing
+		}
+	}
+}
+
+character_event = {
+	id = POD_vampire_political_plots.3
+	desc = "EVTDESC_POD_POLITICALPLOTS_SCHEMELOYALTY_2"
+	picture = GFX_evt_vampire_conclave_i
+	border = GFX_event_normal_frame_intrigue
+	
+	ai = no
+	capable_only = yes
+	prisoner = no
+	is_triggered_only = yes
+	
+	trigger = {
+		ai = no
+		NOT = { is_inaccessible_trigger = yes }
+		NOT = { trait = torpor }
+		has_character_flag = political_plot_ongoing
+	}
+	
+	immediate = {
+		clr_character_flag = political_plot_ongoing
+		random_list = {
+			10 = {
+				modifier = {
+					factor = 1.5
+					is_elder_vampire = yes
+				}
+				modifier = {
+					factor = 1.5
+					has_strong_generation = yes
+				}
+				modifier = {
+					factor = 1.5
+					has_powerful_generation = yes
+				}
+				modifier = {
+					factor = 1.5
+					trait = ancient
+				}
+				modifier = {
+					factor = 1.5
+					trait = methuselah
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 10
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 20
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 30
+				}
+				modifier = {
+					factor = 2
+					diplomacy = 18
+				}
+				set_character_flag = pol_plot_succeed
+			}
+			10 = {
+				modifier = {
+					factor = 1.5
+					event_target:pol_target = {
+						is_elder_vampire = yes
+					}
+				}
+				modifier = {
+					factor = 1.5
+					event_target:pol_target = {
+						has_strong_generation = yes
+					}
+				}
+				modifier = {
+					factor = 1.5
+					event_target:pol_target = {
+						has_powerful_generation = yes
+					}
+				}
+				modifier = {
+					factor = 1.5
+					event_target:pol_target = {
+						trait = ancient
+					}
+				}
+				modifier = {
+					factor = 1.5
+					event_target:pol_target = {
+						trait = methuselah
+					}
+				}
+				modifier = {
+					factor = 1.5
+					event_target:pol_target = {
+						intrigue = 10
+					}
+				}
+				modifier = {
+					factor = 1.5
+					event_target:pol_target = {
+						intrigue = 20
+					}
+				}
+				modifier = {
+					factor = 1.5
+					event_target:pol_target = {
+						intrigue = 30
+					}
+				}
+				modifier = {
+					factor = 1.5
+					event_target:pol_target = {
+						diplomacy = 25
+					}
+				}
+				set_character_flag = pol_plot_fail
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_POLITICALPLOTS_SCHEMELOYALTY_2"
+		trigger = {
+			has_character_flag = pol_plot_succeed
+		}
+		reverse_add_favor = event_target:pol_target
+		
+		hidden_tooltip = {
+			clr_character_flag = pol_plot_succeed
+		}
+	}
+	option = {
+		name = "EVTOPTB_POD_POLITICALPLOTS_SCHEMELOYALTY_2"
+		trigger = {
+			has_character_flag = pol_plot_fail
+		}
+		event_target:pol_target = {
+			opinion = {
+				modifier = opinion_failed_plot
+					who = ROOT
+					months = 240
+			}
+		}
+		hidden_tooltip = {
+			clr_character_flag = pol_plot_fail
+		}
+	}
+}
+
+
+character_event = {
+	id = POD_vampire_political_plots.4
+	desc = "EVTDESC_POD_POLITICALPLOTS_SCHEMEFRIENDSHIP_1"
+	picture = GFX_evt_vampire_rumbles_and_intrigues_i
+	border = GFX_event_normal_frame_intrigue
+	
+	ai = no
+	capable_only = yes
+	prisoner = no
+	is_triggered_only = yes
+	
+	trigger = {
+		ai = no
+		NOT = { is_inaccessible_trigger = yes }
+		NOT = { trait = torpor }
+	}
+	
+	immediate = {
+		set_character_flag = political_plot_ongoing
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_POLITICALPLOTS_SCHEMEFRIENDSHIP_1"
+		trigger = {
+			OR = {
+				trait = dominate_3
+				trait = dominate_4
+				trait = dominate_5
+				trait = nightmare_4
+				trait = nightmare_5
+				trait = majesty_4
+				trait = majesty_5
+			}
+		}
+		hidden_tooltip = {
+			random_list = {
+				5 = {
+					character_event = { id = POD_vampire_political_plots.5 days = 180 tooltip = tooltip_disciplines }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.5 days = 250 tooltip = tooltip_disciplines }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.5 days = 360 tooltip = tooltip_disciplines }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.5 days = 720 tooltip = tooltip_disciplines }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.5 days = 210 tooltip = tooltip_disciplines }
+				}
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTB_POD_POLITICALPLOTS_SCHEMEFRIENDSHIP_1"
+		trigger = {
+			OR = {
+				trait = mortis_3
+				trait = mortis_4
+				trait = mortis_5
+				trait = necromancy_3
+				trait = necromancy_4
+				trait = necromancy_5
+				trait = thaumaturgy_4
+				trait = thaumaturgy_5
+			}
+		}
+		hidden_tooltip = {
+			random_list = {
+				5 = {
+					character_event = { id = POD_vampire_political_plots.5 days = 180 tooltip = tooltip_disciplines }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.5 days = 250 tooltip = tooltip_disciplines }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.5 days = 360 tooltip = tooltip_disciplines }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.5 days = 720 tooltip = tooltip_disciplines }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.5 days = 210 tooltip = tooltip_disciplines }
+				}
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTC_POD_POLITICALPLOTS_SCHEMEFRIENDSHIP_1"
+		trigger = {
+			wealth = 75
+		}
+		wealth = -75
+		hidden_tooltip = {
+			random_list = {
+				5 = {
+					character_event = { id = POD_vampire_political_plots.5 days = 180 }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.5 days = 250 }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.5 days = 360 }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.5 days = 720 }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.5 days = 210 }
+				}
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTD_POD_POLITICALPLOTS_SCHEMEFRIENDSHIP_1"
+		hidden_tooltip = {
+			clr_character_flag = political_plot_ongoing
+		}
+	}
+}
+
+character_event = {
+	id = POD_vampire_political_plots.5
+	desc = "EVTDESC_POD_POLITICALPLOTS_SCHEMEFRIENDSHIP_2"
+	picture = GFX_evt_vampire_conclave_i
+	border = GFX_event_normal_frame_intrigue
+	
+	ai = no
+	capable_only = yes
+	prisoner = no
+	is_triggered_only = yes
+	
+	trigger = {
+		ai = no
+		NOT = { is_inaccessible_trigger = yes }
+		NOT = { trait = torpor }
+		has_character_flag = political_plot_ongoing
+	}
+	
+	immediate = {
+		clr_character_flag = political_plot_ongoing
+		random_list = {
+			10 = {
+				modifier = {
+					factor = 1.5
+					is_elder_vampire = yes
+				}
+				modifier = {
+					factor = 1.5
+					has_strong_generation = yes
+				}
+				modifier = {
+					factor = 1.5
+					has_powerful_generation = yes
+				}
+				modifier = {
+					factor = 1.5
+					trait = ancient
+				}
+				modifier = {
+					factor = 1.5
+					trait = methuselah
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 10
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 20
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 30
+				}
+				modifier = {
+					factor = 2
+					diplomacy = 20
+				}
+				set_character_flag = pol_plot_succeed
+			}
+			10 = {
+				modifier = {
+					factor = 1.6
+					event_target:pol_target = {
+						is_elder_vampire = yes
+					}
+				}
+				modifier = {
+					factor = 1.6
+					event_target:pol_target = {
+						has_strong_generation = yes
+					}
+				}
+				modifier = {
+					factor = 1.6
+					event_target:pol_target = {
+						has_powerful_generation = yes
+					}
+				}
+				modifier = {
+					factor = 1.6
+					event_target:pol_target = {
+						trait = ancient
+					}
+				}
+				modifier = {
+					factor = 1.6
+					event_target:pol_target = {
+						trait = methuselah
+					}
+				}
+				modifier = {
+					factor = 1.6
+					event_target:pol_target = {
+						intrigue = 10
+					}
+				}
+				modifier = {
+					factor = 1.6
+					event_target:pol_target = {
+						intrigue = 20
+					}
+				}
+				modifier = {
+					factor = 1.6
+					event_target:pol_target = {
+						intrigue = 30
+					}
+				}
+				modifier = {
+					factor = 1.6
+					event_target:pol_target = {
+						diplomacy = 25
+					}
+				}
+				set_character_flag = pol_plot_fail
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_POLITICALPLOTS_SCHEMEFRIENDSHIP_2"
+		trigger = {
+			has_character_flag = pol_plot_succeed
+		}
+		add_friend = event_target:pol_target
+		
+		hidden_tooltip = {
+			clr_character_flag = pol_plot_succeed
+		}
+	}
+	option = {
+		name = "EVTOPTB_POD_POLITICALPLOTS_SCHEMEFRIENDSHIP_2"
+		trigger = {
+			has_character_flag = pol_plot_fail
+		}
+		event_target:pol_target = {
+			opinion = {
+				modifier = opinion_failed_plot
+					who = ROOT
+					months = 240
+			}
+		}
+		hidden_tooltip = {
+			clr_character_flag = pol_plot_fail
+		}
+	}
+}
+
+character_event = {
+	id = POD_vampire_political_plots.6
+	desc = "EVTDESC_POD_POLITICALPLOTS_SEEDREBEL_1"
+	picture = GFX_evt_vampire_rumbles_and_intrigues_i
+	border = GFX_event_normal_frame_intrigue
+	
+	ai = no
+	capable_only = yes
+	prisoner = no
+	is_triggered_only = yes
+	
+	trigger = {
+		ai = no
+		NOT = { is_inaccessible_trigger = yes }
+		NOT = { trait = torpor }
+		event_target:pol_target = {
+			liege = {
+				is_alive = yes
+			}
+		}
+	}
+	
+	immediate = {
+		set_character_flag = political_plot_ongoing
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_POLITICALPLOTS_SEEDREBEL_1"
+		trigger = {
+			OR = {
+				trait = dominate_3
+				trait = dominate_4
+				trait = dominate_5
+				trait = nightmare_4
+				trait = nightmare_5
+				trait = majesty_4
+				trait = majesty_5
+			}
+			wealth = 100
+		}
+		wealth = -100
+		hidden_tooltip = {
+			random_list = {
+				5 = {
+					character_event = { id = POD_vampire_political_plots.7 days = 180 tooltip = tooltip_disciplines }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.7 days = 250 tooltip = tooltip_disciplines }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.7 days = 360 tooltip = tooltip_disciplines }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.7 days = 720 tooltip = tooltip_disciplines }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.7 days = 210 tooltip = tooltip_disciplines }
+				}
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTB_POD_POLITICALPLOTS_SEEDREBEL_1"
+		trigger = {
+			OR = {
+				trait = mortis_3
+				trait = mortis_4
+				trait = mortis_5
+				trait = necromancy_3
+				trait = necromancy_4
+				trait = necromancy_5
+				trait = thaumaturgy_4
+				trait = thaumaturgy_5
+			}
+			wealth = 100
+		}
+		wealth = -100
+		hidden_tooltip = {
+			random_list = {
+				5 = {
+					character_event = { id = POD_vampire_political_plots.7 days = 180 tooltip = tooltip_disciplines }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.7 days = 250 tooltip = tooltip_disciplines }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.7 days = 360 tooltip = tooltip_disciplines }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.7 days = 720 tooltip = tooltip_disciplines }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.7 days = 210 tooltip = tooltip_disciplines }
+				}
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTC_POD_POLITICALPLOTS_SEEDREBEL_1"
+		trigger = {
+			wealth = 250
+		}
+		wealth = -250
+		character_event = { id = POD_vampire_political_plots.7 }
+		hidden_tooltip = {
+			random_list = {
+				5 = {
+					character_event = { id = POD_vampire_political_plots.7 days = 180 }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.7 days = 250 }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.7 days = 360 }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.7 days = 720 }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.7 days = 210 }
+				}
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTD_POD_POLITICALPLOTS_SEEDREBEL_1"
+		hidden_tooltip = {
+			clr_character_flag = political_plot_ongoing
+		}
+	}
+}
+
+character_event = {
+	id = POD_vampire_political_plots.7
+	desc = "EVTDESC_POD_POLITICALPLOTS_SEEDREBEL_2"
+	picture = GFX_evt_vampire_conclave_i
+	border = GFX_event_normal_frame_intrigue
+	
+	ai = no
+	capable_only = yes
+	prisoner = no
+	is_triggered_only = yes
+	
+	trigger = {
+		ai = no
+		NOT = { is_inaccessible_trigger = yes }
+		NOT = { trait = torpor }
+		has_character_flag = political_plot_ongoing
+		event_target:pol_target = {
+			liege = {
+				is_alive = yes
+			}
+		}
+	}
+	
+	immediate = {
+		clr_character_flag = political_plot_ongoing
+		random_list = {
+			10 = {
+				modifier = {
+					factor = 2
+					event_target:pol_target = {
+						liege = {
+							NOT = { reverse_opinion = { who = PREV value = 0 } }
+						}
+					}
+				}
+				modifier = {
+					factor = 2
+					event_target:pol_target = {
+						liege = {
+							NOT = { reverse_opinion = { who = PREV value = -30 } }
+						}
+					}
+				}
+				modifier = {
+					factor = 2
+					event_target:pol_target = {
+						liege = {
+							NOT = { reverse_opinion = { who = PREV value = -60 } }
+						}
+					}
+				}
+				modifier = {
+					factor = 1.5
+					is_elder_vampire = yes
+				}
+				modifier = {
+					factor = 1.5
+					has_strong_generation = yes
+				}
+				modifier = {
+					factor = 1.5
+					has_powerful_generation = yes
+				}
+				modifier = {
+					factor = 1.5
+					trait = ancient
+				}
+				modifier = {
+					factor = 1.5
+					trait = methuselah
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 10
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 20
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 30
+				}
+				modifier = {
+					factor = 2
+					diplomacy = 20
+				}
+				set_character_flag = pol_plot_succeed
+			}
+			10 = {
+				modifier = {
+					factor = 2
+					event_target:pol_target = {
+						liege = {
+							reverse_opinion = { who = PREV value = 60 }
+						}
+					}
+				}
+				modifier = {
+					factor = 2
+					event_target:pol_target = {
+						liege = {
+							reverse_opinion = { who = PREV value = 35 }
+						}
+					}
+				}
+				modifier = {
+					factor = 1.7
+					event_target:pol_target = {
+						is_elder_vampire = yes
+					}
+				}
+				modifier = {
+					factor = 1.7
+					event_target:pol_target = {
+						has_strong_generation = yes
+					}
+				}
+				modifier = {
+					factor = 1.7
+					event_target:pol_target = {
+						has_powerful_generation = yes
+					}
+				}
+				modifier = {
+					factor = 1.7
+					event_target:pol_target = {
+						trait = ancient
+					}
+				}
+				modifier = {
+					factor = 1.7
+					event_target:pol_target = {
+						trait = methuselah
+					}
+				}
+				modifier = {
+					factor = 1.7
+					event_target:pol_target = {
+						intrigue = 10
+					}
+				}
+				modifier = {
+					factor = 1.7
+					event_target:pol_target = {
+						intrigue = 20
+					}
+				}
+				modifier = {
+					factor = 1.7
+					event_target:pol_target = {
+						intrigue = 30
+					}
+				}
+				modifier = {
+					factor = 1.7
+					event_target:pol_target = {
+						diplomacy = 25
+					}
+				}
+				set_character_flag = pol_plot_fail
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_POLITICALPLOTS_SEEDREBEL_2"
+		trigger = {
+			has_character_flag = pol_plot_succeed
+		}
+		event_target:pol_target = {
+			liege = {
+				add_rival = PREV
+			}
+		}
+		
+		hidden_tooltip = {
+			clr_character_flag = pol_plot_succeed
+		}
+	}
+	option = {
+		name = "EVTOPTB_POD_POLITICALPLOTS_SEEDREBEL_2"
+		trigger = {
+			has_character_flag = pol_plot_fail
+		}
+		event_target:pol_target = {
+			opinion = {
+				modifier = grievously_offended
+					who = ROOT
+					months = 600
+			}
+		}
+		hidden_tooltip = {
+			clr_character_flag = pol_plot_fail
+		}
+	}
+}
+
+character_event = {
+	id = POD_vampire_political_plots.8
+	desc = "EVTDESC_POD_POLITICALPLOTS_FRAMECRIME_1"
+	picture = GFX_evt_vampire_rumbles_and_intrigues_i
+	border = GFX_event_normal_frame_intrigue
+	
+	ai = no
+	capable_only = yes
+	prisoner = no
+	is_triggered_only = yes
+	
+	trigger = {
+		ai = no
+		NOT = { is_inaccessible_trigger = yes }
+		NOT = { trait = torpor }
+	}
+	
+	immediate = {
+		set_character_flag = political_plot_ongoing
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_POLITICALPLOTS_FRAMECRIME_1"
+		trigger = {
+			OR = {
+				trait = dominate_3
+				trait = dominate_4
+				trait = dominate_5
+				trait = nightmare_4
+				trait = nightmare_5
+				trait = majesty_4
+				trait = majesty_5
+			}
+			wealth = 25
+		}
+		wealth = -25
+		tooltip_info = tooltip_disciplines
+		hidden_tooltip = {
+			random_list = {
+				5 = {
+					character_event = { id = POD_vampire_political_plots.9 days = 180 tooltip = tooltip_disciplines }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.9 days = 250 tooltip = tooltip_disciplines }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.9 days = 360 tooltip = tooltip_disciplines }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.9 days = 720 tooltip = tooltip_disciplines }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.9 days = 210 tooltip = tooltip_disciplines }
+				}
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTB_POD_POLITICALPLOTS_FRAMECRIME_1"
+		trigger = {
+			OR = {
+				trait = mortis_3
+				trait = mortis_4
+				trait = mortis_5
+				trait = necromancy_3
+				trait = necromancy_4
+				trait = necromancy_5
+				trait = thaumaturgy_4
+				trait = thaumaturgy_5
+			}
+			wealth = 25
+		}
+		wealth = -25
+		hidden_tooltip = {
+			random_list = {
+				5 = {
+					character_event = { id = POD_vampire_political_plots.9 days = 180 tooltip = tooltip_disciplines }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.9 days = 250 tooltip = tooltip_disciplines }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.9 days = 360 tooltip = tooltip_disciplines }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.9 days = 720 tooltip = tooltip_disciplines }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.9 days = 210 tooltip = tooltip_disciplines }
+				}
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTC_POD_POLITICALPLOTS_FRAMECRIME_1"
+		trigger = {
+			wealth = 150
+		}
+		wealth = -150
+		hidden_tooltip = {
+			random_list = {
+				5 = {
+					character_event = { id = POD_vampire_political_plots.9 days = 180 }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.9 days = 250 }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.9 days = 360 }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.9 days = 720 }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.9 days = 210 }
+				}
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTD_POD_POLITICALPLOTS_FRAMECRIME_1"
+		hidden_tooltip = {
+			clr_character_flag = political_plot_ongoing
+		}
+	}
+}
+
+character_event = {
+	id = POD_vampire_political_plots.9
+	desc = "EVTDESC_POD_POLITICALPLOTS_FRAMECRIME_2"
+	picture = GFX_evt_vampire_conclave_i
+	border = GFX_event_normal_frame_intrigue
+	
+	ai = no
+	capable_only = yes
+	prisoner = no
+	is_triggered_only = yes
+	
+	trigger = {
+		ai = no
+		NOT = { is_inaccessible_trigger = yes }
+		NOT = { trait = torpor }
+		has_character_flag = political_plot_ongoing
+	}
+	
+	immediate = {
+		clr_character_flag = political_plot_ongoing
+		random_list = {
+			10 = {
+				modifier = {
+					factor = 1.5
+					is_elder_vampire = yes
+				}
+				modifier = {
+					factor = 1.5
+					has_strong_generation = yes
+				}
+				modifier = {
+					factor = 1.5
+					has_powerful_generation = yes
+				}
+				modifier = {
+					factor = 1.5
+					trait = ancient
+				}
+				modifier = {
+					factor = 1.5
+					trait = methuselah
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 10
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 20
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 30
+				}
+				modifier = {
+					factor = 2
+					diplomacy = 20
+				}
+				set_character_flag = pol_plot_succeed
+			}
+			10 = {
+				modifier = {
+					factor = 3
+					event_target:pol_target = {
+						liege = {
+							opinion = { who = PREV value = 60 }
+						}
+					}
+				}
+				modifier = {
+					factor = 2
+					event_target:pol_target = {
+						liege = {
+							opinion = { who = PREV value = 35 }
+						}
+					}
+				}
+				modifier = {
+					factor = 1.5
+					event_target:pol_target = {
+						is_elder_vampire = yes
+					}
+				}
+				modifier = {
+					factor = 1.5
+					event_target:pol_target = {
+						has_strong_generation = yes
+					}
+				}
+				modifier = {
+					factor = 1.5
+					event_target:pol_target = {
+						has_powerful_generation = yes
+					}
+				}
+				modifier = {
+					factor = 1.5
+					event_target:pol_target = {
+						trait = ancient
+					}
+				}
+				modifier = {
+					factor = 1.5
+					event_target:pol_target = {
+						trait = methuselah
+					}
+				}
+				modifier = {
+					factor = 1.5
+					event_target:pol_target = {
+						intrigue = 10
+					}
+				}
+				modifier = {
+					factor = 1.5
+					event_target:pol_target = {
+						intrigue = 20
+					}
+				}
+				modifier = {
+					factor = 1.5
+					event_target:pol_target = {
+						intrigue = 30
+					}
+				}
+				modifier = {
+					factor = 1.5
+					event_target:pol_target = {
+						diplomacy = 25
+					}
+				}
+				set_character_flag = pol_plot_fail
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_POLITICALPLOTS_FRAMECRIME_2"
+		trigger = {
+			has_character_flag = pol_plot_succeed
+		}
+		event_target:pol_target = {
+			banish = yes
+			set_character_flag = PLOT_EXILED_COMPLETE
+		}
+		
+		hidden_tooltip = {
+			clr_character_flag = pol_plot_succeed
+		}
+	}
+	option = {
+		name = "EVTOPTB_POD_POLITICALPLOTS_FRAMECRIME_2"
+		trigger = {
+			has_character_flag = pol_plot_fail
+		}
+		
+		hidden_tooltip = {
+			clr_character_flag = pol_plot_fail
+		}
+	}
+}
+character_event = {
+	id = POD_vampire_political_plots.10
+	desc = "EVTDESC_POD_POLITICALPLOTS_AWAKENTARGET_1"
+	picture = GFX_evt_ghoul_nos_basement_conspiracy
+	border = GFX_event_normal_frame_intrigue
+	
+	ai = no
+	capable_only = yes
+	prisoner = no
+	is_triggered_only = yes
+	
+	trigger = {
+		ai = no
+		NOT = { is_inaccessible_trigger = yes }
+		NOT = { trait = torpor }
+	}
+	
+	immediate = {
+		set_character_flag = political_plot_ongoing
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_POLITICALPLOTS_AWAKENTARGET_1"
+		trigger = {
+			OR = {
+				trait = dominate_3
+				trait = dominate_4
+				trait = dominate_5
+				trait = nightmare_4
+				trait = nightmare_5
+				trait = majesty_4
+				trait = majesty_5
+			}
+		}
+		POD_vampire_blood_thirst_increase_effect = yes
+		tooltip_info = tooltip_disciplines
+		hidden_tooltip = {
+			random_list = {
+				5 = {
+					character_event = { id = POD_vampire_political_plots.11 days = 60 tooltip = tooltip_disciplines }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.11 days = 90 tooltip = tooltip_disciplines }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.11 days = 120 tooltip = tooltip_disciplines }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.11 days = 140 tooltip = tooltip_disciplines }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.11 days = 180 tooltip = tooltip_disciplines }
+				}
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTB_POD_POLITICALPLOTS_AWAKENTARGET_1"
+		trigger = {
+			OR = {
+				trait = mortis_3
+				trait = mortis_4
+				trait = mortis_5
+				trait = necromancy_3
+				trait = necromancy_4
+				trait = necromancy_5
+				trait = thaumaturgy_4
+				trait = thaumaturgy_5
+			}
+		}
+		POD_vampire_blood_thirst_increase_effect = yes
+		tooltip_info = tooltip_disciplines
+		hidden_tooltip = {
+			random_list = {
+				5 = {
+					character_event = { id = POD_vampire_political_plots.11 days = 60 tooltip = tooltip_disciplines }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.11 days = 90 tooltip = tooltip_disciplines }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.11 days = 120 tooltip = tooltip_disciplines }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.11 days = 140 tooltip = tooltip_disciplines }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.11 days = 180 tooltip = tooltip_disciplines }
+				}
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTC_POD_POLITICALPLOTS_AWAKENTARGET_1"
+		trigger = {
+			wealth = 75
+		}
+		wealth = -75
+		hidden_tooltip = {
+			random_list = {
+				5 = {
+					character_event = { id = POD_vampire_political_plots.11 days = 60 }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.11 days = 90 }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.11 days = 120 }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.11 days = 140 }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.11 days = 180 }
+				}
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTD_POD_POLITICALPLOTS_AWAKENTARGET_1"
+		hidden_tooltip = {
+			clr_character_flag = political_plot_ongoing
+		}
+	}
+}
+
+character_event = {
+	id = POD_vampire_political_plots.11
+	desc = "EVTDESC_POD_POLITICALPLOTS_AWAKENTARGET_2"
+	picture = GFX_evt_vampire_or_ghoul_generic_spookiness
+	border = GFX_event_normal_frame_intrigue
+	
+	ai = no
+	capable_only = yes
+	prisoner = no
+	is_triggered_only = yes
+	
+	trigger = {
+		ai = no
+		NOT = { is_inaccessible_trigger = yes }
+		NOT = { trait = torpor }
+		has_character_flag = political_plot_ongoing
+	}
+	
+	immediate = {
+		clr_character_flag = political_plot_ongoing
+		random_list = {
+			10 = {
+				modifier = {
+					factor = 1.5
+					intrigue = 10
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 20
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 30
+				}
+				modifier = {
+					factor = 1.5
+					diplomacy = 10
+				}
+				modifier = {
+					factor = 1.5
+					diplomacy = 20
+				}
+				modifier = {
+					factor = 1.5
+					diplomacy = 30
+				}
+				set_character_flag = pol_plot_succeed
+			}
+			10 = {
+				modifier = {
+					factor = 1.3
+					event_target:pol_target = {
+						is_elder_vampire = yes
+					}
+				}
+				modifier = {
+					factor = 1.5
+					event_target:pol_target = {
+						has_strong_generation = yes
+					}
+				}
+				modifier = {
+					factor = 2
+					event_target:pol_target = {
+						has_powerful_generation = yes
+					}
+				}
+				modifier = {
+					factor = 1.5
+					event_target:pol_target = {
+						trait = ancient
+					}
+				}
+				modifier = {
+					factor = 2
+					event_target:pol_target = {
+						trait = methuselah
+					}
+				}
+				set_character_flag = pol_plot_fail
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_POLITICALPLOTS_AWAKENTARGET_2"
+		trigger = {
+			has_character_flag = pol_plot_succeed
+		}
+		event_target:pol_target = {
+			POD_vampire_awaken_torpor_effect = yes
+		}
+		
+		hidden_tooltip = {
+			clr_character_flag = pol_plot_succeed
+		}
+	}
+	option = {
+		name = "EVTOPTB_POD_POLITICALPLOTS_AWAKENTARGET_2"
+		trigger = {
+			has_character_flag = pol_plot_fail
+		}
+		
+		hidden_tooltip = {
+			clr_character_flag = pol_plot_fail
+		}
+	}
+}
+
+character_event = {
+	id = POD_vampire_political_plots.12
+	desc = "EVTDESC_POD_POLITICALPLOTS_BLOODBIND_1"
+	picture = GFX_evt_vampire_rumbles_and_intrigues_i
+	border = GFX_event_normal_frame_intrigue
+	
+	ai = no
+	capable_only = yes
+	prisoner = no
+	is_triggered_only = yes
+	
+	trigger = {
+		ai = no
+		NOT = { is_inaccessible_trigger = yes }
+		NOT = { trait = torpor }
+	}
+	
+	immediate = {
+		set_character_flag = political_plot_ongoing
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_POLITICALPLOTS_BLOODBIND_1"
+		trigger = {
+			OR = {
+				trait = dominate_3
+				trait = dominate_4
+				trait = dominate_5
+				trait = nightmare_4
+				trait = nightmare_5
+				trait = majesty_4
+				trait = majesty_5
+			}
+			wealth = 50
+		}
+		wealth = -50
+		hidden_tooltip = {
+			random_list = {
+				5 = {
+					character_event = { id = POD_vampire_political_plots.13 days = 180 tooltip = tooltip_disciplines }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.13 days = 250 tooltip = tooltip_disciplines }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.13 days = 360 tooltip = tooltip_disciplines }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.13 days = 720 tooltip = tooltip_disciplines }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.13 days = 210 tooltip = tooltip_disciplines }
+				}
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTB_POD_POLITICALPLOTS_BLOODBIND_1"
+		trigger = {
+			OR = {
+				trait = mortis_3
+				trait = mortis_4
+				trait = mortis_5
+				trait = necromancy_3
+				trait = necromancy_4
+				trait = necromancy_5
+				trait = thaumaturgy_4
+				trait = thaumaturgy_5
+			}
+			wealth = 50
+		}
+		wealth = -50
+		hidden_tooltip = {
+			random_list = {
+				5 = {
+					character_event = { id = POD_vampire_political_plots.13 days = 180 tooltip = tooltip_disciplines }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.13 days = 250 tooltip = tooltip_disciplines }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.13 days = 360 tooltip = tooltip_disciplines }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.13 days = 720 tooltip = tooltip_disciplines }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.13 days = 210 tooltip = tooltip_disciplines }
+				}
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTC_POD_POLITICALPLOTS_BLOODBIND_1"
+		trigger = {
+			wealth = 200
+		}
+		wealth = -200
+		hidden_tooltip = {
+			random_list = {
+				5 = {
+					character_event = { id = POD_vampire_political_plots.13 days = 180 }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.13 days = 250 }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.13 days = 360 }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.13 days = 720 }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.13 days = 210 }
+				}
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTD_POD_POLITICALPLOTS_BLOODBIND_1"
+		hidden_tooltip = {
+			clr_character_flag = political_plot_ongoing
+		}
+	}
+}
+
+character_event = {
+	id = POD_vampire_political_plots.13
+	desc = "EVTDESC_POD_POLITICALPLOTS_BLOODBIND_2"
+	picture = GFX_evt_vampire_conclave_i
+	border = GFX_event_normal_frame_intrigue
+	
+	ai = no
+	capable_only = yes
+	prisoner = no
+	is_triggered_only = yes
+	
+	trigger = {
+		ai = no
+		NOT = { is_inaccessible_trigger = yes }
+		NOT = { trait = torpor }
+		has_character_flag = political_plot_ongoing
+	}
+	
+	immediate = {
+		clr_character_flag = political_plot_ongoing
+		random_list = {
+			10 = {
+				modifier = {
+					factor = 1.5
+					is_elder_vampire = yes
+				}
+				modifier = {
+					factor = 1.5
+					has_strong_generation = yes
+				}
+				modifier = {
+					factor = 1.5
+					has_powerful_generation = yes
+				}
+				modifier = {
+					factor = 1.5
+					trait = ancient
+				}
+				modifier = {
+					factor = 1.5
+					trait = methuselah
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 10
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 20
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 30
+				}
+				set_character_flag = pol_plot_succeed
+			}
+			10 = {
+				modifier = {
+					factor = 1.5
+					event_target:pol_target = {
+						is_elder_vampire = yes
+					}
+				}
+				modifier = {
+					factor = 1.5
+					event_target:pol_target = {
+						has_strong_generation = yes
+					}
+				}
+				modifier = {
+					factor = 2
+					event_target:pol_target = {
+						has_powerful_generation = yes
+					}
+				}
+				modifier = {
+					factor = 2
+					event_target:pol_target = {
+						trait = ancient
+					}
+				}
+				modifier = {
+					factor = 2
+					event_target:pol_target = {
+						trait = methuselah
+					}
+				}
+				modifier = {
+					factor = 1.5
+					event_target:pol_target = {
+						intrigue = 10
+					}
+				}
+				modifier = {
+					factor = 1.5
+					event_target:pol_target = {
+						intrigue = 20
+					}
+				}
+				modifier = {
+					factor = 1.5
+					event_target:pol_target = {
+						intrigue = 30
+					}
+				}
+				set_character_flag = pol_plot_fail
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_POLITICALPLOTS_BLOODBIND_2"
+		trigger = {
+			has_character_flag = pol_plot_succeed
+		}
+		event_target:pol_target = {
+			add_trait = bloodbound
+            opinion = {
+				modifier = opinion_blood_bond_to_domitor
+				who = FROM
+				years = 1000
+			}   
+		}
+		POD_vampire_blood_thirst_increase_effect = yes	
+		
+		hidden_tooltip = {
+			clr_character_flag = pol_plot_succeed
+		}
+	}
+	option = {
+		name = "EVTOPTB_POD_POLITICALPLOTS_BLOODBIND_2"
+		trigger = {
+			has_character_flag = pol_plot_fail
+		}
+		event_target:pol_target = {
+			opinion = {
+				modifier = grievously_offended
+					who = ROOT
+					months = 600
+			}
+		}
+		hidden_tooltip = {
+			clr_character_flag = pol_plot_fail
+		}
+	}
+}
+
+character_event = {
+	id = POD_vampire_political_plots.14
+	desc = "EVTDESC_POD_POLITICALPLOTS_KIDNAP_1"
+	picture = GFX_evt_vampire_rumbles_and_intrigues_i
+	border = GFX_event_normal_frame_intrigue
+	
+	ai = no
+	capable_only = yes
+	prisoner = no
+	is_triggered_only = yes
+	
+	trigger = {
+		ai = no
+		NOT = { is_inaccessible_trigger = yes }
+		NOT = { trait = torpor }
+		prisoner = no
+	}
+	
+	immediate = {
+		set_character_flag = political_plot_ongoing
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_POLITICALPLOTS_KIDNAP_1"
+		trigger = {
+			OR = {
+				trait = dominate_3
+				trait = dominate_4
+				trait = dominate_5
+				trait = nightmare_4
+				trait = nightmare_5
+				trait = majesty_4
+				trait = majesty_5
+			}
+			wealth = 100
+		}
+		wealth = -100
+		hidden_tooltip = {
+			random_list = {
+				5 = {
+					character_event = { id = POD_vampire_political_plots.15 days = 180 tooltip = tooltip_disciplines }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.15 days = 250 tooltip = tooltip_disciplines }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.15 days = 360 tooltip = tooltip_disciplines }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.15 days = 720 tooltip = tooltip_disciplines }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.15 days = 210 tooltip = tooltip_disciplines }
+				}
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTB_POD_POLITICALPLOTS_KIDNAP_1"
+		trigger = {
+			OR = {
+				trait = mortis_3
+				trait = mortis_4
+				trait = mortis_5
+				trait = necromancy_3
+				trait = necromancy_4
+				trait = necromancy_5
+				trait = thaumaturgy_4
+				trait = thaumaturgy_5
+			}
+			wealth = 100
+		}
+		wealth = -100
+		hidden_tooltip = {
+			random_list = {
+				5 = {
+					character_event = { id = POD_vampire_political_plots.15 days = 180 tooltip = tooltip_disciplines }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.15 days = 250 tooltip = tooltip_disciplines }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.15 days = 360 tooltip = tooltip_disciplines }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.15 days = 720 tooltip = tooltip_disciplines }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.15 days = 210 tooltip = tooltip_disciplines }
+				}
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTC_POD_POLITICALPLOTS_KIDNAP_1"
+		trigger = {
+			wealth = 250
+		}
+		wealth = -250
+		hidden_tooltip = {
+			random_list = {
+				5 = {
+					character_event = { id = POD_vampire_political_plots.15 days = 180 }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.15 days = 250 }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.15 days = 360 }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.15 days = 720 }
+				}
+				5 = {
+					character_event = { id = POD_vampire_political_plots.15 days = 210 }
+				}
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTD_POD_POLITICALPLOTS_KIDNAP_1"
+		hidden_tooltip = {
+			clr_character_flag = political_plot_ongoing
+		}
+	}
+}
+
+character_event = {
+	id = POD_vampire_political_plots.15
+	desc = "EVTDESC_POD_POLITICALPLOTS_KIDNAP_2"
+	picture = GFX_evt_vampire_conclave_i
+	border = GFX_event_normal_frame_intrigue
+	
+	ai = no
+	capable_only = yes
+	prisoner = no
+	is_triggered_only = yes
+	
+	trigger = {
+		ai = no
+		NOT = { is_inaccessible_trigger = yes }
+		NOT = { trait = torpor }
+		has_character_flag = political_plot_ongoing
+		prisoner = no
+	}
+	
+	immediate = {
+		clr_character_flag = political_plot_ongoing
+		random_list = {
+			10 = {
+				modifier = {
+					factor = 1.5
+					is_elder_vampire = yes
+				}
+				modifier = {
+					factor = 1.5
+					has_strong_generation = yes
+				}
+				modifier = {
+					factor = 1.5
+					has_powerful_generation = yes
+				}
+				modifier = {
+					factor = 1.5
+					trait = ancient
+				}
+				modifier = {
+					factor = 1.5
+					trait = methuselah
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 10
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 20
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 30
+				}
+				set_character_flag = pol_plot_succeed
+			}
+			10 = {
+				modifier = {
+					factor = 2
+					event_target:pol_target = {
+						has_defensive_discipline = yes
+					}
+				}
+				modifier = {
+					factor = 1.7
+					event_target:pol_target = {
+						is_elder_vampire = yes
+					}
+				}
+				modifier = {
+					factor = 1.7
+					event_target:pol_target = {
+						has_strong_generation = yes
+					}
+				}
+				modifier = {
+					factor = 1.7
+					event_target:pol_target = {
+						has_powerful_generation = yes
+					}
+				}
+				modifier = {
+					factor = 1.7
+					event_target:pol_target = {
+						trait = ancient
+					}
+				}
+				modifier = {
+					factor = 1.7
+					event_target:pol_target = {
+						trait = methuselah
+					}
+				}
+				modifier = {
+					factor = 1.7
+					event_target:pol_target = {
+						intrigue = 10
+					}
+				}
+				modifier = {
+					factor = 1.7
+					event_target:pol_target = {
+						intrigue = 20
+					}
+				}
+				modifier = {
+					factor = 1.7
+					event_target:pol_target = {
+						intrigue = 30
+					}
+				}
+				set_character_flag = pol_plot_fail
+			}
+		}
+		random_list = {
+			10 = {
+				modifier = {
+					factor = 1.5
+					intrigue = 10
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 20
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 30
+				}
+			}
+			10 = {
+				modifier = {
+					factor = 1.7
+					event_target:pol_target = {
+						intrigue = 10
+					}
+				}
+				modifier = {
+					factor = 1.7
+					event_target:pol_target = {
+						intrigue = 20
+					}
+				}
+				modifier = {
+					factor = 1.7
+					event_target:pol_target = {
+						intrigue = 30
+					}
+				}
+				set_character_flag = pol_plot_found
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_POLITICALPLOTS_KIDNAP_2"
+		trigger = {
+			has_character_flag = pol_plot_succeed
+		}
+		event_target:pol_target = {
+			imprison = ROOT
+		}
+		
+		hidden_tooltip = {
+			clr_character_flag = pol_plot_succeed
+			if = {
+				limit = {
+					has_character_flag = pol_plot_found
+				}
+				clr_character_flag = pol_plot_found
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTB_POD_POLITICALPLOTS_KIDNAP_2"
+		trigger = {
+			has_character_flag = pol_plot_fail
+		}
+		if = {
+			limit = {
+				has_character_flag = pol_plot_found
+			}
+			event_target:pol_target = {
+				opinion = {
+					modifier = attempted_murder
+					who = ROOT
+					months = 1200
+				}
+			}
+		}
+		
+		hidden_tooltip = {
+			clr_character_flag = pol_plot_fail
+			if = {
+				limit = {
+					has_character_flag = pol_plot_found
+				}
+				clr_character_flag = pol_plot_found
+			}
+		}
+	}
+}
+
+
+#test event
+character_event = {
+	id = POD_vampire_political_plots.100
+	desc = "EVTDESC_POD_POLITICALPLOTS_CONTROLLER2"
+	hide_window = yes
+	
+	ai = no
+	capable_only = yes
+	prisoner = no
+	is_triggered_only = yes
+	
+	trigger = {
+		ai = no
+	}
+	
+	immediate = {
+		any_character = {
+			limit = {
+				ROOT = {
+					is_foe = PREV
+				}
+			}
+			set_character_flag = IS_FOE_ROOT
+		}
+		any_character = {
+			limit = {
+				is_foe = ROOT
+			}
+			set_character_flag = IS_FOE_ROOT_SECOND
+		}
+		trigger_switch = {
+			on_trigger = has_plot
+			plot_scheme_loyalty = {
+				set_character_flag = HAS_PLOT_SCHEME_LOYALTY
+			}
+			plot_frame_crime = {
+				set_character_flag = HAS_PLOT_FRAME_CRIME
+			}
+		}
+	}
+}
