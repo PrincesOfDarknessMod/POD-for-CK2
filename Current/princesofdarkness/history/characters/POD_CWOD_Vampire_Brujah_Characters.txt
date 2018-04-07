@@ -36,9 +36,11 @@
 		give_nickname=nick_the_wise
 		}	
 	99.1.1 = {
-		death = yes
-		}	
-		
+	death = {
+			death_reason = death_murder
+			killer = 505016
+			}	
+		}
 }
 
 505016 = {
@@ -66,7 +68,7 @@
 	trait = "aggressive_leader"
 	disallow_random_traits = yes
 	father = 505015
-	dynasty = 3500019
+	dynasty = 10000002
 	trait = "canon" 
 	female = yes
 	employer = 9999999
@@ -124,6 +126,7 @@
 	trait = "charitable"
 	trait = "kind"
 	trait = "grey_eminence"
+	father = 790303
 	
 	472.1.1 = { 
 		birth = 472.1.1
@@ -199,7 +202,7 @@
 	name = "Losario"
 	culture = "roman"
 	religion = "brujah_high"
-	trait = "antediluvian"
+	trait = "methuselah"
 	trait = "brujah"
 	trait = "celerity_5"
 	trait = "majesty_5"	
@@ -207,12 +210,10 @@
 	trait = "bloodpotency_8"
 	trait = "vampgeneration4"
 	trait = "tough_soldier"
-	trait = "aggressive_leader"
 	mother = 505016
 	dynasty = 3500099
 	trait = "canon" 
 	female = no
-	employer = 9999999
 	
 	130.1.1 = {
 		birth = 130.1.1
@@ -272,6 +273,7 @@
 	learning = 6	
 	trait = "fair"
 	religion = "innocent"
+	disallow_random_traits = yes
 	
 	1066.1.1 = {
 		birth = 1066.1.1
@@ -295,17 +297,18 @@
 	}
 
 	1229.1.1 = {
-		add_trait = "ancilla"
 		remove_trait = "neonate"
+		add_trait = "ancilla"
+		remove_trait = "bloodpotency_1"
 		add_trait = "bloodpotency_3"
-		remove_trait = "bloodpotency_3"
 		add_trait = "bookmark1230"
-		add_trait = "vigor_4"
 		remove_trait = "vigor_3"
+		add_trait = "vigor_4"
 		add_trait = "celerity_3"
 	}		
 	
 	1354.1.1 = {
+		remove_trait = "ancilla"
 		remove_trait = "bookmark1230"
 		add_trait = "bookmark1355"
 		add_trait = "elder"
@@ -317,7 +320,6 @@
 	1499.1.1 = {
 		remove_trait = "bookmark1355"
 		add_trait = "bookmark1505"
-		add_trait = "vigor_5"
 		remove_trait = "resilience_3"
 		add_trait = "resilience_4"
 		add_trait = "obfuscate_2"
@@ -346,13 +348,14 @@
 	name = "Usama ibn Jabar"
 	culture = "maghreb_arabic"
 	trait = "scholarly_theologian"
-	dynasty = 3500045
+	dynasty = 3500105
 	trait = "shy"
 	trait = "canon" 
 	trait = "scholar"
 	trait = "erudite"
 	female = no
 	learning = 14	
+	father = 790304
 	
 	645.1.1 = {
 		birth = 645.1.1
@@ -412,7 +415,7 @@
 710401 = {
 
 	name = "Agonistes" 
-	dynasty = "6751004"
+	dynasty = 3500104
 	culture = "greek"
 	religion = "brujah_high"
 		trait = "brujah"
@@ -447,48 +450,20 @@
 		trait = "canon"
 	disallow_random_traits = yes
 	female = no
-	employer = 9999999
+	mother = 790306
 	
-	100.1.1 = {
-		birth = 100.1.1
+	110.1.1 = {
+		birth = 110.1.1
 		}
 	140.1.1 = {
 		add_trait = "vampire"
 		add_trait = "wyrm_taint"
 		}
-	766.1.1 = {
-		add_trait = "bookmark767"
-		}
-	989.1.1 = {
-		remove_trait = "bookmark767"
-		add_trait = "bookmark990"
-		}
-	1229.1.1 = {
-		remove_trait = "bookmark990"
-		add_trait = "bookmark1230"
-		culture = "egyptian_arabic"
-		effect = { join_society = via_humanitatis }
-		add_trait = "torpor"
-		}
-	1354.1.1 = {
-		remove_trait = "bookmark1230"
-		add_trait = "bookmark1355"
-		add_trait = "torpor"
-		}
-	1499.1.1 = {
-		remove_trait = "torpor"
-		remove_trait = "bookmark1355"
-		add_trait = "bookmark1505"
-		effect = { leave_society = yes }
-		effect = { join_society = "path_of_humanity" }
-		}		
-	1506.1.1 = {
-		add_trait = "torpor"
-		remove_trait = "bookmark1505"
-		add_trait = "bookmark1506"
-		}
-	1999.1.1 = {
-		death = yes
+	1000.1.1 = {
+		death = {
+			death_reason = death_murder
+			killer = 505016
+			}
 		}
 }
 
@@ -497,7 +472,7 @@
 
 	name = "Al-Muntaqim" # successor and avenger of Agonistes' death
 	father = 710401
-	dynasty = "6751004"
+	dynasty = 3500104
 	culture = "bedouin_arabic"
 	religion = "innocent"
 		trait = "brujah"
@@ -577,7 +552,7 @@
 
 	name = "Al-Muntathir" # pacifist with perfect eidetic memory. Manus Nigram overseer for Egypt
 	father = 710401
-	dynasty = "6751004"
+	dynasty = 3500104
 	culture = "bedouin_arabic"
 	religion = "innocent"
 		trait = "brujah"
@@ -700,10 +675,13 @@
 		remove_trait = "bookmark1230"
 		add_trait = "bookmark1355"
 	}	
+	1499.1.1 = {
+		remove_trait = "bookmark1355"
+		add_trait = "bookmark1505"
+	}	
 	1506.1.1 = {
 		remove_trait = "bookmark1505"
 		add_trait = "bookmark1506"
-	
 	}	
 	1999.1.1 = {
 		death = yes
@@ -731,6 +709,8 @@
 	female = yes
 	dna="0jija0g00b0"
 	properties="tm0g00000000000000"
+	father = 790307
+	
 	1002.1.1 = {
 		birth = 1002.1.1 
 		}	
@@ -772,6 +752,7 @@
 	trait = "scholar"
 	trait = "patient"
 	disallow_random_traits = yes
+	father = 790310
 	1113.1.1 = {
 		birth = 1113.1.1 
 		}	
@@ -804,7 +785,7 @@
 # Bagdad
 	name = "Abd al-Hadi"
 	culture = "turkish"
-	dynasty = "3500035"
+	dynasty = 3500105
 	religion = "ashirra"
 	trait = "vampire"
 	trait = "wyrm_taint"	
@@ -815,13 +796,14 @@
 	trait = "resilience_3"
 	trait = "bloodpotency_6"
 	trait = "martial_cleric"
-	trait = "vampgeneration7"
+	trait = "vampgeneration5"
 	trait = "canon" 
 	give_nickname = nick_the_eternal_caliph
 	female = no
+	father = 790305 
 	
-	40.1.1 = {
-		birth = 40.1.1 
+	600.1.1 = {
+		birth = 600.1.1 
 		}	
 	1229.1.1 = {
 		effect = { set_government_type = ashirra_government}
@@ -869,9 +851,10 @@
 	trait = "patient"
 	trait = "duelist"
 	disallow_random_traits = yes
+	father = 790312
 	
-	145.1.1 = {
-		birth = 145.1.1 
+	165.1.1 = {
+		birth = 165.1.1 
 		}
 	989.1.1 = {
 		add_trait = "bookmark990"
@@ -924,9 +907,10 @@
 	trait = "canon" 
 	female = no
 	disallow_random_traits = yes
+	father = 790312
 
-	42.1.1 = {
-		birth = 42.1.1 
+	162.1.1 = {
+		birth = 162.1.1 
 		}	
 	1229.1.1 = {
 		effect = { set_government_type = traditions_government }
@@ -938,10 +922,13 @@
 		remove_trait = "bookmark1230"
 		add_trait = "bookmark1355"
 	}	
+	1499.1.1 = {
+		remove_trait = "bookmark1355"
+		add_trait = "bookmark1505"
+	}	
 	1506.1.1 = {
 		remove_trait = "bookmark1505"
 		add_trait = "bookmark1506"
-	
 	}	
 	1999.1.1 = {
 		death = yes
@@ -968,6 +955,7 @@
 	trait = "hedonist"
 	trait = "canon" 
 	female = no
+	father = 790225
 	disallow_random_traits = yes
 	
 	1205.1.1 = {
@@ -982,14 +970,17 @@
 		remove_trait = "bookmark1230"
 		add_trait = "bookmark1355"
 	}	
+	1499.1.1 = {
+		remove_trait = "bookmark1355"
+		add_trait = "bookmark1505"
+	}	
 	1506.1.1 = {
 		remove_trait = "bookmark1505"
 		add_trait = "bookmark1506"
-	
 	}	
 	1999.1.1 = {
 		death = yes
-		}	
+		}		
 }
 
 790156 = {
@@ -1015,6 +1006,7 @@
 	trait = "canon" 
 	female = yes
 	disallow_random_traits = yes
+	mother = 790230
 
 	1202.1.1 = {
 		birth = 1202.1.1 
@@ -1030,8 +1022,8 @@
 	1506.1.1 = {
 		remove_trait = "neonate"
 		add_trait = "elder"
-		remove_trait = "bookmark1505"
-		add_trait = "bookmark1506"
+		remove_trait = "bookmark1355"
+		add_trait = "bookmark1505"
 	
 	}	
 	1999.1.1 = {
@@ -1061,6 +1053,7 @@
 	trait = "zealous"
 	trait = "hedonist"
 	disallow_random_traits = yes
+	father = 790308
 	
 	375.1.1 = {
 		birth = 375.1.1 
@@ -1235,7 +1228,7 @@
 
 	name = "Selina"
 	culture = "frankish"
-	dynasty = 3500102
+	dynasty = 3500103
 	religion = "brujah_high"
 	trait = "vampire"
 	trait = "wyrm_taint"	
@@ -1248,10 +1241,12 @@
 	trait = "flamboyant_schemer"
 	trait = "vampgeneration5"
 	trait = "canon" 
+	trait = "diabolist"
 	female = yes
 	trait = "deceitful"
 	trait = "envious"
 	disallow_random_traits = yes
+	father = 790305
 	
 	575.1.1 = {
 		birth = 575.1.1 
@@ -1312,6 +1307,7 @@
 	trait = "canon" 
 	female = no
 	disallow_random_traits = yes
+	father = 790108
 
 	1200.1.1 = {
 		birth = 1200.1.1 
@@ -1327,8 +1323,8 @@
 	1506.1.1 = {
 		remove_trait = "neonate"
 		add_trait = "elder"
-		remove_trait = "bookmark1505"
-		add_trait = "bookmark1506"
+		remove_trait = "bookmark1355"
+		add_trait = "bookmark1505"
 	
 	}	
 	1999.1.1 = {
@@ -1340,7 +1336,7 @@
 # Coimbra
 	name = "Guillermo"
 	culture = "portuguese"
-	dynasty = 3500102
+	dynasty = 3500105
 	religion = "brujah_high"
 	trait = "vampire"
 	trait = "wyrm_taint"	
@@ -1357,6 +1353,7 @@
 	trait = "kind"
 	trait = "canon" 
 	female = no
+	mother = 790216
 	disallow_random_traits = yes
 
 	1000.1.1 = {
@@ -1371,11 +1368,13 @@
 		remove_trait = "bookmark1230"
 		add_trait = "bookmark1355"
 	}	
+	1499.1.1 = {
+		remove_trait = "bookmark1355"
+		add_trait = "bookmark1505"
+	}	
 	1506.1.1 = {
-
 		remove_trait = "bookmark1505"
 		add_trait = "bookmark1506"
-	
 	}	
 	1999.1.1 = {
 		death = yes
@@ -1443,7 +1442,7 @@
 # Basra
 	name = "Hanifa bint Nasir ar-Rashid"
 	culture = "levantine_arabic"
-	dynasty = "3500035"
+	dynasty = 3500105
 	religion = "ashirra"
 	trait = "vampire"
 	trait = "wyrm_taint"	
@@ -1462,8 +1461,8 @@
 	female = yes
 	disallow_random_traits = yes
 	
-	998.1.1 = {
-		birth = 998.1.1 
+	978.1.1 = {
+		birth = 978.1.1 
 		}	
 	1229.1.1 = {
 		effect = { set_government_type = ashirra_government}
@@ -1512,6 +1511,7 @@
 	trait = "canon" 
 	female = no
 	disallow_random_traits = yes
+	father = 790308
 	
 	600.1.1 = {
 		birth = 600.1.1 
@@ -1530,10 +1530,13 @@
 		remove_trait = "bookmark1230"
 		add_trait = "bookmark1355"
 	}	
+	1499.1.1 = {
+		remove_trait = "bookmark1355"
+		add_trait = "bookmark1505"
+	}	
 	1506.1.1 = {
 		remove_trait = "bookmark1505"
 		add_trait = "bookmark1506"
-	
 	}	
 	1999.1.1 = {
 		death = yes
@@ -1561,6 +1564,7 @@
 	trait = "deceitful"
 	trait = "canon" 
 	female = yes
+	father = 790225
 	disallow_random_traits = yes
 	
 	650.1.1 = {
@@ -1579,10 +1583,13 @@
 		remove_trait = "bookmark1230"
 		add_trait = "bookmark1355"
 	}	
+	1499.1.1 = {
+		remove_trait = "bookmark1355"
+		add_trait = "bookmark1505"
+	}	
 	1506.1.1 = {
 		remove_trait = "bookmark1505"
 		add_trait = "bookmark1506"
-	
 	}	
 	1999.1.1 = {
 		death = yes
@@ -1593,7 +1600,7 @@
 # Beirut
 	name = "Rafqa"
 	culture = "levantine_arabic"
-	dynasty = 3500103
+	dynasty = 3500105
 	religion = "brujah_high"
 	trait = "vampire"
 	trait = "wyrm_taint"	
@@ -1607,6 +1614,7 @@
 	trait = "vampgeneration6"
 	trait = "canon" 
 	female = yes
+	father = 790123
 	
 	670.1.1 = {
 		birth = 670.1.1 
@@ -1624,14 +1632,17 @@
 		remove_trait = "bookmark1230"
 		add_trait = "bookmark1355"
 	}	
+	1499.1.1 = {
+		remove_trait = "bookmark1355"
+		add_trait = "bookmark1505"
+	}	
 	1506.1.1 = {
 		remove_trait = "bookmark1505"
 		add_trait = "bookmark1506"
-	
 	}	
 	1999.1.1 = {
 		death = yes
-		}	
+		}		
 }
 
 790239 = {
@@ -1652,9 +1663,10 @@
 	trait = "vampgeneration6"
 	trait = "canon" 
 	female = no
+	father = 710401
 	
-	400.1.1 = {
-		birth = 400.1.1 
+	130.1.1 = {
+		birth = 130.1.1 
 		}
 	989.1.1 = {
 		add_trait = "bookmark990"
@@ -1669,9 +1681,744 @@
 		remove_trait = "bookmark1230"
 		add_trait = "bookmark1355"
 	}	
+	1499.1.1 = {
+		remove_trait = "bookmark1355"
+		add_trait = "bookmark1505"
+	}	
 	1506.1.1 = {
 		remove_trait = "bookmark1505"
 		add_trait = "bookmark1506"
+	}	
+	1999.1.1 = {
+		death = yes
+		}	
+}
+
+790246 = {
+# Nascent power of Krakow
+	name = "Yitzhak ben Avraham"
+	culture = "polish"
+	dynasty = 3500098
+	religion = "brujah_high"
+	trait = "vampire"
+	trait = "wyrm_taint"	
+	trait = "brujah"
+	trait = "elder"
+	trait = "celerity_2"
+	trait = "majesty_3"
+	trait = "vigor_1"
+	trait = "bloodpotency_6"
+	trait = "mastermind_theologian"
+	trait = "vampgeneration6"
+	trait = "just"
+	trait = "zealous"
+	trait = "gregarious"
+	trait = "canon" 
+	female = no
+	father = 505085
+	
+	1111.1.1 = {
+		birth = 1111.1.1 
+		}	
+	1229.1.1 = {
+		effect = { set_government_type = traditions_government }
+		add_trait = "bookmark1230"
+		effect = { join_society = "via_caeli" }
+	}			
+	1354.1.1 = {
+		remove_trait = "bookmark1230"
+		add_trait = "bookmark1355"
+	}	
+	1499.1.1 = {
+		remove_trait = "bookmark1355"
+		add_trait = "bookmark1505"
+	}	
+	1506.1.1 = {
+		remove_trait = "bookmark1505"
+		add_trait = "bookmark1506"
+	}	
+	1939.1.1 = {
+		death = yes
+		}		
+}
+
+790303 = {
+	name = "Hannibal"
+	culture = "maghreb_arabic"
+	religion = "vampire_promethean"
+	trait = "methuselah"
+	trait = "brujah"
+	trait = "auspex_5"
+	trait = "celerity_5"
+	trait = "majesty_5"	
+	trait = "resilience_5"
+	trait = "vigor_5"
+	trait = "bloodpotency_10"
+	trait = "vampgeneration4"
+	trait = "brilliant_strategist"
+	trait = "strong"
+	trait = "brave"
+	trait = "diligent"
+	trait = "patient"
+	trait = "aggressive_leader"
+	disallow_random_traits = yes
+	mother = 505016
+	dynasty = 3500098
+	trait = "canon" 
+	female = no
+
+	90.1.1 = {
+		birth = 90.1.1
+		}
+	109.1.1 = {
+		add_trait = vampire
+		add_trait = wyrm_taint
+		}
+	110.1.1 = {
+		add_trait = "torpor"
+		}	
+	766.1.1 = {
+		add_trait = "bookmark767"
+		}
+	989.1.1 = {
+		remove_trait = "bookmark767"
+		add_trait = "bookmark990"
+		}
+	1229.1.1 = {
+		remove_trait = "bookmark990"
+		add_trait = "bookmark1230"
+	}		
+	1354.1.1 = {
+		remove_trait = "bookmark1230"
+		add_trait = "bookmark1355"
+	}
+	1499.1.1 = {
+		remove_trait = "bookmark1355"
+		add_trait = "bookmark1505"
+	}		
+	1506.1.1 = {
+		remove_trait = "bookmark1505"
+		add_trait = "bookmark1506"
+	}
+	1999.1.1 = {
+		death = yes
+		}		
+}
+
+790304 = {
+	name = "Jabar"
+	culture = "maghreb_arabic"
+	trait = "martial_cleric"
+	dynasty = 3500105
+	trait = "canon" 
+	female = no
+	father = 790123
+	
+	625.1.1 = {
+		birth = 625.1.1
+		}
+		
+	645.7.5 = {
+		add_trait = "bookmark990"
+		add_trait = vampire
+		add_trait = wyrm_taint
+		add_trait = brujah
+		religion = ashirra
+		effect = { set_government_type = ashirra_government }	
+		add_trait = "vigor_3"
+		add_trait = "bloodpotency_6"
+		add_trait = "vampgeneration6"
+		add_trait = "neonate"
+	}
+
+	1229.1.1 = {
+		remove_trait = "neonate"
+		add_trait = "elder"
+		remove_trait = "bookmark990"
+		add_trait = "bookmark1230"
+		remove_trait = "vigor_3"		
+		add_trait = "vigor_5"
+		add_trait = "celerity_5"
+		add_trait = "majesty_5"
+		add_trait = "obfuscate_4"
+		add_trait = "resilience_2"
+	}		
+	
+	1354.1.1 = {
+		remove_trait = "bookmark1230"
+		add_trait = "bookmark1355"
+		add_trait = "torpor"
+	}
+	
+	1499.1.1 = {
+		remove_trait = "torpor"
+		remove_trait = "bookmark1355"
+		add_trait = "bookmark1505"
+	}		
+	
+	1506.1.1 = {
+		add_trait = "torpor"
+		remove_trait = "bookmark1505"
+		add_trait = "bookmark1506"
+	}
+	
+	1999.1.1 = {
+		death = yes
+		}		
+}
+
+790305 = {
+	name = "Gersakkun of Tyre"
+	culture = "maghreb_arabic"
+	religion = "brujah_high"
+	trait = "methuselah"
+	trait = "brujah"
+	trait = "celerity_5"
+	trait = "majesty_5"	
+	trait = "resilience_5"
+	trait = "vigor_5"
+	trait = "bloodpotency_10"
+	trait = "vampgeneration4"
+	trait = "tough_soldier"
+	trait = "strong"
+	trait = "wight"
+	trait = "wroth"
+	disallow_random_traits = yes
+	mother = 505016
+	dynasty = 3500103
+	trait = "canon" 
+	female = no
+
+	90.1.1 = {
+		birth = 90.1.1
+		}
+	109.1.1 = {
+		add_trait = vampire
+		add_trait = wyrm_taint
+		}	
+	766.1.1 = {
+		add_trait = "bookmark767"
+		}
+	989.1.1 = {
+		remove_trait = "bookmark767"
+		add_trait = "bookmark990"
+		}
+	1229.1.1 = {
+		remove_trait = "bookmark990"
+		add_trait = "bookmark1230"
+	}		
+	1354.1.1 = {
+		remove_trait = "bookmark1230"
+		add_trait = "bookmark1355"
+	}
+	1499.1.1 = {
+		remove_trait = "bookmark1355"
+		add_trait = "bookmark1505"
+	}		
+	1506.1.1 = {
+		remove_trait = "bookmark1505"
+		add_trait = "bookmark1506"
+	}
+	1999.1.1 = {
+		death = yes
+		}		
+}
+
+790306 = {
+	name = "Belit-Sheri"
+	culture = "levantine_arabic"
+	religion = "brujah_high"
+	trait = "methuselah"
+	trait = "brujah"
+	trait = "celerity_5"
+	trait = "majesty_5"	
+	trait = "resilience_5"
+	trait = "vigor_5"
+	trait = "bloodpotency_10"
+	trait = "vampgeneration4"
+	trait = "martial_cleric"
+	father = 505015
+	dynasty = 3500104
+	trait = "canon" 
+	female = yes
+
+	90.1.1 = {
+		birth = 90.1.1
+		}
+	100.1.1 = {
+		add_trait = vampire
+		add_trait = wyrm_taint
+		}	
+
+	131.1.1 = {
+		death = yes
+		}		
+}
+
+790307 = {
+	name = "Tribonius"
+	culture = "greek"
+	religion = "brujah_high"
+	trait = "elder"
+	trait = "brujah"
+	trait = "majesty_5"	
+	trait = "resilience_5"
+	trait = "vigor_5"
+	trait = "bloodpotency_6"
+	trait = "vampgeneration6"
+	trait = "martial_cleric"
+	trait = "erudite"
+	trait = "scholar"
+	trait = "diligent"
+	disallow_random_traits = yes
+	father = 790308
+	dynasty = 3500101
+	trait = "canon" 
+	female = no
+
+	900.1.1 = {
+		birth = 900.1.1
+		}
+	929.1.1 = {
+		add_trait = vampire
+		add_trait = wyrm_taint
+		}
+	989.1.1 = {
+		add_trait = "bookmark990"
+		}
+	1185.1.1 = {
+		death = yes
+		}		
+}
+
+790308 = {
+	name = "Critias"
+	culture = "greek"
+	religion = "vampire_promethean"
+	trait = "methuselah"
+	trait = "brujah"
+	trait = "dominate_5"
+	trait = "majesty_5"	
+	trait = "auspex_5"
+	trait = "bloodpotency_6"
+	trait = "vampgeneration5"
+	trait = "mastermind_theologian"
+	trait = "scholar"
+	trait = "erudite"
+	trait = "patient"
+	trait = "diligent"
+	disallow_random_traits = yes
+	father = 790309
+	dynasty = 3500101
+	trait = "canon" 
+	female = no
+
+	110.1.1 = {
+		birth = 110.1.1
+		}
+	159.1.1 = {
+		add_trait = vampire
+		add_trait = wyrm_taint
+		}	
+	766.1.1 = {
+		add_trait = "bookmark767"
+		}
+	989.1.1 = {
+		remove_trait = "bookmark767"
+		add_trait = "bookmark990"
+		}
+	1229.1.1 = {
+		remove_trait = "bookmark990"
+		add_trait = "bookmark1230"
+	}		
+	1354.1.1 = {
+		remove_trait = "bookmark1230"
+		add_trait = "bookmark1355"
+	}
+	1499.1.1 = {
+		remove_trait = "bookmark1355"
+		add_trait = "bookmark1505"
+	}		
+	1506.1.1 = {
+		remove_trait = "bookmark1505"
+		add_trait = "bookmark1506"
+	}
+	1999.1.1 = {
+		death = yes
+		}		
+}
+
+790309 = {
+	name = "Menele"
+	culture = "greek"
+	religion = "vampire_promethean"
+	trait = "methuselah"
+	trait = "brujah"
+	trait = "auspex_5"
+	trait = "celerity_5"
+	trait = "majesty_5"	
+	trait = "resilience_5"
+	trait = "vigor_5"
+	trait = "bloodpotency_10"
+	trait = "vampgeneration4"
+	trait = "brilliant_strategist"
+	trait = "strong"
+	trait = "brave"
+	trait = "diligent"
+	trait = "patient"
+	disallow_random_traits = yes
+	mother = 505016
+	dynasty = 3500101
+	trait = "canon" 
+	female = no
+
+	90.1.1 = {
+		birth = 90.1.1
+		}
+	109.1.1 = {
+		add_trait = vampire
+		add_trait = wyrm_taint
+		}	
+	766.1.1 = {
+		add_trait = "bookmark767"
+		}
+	989.1.1 = {
+		remove_trait = "bookmark767"
+		add_trait = "bookmark990"
+		}
+	1229.1.1 = {
+		remove_trait = "bookmark990"
+		add_trait = "bookmark1230"
+		effect = { add_rival = 790179 }
+		effect = { set_government_type = traditions_government }
+	}		
+	1354.1.1 = {
+		remove_trait = "bookmark1230"
+		add_trait = "bookmark1355"
+	}
+	1499.1.1 = {
+		remove_trait = "bookmark1355"
+		add_trait = "bookmark1505"
+	}		
+	1506.1.1 = {
+		remove_trait = "bookmark1505"
+		add_trait = "bookmark1506"
+	}
+	1999.1.1 = {
+		death = yes
+		}		
+}
+
+790310 = {
+	name = "Dominic"
+	culture = "greek"
+	religion = "vampire_promethean"
+	trait = "elder"
+	trait = "brujah"
+	trait = "resilience_5"
+	trait = "majesty_5"	
+	trait = "auspex_5"
+	trait = "bloodpotency_6"
+	trait = "vampgeneration6"
+	trait = "skilled_tactician"
+	trait = "brave"
+	trait = "strong"
+	trait = "patient"
+	trait = "diligent"
+	disallow_random_traits = yes
+	father = 790311
+	dynasty = 3500102 
+	trait = "canon" 
+	female = no
+
+	130.1.1 = {
+		birth = 130.1.1
+		}
+	159.1.1 = {
+		add_trait = vampire
+		add_trait = wyrm_taint
+		}	
+	766.1.1 = {
+		add_trait = "bookmark767"
+		}
+	989.1.1 = {
+		remove_trait = "bookmark767"
+		add_trait = "bookmark990"
+		}
+	1229.1.1 = {
+		remove_trait = "bookmark990"
+		add_trait = "bookmark1230"
+		add_claim = k_hungary
+		effect = { add_rival = 505052 }
+	}		
+	1354.1.1 = {
+		remove_trait = "bookmark1230"
+		add_trait = "bookmark1355"
+	}
+	1499.1.1 = {
+		remove_trait = "bookmark1355"
+		add_trait = "bookmark1505"
+	}		
+	1506.1.1 = {
+		remove_trait = "bookmark1505"
+		add_trait = "bookmark1506"
+	}
+	1999.1.1 = {
+		death = yes
+		}		
+}
+
+790311 = {
+	name = "Samal"
+	culture = "levantine_arabic"
+	religion = "brujah_high"
+	trait = "methuselah"
+	trait = "brujah"
+	trait = "dominate_5"
+	trait = "majesty_5"	
+	trait = "auspex_5"
+	trait = "bloodpotency_6"
+	trait = "vampgeneration5"
+	trait = "tough_soldier"
+	father = 790309
+	dynasty = 3500102 
+	trait = "canon" 
+	female = no
+
+	110.1.1 = {
+		birth = 110.1.1
+		}
+	159.1.1 = {
+		add_trait = vampire
+		add_trait = wyrm_taint
+		}	
+	199.1.1 = {
+		death = yes
+		}		
+}
+
+790312 = {
+	name = "Dysos"
+	culture = "roman"
+	religion = "brujah_high"
+	trait = "elder"
+	trait = "brujah"
+	trait = "auspex_5"
+	trait = "celerity_5"
+	trait = "resilience_5"
+	trait = "bloodpotency_6"
+	trait = "vampgeneration6"
+	trait = "charismatic_negotiator"
+	trait = "kind"
+	trait = "brave"
+	trait = "diligent"
+	trait = "charitable"
+	disallow_random_traits = yes
+	mother = 790313
+	dynasty = 3500098
+	trait = "canon" 
+	female = no
+
+	130.1.1 = {
+		birth = 130.1.1
+		}
+	149.1.1 = {
+		add_trait = vampire
+		add_trait = wyrm_taint
+		}
+	766.1.1 = {
+		add_trait = "bookmark767"
+		}
+	989.1.1 = {
+		remove_trait = "bookmark767"
+		add_trait = "bookmark990"
+		}
+	1229.1.1 = {
+		remove_trait = "bookmark990"
+		add_trait = "bookmark1230"
+	}		
+	1354.1.1 = {
+		remove_trait = "bookmark1230"
+		add_trait = "bookmark1355"
+	}
+	1499.1.1 = {
+		remove_trait = "bookmark1355"
+		add_trait = "bookmark1505"
+	}		
+	1506.1.1 = {
+		remove_trait = "bookmark1505"
+		add_trait = "bookmark1506"
+	}
+	1999.1.1 = {
+		death = yes
+		}		
+}
+
+790313 = {
+	name = "Altamira"
+	culture = "maghreb_arabic"
+	religion = "vampire_promethean"
+	trait = "methuselah"
+	trait = "brujah"
+	trait = "auspex_5"
+	trait = "celerity_5"
+	trait = "majesty_5"	
+	trait = "resilience_5"
+	trait = "vigor_5"
+	trait = "bloodpotency_10"
+	trait = "vampgeneration4"
+	trait = "brilliant_strategist"
+	trait = "strong"
+	trait = "brave"
+	trait = "diligent"
+	trait = "scholar"
+	trait = "aggressive_leader"
+	disallow_random_traits = yes
+	father = 790303
+	dynasty = 3500098
+	trait = "canon" 
+	female = yes
+
+	110.1.1 = {
+		birth = 110.1.1
+		}
+	139.1.1 = {
+		add_trait = vampire
+		add_trait = wyrm_taint
+		}	
+	766.1.1 = {
+		add_trait = "bookmark767"
+		}
+	989.1.1 = {
+		remove_trait = "bookmark767"
+		add_trait = "bookmark990"
+		}
+	1229.1.1 = {
+		remove_trait = "bookmark990"
+		add_trait = "bookmark1230"
+	}		
+	1354.1.1 = {
+		remove_trait = "bookmark1230"
+		add_trait = "bookmark1355"
+	}
+	1499.1.1 = {
+		remove_trait = "bookmark1355"
+		add_trait = "bookmark1505"
+	}		
+	1506.1.1 = {
+		remove_trait = "bookmark1505"
+		add_trait = "bookmark1506"
+	}
+	1999.1.1 = {
+		death = yes
+		}		
+}
+
+790314 = {
+# Sire of Veronique d'Orleans
+	name = "Portia"
+	culture = "roman"
+	dynasty = 3500098
+	religion = "brujah_high"
+	trait = "vampire"
+	trait = "wyrm_taint"	
+	trait = "brujah"
+	trait = "ancient"
+	trait = "celerity_4"
+	trait = "vigor_4"
+	trait = "resilience_5"
+	trait = "bloodpotency_6"
+	trait = "charismatic_negotiator"
+	trait = "vampgeneration8"
+	trait = "canon" 
+	female = yes
+	trait = "kind"
+	trait = "charitable"
+	disallow_random_traits = yes
+	father = 790150
+	
+	185.1.1 = {
+		birth = 185.1.1 
+		}
+	989.1.1 = {
+		add_trait = "bookmark990"
+		}		
+	
+	1229.1.1 = {
+		effect = { set_government_type = traditions_government }
+		employer = 505096
+		effect = { add_friend = 790315 }
+		effect = { join_society = via_humanitatis }
+		remove_trait = "bookmark990"
+		add_trait = "bookmark1230"
+	}		
+	1354.1.1 = {
+		remove_trait = "bookmark1230"
+		add_trait = "bookmark1355"
+	}	
+	
+	1499.1.1 = {
+		remove_trait = "bookmark1355"
+		add_trait = "bookmark1505"
+	}	
+	1506.1.1 = {
+		remove_trait = "bookmark1505"
+		add_trait = "bookmark1506"
+		religion = brujahcamarilla
+	
+	}	
+	1999.1.1 = {
+		death = yes
+		}	
+}
+
+790315 = {
+# Signature character dark ages. Future prince of Macau
+	name = "Veronique d'Orleans"
+	culture = "frankish"
+	dynasty = 3500098
+	religion = "brujah_high"
+	trait = "vampire"
+	trait = "wyrm_taint"	
+	trait = "brujah"
+	trait = "elder"
+	trait = "celerity_1"
+	trait = "vigor_2"
+	trait = "resilience_3"
+	trait = "bloodpotency_6"
+	trait = "grey_eminence"
+	trait = "vampgeneration9"
+	trait = "canon" 
+	female = yes
+	trait = "kind"
+	trait = "charitable"
+	trait = "diligent"
+	trait = "gregarious"
+	disallow_random_traits = yes
+	mother = 790314
+	
+	1130.1.1 = {
+		birth = 1130.1.1 
+		}		
+	1229.1.1 = {
+		effect = { set_government_type = traditions_government }
+		effect = { join_society = via_humanitatis }
+		add_trait = "bookmark1230"
+		add_claim = d_orleans
+	}		
+	1354.1.1 = {
+		remove_trait = "bookmark1230"
+		add_trait = "bookmark1355"
+	}	
+	
+	1499.1.1 = {
+		remove_trait = "bookmark1355"
+		add_trait = "bookmark1505"
+	}	
+	1506.1.1 = {
+		remove_trait = "bookmark1505"
+		add_trait = "bookmark1506"
+		religion = brujahcamarilla
 	
 	}	
 	1999.1.1 = {

@@ -65,3 +65,175 @@ has_offensive_discipline = {
 	trait = quietus_5
 	trait = daimoinon_5
 }
+
+is_worth_keeping = {
+	OR = {
+		is_ruler = yes
+		trait = canon
+		trait = canon_childe
+		trait = player_childe
+		trait = elder
+		trait = ancient
+		trait = methuselah
+		trait = antediluvian
+		trait = vampgeneration1
+		trait = vampgeneration2
+		trait = vampgeneration3
+		trait = vampgeneration4
+		trait = vampgeneration5
+		trait = vampgeneration6
+		trait = vampgeneration7
+		trait = storyteller
+		has_job_title = yes
+		AND = {
+			is_married = yes
+			any_spouse = {
+				OR = {
+					trait = canon
+					trait = canon_childe
+					trait = player_childe
+					trait = elder
+					trait = ancient
+					trait = methuselah
+					trait = antediluvian
+					trait = vampgeneration1
+					trait = vampgeneration2
+					trait = vampgeneration3
+					trait = vampgeneration4
+					trait = vampgeneration5
+					trait = vampgeneration6
+					is_ruler = yes
+					liege = {
+						OR = {
+							is_father = PREV
+							is_mother = PREV
+						}
+					}
+				}
+			}
+		}
+		any_claim = {
+			OR = {
+				higher_tier_than = BARON
+				AND = {
+					tier = BARON
+					liege = {
+						dynasty = PREV
+					}
+				}
+			}
+		}
+		liege = {
+			OR = {
+				is_father = PREV
+				is_mother = PREV
+			}
+		}
+	}
+}
+
+is_related_to_player = {
+	any_liege = {
+		ai = no
+	}
+	any_lover = { ai = no }
+	any_close_relative = { ai = no }
+	any_friend = { ai = no }
+	any_rival = { ai = no }
+	any_consort = { ai = no }
+}
+
+can_have_adversary = {
+	NOT = { check_variable = { which = adversary_count value = 5 } }
+}
+
+has_adversary = {
+	check_variable = { which = adversary_count value = 1 }
+}
+
+is_possible_adversary = {
+	OR = {
+		higher_tier_than = BARON
+		trait = ancient
+		trait = methuselah
+		trait = antediluvian
+		trait = vampgeneration1
+		trait = vampgeneration2
+		trait = vampgeneration3
+		trait = vampgeneration4
+		trait = vampgeneration5
+		trait = vampgeneration6
+	}
+}
+
+is_worthy_rival = {
+	OR = {
+		higher_tier_than = COUNT
+		trait = ancient
+		trait = methuselah
+		trait = antediluvian
+		trait = elder
+		trait = vampgeneration1
+		trait = vampgeneration2
+		trait = vampgeneration3
+		trait = vampgeneration4
+		trait = vampgeneration5
+		trait = vampgeneration6
+	}
+}
+
+is_worthy_sire = {
+	OR = {
+		trait = vampgeneration1
+		trait = vampgeneration2
+		trait = vampgeneration3
+		trait = vampgeneration4
+		trait = vampgeneration5
+		trait = vampgeneration6
+		AND = {
+			OR = {
+				trait = canon
+				trait = canon_childe
+				trait = player_childe
+			}
+			OR = {
+				trait = vampgeneration1
+				trait = vampgeneration2
+				trait = vampgeneration3
+				trait = vampgeneration4
+				trait = vampgeneration5
+				trait = vampgeneration6
+				trait = vampgeneration7
+			}
+		}
+	}
+}
+
+can_demand_titles = {
+	OR = {
+		trait = methuselah
+		trait = antediluvian
+		trait = vampgeneration1
+		trait = vampgeneration2
+		trait = vampgeneration3
+		trait = vampgeneration4
+		trait = vampgeneration5
+		trait = vampgeneration6
+	}
+}
+
+can_resist_awaken_demand = {
+	OR = {
+		trait = ancient
+		trait = methuselah
+		trait = antediluvian
+	}
+}
+
+is_vampire_masquerade = {
+	OR = {
+		has_global_flag = bookmark1230
+		has_global_flag = bookmark1355
+		has_global_flag = bookmark1506
+	}
+}

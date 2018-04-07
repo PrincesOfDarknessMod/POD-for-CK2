@@ -390,7 +390,7 @@ e_setite = {
 #Vykos buffer state between Rustovitch and Jurgen 
 	
 k_obertus = {
-		color = { 178 0 127 }
+		color = { 72 209 204 }
 		culture = romanian
 		dynasty_title_names = no	
 		short_name = no
@@ -485,6 +485,34 @@ k_olives = {
 		title_female = "Protector"	
 		allow = {
 			always = no
+		}
+		gain_effect = {
+		}
+	}
+	
+#Cainite Heresy
+	
+k_seeofnod = {
+		color = { 75  0 130 }
+		capital = 356 # Venezia
+		culture = italian
+		caliphate = yes			
+		controls_religion = cainite	
+		short_name = yes
+		dynasty_title_names = no
+		dignity = 100
+		title = "Archbishop"
+		title_female = "Archbishop"			
+		allow = {
+			religion = cainite
+			trait = vampire
+			NOT = { trait = werewolf }
+			prestige = 500
+			piety = 500
+			realm_size = 15		
+			OR = {
+					has_global_flag = bookmark1230
+					}	
 		}
 		gain_effect = {
 		}

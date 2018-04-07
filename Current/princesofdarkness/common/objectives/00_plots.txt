@@ -746,6 +746,7 @@ plot_kill_character = {
 	target_potential = {
 		#NOT = { any_spouse = { character = FROM } } # This case is covered by another plot
 		NOT = { is_elder_vampire = yes }
+		NOT = { trait = torpor }
 	}
 	
 	# Target character scope
@@ -1053,13 +1054,19 @@ plot_kill_character = {
 	}
 	
 	success = {
-		is_alive = no
+		OR = {
+			is_alive = no
+			trait = torpor
+		}
 		hidden_tooltip = {
 			FROM = { has_character_flag = murder_in_motion }
 		}
 	}
 	abort = {
-		is_alive = no
+		OR = {
+			is_alive = no
+			trait = torpor
+		}
 	}
 	abort_effect = {
 		FROM = { clr_character_flag = murder_in_motion }
@@ -2602,6 +2609,7 @@ plot_kill_elder = {
 	target_potential = {
 		#NOT = { any_spouse = { character = FROM } } # This case is covered by another plot
 		is_elder_vampire = yes
+		NOT = { trait = torpor }
 	}
 	
 	# Target character scope
@@ -3497,8 +3505,9 @@ plot_seed_of_rebellion = {
 	}
 	
 	success = {
-		liege = {
-			is_rival = PREV
+		has_opinion_modifier = {
+			who = LIEGE
+			modifier = opinion_seed_of_rebellion
 		}
 	}
 	abort = {

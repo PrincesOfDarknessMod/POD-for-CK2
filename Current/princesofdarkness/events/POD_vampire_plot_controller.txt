@@ -1,0 +1,951 @@
+namespace=POD_vampire_plot_controller
+##################################
+#	AI Plot Controllers by AJ
+#	1 	 	Control Event (Spawns other events, called bi-annually)
+#	2		Make allies
+#	3		Scheme against someone
+#	
+#	
+#	
+#
+##################################
+#AI Court Event Controller - Check what kind of court
+character_event = {
+    id = POD_vampire_plot_controller.1
+	hide_window = yes
+	only_playable = yes
+	ai = yes
+    is_triggered_only = yes
+
+	
+	trigger = {
+		is_alive = yes
+		trait = vampire
+		NOT = { trait = torpor }
+		prisoner = no
+	}
+	
+	#Vampire gets to fire off a plot every 10 years
+    immediate = {
+		random_list = {
+			5 = {
+				character_event = { id = POD_vampire_plot_controller.2 }
+				#make friends, bloodbind someone
+			}
+			5 = {
+				character_event = { id = POD_vampire_plot_controller.3 }
+				#scheme against enemy or someone I do not like
+			}
+			8 = {
+				modifier = {
+					factor = 0
+					intrigue = 25
+				}
+				#nothing
+			}
+		}
+	}
+}
+#Make allies Controller
+character_event = {
+    id = POD_vampire_plot_controller.2
+	
+    is_triggered_only = yes
+	hide_window = yes
+
+    immediate = {
+		trigger_switch = {
+		on_trigger = tier
+		COUNT = {
+			random_list = {
+				5 = {
+					liege = {
+						random_realm_lord = {
+							limit = {
+								NOT = { character = ROOT }
+								NOT = { is_friend = ROOT }
+								ai = yes
+							}
+							random = {
+								chance = 50
+								modifier = {
+									factor = 0.5
+									liege = {
+										attribute_diff = {
+											character = ROOT
+											attribute = intrigue
+											value = 9
+										}
+									}
+								}
+								modifier = {
+									factor = 0.2
+									liege = {
+										attribute_diff = {
+											character = ROOT
+											attribute = intrigue
+											value = 19
+										}
+									}
+								}
+								add_friend = ROOT 
+							}
+						}
+					}
+				}
+				5 = {
+					liege = {
+						random_realm_lord = {
+							limit = {
+								NOT = { character = ROOT }
+								NOT = { owes_favor_to = ROOT }
+								ai = yes
+							}
+							random = {
+								chance = 50
+								modifier = {
+									factor = 0.5
+									liege = {
+										attribute_diff = {
+											character = ROOT
+											attribute = intrigue
+											value = 9
+										}
+									}
+								}
+								modifier = {
+									factor = 0.2
+									liege = {
+										attribute_diff = {
+											character = ROOT
+											attribute = intrigue
+											value = 19
+										}
+									}
+								}
+								add_favor = ROOT 
+							}
+						}
+					}
+				}
+				3 = {
+					liege = {
+						random_realm_lord = {
+							limit = {
+								NOT = { character = ROOT }
+								NOT = { trait = bloodbound }
+								ai = yes
+							}
+							random = {
+								chance = 30
+								modifier = {
+									factor = 0.5
+									liege = {
+										attribute_diff = {
+											character = ROOT
+											attribute = intrigue
+											value = 9
+										}
+									}
+								}
+								modifier = {
+									factor = 0.2
+									liege = {
+										attribute_diff = {
+											character = ROOT
+											attribute = intrigue
+											value = 19
+										}
+									}
+								}
+								add_trait = bloodbound
+								opinion = {
+									modifier = opinion_blood_bond_to_domitor
+									who = ROOT
+									years = 1000
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		DUKE = {
+			if = { limit = { independent = no }
+			random_list = {
+				5 = {
+					liege = {
+						random_realm_lord = {
+							limit = {
+								NOT = { character = ROOT }
+								NOT = { is_friend = ROOT }
+								ai = yes
+							}
+							random = {
+								chance = 50
+								modifier = {
+									factor = 0.5
+									liege = {
+										attribute_diff = {
+											character = ROOT
+											attribute = intrigue
+											value = 9
+										}
+									}
+								}
+								modifier = {
+									factor = 0.2
+									liege = {
+										attribute_diff = {
+											character = ROOT
+											attribute = intrigue
+											value = 19
+										}
+									}
+								}
+								add_friend = ROOT 
+							}
+						}
+					}
+				}
+				5 = {
+					liege = {
+						random_realm_lord = {
+							limit = {
+								NOT = { character = ROOT }
+								NOT = { owes_favor_to = ROOT }
+								ai = yes
+							}
+							random = {
+								chance = 50
+								modifier = {
+									factor = 0.5
+									liege = {
+										attribute_diff = {
+											character = ROOT
+											attribute = intrigue
+											value = 9
+										}
+									}
+								}
+								modifier = {
+									factor = 0.2
+									liege = {
+										attribute_diff = {
+											character = ROOT
+											attribute = intrigue
+											value = 19
+										}
+									}
+								}
+								add_favor = ROOT 
+							}
+						}
+					}
+				}
+				3 = {
+					liege = {
+						random_realm_lord = {
+							limit = {
+								NOT = { character = ROOT }
+								NOT = { trait = bloodbound }
+								ai = yes
+							}
+							random = {
+								chance = 30
+								modifier = {
+									factor = 0.5
+									liege = {
+										attribute_diff = {
+											character = ROOT
+											attribute = intrigue
+											value = 9
+										}
+									}
+								}
+								modifier = {
+									factor = 0.2
+									liege = {
+										attribute_diff = {
+											character = ROOT
+											attribute = intrigue
+											value = 19
+										}
+									}
+								}
+								add_trait = bloodbound
+								opinion = {
+									modifier = opinion_blood_bond_to_domitor
+									who = ROOT
+									years = 1000
+								}
+							}
+						}
+					}
+				}
+			}
+			}else = {
+			random_list = {
+				5 = {
+					random_realm_lord = {
+						limit = {
+							NOT = { character = ROOT }
+							NOT = { is_friend = ROOT }
+							ai = yes
+						}
+						random = {
+							chance = 50
+							modifier = {
+								factor = 0.5
+								attribute_diff = {
+									character = ROOT
+									attribute = intrigue
+									value = 9
+								}
+							}
+							modifier = {
+								factor = 0.2
+								attribute_diff = {
+									character = ROOT
+									attribute = intrigue
+									value = 19
+								}
+							}
+							add_friend = ROOT 
+						}
+					}
+				}
+				5 = {
+					random_realm_lord = {
+						limit = {
+							NOT = { character = ROOT }
+							NOT = { owes_favor_to = ROOT }
+							ai = yes
+						}
+						random = {
+							chance = 50
+							modifier = {
+								factor = 0.5
+									attribute_diff = {
+										character = ROOT
+										attribute = intrigue
+										value = 9
+								}
+							}
+							modifier = {
+								factor = 0.2
+								attribute_diff = {
+									character = ROOT
+									attribute = intrigue
+									value = 19
+								}
+							}
+							add_favor = ROOT 
+						}
+					}
+				}
+				3 = {
+					random_realm_lord = {
+						limit = {
+							NOT = { character = ROOT }
+							NOT = { trait = bloodbound }
+							ai = yes
+						}
+						random = {
+							chance = 30
+							modifier = {
+								factor = 0.5
+								attribute_diff = {
+									character = ROOT
+									attribute = intrigue
+									value = 9
+								}
+							}
+							modifier = {
+								factor = 0.2
+								attribute_diff = {
+									character = ROOT
+									attribute = intrigue
+									value = 19
+								}
+							}
+							add_trait = bloodbound
+							opinion = {
+								modifier = opinion_blood_bond_to_domitor
+								who = ROOT
+								years = 1000
+							}
+						}
+					}
+				}
+			}
+		}
+		}
+		KING = {
+		if = { limit = { independent = no }
+			random_list = {
+				5 = {
+					liege = {
+						random_realm_lord = {
+							limit = {
+								NOT = { character = ROOT }
+								NOT = { is_friend = ROOT }
+								ai = yes
+							}
+							random = {
+								chance = 50
+								modifier = {
+									factor = 0.5
+									liege = {
+										attribute_diff = {
+											character = ROOT
+											attribute = intrigue
+											value = 9
+										}
+									}
+								}
+								modifier = {
+									factor = 0.2
+									liege = {
+										attribute_diff = {
+											character = ROOT
+											attribute = intrigue
+											value = 19
+										}
+									}
+								}
+								add_friend = ROOT 
+							}
+						}
+					}
+				}
+				5 = {
+					liege = {
+						random_realm_lord = {
+							limit = {
+								NOT = { character = ROOT }
+								NOT = { owes_favor_to = ROOT }
+								ai = yes
+							}
+							random = {
+								chance = 50
+								modifier = {
+									factor = 0.5
+									liege = {
+										attribute_diff = {
+											character = ROOT
+											attribute = intrigue
+											value = 9
+										}
+									}
+								}
+								modifier = {
+									factor = 0.2
+									liege = {
+										attribute_diff = {
+											character = ROOT
+											attribute = intrigue
+											value = 19
+										}
+									}
+								}
+								add_favor = ROOT 
+							}
+						}
+					}
+				}
+				3 = {
+					liege = {
+						random_realm_lord = {
+							limit = {
+								NOT = { character = ROOT }
+								NOT = { trait = bloodbound }
+								ai = yes
+							}
+							random = {
+								chance = 30
+								modifier = {
+									factor = 0.5
+									liege = {
+										attribute_diff = {
+											character = ROOT
+											attribute = intrigue
+											value = 9
+										}
+									}
+								}
+								modifier = {
+									factor = 0.2
+									liege = {
+										attribute_diff = {
+											character = ROOT
+											attribute = intrigue
+											value = 19
+										}
+									}
+								}
+								add_trait = bloodbound
+								opinion = {
+									modifier = opinion_blood_bond_to_domitor
+									who = ROOT
+									years = 1000
+								}
+							}
+						}
+					}
+				}
+			}
+			}else = {
+			random_list = {
+				5 = {
+					random_realm_lord = {
+						limit = {
+							NOT = { character = ROOT }
+							NOT = { is_friend = ROOT }
+							ai = yes
+						}
+						random = {
+							chance = 50
+							modifier = {
+								factor = 0.5
+								attribute_diff = {
+									character = ROOT
+									attribute = intrigue
+									value = 9
+								}
+							}
+							modifier = {
+								factor = 0.2
+								attribute_diff = {
+									character = ROOT
+									attribute = intrigue
+									value = 19
+								}
+							}
+							add_friend = ROOT 
+						}
+					}
+				}
+				5 = {
+					random_realm_lord = {
+						limit = {
+							NOT = { character = ROOT }
+							NOT = { owes_favor_to = ROOT }
+							ai = yes
+						}
+						random = {
+							chance = 50
+							modifier = {
+								factor = 0.5
+									attribute_diff = {
+										character = ROOT
+										attribute = intrigue
+										value = 9
+								}
+							}
+							modifier = {
+								factor = 0.2
+								attribute_diff = {
+									character = ROOT
+									attribute = intrigue
+									value = 19
+								}
+							}
+							add_favor = ROOT 
+						}
+					}
+				}
+				3 = {
+					random_realm_lord = {
+						limit = {
+							NOT = { character = ROOT }
+							NOT = { trait = bloodbound }
+							ai = yes
+						}
+						random = {
+							chance = 30
+							modifier = {
+								factor = 0.5
+								attribute_diff = {
+									character = ROOT
+									attribute = intrigue
+									value = 9
+								}
+							}
+							modifier = {
+								factor = 0.2
+								attribute_diff = {
+									character = ROOT
+									attribute = intrigue
+									value = 19
+								}
+							}
+							add_trait = bloodbound
+							opinion = {
+								modifier = opinion_blood_bond_to_domitor
+								who = ROOT
+								years = 1000
+							}
+						}
+					}
+				}
+			}
+		}
+		}
+		EMPEROR = {
+			random_list = {
+				5 = {
+					random_realm_lord = {
+						limit = {
+							NOT = { character = ROOT }
+							NOT = { is_friend = ROOT }
+							ai = yes
+						}
+						random = {
+							chance = 50
+							modifier = {
+								factor = 0.5
+								attribute_diff = {
+									character = ROOT
+									attribute = intrigue
+									value = 9
+								}
+							}
+							modifier = {
+								factor = 0.2
+								attribute_diff = {
+									character = ROOT
+									attribute = intrigue
+									value = 19
+								}
+							}
+							add_friend = ROOT 
+						}
+					}
+				}
+				5 = {
+					random_realm_lord = {
+						limit = {
+							NOT = { character = ROOT }
+							NOT = { owes_favor_to = ROOT }
+							ai = yes
+						}
+						random = {
+							chance = 50
+							modifier = {
+								factor = 0.5
+									attribute_diff = {
+										character = ROOT
+										attribute = intrigue
+										value = 9
+								}
+							}
+							modifier = {
+								factor = 0.2
+								attribute_diff = {
+									character = ROOT
+									attribute = intrigue
+									value = 19
+								}
+							}
+							add_favor = ROOT 
+						}
+					}
+				}
+				3 = {
+					random_realm_lord = {
+						limit = {
+							NOT = { character = ROOT }
+							NOT = { trait = bloodbound }
+							ai = yes
+						}
+						random = {
+							chance = 30
+							modifier = {
+								factor = 0.5
+								attribute_diff = {
+									character = ROOT
+									attribute = intrigue
+									value = 9
+								}
+							}
+							modifier = {
+								factor = 0.2
+								attribute_diff = {
+									character = ROOT
+									attribute = intrigue
+									value = 19
+								}
+							}
+							add_trait = bloodbound
+							opinion = {
+								modifier = opinion_blood_bond_to_domitor
+								who = ROOT
+								years = 1000
+							}
+						}
+					}
+				}
+			}
+		}
+		}
+	}
+}
+
+#scheme against someone
+character_event = {
+    id = POD_vampire_plot_controller.3
+	
+    is_triggered_only = yes
+	hide_window = yes
+
+    immediate = {
+		count_adversaries = yes
+		#find suitable target
+		random_list = {
+			5 = {
+				modifier = {
+					factor = 0
+					has_adversary = no
+				}
+				random_opinion_modifier_target = {
+					limit = {
+						reverse_has_opinion_modifier = {
+							who = PREV
+							modifier = opinion_adversary
+						}
+						higher_tier_than = BARON
+						NOT = { trait = torpor }
+					}
+					save_event_target_as = ai_target
+					set_character_flag = USED_ADVERSARY_IN_CODE
+				}
+			}
+			5 = {
+				trigger_switch = {
+				on_trigger = tier
+				COUNT = {
+					liege = {
+						random_realm_lord = {
+							limit = {
+								NOT = { reverse_opinion = { who = ROOT value = 0 } }
+							}
+							save_event_target_as = ai_target
+						}
+					}
+				}
+				DUKE = {
+					if = { limit = { independent = no }
+						if = { limit = { NOT = { opinion = { who = LIEGE value = -15 } } }
+							random_list = {
+								5 = {
+									liege = {
+										random_realm_lord = {
+										limit = {
+											NOT = { reverse_opinion = { who = ROOT value = 0 } }
+										}
+										save_event_target_as = ai_target
+										}
+									}
+								}
+								5 = {
+									liege = {
+										save_event_target_as = ai_target
+									}
+								}
+							}
+						}else = {
+							liege = {
+								random_realm_lord = {
+									limit = {
+										NOT = { reverse_opinion = { who = ROOT value = 0 } }
+									}
+									save_event_target_as = ai_target
+								}
+							}
+						}
+					}else = {
+						random_realm_lord = {
+							limit = {
+								NOT = { reverse_opinion = { who = ROOT value = 0 } }
+							}
+							save_event_target_as = ai_target
+						}
+					}
+				}
+				KING = {
+					if = { limit = { independent = no }
+						if = { limit = { NOT = { opinion = { who = LIEGE value = -15 } } }
+							random_list = {
+								5 = {
+									liege = {
+										random_realm_lord = {
+										limit = {
+											NOT = { reverse_opinion = { who = ROOT value = 0 } }
+										}
+										save_event_target_as = ai_target
+										}
+									}
+								}
+								5 = {
+									liege = {
+										save_event_target_as = ai_target
+									}
+								}
+							}
+						}else = {
+							liege = {
+								random_realm_lord = {
+									limit = {
+										NOT = { reverse_opinion = { who = ROOT value = 0 } }
+									}
+									save_event_target_as = ai_target
+								}
+							}
+						}
+					}else = {
+						random_realm_lord = {
+							limit = {
+								NOT = { reverse_opinion = { who = ROOT value = 0 } }
+							}
+							save_event_target_as = ai_target
+						}
+					}
+				}
+				EMPEROR = {
+					if = { limit = { independent = no }
+						if = { limit = { NOT = { opinion = { who = LIEGE value = -15 } } }
+							random_list = {
+								5 = {
+									liege = {
+										random_realm_lord = {
+										limit = {
+											NOT = { reverse_opinion = { who = ROOT value = 0 } }
+										}
+										save_event_target_as = ai_target
+										}
+									}
+								}
+								5 = {
+									liege = {
+										save_event_target_as = ai_target
+									}
+								}
+							}
+						}else = {
+							liege = {
+								random_realm_lord = {
+									limit = {
+										NOT = { reverse_opinion = { who = ROOT value = 0 } }
+									}
+									save_event_target_as = ai_target
+								}
+							}
+						}
+					}else = {
+						random_realm_lord = {
+							limit = {
+								NOT = { reverse_opinion = { who = ROOT value = 0 } }
+							}
+							save_event_target_as = ai_target
+						}
+					}
+				}
+				}
+			}
+		}
+		if = { limit = { event_target:ai_target = { is_alive = yes } }
+		random_list = {
+			3 = {
+				#plot_kidnap
+				event_target:ai_target = {
+					random_courtier = {
+						limit = {
+							NOT = { trait = torpor }
+						}
+						imprison = ROOT
+					}
+				}
+			}
+			5 = {
+				#plot_frame_crime
+				event_target:ai_target = {
+					if = {
+						limit = { ai = no }
+						random_courtier = {
+							limit = {
+								NOT = { trait = torpor }
+							}
+							banish = yes
+						}
+					}else = {
+						random_courtier = {
+							limit = {
+								NOT = { trait = torpor }
+							}
+							imprison = ROOT
+						}
+					}
+					
+				}
+			}
+			5 = {
+				#plot_seed_of_rebellion
+				event_target:ai_target = {
+					random_vassal = {
+						limit = {
+							higher_tier_than = BARON
+							NOT = { opinion = { who = PREV value = 50 } }
+						}
+						opinion = {
+							modifier = opinion_seed_of_rebellion
+							who = PREV
+							years = 500
+						}
+					}
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0.7
+					attribute_diff = {
+						character = event_target:ai_target
+						attribute = intrigue
+						value = 1
+					}
+				}
+				modifier = {
+					factor = 0.5
+					attribute_diff = {
+						character = event_target:ai_target
+						attribute = intrigue
+						value = 9
+					}
+				}
+				modifier = {
+					factor = 1.3
+					event_target:ai_target = {
+					attribute_diff = {
+						character = ROOT
+						attribute = intrigue
+						value = 1
+					}
+					}
+				}
+				modifier = {
+					factor = 2
+					event_target:ai_target = {
+					attribute_diff = {
+						character = ROOT
+						attribute = intrigue
+						value = 9
+					}
+					}
+				}
+				#nothing happens
+				set_character_flag = no_plot_fired
+			}
+		}
+		}
+	}
+}

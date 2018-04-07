@@ -1,0 +1,26 @@
+namespace=POD_gehenna_now
+##################################
+#	Gehenna Now! 
+#	1 	 	Chomp chomp chomp
+#	
+#	
+#	
+#	
+#	
+#
+##################################
+character_event = {
+    id = POD_gehenna_now.1
+	
+    is_triggered_only = yes
+	hide_window = yes
+
+    immediate = {
+		any_character = {
+			limit = {
+				is_ruler = no
+			}
+			death = { death_reason = death_execution killer = ROOT }
+		}
+	}
+}

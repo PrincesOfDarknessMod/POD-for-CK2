@@ -629,6 +629,7 @@ character_event = {
 	min_age = 16
 	capable_only = yes
 	prisoner = no
+	is_triggered_only = yes
 	
 	trigger = {
 		has_job_action = action_sabotage_province
@@ -638,15 +639,6 @@ character_event = {
 			trait = serpentis_5
 		}
 		NOT = { has_character_modifier = in_seclusion }
-		location = {
-			random_province_character = {
-				is_alive = yes
-			}
-		}
-	}
-	
-	mean_time_to_happen = {
-		months = 1
 	}
 	
 	option = {
@@ -657,6 +649,7 @@ character_event = {
 				random_province_character = {
 					limit = {
 						is_alive = yes
+						NOT = { trait = torpor }
 					}
 					character_event = { id = POD_vampire_plots.10 days = 7 }
 				}

@@ -7,6 +7,8 @@ character_event = {
 	hide_window = yes
 	only_rulers = yes
 	
+	is_triggered_only = yes
+	
 	trigger = {
 		is_ruler = yes 	
 		NOT = { has_character_flag = FLAG_POD_SETUP_COMMONER_FIRED }
@@ -34,12 +36,6 @@ character_event = {
 		}
 	}
 	
-	mean_time_to_happen = {
-		days = 1
-		modifier = {
-		factor = 0.1 
-		}		
-	}
 	
 	immediate = {
 		character_event = { id = CWOD_setup_noble.1 }

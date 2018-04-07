@@ -1,0 +1,118 @@
+count_adversaries = {
+	PREV = { set_variable = { which = adversary_count value = 0} }
+	any_opinion_modifier_target = {
+		limit = {
+			reverse_has_opinion_modifier = {
+				who = PREV
+				modifier = opinion_adversary
+			}
+		}
+		PREV = { change_variable = { which = adversary_count value = 1} }
+	}
+}
+court_size_flag = {
+	trigger_switch = {
+		on_trigger = tier
+		COUNT = {
+			set_character_flag = court_count_flag
+		}
+		DUKE = {
+			set_character_flag = court_duke_flag
+		}
+		KING = {
+			set_character_flag = court_king_flag
+		}
+		EMPEROR = {
+			set_character_flag = court_emperor_flag
+		}
+	}
+}
+
+clear_court_size_flag = {
+	trigger_switch = {
+		on_trigger = tier
+		COUNT = {
+			clr_character_flag = court_count_flag
+		}
+		DUKE = {
+			clr_character_flag = court_duke_flag
+		}
+		KING = {
+			clr_character_flag = court_king_flag
+		}
+		EMPEROR = {
+			clr_character_flag = court_emperor_flag
+		}
+	}
+}
+
+increase_mortal_influence = {
+	capital_scope = {
+		trigger_switch = {
+		on_trigger = has_province_modifier
+			good_mortal_ruler_influence = {
+				remove_province_modifier = good_mortal_ruler_influence
+				add_province_modifier = { name = superb_mortal_ruler_influence duration = -1 }
+			}
+			average_mortal_ruler_influence = {
+				remove_province_modifier = average_mortal_ruler_influence
+				add_province_modifier = { name = good_mortal_ruler_influence duration = -1 }
+			}
+			bad_mortal_ruler_influence = {
+				remove_province_modifier = bad_mortal_ruler_influence
+				add_province_modifier = { name = average_mortal_ruler_influence duration = -1 }
+			}
+			terrible_mortal_ruler_influence = {
+				remove_province_modifier = terrible_mortal_ruler_influence
+				add_province_modifier = { name = bad_mortal_ruler_influence duration = -1 }
+			}
+		}
+		if = {
+			limit = {
+				NOR = {
+					has_province_modifier = superb_mortal_ruler_influence
+					has_province_modifier = good_mortal_ruler_influence
+					has_province_modifier = average_mortal_ruler_influence
+					has_province_modifier = bad_mortal_ruler_influence
+					has_province_modifier = terrible_mortal_ruler_influence
+				}
+			}
+			add_province_modifier = { name = average_mortal_ruler_influence duration = -1 }
+		}
+	}
+}
+decrease_mortal_influence = {
+	capital_scope = {
+		trigger_switch = {
+		on_trigger = has_province_modifier
+			superb_mortal_ruler_influence = {
+				remove_province_modifier = superb_mortal_ruler_influence
+				add_province_modifier = { name = good_mortal_ruler_influence duration = -1 }
+			}
+			good_mortal_ruler_influence = {
+				remove_province_modifier = good_mortal_ruler_influence
+				add_province_modifier = { name = average_mortal_ruler_influence duration = -1 }
+			}
+			average_mortal_ruler_influence = {
+				remove_province_modifier = average_mortal_ruler_influence
+				add_province_modifier = { name = bad_mortal_ruler_influence duration = -1 }
+			}
+			bad_mortal_ruler_influence = {
+				remove_province_modifier = bad_mortal_ruler_influence
+				add_province_modifier = { name = terrible_mortal_ruler_influence duration = -1 }
+			}
+		}
+		if = {
+			limit = {
+				NOR = {
+					has_province_modifier = superb_mortal_ruler_influence
+					has_province_modifier = good_mortal_ruler_influence
+					has_province_modifier = average_mortal_ruler_influence
+					has_province_modifier = bad_mortal_ruler_influence
+					has_province_modifier = terrible_mortal_ruler_influence
+				}
+			}
+			add_province_modifier = { name = bad_mortal_ruler_influence duration = -1 }
+		}
+	}
+}

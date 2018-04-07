@@ -16,11 +16,13 @@ character_event = {
 	picture = GFX_evt_ghoul_nos_basement_conspiracy
 	border = GFX_event_normal_frame_intrigue
 	
+	is_part_of_plot = yes
 	capable_only = yes
 	prisoner = no
-	is_part_of_plot = yes
+	
 	
 	trigger = {
+		#always = no
 		has_plot = plot_kill_character
 		trait = vampire
 		plot_target_char = {
@@ -44,7 +46,7 @@ character_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 1400
+		months = 1800
 		
 		modifier = {
 			factor = 0.7
@@ -305,7 +307,7 @@ character_event = {
 			}
 		}
 		modifier = {
-			factor = 2
+			factor = 4
 			plot_target_char = {
 				primary_title = { higher_tier_than = KING }
 			}
@@ -315,105 +317,6 @@ character_event = {
 	immediate = {
 		plot_target_char = { save_event_target_as = plot_target }
 		save_event_target_as = plot_creator
-		
-		trigger_switch = {
-			on_trigger = trait
-			vampgeneration1 = {
-				set_variable = { which = my_gen value = 1 }
-			}
-			vampgeneration2 = {
-				set_variable = { which = my_gen value = 2 }
-			}
-			vampgeneration3 = {
-				set_variable = { which = my_gen value = 3 }
-			}
-			vampgeneration4 = {
-				set_variable = { which = my_gen value = 4 }
-			}
-			vampgeneration5 = {
-				set_variable = { which = my_gen value = 5 }
-			}
-			vampgeneration6 = {
-				set_variable = { which = my_gen value = 6 }
-			}
-			vampgeneration7 = {
-				set_variable = { which = my_gen value = 7 }
-			}
-			vampgeneration8 = {
-				set_variable = { which = my_gen value = 8 }
-			}
-			vampgeneration9 = {
-				set_variable = { which = my_gen value = 9 }
-			}
-			vampgeneration10 = {
-				set_variable = { which = my_gen value = 10 }
-			}
-			vampgeneration11 = {
-				set_variable = { which = my_gen value = 11 }
-			}
-			vampgeneration12 = {
-				set_variable = { which = my_gen value = 12 }
-			}
-			vampgeneration13 = {
-				set_variable = { which = my_gen value = 13 }
-			}
-			vampgeneration14 = {
-				set_variable = { which = my_gen value = 14 }
-			}
-			vampgeneration15 = {
-				set_variable = { which = my_gen value = 15 }
-			}
-		}
-		plot_target_char = {
-			trigger_switch = {
-			on_trigger = trait
-			vampgeneration1 = {
-				ROOT =  { set_variable = { which = their_gen value = 1 } }
-			}
-			vampgeneration2 = {
-				ROOT =  { set_variable = { which = their_gen value = 2 } }
-			}
-			vampgeneration3 = {
-				ROOT =  { set_variable = { which = their_gen value = 3 } }
-			}
-			vampgeneration4 = {
-				ROOT =  { set_variable = { which = their_gen value = 4 } }
-			}
-			vampgeneration5 = {
-				ROOT =  { set_variable = { which = their_gen value = 5 } }
-			}
-			vampgeneration6 = {
-				ROOT =  { set_variable = { which = their_gen value = 6 } }
-			}
-			vampgeneration7 = {
-				ROOT =  { set_variable = { which = their_gen value = 7 } }
-			}
-			vampgeneration8 = {
-				ROOT =  { set_variable = { which = their_gen value = 8 } }
-			}
-			vampgeneration9 = {
-				ROOT =  { set_variable = { which = their_gen value = 9 } }
-			}
-			vampgeneration10 = {
-				ROOT =  { set_variable = { which = their_gen value = 10 } }
-			}
-			vampgeneration11 = {
-				ROOT =  { set_variable = { which = their_gen value = 11 } }
-			}
-			vampgeneration12 = {
-				ROOT =  { set_variable = { which = their_gen value = 12 } }
-			}
-			vampgeneration13 = {
-				ROOT =  { set_variable = { which = their_gen value = 13 } }
-			}
-			vampgeneration14 = {
-				ROOT =  { set_variable = { which = their_gen value = 14 } }
-			}
-			vampgeneration15 = {
-				ROOT =  { set_variable = { which = their_gen value = 15 } }
-			}
-			}
-		}
 	}
 	
 		option = {
@@ -450,10 +353,6 @@ character_event = {
 				}
 			}
 			modifier = {
-				factor = 2
-				NOT = { check_variable = { which = their_gen which = my_gen } }
-			}
-			modifier = {
 				factor = 0
 				trait = craven
 			}
@@ -485,8 +384,6 @@ character_event = {
 		}
 		set_character_flag = murder_in_motion
 		hidden_tooltip = {
-			set_variable = { which = their_gen value = 0 }
-			set_variable = { which = my_gen value = 0 }
 			change_variable = { which = global_young_diablerie_count value = 1 }
 		}
 		character_event = { id = POD_young_vampire_kill_plots.2 days = 1 }
@@ -512,8 +409,6 @@ character_event = {
 		}
 		set_character_flag = murder_in_motion
 		hidden_tooltip = {
-			set_variable = { which = their_gen value = 0 }
-			set_variable = { which = my_gen value = 0 }
 			change_variable = { which = global_young_havenattack_count value = 1 }
 		}
 		character_event = { id = POD_young_vampire_kill_plots.11 days = 1 }
@@ -534,10 +429,6 @@ character_event = {
 			wealth = -50
 		}
 		set_character_flag = murder_in_motion
-		hidden_tooltip = {
-			set_variable = { which = their_gen value = 0 }
-			set_variable = { which = my_gen value = 0 }
-		}
 		character_event = { id = POD_young_vampire_kill_plots.24 days = 1}
 	}
 	
@@ -993,7 +884,7 @@ character_event = {
 character_event = {
 	id = POD_young_vampire_kill_plots.5
 	desc = "EVTDESC_POD_ATTACKYOUNG_DIABLERIZE_5"
-	picture = GFX_evt_whispers
+	picture = GFX_evt_vampire_chair_up_stairs
 	border = GFX_event_normal_frame_intrigue
 	
 	is_triggered_only = yes
@@ -1003,7 +894,6 @@ character_event = {
 		NOT = { trait = torpor }
 	}
 	immediate = {
-		change_variable = { which = young_diablerie_successdiablerie_count value = 1 }
 	}
 	option = {
 		name = "EVTOPTA_POD_ATTACKYOUNG_DIABLERIZE_5" # Aww yeah
@@ -1177,6 +1067,8 @@ character_event = {
 					has_global_flag = bookmark1230
 					has_global_flag = bookmark1466
 					has_global_flag = bookmark1355
+					has_global_flag = bookmark1505
+					has_global_flag = bookmark1506
 				}
 			}
 			event_target:plot_target = {
@@ -1602,7 +1494,7 @@ character_event = {
 character_event = {
 	id = POD_young_vampire_kill_plots.6
 	desc = "EVTDESC_POD_ATTACKYOUNG_DIABLERIZE_6"
-	picture = GFX_evt_whispers
+	picture = GFX_evt_vampire_chair_up_stairs
 	border = GFX_event_normal_frame_intrigue
 	
 	is_triggered_only = yes
@@ -1613,7 +1505,6 @@ character_event = {
 	}
 	
 	immediate = {
-		change_variable = { which = young_diablerie_successtorpor_count value = 1 }
 	}
 	option = {
 		name = "EVTOPTA_POD_ATTACKYOUNG_DIABLERIZE_6" # Aww yeah
@@ -1634,7 +1525,29 @@ character_event = {
 					remove_trait = shadow_form
 				}	
 			}
-			add_rival = ROOT
+			#add_rival = ROOT
+			count_adversaries = yes
+			ROOT = { count_adversaries = yes }
+			if = {
+				limit = {
+					can_have_adversary = yes
+					ROOT = { can_have_adversary = yes }
+					is_possible_adversary = yes
+					ROOT = { is_possible_adversary = yes }
+				}
+				opinion = {
+					modifier = opinion_adversary
+					who = ROOT
+					years = 500
+				}
+				ROOT = {
+					opinion = {
+						modifier = opinion_adversary
+						who = PREV
+						years = 500
+					}
+				}
+			}
 			add_trait = torpor
 			add_trait = in_hiding
 						
@@ -1649,7 +1562,7 @@ character_event = {
 character_event = {
 	id = POD_young_vampire_kill_plots.7
 	desc = "EVTDESC_POD_ATTACKYOUNG_DIABLERIZE_7"
-	picture = GFX_evt_whispers
+	picture = GFX_evt_vampire_chair_up_stairs
 	border = GFX_event_normal_frame_intrigue
 	
 	is_triggered_only = yes
@@ -1659,7 +1572,6 @@ character_event = {
 		NOT = { trait = torpor }
 	}
 	immediate = {
-		change_variable = { which = young_diablerie_successtorpor_count value = 1 }
 	}
 	option = {
 		name = "EVTOPTA_POD_ATTACKYOUNG_DIABLERIZE_7" # Aww yeah
@@ -1681,7 +1593,29 @@ character_event = {
 			}
 			add_trait = torpor
 			add_trait = in_hiding
-			add_rival = ROOT
+			#add_rival = ROOT
+			count_adversaries = yes
+			ROOT = { count_adversaries = yes }
+			if = {
+				limit = {
+					can_have_adversary = yes
+					ROOT = { can_have_adversary = yes }
+					is_possible_adversary = yes
+					ROOT = { is_possible_adversary = yes }
+				}
+				opinion = {
+					modifier = opinion_adversary
+					who = ROOT
+					years = 500
+				}
+				ROOT = {
+					opinion = {
+						modifier = opinion_adversary
+						who = PREV
+						years = 500
+					}
+				}
+			}
 							
 			if = { limit = { is_in_society = yes } leave_society = yes }
 							
@@ -1732,7 +1666,7 @@ character_event = {
 character_event = {
 	id = POD_young_vampire_kill_plots.8
 	desc = "EVTDESC_POD_ATTACKYOUNG_DIABLERIZE_8"
-	picture = GFX_evt_whispers
+	picture = GFX_evt_vampire_chair_up_stairs
 	border = GFX_event_normal_frame_intrigue
 	
 	is_triggered_only = yes
@@ -1741,7 +1675,6 @@ character_event = {
 		NOT = { trait = torpor }
 	}
 	immediate = {
-		change_variable = { which = young_diablerie_failureinjured_count value = 1 }
 	}
 	option = {
 		name = "EVTOPTA_POD_ATTACKYOUNG_DIABLERIZE_8" # Aww yeah
@@ -1751,7 +1684,29 @@ character_event = {
 		}
 		add_trait = severely_injured
 		event_target:plot_target = {
-			add_rival = ROOT
+			#add_rival = ROOT
+			count_adversaries = yes
+			ROOT = { count_adversaries = yes }
+			if = {
+				limit = {
+					can_have_adversary = yes
+					ROOT = { can_have_adversary = yes }
+					is_possible_adversary = yes
+					ROOT = { is_possible_adversary = yes }
+				}
+				opinion = {
+					modifier = opinion_adversary
+					who = ROOT
+					years = 500
+				}
+				ROOT = {
+					opinion = {
+						modifier = opinion_adversary
+						who = PREV
+						years = 500
+					}
+				}
+			}
 		}
 	}
 }
@@ -1760,7 +1715,7 @@ character_event = {
 character_event = {
 	id = POD_young_vampire_kill_plots.9
 	desc = "EVTDESC_POD_ATTACKYOUNG_DIABLERIZE_9"
-	picture = GFX_evt_whispers
+	picture = GFX_evt_vampire_chair_up_stairs
 	border = GFX_event_normal_frame_intrigue
 	
 	is_triggered_only = yes
@@ -1769,7 +1724,6 @@ character_event = {
 		NOT = { trait = torpor }
 	}
 	immediate = {
-		change_variable = { which = young_diablerie_failuremaimed_count value = 1 }
 	}
 	option = {
 		name = "EVTOPTA_POD_ATTACKYOUNG_DIABLERIZE_9" # Aww yeah
@@ -1779,7 +1733,29 @@ character_event = {
 		}
 		add_trait = maimed
 		event_target:plot_target = {
-			add_rival = ROOT
+			#add_rival = ROOT
+			count_adversaries = yes
+			ROOT = { count_adversaries = yes }
+			if = {
+				limit = {
+					can_have_adversary = yes
+					ROOT = { can_have_adversary = yes }
+					is_possible_adversary = yes
+					ROOT = { is_possible_adversary = yes }
+				}
+				opinion = {
+					modifier = opinion_adversary
+					who = ROOT
+					years = 500
+				}
+				ROOT = {
+					opinion = {
+						modifier = opinion_adversary
+						who = PREV
+						years = 500
+					}
+				}
+			}
 		}
 	}
 }
@@ -1788,7 +1764,7 @@ character_event = {
 character_event = {
 	id = POD_young_vampire_kill_plots.10
 	desc = "EVTDESC_POD_ATTACKYOUNG_DIABLERIZE_10"
-	picture = GFX_evt_whispers
+	picture = GFX_evt_vampire_chair_up_stairs
 	border = GFX_event_normal_frame_intrigue
 	
 	is_triggered_only = yes
@@ -1797,7 +1773,6 @@ character_event = {
 		NOT = { trait = torpor }
 	}
 	immediate = {
-		change_variable = { which = young_diablerie_failuredeath_count value = 1 }
 	}
 	option = {
 		name = "EVTOPTA_POD_ATTACKYOUNG_DIABLERIZE_10" # Aww yeah
@@ -2361,7 +2336,6 @@ character_event = {
 	}
 	
 	immediate = {
-		change_variable = { which = young_haven_successkill_count value = 1 }
 	}
 	option = {
 		name = "EVTOPTA_POD_ATTACKYOUNG_HAVEN_14" # Aww yeah
@@ -2404,7 +2378,6 @@ character_event = {
 	}
 	
 	immediate = {
-		change_variable = { which = young_haven_successkill_count value = 1 }
 	}
 	option = {
 		name = "EVTOPTA_POD_ATTACKYOUNG_HAVEN_15" # Aww yeah
@@ -2486,7 +2459,6 @@ character_event = {
 	}
 	
 	immediate = {
-		change_variable = { which = young_haven_successtorpor_count value = 1 }
 	}
 	option = {
 		name = "EVTOPTA_POD_ATTACKYOUNG_HAVEN_16" # Aww yeah
@@ -2507,7 +2479,29 @@ character_event = {
 					remove_trait = shadow_form
 				}	
 			}
-			add_rival = ROOT
+			#add_rival = ROOT
+			count_adversaries = yes
+			ROOT = { count_adversaries = yes }
+			if = {
+				limit = {
+					can_have_adversary = yes
+					ROOT = { can_have_adversary = yes }
+					is_possible_adversary = yes
+					ROOT = { is_possible_adversary = yes }
+				}
+				opinion = {
+					modifier = opinion_adversary
+					who = ROOT
+					years = 500
+				}
+				ROOT = {
+					opinion = {
+						modifier = opinion_adversary
+						who = PREV
+						years = 500
+					}
+				}
+			}
 			add_trait = torpor
 			add_trait = in_hiding
 						
@@ -2533,7 +2527,6 @@ character_event = {
 	}
 	
 	immediate = {
-		change_variable = { which = young_haven_successtorpor_count value = 1 }
 	}
 	option = {
 		name = "EVTOPTA_POD_ATTACKYOUNG_HAVEN_17" # Aww yeah
@@ -2554,7 +2547,29 @@ character_event = {
 					remove_trait = shadow_form
 				}	
 			}
-			add_rival = ROOT
+			#add_rival = ROOT
+			count_adversaries = yes
+			ROOT = { count_adversaries = yes }
+			if = {
+				limit = {
+					can_have_adversary = yes
+					ROOT = { can_have_adversary = yes }
+					is_possible_adversary = yes
+					ROOT = { is_possible_adversary = yes }
+				}
+				opinion = {
+					modifier = opinion_adversary
+					who = ROOT
+					years = 500
+				}
+				ROOT = {
+					opinion = {
+						modifier = opinion_adversary
+						who = PREV
+						years = 500
+					}
+				}
+			}
 			add_trait = torpor
 			add_trait = in_hiding
 						
@@ -2619,7 +2634,6 @@ character_event = {
 	}
 	
 	immediate = {
-		change_variable = { which = young_haven_failureservantdead_count value = 1 }
 	}
 	option = {
 		name = "EVTOPTA_POD_ATTACKYOUNG_HAVEN_18" # Aww yeah
@@ -2680,7 +2694,6 @@ character_event = {
 	}
 	
 	immediate = {
-		change_variable = { which = young_haven_failureservantdead_count value = 1 }
 	}
 	option = {
 		name = "EVTOPTA_POD_ATTACKYOUNG_HAVEN_19" # Aww yeah
@@ -2747,7 +2760,6 @@ character_event = {
 	}
 	
 	immediate = {
-		change_variable = { which = young_haven_failuretwodead_count value = 1 }
 	}
 	option = {
 		name = "EVTOPTA_POD_ATTACKYOUNG_HAVEN_20" # Aww yeah
@@ -2815,7 +2827,6 @@ character_event = {
 	}
 	
 	immediate = {
-		change_variable = { which = young_haven_failuretwodead_count value = 1 }
 	}
 	option = {
 		name = "EVTOPTA_POD_ATTACKYOUNG_HAVEN_21" # Aww yeah
@@ -2888,7 +2899,6 @@ character_event = {
 	}
 	
 	immediate = {
-		change_variable = { which = young_haven_failuredeath_count value = 1 }
 	}
 	option = {
 		name = "EVTOPTA_POD_ATTACKYOUNG_HAVEN_22" # Aww yeah
@@ -2917,7 +2927,6 @@ character_event = {
 	}
 	
 	immediate = {
-		change_variable = { which = young_haven_failuredeath_count value = 1 }
 	}
 	option = {
 		name = "EVTOPTA_POD_ATTACKYOUNG_HAVEN_23" # Aww yeah
@@ -3046,7 +3055,7 @@ character_event = {
 character_event = {
 	id = POD_young_vampire_kill_plots.25
 	desc = "EVTDESC_POD_ATTACKYOUNG_DELEGATE_25"
-	picture = GFX_evt_ghoul_request
+	picture = GFX_evt_vampire_chair_up_stairs
 	border = GFX_event_normal_frame_intrigue
 	
 	is_triggered_only = yes
@@ -3655,7 +3664,6 @@ character_event = {
 	}
 	
 	immediate = {
-		change_variable = { which = young_delegate_successkill_count value = 1 }
 		
 		plot_target_char = {
 			trigger_switch = {
@@ -4079,7 +4087,6 @@ character_event = {
 	}
 	
 	immediate = {
-		change_variable = { which = young_delegate_successkill_count value = 1 }
 		
 		plot_target_char = {
 			trigger_switch = {
@@ -4576,7 +4583,6 @@ character_event = {
 	}
 	
 	immediate = {
-		change_variable = { which = young_delegate_successtorpor_count value = 1 }
 	}
 	option = {
 		name = "EVTOPTA_POD_ATTACKYOUNG_DELEGATE_29" # Aww yeah
@@ -4597,7 +4603,29 @@ character_event = {
 					remove_trait = shadow_form
 				}	
 			}
-			add_rival = event_target:plot_attacker
+			#add_rival = event_target:plot_attacker
+			count_adversaries = yes
+			event_target:plot_attacker = { count_adversaries = yes }
+			if = {
+				limit = {
+					can_have_adversary = yes
+					event_target:plot_attacker = { can_have_adversary = yes }
+					is_possible_adversary = yes
+					event_target:plot_attacker = { is_possible_adversary = yes }
+				}
+				opinion = {
+					modifier = opinion_adversary
+					who = event_target:plot_attacker
+					years = 500
+				}
+				event_target:plot_attacker = {
+					opinion = {
+						modifier = opinion_adversary
+						who = PREV
+						years = 500
+					}
+				}
+			}
 			add_trait = torpor
 			add_trait = in_hiding
 						
@@ -4623,7 +4651,6 @@ character_event = {
 	}
 	
 	immediate = {
-		change_variable = { which = young_delegate_successtorpor_count value = 1 }
 	}
 	option = {
 		name = "EVTOPTA_POD_ATTACKYOUNG_DELEGATE_30" # Aww yeah
@@ -4644,8 +4671,30 @@ character_event = {
 					remove_trait = shadow_form
 				}	
 			}
-			add_rival = ROOT
-			add_rival = event_target:plot_attacker
+			#add_rival = ROOT
+			#add_rival = event_target:plot_attacker
+			count_adversaries = yes
+			event_target:plot_attacker = { count_adversaries = yes }
+			if = {
+				limit = {
+					can_have_adversary = yes
+					event_target:plot_attacker = { can_have_adversary = yes }
+					is_possible_adversary = yes
+					event_target:plot_attacker = { is_possible_adversary = yes }
+				}
+				opinion = {
+					modifier = opinion_adversary
+					who = event_target:plot_attacker
+					years = 500
+				}
+				event_target:plot_attacker = {
+					opinion = {
+						modifier = opinion_adversary
+						who = PREV
+						years = 500
+					}
+				}
+			}
 			add_trait = torpor
 			add_trait = in_hiding
 						
@@ -4740,7 +4789,6 @@ character_event = {
 	}
 	
 	immediate = {
-		change_variable = { which = young_delegate_failureinjured_count value = 1 }
 	}
 	option = {
 		name = "EVTOPTA_POD_ATTACKYOUNG_DELEGATE_31" # Aww yeah
@@ -4753,7 +4801,29 @@ character_event = {
 		}
 		
 		event_target:plot_target = {
-			add_rival = event_target:plot_attacker
+			#add_rival = event_target:plot_attacker
+			count_adversaries = yes
+			event_target:plot_attacker = { count_adversaries = yes }
+			if = {
+				limit = {
+					can_have_adversary = yes
+					event_target:plot_attacker = { can_have_adversary = yes }
+					is_possible_adversary = yes
+					event_target:plot_attacker = { is_possible_adversary = yes }
+				}
+				opinion = {
+					modifier = opinion_adversary
+					who = event_target:plot_attacker
+					years = 500
+				}
+				event_target:plot_attacker = {
+					opinion = {
+						modifier = opinion_adversary
+						who = PREV
+						years = 500
+					}
+				}
+			}
 		}
 	}
 }
@@ -4773,7 +4843,6 @@ character_event = {
 	}
 	
 	immediate = {
-		change_variable = { which = young_delegate_failureinjured_count value = 1 }
 	}
 	option = {
 		name = "EVTOPTA_POD_ATTACKYOUNG_DELEGATE_32" # Aww yeah
@@ -4790,7 +4859,29 @@ character_event = {
 		}
 		
 		event_target:plot_target = {
-			add_rival = event_target:plot_attacker
+			#add_rival = event_target:plot_attacker
+			count_adversaries = yes
+			event_target:plot_attacker = { count_adversaries = yes }
+			if = {
+				limit = {
+					can_have_adversary = yes
+					event_target:plot_attacker = { can_have_adversary = yes }
+					is_possible_adversary = yes
+					event_target:plot_attacker = { is_possible_adversary = yes }
+				}
+				opinion = {
+					modifier = opinion_adversary
+					who = event_target:plot_attacker
+					years = 500
+				}
+				event_target:plot_attacker = {
+					opinion = {
+						modifier = opinion_adversary
+						who = PREV
+						years = 500
+					}
+				}
+			}
 		}
 	}
 }
@@ -4810,7 +4901,6 @@ character_event = {
 	}
 	
 	immediate = {
-		change_variable = { which = young_delegate_failuremaimed_count value = 1 }
 	}
 	option = {
 		name = "EVTOPTA_POD_ATTACKYOUNG_DELEGATE_33" # Aww yeah
@@ -4823,7 +4913,29 @@ character_event = {
 		}
 		
 		event_target:plot_target = {
-			add_rival = event_target:plot_attacker
+			#add_rival = event_target:plot_attacker
+			count_adversaries = yes
+			event_target:plot_attacker = { count_adversaries = yes }
+			if = {
+				limit = {
+					can_have_adversary = yes
+					event_target:plot_attacker = { can_have_adversary = yes }
+					is_possible_adversary = yes
+					event_target:plot_attacker = { is_possible_adversary = yes }
+				}
+				opinion = {
+					modifier = opinion_adversary
+					who = event_target:plot_attacker
+					years = 500
+				}
+				event_target:plot_attacker = {
+					opinion = {
+						modifier = opinion_adversary
+						who = PREV
+						years = 500
+					}
+				}
+			}
 		}
 	}
 }
@@ -4843,7 +4955,6 @@ character_event = {
 	}
 	
 	immediate = {
-		change_variable = { which = young_delegate_failuremaimed_count value = 1 }
 	}
 	option = {
 		name = "EVTOPTA_POD_ATTACKYOUNG_DELEGATE_34" # Aww yeah
@@ -4860,7 +4971,29 @@ character_event = {
 		}
 		
 		event_target:plot_target = {
-			add_rival = event_target:plot_attacker
+			#add_rival = event_target:plot_attacker
+			count_adversaries = yes
+			event_target:plot_attacker = { count_adversaries = yes }
+			if = {
+				limit = {
+					can_have_adversary = yes
+					event_target:plot_attacker = { can_have_adversary = yes }
+					is_possible_adversary = yes
+					event_target:plot_attacker = { is_possible_adversary = yes }
+				}
+				opinion = {
+					modifier = opinion_adversary
+					who = event_target:plot_attacker
+					years = 500
+				}
+				event_target:plot_attacker = {
+					opinion = {
+						modifier = opinion_adversary
+						who = PREV
+						years = 500
+					}
+				}
+			}
 		}
 	}
 }
@@ -4880,7 +5013,6 @@ character_event = {
 	}
 	
 	immediate = {
-		change_variable = { which = young_delegate_failuredeath_count value = 1 }
 	}
 	option = {
 		name = "EVTOPTA_POD_ATTACKYOUNG_DELEGATE_35" # Aww yeah
@@ -4909,7 +5041,6 @@ character_event = {
 	}
 	
 	immediate = {
-		change_variable = { which = young_delegate_failuredeath_count value = 1 }
 	}
 	option = {
 		name = "EVTOPTA_POD_ATTACKYOUNG_DELEGATE_36" # Aww yeah

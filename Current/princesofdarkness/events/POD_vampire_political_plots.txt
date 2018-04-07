@@ -14,6 +14,7 @@ character_event = {
 	id = POD_vampire_political_plots.1
 	hide_window = yes
 	
+	only_playable = yes
 	ai = no
 	capable_only = yes
 	prisoner = no
@@ -961,7 +962,13 @@ character_event = {
 		}
 		event_target:pol_target = {
 			liege = {
-				add_rival = PREV
+				event_target:pol_target = {
+					opinion = {
+						modifier = opinion_seed_of_rebellion
+						who = PREV
+						years = 500
+					}
+				}
 			}
 		}
 		

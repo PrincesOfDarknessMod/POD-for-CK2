@@ -7,15 +7,12 @@ character_event = {
 	hide_window = yes
 	max_age = 5
 	min_age = 1
+	is_triggered_only = yes
 	
 	trigger = {
 		trait = mortal
 		NOT = { trait = wolf-blooded }
 		NOT = { has_character_flag = FLAG_POD_WOLF_CHILD_FIRED }
-	}
-	
-	mean_time_to_happen = {
-		days = 1
 	}
 	
 	immediate = {
@@ -53,6 +50,8 @@ character_event = {
 	hide_window = yes
 	min_age = 16
 	max_age = 40
+	is_triggered_only = yes
+	
 	trigger = {
 		trait = mortal
 		trait = wolf-blooded
@@ -66,30 +65,6 @@ character_event = {
 		NOT = { trait = geist }
 		NOT = { trait = demon }
 		NOT = { trait = fledgling }
-	}
-	
-	mean_time_to_happen = {
-		years = 20
-		
-		 modifier = {
-			factor = 0.6
-			father = { trait = wolf-blooded }
-		}
-	
-		modifier = {
-			factor = 0.5
-			mother = { trait = wolf-blooded }
-		}
-
-		modifier = {
-			factor = 0.3
-			father = { trait = werewolf }
-		}
-		
-		modifier = {
-			factor = 0.2
-			mother = { trait = werewolf }
-		}
 	}
 	
 	immediate = {	

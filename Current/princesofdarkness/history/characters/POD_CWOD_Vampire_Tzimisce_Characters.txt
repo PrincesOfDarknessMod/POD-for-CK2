@@ -65,12 +65,12 @@
 605123 = {
 # Kartarirya, the Many-Armed
 	name = "Kartarirya"
-	dynasty = "5500088"
+	dynasty = 5500109
 	culture = "sinhala"
 	religion = "autarkis"
 	trait = "scholarly_theologian"
 	trait = "canon" 
-	female = no
+	female = yes
 	martial = 12
 	diplomacy = 7
 	learning = 13
@@ -78,11 +78,11 @@
 	stewardship = 7
 	father = 505021
 
-	100.4.12 = {
-		birth = 100.4.12
+	60.4.12 = {
+		birth = 60.4.12
 		}
 		
-	130.4.12 = {
+	100.4.12 = {
 		add_trait = "vampire"
 		add_trait = "wyrm_taint"
 		add_trait = "tzimisce"
@@ -119,7 +119,6 @@
 		remove_trait = "torpor"
 		remove_trait = "tzimisce"
 		add_trait = "tzimisceantitribu"
-		remove_trait = "elder"
 	}	
 	
 	1506.1.1 = {
@@ -137,8 +136,8 @@
 605125 = {
 # Byelobog, the White God
 	name = "Byelobog"
-	dynasty = "5500047"
-	culture = "russian"
+	dynasty = 5500110 
+	culture = "lithuanian"
 	religion = "autarkis"
 	trait = "scholarly_theologian"
 	trait = "canon"
@@ -147,7 +146,6 @@
 	trait = "patient"
 	trait = "craven"
 	trait = "slothful"
-	trait = "genius"
 	disallow_random_traits = yes
 	female = no
 	martial = 7
@@ -157,11 +155,11 @@
 	stewardship = 7
 	father = 505021
 
-	104.4.12 = {
-		birth = 104.4.12
+	60.4.12 = {
+		birth = 6.4.12
 		}
 		
-	139.4.12 = {
+	109.4.12 = {
 		add_trait = "vampire"
 		add_trait = "wyrm_taint"
 		add_trait = "tzimisce"
@@ -199,7 +197,7 @@
 605124 = {
 # Noriz, Corruptor of Legions
 	name = "Noriz"
-	dynasty = "5500054"
+	dynasty = 5500108
 	culture = "romanian"
 	religion = "koldun"
 	trait = "brilliant_strategist"
@@ -216,6 +214,7 @@
 	trait = wroth
 	trait = slothful
 	disallow_random_traits = yes
+	father = 790247
 
 	500.4.12 = {
 		birth = 500.4.12
@@ -244,15 +243,16 @@
 		add_trait = "hedonist"
 		add_trait = "proud"
 		add_trait = "rough_terrain_leader"
-		effect = { set_government_type = traditions_government }	
+		effect = { set_government_type = cult_government }	
 		effect = { join_society = via_mutationis } 		
 		}			
 	
 	1229.1.1 = {
 		remove_trait = "bookmark990"
 		add_trait = "bookmark1230"		
-		add_trait = "content"
 		effect = {add_rival = 505053 }
+		effect = { add_rival = 790247 }
+		add_claim = e_voivodate
 	}
 	
 	1350.1.1 = {
@@ -267,13 +267,12 @@
 605111 = {
 # Old Clan Tzimisce of Poland
 	name = "Hedeon Yaroslavich"
-	dynasty = "5500050"
+	dynasty = 5500110
 	culture = "polish"
 	trait = "flamboyant_schemer"
 	trait = "ambitious"
 	trait = "cruel"
 	trait = "arbitrary"
-	trait = "shrewd"
 	trait = "envious"
 	trait = "cynical"
 	disallow_random_traits = yes
@@ -285,6 +284,7 @@
 	learning = 9
 	intrigue = 10
 	stewardship = 7
+	father = 605125
 
 	412.4.12 = {
 		birth = 412.4.12
@@ -353,7 +353,7 @@
 605126 = {
 # Triglav, the Three-Headed
 	name = "Triglav"
-	dynasty = "5500054"
+	dynasty = 5500111
 	culture = "romanian"
 	trait = "mastermind_theologian"
 	religion = "koldun"
@@ -367,9 +367,10 @@
 	learning = 11
 	intrigue = 9
 	stewardship = 10
+	father= 505021
 
-	90.12.12 = {
-		birth = 90.12.12
+	60.12.12 = {
+		birth = 60.12.12
 		}
 		
 	120.12.12 = {
@@ -380,7 +381,7 @@
 		add_trait = "auspex_5"
 		add_trait = "animalism_5"
 		add_trait = "bloodpotency_7"
-		add_trait = "vampgeneration5"
+		add_trait = "vampgeneration4"
 		give_nickname=nick_the_threeheaded
 		}
 			
@@ -394,7 +395,7 @@
 605112 = {
 # Velya, the Vivisectionist, Cardinal of the Land Beyond the Forest
 	name = "Velya"
-	dynasty = "5500054"
+	dynasty = 5500111
 	culture = "romanian"
 	trait = "mastermind_theologian"
 	religion = "koldun"
@@ -413,6 +414,7 @@
 	learning = 11
 	intrigue = 9
 	stewardship = 7
+	father = 605126
 
 	130.12.12 = {
 		birth = 130.12.12
@@ -428,7 +430,6 @@
 		add_trait = "vampgeneration5"
 		give_nickname=nick_the_flayer
 		effect = { join_society = via_mutationis }
-		effect = { set_society_grandmaster = yes }
 		}
 		
 	989.1.1 = {
@@ -496,6 +497,7 @@
 	female = no
 	dna="ahiab0fgc00"
 	properties="nj0jdj00000000"
+	father = 790326
 
 	876.6.6 = {
 		birth = 876.6.6 
@@ -522,8 +524,7 @@
 		remove_trait = "bookmark990"
 		add_trait = "bookmark1230"
 		effect = { set_government_type = traditions_government }
-		effect = { join_society = via_mutationis }
-		effect = { set_society_grandmaster = yes }		
+		effect = { join_society = via_mutationis }		
 	}
 	1249.12.30 = {
 		add_trait = "torpor"
@@ -569,6 +570,7 @@
 	dynasty = 5500097
 	trait = "canon" 
 	female = yes
+	father = 790337
 	
 	180.1.1 = {
 		birth = 180.1.1
@@ -633,7 +635,7 @@
 # Kiev
 	name = "Darvag Grozny"
 	culture = "russian"
-	dynasty = "5500047"
+	dynasty = 5500108
 	religion = "koldun"
 	trait = "vampire"
 	trait = "wyrm_taint"	
@@ -651,6 +653,7 @@
 	trait = "impaler"
 	disallow_random_traits = yes
 	female = no
+	father = 790339
 	
 	1037.1.1 = {
 		birth = 1037.1.1 
@@ -669,8 +672,8 @@
 	}	
 	
 	1506.1.1 = {
-		remove_trait = "bookmark1505"
-		add_trait = "bookmark1506"
+		remove_trait = "bookmark1355"
+		add_trait = "bookmark1505"
 	
 	}	
 	1999.1.1 = {
@@ -747,7 +750,7 @@
 790115 = {
 # Formal leader of the Obsrtus, Vykos'Sire
 	name = "Symeon"
-	dynasty = "5500098"
+	dynasty = "5500107"
 	culture = "greek"
 	trait = "mastermind_theologian"
 	trait = "erudite"
@@ -757,6 +760,7 @@
 	trait = "canon" 
 	disallow_random_traits = yes
 	female = no
+	father = 790340
 
 	682.1.1 = {
 		birth = 682.1.1
@@ -805,7 +809,7 @@
 790157 = {
 # Sole cainite of Arta
 	name = "Kyprios"
-	dynasty = "5500098"
+	dynasty = 5500107
 	culture = "greek"
 	religion = "koldun"
 	trait = "scholarly_theologian"
@@ -816,6 +820,7 @@
 	trait = "canon" 
 	disallow_random_traits = yes
 	female = no
+	father = 790115
 
 	782.1.1 = {
 		birth = 782.1.1
@@ -827,7 +832,7 @@
 		add_trait = "vicissitude_3"
 		add_trait = "majesty_2"
 		add_trait = "dominate_1"
-		add_trait = "vampgeneration8"
+		add_trait = "vampgeneration7"
 		add_trait = "bloodpotency_6"
 		add_trait = "neonate"
 		effect = { set_government_type = traditions_government }		
@@ -856,6 +861,655 @@
 		add_trait = "bookmark1505"
 		effect = { leave_society = yes }
 	}		
+	1999.1.1 = {
+		death = yes
+		}		
+}
+
+790247 = {
+	name = "Yorak"
+	culture = "romanian"
+	religion = "koldun"
+	trait = "methuselah"
+	trait = "tzimisce"
+	trait = "vicissitude_5"
+	trait = "animalism_5"
+	trait = "auspex_5"
+	trait = "dominate_5"	
+	trait = "majesty_5"	
+	trait = "obfuscate_5"
+	trait = "resilience_5"
+	trait = "vigor_5"
+	trait = "bloodpotency_6"
+	trait = "vampgeneration4"
+	trait = "mastermind_theologian"
+	trait = "impaler"
+	trait = "zealous"
+	trait = "cruel"
+	trait = "arbitrary"
+	trait = "content"
+	disallow_random_traits = yes
+	father = "505021"
+	dynasty = 5500108
+	trait = "canon" 
+	female = no
+
+	60.1.1 = {
+		birth = 60.1.1
+		}
+	69.1.1 = {
+		add_trait = vampire
+		add_trait = "wyrm_taint"		
+		}	
+	989.1.1 = {
+		add_trait = "bookmark990"
+		}
+	1229.1.1 = {
+		remove_trait = "bookmark990"
+		add_trait = "bookmark1230"
+		effect = { set_government_type = cult_government }
+		effect = { join_society = via_mutationis }
+		effect = { set_society_grandmaster = yes }
+	}			
+	1354.1.1 = {
+		remove_trait = "bookmark1230"
+		add_trait = "bookmark1355"
+	}	
+	
+	1499.1.1 = {
+		remove_trait = "bookmark1355"
+		death = yes }
+}
+
+790248 = {
+	name = "Tabak"
+	culture = "romanian"
+	religion = "koldun"
+	trait = "methuselah"
+	trait = "tzimisce"
+	trait = "vicissitude_5"
+	trait = "animalism_5"
+	trait = "dominate_5"	
+	trait = "obfuscate_5"
+	trait = "bloodpotency_6"
+	trait = "vampgeneration4"
+	trait = "tough_soldier"
+	trait = "impaler"
+	trait = "deceitful"
+	trait = "cruel"
+	trait = "arbitrary"
+	disallow_random_traits = yes
+	father = "505021"
+	dynasty = 5500106 
+	trait = "canon" 
+	female = no
+
+	60.1.1 = {
+		birth = 60.1.1
+		}
+	69.1.1 = {
+		add_trait = vampire
+		add_trait = "wyrm_taint"		
+		}	
+	989.1.1 = {
+		add_trait = "bookmark990"
+		}
+	1229.1.1 = {
+		remove_trait = "bookmark990"
+		add_trait = "bookmark1230"
+		effect = { set_government_type = cult_government }
+		add_claim = e_voivodate
+	}			
+	1354.1.1 = {
+		remove_trait = "bookmark1230"
+		add_trait = "bookmark1355"
+	}	
+	
+	1495.1.1 = {
+		death = yes }
+}
+
+
+790253 = {
+	name = "Geidas"
+	culture = "lithuanian"
+	religion = "koldun"
+	trait = "elder"
+	trait = "tzimisce"
+	trait = "vicissitude_2"
+	trait = "dominate_4"	
+	trait = "majesty_5"
+	trait = "bloodpotency_6"
+	trait = "vampgeneration7"
+	trait = "flamboyant_schemer"
+	trait = "impaler"
+	trait = "craven"
+	trait = "cruel"
+	trait = "arbitrary"
+	disallow_random_traits = yes
+	father = 790342
+	dynasty = 5500108
+	trait = "canon" 
+	female = no
+
+	690.1.1 = {
+		birth = 690.1.1
+		}
+	710.1.1 = {
+		add_trait = vampire
+		add_trait = "wyrm_taint"		
+		}	
+	989.1.1 = {
+		add_trait = "bookmark990"
+		}
+	1229.1.1 = {
+		remove_trait = "bookmark990"
+		add_trait = "bookmark1230"
+		effect = { set_government_type = cult_government }
+		effect = { join_society = via_mutationis }
+	}			
+	1232.1.1 = {
+		remove_trait = "bookmark1230"
+		death = yes }
+}
+
+790261 = {
+# Dracon possesing the archbishop of Nod
+	name = "Nikita of Sredetz"
+	dynasty = "5500107"
+	culture = "hungarian"
+	trait = "mastermind_theologian"
+	trait = "erudite"
+	trait = "deceitful"
+	trait = "scholar"
+	trait = "cynical"
+	religion = "cainite"
+	trait = "canon" 
+	disallow_random_traits = yes
+	female = no
+	father = 790343
+
+	782.1.1 = {
+		birth = 782.1.1
+		}
+	803.1.1 = {
+		add_trait = "tzimisce"
+		add_trait = "vampire"
+		add_trait = "wyrm_taint"
+		add_trait = "vicissitude_5"
+		add_trait = "majesty_5"
+		add_trait = "dominate_5"
+		add_trait = "vampgeneration6"
+		add_trait = "bloodpotency_6"
+		add_trait = "neonate"
+		effect = { set_government_type = traditions_government }		
+		}
+	805.1.1 = {
+		remove_trait = "neonate"
+		add_trait = "ancilla"
+		}
+	989.1.1 = {
+		add_trait = "bookmark990"
+		remove_trait = "ancilla"
+		add_trait = "elder"
+		}
+	1229.1.1 = {
+		remove_trait = "bookmark990"
+		add_trait = "bookmark1230"
+		effect = { join_society = crimson_curia } 
+		effect = { set_society_grandmaster = yes }
+	}				
+	1232.1.1 = {
+		remove_trait = "bookmark1230"
+		death = yes
+	}	
+	
+}
+
+790326 = {
+	name = "Kosczecsyku"
+	culture = "romanian"
+	religion = "koldun"
+	trait = "methuselah"
+	trait = "tzimisce"
+	trait = "vicissitude_5"
+	trait = "animalism_5"
+	trait = "auspex_5"
+	trait = "dominate_5"	
+	trait = "bloodpotency_6"
+	trait = "vampgeneration5"
+	trait = "mastermind_theologian"
+	trait = "zealous"
+	trait = "mystic"
+	trait = "arbitrary"
+	trait = "content"
+	disallow_random_traits = yes
+	father = 790247
+	dynasty = 5500108
+	trait = "canon" 
+	female = no
+
+	80.1.1 = {
+		birth = 80.1.1
+		}
+	99.1.1 = {
+		add_trait = vampire
+		add_trait = "wyrm_taint"		
+		}		
+	983.1.1 = {
+		death = yes
+		}	
+}
+
+790337 = {
+	name = "Damek Ruthven" 
+	culture = "romanian"
+	religion = "innocent"
+	trait = "deceitful"
+	trait = "quick"
+	trait = "scholar"
+	trait = "ambitious"
+	trait = "envious"
+	trait = "cruel"
+	disallow_random_traits = yes
+	dynasty = 5500097
+	trait = "canon" 
+	female = no
+	father = 790338
+	
+	80.1.1 = {
+		birth = 80.1.1
+		}
+	140.1.1 = {
+		trait = "tzimisce"
+		add_trait = "vampire"
+		add_trait = "wyrm_taint"
+		religion = "koldun"
+		add_trait = "vicissitude_1"
+		add_trait = "animalism_1"
+		add_trait = "auspex_1"
+		add_trait = "vampgeneration5"
+		add_trait = "bloodpotency_6"
+		add_trait = "neonate"
+		effect = { set_government_type = traditions_government }		
+		}
+	301.1.1 = {
+		remove_trait = "neonate"
+		add_trait = "ancilla"
+		}
+	989.1.1 = {
+		add_trait = "bookmark990"
+		remove_trait = "ancilla"
+		add_trait = "methuselah"
+		}
+	1229.1.1 = {
+		remove_trait = "bookmark990"
+		add_trait = "bookmark1230"
+		remove_trait = "vicissitude_1"
+		remove_trait = "animalism_1"
+		remove_trait = "auspex_1"
+		add_trait = "auspex_5"
+		add_trait = "dominate_5"
+		add_trait = "vicissitude_5"
+		add_trait = "animalism_5"
+		add_trait = "resilience_3"
+		add_trait = "majesty_1"
+		add_trait = "mortis_1"
+		effect = { join_society = via_mutationis } 
+	}				
+	1399.1.1 = {
+		death = yes
+		}		
+}
+
+790338 = {
+	name = "Ruthven" 
+	culture = "romanian"
+	religion = "innocent"
+	trait = "deceitful"
+	trait = "scholar"
+	trait = "zealous"
+	trait = "envious"
+	trait = "cruel"
+	disallow_random_traits = yes
+	dynasty = 5500097
+	trait = "canon" 
+	female = no
+	father = 505021
+	
+	60.1.1 = {
+		birth = 60.1.1
+		}
+	100.1.1 = {
+		trait = "tzimisce"
+		add_trait = "vampire"
+		add_trait = "wyrm_taint"
+		religion = "koldun"
+		add_trait = "vicissitude_1"
+		add_trait = "animalism_1"
+		add_trait = "auspex_1"
+		add_trait = "vampgeneration4"
+		add_trait = "bloodpotency_6"
+		add_trait = "neonate"
+		effect = { set_government_type = traditions_government }		
+		}
+	301.1.1 = {
+		remove_trait = "neonate"
+		add_trait = "ancilla"
+		}
+	989.1.1 = {
+		add_trait = "bookmark990"
+		remove_trait = "ancilla"
+		add_trait = "methuselah"
+		}
+	1229.1.1 = {
+		remove_trait = "bookmark990"
+		add_trait = "bookmark1230"
+		remove_trait = "vicissitude_1"
+		remove_trait = "animalism_1"
+		remove_trait = "auspex_1"
+		add_trait = "auspex_5"
+		add_trait = "dominate_5"
+		add_trait = "vicissitude_5"
+		add_trait = "animalism_5"
+		add_trait = "resilience_5"
+		add_trait = "majesty_5"
+		add_trait = "torpor"
+	}				
+	1354.1.1 = {
+		remove_trait = "bookmark1230"
+		add_trait = "bookmark1355"
+	}	
+	
+	1499.1.1 = {
+		remove_trait = "bookmark1355"
+		add_trait = "bookmark1505"
+	}		
+	1506.1.1 = {
+		remove_trait = "bookmark1505"
+		add_trait = "bookmark1505"
+	}	
+	1999.1.1 = {
+		death = yes
+		}			
+}
+
+790339 = {
+	name = "Vidor"
+	dynasty = 5500108
+	culture = "romanian"
+	religion = "koldun"
+	trait = "martial_cleric"
+	trait = "zealous"
+	trait = "cruel"
+	trait = "arbitrary"
+	trait = "impaler"
+	father = 605124
+	trait = "canon" 
+	disallow_random_traits = yes
+	female = no
+
+	906.6.6 = {
+		birth = 906.6.6 
+		}
+		
+	972.1.1 = {
+		add_trait = "vampire"
+		add_trait = "wyrm_taint"
+		add_trait = "neonate"
+		add_trait = "tzimisce"
+		add_trait = "animalism_3"
+		add_trait = "vicissitude_4"
+		add_trait = "bloodpotency_6"
+		add_trait = "vampgeneration6"
+		}			
+	1140.1.1 = {
+		remove_trait = "neonate"
+		add_trait = "elder"
+		add_trait = "auspex_2"
+	}		
+	1229.1.1 = {
+		add_trait = "bookmark1230"
+		effect = { set_government_type = traditions_government }
+		effect = { join_society = via_mutationis }
+	}
+	1354.1.1 = {
+		remove_trait = "bookmark1230"
+		add_trait = "bookmark1355"
+	}	
+	
+	1499.1.1 = {
+		remove_trait = "bookmark1355"
+		religion = "sabbat"
+		effect = { set_government_type = "milan_government" }		
+		effect = { leave_society = yes }
+		effect = { join_society = "path_of_metamorphosis" }		
+		add_trait = "bookmark1505"
+	}		
+	1506.1.1 = {
+		remove_trait = "bookmark1505"
+		add_trait = "bookmark1505"
+	}	
+	1999.1.1 = {
+		death = yes
+		}		
+}
+
+790340 = {
+	name = "Gesu"
+	dynasty = "5500107"
+	culture = "greek"
+	trait = "mastermind_theologian"
+	trait = "erudite"
+	trait = "scholar"
+	religion = "koldun"
+	trait = "canon" 
+	disallow_random_traits = yes
+	female = no
+	father = 790341
+
+	660.1.1 = {
+		birth = 660.1.1
+		}
+	701.1.1 = {
+		add_trait = "tzimisce"
+		add_trait = "vampire"
+		add_trait = "wyrm_taint"
+		add_trait = "vicissitude_5"
+		add_trait = "majesty_5"
+		add_trait = "dominate_5"
+		add_trait = "vampgeneration6"
+		add_trait = "bloodpotency_6"
+		add_trait = "neonate"
+		effect = { set_government_type = traditions_government }		
+		}
+	801.1.1 = {
+		remove_trait = "neonate"
+		add_trait = "ancilla"
+		}
+	989.1.1 = {
+		add_trait = "bookmark990"
+		remove_trait = "ancilla"
+		add_trait = "elder"
+		}
+	1229.1.1 = {
+		remove_trait = "bookmark990"
+		death = yes	
+		}
+}
+
+790341 = {
+	name = "The Dracon"
+	dynasty = 5500107
+	culture = "greek"
+	religion = "koldun"
+	trait = "mastermind_theologian"
+	trait = "ambitious"
+	trait = "deceitful"
+	trait = "genius"
+	trait = "proud"
+	trait = "scholar"
+	father = 505021
+	trait = "canon" 
+	disallow_random_traits = yes
+	female = no
+
+	60.6.6 = {
+		birth = 60.6.6 
+		}
+		
+	102.1.1 = {
+		add_trait = "vampire"
+		add_trait = "wyrm_taint"
+		add_trait = "neonate"
+		add_trait = "tzimisce"
+		add_trait = "animalism_5"
+		add_trait = "vicissitude_5"
+		add_trait = "dominate_5"
+		add_trait = "majesty_5"
+		add_trait = "bloodpotency_6"
+		add_trait = "vampgeneration4"
+		}			
+	1140.1.1 = {
+		remove_trait = "neonate"
+		add_trait = "methuselah"
+		add_trait = "auspex_5"
+	}		
+	1229.1.1 = {
+		add_trait = "bookmark1230"
+		effect = { set_government_type = traditions_government }
+	}
+	1354.1.1 = {
+		remove_trait = "bookmark1230"
+		add_trait = "bookmark1355"
+	}	
+	
+	1499.1.1 = {
+		remove_trait = "bookmark1355"
+		add_trait = "torpor"
+		effect = { leave_society = yes }	
+		add_trait = "bookmark1505"
+	}		
+	1506.1.1 = {
+		remove_trait = "bookmark1505"
+		add_trait = "bookmark1505"
+	}	
+	1999.1.1 = {
+		death = yes
+		}		
+}
+
+790342 = {
+	name = "Visya"
+	culture = "romanian"
+	religion = "koldun"
+	trait = "elder"
+	trait = "tzimisce"
+	trait = "vicissitude_5"
+	trait = "dominate_5"	
+	trait = "majesty_5"
+	trait = "bloodpotency_6"
+	trait = "vampgeneration6"
+	trait = "intricate_webweaver"
+	trait = "impaler"
+	trait = "deceitful"
+	trait = "cruel"
+	trait = "arbitrary"
+	disallow_random_traits = yes
+	father = 790326 
+	dynasty = 5500108
+	trait = "canon" 
+	female = no
+
+	600.1.1 = {
+		birth = 600.1.1
+		}
+	750.1.1 = {
+		add_trait = vampire
+		add_trait = "wyrm_taint"		
+		}	
+	989.1.1 = {
+		add_trait = "bookmark990"
+		}
+	1229.1.1 = {
+		remove_trait = "bookmark990"
+		add_trait = "bookmark1230"
+		effect = { set_government_type = cult_government }
+		effect = { join_society = via_mutationis }
+		effect = { add_rival = 505053  }
+		add_claim = e_voivodate
+	}			
+	1354.1.1 = {
+		remove_trait = "bookmark1230"
+		add_trait = "bookmark1355"
+	}	
+	
+	1499.1.1 = {
+		remove_trait = "bookmark1355"
+		effect = { leave_society = yes }	
+		add_trait = "bookmark1505"
+	}		
+	1506.1.1 = {
+		remove_trait = "bookmark1505"
+		add_trait = "bookmark1505"
+	}	
+	1999.1.1 = {
+		death = yes
+		}	
+}
+
+790343 = {
+	name = "Zdarvka"
+	dynasty = 5500107
+	culture = "romanian"
+	religion = "koldun"
+	trait = "mastermind_theologian"
+	trait = "zealous"
+	trait = "deceitful"
+	trait = "proud"
+	father = 790341
+	trait = "canon" 
+	disallow_random_traits = yes
+	female = no
+
+	
+	80.6.6 = {
+		birth = 80.6.6 
+		}
+		
+	102.1.1 = {
+		add_trait = "vampire"
+		add_trait = "wyrm_taint"
+		add_trait = "neonate"
+		add_trait = "tzimisce"
+		add_trait = "animalism_5"
+		add_trait = "vicissitude_5"
+		add_trait = "dominate_5"
+		add_trait = "bloodpotency_6"
+		add_trait = "vampgeneration5"
+		}			
+	1140.1.1 = {
+		remove_trait = "neonate"
+		add_trait = "methuselah"
+	}		
+	1229.1.1 = {
+		add_trait = "bookmark1230"
+		effect = { set_government_type = traditions_government }
+	}
+	1354.1.1 = {
+		remove_trait = "bookmark1230"
+		add_trait = "bookmark1355"
+	}	
+	
+	1499.1.1 = {
+		remove_trait = "bookmark1355"
+		effect = { leave_society = yes }	
+		add_trait = "bookmark1505"
+	}		
+	1506.1.1 = {
+		remove_trait = "bookmark1505"
+		add_trait = "bookmark1505"
+	}	
 	1999.1.1 = {
 		death = yes
 		}		

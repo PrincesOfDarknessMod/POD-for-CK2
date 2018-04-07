@@ -14,6 +14,7 @@ character_event = {
     id = POD_vampire_ghoul_events.1
 	
 	hide_window = yes
+	only_playable = no
 	capable_only = yes
 	min_age = 16
 	prisoner = no
@@ -34,7 +35,7 @@ character_event = {
 				limit = {
 					reverse_has_opinion_modifier = {
 						who = ROOT
-						modifier = opinion_blood_bond_to_domitor_ghoul
+						modifier = opinion_my_ghoul
 					}
 				}
 			save_event_target_as = ghoul_domitor
@@ -42,19 +43,19 @@ character_event = {
 		if = {
 			limit = { event_target:ghoul_domitor = { is_alive = yes } }
 			random_list = {
-				10 = {
+				50 = {
 					#Good
 					character_event = { id = POD_vampire_ghoul_events.2 days = 1 }
 				}
-				7 = {
+				35 = {
 					#Bad
 					character_event = { id = POD_vampire_ghoul_events.3 days = 1 }
 				}
-				10 = {
+				50 = {
 					#Flavor
 					character_event = { id = POD_vampire_ghoul_events.4 days = 1 }
 				}
-				310 = {
+				210 = {
 					#No event
 				}
 			}
@@ -105,6 +106,7 @@ character_event = {
 						}
 						NOT = { character = ROOT }
 						NOT = { is_rival = ROOT }
+						NOT = { trait = vampire }
 					}
 				}
 				save_event_target_as = ghoul_two
@@ -744,6 +746,10 @@ character_event = {
 			
 		ROOT = {
 			POD_vampire_blood_thirst_increase_effect = yes
+			remove_opinion = {
+				who = event_target:ghoul_one
+				modifier = opinion_blood_bond_to_domitor_ghoul
+			}
         }
 		character_event = { 
 			id = vampire_embrace.2

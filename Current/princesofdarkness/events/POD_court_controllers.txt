@@ -1,0 +1,935 @@
+namespace=POD_court_controllers
+##################################
+#	Court Controllers by AJ
+#	1 	 	Control Event (Spawns other events, called bi-annually)
+#	2 - 4 	Specific Event Controllers (Spawns their type of events)
+#	5 - 9 	Good Events
+#	10 - 15	Bad Events
+#	16 - 17 Flavor Events
+#	100+	Test Events
+#
+##################################
+#AI Court Event Controller - Check what kind of court
+character_event = {
+    id = POD_court_controllers.1
+	hide_window = yes
+	only_playable = yes
+	ai = yes
+    is_triggered_only = yes
+
+	
+	trigger = {
+		is_alive = yes
+	}
+	
+	#Size of court dictates the evil vampire politics.  Smaller courts, power grabs.  Larger courts trend to factions and independence movements
+    immediate = {
+		if = { limit = { trait = vampire }
+			#court_size_flag = yes
+			random_list = {
+				5 = {
+					#good
+					character_event =  { id = POD_court_controllers.2 }
+				}
+				5 = {
+					#bad
+					character_event =  { id = POD_court_controllers.3 }
+				}
+				2 = {
+					#flavor
+					character_event =  { id = POD_court_controllers.4 }
+				}
+				0 = {
+					#nothing
+				}
+			}
+		}else = {
+			#not vampire, if masquerade look for old vampires in realm that will overthrow
+			if = {
+				limit = {
+					is_vampire_masquerade = yes
+				}
+				set_character_flag = MASQUERADE_USURPED
+				random_realm_character = {
+					limit = {
+						is_elder_vampire = yes
+						NOT = { trait = torpor }
+					}
+					save_event_target_as = ai_vamp_usurper
+					set_character_flag = MASQUERADE_USURPER
+				}
+				if = { limit = { event_target:ai_vamp_usurper = { is_alive = yes } }
+				any_demesne_title = {
+					usurp_title = event_target:ai_vamp_usurper
+				}
+				}
+			}
+		}
+	}
+}
+
+#Good Event Controller
+character_event = {
+    id = POD_court_controllers.2
+	
+    is_triggered_only = yes
+	hide_window = yes
+
+    immediate = {
+		random_list = {
+			5 = {
+				#loyalty from fellow vassal or your vassal
+				character_event =  { id = POD_court_controllers.5 }
+			}
+			5 = {
+				#opinion bonus from fellow vassal or your vassal
+				character_event =  { id = POD_court_controllers.6 }
+			}
+			5 = {
+				#alliance with fellow vassal, gold from vassal if independent
+				character_event =  { id = POD_court_controllers.7 }
+			}
+			5 = {
+				#elder and ambitious vampires gain claims on titles held by higher vampires
+				character_event =  { id = POD_court_controllers.8 }
+			}
+			5 = {
+				#mortal court good events
+				character_event =  { id = POD_court_controllers.9 }
+			}
+		}
+	}
+}
+
+#Bad Event Controller
+character_event = {
+    id = POD_court_controllers.3
+	
+    is_triggered_only = yes
+	hide_window = yes
+
+    immediate = {
+		random_list = {
+			5 = {
+				#unhappy vassal makes friends
+				character_event =  { id = POD_court_controllers.10 }
+			}
+			5 = {
+				#seed of rebellion in vassal
+				character_event =  { id = POD_court_controllers.11 }
+			}
+			5 = {
+				#vassal fabricates title on you if possible target exists
+				character_event =  { id = POD_court_controllers.12 }
+			}
+			5 = {
+				#get sacked
+				character_event =  { id = POD_court_controllers.13 }
+			}
+			5 = {
+				#mortal court bad events
+				character_event =  { id = POD_court_controllers.14 }
+			}
+		}
+		if = {
+			limit = {
+				trait = vampire
+				NOT = { trait = canon }
+				NOT = {
+					is_elder_vampire = yes
+				}
+				OR = {
+					had_character_flag = {
+						flag = challenged_by_elder
+						days = 4150
+					}
+					NOT = { has_character_flag = challenged_by_elder }
+				}
+			}
+			if = {
+				limit = {
+					has_character_flag = challenged_by_elder
+				}
+				clr_character_flag = challenged_by_elder
+			}
+			set_character_flag = challenged_by_elder
+			character_event =  { id = POD_court_controllers.15 }
+			#can be challenged by older vampire in realm
+		}
+	}
+}
+
+#Flavor Event Controller
+character_event = {
+    id = POD_court_controllers.4
+	
+    is_triggered_only = yes
+	hide_window = yes
+
+    immediate = {
+		random_list = {
+			5 = {
+				#appropriate vampire requests permission to embrace
+				character_event =  { id = POD_court_controllers.16 }
+			}
+			5 = {
+				#vaulderie type events with appropriate targets would go here
+				character_event =  { id = POD_court_controllers.16 }
+			}
+		}
+	}
+}
+
+#Loyalty from fellow vassal or your vassal 
+character_event = {
+    id = POD_court_controllers.5
+	
+    is_triggered_only = yes
+	hide_window = yes
+
+    immediate = {
+		if = {
+			limit = { independent = yes }
+			random_vassal = {
+				add_favor = ROOT
+			}
+		}else = {
+			liege = {
+				random_vassal = {
+					limit = { NOT = { character = ROOT } }
+					add_favor = ROOT
+				}
+			}
+		}
+		clear_court_size_flag = yes
+	}
+}
+
+#Opinion bonus from fellow vassal or your vassal 
+character_event = {
+    id = POD_court_controllers.6
+	
+    is_triggered_only = yes
+	hide_window = yes
+
+    immediate = {
+		if = {
+			limit = { independent = yes }
+			random_vassal = {
+				opinion = {
+					modifier = opinion_happy
+					who = ROOT
+					years = 50
+				}
+			}
+		}else = {
+			liege = {
+				random_vassal = {
+					limit = { NOT = { character = ROOT } }
+					opinion = {
+						modifier = opinion_happy
+						who = ROOT
+						years = 50
+					}
+				}
+			}
+		}
+		clear_court_size_flag = yes
+	}
+}
+
+#alliance w/ fellow vassal or gift of gold from vassal
+character_event = {
+    id = POD_court_controllers.7
+	
+    is_triggered_only = yes
+	hide_window = yes
+
+    immediate = {
+		if = {
+			limit = { independent = yes }
+			random_vassal = {
+				transfer_scaled_wealth = {
+					from = THIS
+					to = ROOT
+					value = 1
+				}
+			}
+		}else = {
+			liege = {
+				random_vassal = {
+					limit = { NOT = { character = ROOT } }
+					add_alliance = { who = ROOT years = 60 }
+				}
+			}
+		}
+		clear_court_size_flag = yes
+	}
+}
+
+#elder and ambitious vampires gain claims on titles held by higher vampires
+character_event = {
+    id = POD_court_controllers.8
+	
+    is_triggered_only = yes
+	hide_window = yes
+
+    immediate = {
+		if = {
+			limit = {
+				OR = {
+					trait = ambitious
+					is_elder_vampire = yes
+				}
+			}
+		if = {
+			limit = { independent = yes }
+			scaled_wealth = 3
+		}else = {
+			defacto_liege_title = {
+				add_claim = ROOT
+			}
+		}
+		}
+		clear_court_size_flag = yes
+	}
+}
+
+#increase mortal ruler influence
+character_event = {
+    id = POD_court_controllers.9
+	
+    is_triggered_only = yes
+	hide_window = yes
+
+    immediate = {
+		increase_mortal_influence = yes
+		clear_court_size_flag = yes
+	}
+}
+
+#Help disgruntled vassals form factions
+character_event = {
+    id = POD_court_controllers.10
+	
+    is_triggered_only = yes
+	hide_window = yes
+
+    immediate = {
+		random_vassal = {
+			limit = {
+				trait = vampire
+				higher_tier_than = BARON
+				NOT = { opinion = { who = ROOT value = 0 } }
+			}
+			save_event_target_as = disgrunted_vassal
+		}
+		random_vassal = {
+			limit = {
+				trait = vampire
+				higher_tier_than = BARON
+			}
+			event_target:disgruntled_vassal = {
+				add_friend = PREV
+			}
+		}
+	}
+}
+
+#plants seed of rebellion in someone who isn't enamored of you
+character_event = {
+    id = POD_court_controllers.11
+	
+    is_triggered_only = yes
+	hide_window = yes
+
+    immediate = {
+		random_vassal = {
+			limit = {
+				is_elder_vampire = yes
+				higher_tier_than = BARON
+				NOT = { opinion = { who = ROOT value = 40 } }
+			}
+			opinion = {
+				modifier = opinion_seed_of_rebellion
+				who = ROOT
+				years = 500
+			}
+		}
+	}
+}
+
+#vassal fabricates title on you if possible target exists
+character_event = {
+    id = POD_court_controllers.12
+	
+    is_triggered_only = yes
+	hide_window = yes
+
+    immediate = {
+		random_vassal = {
+			limit = {
+				is_elder_vampire = yes
+				higher_tier_than = BARON
+				NOT = { opinion = { who = ROOT value = 40 } }
+			}
+			defacto_liege_title = {
+				add_claim = PREV
+			}
+		}
+	}
+}
+
+#get sacked
+character_event = {
+    id = POD_court_controllers.13
+	
+    is_triggered_only = yes
+	hide_window = yes
+
+    immediate = {
+		random_list = {
+			5 = {
+				scaled_wealth = -2
+			}
+			5 = {
+				scaled_wealth = -3
+			}
+			5 = {
+				scaled_wealth = -4
+			}
+			5 = {
+				scaled_wealth = -4
+				random_province_character = {
+					limit = {
+						NOR = {
+							trait = canon_childe
+							trait = canon
+							trait = player_childe
+							ai = no
+						}
+					}
+					if = {
+						limit = { 
+							is_elder_vampire = yes
+							NOT = { trait = torpor }
+						}
+						character_event = { id = POD_VAMPIRE_TORPOR.1 }
+					}else_if = {
+						limit = { 
+							is_elder_vampire = yes
+							trait = torpor
+						}
+						death = { death_reason = death_rabble }
+					}else = {
+						death = { death_reason = death_rabble }
+					}
+				}
+			}
+			5 = {
+				scaled_wealth = -5
+				random_province_character = {
+					limit = {
+						NOR = {
+							trait = canon_childe
+							trait = canon
+							trait = player_childe
+							ai = no
+						}
+					}
+					if = {
+						limit = { 
+							is_elder_vampire = yes
+							NOT = { trait = torpor }
+						}
+						character_event = { id = POD_VAMPIRE_TORPOR.1 }
+					}else_if = {
+						limit = { 
+							is_elder_vampire = yes
+							trait = torpor
+						}
+						death = { death_reason = death_rabble }
+					}else = {
+						death = { death_reason = death_rabble }
+					}
+				}
+			}
+		}
+		clear_court_size_flag = yes
+	}
+}
+
+#decrease mortal ruler influence
+character_event = {
+    id = POD_court_controllers.14
+	
+    is_triggered_only = yes
+	hide_window = yes
+
+    immediate = {
+		decrease_mortal_influence = yes
+		clear_court_size_flag = yes
+	}
+}
+
+#young ruler gets challenged by any elder in court
+character_event = {
+    id = POD_court_controllers.15
+	
+    is_triggered_only = yes
+	hide_window = yes
+
+    immediate = {
+		random_realm_character = {
+			limit = {
+				NOT = { trait = torpor }
+				OR = {
+					has_strong_generation = yes
+					has_powerful_generation = yes
+				}
+				is_elder_vampire = yes
+			}
+			save_event_target_as = elder_challenger
+		}
+		if = {
+			limit = { event_target:elder_challenger = { is_alive = yes } }
+			random_list = {
+				5 = {
+					any_demesne_title = {
+						usurp_title = event_target:elder_challenger
+					}
+					banish = yes
+					set_character_flag = ELDER_USURPED
+					event_target:elder_challenger = {
+						set_character_flag = ELDER_USURPER_SUCCESS
+					}
+				}
+				5 = {
+					event_target:elder_challenger = {
+						banish = yes
+						set_character_flag = ELDER_USURPER_BANISHED
+					}
+				}
+			}
+		}else_if = {
+			limit = { independent = no }
+			liege = {
+				random_realm_character = {
+					limit = {
+						NOT = { trait = torpor }
+						OR = {
+							has_strong_generation = yes
+							has_powerful_generation = yes
+						}
+						is_elder_vampire = yes
+						NOT = {
+							character = ROOT
+							character = PREV
+						}
+					}
+					save_event_target_as = elder_challenger
+				}
+			}
+		}if = {
+			limit = { event_target:elder_challenger = { is_alive = yes } }
+			random_list = {
+				5 = {
+					any_demesne_title = {
+						usurp_title = event_target:elder_challenger
+					}
+					banish = yes
+					set_character_flag = ELDER_USURPED
+					event_target:elder_challenger = {
+						set_character_flag = ELDER_USURPER_SUCCESS
+					}
+				}
+				5 = {
+					event_target:elder_challenger = {
+						banish = yes
+						set_character_flag = ELDER_USURPER_BANISHED
+					}
+				}
+			}
+		}
+	}
+}
+
+character_event = {
+    id = POD_court_controllers.16
+	
+    is_triggered_only = yes
+	hide_window = yes
+
+    immediate = {
+		random_realm_character = {
+			limit = {
+				is_ruler = no
+				NOT = { trait = torpor }
+				OR = {
+					has_strong_generation = yes
+					has_powerful_generation = yes
+					trait = canon
+				}
+				any_child = { count < 1 }
+			}
+			character_event = { id = vampire_embrace.5 }
+		}
+	}
+}
+
+#Gehenna Test
+character_event = {
+    id = POD_court_controllers.100
+	
+    is_triggered_only = yes
+	hide_window = yes
+
+    immediate = {
+		any_character = {
+			limit = {
+				is_ruler = no
+			}
+			death = { death_reason = death_execution killer = ROOT }
+		}
+	}
+}
+character_event = {
+    id = POD_court_controllers.101
+	
+    is_triggered_only = yes
+	hide_window = yes
+	
+	immediate = {
+	if = {
+		limit = {
+			is_worth_keeping = no
+			is_related_to_player = no
+		}
+			death = { death_reason = death_natural }
+			change_variable = { which = global_cull_amount value = 1 }
+	}
+	}
+}
+
+character_event = {
+    id = POD_court_controllers.102
+    desc = EVTDESC_POD_TEST_CENSUS_1
+	picture = GFX_evt_ghoul_request
+	border = GFX_event_normal_frame_intrigue
+	
+    is_triggered_only = yes
+	trigger = {
+		is_alive = yes 
+	}
+	
+    immediate = {
+		set_variable = { which = global_living_characters value = 0 }
+		set_variable = { which = global_canon_characters value = 0 }
+		set_variable = { which = global_childe_characters value = 0 }
+		any_character = {
+			if = { 
+				limit = {
+					is_alive = yes
+				}
+				change_variable = { which = global_living_characters value = 1 }
+				ROOT = { change_variable = { which = living_characters value = 1 } }
+			}
+			if = { 
+				limit = {
+					is_alive = yes
+					trait = canon
+				}
+				change_variable = { which = global_canon_characters value = 1 }
+				ROOT = { change_variable = { which = canon_characters value = 1 } }
+			}
+			if = { 
+				limit = {
+					is_alive = yes
+					trait = canon_childe
+				}
+				change_variable = { which = global_childe_characters value = 1 }
+				ROOT = { change_variable = { which = childe_characters value = 1 } }
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_POD_TEST_CENSUS_1
+	}
+}
+character_event = {
+    id = POD_court_controllers.103
+	
+    is_triggered_only = yes
+	hide_window = yes
+
+    immediate = {
+		any_title = {
+			limit = {
+				tier = COUNT
+			}
+			change_variable = { which = global_province_count value = 1 }
+		}
+	}
+}
+
+character_event = {
+    id = POD_court_controllers.104
+	
+    is_triggered_only = yes
+	hide_window = yes
+	
+	immediate = {
+		any_character = {
+			limit = {
+				is_worth_keeping = no
+				is_related_to_player = no
+			}
+				death = { death_reason = death_natural }
+				change_variable = { which = global_cull_amount value = 1 }
+		}
+		character_event = { id = POD_court_controllers.104 days = 7300 }
+	}
+}
+
+character_event = {
+    id = POD_court_controllers.105
+	
+    is_triggered_only = yes
+	hide_window = yes
+	
+	immediate = {
+		any_province = {
+			any_province_holding = {
+				limit = { is_capital = no }
+				destroy_settlement = THIS
+			}
+		}
+	}
+}
+
+character_event = {
+    id = POD_court_controllers.106
+	
+    is_triggered_only = yes
+	hide_window = yes
+	
+	immediate = {
+		any_character = {
+			limit = {
+				num_of_rivals = 2
+			}
+			random_rival = {
+				limit = {
+					NOR = { 
+						higher_tier_than = DUKE
+						AND = {
+							trait = canon
+							OR = {
+								has_powerful_generation = yes
+								is_elder_vampire = yes
+							}
+						}
+					}
+				}
+				remove_rival = PREV
+				set_character_flag = REMOVED_A_RIVAL_YO
+			}
+		}
+	}
+}
+
+character_event = {
+    id = POD_court_controllers.107
+	
+    is_triggered_only = yes
+	hide_window = yes
+	
+	immediate = {
+		count_adversaries = yes
+		if = {
+			limit = {
+				check_variable = { which = adversary_count value = 5 }
+			}
+			set_character_flag = ADVERSARIES_5_OVER
+		}else_if = {
+			limit = {
+				check_variable = { which = adversary_count value = 1 }
+			}
+			set_character_flag = ADVERSARIES_YES
+		}
+	}
+}
+
+character_event = {
+    id = POD_court_controllers.108
+	
+    is_triggered_only = yes
+	hide_window = yes
+	
+	immediate = {
+		random_vassal = {
+			opinion = {
+				modifier = opinion_adversary
+				who = ROOT
+				years = 500
+			}
+			ROOT = {
+				opinion = {
+					modifier = opinion_adversary
+					who = PREV
+					years = 500
+				}
+			}
+		}
+	}
+}
+
+character_event = {
+    id = POD_court_controllers.109
+	
+    is_triggered_only = yes
+	hide_window = yes
+	
+	immediate = {
+		count_adversaries = yes
+		if = {
+			limit = {
+				can_have_adversary = yes
+			}
+			set_character_flag = ICANHAZADVERSARY
+		}if = {
+			limit = {
+				can_have_adversary = yes
+			}
+			set_character_flag = I_HAZ_ADVERSARY
+		}
+		if = {
+			limit = {
+				is_possible_adversary = yes
+			}
+			set_character_flag = I_CAN_BE_ADVERSARY
+		}
+	}
+}
+
+character_event = {
+    id = POD_court_controllers.110
+	
+    is_triggered_only = yes
+	hide_window = yes
+	
+	immediate = {
+		any_character = {
+			any_opinion_modifier_target = {
+				limit = {
+					reverse_has_opinion_modifier = {
+						who = ROOT
+						modifier = opinion_adversary
+					}
+				}
+			ROOT = { change_variable = { which = adversaries_in_world value = 1 } }
+			}
+		}
+	}
+}
+
+character_event = {
+    id = POD_court_controllers.111
+	
+    is_triggered_only = yes
+	hide_window = yes
+	
+	immediate = {
+		if = {
+			limit = { is_possible_adversary = yes }
+			set_character_flag = CAN_BE_ADVERSARY
+		}else = {
+			set_character_flag = CANNOT_BE_ADVERSARY
+		}
+	}
+}
+
+character_event = {
+    id = POD_court_controllers.112
+	
+    is_triggered_only = yes
+	hide_window = yes
+	
+	immediate = {
+			random_rival = {
+				limit = {
+					NOR = { 
+						higher_tier_than = DUKE
+						AND = {
+							trait = canon
+							OR = {
+								has_powerful_generation = yes
+								is_elder_vampire = yes
+							}
+						}
+					}
+				}
+				save_event_target_as = rival_to_remove
+				remove_rival = ROOT
+				set_character_flag = REMOVED_A_RIVAL_YO_TARGET
+				PREV = {
+					set_character_flag = REMOVED_A_RIVAL_YO_ROOT
+				}
+			}
+			#remove_rival = event_target:rival_to_remove
+	}
+}
+#cleanup negative mental traits
+character_event = {
+    id = POD_court_controllers.200
+	only_rulers = yes
+    is_triggered_only = yes
+	hide_window = yes
+
+    immediate = {
+		if = {
+			limit = {
+				num_of_rivals = 2
+			}
+			random_rival = {
+			limit = {
+				NOT = { is_worthy_rival = yes }
+			}
+			ROOT = { remove_rival = PREV }
+			remove_rival = ROOT
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					trait = canon
+					trait = canon_childe
+					trait = player_childe
+					ai = no
+					is_ruler = yes
+				}
+			}
+			if = {
+				limit = { trait = stressed }
+				remove_trait = stressed
+			}
+			if = {
+				limit = { trait = possessed }
+				remove_trait = possessed
+			}
+			if = {
+				limit = { trait = depressed }
+				remove_trait = depressed
+			}
+			if = {
+				limit = { trait = drunkard }
+				remove_trait = drunkard
+			}
+			if = {
+				limit = { trait = gluttonous }
+				remove_trait = gluttonous
+			}
+		}
+	}
+}

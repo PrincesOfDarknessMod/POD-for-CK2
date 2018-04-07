@@ -19,7 +19,6 @@ on_startup = {
 		CWOD_setup_noble.1
 		CWOD_setup_commoner.1
 		POD_CWOD_title_succession.1
-
 	}
 }
 
@@ -27,62 +26,79 @@ on_chronicle_start = {
 	events = { 
 		storyteller.16
 		ruler_designer.1
+		CWOD_setup_noble_player.1
+		POD_narrative_events.1
 	}
 }
 
 on_yearly_pulse	= {
 	events = {
-		CWOD_vampire_ai_train_discipline_event.2
-		vampire_aging_events.8
-		CWOD_setup_noble.1
-		CWOD_setup_commoner.1		
-		setup_noble.1
-		setup_commoner.1	
-		POD_CWOD_renew_clan_sect.1
-		POD_CWOD_renew_clan_sect.2
-		POD_CWOD_renew_clan_sect.7
-		POD_CWOD_renew_clan_sect.8
-		POD_special_title_maintenance.1
-		CWOD_mage_ai_train_sphere_event.1
-		CWOD_mage_ai_train_sphere_event.2
-		CWOD_changeling_ai_train_cantrip_event.1
-		CWOD_changeling_ai_train_cantrip_event.2
+		
 	}
 }
 
 on_bi_yearly_pulse = {
 	events = {
-		CWOD_vampire_ai_train_discipline_event.3
-		CWOD_mage_ai_train_sphere_event.3
-		CWOD_mage_ai_train_sphere_event.4
-		CWOD_changeling_ai_train_cantrip_event.3
-		CWOD_changeling_ai_train_cantrip_event.4
-		POD_vampire_ghoul_events.1
+		CWOD_setup_noble.1
+		CWOD_setup_commoner.1		
+		setup_noble.1
+		setup_commoner.1	
+		#POD_CWOD_renew_clan_sect.1
+		#POD_CWOD_renew_clan_sect.2
+		#POD_CWOD_renew_clan_sect.7
+		#POD_CWOD_renew_clan_sect.8
+		#POD_special_title_maintenance.1
 		}
 	}
 	
 on_five_year_pulse = {
 	events = {
-		CWOD_vampire_ai_train_discipline_event.4
-		vampire_aging_events.5
-		CWOD_mage_ai_train_sphere_event.5
-		CWOD_changeling_ai_train_cantrip_event.5
+		covenant_maintenance.1
+		CWOD_mage_commoner.2
+		CWOD_setup_commoner.1
+		mage_commoner.2
+		setup_commoner.1
+		POD_court_controllers.1
+		CWOD_mage_ai_train_sphere_event.1
+		CWOD_mage_ai_train_sphere_event.2
+		CWOD_changeling_ai_train_cantrip_event.1
+		CWOD_changeling_ai_train_cantrip_event.2
 		}
 	}
 
 on_decade_pulse = {
     events = {
+		POD_vampire_plot_controller.1
+		#POD_court_controllers.1
         vampire_aging_events.1
         vampire_aging_events.2
         vampire_aging_events.3
         vampire_aging_events.4
+		vampire_aging_events.5
 		vampire_aging_events.6
-		vampire_aging_events.7		
+		vampire_aging_events.7
+		vampire_aging_events.8
+		CWOD_vampire_ai_train_discipline_event.2
+		CWOD_vampire_ai_train_discipline_event.3
+		CWOD_vampire_ai_train_discipline_event.4
+		CWOD_mage_ai_train_sphere_event.3
+		CWOD_mage_ai_train_sphere_event.4
+		CWOD_changeling_ai_train_cantrip_event.3
+		CWOD_changeling_ai_train_cantrip_event.4
+		CWOD_mage_ai_train_sphere_event.5
+		CWOD_changeling_ai_train_cantrip_event.5
+		#POD_court_controllers.101
+		POD_court_controllers.200	
+		POD_vampire_ghoul_events.1		
 		CWOD_vampire_ai_train_discipline_event.5
+		vampire_embrace.1
+		revenant_events.2
+		POD_special_title_maintenance.1
+		werewolf.2
     }
 }
 
-on_childhood_yearly_pulse = {
+on_yearly_childhood_pulse = {
 	events = {
 		werewolf.1
 		POD_CWOD_CHANGELING_CHILD.1
@@ -175,5 +191,6 @@ on_character_convert_religion = {
 on_adulthood = {
 	events = {
 		revenant_events.1
+		werewolf.2
 	}
 }

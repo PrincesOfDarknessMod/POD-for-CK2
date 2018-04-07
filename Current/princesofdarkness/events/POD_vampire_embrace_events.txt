@@ -3,13 +3,38 @@ character_event = {
 	id = vampire_embrace.1
 	hide_window = yes
 	only_rulers = yes
+	is_triggered_only = yes
+	
 	trigger = {
 		is_vampire_trigger = yes
 		age = 25
 		ai = yes
-		NOT = { num_of_children = 6 }
+		OR = {
+			NOT = { any_child = { count = 1 } }
+			AND = {
+				higher_tier_than = BARON
+				NOT = { any_child = { count = 2 } }
+			}
+			AND = {
+				higher_tier_than = COUNT
+				NOT = { any_child = { count = 3 } }
+			}
+			AND = {
+				higher_tier_than = DUKE
+				NOT = { any_child = { count = 4 } }
+			}
+			AND = {
+				higher_tier_than = KING
+				NOT = { any_child = { count = 5 } }
+			}
+			AND = {
+				is_worthy_sire = yes
+				NOT = { any_child = { count = 3 } }
+			}
+		}
 		NOT = { trait = bloodpotency_1 }
-		has_blood_thirst = no
+		NOT = { trait = torpor }
+		#has_blood_thirst = no
 
 		OR = {		
 			is_landed = yes
@@ -19,180 +44,8 @@ character_event = {
 			is_patrician = yes
 			num_of_duke_titles = 1
 		}			
-	}	
+	}
 	
-	mean_time_to_happen = {
-		years = 25
-			
-		modifier = {
-			factor = 2
-		}
-
-		modifier = {
-			#SLOWITDOWN
-			factor = 8
-		}
-		
-		modifier = {
-			factor = 0.1
-			trait = canon
-		}
-		
-		modifier = {
-			factor = 0.2
-			trait = lustful 
-		}
-
-		modifier = {
-			factor = 5
-			trait = neonate 
-		}
-		 
-		 modifier = {
-			factor = 3
-			trait = ancilla 
-		}
-		
-		modifier = {
-			factor = 0.5
-			trait = elder 
-		}
-		
-		modifier = {
-			factor = 0.2
-			trait = ancient
-		}		
-		
-		modifier = {
-			factor = 0.1
-			trait = methuselah
-		}	
-		
-		modifier = {
-			factor = 0.1
-			num_of_children = 0 
-		}
-		
-		modifier = {
-			factor = 0.5
-			num_of_children = 1 
-		}
-		modifier = {
-			factor = 2
-			num_of_children = 2 
-		}	
-		modifier = {
-			factor = 8
-			num_of_children = 3
-		}	
-		modifier = {
-			factor = 9
-			num_of_children = 4
-		}
-
-		modifier = {
-			factor = 10
-			num_of_children = 5 
-		}	
-		
-		modifier = {
-			factor = 0.4
-			num_of_baron_titles = 1 
-			}
-			
-		modifier = {
-			factor = 0.2
-			trait = proud 
-			}
-			
-		modifier = {
-			factor = 2
-			religion = lancea_sanctum 
-			}		
-			
-		modifier = {
-			factor = 2
-			trait = content 
-			}
-			
-		modifier = {
-			factor = 0.2
-			trait = ambitious 
-			}
-			
-		modifier = {
-			factor = 2
-			trait = nosferatu 
-			}
-			
-		modifier = {
-			factor = 0.2
-			trait = envious 
-			}
-		
-		modifier = {
-			factor = 0.2
-			trait = lunatic 
-			}
-		
-		modifier = {
-			factor = 0.2
-			trait = arbitrary 
-			}
-			
-		modifier = {
-			factor = 2
-			trait = kinslayer 
-			}
-		
-		modifier = {
-			factor = 2
-			trait = humble 
-			}
-		
-		modifier = {
-			factor = 2
-			trait = patient 
-			}
-		
-		modifier = {
-			factor = 0.5
-			 independent = yes 
-			}
-		
-		modifier = {
-			factor = 0.4
-			 num_of_count_titles = 1 
-			}		
-		modifier = {
-			factor = 0.3
-			num_of_duke_titles = 1 
-			}
-			
-		modifier = {
-			factor = 0.2
-			num_of_king_titles = 1	
-					}		
-			
-		modifier = {
-			factor = 0.1
-			num_of_emperor_titles = 1 
-					}
-			
-		modifier = {
-			factor = 0.5
-			wealth = 300 	
-		  }			
-		modifier = {
-			factor = 0
-			has_character_modifier = dire_blood_thirst
-				}
-		modifier = {
-			factor = 0
-			has_character_modifier = dreadful_blood_thirst
-				}				
-      }	
-
 	immediate = { 
 		if = {
 			limit = { is_female = no }			
@@ -344,7 +197,11 @@ character_event = {
 		if = { 
 			limit = { trait = revenant } 
 			remove_trait = revenant
-		}		
+		}
+		if = { 
+			limit = { trait = bastard } 
+			remove_trait = bastard
+		}			
 		add_trait = vampire
 		add_trait = wyrm_taint
 		add_trait = neonate
@@ -368,7 +225,29 @@ character_event = {
 			if = { 
 				limit = { father = { trait = vaishya } }
 				add_trait = vaishya
-			}	
+			}
+			if = { 
+				limit = { 
+					father = {
+						OR = {
+							trait = canon
+							trait = canon_childe
+						}
+					}
+				}
+				add_trait = canon_childe
+			}
+			if = { 
+				limit = { 
+					father = {
+						OR = {
+							ai = no
+							trait = player_childe
+						}
+					}
+				}
+				add_trait = player_childe
+			}
 			if = {
 				limit = {
 					OR = {
@@ -758,7 +637,29 @@ character_event = {
 			if = { 
 				limit = { mother = { trait = vaishya } }
 				add_trait = vaishya
-			}												
+			}
+			if = { 
+				limit = { 
+					mother = {
+						OR = { 
+							trait = canon
+							trait = canon_childe
+						}
+					}
+				}
+				add_trait = canon_childe
+			}
+			if = { 
+				limit = { 
+					mother = {
+						OR = {
+							ai = no
+							trait = player_childe
+						}
+					}
+				} 
+				add_trait = player_childe
+			}			
 			if = { 
 				limit = {
 					OR = {
@@ -2022,5 +1923,147 @@ character_event = {
 			}
 	}
 }
+character_event = {
+	id = vampire_embrace.5
+	hide_window = yes
+	only_rulers = yes
+	is_triggered_only = yes
 	
+	trigger = {
+		is_vampire_trigger = yes
+		age = 25
+		ai = yes
+		NOT = { any_child = { count > 1 } }
+		NOT = { trait = bloodpotency_1 }
+		#has_blood_thirst = no	
+	}
 	
+	immediate = { 
+		if = {
+			limit = { is_female = no }			
+			random_list = {	
+				50 = {
+					create_character = {
+						random_traits = yes
+						trait = vampire
+						female = no
+						dynasty = ROOT
+						culture = ROOT
+						religion = ROOT
+					}
+					new_character = {
+						set_father = ROOT
+						add_trait = fledgling
+						if = { limit = { trait = slow } 
+							remove_trait = slow
+						}
+						if = { limit = { trait = imbecile } 
+							remove_trait = imbecile
+						}						
+						if = { limit = { trait = inbred } 
+							remove_trait = inbred
+						}								
+						
+						#recalc_succession = yes
+						character_event = { id = vampire_embrace.2
+											days = 1
+											random = 5
+						}						
+					}
+				}
+				50 = {
+					create_character = {
+						random_traits = yes
+						trait = vampire
+						female = yes
+						dynasty = ROOT
+						culture = ROOT
+						religion = ROOT
+					}
+					new_character = {
+						set_father = ROOT
+						add_trait = fledgling
+						if = { limit = { trait = slow } 
+							remove_trait = slow
+						}
+						if = { limit = { trait = imbecile } 
+							remove_trait = imbecile
+						}						
+						if = { limit = { trait = inbred } 
+							remove_trait = inbred
+						}							
+						#recalc_succession = yes
+						character_event = { id = vampire_embrace.2
+											days = 1
+											random = 5
+						}						
+					}
+				}
+			}	
+		}
+		if = {
+			limit = { is_female = yes }			
+			random_list = {	
+				50 = {
+					create_character = {
+						random_traits = yes
+						trait = vampire
+						female = no
+						dynasty = ROOT
+						culture = ROOT
+						religion = ROOT
+					}
+					new_character = {
+						set_mother = ROOT
+						add_trait = fledgling
+						if = { limit = { trait = slow } 
+							remove_trait = slow
+						}
+						if = { limit = { trait = imbecile } 
+							remove_trait = imbecile
+						}						
+						if = { limit = { trait = inbred } 
+							remove_trait = inbred
+						}							
+						#recalc_succession = yes
+						character_event = { id = vampire_embrace.2
+											days = 1
+											random = 5
+						}						
+					}
+				}
+				50 = {
+					create_character = {
+						random_traits = yes
+						trait = vampire													
+						female = yes
+						dynasty = ROOT
+						culture = ROOT
+						religion = ROOT	
+					}
+					new_character = {
+						set_mother = ROOT
+						add_trait = fledgling
+						if = { limit = { trait = slow } 
+							remove_trait = slow
+						}
+						if = { limit = { trait = imbecile } 
+							remove_trait = imbecile
+						}						
+						if = { limit = { trait = inbred } 
+							remove_trait = inbred
+						}							
+						#recalc_succession = yes
+						
+						character_event = { id = vampire_embrace.2
+											days = 1
+											random = 5
+						}
+					}
+				}
+			}	
+		}				
+		set_character_flag = FLAG_POD_RECENT_VAMPIRE_CHILDE	
+		#POD_vampire_blood_thirst_increase_effect = yes
+	}
+}
