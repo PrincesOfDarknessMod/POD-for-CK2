@@ -931,5 +931,35 @@ character_event = {
 				remove_trait = gluttonous
 			}
 		}
+		if = {
+			limit = {
+					OR = {
+					trait = obtenebration_5
+					trait = protean_5
+					trait = vicissitude_5
+				}
+			}
+			prisoner = no
+		}
+	}
+}
+
+character_event = {
+    id = POD_court_controllers.201
+	only_rulers = yes
+    is_triggered_only = yes
+	hide_window = yes
+
+    immediate = {
+		if = {
+			limit = {
+					OR = {
+					trait = obtenebration_5
+					trait = protean_5
+					trait = vicissitude_5
+				}
+			}
+			prisoner = no
+		}
 	}
 }

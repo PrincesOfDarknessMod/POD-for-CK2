@@ -15,7 +15,12 @@ character_event = {
 	immediate = {
 		character_event = { id = storyteller.2 days = 1 } #allows the other initialisation events to take effect, and precludes them afterwards.
 		character_event = { id = storyteller.13 days = 10} #allows the other initialisation events to take effect, and precludes them afterwards.
-		character_event = { id = storyteller.17 days = 35 } #culls useless characters from AI courts
+		#character_event = { id = storyteller.17 days = 35 } #culls useless characters from AI courts
+		c_ile_de_france = {
+			location = {
+				province_event = { id = storyteller.18 days = 65 }
+			}
+		}
 		if = { 
 			limit = {
 				 trait = "bookmark232"
@@ -4844,5 +4849,49 @@ character_event = {
 			change_variable = { which = global_cull_amount value = 1 }
 		}
 		character_event = { id = storyteller.17 days = 7300 } #calls itself in 20 years
+	}
+}
+
+province_event = {
+    id = storyteller.18
+	
+    is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+	}
+	
+	immediate = {
+		c_ile_de_france = {
+			location = {
+				province_event = { id = storyteller.18 days = 3650 }
+			}
+		}
+		change_variable = { which = global_cull_times value = 1 }
+		set_province_flag = cull_fired_once
+		any_character = {
+			limit = {
+				is_worth_keeping = no
+				is_related_to_player = no
+			}
+			death = { death_reason = death_natural }
+			change_variable = { which = global_cull_amount value = 1 }
+		}
+	}
+}
+
+province_event = {
+    id = storyteller.19
+	
+    is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+	}
+	
+	immediate = {
+		capital_scope = {
+			province_event = { id = storyteller.18 }
+		}
 	}
 }
