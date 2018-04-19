@@ -1,0 +1,3570 @@
+namespace=POD_player_childe_events
+##################################
+#	POD Player Childe Events by AJ
+#	1 	 	Control Event (Spawns other events, called bi-annually)
+#	2 - 4 	Specific Event Controllers (Spawns their type of events)
+#	5 - 9 	Good Events
+#	10 - 15	Bad Events
+#	16 - 17 Flavor Events
+#	100+	Test Events
+#
+##################################
+#Player Ping for Childe Events
+character_event = {
+    id = POD_player_childe_events.1
+	hide_window = yes
+	only_playable = yes
+	ai = no
+    is_triggered_only = yes
+
+	
+	trigger = {
+		is_alive = yes
+	}
+	
+	#Search player for childe related events and flags
+    immediate = {
+		save_event_target_as = player_parent
+		any_child = {
+			limit = {
+				NOT = { has_character_flag = CHILDE_SPREAD_WINGS }
+			}
+			character_event = { id = POD_player_childe_events.2 days = 1 random = 80 }
+		}
+		random = {
+			chance = 8
+			character_event = { id = POD_player_childe_events.34 days = 60 random = 90 }
+		}
+	}
+}
+
+#Childe Event Controller
+character_event = {
+    id = POD_player_childe_events.2
+	
+    is_triggered_only = yes
+	hide_window = yes
+
+    immediate = {
+		save_event_target_as = player_childe
+		if = {
+			limit = { NOT = { has_character_flag = MENTOR_DECISION_TAKEN } }
+			set_character_flag = MENTOR_DECISION_TAKEN
+			event_target:player_parent = {
+				character_event = { id = POD_player_childe_events.6 }
+			}
+		}else_if = {
+			limit = { has_character_flag = IS_PLAYER_MENTEE }
+			if = {
+				limit = {
+					OR = {
+						has_character_flag = MENTORSHIP_DONE
+						trait = ancilla
+						trait = elder
+						trait = ancient
+						trait = methuselah
+						NOT = { any_liege = { character = event_target:player_parent } }
+					}
+				}
+				if = {
+					limit = { has_character_flag = MENTORSHIP_DONE }
+					clr_character_flag = MENTORSHIP_DONE
+				}
+				clr_character_flag = IS_PLAYER_MENTEE
+				#notify player childe is no longer mentored
+				event_target:player_parent = {
+					character_event = { id = POD_player_childe_events.7 }
+				}
+			}else = {
+				#mentee events
+				character_event = { id = POD_player_childe_events.8 }
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					age = 120
+					NOT = { any_liege = { character = event_target:player_parent } }
+				}
+			}
+			hidden_tooltip = {
+				set_character_flag = CHILDE_SPREAD_WINGS		
+			}
+		}else = {
+			if = {
+				limit = {
+					NOT = { has_character_flag = REACTION_TO_UNLIFE }
+					had_character_flag = { flag = MENTOR_DECISION_TAKEN days = 1200 }
+				}
+				set_character_flag = REACTION_TO_UNLIFE
+				event_target:player_parent = { character_event = { id = POD_player_childe_events.18 days = 1 random = 20 } }
+			}
+			if = {
+				limit = {
+					NOT = { has_character_flag = REACTION_TO_SIRE }
+					had_character_flag = { flag = MENTOR_DECISION_TAKEN days = 4500 }
+				}
+				set_character_flag = REACTION_TO_SIRE
+				event_target:player_parent = { character_event = { id = POD_player_childe_events.19 days = 1 random = 20 } }
+			}
+			random_list = {
+				5 = {
+					character_event = { id = POD_player_childe_events.3 }
+				}
+				5 = {
+					character_event = { id = POD_player_childe_events.4 }
+				}
+				13 = {
+					character_event = { id = POD_player_childe_events.5 }
+				}
+				180 = {
+					#nothing
+				}
+			}
+		}
+	}
+}
+
+#Good Childe Event Controller
+character_event = {
+    id = POD_player_childe_events.3
+	
+    is_triggered_only = yes
+	hide_window = yes
+
+    immediate = {
+		random_list = {
+			5 = {
+				event_target:player_parent = { character_event = { id = POD_player_childe_events.29 } }
+			}
+			7 = {
+				event_target:player_parent = { character_event = { id = POD_player_childe_events.22 } }
+			}
+			8 = {
+				event_target:player_parent = { character_event = { id = POD_player_childe_events.24 } }
+			}
+		}
+	}
+}
+
+#Bad Childe Event Controller
+character_event = {
+    id = POD_player_childe_events.4
+	
+    is_triggered_only = yes
+	hide_window = yes
+
+    immediate = {
+		random_list = {
+			5 = {
+				event_target:player_parent = { character_event = { id = POD_player_childe_events.20 } }
+			}
+			5 = {
+				event_target:player_parent = { character_event = { id = POD_player_childe_events.21 } }
+			}
+			3 = {
+				modifier = {
+					factor = 0
+					opinion = { who = event_target:player_parent value = 50 }
+				}
+				modifier = {
+					factor = 2
+					NOT = { opinion = { who = event_target:player_parent value = 0 } }
+				}
+				modifier = {
+					factor = 2
+					trait = ambitious
+				}
+				event_target:player_parent = { character_event = { id = POD_player_childe_events.27 } }
+			}
+			3 = {
+				event_target:player_parent = { character_event = { id = POD_player_childe_events.32 } }
+			}
+			13 = {
+				event_target:player_parent = { character_event = { id = POD_player_childe_events.25 } }
+			}
+		}
+	}
+}
+
+#Flavor Childe Event Controller
+character_event = {
+    id = POD_player_childe_events.5
+	
+    is_triggered_only = yes
+	hide_window = yes
+
+    immediate = {
+		random_list = {
+			5 = {
+				event_target:player_parent = { character_event = { id = POD_player_childe_events.23 } }
+			}
+			5 = {
+				event_target:player_parent = { character_event = { id = POD_player_childe_events.26 } }
+			}
+			5 = {
+				event_target:player_parent = { character_event = { id = POD_player_childe_events.28 } }
+			}
+			10 = {
+				event_target:player_parent = { character_event = { id = POD_player_childe_events.30 } }
+			}
+			10 = {
+				modifier = {
+					factor = 0
+					has_character_flag = childe_may_flee
+				}
+				modifier = {
+					factor = 0
+					age < 90
+				}
+				modifier = {
+					factor = 0
+					is_landed = yes
+				}
+				modifier = {
+					factor = 0
+					has_job_title = yes
+				}
+				event_target:player_parent = { character_event = { id = POD_player_childe_events.31 } }
+			}
+			10 = {
+				modifier = {
+					factor = 0
+					NOT = { has_character_flag = childe_may_flee }
+				}
+				event_target:player_parent = { character_event = { id = POD_player_childe_events.33 } }
+			}
+		}
+	}
+}
+
+#Player Mentor Decision
+character_event = {
+    id = POD_player_childe_events.6
+    desc = EVTDESC_POD_CHILDE_MENTOR_1
+	picture = GFX_evt_vampire_chair_up_stairs
+	border = GFX_event_normal_frame_intrigue
+	
+    is_triggered_only = yes
+	trigger = {
+		is_alive = yes
+	}
+	
+    immediate = {
+	}
+	
+	option = {
+		name = EVTOPTA_POD_CHILDE_MENTOR_1
+		hidden_tooltip = {
+		event_target:player_childe = {
+			set_character_flag = IS_PLAYER_MENTEE
+		}
+		}
+	}
+	option = {
+		name = EVTOPTB_POD_CHILDE_MENTOR_1
+	}
+}
+
+#Player No Longer Mentor
+character_event = {
+    id = POD_player_childe_events.7
+    desc = EVTDESC_POD_CHILDE_MENTOR_2
+	picture = GFX_evt_vampire_chair_up_stairs
+	border = GFX_event_normal_frame_intrigue
+	
+    is_triggered_only = yes
+	trigger = {
+		is_alive = yes
+	}
+	
+    immediate = {
+	}
+	
+	option = {
+		name = EVTOPTA_POD_CHILDE_MENTOR_2
+	}
+}
+
+#Mentee Events Controller
+character_event = {
+    id = POD_player_childe_events.8
+	
+    is_triggered_only = yes
+	hide_window = yes
+
+    immediate = {
+		if = {
+			limit = { NOT = { has_character_flag = mentor_basics_taught } }
+			set_character_flag = mentor_basics_taught
+			
+			#teach basics event
+			event_target:player_parent = {
+				character_event = { id = POD_player_childe_events.9 days = 1 random = 4 }
+			}
+		}else_if = {
+			limit = { 
+				had_character_flag = { flag = mentor_basics_taught days = 730 }
+				NOT = { has_character_flag = mentor_vampire_taught }
+			}
+			set_character_flag = mentor_vampire_taught
+			event_target:player_parent = {
+				character_event = { id = POD_player_childe_events.10 days = 1 random = 4 }
+			}
+		}else_if = {
+			limit = { 
+				had_character_flag = { flag = mentor_vampire_taught days = 730 }
+				NOT = { has_character_flag = mentor_court_things }
+			}
+			set_character_flag = mentor_court_things
+			event_target:player_parent = {
+				character_event = { id = POD_player_childe_events.11 days = 1 random = 4 }
+			}
+		}else_if = {
+			limit = { 
+				had_character_flag = { flag = mentor_court_things days = 730 }
+				NOT = { has_character_flag = mentor_path_things }
+			}
+			set_character_flag = mentor_path_things
+			event_target:player_parent = {
+				character_event = { id = POD_player_childe_events.12 days = 1 random = 4 }
+			}
+		}else_if = {
+			limit = { 
+				had_character_flag = { flag = mentor_path_things days = 730 }
+				NOT = { has_character_flag = MENTORSHIP_DONE }
+			}
+			set_character_flag = MENTORSHIP_DONE
+			clr_character_flag = IS_PLAYER_MENTEE
+			#notify player childe is no longer mentored
+			event_target:player_parent = {
+				character_event = { id = POD_player_childe_events.7 }
+			}
+		}
+		random_list = {
+			5 = {
+				#mentee crisis
+				modifier = {
+					factor = 0
+					has_character_flag = had_mentee_crisis
+				}
+				set_character_flag = had_mentee_crisis
+				event_target:player_parent = {
+					character_event = { id = POD_player_childe_events.13 days = 1 random = 25 }
+				}
+			}
+			11 = {
+				#mentee gains a trait of yours
+				event_target:player_parent = {
+					character_event = { id = POD_player_childe_events.14 days = 1 random = 25 }
+				}
+			}
+			3 = {
+				modifier = {
+					factor = 0
+					is_friend = event_target:player_parent
+				}
+				modifier = {
+					factor = 2
+					opinion = { who = event_target:player_parent value = 90 }
+					event_target:player_parent = {
+						opinion = { who = ROOT value = 70 }
+					}
+				}
+				event_target:player_parent = {
+					character_event = { id = POD_player_childe_events.15 days = 1 random = 25 }
+				}
+				#mentee becomes your friend
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					has_character_flag = developed_feelings
+				}
+				set_character_flag = developed_feelings
+				event_target:player_parent = {
+					character_event = { id = POD_player_childe_events.16 days = 1 random = 25 }
+				}
+				#mentee develops strong feelings towards you
+			}
+			2 = {
+				modifier = {
+					factor = 4
+					NOT = { opinion = { who = event_target:player_parent value = 0 } } 
+				}
+				modifier = {
+					factor = 0.5
+					opinion = { who = event_target:player_parent value = 50 }
+				}
+				event_target:player_parent = {
+					character_event = { id = POD_player_childe_events.17 days = 1 random = 25 }
+				}
+				#mentee becomes rival with you and leaves court
+			}
+			75 = {
+				#no event
+			}
+		}
+	}
+}
+
+#Player Teach Basics of Unlife
+character_event = {
+    id = POD_player_childe_events.9
+    desc = EVTDESC_POD_CHILDE_MENTOR_3
+	picture = GFX_evt_vampire_chair_up_stairs
+	border = GFX_event_normal_frame_intrigue
+	
+    is_triggered_only = yes
+	trigger = {
+		is_alive = yes
+	}
+	
+    immediate = {
+	}
+	
+	option = {
+		name = EVTOPTA_POD_CHILDE_MENTOR_3
+		random_list = {
+			5 = {
+				modifier = {
+					factor = 0
+					event_target:player_childe = {
+					trait = cruel
+					}
+				}
+				event_target:player_childe = {
+				add_trait = cruel
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					event_target:player_childe = {
+					trait = diligent
+					}
+				}
+				event_target:player_childe = {
+				add_trait = diligent
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					event_target:player_childe = {
+					trait = proud
+					}
+				}
+				event_target:player_childe = {
+				add_trait = proud
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					event_target:player_childe = {
+					trait = ambitious
+					}
+				}
+				event_target:player_childe = {
+				add_trait = ambitious
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					event_target:player_childe = {
+					trait = arbitrary
+					}
+				}
+				event_target:player_childe = {
+				add_trait = arbitrary
+				}
+			}
+		}
+	}
+	option = {
+		name = EVTOPTB_POD_CHILDE_MENTOR_3
+		random_list = {
+			5 = {
+				modifier = {
+					factor = 0
+					event_target:player_childe = {
+					trait = temperate
+					}
+				}
+				event_target:player_childe = {
+				add_trait = temperate
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					event_target:player_childe = {
+					trait = craven
+					}
+				}
+				event_target:player_childe = {
+				add_trait = craven
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					event_target:player_childe = {
+					trait = trusting
+					}
+				}
+				event_target:player_childe = {
+				add_trait = trusting
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					event_target:player_childe = {
+					trait = kind
+					}
+				}
+				event_target:player_childe = {
+				add_trait = kind
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					event_target:player_childe = {
+					trait = just
+					}
+				}
+				event_target:player_childe = {
+				add_trait = just
+				}
+			}
+		}	
+	}
+	option = {
+		name = EVTOPTC_POD_CHILDE_MENTOR_3
+		random_list = {
+			5 = {
+				modifier = {
+					factor = 0
+					event_target:player_childe = {
+					trait = stubborn
+					}
+				}
+				event_target:player_childe = {
+				add_trait = stubborn
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					event_target:player_childe = {
+					trait = zealous
+					}
+				}
+				event_target:player_childe = {
+				add_trait = zealous
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					event_target:player_childe = {
+					trait = erudite
+					}
+				}
+				event_target:player_childe = {
+				add_trait = erudite
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					event_target:player_childe = {
+					trait = diligent
+					}
+				}
+				event_target:player_childe = {
+				add_trait = diligent
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					event_target:player_childe = {
+					trait = greedy
+					}
+				}
+				event_target:player_childe = {
+				add_trait = greedy
+				}
+			}
+		}
+	}
+	option = {
+		name = EVTOPTD_POD_CHILDE_MENTOR_3
+		random_list = {
+			5 = {
+				modifier = {
+					factor = 0
+					event_target:player_childe = {
+					trait = cynical
+					}
+				}
+				event_target:player_childe = {
+				add_trait = cynical
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					event_target:player_childe = {
+					trait = deceitful
+					}
+				}
+				event_target:player_childe = {
+				add_trait = deceitful
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					event_target:player_childe = {
+					trait = shy
+					}
+				}
+				event_target:player_childe = {
+				add_trait = shy
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					event_target:player_childe = {
+					trait = paranoid
+					}
+				}
+				event_target:player_childe = {
+				add_trait = paranoid
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					event_target:player_childe = {
+					trait = craven
+					}
+				}
+				event_target:player_childe = {
+				add_trait = craven
+				}
+			}
+		}
+	}
+}
+
+#Player Mentor Vampire and Disciplines
+character_event = {
+    id = POD_player_childe_events.10
+    desc = EVTDESC_POD_CHILDE_MENTOR_4
+	picture = GFX_evt_vampire_chair_up_stairs
+	border = GFX_event_normal_frame_intrigue
+	
+    is_triggered_only = yes
+	trigger = {
+		is_alive = yes
+	}
+	
+    immediate = {
+	}
+	
+	option = {
+		name = EVTOPTA_POD_CHILDE_MENTOR_4
+		trigger = {
+			OR = {
+				AND = {
+					has_celerity = yes
+					event_target:player_childe = {
+						has_celerity = no
+					}
+				}
+				AND = {
+					has_resilience = yes
+					event_target:player_childe = {
+						has_resilience = no
+					}
+				}
+				AND = {
+					has_vigor = yes
+					event_target:player_childe = {
+						has_vigor = no
+					}
+				}
+				AND = {
+					has_protean = yes
+					event_target:player_childe = {
+						has_protean = no
+					}
+				}
+			}	
+		}
+		random_list = {
+			5 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_celerity = no
+						event_target:player_childe = {
+							has_celerity = yes
+						}
+					}
+				}
+				event_target:player_childe = {
+					add_trait = celerity_1
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_resilience = no
+						event_target:player_childe = {
+							has_resilience = yes
+						}
+					}
+				}
+				event_target:player_childe = {
+					add_trait = resilience_1
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_vigor = no
+						event_target:player_childe = {
+							has_vigor = yes
+						}
+					}
+				}
+				event_target:player_childe = {
+					add_trait = vigor_1
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_protean = no
+						event_target:player_childe = { has_protean = yes }
+					}
+				}
+				event_target:player_childe = {
+					add_trait = protean_1
+				}
+			}
+		}
+	}
+	option = {
+		name = EVTOPTB_POD_CHILDE_MENTOR_4
+		trigger = {
+			OR = {
+				AND = {
+					has_majesty = yes
+					event_target:player_childe = {
+						has_majesty = no
+					}
+				}
+				AND = {
+					has_dominate = yes
+					event_target:player_childe = {
+						has_dominate = no
+					}
+				}
+				AND = {
+					has_auspex = yes
+					event_target:player_childe = {
+						has_auspex = no
+					}
+				}
+				AND = {
+					has_dementation = yes
+					event_target:player_childe = {
+						has_dementation = no
+					}
+				}
+				AND = {
+					has_nightmare = yes
+					event_target:player_childe = {
+						has_nightmare = no
+					}
+				}
+				AND = {
+					has_obfuscate = yes
+					event_target:player_childe = {
+						has_obfuscate = no
+					}
+				}
+				AND = {
+					has_animalism = yes
+					event_target:player_childe = {
+						has_animalism = no
+					}
+				}
+			}	
+		}
+		random_list = {
+			5 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_majesty = no
+						event_target:player_childe = {
+							has_majesty = yes
+						}
+					}
+				}
+				event_target:player_childe = {
+					add_trait = majesty_1
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_dominate = no
+						event_target:player_childe = {
+							has_dominate = yes
+						}
+					}
+				}
+				event_target:player_childe = {
+					add_trait = dominate_1
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_auspex = no
+						event_target:player_childe = {
+							has_auspex = yes
+						}
+					}
+				}
+				event_target:player_childe = {
+					add_trait = auspex_1
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_dementation = no
+						event_target:player_childe = {
+							has_dementation = yes
+						}
+					}
+				}
+				event_target:player_childe = {
+					add_trait = dementation_1
+					add_trait = lunatic
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_nightmare = no
+						event_target:player_childe = {
+							has_nightmare = yes
+						}
+					}
+				}
+				event_target:player_childe = {
+					add_trait = nightmare_1
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_obfuscate = no
+						event_target:player_childe = {
+							has_obfuscate = yes
+						}
+					}
+				}
+				event_target:player_childe = {
+					add_trait = obfuscate_1
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_animalism = no
+						event_target:player_childe = {
+							has_animalism = yes
+						}
+					}
+				}
+				event_target:player_childe = {
+					add_trait = animalism_1
+				}
+			}
+		}
+	}
+	option = {
+		name = EVTOPTC_POD_CHILDE_MENTOR_4
+		trigger = {
+			OR = {
+				AND = {
+					has_thaumaturgy = yes
+					event_target:player_childe = {
+						has_thaumaturgy = no
+					}
+				}
+				AND = {
+					has_daimonion = yes
+					event_target:player_childe = {
+						has_daimonion = no
+					}
+				}
+				AND = {
+					has_chimerstry = yes
+					event_target:player_childe = {
+						has_chimerstry = no
+					}
+				}
+				AND = {
+					has_necromancy = yes
+					event_target:player_childe = {
+						has_necromancy = no
+					}
+				}
+				AND = {
+					has_cruac = yes
+					event_target:player_childe = {
+						has_cruac = no
+					}
+				}
+			}	
+		}
+		random_list = {
+			5 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_thaumaturgy = no
+						event_target:player_childe = {
+							has_thaumaturgy = yes
+						}
+					}
+				}
+				event_target:player_childe = {
+					add_trait = thaumaturgy_1
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_daimonion = no
+						event_target:player_childe = {
+							has_daimonion = yes
+						}
+					}
+				}
+				event_target:player_childe = {
+					add_trait = daimoinon_1
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_chimerstry = no
+						event_target:player_childe = {
+							has_chimerstry = yes
+						}
+					}
+				}
+				event_target:player_childe = {
+					add_trait = chimerstry_1
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_necromancy = no
+						event_target:player_childe = {
+							has_necromancy = yes
+						}
+					}
+				}
+				event_target:player_childe = {
+					add_trait = necromancy_1
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_cruac = no
+						event_target:player_childe = {
+							has_cruac = yes
+						}
+					}
+				}
+				event_target:player_childe = {
+					add_trait = cruac_1
+				}
+			}
+		}
+	}
+	option = {
+		name = EVTOPTD_POD_CHILDE_MENTOR_4
+		trigger = {
+			OR = {
+				AND = {
+					has_mortis = yes
+					event_target:player_childe = {
+						has_mortis = no
+					}
+				}
+				AND = {
+					has_obeah = yes
+					event_target:player_childe = {
+						has_obeah = no
+					}
+				}
+				AND = {
+					has_obtenebration = yes
+					event_target:player_childe = {
+						has_obtenebration = no
+					}
+				}
+				AND = {
+					has_quietus = yes
+					event_target:player_childe = {
+						has_quietus = no
+					}
+				}
+				AND = {
+					has_serpentis = yes
+					event_target:player_childe = {
+						has_serpentis = no
+					}
+				}
+				AND = {
+					has_vicissitude = yes
+					event_target:player_childe = {
+						has_vicissitude = no
+					}
+				}
+			}	
+		}
+		random_list = {
+			5 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_mortis = no
+						event_target:player_childe = {
+							has_mortis = yes
+						}
+					}
+				}
+				event_target:player_childe = {
+					add_trait = mortis_1
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_obeah = no
+						event_target:player_childe = {
+							has_obeah = yes
+						}
+					}
+				}
+				event_target:player_childe = {
+					add_trait = obeah_1
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_obtenebration = no
+						event_target:player_childe = {
+							has_obtenebration = yes
+						}
+					}
+				}
+				event_target:player_childe = {
+					add_trait = obtenebration_1
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_quietus = no
+						event_target:player_childe = {
+							has_quietus = yes
+						}
+					}
+				}
+				event_target:player_childe = {
+					add_trait = quietus_1
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_serpentis = no
+						event_target:player_childe = {
+							has_serpentis = yes
+						}
+					}
+				}
+				event_target:player_childe = {
+					add_trait = serpentis_1
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_vicissitude = no
+						event_target:player_childe = {
+							has_vicissitude = yes
+						}
+					}
+				}
+				event_target:player_childe = {
+					add_trait = vicissitude_1
+				}
+			}
+		}
+	}
+	option = {
+		name = EVTOPTE_POD_CHILDE_MENTOR_4
+		#nothing
+	}
+}
+
+#Player Mentor Court Things
+character_event = {
+    id = POD_player_childe_events.11
+    desc = EVTDESC_POD_CHILDE_MENTOR_5
+	picture = GFX_evt_vampire_chair_up_stairs
+	border = GFX_event_normal_frame_intrigue
+	
+    is_triggered_only = yes
+	trigger = {
+		is_alive = yes
+	}
+	
+    immediate = {
+	}
+	
+	option = {
+		name = EVTOPTA_POD_CHILDE_MENTOR_5
+		random_vassal = {
+			add_friend = event_target:player_childe
+		}
+	}
+	option = {
+		name = EVTOPTB_POD_CHILDE_MENTOR_5
+		random_list = {
+			5 = {
+				modifier = {
+					factor = 0
+					event_target:player_childe = {
+					trait = cruel
+					}
+				}
+				event_target:player_childe = {
+				add_trait = cruel
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					event_target:player_childe = {
+					trait = deceitful
+					}
+				}
+				event_target:player_childe = {
+				add_trait = deceitful
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					event_target:player_childe = {
+					trait = patient
+					}
+				}
+				event_target:player_childe = {
+				add_trait = patient
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					event_target:player_childe = {
+					trait = greedy
+					}
+				}
+				event_target:player_childe = {
+				add_trait = greedy
+				}
+			}
+			15 = {
+				#nothing
+			}
+		}
+	}
+	option = {
+		name = EVTOPTC_POD_CHILDE_MENTOR_5
+		random_list = {
+			5 = {
+				modifier = {
+					factor = 0
+					event_target:player_childe = {
+					trait = brave
+					}
+				}
+				event_target:player_childe = {
+				add_trait = brave
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					event_target:player_childe = {
+					trait = wroth
+					}
+				}
+				event_target:player_childe = {
+				add_trait = wroth
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					event_target:player_childe = {
+					trait = honest
+					}
+				}
+				event_target:player_childe = {
+				add_trait = honest
+				}
+			}
+			15 = {
+				#nothing
+			}
+		}
+	}
+	option = {
+		name = EVTOPTD_POD_CHILDE_MENTOR_5
+		random_list = {
+			5 = {
+				modifier = {
+					factor = 0
+					event_target:player_childe = {
+					trait = just
+					}
+				}
+				event_target:player_childe = {
+				add_trait = just
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					event_target:player_childe = {
+					trait = stubborn
+					}
+				}
+				event_target:player_childe = {
+				add_trait = stubborn
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					event_target:player_childe = {
+					trait = diligent
+					}
+				}
+				event_target:player_childe = {
+				add_trait = diligent
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					event_target:player_childe = {
+					trait = gregarious
+					}
+				}
+				event_target:player_childe = {
+				add_trait = gregarious
+				}
+			}
+			15 = {
+				#nothing
+			}
+		}
+	}
+}
+
+#Player Mentor Path Teaching
+character_event = {
+    id = POD_player_childe_events.12
+    desc = EVTDESC_POD_CHILDE_MENTOR_6
+	picture = GFX_evt_vampire_chair_up_stairs
+	border = GFX_event_normal_frame_intrigue
+	
+    is_triggered_only = yes
+	trigger = {
+		is_alive = yes
+		is_in_society = yes
+	}
+	
+    immediate = {
+		random_list = {
+			7 = {
+				modifier = {
+					factor = 2
+					event_target:player_childe = {
+						opinion = { who = event_target:player_parent value = 75 }
+					}
+				}
+				set_character_flag = succeed_in_path_teaching
+			}
+			3 = {
+				modifier = {
+					factor = 5
+					event_target:player_childe = {
+						NOT = { opinion = { who = event_target:player_parent value = 0 } }
+					}
+				}
+				set_character_flag = fail_in_path_teaching
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_POD_CHILDE_MENTOR_6
+		trigger = {
+			has_character_flag = succeed_in_path_teaching
+		}
+		hidden_tooltip = {
+			clr_character_flag = succeed_in_path_teaching
+		}
+		event_target:player_childe = {
+			if = { 
+				limit = { is_in_society = yes }
+				leave_society = yes
+			}
+		}
+		trigger_switch = {
+			on_trigger = society_member_of
+			path_of_humanity = {
+				event_target:player_childe = {
+					join_society = path_of_humanity
+				}
+			}
+			path_of_honorable_accord = {
+				event_target:player_childe = {
+					join_society = path_of_honorable_accord
+				}
+			}
+			path_of_power_and_the_inner_voice = {
+				event_target:player_childe = {
+					join_society = path_of_power_and_the_inner_voice
+				}
+			}
+			path_of_the_beast = {
+				event_target:player_childe = {
+					join_society = path_of_the_beast
+				}
+			}
+			path_of_cathari = {
+				event_target:player_childe = {
+					join_society = path_of_cathari
+				}
+			}
+			path_of_evil_revelations = {
+				event_target:player_childe = {
+					join_society = path_of_evil_revelations
+				}
+			}
+			path_of_bones = {
+				event_target:player_childe = {
+					join_society = path_of_bones
+				}
+			}
+			path_of_death_and_the_soul = {
+				event_target:player_childe = {
+					join_society = path_of_death_and_the_soul
+				}
+			}
+			path_of_night = {
+				event_target:player_childe = {
+					join_society = path_of_night
+				}
+			}
+			path_of_the_hive = {
+				event_target:player_childe = {
+					join_society = path_of_the_hive
+				}
+			}
+			path_of_blood = {
+				event_target:player_childe = {
+					join_society = path_of_blood
+				}
+			}
+			path_of_paradox = {
+				event_target:player_childe = {
+					join_society = path_of_paradox
+				}
+			}
+			path_of_caine = {
+				event_target:player_childe = {
+					join_society = path_of_caine
+				}
+			}
+			path_of_typhon = {
+				event_target:player_childe = {
+					join_society = path_of_typhon
+				}
+			}
+			path_of_metamorphosis = {
+				event_target:player_childe = {
+					join_society = path_of_metamorphosis
+				}
+			}
+			path_of_lilith = {
+				event_target:player_childe = {
+					join_society = path_of_lilith
+				}
+			}
+			via_humanitatis = {
+				event_target:player_childe = {
+					join_society = via_humanitatis
+				}
+			}
+			via_regalis = {
+				event_target:player_childe = {
+					join_society = via_regalis
+				}
+			}
+			via_caeli = {
+				event_target:player_childe = {
+					join_society = via_caeli
+				}
+			}
+			via_bestiae = {
+				event_target:player_childe = {
+					join_society = via_bestiae
+				}
+			}
+			via_peccati = {
+				event_target:player_childe = {
+					join_society = via_peccati
+				}
+			}
+			via_ossium = {
+				event_target:player_childe = {
+					join_society = via_ossium
+				}
+			}
+			via_noctis = {
+				event_target:player_childe = {
+					join_society = via_noctis
+				}
+			}
+			via_hyron = {
+				event_target:player_childe = {
+					join_society = via_hyron
+				}
+			}
+			via_einherjar = {
+				event_target:player_childe = {
+					join_society = via_einherjar
+				}
+			}
+			via_yasaq = {
+				event_target:player_childe = {
+					join_society = via_yasaq
+				}
+			}
+			via_sanguinus = {
+				event_target:player_childe = {
+					join_society = via_sanguinus
+				}
+			}
+			via_paradoxi = {
+				event_target:player_childe = {
+					join_society = via_paradoxi
+				}
+			}
+			via_serpentis = {
+				event_target:player_childe = {
+					join_society = via_serpentis
+				}
+			}
+			via_mutationis = {
+				event_target:player_childe = {
+					join_society = via_mutationis
+				}
+			}
+			code_of_tremere = {
+				event_target:player_childe = {
+					join_society = code_of_tremere
+				}
+			}
+			derech_lilit = {
+				event_target:player_childe = {
+					join_society = derech_lilit
+				}
+			}
+			eternal_senate = {
+				event_target:player_childe = {
+					join_society = eternal_senate
+				}
+			}
+			cult_of_mithras = {
+				event_target:player_childe = {
+					join_society = cult_of_mithras
+				}
+			}
+			crimson_curia = {
+				event_target:player_childe = {
+					join_society = crimson_curia
+				}
+			}
+			order_st_panteleimon = {
+				event_target:player_childe = {
+					join_society = order_st_panteleimon
+				}
+			}
+			monastic_order_osite = {
+				event_target:player_childe = {
+					join_society = monastic_order_osite
+				}
+			}
+			monastic_order_mystikoi = {
+				event_target:player_childe = {
+					join_society = monastic_order_mystikoi
+				}
+			}
+			order_thorned_wreath = {
+				event_target:player_childe = {
+					join_society = order_thorned_wreath
+				}
+			}
+			bloodline_sangiovanni = {
+				event_target:player_childe = {
+					join_society = bloodline_sangiovanni
+				}
+			}
+		}
+		
+	}
+	option = {
+		name = EVTOPTB_POD_CHILDE_MENTOR_6
+		trigger = {
+			has_character_flag = fail_in_path_teaching
+		}
+		hidden_tooltip = {
+			clr_character_flag = fail_in_path_teaching
+		}
+	}
+}
+
+#Player Mentor Crisis Event
+character_event = {
+    id = POD_player_childe_events.13
+    desc = EVTDESC_POD_CHILDE_MENTOR_7.1
+	desc = EVTDESC_POD_CHILDE_MENTOR_7.2
+	desc = EVTDESC_POD_CHILDE_MENTOR_7.3
+	picture = GFX_evt_vampire_chair_up_stairs
+	border = GFX_event_normal_frame_intrigue
+	
+    is_triggered_only = yes
+	trigger = {
+		is_alive = yes
+	}
+	
+    immediate = {
+		random_list = {
+			5 = {
+				set_character_flag = crisis_good_outcome
+			}
+			5 = {
+				set_character_flag = crisis_bad_outcome
+			}
+			5 = {
+				set_character_flag = crisis_upset_outcome
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_POD_CHILDE_MENTOR_7
+		trigger = {
+			has_character_flag = crisis_good_outcome
+		}
+		clr_character_flag = crisis_good_outcome
+		event_target:player_childe = {
+			opinion = { 
+				modifier = opinion_grateful 
+				who = ROOT 
+				years = 500 
+			}
+		}
+		#good outcome
+	}
+	option = {
+		name = EVTOPTB_POD_CHILDE_MENTOR_7
+		trigger = {
+			has_character_flag = crisis_bad_outcome
+		}
+		clr_character_flag = crisis_bad_outcome
+		event_target:player_childe = {
+			death = { 
+				death_reason = death_vanished 
+			}
+		}
+		#bad outcome
+	}
+	option = {
+		name = EVTOPTC_POD_CHILDE_MENTOR_7
+		trigger = {
+			has_character_flag = crisis_upset_outcome
+		}
+		clr_character_flag = crisis_upset_outcome
+		event_target:player_childe = {
+			opinion = { 
+				modifier = opinion_bitter 
+				who = ROOT 
+				years = 500 
+			}
+		}
+		#upset with your handling of the situation
+	}
+}
+
+#Player Mentor - Mentee who likes Mentor gains trait
+character_event = {
+    id = POD_player_childe_events.14
+    desc = EVTDESC_POD_CHILDE_MENTOR_8
+	picture = GFX_evt_vampire_chair_up_stairs
+	border = GFX_event_normal_frame_intrigue
+	
+    is_triggered_only = yes
+	trigger = {
+		is_alive = yes
+		event_target:player_childe = {
+			opinion = { who = ROOT value = 35 }
+		}
+	}
+	
+    immediate = {
+	}
+	
+	option = {
+		name = EVTOPTA_POD_CHILDE_MENTOR_8
+		random_list = {
+			5 = {
+				modifier = {
+					factor = 0
+					OR = {
+						event_target:player_childe = {
+							trait = chaste
+						}
+						NOT = { trait = chaste }
+					}
+				}
+				event_target:player_childe = {
+					add_trait = chaste
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					OR = {
+						event_target:player_childe = {
+							trait = temperate
+						}
+						NOT = { trait = temperate }
+					}
+				}
+				event_target:player_childe = {
+					add_trait = temperate
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					OR = {
+						event_target:player_childe = {
+							trait = charitable
+						}
+						NOT = { trait = charitable }
+					}
+				}
+				event_target:player_childe = {
+					add_trait = charitable
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					OR = {
+						event_target:player_childe = {
+							trait = diligent
+						}
+						NOT = { trait = diligent }
+					}
+				}
+				event_target:player_childe = {
+					add_trait = diligent
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					OR = {
+						event_target:player_childe = {
+							trait = patient
+						}
+						NOT = { trait = patient }
+					}
+				}
+				event_target:player_childe = {
+					add_trait = patient
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					OR = {
+						event_target:player_childe = {
+							trait = kind
+						}
+						NOT = { trait = kind }
+					}
+				}
+				event_target:player_childe = {
+					add_trait = kind
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					OR = {
+						event_target:player_childe = {
+							trait = humble
+						}
+						NOT = { trait = humble }
+					}
+				}
+				event_target:player_childe = {
+					add_trait = humble
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					OR = {
+						event_target:player_childe = {
+							trait = chaste
+						}
+						NOT = { trait = chaste }
+					}
+				}
+				event_target:player_childe = {
+					add_trait = chaste
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					OR = {
+						event_target:player_childe = {
+							trait = lustful
+						}
+						NOT = { trait = lustful }
+					}
+				}
+				event_target:player_childe = {
+					add_trait = lustful
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					OR = {
+						event_target:player_childe = {
+							trait = gluttonous
+						}
+						NOT = { trait = gluttonous }
+					}
+				}
+				event_target:player_childe = {
+					add_trait = gluttonous
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					OR = {
+						event_target:player_childe = {
+							trait = greedy
+						}
+						NOT = { trait = greedy }
+					}
+				}
+				event_target:player_childe = {
+					add_trait = greedy
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					OR = {
+						event_target:player_childe = {
+							trait = slothful
+						}
+						NOT = { trait = slothful }
+					}
+				}
+				event_target:player_childe = {
+					add_trait = slothful
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					OR = {
+						event_target:player_childe = {
+							trait = wroth
+						}
+						NOT = { trait = wroth }
+					}
+				}
+				event_target:player_childe = {
+					add_trait = wroth
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					OR = {
+						event_target:player_childe = {
+							trait = envious
+						}
+						NOT = { trait = envious }
+					}
+				}
+				event_target:player_childe = {
+					add_trait = envious
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					OR = {
+						event_target:player_childe = {
+							trait = lustful
+						}
+						NOT = { trait = lustful }
+					}
+				}
+				event_target:player_childe = {
+					add_trait = lustful
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					OR = {
+						event_target:player_childe = {
+							trait = proud
+						}
+						NOT = { trait = proud }
+					}
+				}
+				event_target:player_childe = {
+					add_trait = proud
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					OR = {
+						event_target:player_childe = {
+							trait = ambitious
+						}
+						NOT = { trait = ambitious }
+					}
+				}
+				event_target:player_childe = {
+					add_trait = ambitious
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					OR = {
+						event_target:player_childe = {
+							trait = arbitrary
+						}
+						NOT = { trait = arbitrary }
+					}
+				}
+				event_target:player_childe = {
+					add_trait = arbitrary
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					OR = {
+						event_target:player_childe = {
+							trait = brave
+						}
+						NOT = { trait = brave }
+					}
+				}
+				event_target:player_childe = {
+					add_trait = brave
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					OR = {
+						event_target:player_childe = {
+							trait = content
+						}
+						NOT = { trait = content }
+					}
+				}
+				event_target:player_childe = {
+					add_trait = content
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					OR = {
+						event_target:player_childe = {
+							trait = craven
+						}
+						NOT = { trait = craven }
+					}
+				}
+				event_target:player_childe = {
+					add_trait = craven
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					OR = {
+						event_target:player_childe = {
+							trait = cruel
+						}
+						NOT = { trait = cruel }
+					}
+				}
+				event_target:player_childe = {
+					add_trait = cruel
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					OR = {
+						event_target:player_childe = {
+							trait = cynical
+						}
+						NOT = { trait = cynical }
+					}
+				}
+				event_target:player_childe = {
+					add_trait = cynical
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					OR = {
+						event_target:player_childe = {
+							trait = deceitful
+						}
+						NOT = { trait = deceitful }
+					}
+				}
+				event_target:player_childe = {
+					add_trait = deceitful
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					OR = {
+						event_target:player_childe = {
+							trait = erudite
+						}
+						NOT = { trait = erudite }
+					}
+				}
+				event_target:player_childe = {
+					add_trait = erudite
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					OR = {
+						event_target:player_childe = {
+							trait = gregarious
+						}
+						NOT = { trait = gregarious }
+					}
+				}
+				event_target:player_childe = {
+					add_trait = gregarious
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					OR = {
+						event_target:player_childe = {
+							trait = honest
+						}
+						NOT = { trait = honest }
+					}
+				}
+				event_target:player_childe = {
+					add_trait = honest
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					OR = {
+						event_target:player_childe = {
+							trait = just
+						}
+						NOT = { trait = just }
+					}
+				}
+				event_target:player_childe = {
+					add_trait = just
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					OR = {
+						event_target:player_childe = {
+							trait = paranoid
+						}
+						NOT = { trait = paranoid }
+					}
+				}
+				event_target:player_childe = {
+					add_trait = paranoid
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					OR = {
+						event_target:player_childe = {
+							trait = shy
+						}
+						NOT = { trait = shy }
+					}
+				}
+				event_target:player_childe = {
+					add_trait = shy
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					OR = {
+						event_target:player_childe = {
+							trait = stubborn
+						}
+						NOT = { trait = stubborn }
+					}
+				}
+				event_target:player_childe = {
+					add_trait = stubborn
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					OR = {
+						event_target:player_childe = {
+							trait = trusting
+						}
+						NOT = { trait = trusting }
+					}
+				}
+				event_target:player_childe = {
+					add_trait = trusting
+				}
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					OR = {
+						event_target:player_childe = {
+							trait = zealous
+						}
+						NOT = { trait = zealous }
+					}
+				}
+				event_target:player_childe = {
+					add_trait = zealous
+				}
+			}
+		}
+	}
+}
+
+#Player Mentor - Mentee becomes friend
+character_event = {
+    id = POD_player_childe_events.15
+    desc = EVTDESC_POD_CHILDE_MENTOR_9
+	picture = GFX_evt_vampire_chair_up_stairs
+	border = GFX_event_normal_frame_intrigue
+	
+    is_triggered_only = yes
+	trigger = {
+		is_alive = yes
+	}
+	
+    immediate = {
+	}
+	
+	option = {
+		name = EVTOPTA_POD_CHILDE_MENTOR_9
+		event_target:player_childe = {
+			add_friend = ROOT
+		}
+	}
+}
+
+#Player Mentor - Mentee develops strong like or dislike of sire
+character_event = {
+    id = POD_player_childe_events.16
+    desc = EVTDESC_POD_CHILDE_MENTOR_10
+	picture = GFX_evt_vampire_chair_up_stairs
+	border = GFX_event_normal_frame_intrigue
+	
+    is_triggered_only = yes
+	trigger = {
+		is_alive = yes
+	}
+	
+    immediate = {
+		random_list = {
+			5 = {
+				set_character_flag = strong_like
+			}
+			5 = {
+				set_character_flag = strong_dislike
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_POD_CHILDE_MENTOR_10
+		trigger = {
+			has_character_flag = strong_dislike
+		}
+		hidden_tooltip = {
+			clr_character_flag = strong_dislike
+		}
+		event_target:player_childe = {
+			opinion = { 
+				modifier = opinion_dislike 
+				who = ROOT 
+				years = 500 
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTB_POD_CHILDE_MENTOR_10
+		trigger = {
+			has_character_flag = strong_like
+		}
+		hidden_tooltip = {
+			clr_character_flag = strong_like
+		}
+		event_target:player_childe = {
+			opinion = { 
+				modifier = opinion_happy 
+				who = ROOT 
+				years = 500 
+			}
+		}
+	}
+}
+
+#Player Mentor - Mentee hates Mentor and leaves court
+character_event = {
+    id = POD_player_childe_events.17
+    desc = EVTDESC_POD_CHILDE_MENTOR_11
+	picture = GFX_evt_vampire_chair_up_stairs
+	border = GFX_event_normal_frame_intrigue
+	
+    is_triggered_only = yes
+	trigger = {
+		is_alive = yes
+	}
+	
+    immediate = {
+	}
+	
+	option = {
+		name = EVTOPTA_POD_CHILDE_MENTOR_11
+		event_target:player_childe = {
+			add_rival = ROOT
+			banish = yes
+			hidden_tooltip = {
+				set_character_flag = CHILDE_SPREAD_WINGS
+				set_character_flag = CHILDE_HATES_SIRE
+				clr_character_flag = IS_PLAYER_MENTEE
+			}
+		}
+		character_event = { id = POD_player_childe_events.7 }
+	}
+	
+}
+
+#Player Childe Event - Reaction to Unlife
+character_event = {
+    id = POD_player_childe_events.18
+	desc = {
+		trigger = {
+			has_character_flag = childe_loves_it
+		}
+		text = EVTDESC_POD_CHILDE_EVENTS_1.1
+	}
+	desc = {
+		trigger = {
+			has_character_flag = childe_hates_it
+		}
+		text = EVTDESC_POD_CHILDE_EVENTS_1.2
+	}
+	desc = {
+		trigger = {
+			has_character_flag = childe_deals_it
+		}
+		text = EVTDESC_POD_CHILDE_EVENTS_1.3
+	}
+
+	picture = GFX_evt_vampire_chair_up_stairs
+	border = GFX_event_normal_frame_intrigue
+	
+    is_triggered_only = yes
+	trigger = {
+		is_alive = yes
+	}
+	
+    immediate = {
+		random_list = {
+			5 = {
+				modifier = {
+					factor = 10
+					OR = {
+						event_target:player_childe = {
+							trait = cruel
+						}
+						event_target:player_childe = {
+							trait = ambitious
+						}
+						event_target:player_childe = {
+							trait = wroth
+						}
+					}
+				}
+				set_character_flag = childe_loves_it
+			}
+			5 = {
+				modifier = {
+					factor = 2
+					OR = {
+						event_target:player_childe = {
+							trait = kind
+						}
+						event_target:player_childe = {
+							trait = stubborn
+						}
+					}
+				}
+				set_character_flag = childe_hates_it
+			}
+			10 = {
+				set_character_flag = childe_deals_it
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_POD_CHILDE_EVENTS_1
+		trigger = {
+			has_character_flag = childe_loves_it
+		}
+		hidden_tooltip = {
+			clr_character_flag = childe_loves_it
+		}
+		random_list = {
+			5 = {
+				modifier = {
+					factor = 0
+					event_target:player_childe = {
+						trait = cruel
+					}
+				}
+				add_trait = cruel
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					event_target:player_childe = {
+						trait = proud
+					}
+				}
+				add_trait = proud
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					event_target:player_childe = {
+						trait = arbitrary
+					}
+				}
+				add_trait = arbitrary
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					event_target:player_childe = {
+						trait = deceitful
+					}
+				}
+				add_trait = deceitful
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					event_target:player_childe = {
+						trait = wroth
+					}
+				}
+				add_trait = wroth
+			}
+		}
+	}
+	option = {
+		name = EVTOPTB_POD_CHILDE_EVENTS_1
+		trigger = {
+			has_character_flag = childe_hates_it
+		}
+		hidden_tooltip = {
+			clr_character_flag = childe_hates_it
+		}
+		add_trait = depressed
+		random_list = {
+			5 = {
+				modifier = {
+					factor = 0
+					event_target:player_childe = {
+						trait = stubborn
+					}
+				}
+				add_trait = stubborn
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					event_target:player_childe = {
+						trait = shy
+					}
+				}
+				add_trait = shy
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					event_target:player_childe = {
+						trait = craven
+					}
+				}
+				add_trait = craven
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					event_target:player_childe = {
+						trait = slothful
+					}
+				}
+				add_trait = slothful
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					event_target:player_childe = {
+						trait = lunatic
+					}
+				}
+				add_trait = lunatic
+			}
+		}
+	}
+	option = {
+		name = EVTOPTC_POD_CHILDE_EVENTS_1
+		trigger = {
+			has_character_flag = childe_deals_it
+		}
+		hidden_tooltip = {
+			clr_character_flag = childe_deals_it
+		}
+	}
+}
+
+#Player Childe Event - Views you as...
+character_event = {
+    id = POD_player_childe_events.19
+    desc = EVTDESC_POD_CHILDE_EVENTS_2
+	picture = GFX_evt_vampire_chair_up_stairs
+	border = GFX_event_normal_frame_intrigue
+	
+    is_triggered_only = yes
+	trigger = {
+		is_alive = yes
+	}
+	
+    immediate = {
+		random_list = {
+			5 = {
+				modifier = {
+					factor = 2
+					event_target:player_childe = {
+						opinion = { who = event_target:player_parent value = 40 }
+					}
+				}
+				modifier = {
+					factor = 2
+					event_target:player_childe = {
+						opinion = { who = event_target:player_parent value = 60 }
+					}
+				}
+				modifier = {
+					factor = 2
+					event_target:player_childe = {
+						opinion = { who = event_target:player_parent value = 80 }
+					}
+				}
+				set_character_flag = childe_loves_you
+			}
+			5 = {
+				modifier = {
+					factor = 2
+					event_target:player_childe = {
+						NOT = { opinion = { who = event_target:player_parent value = 0 } }
+					}
+				}
+				modifier = {
+					factor = 2
+					event_target:player_childe = {
+						NOT = { opinion = { who = event_target:player_parent value = -30 } }
+					}
+				}
+				modifier = {
+					factor = 2
+					event_target:player_childe = {
+						NOT = { opinion = { who = event_target:player_parent value = -50 } }
+					}
+				}
+				set_character_flag = childe_hates_you
+			}
+			10 = {
+				set_character_flag = childe_deals_with_you
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_POD_CHILDE_EVENTS_2
+		trigger = {
+			has_character_flag = childe_loves_you
+		}
+		hidden_tooltip = {
+			clr_character_flag = childe_loves_you
+		}
+		event_target:player_childe = {
+			opinion = { 
+				modifier = opinion_impressed 
+				who = ROOT 
+				years = 1000 
+			}
+		}
+	}
+	option = {
+		name = EVTOPTB_POD_CHILDE_EVENTS_2
+		trigger = {
+			has_character_flag = childe_hates_you
+		}
+		hidden_tooltip = {
+			clr_character_flag = childe_hates_you
+		}
+		event_target:player_childe = {
+			opinion = { 
+				modifier = opinion_unhappy 
+				who = ROOT 
+				years = 1000 
+			}
+		}
+	}
+	option = {
+		name = EVTOPTB_POD_CHILDE_EVENTS_2
+		trigger = {
+			has_character_flag = childe_deals_with_you
+		}
+		hidden_tooltip = {
+			clr_character_flag = childe_deals_with_you
+		}
+	}
+}
+
+#Player Childe Event - Childe commits a crime
+character_event = {
+    id = POD_player_childe_events.20
+    desc = EVTDESC_POD_CHILDE_EVENTS_3
+	picture = GFX_evt_vampire_chair_up_stairs
+	border = GFX_event_normal_frame_intrigue
+	
+    is_triggered_only = yes
+	trigger = {
+		is_alive = yes
+	}
+	
+    immediate = {
+		if = {
+			limit = { event_target:player_childe = { is_female = no } }			
+			random_list = {	
+				50 = {
+					create_character = {
+						random_traits = yes
+						trait = vampire
+						female = no
+						dynasty = event_target:player_childe
+						culture = event_target:player_childe
+						religion = event_target:player_childe
+					}
+					new_character = {
+						save_event_target_as = unlawful_childe
+						set_father = event_target:player_childe
+						add_trait = fledgling
+						random_list = {
+							10 = { add_trait = cruel }
+							10 = { add_trait = shrewd }
+							10 = { add_trait = strong }
+							10 = { add_trait = deceitful }
+							10 = { add_trait = genius }
+						}
+						if = { limit = { trait = slow } 
+							remove_trait = slow
+						}
+						if = { limit = { trait = imbecile } 
+							remove_trait = imbecile
+						}						
+						if = { limit = { trait = inbred } 
+							remove_trait = inbred
+						}								
+						
+						#recalc_succession = yes
+						character_event = { id = vampire_embrace.2
+											days = 1
+											random = 5
+						}						
+					}
+				}
+				50 = {
+					create_character = {
+						random_traits = yes
+						trait = vampire
+						female = yes
+						dynasty = event_target:player_childe
+						culture = event_target:player_childe
+						religion = event_target:player_childe
+					}
+					new_character = {
+						random_list = {
+							10 = { add_trait = cruel }
+							10 = { add_trait = shrewd }
+							10 = { add_trait = strong }
+							10 = { add_trait = deceitful }
+							10 = { add_trait = genius }
+						}
+						save_event_target_as = unlawful_childe
+						set_father = event_target:player_childe
+						add_trait = fledgling
+						if = { limit = { trait = slow } 
+							remove_trait = slow
+						}
+						if = { limit = { trait = imbecile } 
+							remove_trait = imbecile
+						}						
+						if = { limit = { trait = inbred } 
+							remove_trait = inbred
+						}							
+						#recalc_succession = yes
+						character_event = { id = vampire_embrace.2
+											days = 1
+											random = 5
+						}						
+					}
+				}
+			}	
+		}
+		
+		if = {
+			limit = { event_target:player_childe = { is_female = yes } }			
+			random_list = {	
+				50 = {
+					create_character = {
+						random_traits = yes
+						trait = vampire
+						female = no
+						dynasty = event_target:player_childe
+						culture = event_target:player_childe
+						religion = event_target:player_childe
+					}
+						
+					new_character = {
+						random_list = {
+							10 = { add_trait = cruel }
+							10 = { add_trait = shrewd }
+							10 = { add_trait = strong }
+							10 = { add_trait = deceitful }
+							10 = { add_trait = genius }
+						}
+						save_event_target_as = unlawful_childe
+						set_mother = event_target:player_childe
+						add_trait = fledgling
+						if = { limit = { trait = slow } 
+							remove_trait = slow
+						}
+						if = { limit = { trait = imbecile } 
+							remove_trait = imbecile
+						}						
+						if = { limit = { trait = inbred } 
+							remove_trait = inbred
+						}							
+						#recalc_succession = yes
+						character_event = { id = vampire_embrace.2
+											days = 1
+											random = 5
+						}						
+					}
+				}
+				50 = {
+					create_character = {
+						random_traits = yes
+						trait = vampire													
+						female = yes
+						dynasty = event_target:player_childe
+						culture = event_target:player_childe
+						religion = event_target:player_childe	
+					}
+					new_character = {
+						random_list = {
+							10 = { add_trait = cruel }
+							10 = { add_trait = shrewd }
+							10 = { add_trait = strong }
+							10 = { add_trait = deceitful }
+							10 = { add_trait = genius }
+						}
+						save_event_target_as = unlawful_childe
+						set_mother = event_target:player_childe
+						add_trait = fledgling
+						if = { limit = { trait = slow } 
+							remove_trait = slow
+						}
+						if = { limit = { trait = imbecile } 
+							remove_trait = imbecile
+						}						
+						if = { limit = { trait = inbred } 
+							remove_trait = inbred
+						}							
+						#recalc_succession = yes
+						
+						character_event = { id = vampire_embrace.2
+											days = 1
+											random = 5
+						}
+					}
+				}
+			}	
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_POD_CHILDE_EVENTS_3
+		event_target:player_childe = {
+			opinion = { 
+				modifier = opinion_grateful 
+				who = ROOT 
+				years = 100 
+			}
+		}
+		event_target:unlawful_childe = {
+			opinion = { 
+				modifier = opinion_grateful 
+				who = ROOT 
+				years = 100 
+			}
+		}
+		any_courtier_or_vassal = {
+			opinion = { 
+				modifier = opinion_unhappy 
+				who = ROOT 
+				years = 60 
+			}
+		}
+	}
+	option = {
+		name = EVTOPTB_POD_CHILDE_EVENTS_3
+		event_target:player_childe = {
+			opinion = { 
+				modifier = opinion_furious 
+				who = ROOT 
+				years = 1000 
+			}
+			banish = yes
+		}
+		event_target:unlawful_childe = {
+			opinion = { 
+				modifier = opinion_furious 
+				who = ROOT 
+				years = 1000 
+			}
+			banish = yes
+		}
+	}
+	option = {
+		name = EVTOPTC_POD_CHILDE_EVENTS_3
+		event_target:player_childe = {
+			death = { death_reason = death_execution killer = ROOT }
+		}
+		event_target:unlawful_childe = {
+			opinion = { 
+				modifier = opinion_killed_close_kin 
+				who = ROOT 
+				years = 1000 
+			}
+		}
+		any_courtier_or_vassal = {
+			opinion = { 
+				modifier = opinion_respects_liege 
+				who = ROOT 
+				years = 50 
+			}
+		}
+	}
+	option = {
+		name = EVTOPTD_POD_CHILDE_EVENTS_3
+		event_target:player_childe = {
+			death = { death_reason = death_execution killer = ROOT }
+		}
+		event_target:unlawful_childe = {
+			death = { death_reason = death_execution killer = ROOT }
+		}
+		any_courtier_or_vassal = {
+			opinion = { 
+				modifier = opinion_respects_liege 
+				who = ROOT 
+				years = 50 
+			}
+		}
+	}
+}
+
+#Player Childe Event - Crisis
+character_event = {
+    id = POD_player_childe_events.21
+    desc = EVTDESC_POD_CHILDE_EVENTS_4.1
+	desc = EVTDESC_POD_CHILDE_EVENTS_4.2
+	desc = EVTDESC_POD_CHILDE_EVENTS_4.3
+	picture = GFX_evt_vampire_chair_up_stairs
+	border = GFX_event_normal_frame_intrigue
+	
+    is_triggered_only = yes
+	trigger = {
+		is_alive = yes
+	}
+	
+	 immediate = {
+		random_list = {
+			5 = {
+				set_character_flag = crisis_good_outcome
+			}
+			5 = {
+				set_character_flag = crisis_bad_outcome
+			}
+			5 = {
+				set_character_flag = crisis_upset_outcome
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_POD_CHILDE_EVENTS_4
+		trigger = {
+			has_character_flag = crisis_good_outcome
+		}
+		clr_character_flag = crisis_good_outcome
+		event_target:player_childe = {
+			opinion = { 
+				modifier = opinion_grateful 
+				who = ROOT 
+				years = 500 
+			}
+		}
+		#good outcome
+	}
+	option = {
+		name = EVTOPTB_POD_CHILDE_EVENTS_4
+		trigger = {
+			has_character_flag = crisis_bad_outcome
+		}
+		clr_character_flag = crisis_bad_outcome
+		event_target:player_childe = {
+			death = { 
+				death_reason = death_vanished 
+			}
+		}
+		#bad outcome
+	}
+	option = {
+		name = EVTOPTC_POD_CHILDE_EVENTS_4
+		trigger = {
+			has_character_flag = crisis_upset_outcome
+		}
+		clr_character_flag = crisis_upset_outcome
+		event_target:player_childe = {
+			opinion = { 
+				modifier = opinion_bitter 
+				who = ROOT 
+				years = 500 
+			}
+		}
+		#upset with your handling of the situation
+	}
+}
+
+#Player Childe Event - Gains random friend
+character_event = {
+    id = POD_player_childe_events.22
+    desc = EVTDESC_POD_CHILDE_EVENTS_5
+	picture = GFX_evt_vampire_chair_up_stairs
+	border = GFX_event_normal_frame_intrigue
+	
+    is_triggered_only = yes
+	trigger = {
+		is_alive = yes
+	}
+	
+    immediate = {
+	}
+	
+	option = {
+		name = EVTOPTA_POD_CHILDE_EVENTS_5
+		random_vassal = {
+			add_friend = event_target:player_childe
+		}
+	}
+}
+
+#Player Childe Event - Gains random rival
+character_event = {
+    id = POD_player_childe_events.23
+    desc = EVTDESC_POD_CHILDE_EVENTS_6
+	picture = GFX_evt_vampire_chair_up_stairs
+	border = GFX_event_normal_frame_intrigue
+	
+    is_triggered_only = yes
+	trigger = {
+		is_alive = yes
+	}
+	
+    immediate = {
+	}
+	
+	option = {
+		name = EVTOPTA_POD_CHILDE_EVENTS_6
+		random_vassal = {
+			add_rival = event_target:player_childe
+		}
+	}
+}
+
+#Player Childe Event - Solves a problem in your realm
+character_event = {
+    id = POD_player_childe_events.24
+    desc = EVTDESC_POD_CHILDE_EVENTS_7
+	picture = GFX_evt_vampire_chair_up_stairs
+	border = GFX_event_normal_frame_intrigue
+	
+    is_triggered_only = yes
+	trigger = {
+		is_alive = yes
+	}
+	
+    immediate = {
+	}
+	
+	option = {
+		name = EVTOPTA_POD_CHILDE_EVENTS_7
+		random_vassal = {
+			opinion = { 
+				modifier = opinion_grateful
+				who = ROOT 
+				years = 100 
+			}
+			opinion = { 
+				modifier = opinion_grateful 
+				who = event_target:player_childe 
+				years = 100 
+			}
+		}
+	}
+}
+
+#Player Childe Event - Creates a problem in your realm
+character_event = {
+    id = POD_player_childe_events.25
+    desc = EVTDESC_POD_CHILDE_EVENTS_8
+	picture = GFX_evt_vampire_chair_up_stairs
+	border = GFX_event_normal_frame_intrigue
+	
+    is_triggered_only = yes
+	trigger = {
+		is_alive = yes
+	}
+	
+    immediate = {
+	}
+	
+	option = {
+		name = EVTOPTA_POD_CHILDE_EVENTS_8
+		random_vassal = {
+			opinion = { 
+				modifier = opinion_furious 
+				who = ROOT 
+				years = 100 
+			}
+			opinion = { 
+				modifier = opinion_furious 
+				who = event_target:player_childe 
+				years = 100 
+			}
+		}
+	}
+}
+
+#Player Childe Event - Two childer become rivals
+character_event = {
+    id = POD_player_childe_events.26
+    desc = EVTDESC_POD_CHILDE_EVENTS_9
+	picture = GFX_evt_vampire_chair_up_stairs
+	border = GFX_event_normal_frame_intrigue
+	
+    is_triggered_only = yes
+	trigger = {
+		is_alive = yes
+		any_child = {
+			opinion = { who = event_target:player_parent value = 80 }
+			NOT = { character = event_target:player_childe }
+			is_alive = yes
+		}
+	}
+	
+    immediate = {
+		random_child = {
+			limit = {
+				opinion = { who = event_target:player_parent value = 80 }
+				NOT = { character = event_target:player_childe }
+			}
+			save_event_target_as = childe_rival
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_POD_CHILDE_EVENTS_9
+		event_target:player_childe = {
+			add_rival = event_target:childe_rival
+		}
+	}
+}
+
+#Player Childe Event - Childe desires your power
+character_event = {
+    id = POD_player_childe_events.27
+    desc = EVTDESC_POD_CHILDE_EVENTS_10
+	picture = GFX_evt_vampire_chair_up_stairs
+	border = GFX_event_normal_frame_intrigue
+	
+    is_triggered_only = yes
+	trigger = {
+		is_alive = yes
+	}
+	
+    immediate = {
+	}
+	
+	option = {
+		name = EVTOPTA_POD_CHILDE_EVENTS_10
+		event_target:player_childe = {
+			add_rival = ROOT
+		}
+	}
+}
+
+#Player Childe Event - Childe finds powerful lover
+character_event = {
+    id = POD_player_childe_events.28
+    desc = EVTDESC_POD_CHILDE_EVENTS_11
+	picture = GFX_evt_vampire_chair_up_stairs
+	border = GFX_event_normal_frame_intrigue
+	
+    is_triggered_only = yes
+	trigger = {
+		is_alive = yes
+		event_target:player_childe = {
+			NOT = { num_of_lovers = 2 }
+			is_alive = yes
+		}
+	}
+	
+    immediate = {
+		if = {
+			limit = {
+				event_target:player_childe = {
+					is_female = yes
+				}
+			}
+			random_vassal = {
+				limit = {
+					is_female = no
+					NOT = { num_of_lovers = 2 }
+				}
+				save_event_target_as = target_lover
+			}
+		}else = {
+			random_vassal = {
+				limit = {
+					is_female = yes
+					NOT = { num_of_lovers = 2 }
+				}
+				save_event_target_as = target_lover
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_POD_CHILDE_EVENTS_11
+		event_target:player_childe = {
+			add_lover = event_target:target_lover
+		}
+	}
+}
+
+#Player Childe Event - Childe gives you a gift
+character_event = {
+    id = POD_player_childe_events.29
+    desc = EVTDESC_POD_CHILDE_EVENTS_12
+	picture = GFX_evt_vampire_chair_up_stairs
+	border = GFX_event_normal_frame_intrigue
+	
+    is_triggered_only = yes
+	trigger = {
+		is_alive = yes
+	}
+	
+    immediate = {
+		random_list = {
+			5 = {
+				event_target:player_childe = { add_artifact = iron_crown } 
+			}
+			5 = {
+				event_target:player_childe = { add_artifact = engraved_sword } 
+			}
+			5 = {
+				event_target:player_childe = { add_artifact = engraved_crown }
+			}
+			5 = {
+				event_target:player_childe = { add_artifact = ceremonial_axe }
+			}
+			5 = {
+				event_target:player_childe = { add_artifact = circlet_of_twilight }
+			}
+			5 = {
+				event_target:player_childe = { add_artifact = silver_staff }
+			}
+			5 = {
+				event_target:player_childe = { add_artifact = engraved_dagger }
+			}
+			5 = {
+				event_target:player_childe = { add_artifact = the_lily_crown }
+			}
+			5 = {
+				event_target:player_childe = { add_artifact = noble_scepter }
+			}
+			5 = {
+				event_target:player_childe = { add_artifact = engraved_sword }
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_POD_CHILDE_EVENTS_12
+		event_target:player_childe = {
+			random_artifact = {
+				transfer_artifact = { from = event_target:player_childe to = ROOT }
+			}
+		}
+	}
+}
+
+#Player Childe Event - Wishes to embrace a mortal
+character_event = {
+    id = POD_player_childe_events.30
+    desc = EVTDESC_POD_CHILDE_EVENTS_13
+	picture = GFX_evt_vampire_chair_up_stairs
+	border = GFX_event_normal_frame_intrigue
+	
+    is_triggered_only = yes
+	trigger = {
+		is_alive = yes
+	}
+	
+    immediate = {
+	}
+	
+	option = {
+		name = EVTOPTA_POD_CHILDE_EVENTS_13
+		
+		if = {
+			limit = { event_target:player_childe = { is_female = no } }			
+			random_list = {	
+				50 = {
+					create_character = {
+						random_traits = yes
+						trait = vampire
+						female = no
+						dynasty = event_target:player_childe
+						culture = event_target:player_childe
+						religion = event_target:player_childe
+					}
+					new_character = {
+						save_event_target_as = unlawful_childe
+						set_father = event_target:player_childe
+						add_trait = fledgling
+						random_list = {
+							10 = { add_trait = cruel }
+							10 = { add_trait = shrewd }
+							10 = { add_trait = strong }
+							10 = { add_trait = deceitful }
+							10 = { add_trait = genius }
+						}
+						if = { limit = { trait = slow } 
+							remove_trait = slow
+						}
+						if = { limit = { trait = imbecile } 
+							remove_trait = imbecile
+						}						
+						if = { limit = { trait = inbred } 
+							remove_trait = inbred
+						}								
+						
+						#recalc_succession = yes
+						character_event = { id = vampire_embrace.2
+											days = 1
+											random = 5
+						}						
+					}
+				}
+				50 = {
+					create_character = {
+						random_traits = yes
+						trait = vampire
+						female = yes
+						dynasty = event_target:player_childe
+						culture = event_target:player_childe
+						religion = event_target:player_childe
+					}
+					new_character = {
+						random_list = {
+							10 = { add_trait = cruel }
+							10 = { add_trait = shrewd }
+							10 = { add_trait = strong }
+							10 = { add_trait = deceitful }
+							10 = { add_trait = genius }
+						}
+						save_event_target_as = unlawful_childe
+						set_father = event_target:player_childe
+						add_trait = fledgling
+						if = { limit = { trait = slow } 
+							remove_trait = slow
+						}
+						if = { limit = { trait = imbecile } 
+							remove_trait = imbecile
+						}						
+						if = { limit = { trait = inbred } 
+							remove_trait = inbred
+						}							
+						#recalc_succession = yes
+						character_event = { id = vampire_embrace.2
+											days = 1
+											random = 5
+						}						
+					}
+				}
+			}	
+		}
+		
+		if = {
+			limit = { event_target:player_childe = { is_female = yes } }			
+			random_list = {	
+				50 = {
+					create_character = {
+						random_traits = yes
+						trait = vampire
+						female = no
+						dynasty = event_target:player_childe
+						culture = event_target:player_childe
+						religion = event_target:player_childe
+					}
+						
+					new_character = {
+						random_list = {
+							10 = { add_trait = cruel }
+							10 = { add_trait = shrewd }
+							10 = { add_trait = strong }
+							10 = { add_trait = deceitful }
+							10 = { add_trait = genius }
+						}
+						save_event_target_as = unlawful_childe
+						set_mother = event_target:player_childe
+						add_trait = fledgling
+						if = { limit = { trait = slow } 
+							remove_trait = slow
+						}
+						if = { limit = { trait = imbecile } 
+							remove_trait = imbecile
+						}						
+						if = { limit = { trait = inbred } 
+							remove_trait = inbred
+						}							
+						#recalc_succession = yes
+						character_event = { id = vampire_embrace.2
+											days = 1
+											random = 5
+						}						
+					}
+				}
+				50 = {
+					create_character = {
+						random_traits = yes
+						trait = vampire													
+						female = yes
+						dynasty = event_target:player_childe
+						culture = event_target:player_childe
+						religion = event_target:player_childe	
+					}
+					new_character = {
+						random_list = {
+							10 = { add_trait = cruel }
+							10 = { add_trait = shrewd }
+							10 = { add_trait = strong }
+							10 = { add_trait = deceitful }
+							10 = { add_trait = genius }
+						}
+						save_event_target_as = unlawful_childe
+						set_mother = event_target:player_childe
+						add_trait = fledgling
+						if = { limit = { trait = slow } 
+							remove_trait = slow
+						}
+						if = { limit = { trait = imbecile } 
+							remove_trait = imbecile
+						}						
+						if = { limit = { trait = inbred } 
+							remove_trait = inbred
+						}							
+						#recalc_succession = yes
+						
+						character_event = { id = vampire_embrace.2
+											days = 1
+											random = 5
+						}
+					}
+				}
+			}	
+		}
+	}
+	option = {
+		name = EVTOPTB_POD_CHILDE_EVENTS_13
+		event_target:player_childe = {
+			opinion = { 
+				modifier = opinion_annoyed 
+				who = ROOT 
+				years = 100 
+			}
+		}
+	}
+}
+
+#Player Childe Event - Spread their wings
+character_event = {
+    id = POD_player_childe_events.31
+    desc = EVTDESC_POD_CHILDE_EVENTS_14
+	picture = GFX_evt_vampire_chair_up_stairs
+	border = GFX_event_normal_frame_intrigue
+	
+    is_triggered_only = yes
+	trigger = {
+		is_alive = yes
+	}
+	
+    immediate = {
+	}
+	
+	option = {
+		name = EVTOPTA_POD_CHILDE_EVENTS_14
+		event_target:player_childe = {
+			banish = yes
+		}
+	}
+	option = {
+		name = EVTOPTB_POD_CHILDE_EVENTS_14
+		event_target:player_childe = {
+			hidden_tooltip = {
+				set_character_flag = childe_may_flee
+			}
+			opinion = { 
+				modifier = opinion_furious 
+				who = ROOT 
+				years = 300 
+			}
+		}
+	}
+}
+
+#Player Childe Event - Childe Kidnapped!
+character_event = {
+    id = POD_player_childe_events.32
+    desc = EVTDESC_POD_CHILDE_EVENTS_15
+	picture = GFX_evt_vampire_chair_up_stairs
+	border = GFX_event_normal_frame_intrigue
+	
+    is_triggered_only = yes
+	trigger = {
+		is_alive = yes
+		any_rival = {
+			is_landed = yes
+		}
+	}
+	
+    immediate = {
+		random_rival = {
+			limit = {
+				is_landed = yes
+			}
+			save_event_target_as = rival_kidnapper
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_POD_CHILDE_EVENTS_15
+		event_target:player_childe = {
+			imprison = event_target:rival_kidnapper
+		}
+	}
+}
+
+#Player Childe Event - Spread their wings
+character_event = {
+    id = POD_player_childe_events.33
+    desc = EVTDESC_POD_CHILDE_EVENTS_16
+	picture = GFX_evt_vampire_chair_up_stairs
+	border = GFX_event_normal_frame_intrigue
+	
+    is_triggered_only = yes
+	trigger = {
+		is_alive = yes
+	}
+	
+    immediate = {
+	}
+	
+	option = {
+		name = EVTOPTA_POD_CHILDE_EVENTS_16
+		event_target:player_childe = {
+			banish = yes
+		}
+	}
+}
+
+
+character_event = {
+    id = POD_player_childe_events.34
+    desc = EVTDESC_POD_CHILDE_INTERESTING_1
+	picture = GFX_evt_vampire_chair_up_stairs
+	border = GFX_event_normal_frame_intrigue
+	
+    is_triggered_only = yes
+	trigger = {
+		is_alive = yes
+	}
+	
+    immediate = {
+		random_list = {
+			5 = {
+				POD_create_warrior_effect = yes
+			}
+			5 = {
+				POD_create_merchant_effect = yes
+			}
+			5 = {
+				POD_create_noble_effect = yes
+			}
+			5 = {
+				POD_create_scholar_effect = yes
+			}
+		}
+		new_character = {
+			save_event_target_as = new_interesting_mortal
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_POD_CHILDE_INTERESTING_1
+		event_target:new_interesting_mortal = {
+			POD_new_vampire_effect = yes
+		}
+	}
+	
+	option = {
+		name = EVTOPTB_POD_CHILDE_INTERESTING_1
+		event_target:new_interesting_mortal = {
+			POD_new_ghoul_effect = yes
+		}
+	}
+	
+	option = {
+		name = EVTOPTC_POD_CHILDE_INTERESTING_1
+
+		event_target:new_interesting_mortal = {
+			death = { death_reason = death_execution killer = ROOT }
+		}
+	}
+	
+	option = {
+		name = EVTOPTD_POD_CHILDE_INTERESTING_1
+
+	}
+}
+
+character_event = {
+    id = POD_player_childe_events.35
+    desc = EVTDESC_POD_CHILDE_INTERESTING_2
+	picture = GFX_evt_vampire_chair_up_stairs
+	border = GFX_event_normal_frame_intrigue
+	
+    is_triggered_only = yes
+	ai = yes
+	
+	trigger = {
+		is_alive = yes
+	}
+	
+    immediate = {
+		random_list = {
+			5 = {
+				POD_create_warrior_effect = yes
+			}
+			5 = {
+				POD_create_merchant_effect = yes
+			}
+			5 = {
+				POD_create_noble_effect = yes
+			}
+			5 = {
+				POD_create_scholar_effect = yes
+			}
+		}
+		new_character = {
+			save_event_target_as = new_interesting_mortal
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_POD_CHILDE_INTERESTING_2
+		event_target:new_interesting_mortal = {
+			POD_new_vampire_effect = yes
+		}
+	}
+}
+
+character_event = {
+    id = POD_player_childe_events.36
+    desc = EVTDESC_POD_CHILDE_INTERESTING_3
+	picture = GFX_evt_vampire_chair_up_stairs
+	border = GFX_event_normal_frame_intrigue
+	
+    is_triggered_only = yes
+	trigger = {
+		is_alive = yes
+	}
+	
+    immediate = {
+	}
+	
+	option = {
+		name = EVTOPTA_POD_CHILDE_INTERESTING_3
+		event_target:player_childe = {
+			banish = yes
+		}
+	}
+}

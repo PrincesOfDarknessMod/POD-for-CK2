@@ -1,0 +1,91 @@
+namespace = POD1230OBJ
+
+### Ventrue Victory
+
+# Eternal Rome
+narrative_event = {
+	id = POD1230OBJ.1
+	title = EVTNAMEPOD_VAMPIRE_1230_OBJECTIVES1
+	desc = EVTDESCPOD_VAMPIRE_1230_OBJECTIVES1
+	
+	picture = GFX_evt_rome_restored_byzantine
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = {
+		text = 	EVTOPTAPOD_VAMPIRE_1230_OBJECTIVES1
+		trigger = { 
+		NOT = { character = 790101 }
+		}
+		}
+		name = { 
+		text = EVTOPTBPOD_VAMPIRE_1230_OBJECTIVES1
+		trigger = { 
+		 character = 790101 
+		}
+		}
+		hidden_tooltip = {
+		activate_title = { title = e_eternal_rome status = yes }
+			primary_title = {
+				any_direct_de_jure_vassal_title = {
+					de_jure_liege = e_eternal_rome
+				}
+			}
+		}
+		e_eternal_rome = {
+			grant_title = ROOT
+			make_primary_title = yes
+		}
+
+		hidden_tooltip = {
+			any_playable_ruler = {
+				limit = {
+					NOT = { has_landed_title = c_roma }
+					ai = no
+				}
+				narrative_event = { id = POD_VAMPIRE_1230_OBJECTIVES2 }
+			}
+		}
+		add_trait = eternalconsul
+		
+	}
+}
+
+# Informed about Eternal Rome
+narrative_event = {
+	id = POD1230OBJ.2
+	title = EVTNAMEPOD_VAMPIRE_1230_OBJECTIVES2
+	desc = EVTDESCPOD_VAMPIRE_1230_OBJECTIVES2
+	
+	picture = GFX_evt_rome_restored_byzantine
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = { 
+		text = EVTOPTAPOD_VAMPIRE_1230_OBJECTIVES2
+		trigger = {
+			OR = { religion = brujah_high
+					religion = vampire_promethean }
+		}
+		}
+		name = { 
+		text = EVTOPTBPOD_VAMPIRE_1230_OBJECTIVES2
+		trigger = {
+			religion = ventrue_high
+		}
+		}
+		name = { 
+		text = EVTOPTCPOD_VAMPIRE_1230_OBJECTIVES2
+		trigger = {
+			NOR = { religion = brujah_high
+			religion = ventrue_high
+			religion = vampire_promethean			}
+		}
+	}
+	}
+
+}
+
+	

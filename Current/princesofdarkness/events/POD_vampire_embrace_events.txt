@@ -46,131 +46,101 @@ character_event = {
 		}			
 	}
 	
-	immediate = { 
-		if = {
-			limit = { is_female = no }			
-			random_list = {	
-				50 = {
-					create_character = {
-						random_traits = yes
-						trait = vampire
-						female = no
-						dynasty = ROOT
-						culture = ROOT
-						religion = ROOT
-					}
-					new_character = {
-						set_father = ROOT
-						add_trait = fledgling
-						if = { limit = { trait = slow } 
-							remove_trait = slow
-						}
-						if = { limit = { trait = imbecile } 
-							remove_trait = imbecile
-						}						
-						if = { limit = { trait = inbred } 
-							remove_trait = inbred
-						}								
-						
-						recalc_succession = yes
-						character_event = { id = vampire_embrace.2
-											days = 1
-											random = 5
-						}						
-					}
+	immediate = {
+		random_list = {
+			5 = {
+			random_list = {
+			5 = {
+				modifier = {
+					factor = 3
+					trait = brujah
 				}
-				50 = {
-					create_character = {
-						random_traits = yes
-						trait = vampire
-						female = yes
-						dynasty = ROOT
-						culture = ROOT
-						religion = ROOT
-					}
-					new_character = {
-						set_father = ROOT
-						add_trait = fledgling
-						if = { limit = { trait = slow } 
-							remove_trait = slow
-						}
-						if = { limit = { trait = imbecile } 
-							remove_trait = imbecile
-						}						
-						if = { limit = { trait = inbred } 
-							remove_trait = inbred
-						}							
-						recalc_succession = yes
-						character_event = { id = vampire_embrace.2
-											days = 1
-											random = 5
-						}						
-					}
+				modifier = {
+					factor = 2
+					trait = tzimisce
 				}
-			}	
+				POD_create_warrior_effect = yes
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					trait = tzimisce
+				}
+				modifier = {
+					factor = 0
+					trait = lasombra
+				}
+				modifier = {
+					factor = 0
+					trait = toreador
+				}
+				modifier = {
+					factor = 0
+					trait = assamite
+				}
+				POD_create_merchant_effect = yes
+			}
+			5 = {
+				modifier = {
+					factor = 2
+					trait = tzimisce
+				}
+				POD_create_noble_effect = yes
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					trait = ventrue
+				}
+				POD_create_scholar_effect = yes
+			}
+			}
+			}
+			45 = {
+				modifier = {
+					factor = 0.5
+					higher_tier_than = COUNT
+				}
+				modifier = {
+					factor = 0.5
+					higher_tier_than = DUKE
+				}
+				modifier = {
+					factor = 0
+					higher_tier_than = KING
+				}
+				create_character = {
+					random_traits = yes
+					trait = vampire
+					female = 50
+					dynasty = ROOT
+					culture = ROOT
+					religion = ROOT
+				}
+			}
 		}
-		if = {
-			limit = { is_female = yes }			
-			random_list = {	
-				50 = {
-					create_character = {
-						random_traits = yes
-						trait = vampire
-						female = no
-						dynasty = ROOT
-						culture = ROOT
-						religion = ROOT
-					}
-					new_character = {
-						set_mother = ROOT
-						add_trait = fledgling
-						if = { limit = { trait = slow } 
-							remove_trait = slow
-						}
-						if = { limit = { trait = imbecile } 
-							remove_trait = imbecile
-						}						
-						if = { limit = { trait = inbred } 
-							remove_trait = inbred
-						}							
-						recalc_succession = yes
-						character_event = { id = vampire_embrace.2
-											days = 1
-											random = 5
-						}						
-					}
-				}
-				50 = {
-					create_character = {
-						random_traits = yes
-						trait = vampire													
-						female = yes
-						dynasty = ROOT
-						culture = ROOT
-						religion = ROOT	
-					}
-					new_character = {
-						set_mother = ROOT
-						add_trait = fledgling
-						if = { limit = { trait = slow } 
-							remove_trait = slow
-						}
-						if = { limit = { trait = imbecile } 
-							remove_trait = imbecile
-						}						
-						if = { limit = { trait = inbred } 
-							remove_trait = inbred
-						}							
-						recalc_succession = yes
-						
-						character_event = { id = vampire_embrace.2
-											days = 1
-											random = 5
-						}
-					}
-				}
-			}	
-		}				
+		new_character = {
+			if = { 
+				limit = { ROOT = { is_female = no } }
+				set_father = ROOT
+			}
+			else = { set_mother = ROOT }
+			add_trait = fledgling
+			if = { limit = { trait = slow } 
+				remove_trait = slow
+			}
+			if = { limit = { trait = imbecile } 
+				remove_trait = imbecile
+			}						
+			if = { limit = { trait = inbred } 
+				remove_trait = inbred
+			}		
+			recalc_succession = yes
+			character_event = { id = vampire_embrace.2
+								days = 1
+								random = 5
+			}						
+		}	
 		set_character_flag = FLAG_POD_RECENT_VAMPIRE_CHILDE	
 		#POD_vampire_blood_thirst_increase_effect = yes
 	}
@@ -1927,142 +1897,49 @@ character_event = {
 	id = vampire_embrace.5
 	hide_window = yes
 	only_rulers = yes
+	ai = no
+	min_age = 25
 	is_triggered_only = yes
 	
 	trigger = {
 		is_vampire_trigger = yes
-		age = 25
-		ai = yes
-		NOT = { any_child = { count > 1 } }
+		any_child = { count <= 1 }
 		NOT = { trait = bloodpotency_1 }
 		#has_blood_thirst = no	
 	}
 	
 	immediate = { 
-		if = {
-			limit = { is_female = no }			
-			random_list = {	
-				50 = {
-					create_character = {
-						random_traits = yes
-						trait = vampire
-						female = no
-						dynasty = ROOT
-						culture = ROOT
-						religion = ROOT
-					}
-					new_character = {
-						set_father = ROOT
-						add_trait = fledgling
-						if = { limit = { trait = slow } 
-							remove_trait = slow
-						}
-						if = { limit = { trait = imbecile } 
-							remove_trait = imbecile
-						}						
-						if = { limit = { trait = inbred } 
-							remove_trait = inbred
-						}								
-						
-						#recalc_succession = yes
-						character_event = { id = vampire_embrace.2
-											days = 1
-											random = 5
-						}						
-					}
-				}
-				50 = {
-					create_character = {
-						random_traits = yes
-						trait = vampire
-						female = yes
-						dynasty = ROOT
-						culture = ROOT
-						religion = ROOT
-					}
-					new_character = {
-						set_father = ROOT
-						add_trait = fledgling
-						if = { limit = { trait = slow } 
-							remove_trait = slow
-						}
-						if = { limit = { trait = imbecile } 
-							remove_trait = imbecile
-						}						
-						if = { limit = { trait = inbred } 
-							remove_trait = inbred
-						}							
-						#recalc_succession = yes
-						character_event = { id = vampire_embrace.2
-											days = 1
-											random = 5
-						}						
-					}
-				}
-			}	
+		create_character = {
+			random_traits = yes
+			trait = vampire
+			female = 50
+			dynasty = ROOT
+			culture = ROOT
+			religion = ROOT
 		}
-		if = {
-			limit = { is_female = yes }			
-			random_list = {	
-				50 = {
-					create_character = {
-						random_traits = yes
-						trait = vampire
-						female = no
-						dynasty = ROOT
-						culture = ROOT
-						religion = ROOT
-					}
-					new_character = {
-						set_mother = ROOT
-						add_trait = fledgling
-						if = { limit = { trait = slow } 
-							remove_trait = slow
-						}
-						if = { limit = { trait = imbecile } 
-							remove_trait = imbecile
-						}						
-						if = { limit = { trait = inbred } 
-							remove_trait = inbred
-						}							
-						#recalc_succession = yes
-						character_event = { id = vampire_embrace.2
-											days = 1
-											random = 5
-						}						
-					}
-				}
-				50 = {
-					create_character = {
-						random_traits = yes
-						trait = vampire													
-						female = yes
-						dynasty = ROOT
-						culture = ROOT
-						religion = ROOT	
-					}
-					new_character = {
-						set_mother = ROOT
-						add_trait = fledgling
-						if = { limit = { trait = slow } 
-							remove_trait = slow
-						}
-						if = { limit = { trait = imbecile } 
-							remove_trait = imbecile
-						}						
-						if = { limit = { trait = inbred } 
-							remove_trait = inbred
-						}							
-						#recalc_succession = yes
-						
-						character_event = { id = vampire_embrace.2
-											days = 1
-											random = 5
-						}
-					}
-				}
-			}	
-		}				
+		new_character = {
+			if = {
+				limit = { ROOT = { is_female = no } }
+				set_father = ROOT
+			}
+			else = { set_mother = ROOT }
+			add_trait = fledgling
+			if = { limit = { trait = slow } 
+				remove_trait = slow
+			}
+			if = { limit = { trait = imbecile } 
+				remove_trait = imbecile
+			}						
+			if = { limit = { trait = inbred } 
+				remove_trait = inbred
+			}								
+			
+			#recalc_succession = yes
+			character_event = { id = vampire_embrace.2
+								days = 1
+								random = 5
+			}						
+		}		
 		set_character_flag = FLAG_POD_RECENT_VAMPIRE_CHILDE	
 		#POD_vampire_blood_thirst_increase_effect = yes
 	}

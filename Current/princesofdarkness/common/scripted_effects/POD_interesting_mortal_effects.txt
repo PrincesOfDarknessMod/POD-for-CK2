@@ -1,0 +1,855 @@
+POD_cleanse_mortal_effect = {
+	if = { limit = { trait = slow } 
+		remove_trait = slow
+	}
+	if = { limit = { trait = imbecile } 
+		remove_trait = imbecile
+	}						
+	if = { limit = { trait = inbred } 
+		remove_trait = inbred
+	}	
+	if = { limit = { trait = clubfooted } 
+		remove_trait = clubfooted
+	}
+	if = { limit = { trait = harelip } 
+		remove_trait = harelip
+	}
+	if = { limit = { trait = hunchback } 
+		remove_trait = hunchback
+	}
+	if = { limit = { trait = imbecile } 
+		remove_trait = imbecile
+	}
+	if = { limit = { trait = lisp } 
+		remove_trait = lisp
+	}
+	if = { limit = { trait = slow } 
+		remove_trait = slow
+	}
+	if = { limit = { trait = stutter } 
+		remove_trait = stutter
+	}
+	if = { limit = { trait = ugly } 
+		remove_trait = ugly
+	}
+	if = { limit = { trait = weak } 
+		remove_trait = weak
+	}
+}
+
+POD_warrior_lifestyle_effect = {
+	random_list = {
+		10 = {
+			add_trait = architect
+		}
+		10 = {
+			add_trait = impaler
+		}
+		10 = {
+			add_trait = strategist
+		}
+		10 = {
+			add_trait = duelist
+		}
+		10 = {
+			add_trait = gamer
+		}
+		10 = {
+			add_trait = administrator
+		}
+	}
+}
+			
+POD_merchant_lifestyle_effect = {
+	random_list = {
+		10 = {
+			add_trait = architect
+		}
+		10 = {
+			add_trait = gardener
+		}
+		10 = {
+			add_trait = hedonist
+		}
+		10 = {
+			add_trait = schemer
+		}
+		10 = {
+			add_trait = socializer
+		}
+		10 = {
+			add_trait = administrator
+		}
+	}
+}
+
+POD_noble_lifestyle_effect = {
+	random_list = {
+		2 = {
+			if = {
+				limit = { is_female = no }
+				add_trait = seducer
+			}else = {
+				add_trait = seductress
+			}
+		}
+		10 = {
+			add_trait = hunter
+		}
+		10 = {
+			add_trait = hedonist
+		}
+		10 = {
+			add_trait = schemer
+		}
+		10 = {
+			add_trait = socializer
+		}
+		10 = {
+			add_trait = administrator
+		}
+		10 = {
+			add_trait = impaler
+		}
+		10 = {
+			add_trait = strategist
+		}
+	}
+}
+
+POD_scholar_lifestyle_effect = {
+	random_list = {
+		10 = {
+			add_trait = architect
+		}
+		10 = {
+			add_trait = gardener
+		}
+		10 = {
+			add_trait = mystic
+		}
+		10 = {
+			add_trait = scholar
+		}
+		10 = {
+			add_trait = theologian
+		}
+		10 = {
+			add_trait = administrator
+		}
+	}
+}
+
+POD_exceptional_warrior_effect = {
+	random_list = {
+		10 = { add_trait = shrewd }
+		10 = { add_trait = strong }
+		10 = { add_trait = genius }
+	}
+	random = {
+		chance = 33
+		add_trait = fair
+	}
+}
+
+POD_exceptional_merchant_effect = {
+	random_list = {
+		10 = { add_trait = shrewd }
+		10 = { add_trait = genius }
+		10 = { add_trait = fair }
+	}	
+}
+
+POD_exceptional_noble_effect = {
+	random_list = {
+		10 = { add_trait = shrewd }
+		10 = { add_trait = genius }
+		10 = { add_trait = fair }
+	}
+	random = {
+		chance = 33
+		add_trait = strong
+	}
+}
+
+POD_exceptional_scholar_effect = {
+	random_list = {
+		10 = { add_trait = shrewd }
+		10 = { add_trait = genius }
+		10 = { add_trait = fair }
+	}	
+}
+
+POD_warrior_personality_effect = {
+	random = {
+		chance = 33
+		add_trait = ambitious
+	}
+	random = {
+		chance = 40
+		add_trait = stubborn
+	}
+	random = {
+		chance = 40
+		add_trait = wroth
+	}
+	random = {
+		chance = 70
+		add_trait = brave
+	}
+	random = {
+		chance = 40
+		add_trait = zealous
+	}
+	random = {
+		chance = 10
+		add_trait = arbitrary
+	}
+	random_list = {
+		10 = {
+			add_trait = lustful
+		}
+		10 = {
+			add_trait = envious
+		}
+		10 = {
+			add_trait = patient
+		}
+		10 = {
+			add_trait = temperate
+		}
+		20 = {
+		}
+	}
+	random_list = {
+		10 = {
+			add_trait = deceitful
+		}
+		10 = {
+			add_trait = shy
+		}
+		10 = {
+			add_trait = diligent
+		}
+		10 = {
+			add_trait = chaste
+		}
+		20 = {
+		}
+	}
+	random_list = {
+		10 = {
+			add_trait = just
+			add_trait = proud
+		}
+		10 = {
+			add_trait = cruel
+			add_trait = proud
+		}
+		10 = {
+			add_trait = just
+			add_trait = content
+		}
+		10 = {
+			add_trait = cruel
+			add_trait = paranoid
+		}
+	}
+}
+
+POD_merchant_personality_effect = {
+	random = {
+		chance = 33
+		add_trait = ambitious
+	}
+	random = {
+		chance = 40
+		add_trait = greedy
+	}
+	random = {
+		chance = 40
+		add_trait = stubborn
+	}
+	random = {
+		chance = 10
+		add_trait = arbitrary
+	}
+	random = {
+		chance = 10
+		add_trait = cruel
+	}
+	random_list = {
+		10 = {
+			add_trait = lustful
+		}
+		10 = {
+			add_trait = envious
+		}
+		10 = {
+			add_trait = patient
+		}
+		10 = {
+			add_trait = temperate
+		}
+		20 = {
+		}
+	}
+	random_list = {
+		10 = {
+			add_trait = deceitful
+		}
+		10 = {
+			add_trait = cynical
+		}
+		10 = {
+			add_trait = diligent
+		}
+		10 = {
+			add_trait = gregarious
+		}
+		20 = {
+		}
+	}
+	random_list = {
+		10 = {
+			add_trait = diligent
+			add_trait = proud
+		}
+		10 = {
+			add_trait = patient
+			add_trait = proud
+		}
+		10 = {
+			add_trait = arbitrary
+			add_trait = deceitful
+		}
+		10 = {
+			add_trait = cruel
+			add_trait = stubborn
+		}
+	}
+}
+
+POD_noble_personality_effect = {
+	random = {
+		chance = 33
+		add_trait = ambitious
+	}
+	random = {
+		chance = 15
+		add_trait = stubborn
+	}
+	random = {
+		chance = 20
+		add_trait = temperate
+	}
+	random = {
+		chance = 20
+		add_trait = cruel
+	}
+	random = {
+		chance = 25
+		add_trait = proud
+	}
+	random = {
+		chance = 25
+		add_trait = patient
+	}
+	random_list = {
+		10 = {
+			add_trait = lustful
+		}
+		10 = {
+			add_trait = envious
+		}
+		10 = {
+			add_trait = brave
+		}
+		10 = {
+			add_trait = gregarious
+		}
+		20 = {
+		}
+	}
+	random_list = {
+		10 = {
+			add_trait = deceitful
+		}
+		10 = {
+			add_trait = wroth
+		}
+		10 = {
+			add_trait = diligent
+		}
+		10 = {
+			add_trait = gregarious
+		}
+		20 = {
+		}
+	}
+	random_list = {
+		10 = {
+			add_trait = just
+			add_trait = charitable
+		}
+		10 = {
+			add_trait = stubborn
+			add_trait = just
+		}
+		10 = {
+			add_trait = arbitrary
+			add_trait = proud
+		}
+		10 = {
+			add_trait = cruel
+			add_trait = cynical
+		}
+	}
+}
+
+POD_scholar_personality_effect = {
+	random = {
+		chance = 30
+		add_trait = ambitious
+	}
+	random = {
+		chance = 33
+		add_trait = temperate
+	}
+	random = {
+		chance = 33
+		add_trait = chaste
+	}
+	random = {
+		chance = 20
+		add_trait = proud
+	}
+	random = {
+		chance = 33
+		add_trait = patient
+	}
+	random = {
+		chance = 70
+		add_trait = erudite
+	}
+	random_list = {
+		10 = {
+			add_trait = lustful
+		}
+		10 = {
+			add_trait = shy
+		}
+		10 = {
+			add_trait = content
+		}
+		10 = {
+			add_trait = honest
+		}
+		20 = {
+		}
+	}
+	random_list = {
+		10 = {
+			add_trait = deceitful
+		}
+		10 = {
+			add_trait = craven
+		}
+		10 = {
+			add_trait = diligent
+		}
+		10 = {
+			add_trait = cynical
+		}
+		20 = {
+		}
+	}
+	random_list = {
+		10 = {
+			add_trait = just
+			add_trait = zealous
+		}
+		10 = {
+			add_trait = stubborn
+			add_trait = just
+		}
+		10 = {
+			add_trait = arbitrary
+			add_trait = proud
+		}
+		10 = {
+			add_trait = craven
+			add_trait = cynical
+		}
+	}
+}
+
+POD_warrior_load_effect = {
+	POD_supernatural_trait_effect = yes
+	POD_exceptional_warrior_effect = yes
+	POD_warrior_personality_effect = yes
+	POD_warrior_lifestyle_effect = yes
+}
+
+POD_merchant_load_effect = {
+	POD_supernatural_trait_effect = yes
+	POD_exceptional_merchant_effect = yes
+	POD_merchant_personality_effect = yes
+	POD_merchant_lifestyle_effect = yes
+}
+
+POD_noble_load_effect = {
+	POD_supernatural_trait_effect = yes
+	POD_exceptional_noble_effect = yes
+	POD_noble_personality_effect = yes
+	POD_noble_lifestyle_effect = yes
+}
+
+POD_scholar_load_effect = {
+	POD_supernatural_trait_effect = yes
+	POD_exceptional_scholar_effect = yes
+	POD_scholar_personality_effect = yes
+	POD_scholar_lifestyle_effect = yes
+}
+
+POD_supernatural_trait_effect = {
+	random = {
+		chance = 25
+		random_list = {
+			5 = {
+				add_trait = wolf-blooded
+			}
+			5 = {
+				add_trait = kinain
+			}
+			5 = {
+				add_trait = witch-born
+			}
+		}
+	}
+}
+
+POD_create_warrior_effect = {
+	random_list = {	
+				25 = {
+					create_character = {
+						#warrior
+						age = 18
+						trait = mortal
+						trait = brilliant_strategist
+						female = 50
+						religion = innocent
+						dynasty = none
+						culture = LOCATION
+						attributes = {
+							martial = 12
+						}
+					}
+					new_character = {
+						POD_cleanse_mortal_effect = yes
+						POD_warrior_load_effect = yes
+					}
+				}
+				25 = {
+					#warrior philosopher
+					create_character = {
+						trait = mortal
+						trait = brilliant_strategist
+						female = 50
+						religion = innocent
+						dynasty = none
+						culture = LOCATION
+						attributes = {
+							martial = 12
+							learning = 10
+						}
+					}
+					new_character = {
+						POD_cleanse_mortal_effect = yes
+						POD_warrior_load_effect = yes
+					}
+				}
+				25 = {
+					#warrior leader
+					create_character = {
+						age = 18
+						trait = mortal
+						trait = brilliant_strategist
+						female = 50
+						religion = innocent
+						dynasty = none
+						culture = LOCATION
+						attributes = {
+							martial = 12
+							diplomacy = 8
+							stewardship = 10
+						}
+					}
+					new_character = {
+						POD_cleanse_mortal_effect = yes
+						POD_warrior_load_effect = yes
+					}
+				}
+			}
+}
+
+POD_create_merchant_effect = {
+	random_list = {	
+				25 = {
+					create_character = {
+						#merchant
+						age = 18
+						trait = mortal
+						trait = midas_touched
+						female = 50
+						religion = innocent
+						dynasty = none
+						culture = LOCATION
+						attributes = {
+							stewardship = 12
+						}
+					}
+					new_character = {
+						POD_cleanse_mortal_effect = yes
+						POD_merchant_load_effect = yes
+					}
+				}
+				25 = {
+					#crafty merchant
+					create_character = {
+						age = 18
+						trait = mortal
+						trait = elusive_shadow
+						female = 50
+						religion = innocent
+						dynasty = none
+						culture = LOCATION
+						attributes = {
+							stewardship = 12
+							intrigue = 10
+						}
+					}
+					new_character = {
+						POD_cleanse_mortal_effect = yes
+						POD_merchant_load_effect = yes
+					}
+				}
+				25 = {
+					#golden-tongued merchant
+					create_character = {
+						age = 18
+						trait = mortal
+						female = 50
+						religion = innocent
+						dynasty = none
+						culture = LOCATION
+						attributes = {
+							stewardship = 12
+							diplomacy = 8
+							intrigue = 10
+						}
+					}
+					new_character = {
+						set_character_flag = golden_merchant
+						random_list = {
+							5 = {
+								add_trait = midas_touched
+							}
+							5 = {
+								add_trait = elusive_shadow
+							}
+						}
+						POD_cleanse_mortal_effect = yes
+						POD_merchant_load_effect = yes
+					}
+				}
+			}
+}
+
+POD_create_noble_effect = {
+	random_list = {	
+				25 = {
+					create_character = {
+						#noble
+						age = 18
+						trait = mortal
+						trait = grey_eminence
+						female = 50
+						religion = innocent
+						dynasty = none
+						culture = LOCATION
+						attributes = {
+							diplomacy = 12
+						}
+					}
+					new_character = {
+						POD_cleanse_mortal_effect = yes
+						POD_noble_load_effect = yes
+					}
+				}
+				25 = {
+					#crafty noble
+					create_character = {
+						age = 18
+						trait = mortal
+						trait = elusive_shadow
+						female = 50
+						religion = innocent
+						dynasty = none
+						culture = LOCATION
+						attributes = {
+							diplomacy = 12
+							intrigue = 10
+						}
+					}
+					new_character = {
+						POD_cleanse_mortal_effect = yes
+						POD_noble_load_effect = yes
+					}
+				}
+				25 = {
+					#exceptional noble
+					create_character = {
+						age = 18
+						trait = mortal
+						female = 50
+						religion = innocent
+						dynasty = none
+						culture = LOCATION
+						attributes = {
+							diplomacy = 12
+							stewardship = 8
+							intrigue = 10
+						}
+					}
+					new_character = {
+						set_character_flag = exceptional_noble
+						random_list = {
+							5 = {
+								add_trait = grey_eminence
+							}
+							5 = {
+								add_trait = elusive_shadow
+							}
+						}
+						POD_cleanse_mortal_effect = yes
+						POD_noble_load_effect = yes
+					}
+				}
+			}
+}
+
+POD_create_scholar_effect = {
+	random_list = {	
+				25 = {
+					create_character = {
+						#scholar
+						age = 18
+						trait = mortal
+						trait = mastermind_theologian
+						female = 50
+						religion = innocent
+						dynasty = none
+						culture = LOCATION
+						attributes = {
+							learning = 12
+						}
+					}
+					new_character = {
+						POD_cleanse_mortal_effect = yes
+						POD_noble_load_effect = yes
+					}
+				}
+				25 = {
+					#shrewd scholar
+					create_character = {
+						age = 18
+						trait = mortal
+						trait = mastermind_theologian
+						female = 50
+						religion = innocent
+						dynasty = none
+						culture = LOCATION
+						attributes = {
+							learning = 12
+							stewardship = 10
+						}
+					}
+					new_character = {
+						POD_cleanse_mortal_effect = yes
+						POD_noble_load_effect = yes
+					}
+				}
+				25 = {
+					#exceptional scholar
+					create_character = {
+						age = 18
+						trait = mortal
+						trait = mastermind_theologian
+						female = 50
+						religion = innocent
+						dynasty = none
+						culture = LOCATION
+						attributes = {
+							learning = 12
+							diplomacy = 8
+							stewardship = 10
+						}
+					}
+					new_character = {
+						POD_cleanse_mortal_effect = yes
+						POD_noble_load_effect = yes
+					}
+				}
+			}
+}
+
+POD_new_vampire_effect = {
+	set_character_flag = FLAG_NWOD_EMBRACE_MORTAL_MINOR_TITLE_FIRED
+			
+			dynasty = ROOT
+			
+			add_trait = fledgling
+			
+			if = { 
+				limit = { ROOT = { is_female = no } }
+				set_father = ROOT
+				set_mother = 0
+			}else = {
+				set_father = 0
+				set_mother = ROOT
+			}	
+			
+			ROOT = {
+               POD_vampire_blood_thirst_increase_effect = yes
+            }
+			
+			character_event = { 
+				id = vampire_embrace.2
+				days = 1
+				random = 5
+			}
+}
+
+POD_new_ghoul_effect = {
+	add_trait = ghoul
+	add_trait = vigor_1
+	add_trait = bloodbound
+	opinion = {
+		modifier = opinion_blood_bond_to_domitor_ghoul
+		who = ROOT
+		years = 3000
+	}
+	ROOT = {
+		opinion = {
+			modifier = opinion_my_ghoul
+			who = PREV
+			years = 3000
+		}
+	}
+	set_character_flag = FLAG_NWOD_BLOODBOUND
+	character_event = { id = ghoul.1 }
+	ROOT = {
+		POD_vampire_blood_thirst_increase_effect = yes
+	}
+}

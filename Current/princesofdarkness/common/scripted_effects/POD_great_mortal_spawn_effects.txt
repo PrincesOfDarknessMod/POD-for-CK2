@@ -1,0 +1,3775 @@
+#To add a great person to the list copy one of the existing blocks and edit it to your new person and add them to the pod_check_great_people with the new 'spawn_<personname> = yes'.
+#For AI embrace patterns you must set one of the following flags in the new_character block before spawn
+#great_rebel
+#great_ruler
+#great_steward
+#great_theologian
+#great_intrigue
+#great_warrior
+#great_scientist
+#great_philosopher
+#great_artist
+#great_seducer
+#great_occultist
+#great_tyrant
+#great_special - this flag is for handling very special people like vlad tepes
+pod_check_great_people = {
+	spawn_imperia_cognati = yes
+	spawn_galaezzo_maria_sforza = yes
+	spawn_anthony_of_padua = yes
+	spawn_thibaud_IV = yes
+	spawn_elizabeth_bathory = yes
+	spawn_ernst_von_mansfeld = yes
+	spawn_abd_al_latif = yes
+	spawn_michael_scot = yes
+	spawn_elizabeth_of_hungary = yes
+	spawn_karde = yes
+	spawn_tomas_de_torquemada = yes
+	spawn_pons_de_capduelh = yes
+	spawn_hermann_von_salza = yes
+	spawn_snorri_sturluson = yes
+	spawn_lucrezia_borgia = yes
+	spawn_rodrigo_borgia = yes
+	spawn_cesare_borgia = yes
+	spawn_joan_of_arc = yes
+	spawn_gilles_de_rais = yes
+	spawn_ulrich_von_liechtenstein = yes
+	spawn_jeanne_de_clisson = yes
+	spawn_mindaugas = yes
+	spawn_edward_longshanks = yes
+	spawn_william_wallace = yes
+	spawn_marco_polo = yes
+	spawn_ad_din_rumi = yes
+	spawn_john_hawkwood = yes
+	spawn_margaret_I = yes
+	spawn_wat_tyler = yes
+	spawn_eustace_folville = yes
+	spawn_nicolaas_zannekin = yes
+	spawn_vesse_lepitamatu = yes
+	spawn_roi_xordo = yes
+	spawn_cola_di_rienzo = yes
+	spawn_thomas_aquinas = yes
+	spawn_alexander_nevsky = yes
+	spawn_fibonacci = yes
+	spawn_geoffrey_chaucer = yes
+	spawn_ibn_khaldun = yes
+	spawn_dante_alighieri = yes
+	spawn_timur = yes
+	spawn_skanderbeg = yes
+	spawn_matthias_corvinus = yes
+	spawn_jan_hus = yes
+	spawn_jan_zizka = yes
+	spawn_selene = yes
+	spawn_christine_de_pizan = yes
+	spawn_leonardo_da_vinci = yes
+	spawn_antonio_martinez_de_cala = yes
+	spawn_john_cabot = yes
+	spawn_vasco_da_gama = yes
+	spawn_agnes_dunbar = yes
+	spawn_agnes_sorel = yes
+	spawn_emery = yes
+	spawn_sparc = yes
+	spawn_niccolo_machiavelli = yes
+	spawn_girolamo_savonarola = yes
+}
+
+pod_spawn_great_person_effect = {
+	if = {
+		limit = {
+			any_player = {
+				NOT = { distance = { who = new_character value = 700 } }
+			}
+		}
+		set_character_flag = PLAYER_FOUND_SIRE
+		random_player = {
+			limit = {
+				NOT = { distance = { who = new_character value = 700 } }
+			}
+			character_event = { id = POD_great_childer_events.10 days = 1 random = 40 }
+		}
+	}else = {
+		set_character_flag = AI_SIRE_INITIATED
+		character_event = { id = POD_great_childer_events.21 days = 1 random = 5 }
+	}	
+}
+
+
+pod_great_person_category_check = {
+	set_character_flag = great_person_check_started
+	trigger_switch = {
+		on_trigger = has_character_flag
+		great_rebel = {
+			great_rebel_sire_check = yes
+		}
+		great_ruler = {
+			great_ruler_sire_check = yes
+		}
+		great_steward = {
+			great_steward_sire_check = yes
+		}
+		great_theologian = {
+			great_theologian_sire_check = yes
+		}
+		great_intrigue = {
+			great_intrigue_sire_check = yes
+		}
+		great_warrior = {
+			great_warrior_sire_check = yes
+		}
+		great_scientist = {
+			great_scientist_sire_check = yes
+		}
+		great_philosopher = {
+			great_philosopher_sire_check = yes
+		}
+		great_artist = {
+			great_artist_sire_check = yes
+		}
+		great_seducer = {
+			great_seducer_sire_check = yes
+		}
+		great_occultist = {
+			great_occultist_sire_check = yes
+		}
+		great_tyrant = {
+			great_tyrant_sire_check = yes
+		}
+		great_special = {
+			great_special_sire_check = yes
+		}
+	}
+}
+
+great_person_assamite_sire = {
+	random_playable_ruler = {
+		limit = {
+			is_within_sire_distance = yes
+			is_worthy_great_sire = yes
+			trait = assamite
+		}
+		set_character_flag = VENTRUE_SIRE
+		character_event = { id = POD_great_childer_events.22 }
+	}
+}
+
+great_person_baali_sire = {
+	random_playable_ruler = {
+		limit = {
+			is_within_sire_distance = yes
+			is_worthy_great_sire = yes
+			trait = baali
+		}
+		set_character_flag = VENTRUE_SIRE
+		character_event = { id = POD_great_childer_events.22 }
+	}
+}
+
+great_person_brujah_sire = {
+	random_playable_ruler = {
+		limit = {
+			is_within_sire_distance = yes
+			is_worthy_great_sire = yes
+			trait = brujah
+		}
+		set_character_flag = VENTRUE_SIRE
+		character_event = { id = POD_great_childer_events.22 }
+	}
+}
+
+great_person_cappadocian_sire = {
+	random_playable_ruler = {
+		limit = {
+			is_within_sire_distance = yes
+			is_worthy_great_sire = yes
+			trait = cappadocian
+		}
+		set_character_flag = VENTRUE_SIRE
+		character_event = { id = POD_great_childer_events.22 }
+	}
+}
+
+great_person_followerset_sire = {
+	random_playable_ruler = {
+		limit = {
+			is_within_sire_distance = yes
+			is_worthy_great_sire = yes
+			trait = followerofset
+		}
+		set_character_flag = VENTRUE_SIRE
+		character_event = { id = POD_great_childer_events.22 }
+	}
+}
+
+great_person_gangrel_sire = {
+	random_playable_ruler = {
+		limit = {
+			is_within_sire_distance = yes
+			is_worthy_great_sire = yes
+			trait = gangrel
+		}
+		set_character_flag = VENTRUE_SIRE
+		character_event = { id = POD_great_childer_events.22 }
+	}
+}
+
+great_person_giovanni_sire = {
+	random_playable_ruler = {
+		limit = {
+			is_within_sire_distance = yes
+			is_worthy_great_sire = yes
+			trait = giovanni
+		}
+		set_character_flag = VENTRUE_SIRE
+		character_event = { id = POD_great_childer_events.22 }
+	}
+}
+
+great_person_laibon_sire = {
+	random_playable_ruler = {
+		limit = {
+			is_within_sire_distance = yes
+			is_worthy_great_sire = yes
+			#trait = laibon
+		}
+		set_character_flag = VENTRUE_SIRE
+		character_event = { id = POD_great_childer_events.22 }
+	}
+}
+
+great_person_lasombra_sire = {
+	random_playable_ruler = {
+		limit = {
+			is_within_sire_distance = yes
+			is_worthy_great_sire = yes
+			trait = lasombra
+		}
+		set_character_flag = VENTRUE_SIRE
+		character_event = { id = POD_great_childer_events.22 }
+	}
+}
+
+
+great_person_malkavian_sire = {
+	random_playable_ruler = {
+		limit = {
+			is_within_sire_distance = yes
+			is_worthy_great_sire = yes
+			trait = malkavian
+		}
+		set_character_flag = VENTRUE_SIRE
+		character_event = { id = POD_great_childer_events.22 }
+	}
+}
+
+great_person_nosferatu_sire = {
+	random_playable_ruler = {
+		limit = {
+			is_within_sire_distance = yes
+			is_worthy_great_sire = yes
+			trait = nosferatu
+		}
+		set_character_flag = VENTRUE_SIRE
+		character_event = { id = POD_great_childer_events.22 }
+	}
+}
+
+great_person_ravnos_sire = {
+	random_playable_ruler = {
+		limit = {
+			is_within_sire_distance = yes
+			is_worthy_great_sire = yes
+			trait = ravnos
+		}
+		set_character_flag = VENTRUE_SIRE
+		character_event = { id = POD_great_childer_events.22 }
+	}
+}
+
+great_person_salubri_sire = {
+	random_playable_ruler = {
+		limit = {
+			is_within_sire_distance = yes
+			is_worthy_great_sire = yes
+			trait = salubri
+		}
+		set_character_flag = VENTRUE_SIRE
+		character_event = { id = POD_great_childer_events.22 }
+	}
+}
+
+great_person_toreador_sire = {
+	random_playable_ruler = {
+		limit = {
+			is_within_sire_distance = yes
+			is_worthy_great_sire = yes
+			trait = toreador
+		}
+		set_character_flag = VENTRUE_SIRE
+		character_event = { id = POD_great_childer_events.22 }
+	}
+}
+
+great_person_tremere_sire = {
+	random_playable_ruler = {
+		limit = {
+			is_within_sire_distance = yes
+			is_worthy_great_sire = yes
+			trait = tremere
+		}
+		set_character_flag = VENTRUE_SIRE
+		character_event = { id = POD_great_childer_events.22 }
+	}
+}
+
+great_person_tzimisce_sire = {
+	random_playable_ruler = {
+		limit = {
+			is_within_sire_distance = yes
+			is_worthy_great_sire = yes
+			trait = tzimisce
+		}
+		set_character_flag = VENTRUE_SIRE
+		character_event = { id = POD_great_childer_events.22 }
+	}
+}
+
+great_person_ventrue_sire = {
+	random_playable_ruler = {
+		limit = {
+			is_within_sire_distance = yes
+			is_worthy_great_sire = yes
+			trait = ventrue
+		}
+		set_character_flag = VENTRUE_SIRE
+		character_event = { id = POD_great_childer_events.22 }
+	}
+}
+
+move_great_person_place = {
+	random_playable_ruler = {
+		limit = {
+			is_within_sire_distance = yes
+		}
+		ROOT = {
+			move_character = PREV
+		}
+	}
+	set_character_flag = MOVED_NO_SIRE
+	character_event = { id = POD_great_childer_events.21 days = 90 }
+}
+
+great_rebel_sire_check = {
+	random_list = {
+		60 = {
+			modifier = {
+				factor = 0
+				check_for_brujah_sire = no
+			}
+			great_person_brujah_sire = yes
+		}
+		15 = {
+			modifier = {
+				factor = 0
+				check_for_gangrel_sire = no
+			}
+			great_person_gangrel_sire = yes
+		}
+		15 = {
+			modifier = {
+				factor = 0
+				check_for_tzimisce_sire = no
+			}
+			great_person_tzimisce_sire = yes
+		}
+		15 = {
+			modifier = {
+				factor = 0
+				check_for_lasombra_sire = no
+			}
+			great_person_lasombra_sire = yes
+		}
+		15 = {
+			modifier = {
+				factor = 0
+				check_for_assamite_sire = no
+			}
+			great_person_assamite_sire = yes
+		}
+		1 = {
+			move_great_person_place = yes
+		}
+	}
+}
+
+great_ruler_sire_check = {
+	random_list = {
+		50 = {
+			modifier = {
+				factor = 0
+				check_for_ventrue_sire = no
+			}
+			great_person_ventrue_sire = yes
+		}
+		15 = {
+			modifier = {
+				factor = 0
+				check_for_brujah_sire = no
+			}
+			great_person_brujah_sire = yes
+		}
+		50 = {
+			modifier = {
+				factor = 0
+				check_for_tzimisce_sire = no
+			}
+			great_person_tzimisce_sire = yes
+		}
+		50 = {
+			modifier = {
+				factor = 0
+				check_for_lasombra_sire = no
+			}
+			great_person_lasombra_sire = yes
+		}
+		1 = {
+			move_great_person_place = yes
+		}
+	}
+}
+
+great_steward_sire_check = {
+	random_list = {
+		50 = {
+			modifier = {
+				factor = 0
+				check_for_ventrue_sire = no
+			}
+			great_person_ventrue_sire = yes
+		}
+		15 = {
+			modifier = {
+				factor = 0
+				check_for_assamite_sire = no
+			}
+			great_person_assamite_sire = yes
+		}
+		1 = {
+			move_great_person_place = yes
+		}
+	}
+}
+
+great_theologian_sire_check = {
+	set_character_flag = great_theologian_sire_check_started
+	random_list = {
+		15 = {
+			modifier = {
+				factor = 0
+				check_for_malkavian_sire = no
+			}
+			great_person_malkavian_sire = yes
+		}
+		15 = {
+			modifier = {
+				factor = 0
+				check_for_cappadocian_sire = no
+			}
+			great_person_cappadocian_sire = yes
+		}
+		15 = {
+			modifier = {
+				factor = 0
+				check_for_tzimisce_sire = no
+			}
+			great_person_tzimisce_sire = yes
+		}
+		15 = {
+			modifier = {
+				factor = 0
+				check_for_assamite_sire = no
+			}
+			great_person_assamite_sire = yes
+		}
+		15 = {
+			modifier = {
+				factor = 0
+				check_for_lasombra_sire = no
+			}
+			great_person_lasombra_sire = yes
+		}
+		15 = {
+			modifier = {
+				factor = 0
+				check_for_followerset_sire = no
+			}
+			great_person_followerset_sire = yes
+		}
+		10 = {
+			modifier = {
+				factor = 0
+				check_for_nosferatu_sire = no
+			}
+			great_person_nosferatu_sire = yes
+		}
+		15 = {
+			modifier = {
+				factor = 0
+				check_for_baali_sire = no
+			}
+			great_person_baali_sire = yes
+		}
+		15 = {
+			modifier = {
+				factor = 0
+				check_for_salubri_sire = no
+			}
+			great_person_salubri_sire = yes
+		}
+		15 = {
+			modifier = {
+				factor = 0
+				check_for_tremere_sire = no
+			}
+			great_person_tremere_sire = yes
+		}
+		1 = {
+			move_great_person_place = yes
+		}
+	}
+}
+
+great_intrigue_sire_check = {
+	random_list = {
+		25 = {
+			modifier = {
+				factor = 0
+				check_for_followerset_sire = no
+			}
+			great_person_followerset_sire = yes
+		}
+		20 = {
+			modifier = {
+				factor = 0
+				check_for_tzimisce_sire = no
+			}
+			great_person_tzimisce_sire = yes
+		}
+		25 = {
+			modifier = {
+				factor = 0
+				check_for_lasombra_sire = no
+			}
+			great_person_lasombra_sire = yes
+		}
+		5 = {
+			modifier = {
+				factor = 0
+				check_for_nosferatu_sire = no
+			}
+			great_person_nosferatu_sire = yes
+		}
+		10 = {
+			modifier = {
+				factor = 0
+				check_for_malkavian_sire = no
+			}
+			great_person_malkavian_sire = yes
+		}
+		1 = {
+			move_great_person_place = yes
+		}
+	}
+}
+
+great_warrior_sire_check = {
+	random_list = {
+		20 = {
+			modifier = {
+				factor = 0
+				check_for_gangrel_sire = no
+			}
+			great_person_gangrel_sire = yes
+		}
+		40 = {
+			modifier = {
+				factor = 0
+				check_for_toreador_sire = no
+			}
+			great_person_toreador_sire = yes
+		}
+		20 = {
+			modifier = {
+				factor = 0
+				check_for_tzimisce_sire = no
+			}
+			great_person_tzimisce_sire = yes
+		}
+		15 = {
+			modifier = {
+				factor = 0
+				check_for_lasombra_sire = no
+			}
+			great_person_lasombra_sire = yes
+		}
+		15 = {
+			modifier = {
+				factor = 0
+				check_for_brujah_sire = no
+			}
+			great_person_brujah_sire = yes
+		}
+		15 = {
+			modifier = {
+				factor = 0
+				check_for_ventrue_sire = no
+			}
+			great_person_ventrue_sire = yes
+		}
+		15 = {
+			modifier = {
+				factor = 0
+				check_for_assamite_sire = no
+			}
+			great_person_assamite_sire = yes
+		}
+		15 = {
+			modifier = {
+				factor = 0
+				check_for_salubri_sire = no
+			}
+			great_person_salubri_sire = yes
+		}
+		1 = {
+			move_great_person_place = yes
+		}
+	}
+}
+
+great_scientist_sire_check = {
+	random_list = {
+		15 = {
+			modifier = {
+				factor = 0
+				check_for_gangrel_sire = no
+			}
+			great_person_gangrel_sire = yes
+		}
+		15 = {
+			modifier = {
+				factor = 0
+				check_for_tzimisce_sire = no
+			}
+			great_person_tzimisce_sire = yes
+		}
+		15 = {
+			modifier = {
+				factor = 0
+				check_for_lasombra_sire = no
+			}
+			great_person_lasombra_sire = yes
+		}
+		15 = {
+			modifier = {
+				factor = 0
+				check_for_brujah_sire = no
+			}
+			great_person_brujah_sire = yes
+		}
+		15 = {
+			modifier = {
+				factor = 0
+				check_for_assamite_sire = no
+			}
+			great_person_assamite_sire = yes
+		}
+		15 = {
+			modifier = {
+				factor = 0
+				check_for_salubri_sire = no
+			}
+			great_person_salubri_sire = yes
+		}
+		15 = {
+			modifier = {
+				factor = 0
+				check_for_tremere_sire = no
+			}
+			great_person_tremere_sire = yes
+		}
+		1 = {
+			move_great_person_place = yes
+		}
+	}
+}
+
+great_philosopher_sire_check = {
+	random_list = {
+		15 = {
+			modifier = {
+				factor = 0
+				check_for_gangrel_sire = no
+			}
+			great_person_gangrel_sire = yes
+		}
+		15 = {
+			modifier = {
+				factor = 0
+				check_for_tzimisce_sire = no
+			}
+			great_person_tzimisce_sire = yes
+		}
+		15 = {
+			modifier = {
+				factor = 0
+				check_for_lasombra_sire = no
+			}
+			great_person_lasombra_sire = yes
+		}
+		60 = {
+			modifier = {
+				factor = 0
+				check_for_brujah_sire = no
+			}
+			great_person_brujah_sire = yes
+		}
+		15 = {
+			modifier = {
+				factor = 0
+				check_for_assamite_sire = no
+			}
+			great_person_assamite_sire = yes
+		}
+		15 = {
+			modifier = {
+				factor = 0
+				check_for_salubri_sire = no
+			}
+			great_person_salubri_sire = yes
+		}
+		15 = {
+			modifier = {
+				factor = 0
+				check_for_tremere_sire = no
+			}
+			great_person_tremere_sire = yes
+		}
+		1 = {
+			move_great_person_place = yes
+		}
+	}
+}
+
+great_artist_sire_check = {
+	random_list = {
+		50 = {
+			modifier = {
+				factor = 0
+				check_for_toreador_sire = no
+			}
+			great_person_toreador_sire = yes
+		}
+		5 = {
+			modifier = {
+				factor = 0
+				check_for_followerset_sire = no
+			}
+			great_person_followerset_sire = yes
+		}
+		1 = {
+			move_great_person_place = yes
+		}
+	}
+}
+
+great_seducer_sire_check = {
+	random_list = {
+		30 = {
+			modifier = {
+				factor = 0
+				check_for_toreador_sire = no
+			}
+			great_person_toreador_sire = yes
+		}
+		20 = {
+			modifier = {
+				factor = 0
+				check_for_followerset_sire = no
+			}
+			great_person_followerset_sire = yes
+		}
+		1 = {
+			move_great_person_place = yes
+		}
+	}
+}
+
+great_occultist_sire_check = {
+	random_list = {
+		15 = {
+			modifier = {
+				factor = 0
+				check_for_cappadocian_sire = no
+			}
+			great_person_cappadocian_sire = yes
+		}
+		15 = {
+			modifier = {
+				factor = 0
+				check_for_tzimisce_sire = no
+			}
+			great_person_tzimisce_sire = yes
+		}
+		15 = {
+			modifier = {
+				factor = 0
+				check_for_assamite_sire = no
+			}
+			great_person_assamite_sire = yes
+		}
+		15 = {
+			modifier = {
+				factor = 0
+				check_for_followerset_sire = no
+			}
+			great_person_followerset_sire = yes
+		}
+		15 = {
+			modifier = {
+				factor = 0
+				check_for_baali_sire = no
+			}
+			great_person_baali_sire = yes
+		}
+		15 = {
+			modifier = {
+				factor = 0
+				check_for_tremere_sire = no
+			}
+			great_person_tremere_sire = yes
+		}
+		1 = {
+			move_great_person_place = yes
+		}
+	}
+}
+
+great_tyrant_sire_check = {
+	random_list = {
+		60 = {
+			modifier = {
+				factor = 0
+				check_for_tzimisce_sire = no
+			}
+			great_person_tzimisce_sire = yes
+		}
+		30 = {
+			modifier = {
+				factor = 0
+				check_for_ventrue_sire = no
+			}
+			great_person_ventrue_sire = yes
+		}
+		50 = {
+			modifier = {
+				factor = 0
+				check_for_lasombra_sire = no
+			}
+			great_person_lasombra_sire = yes
+		}
+		1 = {
+			move_great_person_place = yes
+		}
+	}
+}
+
+
+great_special_sire_check = {
+}
+
+great_person_player_flag_clear = {
+	if = {
+		limit = {
+			has_character_flag = using_ghoul_for_great_person
+		}
+		clr_character_flag = using_ghoul_for_great_person
+	}
+	if = {
+		limit = {
+			has_character_flag = using_money_for_great_person
+		}
+		clr_character_flag = using_money_for_great_person
+	}
+	if = {
+		limit = {
+			has_character_flag = success_gp
+		}
+		clr_character_flag = success_gp
+	}
+	if = {
+		limit = {
+			has_character_flag = rival_gp
+		}
+		clr_character_flag = rival_gp
+	}
+	if = {
+		limit = {
+			has_character_flag = other_gp
+		}
+		clr_character_flag = other_gp
+	}
+}
+
+spawn_anthony_of_padua = {
+	if = {
+		limit = { 
+			year = 1233
+			NOT = { year > 1233 }
+		}
+		random_province = {
+			limit = {
+				culture = "portuguese"
+			}
+			create_character = {
+				name = "Anthony of Padua"
+				age = 35
+				dna="bfdca0i0aa0"
+				properties="fc0c0k000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = grey_eminence
+				trait = monk
+				trait = theologian
+				trait = erudite
+				trait = honest
+				trait = humble
+				trait = zealous
+				female = no
+				religion = innocent
+				dynasty = none
+				culture = "portuguese"
+				attributes = {
+					diplomacy = 17
+					learning = 15
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = anthony_of_padua
+				set_character_flag = great_theologian
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+#1497
+spawn_imperia_cognati = {
+	if = {
+		limit = { 
+			year = 1497
+			NOT = { year > 1497 }
+		}
+		random_province = {
+			limit = {
+				culture = "frankish"
+			}
+			create_character = {
+				name = "Imperia Cognati"
+				age = 16
+				dna="cebaggbdaap"
+				properties="0i0cad"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = grey_eminence
+				trait = fair
+				trait = quick
+				trait = seductress
+				trait = lustful
+				trait = proud
+				trait = ambitious
+				trait = gregarious
+				trait = greedy
+				female = yes
+				religion = innocent
+				dynasty = none
+				culture = "italian"
+				attributes = {
+					diplomacy = 15
+					intrigue = 12
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = imperia_cognati
+				set_character_flag = great_seducer
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+spawn_galaezzo_maria_sforza = {
+	if = {
+		limit = { 
+			year = 1470
+			NOT = { year > 1470 }
+		}
+		random_province = {
+			limit = {
+				culture = "italian"
+			}
+			create_character = {
+				name = "Galeazzo Maria Sforza"
+				age = 26
+				dna="b0ffh0gbaa0"
+				properties="jj0idk000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = elusive_shadow
+				trait = cruel
+				trait = quick
+				trait = arbitrary
+				trait = lustful
+				trait = proud
+				trait = ambitious
+				trait = impaler
+				trait = deceitful
+				female = no
+				religion = innocent
+				dynasty = none
+				culture = "italian"
+				attributes = {
+					martial = 15
+					intrigue = 14
+					diplomacy = 9
+					stewardship = 10
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = galaezzo_maria_sforza
+				set_character_flag = great_tyrant
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+spawn_thibaud_IV = {
+	if = {
+		limit = { 
+			year = 1240
+			NOT = { year > 1240 }
+		}
+		random_province = {
+			limit = {
+				culture = "frankish"
+			}
+			create_character = {
+				name = "Thibaud IV"
+				age = 30
+				dna="ckfii0abca0"
+				properties="bd0dak0a00000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = grey_eminence
+				trait = administrator
+				trait = poet
+				trait = crusader
+				trait = diligent
+				trait = patient
+				trait = lustful
+				trait = erudite
+				trait = just
+				trait = trusting
+				has_nickname = nick_le_chansonnier
+				female = no
+				religion = innocent
+				dynasty = none
+				culture = "frankish"
+				attributes = {
+					diplomacy = 18
+					intrigue = 9
+					martial = 12
+					learning = 13
+					stewardship = 15
+				}
+			}
+			new_character = {
+				give_nickname = nick_le_chansonnier
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = thibaud_IV
+				set_character_flag = great_warrior
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+#1614
+spawn_elizabeth_bathory = {
+	if = {
+		limit = { 
+			year = 1614
+			NOT = { year > 1614 }
+		}
+		random_province = {
+			limit = {
+				culture = "hungarian"
+			}
+			create_character = {
+				name = "Elizabeth Bathory"
+				age = 24
+				dna="bgkff0jaca0"
+				properties="mc0j0k0000000000000"
+				trait = mortal
+				trait = canon
+				trait = wyrm-tainted
+				trait = great_person
+				trait = grey_eminence
+				trait = impaler
+				trait = proud
+				trait = cruel
+				trait = diligent
+				trait = schemer
+				trait = deceitful
+				female = yes
+				religion = innocent
+				dynasty = none
+				culture = "hungarian"
+				attributes = {
+					diplomacy = 12
+					intrigue = 15
+					learning = 13
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = elizabeth_bathory
+				set_character_flag = great_tyrant
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+#1620
+spawn_ernst_von_mansfeld = {
+	if = {
+		limit = { 
+			year = 1620
+			NOT = { year > 1620 }
+		}
+		random_province = {
+			limit = {
+				culture = "german"
+			}
+			create_character = {
+				name = "Ernst von Mansfeld"
+				age = 30
+				dna="ddddgmhceco"
+				properties="cd00fa00000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = brilliant_strategist
+				trait = genius
+				trait = strategist
+				trait = diligent
+				trait = arbitrary
+				trait = cruel
+				female = no
+				religion = innocent
+				dynasty = none
+				culture = "german"
+				attributes = {
+					intrigue = 9
+					martial = 15
+					diplomacy = 13
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = ernst_von_mansfeld
+				set_character_flag = great_warrior
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+spawn_abd_al_latif = {
+	if = {
+		limit = { 
+			year = 1235
+			NOT = { year > 1235 }
+		}
+		random_province = {
+			limit = {
+				culture = "arab"
+			}
+			create_character = {
+				name = "Abd al-Latif al-Baghdadi"
+				age = 35
+				dna = csdeypeevjm
+				properties = eo0bb0000000
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = mastermind_theologian
+				trait = genius
+				trait = theologian
+				trait = erudite
+				trait = faqih
+				trait = physician
+				trait = hajjaj
+				female = no
+				religion = innocent
+				dynasty = none
+				culture = "arab"
+				attributes = {
+					learning = 17
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = abd_al_latif
+				set_character_flag = great_theologian
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+spawn_michael_scot = {
+	if = {
+		limit = { 
+			year = 1234
+			NOT = { year > 1234 }
+		}
+		random_province = {
+			limit = {
+				culture = "scottish"
+			}
+			create_character = {
+				name = "Michael Scot"
+				age = 35
+				dna="bfffeoijecq"
+				properties="0c0chk000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = scholarly_theologian
+				trait = genius
+				trait = scholar
+				trait = theologian
+				trait = erudite
+				female = no
+				religion = innocent
+				dynasty = none
+				culture = "scottish"
+				attributes = {
+					learning = 17
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = michael_scot
+				set_character_flag = great_occultist
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+#1232
+spawn_elizabeth_of_hungary = {
+	if = {
+		limit = { 
+			year = 1236
+			NOT = { year > 1236 }
+		}
+		random_province = {
+			limit = {
+				culture = "hungarian"
+			}
+			create_character = {
+				name = "Saint Elizabeth"
+				age = 18
+				dna="bgkcf0la0a0"
+				properties="mb0j0k0000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = scholarly_theologian
+				trait = fair
+				trait = quick
+				trait = just
+				trait = chaste
+				trait = erudite
+				trait = charitable
+				trait = kind
+				trait = temperate
+				female = yes
+				religion = innocent
+				dynasty = none
+				culture = "hungarian"
+				attributes = {
+					learning = 13
+					diplomacy = 9
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = elizabeth_of_hungary
+				set_character_flag = great_theologian
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+#1290
+spawn_karde = {
+	if = {
+		limit = { 
+			year = 1290
+			NOT = { year > 1290 }
+		}
+		random_province = {
+			limit = {
+				culture = "frankish"
+			}
+			create_character = {
+				name = "Karde"
+				age = 25
+				dna="bgkff0jaca0"
+				properties="mc0j0k0000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = mastermind_theologian
+				trait = genius
+				trait = diligent
+				trait = scholar
+				trait = gamer
+				trait = erudite
+				trait = patient
+				trait = cynical
+				female = no
+				religion = innocent
+				dynasty = none
+				culture = "norman"
+				attributes = {
+					learning = 15
+					diplomacy = 10
+					intrigue = 10
+				}
+			}
+			new_character = {
+				give_nickname = nick_the_noddist
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = karde
+				set_character_flag = great_scientist
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+#1490
+spawn_tomas_de_torquemada = {
+	if = {
+		limit = { 
+			year = 1490
+			NOT = { year > 1490 }
+		}
+		random_province = {
+			limit = {
+				culture = "castillan"
+			}
+			create_character = {
+				name = "Tomas de Torquemada"
+				age = 40
+				dna="bcaii0a00b0"
+				properties="aa0h0c000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = mastermind_theologian
+				trait = quick
+				trait = zealous
+				trait = diligent
+				trait = scholar
+				trait = temperate
+				trait = cruel
+				trait = stubborn
+				trait = proud
+				female = no
+				religion = innocent
+				dynasty = none
+				culture = "castillan"
+				attributes = {
+					learning = 15
+					diplomacy = 10
+					intrigue = 15
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = tomas_de_torquemada
+				set_character_flag = great_theologian
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+spawn_pons_de_capduelh = {
+	if = {
+		limit = { 
+			year = 1237
+			NOT = { year > 1237 }
+		}
+		random_province = {
+			limit = {
+				culture = "frankish"
+			}
+			create_character = {
+				name = "Pons de Capduelh"
+				age = 30
+				dna="bcaii0a00b0"
+				properties="aa0h0c000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = brilliant_strategist
+				trait = strong
+				trait = zealous
+				trait = crusader
+				trait = poet
+				trait = temperate
+				trait = gregarious
+				trait = stubborn
+				trait = proud
+				female = no
+				religion = innocent
+				dynasty = none
+				culture = "frankish"
+				attributes = {
+					martial = 15
+					diplomacy = 15
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = pons_de_capduelh
+				set_character_flag = great_warrior
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+spawn_hermann_von_salza = {
+	if = {
+		limit = { 
+			year = 1239
+			NOT = { year > 1239 }
+		}
+		random_province = {
+			limit = {
+				culture = "german"
+			}
+			create_character = {
+				name = "Hermann von Salza"
+				age = 30
+				dna="bcaii0a00b0"
+				properties="aa0h0c000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = brilliant_strategist
+				trait = strong
+				trait = zealous
+				trait = crusader
+				trait = administrator
+				trait = temperate
+				trait = stubborn
+				trait = proud
+				female = no
+				religion = innocent
+				dynasty = none
+				culture = "german"
+				attributes = {
+					martial = 15
+					diplomacy = 15
+					stewardship = 8
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = hermann_von_salza
+				set_character_flag = great_ruler
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+#1241
+spawn_snorri_sturluson = {
+	if = {
+		limit = { 
+			year = 1241
+			NOT = { year > 1241 }
+		}
+		random_province = {
+			limit = {
+				culture = "norse"
+			}
+			create_character = {
+				name = "Snorri Sturluson"
+				age = 35
+				dna="bcchc0f0000"
+				properties="ac0hgc000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = mastermind_theologian
+				trait = genius
+				trait = poet
+				trait = administrator
+				trait = diligent
+				trait = stubborn
+				trait = proud
+				trait = just
+				female = no
+				religion = innocent
+				dynasty = none
+				culture = "norse"
+				attributes = {
+					diplomacy = 13
+					stewardship = 13
+					learning = 17
+					intrigue = 10
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = snorri_sturluson
+				set_character_flag = great_philosopher
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+#1519
+spawn_lucrezia_borgia = {
+	if = {
+		limit = { 
+			year = 1519
+			NOT = { year > 1519 }
+		}
+		random_province = {
+			limit = {
+				culture = "italian"
+			}
+			create_character = {
+				name = "Lucrezia Borgia"
+				age = 21
+				dna="c0cbb0b0ae0"
+				properties="af0h0k000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = elusive_shadow
+				trait = quick
+				trait = fair
+				trait = administrator
+				trait = schemer
+				trait = arbitrary
+				trait = deceitful
+				trait = ambitious
+				trait = cynical
+				trait = cruel
+				female = yes
+				religion = innocent
+				dynasty = none
+				culture = "catalan"
+				attributes = {
+					intrigue = 13
+					learning = 13
+					diplomacy = 10
+					stewardship = 12
+				}
+			}
+			new_character = {
+				any_character = {
+					limit = { 
+						has_character_flag = cesare_borgia
+					}
+					add_lover = PREV
+					save_event_target_as = target_person
+				}
+				add_lover = event_target:target_person
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = lucrezia_borgia
+				set_character_flag = great_intrigue
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+#1503
+spawn_rodrigo_borgia = {
+	if = {
+		limit = { 
+			year = 1503
+			NOT = { year > 1503 }
+		}
+		random_province = {
+			limit = {
+				culture = "italian"
+			}
+			create_character = {
+				name = "Rodrigo Borgia"
+				age = 45
+				dna="0icib0aa0c0"
+				properties="cf0i0b000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = elusive_shadow
+				trait = quick
+				trait = schemer
+				trait = administrator
+				trait = diligent
+				trait = lustful
+				trait = ambitious
+				trait = gluttonous
+				trait = cynical
+				trait = greedy
+				female = no
+				religion = innocent
+				dynasty = none
+				culture = "catalan"
+				attributes = {
+					diplomacy = 14
+					stewardship = 12
+					learning = 8
+					intrigue = 11
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = rodrigo_borgia
+				set_character_flag = great_ruler
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+#1507
+spawn_cesare_borgia = {
+	if = {
+		limit = { 
+			year = 1507
+			NOT = { year > 1507 }
+		}
+		random_province = {
+			limit = {
+				culture = "italian"
+			}
+			create_character = {
+				name = "Cesare Borgia"
+				age = 25
+				dna="0ccib0aa0c0"
+				properties="cf0igb000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = brilliant_strategist
+				trait = quick
+				trait = schemer
+				trait = strategist
+				trait = ambitious
+				trait = cynical
+				trait = cruel
+				trait = proud
+				female = no
+				religion = innocent
+				dynasty = none
+				culture = "catalan"
+				attributes = {
+					diplomacy = 10
+					stewardship = 10
+					intrigue = 15
+					martial = 15
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = cesare_borgia
+				set_character_flag = great_ruler
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+#1431
+spawn_joan_of_arc = {
+	if = {
+		limit = { 
+			year = 1431
+			NOT = { year > 1431 }
+		}
+		random_province = {
+			limit = {
+				culture = "frankish"
+			}
+			create_character = {
+				name = "Joan of Arc"
+				age = 19
+				dna="0acba0d00b0"
+				properties="0i0k0k000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = brilliant_strategist
+				trait = quick
+				trait = patient
+				trait = charitable
+				trait = diligent
+				trait = temperate
+				trait = chaste
+				trait = humble
+				trait = zealous
+				trait = just
+				trait = stubborn
+				female = yes
+				religion = innocent
+				dynasty = none
+				culture = "norman"
+				attributes = {
+					martial = 15
+					learning = 12
+					diplomacy = 12
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = joan_of_arc
+				set_character_flag = great_warrior
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+#1440
+spawn_gilles_de_rais = {
+	if = {
+		limit = { 
+			year = 1440
+			NOT = { year > 1440 }
+		}
+		random_province = {
+			limit = {
+				culture = "frankish"
+			}
+			create_character = {
+				name = "Gilles de Rais"
+				age = 25
+				dna="bfdca0ihaa0"
+				properties="fd0cck0000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = brilliant_strategist
+				trait = quick
+				trait = strong
+				trait = wyrm-tainted
+				trait = hedonist
+				trait = proud
+				trait = cruel
+				trait = brave
+				trait = arbitrary
+				trait = cynical
+				trait = deceitful
+				female = no
+				religion = innocent
+				dynasty = none
+				culture = "frankish"
+				attributes = {
+					martial = 15
+					learning = 14
+					intrigue = 14
+				}
+			}
+			new_character = {
+				any_character = {
+					limit = {
+						has_character_flag = joan_of_arc
+					}
+					save_event_target_as = target_person
+					add_friend = PREV
+				}
+				add_friend = event_target:target_person
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = gilles_de_rais
+				set_character_flag = great_occultist
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+#1330
+spawn_jeanne_de_clisson = {
+	if = {
+		limit = { 
+			year = 1330
+			NOT = { year > 1330 }
+		}
+		random_province = {
+			limit = {
+				culture = "breton"
+			}
+			create_character = {
+				name = "Jeanne de Clisson"
+				age = 25
+				dna="baedb0h0fb0"
+				properties="qj0a0b000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = brilliant_strategist
+				trait = quick
+				trait = fair
+				trait = proud
+				trait = brave
+				trait = just
+				trait = stubborn
+				female = yes
+				religion = innocent
+				dynasty = none
+				culture = "breton"
+				attributes = {
+					martial = 12
+					intrigue = 10
+					diplomacy = 9
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = jeanne_de_clisson
+				set_character_flag = great_rebel
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+#1260
+spawn_ulrich_von_liechtenstein = {
+	if = {
+		limit = { 
+			year = 1260
+			NOT = { year > 1260 }
+		}
+		random_province = {
+			limit = {
+				culture = "german"
+			}
+			create_character = {
+				name = "Ulrich von Liechtenstein"
+				age = 30
+				dna="baedb0h0fb0"
+				properties="qj0a0b000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = grey_eminence
+				trait = quick
+				trait = poet
+				trait = crusader
+				trait = diligent
+				trait = chaste
+				trait = erudite
+				trait = just
+				female = no
+				religion = innocent
+				dynasty = none
+				culture = "german"
+				attributes = {
+					diplomacy = 15
+					martial = 9
+					learning = 10
+					stewardship = 12
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = ulrich_von_liechtenstein
+				set_character_flag = great_warrior
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+#1263
+spawn_mindaugas = {
+	if = {
+		limit = { 
+			year = 1263
+			NOT = { year > 1263 }
+		}
+		random_province = {
+			limit = {
+				culture = "lithuanian"
+			}
+			create_character = {
+				name = "Mindaugas"
+				age = 30
+				dna="acccg0dbca0"
+				properties="oi0jac000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = grey_eminence
+				trait = quick
+				trait = administrator
+				trait = strategist
+				trait = diligent
+				trait = chaste
+				trait = brave
+				trait = proud
+				female = no
+				religion = innocent
+				dynasty = none
+				culture = "lithuanian"
+				attributes = {
+					diplomacy = 15
+					martial = 15
+					learning = 10
+					stewardship = 10
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = mindaugas
+				set_character_flag = great_ruler
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+#1305
+spawn_william_wallace = {
+	if = {
+		limit = { 
+			year = 1305
+			NOT = { year > 1305 }
+		}
+		random_province = {
+			limit = {
+				culture = "scottish"
+			}
+			create_character = {
+				name = "William Wallace"
+				age = 25
+				dna="bgag00gbgb0"
+				properties="ia0b0h000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = brilliant_strategist
+				trait = strong
+				trait = just
+				trait = brave
+				trait = proud
+				trait = wroth
+				female = no
+				religion = innocent
+				dynasty = none
+				culture = "scottish"
+				attributes = {
+					martial = 15
+					intrigue = 9
+					diplomacy = 9
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = william_wallace
+				set_character_flag = great_rebel
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+#1307
+spawn_edward_longshanks = {
+	if = {
+		limit = { 
+			year = 1307
+			NOT = { year > 1307 }
+		}
+		random_province = {
+			limit = {
+				culture = "english"
+			}
+			create_character = {
+				name = "Edward Longshanks"
+				age = 30
+				dna="bgag00gbgb0"
+				properties="ia0b0h000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = midas_touched
+				trait = quick
+				trait = administrator
+				trait = strategist
+				trait = diligent
+				trait = cruel
+				trait = brave
+				trait = proud
+				trait = cynical
+				female = no
+				religion = innocent
+				dynasty = none
+				culture = "english"
+				attributes = {
+					diplomacy = 10
+					martial = 12
+					stewardship = 15
+					intrigue = 14
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = edward_longshanks
+				set_character_flag = great_ruler
+				any_character = {
+					limit = { 
+						has_character_flag = william_wallace
+					}
+					add_rival = PREV
+					save_event_target_as = target_person
+				}
+				add_rival = event_target:target_person
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+#1324
+spawn_marco_polo = {
+	if = {
+		limit = { 
+			year = 1324
+			NOT = { year > 1324 }
+		}
+		random_province = {
+			limit = {
+				culture = "italian"
+			}
+			create_character = {
+				name = "Marco Polo"
+				age = 35
+				dna="cehaa0c0bb0"
+				properties="bb0ehh000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = midas_touched
+				trait = genius
+				trait = administrator
+				trait = diligent
+				trait = brave
+				trait = proud
+				trait = patient
+				female = no
+				religion = innocent
+				dynasty = none
+				culture = "italian"
+				attributes = {
+					diplomacy = 12
+					learning = 8
+					stewardship = 15
+					intrigue = 8
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = marco_polo
+				set_character_flag = great_steward
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+#1265
+spawn_ad_din_rumi = {
+	if = {
+		limit = { 
+			year = 1265
+			NOT = { year > 1265 }
+		}
+		random_province = {
+			limit = {
+				culture = "persian"
+			}
+			create_character = {
+				name = "Jalal ad-din Muhammad Rumi"
+				age = 35
+				dna="afcdd0baca0"
+				properties="qn0faf000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = mastermind_theologian
+				trait = genius
+				trait = poet
+				trait = theologian
+				trait = erudite
+				trait = faqih
+				trait = hajjaj
+				trait = just
+				trait = diligent
+				trait = patient
+				female = no
+				religion = innocent
+				dynasty = none
+				culture = "persian"
+				attributes = {
+					learning = 12
+					diplomacy = 16
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = ad_din_rumi
+				set_character_flag = great_philosopher
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+#1370
+spawn_john_hawkwood = {
+	if = {
+		limit = { 
+			year = 1370
+			NOT = { year > 1370 }
+		}
+		random_province = {
+			limit = {
+				culture = "italian"
+			}
+			create_character = {
+				name = "John Hawkwood"
+				age = 30
+				dna="aibe00abhd0"
+				properties="n00a0k000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = brilliant_strategist
+				trait = quick
+				trait = strategist
+				trait = diligent
+				trait = cruel
+				trait = brave
+				trait = proud
+				trait = cynical
+				trait = greedy
+				female = no
+				religion = innocent
+				dynasty = none
+				culture = "english"
+				attributes = {
+					diplomacy = 10
+					martial = 13
+					stewardship = 9
+					intrigue = 9
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = john_hawkwood
+				set_character_flag = great_warrior
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+#1380
+spawn_margaret_I = {
+	if = {
+		limit = { 
+			year = 1380
+			NOT = { year > 1380 }
+		}
+		random_province = {
+			limit = {
+				culture = "danish"
+			}
+			create_character = {
+				name = "Margaret I"
+				age = 24
+				dna="0hebh0gaa00"
+				properties="h00g0k000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = grey_eminence
+				trait = quick
+				trait = administrator
+				trait = just
+				trait = temperate
+				trait = diligent
+				trait = patient
+				trait = stubborn
+				female = yes
+				religion = innocent
+				dynasty = none
+				culture = "danish"
+				attributes = {
+					martial = 12
+					stewardship = 14
+					diplomacy = 14
+					intrigue = 10
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = margaret_I
+				set_character_flag = great_ruler
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+#1381
+spawn_wat_tyler = {
+	if = {
+		limit = { 
+			year = 1381
+			NOT = { year > 1381 }
+		}
+		random_province = {
+			limit = {
+				culture = "english"
+			}
+			create_character = {
+				name = "Wat Tyler"
+				age = 27
+				dna="adeah0gcfa0"
+				properties="ac0iak000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = skilled_tactician
+				trait = quick
+				trait = strong
+				trait = brave
+				trait = proud
+				trait = stubborn
+				female = no
+				religion = innocent
+				dynasty = none
+				culture = "english"
+				attributes = {
+					martial = 15
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = wat_tyler
+				set_character_flag = great_rebel
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+#1340
+spawn_eustace_folville = {
+	if = {
+		limit = { 
+			year = 1340
+			NOT = { year > 1340 }
+		}
+		random_province = {
+			limit = {
+				culture = "english"
+			}
+			create_character = {
+				name = "Eustace Folville"
+				age = 24
+				dna="0ibb00ecge0"
+				properties="te00kc000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = brilliant_strategist
+				trait = quick
+				trait = brave
+				trait = diligent
+				trait = just
+				trait = stubborn
+				female = no
+				religion = innocent
+				dynasty = none
+				culture = "english"
+				attributes = {
+					martial = 13
+					intrigue = 13
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = eustace_folville
+				set_character_flag = great_rebel
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+#1328
+spawn_nicolaas_zannekin = {
+	if = {
+		limit = { 
+			year = 1328
+			NOT = { year > 1328 }
+		}
+		random_province = {
+			limit = {
+				culture = "frankish"
+			}
+			create_character = {
+				name = "Nicolaas Zannekin"
+				age = 25
+				dna="cdgij0bibb0"
+				properties="md0cdk000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = brilliant_strategist
+				trait = quick
+				trait = brave
+				trait = just
+				trait = stubborn
+				trait = proud
+				female = no
+				religion = innocent
+				dynasty = none
+				culture = "frankish"
+				attributes = {
+					martial = 12
+					intrigue = 12
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = nicolaas_zannekin
+				set_character_flag = great_rebel
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+#1370
+spawn_vesse_lepitamatu = {
+	if = {
+		limit = { 
+			year = 1370
+			NOT = { year > 1370 }
+		}
+		random_province = {
+			limit = {
+				culture = "lithuanian"
+			}
+			create_character = {
+				name = "Vesse Lepitamatu"
+				age = 26
+				dna="cifhg0h0eb0"
+				properties="aj0ada000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = brilliant_strategist
+				trait = quick
+				trait = strong
+				trait = strategist
+				trait = diligent
+				trait = brave
+				trait = just
+				trait = stubborn
+				trait = proud
+				trait = ambitious
+				female = no
+				religion = innocent
+				dynasty = none
+				culture = "lithuanian"
+				attributes = {
+					martial = 14
+					intrigue = 12
+					stewardship = 12
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = vesse_lepitamatu
+				set_character_flag = great_rebel
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+#1435
+spawn_roi_xordo = {
+	if = {
+		limit = { 
+			year = 1435
+			NOT = { year > 1435 }
+		}
+		random_province = {
+			limit = {
+				culture = "portuguese"
+			}
+			create_character = {
+				name = "Roi Xordo"
+				age = 21
+				dna="0dedf00c0d0"
+				properties="gh0cbd000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = brilliant_strategist
+				trait = strong
+				trait = brave
+				trait = just
+				trait = stubborn
+				trait = proud
+				trait = wroth
+				female = no
+				religion = innocent
+				dynasty = none
+				culture = "portuguese"
+				attributes = {
+					martial = 11
+					intrigue = 11
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = roi_xordo
+				set_character_flag = great_rebel
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+#1437
+spawn_antal_nagy_de_buda = {
+	if = {
+		limit = { 
+			year = 1437
+			NOT = { year > 1437 }
+		}
+		random_province = {
+			limit = {
+				culture = "hungarian"
+			}
+			create_character = {
+				name = "Antal Nagy de Buda"
+				age = 25
+				dna="0fija0lbdc0"
+				properties="ad0bek000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = brilliant_strategist
+				trait = strong
+				trait = brave
+				trait = just
+				trait = stubborn
+				trait = proud
+				trait = wroth
+				female = no
+				religion = innocent
+				dynasty = none
+				culture = "hungarian"
+				attributes = {
+					martial = 11
+					diplomacy = 11
+					intrigue = 10
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = antal_nagy_de_buda
+				set_character_flag = great_rebel
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+#1354
+spawn_cola_di_rienzo = {
+	if = {
+		limit = { 
+			year = 1354
+			NOT = { year > 1354 }
+		}
+		random_province = {
+			limit = {
+				culture = "italian"
+			}
+			create_character = {
+				name = "Cola di Rienzo"
+				age = 23
+				dna="ccbca0dabb0"
+				properties="d00gl0000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = grey_eminence
+				trait = quick
+				trait = brave
+				trait = diligent
+				trait = just
+				trait = proud
+				trait = gregarious
+				trait = ambitious
+				female = no
+				religion = innocent
+				dynasty = none
+				culture = "italian"
+				attributes = {
+					martial = 9
+					diplomacy = 15
+					intrigue = 9
+					stewardship = 15
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = cola_di_rienzo
+				set_character_flag = great_rebel
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+#1274
+spawn_thomas_aquinas = {
+	if = {
+		limit = { 
+			year = 1274
+			NOT = { year > 1274 }
+		}
+		random_province = {
+			limit = {
+				culture = "italian"
+			}
+			create_character = {
+				name = "Saint Thomas Aquinas"
+				age = 35
+				dna="bdcde0eb0b0"
+				properties="sa0d0d000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = grey_eminence
+				trait = quick
+				trait = administrator
+				trait = poet
+				trait = patient
+				trait = diligent
+				trait = just
+				trait = temperate
+				trait = scholar
+				trait = erudite
+				female = no
+				religion = innocent
+				dynasty = none
+				culture = "italian"
+				attributes = {
+					learning = 12
+					diplomacy = 14
+					stewardship = 14
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = thomas_aquinas
+				set_character_flag = great_philosopher
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+#1263
+spawn_alexander_nevsky = {
+	if = {
+		limit = { 
+			year = 1263
+			NOT = { year > 1263 }
+		}
+		random_province = {
+			limit = {
+				culture = "russian"
+			}
+			create_character = {
+				name = "Saint Alexander Nevsky"
+				age = 30
+				dna="cgdff0ebc00"
+				properties="gl0e0a000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = brilliant_strategist
+				trait = quick
+				trait = strategist
+				trait = patient
+				trait = diligent
+				trait = just
+				trait = temperate
+				female = no
+				religion = innocent
+				dynasty = none
+				culture = "russian"
+				attributes = {
+					martial = 13
+					diplomacy = 14
+					stewardship = 14
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = alexander_nevsky
+				set_character_flag = great_ruler
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+#1245
+spawn_fibonacci = {
+	if = {
+		limit = { 
+			year = 1245
+			NOT = { year > 1245 }
+		}
+		random_province = {
+			limit = {
+				culture = "italian"
+			}
+			create_character = {
+				name = "Fibonacci"
+				age = 30
+				dna="cgdff0ebc00"
+				properties="gl0e0a000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = mastermind_theologian
+				trait = genius
+				trait = administrator
+				trait = diligent
+				trait = scholar
+				trait = erudite
+				female = no
+				religion = innocent
+				dynasty = none
+				culture = "italian"
+				attributes = {
+					learning = 15
+					diplomacy = 10
+					stewardship = 15
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = fibonacci
+				set_character_flag = great_scientist
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+#1400
+spawn_geoffrey_chaucer = {
+	if = {
+		limit = { 
+			year = 1400
+			NOT = { year > 1400 }
+		}
+		random_province = {
+			limit = {
+				culture = "english"
+			}
+			create_character = {
+				name = "Geoffrey Chaucer"
+				age = 30
+				dna="cgdff0ebc00"
+				properties="gl0e0a000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = grey_eminence
+				trait = quick
+				trait = poet
+				trait = diligent
+				trait = scholar
+				trait = erudite
+				trait = just
+				trait = patient
+				female = no
+				religion = innocent
+				dynasty = none
+				culture = "english"
+				attributes = {
+					learning = 15
+					diplomacy = 15
+					stewardship = 11
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = geoffrey_chaucer
+				set_character_flag = great_artist
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+#1406
+spawn_ibn_khaldun = {
+	if = {
+		limit = { 
+			year = 1406
+			NOT = { year > 1406 }
+		}
+		random_province = {
+			limit = {
+				culture = "bedouin_arabic"
+			}
+			create_character = {
+				name = "Ibn Khaldun"
+				age = 30
+				dna="0lidd0dc000"
+				properties="ef0iba0000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = midas_touched
+				trait = quick
+				trait = diligent
+				trait = faqih
+				trait = erudite
+				trait = just
+				trait = patient
+				trait = zealous
+				female = no
+				religion = innocent
+				dynasty = none
+				culture = "bedouin_arabic"
+				attributes = {
+					learning = 15
+					diplomacy = 12
+					stewardship = 15
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = ibn_khaldun
+				set_character_flag = great_philosopher
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+#1321
+spawn_dante_alighieri = {
+	if = {
+		limit = { 
+			year = 1321
+			NOT = { year > 1321 }
+		}
+		random_province = {
+			limit = {
+				culture = "italian"
+			}
+			create_character = {
+				name = "Dante Alighieri"
+				age = 35
+				dna="0efdf0ab0e0"
+				properties="mc0cbe000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = grey_eminence
+				trait = quick
+				trait = poet
+				trait = diligent
+				trait = scholar
+				trait = erudite
+				trait = just
+				trait = patient
+				female = no
+				religion = innocent
+				dynasty = none
+				culture = "italian"
+				attributes = {
+					learning = 15
+					diplomacy = 15
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = dante_alighieri
+				set_character_flag = great_artist
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+#1405
+spawn_timur = {
+	if = {
+		limit = { 
+			year = 1405
+			NOT = { year > 1405 }
+		}
+		random_province = {
+			limit = {
+				culture = "persian"
+			}
+			create_character = {
+				name = "Timur"
+				age = 25
+				dna="bafhi0bbb00"
+				properties="mh0cmh000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = brilliant_strategist
+				trait = quick
+				trait = ambitious
+				trait = cruel
+				trait = diligent
+				trait = proud
+				trait = just
+				trait = brave
+				female = no
+				religion = innocent
+				dynasty = none
+				culture = "persian"
+				attributes = {
+					martial = 15
+					intrigue = 15
+					stewardship = 12
+					diplomacy = 9
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = timur
+				set_character_flag = great_tyrant
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+#1435
+spawn_skanderbeg = {
+	if = {
+		limit = { 
+			year = 1435
+			NOT = { year > 1435 }
+		}
+		random_province = {
+			limit = {
+				culture = "greek"
+			}
+			create_character = {
+				name = "Skanderbeg"
+				age = 25
+				dna="bafhi0bbb00"
+				properties="mh0cmh000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = brilliant_strategist
+				trait = quick
+				trait = ambitious
+				trait = diligent
+				trait = proud
+				trait = stubborn
+				trait = brave
+				female = no
+				religion = innocent
+				dynasty = none
+				culture = "greek"
+				attributes = {
+					martial = 13
+					intrigue = 10
+					diplomacy = 9
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = skanderbeg
+				set_character_flag = great_warrior
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+#1470
+spawn_matthias_corvinus = {
+	if = {
+		limit = { 
+			year = 1470
+			NOT = { year > 1470 }
+		}
+		random_province = {
+			limit = {
+				culture = "bohemian"
+			}
+			create_character = {
+				name = "Matthias Corvinus"
+				age = 25
+				dna="0diag0jda00"
+				properties="ee0k0k000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = brilliant_strategist
+				trait = quick
+				trait = strategist
+				trait = ambitious
+				trait = diligent
+				trait = proud
+				trait = stubborn
+				trait = brave
+				trait = just
+				female = no
+				religion = innocent
+				dynasty = none
+				culture = "bohemian"
+				attributes = {
+					martial = 15
+					intrigue = 13
+					diplomacy = 10
+					stewardship = 15
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = matthias_corvinus
+				set_character_flag = great_ruler
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+#1415
+spawn_jan_hus = {
+	if = {
+		limit = { 
+			year = 1415
+			NOT = { year > 1415 }
+		}
+		random_province = {
+			limit = {
+				culture = "bohemian"
+			}
+			create_character = {
+				name = "Jan Hus"
+				age = 35
+				dna="0diag0jda00"
+				properties="ee0k0k000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = mastermind_theologian
+				trait = quick
+				trait = scholar
+				trait = theologian
+				trait = diligent
+				trait = temperate
+				trait = stubborn
+				trait = just
+				female = no
+				religion = innocent
+				dynasty = none
+				culture = "bohemian"
+				attributes = {
+					learning = 12
+					diplomacy = 14
+					intrigue = 10
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = jan_hus
+				set_character_flag = great_theologian
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+#1424
+spawn_jan_zizka = {
+	if = {
+		limit = { 
+			year = 1424
+			NOT = { year > 1424 }
+		}
+		random_province = {
+			limit = {
+				culture = "bohemian"
+			}
+			create_character = {
+				name = "Jan Zizka"
+				age = 30
+				dna="0diag0jda00"
+				properties="ee0k0k000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = brilliant_strategist
+				trait = quick
+				trait = strategist
+				trait = diligent
+				trait = proud
+				trait = stubborn
+				trait = brave
+				trait = just
+				trait = zealous
+				trait = trickster
+				trait = inspiring_leader
+				female = no
+				religion = innocent
+				dynasty = none
+				culture = "bohemian"
+				attributes = {
+					martial = 15
+					intrigue = 10
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = jan_zizka
+				set_character_flag = great_warrior
+				any_character = {
+					limit = {
+						has_character_flag = jan_hus
+					}
+					save_event_target_as = target_person
+					add_friend = PREV
+				}
+				add_friend = event_target:target_person
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+#1285
+spawn_selene = {
+	if = {
+		limit = { 
+			year = 1285
+			NOT = { year > 1285 }
+		}
+		random_province = {
+			limit = {
+				culture = "german"
+			}
+			create_character = {
+				name = "Selene"
+				age = 18
+				dna="bee0a0fc0e0"
+				properties="fb0f0k000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = tough_soldier
+				trait = quick
+				trait = fair
+				trait = just
+				trait = strategist
+				trait = duelist
+				trait = stubborn
+				trait = temperate
+				trait = cynical
+				female = yes
+				religion = innocent
+				dynasty = none
+				culture = "german"
+				attributes = {
+					martial = 13
+					learning = 10
+					intrigue = 12
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = selene
+				set_character_flag = great_warrior
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+#1364
+spawn_christine_de_pizan = {
+	if = {
+		limit = { 
+			year = 1364
+			NOT = { year > 1364 }
+		}
+		random_province = {
+			limit = {
+				culture = "italian"
+			}
+			create_character = {
+				name = "Christine de Pizan"
+				age = 30
+				dna="bce0c0aaba0"
+				properties="lc0d0e000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = grey_eminence
+				trait = quick
+				trait = poet
+				trait = scholar
+				trait = just
+				trait = temperate
+				female = yes
+				religion = innocent
+				dynasty = none
+				culture = "italian"
+				attributes = {
+					learning = 10
+					diplomacy = 14
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = christine_de_pizan
+				set_character_flag = great_artist
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+#1415
+spawn_leonardo_da_vinci = {
+	if = {
+		limit = { 
+			year = 1415
+			NOT = { year > 1415 }
+		}
+		random_province = {
+			limit = {
+				culture = "italian"
+			}
+			create_character = {
+				name = "Leonardo da Vinci"
+				age = 35
+				dna="bce0c0aaba0"
+				properties="lc0dfe000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = mastermind_theologian
+				trait = genius
+				trait = administrator
+				trait = architect
+				trait = scholar
+				trait = theologian
+				trait = diligent
+				female = no
+				religion = innocent
+				dynasty = none
+				culture = "italian"
+				attributes = {
+					learning = 12
+					diplomacy = 14
+					stewardship = 12
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = leonardo_da_vinci
+				set_character_flag = great_artist
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+#1460
+spawn_antonio_martinez_de_cala = {
+	if = {
+		limit = { 
+			year = 1460
+			NOT = { year > 1460 }
+		}
+		random_province = {
+			limit = {
+				culture = "castillan"
+			}
+			create_character = {
+				name = "Antonio Martinez de Cala"
+				age = 35
+				dna="bbaef00cac0"
+				properties="mk0hdh000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = mastermind_theologian
+				trait = quick
+				trait = administrator
+				trait = scholar
+				trait = mystic
+				trait = diligent
+				female = no
+				religion = innocent
+				dynasty = none
+				culture = "castillan"
+				attributes = {
+					learning = 12
+					diplomacy = 10
+					stewardship = 14
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = antonio_martinez_de_cala
+				set_character_flag = great_theologian
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+#1498
+spawn_john_cabot = {
+	if = {
+		limit = { 
+			year = 1498
+			NOT = { year > 1498 }
+		}
+		random_province = {
+			limit = {
+				culture = "english"
+			}
+			create_character = {
+				name = "John Cabot"
+				age = 35
+				dna="bbaef00cac0"
+				properties="mk0hdh000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = midas_touched
+				trait = quick
+				trait = administrator
+				trait = scholar
+				trait = diligent
+				trait = patient
+				female = no
+				religion = innocent
+				dynasty = none
+				culture = "italian"
+				attributes = {
+					learning = 10
+					diplomacy = 12
+					stewardship = 14
+					martial = 8
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = john_cabot
+				set_character_flag = great_steward
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+#1510
+spawn_vasco_da_gama = {
+	if = {
+		limit = { 
+			year = 1510
+			NOT = { year > 1510 }
+		}
+		random_province = {
+			limit = {
+				culture = "portuguese"
+			}
+			create_character = {
+				name = "John Cabot"
+				age = 35
+				dna="b0ah00fccb0"
+				properties="td0fhf000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = midas_touched
+				trait = quick
+				trait = strategist
+				trait = scholar
+				trait = diligent
+				trait = mystic
+				trait = patient
+				trait = stubborn
+				female = no
+				religion = innocent
+				dynasty = none
+				culture = "portuguese"
+				attributes = {
+					martial = 12
+					diplomacy = 12
+					stewardship = 14
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = vasco_da_gama
+				set_character_flag = great_ruler
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+#1368
+spawn_agnes_dunbar = {
+	if = {
+		limit = { 
+			year = 1368
+			NOT = { year > 1368 }
+		}
+		random_province = {
+			limit = {
+				culture = "scottish"
+			}
+			create_character = {
+				name = "Agnes Dunbar"
+				age = 24
+				dna="cefeh0hceb0"
+				properties="en0d00000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = skilled_tactician
+				trait = quick
+				trait = fair
+				trait = stubborn
+				trait = proud
+				trait = just
+				trait = temperate
+				female = yes
+				religion = innocent
+				dynasty = none
+				culture = "scottish"
+				attributes = {
+					martial = 12
+					diplomacy = 14
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = agnes_dunbar
+				set_character_flag = great_rebel
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+#1445
+spawn_agnes_sorel = {
+	if = {
+		limit = { 
+			year = 1445
+			NOT = { year > 1445 }
+		}
+		random_province = {
+			limit = {
+				culture = "frankish"
+			}
+			create_character = {
+				name = "Agnes Sorel"
+				age = 24
+				dna="cefeh0hceb0"
+				properties="en0d00000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = grey_eminence
+				trait = fair
+				trait = seductress
+				trait = socializer
+				trait = proud
+				trait = lustful
+				trait = greedy
+				female = yes
+				religion = innocent
+				dynasty = none
+				culture = "frankish"
+				attributes = {
+					diplomacy = 14
+					intrigue = 14
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = agnes_sorel
+				set_character_flag = great_seducer
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+#1333
+spawn_emery = {
+	if = {
+		limit = { 
+			year = 1333
+			NOT = { year > 1333 }
+		}
+		random_province = {
+			limit = {
+				culture = "bohemian"
+			}
+			create_character = {
+				name = "Emery"
+				age = 25
+				dna="cefeh0hceb0"
+				properties="en0d00000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = indulgent_wastrel
+				trait = leper
+				trait = poet
+				trait = drunkard
+				trait = bastard
+				trait = imbecile
+				trait = cruel
+				trait = mystic
+				female = no
+				religion = innocent
+				dynasty = none
+				culture = "bohemian"
+				attributes = {
+					learning = 8
+					diplomacy = 25
+					martial = 11
+					intrigue = 11
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = emery
+				set_character_flag = great_artist
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+#1269
+spawn_sparc = {
+	if = {
+		limit = { 
+			year = 1269
+			NOT = { year > 1269 }
+		}
+		random_province = {
+			limit = {
+				culture = "levantine_arabic"
+			}
+			create_character = {
+				name = "Stephen Arthur"
+				age = 25
+				dna="bahac00ajb0"
+				properties="th000k000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = underhanded_rogue
+				trait = gamer
+				trait = cynical
+				trait = peasant_leader
+				trait = erudite
+				trait = just
+				trait = gamer
+				trait = stubborn
+				trait = sympathy_zoroastrianism
+				female = no
+				religion = criminal
+				dynasty = none
+				culture = "english"
+				attributes = {
+					diplomacy = 15
+					martial = 8
+					intrigue = 12
+					learning = 11
+					stewardship = 9
+				}
+			}
+			new_character = {
+				give_nickname = nick_the_storyteller
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = sparc
+				set_character_flag = great_rebel
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+#1505
+spawn_niccolo_machiavelli = {
+	if = {
+		limit = { 
+			year = 1505
+			NOT = { year > 1505 }
+		}
+		random_province = {
+			limit = {
+				culture = "italian"
+			}
+			create_character = {
+				name = "Niccolo Machiavelli"
+				age = 35
+				dna="aecff0hhba0"
+				properties="bl0adk000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = elusive_shadow
+				trait = quick
+				trait = schemer
+				trait = scholar
+				trait = cynical
+				trait = cruel
+				trait = diligent
+				trait = deceitful
+				female = no
+				religion = innocent
+				dynasty = none
+				culture = "italian"
+				attributes = {
+					diplomacy = 12
+					intrigue = 16
+					learning = 12
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = niccolo_machiavelli
+				set_character_flag = great_intrigue
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+#1496
+spawn_girolamo_savonarola = {
+	if = {
+		limit = { 
+			year = 1496
+			NOT = { year > 1496 }
+		}
+		random_province = {
+			limit = {
+				culture = "italian"
+			}
+			create_character = {
+				name = "Girolamo Savonarola"
+				age = 30
+				dna="aecgj00hba0"
+				properties="b00a0k000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = grey_eminence
+				trait = theologian
+				trait = peasant_leader
+				trait = just
+				trait = zealous
+				trait = diligent
+				trait = gregarious
+				trait = stubborn
+				female = no
+				religion = innocent
+				dynasty = none
+				culture = "italian"
+				attributes = {
+					diplomacy = 15
+					intrigue = 10
+					learning = 12
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = girolamo_savonarola
+				set_character_flag = great_rebel
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+#1545
+spawn_pedro_gonzalez = {
+	if = {
+		limit = { 
+			year = 1545
+			NOT = { year > 1545 }
+		}
+		random_province = {
+			limit = {
+				culture = "castillan"
+			}
+			create_character = {
+				name = "Pedro Gonzalez"
+				age = 25
+				dna="aecgj00hba0"
+				properties="b00a0k000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = mastermind_theologian
+				trait = scholar
+				trait = zealous
+				trait = stubborn
+				trait = erudite
+				trait = honest
+				female = no
+				religion = innocent
+				dynasty = none
+				culture = "castillan"
+				attributes = {
+					learning = 11
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = girolamo_savonarola
+				set_character_flag = great_occultist
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}

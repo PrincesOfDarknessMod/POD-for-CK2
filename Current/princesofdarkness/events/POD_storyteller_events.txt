@@ -19,6 +19,8 @@ character_event = {
 		c_ile_de_france = {
 			location = {
 				province_event = { id = storyteller.18 days = 65 }
+				province_event = { id = storyteller.20 days = 95 }
+				province_event = { id = POD_great_childer_events.1 days = 123 }
 			}
 		}
 		if = { 
@@ -4873,6 +4875,7 @@ province_event = {
 			limit = {
 				is_worth_keeping = no
 				is_related_to_player = no
+				NOT = { employer = { ai = no } }
 			}
 			death = { death_reason = death_natural }
 			change_variable = { which = global_cull_amount value = 1 }
@@ -4892,6 +4895,41 @@ province_event = {
 	immediate = {
 		capital_scope = {
 			province_event = { id = storyteller.18 }
+		}
+	}
+}
+
+#player event controller
+province_event = {
+    id = storyteller.20
+	
+    is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+	}
+	
+	immediate = {
+		c_ile_de_france = {
+			location = {
+				random_list = {
+					5 = {
+						province_event = { id = storyteller.20 days = 280 }
+					}
+					5 = {
+						province_event = { id = storyteller.20 days = 365 }
+					}
+					5 = {
+						province_event = { id = storyteller.20 days = 425 }
+					}
+					5 = {
+						province_event = { id = storyteller.20 days = 390 }
+					}
+				}
+			}
+		}
+		any_player = {
+			character_event = { id = POD_player_childe_events.1 days = 5 random = 15 }
 		}
 	}
 }

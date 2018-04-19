@@ -1,0 +1,497 @@
+namespace=POD_great_childer_events
+##################################
+#	POD Player Childe Events by AJ
+#	1 	 	Control Event (Spawns other events, called bi-annually)
+#	2 - 4 	Specific Event Controllers (Spawns their type of events)
+#	5 - 9 	Good Events
+#	10 - 15	Bad Events
+#	16 - 17 Flavor Events
+#	100+	Test Events
+#
+##################################
+
+#place person in correct event popup
+province_event = {
+    id = POD_great_childer_events.1
+	hide_window = yes
+    is_triggered_only = yes
+	
+	trigger = {
+		always = yes
+	}
+	
+    immediate = {
+		pod_check_great_people = yes
+		province_event = { id = POD_great_childer_events.1 days = 365 }
+	}
+}
+
+province_event = {
+    id = POD_great_childer_events.2
+	hide_window = yes
+    is_triggered_only = yes
+	
+	trigger = {
+		always = yes
+	}
+	
+    immediate = {
+	}
+}
+
+#generic great person for player
+character_event = {
+    id = POD_great_childer_events.10
+    desc = {
+		trigger = {
+			event_target:great_person = { has_character_flag = great_rebel }
+		}
+		text = EVTDESC_POD_CHILDE_GREAT_1.1
+	}
+	desc = {
+		trigger = {
+			event_target:great_person = { has_character_flag = great_ruler }
+		}
+		text = EVTDESC_POD_CHILDE_GREAT_1.2
+	}
+	desc = {
+		trigger = {
+			event_target:great_person = { has_character_flag = great_steward }
+		}
+		text = EVTDESC_POD_CHILDE_GREAT_1.3
+	}
+	desc = {
+		trigger = {
+			event_target:great_person = { has_character_flag = great_theologian }
+		}
+		text = EVTDESC_POD_CHILDE_GREAT_1.4
+	}
+	desc = {
+		trigger = {
+			event_target:great_person = { has_character_flag = great_intrigue }
+		}
+		text = EVTDESC_POD_CHILDE_GREAT_1.5
+	}
+	desc = {
+		trigger = {
+			event_target:great_person = { has_character_flag = great_warrior }
+		}
+		text = EVTDESC_POD_CHILDE_GREAT_1.6
+	}
+	desc = {
+		trigger = {
+			event_target:great_person = { has_character_flag = great_scientist }
+		}
+		text = EVTDESC_POD_CHILDE_GREAT_1.7
+	}
+	desc = {
+		trigger = {
+			event_target:great_person = { has_character_flag = great_philosopher }
+		}
+		text = EVTDESC_POD_CHILDE_GREAT_1.8
+	}
+	desc = {
+		trigger = {
+			event_target:great_person = { has_character_flag = great_artist }
+		}
+		text = EVTDESC_POD_CHILDE_GREAT_1.9
+	}
+	desc = {
+		trigger = {
+			event_target:great_person = { has_character_flag = great_seducer }
+		}
+		text = EVTDESC_POD_CHILDE_GREAT_1.10
+	}
+	desc = {
+		trigger = {
+			event_target:great_person = { has_character_flag = great_occultist }
+		}
+		text = EVTDESC_POD_CHILDE_GREAT_1.11
+	}
+	desc = {
+		trigger = {
+			event_target:great_person = { has_character_flag = great_tyrant }
+		}
+		text = EVTDESC_POD_CHILDE_GREAT_1.12
+	}
+	picture = GFX_evt_vampire_chair_up_stairs
+	border = GFX_event_normal_frame_intrigue
+	
+    is_triggered_only = yes
+	trigger = {
+		is_alive = yes
+		event_target:great_person = {
+			is_alive = yes
+		}
+	}
+	
+    immediate = {
+		hidden_tooltip = {
+			great_person_player_flag_clear = yes
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_POD_CHILDE_GREAT_1
+		if = {
+			limit = {
+				year < 1240
+			}
+			wealth = -20
+		}else = {
+			wealth = -300
+		}
+		set_character_flag = using_money_for_great_person
+		character_event = { id = POD_great_childer_events.12 days = 1 random = 30 }
+	}
+	option = {
+		name = EVTOPTB_POD_CHILDE_GREAT_1
+		character_event = { id = POD_great_childer_events.11 }
+	}
+	option = {
+		name = EVTOPTC_POD_CHILDE_GREAT_1
+		event_target:great_person = {
+			character_event = { id = POD_great_childer_events.21 }
+		}
+	}
+}
+
+#pick ghoul
+character_event = {
+    id = POD_great_childer_events.11
+    desc = EVTDESC_POD_CHILDE_GREAT_2
+	picture = GFX_evt_vampire_chair_up_stairs
+	border = GFX_event_normal_frame_intrigue
+	
+    is_triggered_only = yes
+	trigger = {
+		is_alive = yes
+	}
+	
+    immediate = {
+		random_courtier = {
+			limit = {
+				has_opinion_modifier = {
+					who = ROOT
+					modifier = opinion_blood_bond_to_domitor_ghoul
+				}
+			}
+			set_character_flag = ghoul_1
+			save_event_target_as = ghoul_one
+		}
+		random_courtier = {
+			limit = {
+				has_opinion_modifier = {
+					who = ROOT
+					modifier = opinion_blood_bond_to_domitor_ghoul
+				}
+				NOT = { has_character_flag = ghoul_1 }
+			}
+			set_character_flag = ghoul_2
+			save_event_target_as = ghoul_two
+		}
+		random_courtier = {
+			limit = {
+				has_opinion_modifier = {
+					who = ROOT
+					modifier = opinion_blood_bond_to_domitor_ghoul
+				}
+				NOT = { has_character_flag = ghoul_1 }
+				NOT = { has_character_flag = ghoul_2 }
+			}
+			set_character_flag = ghoul_3
+			save_event_target_as = ghoul_three
+		}
+		event_target:ghoul_one = {
+			if = {
+				limit = { has_character_flag = ghoul_1 }
+				clr_character_flag = ghoul_1
+			}
+		}
+		event_target:ghoul_two = {
+			if = {
+				limit = { has_character_flag = ghoul_2 }
+				clr_character_flag = ghoul_2
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_POD_CHILDE_GREAT_2
+		trigger = {
+			event_target:ghoul_one = { is_alive = yes }
+		}
+		event_target:ghoul_one = {
+			save_event_target_as = ghoul_plotter
+		}
+		set_character_flag = using_ghoul_for_great_person
+		character_event = { id = POD_great_childer_events.12 days = 1 random = 30 }
+	}
+	option = {
+		name = EVTOPTB_POD_CHILDE_GREAT_2
+		trigger = {
+			event_target:ghoul_two = { is_alive = yes }
+		}
+		event_target:ghoul_two = {
+			save_event_target_as = ghoul_plotter
+		}
+		set_character_flag = using_ghoul_for_great_person
+		character_event = { id = POD_great_childer_events.12 days = 1 random = 30 }
+	}
+	option = {
+		name = EVTOPTC_POD_CHILDE_GREAT_2
+		trigger = {
+			event_target:ghoul_three = { is_alive = yes }
+		}
+		event_target:ghoul_three = {
+			save_event_target_as = ghoul_plotter
+		}
+		set_character_flag = using_ghoul_for_great_person
+		character_event = { id = POD_great_childer_events.12 days = 1 random = 30 }
+	}
+	option = {
+		name = EVTOPTD_POD_CHILDE_GREAT_2
+		event_target:great_person = {
+			character_event = { id = POD_great_childer_events.21 }
+		}
+	}
+}
+
+#results of siring great person attempt
+character_event = {
+    id = POD_great_childer_events.12
+    desc = {
+		trigger = {
+			has_character_flag = success_gp
+		}
+		text = EVTDESC_POD_CHILDE_GREAT_3.1
+	}
+	desc = {
+		trigger = {
+			has_character_flag = rival_gp
+			has_character_flag = using_ghoul_for_great_person
+		}
+		text = EVTDESC_POD_CHILDE_GREAT_3.2
+	}
+	desc = {
+		trigger = {
+			has_character_flag = other_gp
+			has_character_flag = using_ghoul_for_great_person
+		}
+		text = EVTDESC_POD_CHILDE_GREAT_3.3
+	}
+	desc = {
+		trigger = {
+			has_character_flag = rival_gp
+			has_character_flag = using_money_for_great_person
+		}
+		text = EVTDESC_POD_CHILDE_GREAT_3.4
+	}
+	desc = {
+		trigger = {
+			has_character_flag = other_gp
+			has_character_flag = using_money_for_great_person
+		}
+		text = EVTDESC_POD_CHILDE_GREAT_3.5
+	}
+	picture = GFX_evt_vampire_chair_up_stairs
+	border = GFX_event_normal_frame_intrigue
+	
+    is_triggered_only = yes
+	trigger = {
+		is_alive = yes
+		event_target:great_person = {
+			is_alive = yes
+		}
+	}
+	
+    immediate = {
+		random_rival = {
+			limit = {
+				trait = vampire
+			}
+			save_event_target_as = a_rival
+		}
+		random_list = {
+			14 = {
+				set_character_flag = success_gp
+			}
+			4 = {
+				modifier = {
+					factor = 0
+					NOT = { event_target:a_rival = { is_alive = yes } }
+				}
+				set_character_flag = rival_gp
+			}
+			2 = {
+				modifier = {
+					factor = 3
+					NOT = { event_target:a_rival = { is_alive = yes } }
+				}
+				set_character_flag = other_gp
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_POD_CHILDE_GREAT_3
+		trigger = {
+			has_character_flag = success_gp
+		}
+		
+		event_target:great_person = {
+			move_character = ROOT
+			POD_new_vampire_effect = yes
+		}
+		hidden_tooltip = {
+			great_person_player_flag_clear = yes
+		}
+	}
+	option = {
+		name = EVTOPTB_POD_CHILDE_GREAT_3
+		trigger = {
+			has_character_flag = rival_gp
+		}
+		if = {
+			limit = {
+				has_character_flag = using_ghoul_for_great_person
+			}
+			event_target:ghoul_plotter = {
+				death = {
+					death_reason = death_murder_unknown
+				}
+			}
+		}
+		event_target:a_rival = {
+			character_event = { id = POD_great_childer_events.22 }
+		}
+		hidden_tooltip = {
+			great_person_player_flag_clear = yes
+		}
+	}
+	option = {
+		name = EVTOPTC_POD_CHILDE_GREAT_3
+		trigger = {
+			has_character_flag = other_gp
+		}
+		if = {
+			limit = {
+				has_character_flag = using_ghoul_for_great_person
+			}
+			event_target:ghoul_plotter = {
+				death = {
+					death_reason = death_murder_unknown
+				}
+			}
+		}
+		event_target:great_person = {
+			character_event = { id = POD_great_childer_events.21 }
+		}
+		hidden_tooltip = {
+			great_person_player_flag_clear = yes
+		}
+	}
+}
+
+
+#AI Version
+character_event = {
+    id = POD_great_childer_events.20
+    desc = EVTDESC_POD_CHILDE_GREAT_1
+	picture = GFX_evt_vampire_chair_up_stairs
+	border = GFX_event_normal_frame_intrigue
+	
+    is_triggered_only = yes
+	trigger = {
+		is_alive = yes
+	}
+	
+    immediate = {
+		random_list = {
+			8 = {
+				set_character_flag = embrace_great_one
+			}
+			2 = {
+				set_character_flag = do_nothing
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_POD_CHILDE_MENTOR_1
+		trigger = {
+			has_character_flag = embrace_great_one
+		}
+		ai_chance = {
+			factor = 10
+		}
+		clr_character_flag = embrace_great_one
+		event_target:great_person = {
+			move_character = ROOT
+			POD_new_vampire_effect = yes
+		}
+	}
+	option = {
+		name = EVTOPTB_POD_CHILDE_MENTOR_1
+		trigger = {
+			has_character_flag = do_nothing
+		}
+		ai_chance = {
+			factor = 1
+		}
+		clr_character_flag = do_nothing
+		#do nothing
+	}
+}
+
+#event to find sire for AI only
+character_event = {
+    id = POD_great_childer_events.21
+	hide_window = yes
+	ai = yes
+    is_triggered_only = yes
+
+	
+	trigger = {
+		is_alive = yes
+		
+	}
+	
+    immediate = {
+		pod_great_person_category_check = yes
+	}
+}
+
+#event to sire AI only
+character_event = {
+    id = POD_great_childer_events.22
+	hide_window = yes
+	ai = yes
+    is_triggered_only = yes
+
+	
+	trigger = {
+		is_alive = yes
+	}
+	
+    immediate = {
+		event_target:great_person = {
+			move_character = ROOT
+			POD_new_vampire_effect = yes
+		}
+	}
+}
+
+#test to fire event
+character_event = {
+    id = POD_great_childer_events.100
+	hide_window = yes
+    is_triggered_only = yes
+
+	
+	trigger = {
+	}
+	
+    immediate = {
+	}
+}

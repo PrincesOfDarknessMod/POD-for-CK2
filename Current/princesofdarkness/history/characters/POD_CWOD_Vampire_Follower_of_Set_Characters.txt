@@ -2,7 +2,7 @@
 	name = "Set"
 	culture = "egyptian_arabic"
 	religion = "setite"
-	dynasty = 10000002
+	dynasty = 4000113 
 	trait = "vampire"
 	trait = "antediluvian"
 	trait = "followerofset"
@@ -71,7 +71,7 @@
 505094 = {
 # Nakhthorheb, Follower of Set, Pharaoh of Giza, Leader of the Followers of Set
 	name = "Nakhthorheb"
-	dynasty = "4000044"
+	dynasty = "4000113"
 	culture = "egyptian_arabic"
 	religion = "setite"
 	trait = "followerofset"
@@ -133,7 +133,7 @@
 790126 = {
 # Seterpenre, Follower of Set, Hierophant and Lord of Tinnis
 	name = "Seterpenre"
-	dynasty = "4000044"
+	dynasty = "4000113"
 	culture = "egyptian_arabic"
 	religion = "setite"
 	trait = "followerofset"
@@ -192,7 +192,7 @@
 790127 = {
 # Kahina, leader of the Dream Court
 	name = "Kahina"
-	dynasty = "4000044"
+	dynasty = "4000113"
 	culture = "egyptian_arabic"
 	religion = "setite"
 	trait = "followerofset"
@@ -206,10 +206,11 @@
 	trait = "zealous"
 	trait = "canon" 
 	female = yes
-	70.1.1 = {
-		birth = 70.1.1 
+	father = 790393
+	100.1.1 = {
+		birth = 100.1.1 
 		}
-	89.1.1 = {
+	129.1.1 = {
 		add_trait = vampire
 		add_trait = wyrm_taint
 		effect = { join_society = via_serpentis }
@@ -248,7 +249,7 @@
 790128 = {
 # Consort of Set
 	name = "Maatkare"
-	dynasty = "4000044"
+	dynasty = "4000113"
 	culture = "egyptian_arabic"
 	religion = "setite"
 	trait = "followerofset"
@@ -309,7 +310,7 @@
 790129 = {
 # Signature character
 	name = "Andreas Aegyptus"
-	dynasty = "4000044"
+	dynasty = "4000113"
 	culture = "egyptian_arabic"
 	religion = "setite"
 	trait = "followerofset"
@@ -327,6 +328,7 @@
 	trait = "canon" 
 	female = no
 	disallow_random_traits = yes
+	mother = 790394
 	
 	539.1.1 = {
 		birth = 539.1.1 
@@ -370,7 +372,7 @@
 790130 = {
 # Children of Loki
 	name = "Radulfr"
-	dynasty = "4000044"
+	dynasty = 4000115
 	culture = "norse"
 	religion = "setite"
 	trait = "followerofset"
@@ -388,11 +390,124 @@
 	trait = "canon" 
 	female = no
 	disallow_random_traits = yes
+	mother = 790401
 	
-	700.1.1 = {
-		birth = 700.1.1 
+	1000.1.1 = {
+		birth = 1000.1.1 
 		}
-	750.1.1 = {
+	1050.1.1 = {
+		add_trait = vampire
+		add_trait = wyrm_taint
+		}
+		
+	1229.1.1 = {
+		add_trait = "bookmark1230"	
+	}	
+	
+	1420.1.1 = {
+		remove_trait = "bookmark1230"
+		add_trait = "bookmark1355"
+	}	
+	
+	1499.1.1 = {
+		remove_trait = "bookmark1355"
+		add_trait = "bookmark1505"		
+	}	
+	1506.1.1 = {
+		remove_trait = "bookmark1505"
+		add_trait = "bookmark1505"
+	}	
+	
+	1999.1.1 = {
+		death = yes
+		}			
+}
+
+790393 = {
+# Secret of the Dream Court
+	name = "The Sleeping Lord"
+	dynasty = "4000113"
+	culture = "egyptian_arabic"
+	religion = "setite"
+	trait = "followerofset"
+	trait = "methuselah"
+	trait = "dominate_5"
+	trait = "majesty_5"
+	trait = "serpentis_5"
+	trait = "resilience_5"
+	trait = "bloodpotency_6"
+	trait = "brilliant_strategist"
+	trait = "vampgeneration5"
+	trait = "zealous"
+	trait = "patient"
+	trait = "canon" 
+	female = no
+	father = 790126
+	martial = 15
+	intrigue = 10
+	
+	80.1.1 = {
+		birth = 80.1.1 
+		}
+	109.1.1 = {
+		add_trait = vampire
+		add_trait = wyrm_taint
+		effect = { join_society = via_serpentis }
+		add_trait = "torpor"
+		}
+	989.1.1 = {
+		add_trait = "bookmark990"
+		effect = { set_government_type = cult_government }
+		}
+	1229.1.1 = {
+		remove_trait = "bookmark990"
+		add_trait = "bookmark1230"	
+	}	
+	
+	1420.1.1 = {
+		remove_trait = "bookmark1230"
+		add_trait = "bookmark1355"
+	}	
+	
+	1499.1.1 = {
+		remove_trait = "bookmark1355"
+		add_trait = "bookmark1505"	
+	}	
+	1506.1.1 = {
+		remove_trait = "bookmark1505"
+		add_trait = "bookmark1505"
+	}	
+	
+	1999.1.1 = {
+		death = yes
+		}			
+}	
+
+790394 = {
+# Sire of Andreas
+	name = "Sabine"
+	dynasty = "4000113"
+	culture = "egyptian_arabic"
+	religion = "setite"
+	trait = "followerofset"
+	trait = "elder"
+	trait = "obfuscate_2"
+	trait = "majesty_3"
+	trait = "serpentis_4"
+	trait = "bloodpotency_6"
+	trait = "martial_cleric"
+	trait = "vampgeneration10"
+	trait = "zealous"
+	trait = "scholar"
+	trait = "canon" 
+	female = yes
+	disallow_random_traits = yes
+	mother = 790395
+	
+	519.1.1 = {
+		birth = 519.1.1 
+		}
+	540.1.1 = {
 		add_trait = vampire
 		add_trait = wyrm_taint
 		effect = { join_society = via_serpentis }
@@ -417,6 +532,471 @@
 		add_trait = "bookmark1505"
 		effect = { leave_society = yes }
 		effect = { join_society = "path_of_typhon" }		
+	}	
+	1506.1.1 = {
+		remove_trait = "bookmark1505"
+		add_trait = "bookmark1505"
+	}	
+	
+	1999.1.1 = {
+		death = yes
+		}			
+}
+
+790395 = {
+# Scholar
+	name = "Amelia Mapleridge"
+	dynasty = "4000113"
+	culture = "norman"
+	religion = "setite"
+	trait = "followerofset"
+	trait = "elder"
+	trait = "dominate_2"
+	trait = "majesty_3"
+	trait = "serpentis_4"
+	trait = "bloodpotency_6"
+	trait = "mastermind_theologian"
+	trait = "vampgeneration9"
+	trait = "zealous"
+	trait = "scholar"
+	trait = "erudite"
+	trait = "canon" 
+	female = yes
+	disallow_random_traits = yes
+	father = 790396
+	
+	499.1.1 = {
+		birth = 499.1.1 
+		}
+	510.1.1 = {
+		add_trait = vampire
+		add_trait = wyrm_taint
+		add_trait = "torpor"
+		}
+	989.1.1 = {
+		add_trait = "bookmark990"
+		effect = { set_government_type = cult_government }
+		}
+	1229.1.1 = {
+		remove_trait = "bookmark990"
+		add_trait = "bookmark1230"	
+	}	
+	
+	1420.1.1 = {
+		remove_trait = "bookmark1230"
+		add_trait = "bookmark1355"
+	}	
+	
+	1499.1.1 = {
+		remove_trait = "bookmark1355"
+		add_trait = "bookmark1505"
+		effect = { join_society = "path_of_typhon" }	
+		remove_trait = "torpor"	
+	}	
+	1506.1.1 = {
+		remove_trait = "bookmark1505"
+		add_trait = "bookmark1505"
+	}	
+	
+	1999.1.1 = {
+		death = yes
+		}			
+}
+
+790396 = {
+# Diplomat of Damascus
+	name = "Teotukapis"
+	dynasty = "4000113"
+	culture = "egyptian_arabic"
+	religion = "setite"
+	trait = "followerofset"
+	trait = "elder"
+	trait = "dominate_2"
+	trait = "majesty_3"
+	trait = "serpentis_5"
+	trait = "bloodpotency_6"
+	trait = "grey_eminence"
+	trait = "vampgeneration8"
+	trait = "zealous"
+	trait = "gregarious"
+	trait = "canon" 
+	female = no
+	disallow_random_traits = yes
+	father = 790397
+	
+	479.1.1 = {
+		birth = 479.1.1 
+		}
+	500.1.1 = {
+		add_trait = vampire
+		add_trait = wyrm_taint
+		effect = { join_society = via_serpentis }
+		}
+	989.1.1 = {
+		add_trait = "bookmark990"
+		effect = { set_government_type = cult_government }
+		}
+	1229.1.1 = {
+		remove_trait = "bookmark990"
+		add_trait = "bookmark1230"	
+		effect = { join_society = via_serpentis }
+		employer = 790125
+	}	
+	
+	1420.1.1 = {
+		remove_trait = "bookmark1230"
+		add_trait = "bookmark1355"
+	}	
+	
+	1499.1.1 = {
+		remove_trait = "bookmark1355"
+		add_trait = "bookmark1505"
+		effect = { leave_society = yes }
+		effect = { join_society = "path_of_typhon" }		
+	}	
+	1506.1.1 = {
+		remove_trait = "bookmark1505"
+		add_trait = "bookmark1505"
+	}	
+	
+	1999.1.1 = {
+		death = yes
+		}			
+}
+
+790397 = {
+# Luciferian
+	name = "Benedict Alphonso"
+	dynasty = "4000113"
+	culture = "catalan"
+	religion = "baali"
+	trait = "followerofset"
+	trait = "elder"
+	trait = "dominate_5"
+	trait = "majesty_3"
+	trait = "serpentis_5"
+	trait = "bloodpotency_6"
+	trait = "mastermind_theologian"
+	trait = "vampgeneration7"
+	trait = "zealous"
+	trait = "scholar"
+	trait = "ambitious"
+	trait = "canon" 
+	female = no
+	disallow_random_traits = yes
+	father = 790399
+	
+	450.1.1 = {
+		birth = 450.1.1 
+		}
+	500.1.1 = {
+		add_trait = vampire
+		add_trait = wyrm_taint
+		}
+	989.1.1 = {
+		add_trait = "bookmark990"
+		effect = { set_government_type = cult_government }
+		}
+	1229.1.1 = {
+		remove_trait = "bookmark990"
+		add_trait = "bookmark1230"	
+	}	
+	
+	1420.1.1 = {
+		remove_trait = "bookmark1230"
+		add_trait = "bookmark1355"
+	}	
+	
+	1499.1.1 = {
+		remove_trait = "bookmark1355"
+		add_trait = "bookmark1505"	
+	}	
+	1506.1.1 = {
+		remove_trait = "bookmark1505"
+		add_trait = "bookmark1505"
+	}	
+	
+	1999.1.1 = {
+		death = yes
+		}			
+}
+
+790398 = {
+# Independant future prince of Sydney
+	name = "Sarrasine"
+	dynasty = 4000114
+	culture = "egyptian_arabic"
+	religion = "autarkis"
+	trait = "followerofset"
+	trait = "elder"
+	trait = "dominate_5"
+	trait = "majesty_5"
+	trait = "serpentis_5"
+	trait = "bloodpotency_6"
+	trait = "elusive_shadow"
+	trait = "vampgeneration7"
+	trait = "zealous"
+	trait = "deceitful"
+	trait = "ambitious"
+	trait = "canon" 
+	trait = "envious"
+	trait = "proud"
+	female = no
+	disallow_random_traits = yes
+	father = 790399
+	
+	510.1.1 = {
+		birth = 510.1.1 
+		}
+	532.1.1 = {
+		add_trait = vampire
+		add_trait = wyrm_taint
+		}
+	989.1.1 = {
+		add_trait = "bookmark990"
+		effect = { set_government_type = cult_government }
+		}
+	1229.1.1 = {
+		remove_trait = "bookmark990"
+		add_trait = "bookmark1230"	
+	}	
+	
+	1420.1.1 = {
+		remove_trait = "bookmark1230"
+		add_trait = "bookmark1355"
+	}	
+	
+	1499.1.1 = {
+		remove_trait = "bookmark1355"
+		add_trait = "bookmark1505"	
+	}	
+	1506.1.1 = {
+		remove_trait = "bookmark1505"
+		add_trait = "bookmark1505"
+	}	
+	
+	1999.1.1 = {
+		death = yes
+		}			
+}
+
+790399 = {
+# Head of the children of Judas
+	name = "Khay'tall"
+	dynasty = 4000113
+	culture = "nubian"
+	religion = "setite"
+	trait = "followerofset"
+	trait = "elder"
+	trait = "dominate_4"
+	trait = "majesty_4"
+	trait = "serpentis_5"
+	trait = "bloodpotency_6"
+	trait = "flamboyant_schemer"
+	trait = "vampgeneration6"
+	trait = "cynical"
+	trait = "deceitful"
+	trait = "lustful"
+	trait = "canon" 
+	trait = "hedonist"
+	trait = "heresiarch"
+	female = no
+	disallow_random_traits = yes
+	mother = 790400
+	
+	104.1.1 = {
+		birth = 104.1.1 
+		}
+	132.1.1 = {
+		add_trait = vampire
+		add_trait = wyrm_taint
+		}
+	989.1.1 = {
+		add_trait = "bookmark990"
+		effect = { set_government_type = cult_government }
+		add_trait = "torpor"
+		}
+	1229.1.1 = {
+		remove_trait = "bookmark990"
+		add_trait = "bookmark1230"	
+	}	
+	
+	1420.1.1 = {
+		remove_trait = "bookmark1230"
+		add_trait = "bookmark1355"
+	}	
+	
+	1499.1.1 = {
+		remove_trait = "bookmark1355"
+		add_trait = "bookmark1505"	
+	}	
+	1506.1.1 = {
+		remove_trait = "bookmark1505"
+		add_trait = "bookmark1505"
+	}	
+	
+	1999.1.1 = {
+		death = yes
+		}			
+}
+
+790400 = {
+# Sire of Khay'tall
+	name = "Nehsi"
+	dynasty = 4000113
+	culture = "egyptian_arabic"
+	religion = "setite"
+	trait = "followerofset"
+	trait = "methuselah"
+	trait = "dominate_5"
+	trait = "majesty_5"
+	trait = "serpentis_5"
+	trait = "bloodpotency_6"
+	trait = "martial_cleric"
+	trait = "vampgeneration5"
+	trait = "zealous"
+	trait = "canon" 
+	trait = "hedonist"
+	female = yes
+	disallow_random_traits = yes
+	mother = 790128
+	
+	80.1.1 = {
+		birth = 80.1.1 
+		}
+	102.1.1 = {
+		add_trait = vampire
+		add_trait = wyrm_taint
+		}
+	989.1.1 = {
+		add_trait = "bookmark990"
+		effect = { set_government_type = cult_government }
+		add_trait = "torpor"
+		}
+	1229.1.1 = {
+		remove_trait = "bookmark990"
+		add_trait = "bookmark1230"	
+	}	
+	
+	1420.1.1 = {
+		remove_trait = "bookmark1230"
+		add_trait = "bookmark1355"
+	}	
+	
+	1499.1.1 = {
+		remove_trait = "bookmark1355"
+		add_trait = "bookmark1505"	
+	}	
+	1506.1.1 = {
+		remove_trait = "bookmark1505"
+		add_trait = "bookmark1505"
+	}	
+	
+	1999.1.1 = {
+		death = yes
+		}			
+}
+
+790401 = {
+# Children of Loki
+	name = "Valdis Hel-Blar"
+	dynasty = 4000115
+	culture = "norse"
+	religion = "setite"
+	trait = "followerofset"
+	trait = "elder"
+	trait = "resilience_5"
+	trait = "vigor_3"
+	trait = "serpentis_3"
+	trait = "bloodpotency_6"
+	trait = "mastermind_theologian"
+	trait = "vampgeneration8"
+	trait = "brave"
+	trait = "fair"
+	trait = "zealous"
+	trait = "canon" 
+	female = yes
+	disallow_random_traits = yes
+	father = 790402
+	diplomacy = 15
+	
+	900.1.1 = {
+		birth = 900.1.1 
+		}
+	920.1.1 = {
+		add_trait = vampire
+		add_trait = wyrm_taint
+		add_trait = "bookmark990"
+		}
+		
+	1229.1.1 = {
+		remove_trait = "bookmark990"
+		add_trait = "bookmark1230"	
+	}	
+	
+	1420.1.1 = {
+		remove_trait = "bookmark1230"
+		add_trait = "bookmark1355"
+	}	
+	
+	1499.1.1 = {
+		remove_trait = "bookmark1355"
+		add_trait = "bookmark1505"		
+	}	
+	1506.1.1 = {
+		remove_trait = "bookmark1505"
+		add_trait = "bookmark1505"
+	}	
+	
+	1999.1.1 = {
+		death = yes
+		}			
+}
+
+790402 = {
+# Head of the cult of Jormungandr
+	name = "Arnulf Jormungandrsson"
+	dynasty = 4000115
+	culture = "norse"
+	religion = "setite"
+	trait = "followerofset"
+	trait = "elder"
+	trait = "celerity_5"
+	trait = "vigor_3"
+	trait = "serpentis_3"
+	trait = "bloodpotency_6"
+	trait = "midas_touched"
+	trait = "vampgeneration7"
+	trait = "cynical"
+	trait = "greedy"
+	trait = "deceitful"
+	trait = "canon" 
+	female = no
+	disallow_random_traits = yes
+	mother = 790127
+	
+	793.1.1 = {
+		birth = 793.1.1 
+		}
+	810.1.1 = {
+		add_trait = vampire
+		add_trait = wyrm_taint
+		add_trait = "bookmark990"
+		}
+		
+	1229.1.1 = {
+		remove_trait = "bookmark990"
+		add_trait = "bookmark1230"	
+	}	
+	
+	1420.1.1 = {
+		remove_trait = "bookmark1230"
+		add_trait = "bookmark1355"
+	}	
+	
+	1499.1.1 = {
+		remove_trait = "bookmark1355"
+		add_trait = "bookmark1505"		
 	}	
 	1506.1.1 = {
 		remove_trait = "bookmark1505"

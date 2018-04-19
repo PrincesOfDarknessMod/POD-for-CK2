@@ -1,0 +1,34 @@
+decisions = {
+	restore_eternal_rome = {
+		only_independent = yes
+		is_high_prio = yes
+		
+		potential = {
+			has_global_flag = bookmark1230
+			religion = ventrue_high
+			is_playable = yes
+			trait = vampire
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			NOT = { trait = torpor }
+			NOT = { has_global_flag = eternal_rome_restored }
+		}
+		allow = {
+			prestige = 3000
+			completely_controls = d_latium
+			completely_controls = d_tunis
+			completely_controls = d_thrace
+			completely_controls = d_antioch
+			completely_controls = d_jerusalem
+			realm_size = 220
+		}
+		effect = {
+			set_global_flag = eternal_rome_restored
+			narrative_event = { id = POD1230OBJ.1 tooltip = EVTTOOLTIPPOD_VAMPIRE_1230_OBJECTIVES1 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

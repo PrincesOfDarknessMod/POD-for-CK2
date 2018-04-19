@@ -41,8 +41,8 @@ immediate = {
 				NOT = { trait = storyteller }	
 				NOT = { trait = wight }
 				NOT = { trait = torpor }
-				NOT = { has_character_modifier = dire_blood_thirst }
-				NOT = { has_character_modifier = dreadful_blood_thirst }
+				#NOT = { has_character_modifier = dire_blood_thirst }
+				#NOT = { has_character_modifier = dreadful_blood_thirst }
 
 				OR = {
 						trait = animalism_1
@@ -233,7 +233,7 @@ immediate = {
 							remove_trait = flight_1 } }								
 							
 
-					POD_vampire_blood_thirst_increase_effect = yes		
+					#POD_vampire_blood_thirst_increase_effect = yes		
 					}			
 					
 			
@@ -257,8 +257,8 @@ immediate = {
 				NOT = { trait = storyteller }	
 				NOT = { trait = wight }
 				NOT = { trait = torpor }
-				NOT = { has_character_modifier = dire_blood_thirst }
-				NOT = { has_character_modifier = dreadful_blood_thirst }
+				#NOT = { has_character_modifier = dire_blood_thirst }
+				#NOT = { has_character_modifier = dreadful_blood_thirst }
 
 				OR = {
 						trait = animalism_2
@@ -448,7 +448,7 @@ immediate = {
 							add_trait = flight_3
 							remove_trait = flight_2 } }							
 
-					POD_vampire_blood_thirst_increase_effect = yes		
+					#POD_vampire_blood_thirst_increase_effect = yes		
 					}			
 					
 			
@@ -473,8 +473,8 @@ immediate = {
 				NOT = { trait = storyteller }	
 				NOT = { trait = wight }
 				NOT = { trait = torpor }
-				NOT = { has_character_modifier = dire_blood_thirst }
-				NOT = { has_character_modifier = dreadful_blood_thirst }
+				#NOT = { has_character_modifier = dire_blood_thirst }
+				#NOT = { has_character_modifier = dreadful_blood_thirst }
 
 				OR = {
 						trait = animalism_3
@@ -664,7 +664,7 @@ immediate = {
 							add_trait = flight_4
 							remove_trait = flight_3 } } 							
 
-					POD_vampire_blood_thirst_increase_effect = yes		
+					#POD_vampire_blood_thirst_increase_effect = yes		
 					}			
 					
 			
@@ -690,8 +690,8 @@ immediate = {
 				NOT = { trait = storyteller }	
 				NOT = { trait = wight }
 				NOT = { trait = torpor }
-				NOT = { has_character_modifier = dire_blood_thirst }
-				NOT = { has_character_modifier = dreadful_blood_thirst }
+				#NOT = { has_character_modifier = dire_blood_thirst }
+				#NOT = { has_character_modifier = dreadful_blood_thirst }
 
 				OR = {
 						trait = animalism_4
@@ -717,126 +717,6 @@ immediate = {
 						trait = daimoinon_4
 						trait = flight_4
 						trait = visceratika_4
-				}
-			}
-			if = {
-				limit = {
-					NOR = {
-						trait = animalism_1
-						trait = animalism_2
-						trait = animalism_3
-						trait = animalism_4
-						trait = animalism_5
-					}
-				}
-				random = {
-					chance = 2
-					add_trait = animalism_1
-				}
-			}
-			if = {
-				limit = {
-					NOR = {
-						trait = auspex_1
-						trait = auspex_2
-						trait = auspex_3
-						trait = auspex_4
-						trait = auspex_5
-					}
-				}
-				random = {
-					chance = 2
-					add_trait = auspex_1
-				}
-			}
-			if = {
-				limit = {
-					NOR = {
-						trait = celerity_1
-						trait = celerity_2
-						trait = celerity_3
-						trait = celerity_4
-						trait = celerity_5
-					}
-				}
-				random = {
-					chance = 2
-					add_trait = celerity_1
-				}
-			}
-			if = {
-				limit = {
-					NOR = {
-						trait = dominate_1
-						trait = dominate_2
-						trait = dominate_3
-						trait = dominate_4
-						trait = dominate_5
-					}
-				}
-				random = {
-					chance = 2
-					add_trait = dominate_1
-				}
-			}
-			if = {
-				limit = {
-					NOR = {
-						trait = resilience_1
-						trait = resilience_2
-						trait = resilience_3
-						trait = resilience_4
-						trait = resilience_5
-					}
-				}
-				random = {
-					chance = 2
-					add_trait = resilience_1
-				}
-			}
-			if = {
-				limit = {
-					NOR = {
-						trait = obfuscate_1
-						trait = obfuscate_2
-						trait = obfuscate_3
-						trait = obfuscate_4
-						trait = obfuscate_5
-					}
-				}
-				random = {
-					chance = 2
-					add_trait = obfuscate_1
-				}
-			}
-			if = {
-				limit = {
-					NOR = {
-						trait = vigor_1
-						trait = vigor_2
-						trait = vigor_3
-						trait = vigor_4
-						trait = vigor_5
-					}
-				}
-				random = {
-					chance = 2
-					add_trait = vigor_1
-				}
-			}
-			if = {
-				limit = {
-					NOR = {
-						trait = majesty_1
-						trait = majesty_2
-						trait = majesty_3
-						trait = majesty_4
-						trait = majesty_5
-					}
-				}
-				random = {
-					chance = 2
-					add_trait = majesty_1
 				}
 			}
 						
@@ -1002,11 +882,153 @@ immediate = {
 							add_trait = flight_5
 							remove_trait = flight_4 } } 							
 
-					POD_vampire_blood_thirst_increase_effect = yes		
+					#POD_vampire_blood_thirst_increase_effect = yes		
 					}			
 					
 			
 	
 				}
 			}
+
+character_event = {
+	id = CWOD_vampire_ai_train_discipline_event.6
+	hide_window = yes
+	is_triggered_only = yes
+	min_age = 170
+	ai = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				trait = vampire
+				NOT = { trait = neonate }
+				NOT = { trait = ancilla }
+				NOT = { trait = storyteller }
+				NOT = { trait = wight }
+				NOT = { trait = torpor }
+			}
+			set_character_flag = CHANCE_ENABLED_FOR_NEW_DISCIPLINE
+			if = {
+				limit = {
+					NOR = {
+						trait = animalism_1
+						trait = animalism_2
+						trait = animalism_3
+						trait = animalism_4
+						trait = animalism_5
+					}
+				}
+				random = {
+					chance = 2
+					add_trait = animalism_1
+				}
+			}
+			if = {
+				limit = {
+					NOR = {
+						trait = auspex_1
+						trait = auspex_2
+						trait = auspex_3
+						trait = auspex_4
+						trait = auspex_5
+					}
+				}
+				random = {
+					chance = 2
+					add_trait = auspex_1
+				}
+			}
+			if = {
+				limit = {
+					NOR = {
+						trait = celerity_1
+						trait = celerity_2
+						trait = celerity_3
+						trait = celerity_4
+						trait = celerity_5
+					}
+				}
+				random = {
+					chance = 2
+					add_trait = celerity_1
+				}
+			}
+			if = {
+				limit = {
+					NOR = {
+						trait = dominate_1
+						trait = dominate_2
+						trait = dominate_3
+						trait = dominate_4
+						trait = dominate_5
+					}
+				}
+				random = {
+					chance = 2
+					add_trait = dominate_1
+				}
+			}
+			if = {
+				limit = {
+					NOR = {
+						trait = resilience_1
+						trait = resilience_2
+						trait = resilience_3
+						trait = resilience_4
+						trait = resilience_5
+					}
+				}
+				random = {
+					chance = 2
+					add_trait = resilience_1
+				}
+			}
+			if = {
+				limit = {
+					NOR = {
+						trait = obfuscate_1
+						trait = obfuscate_2
+						trait = obfuscate_3
+						trait = obfuscate_4
+						trait = obfuscate_5
+					}
+				}
+				random = {
+					chance = 2
+					add_trait = obfuscate_1
+				}
+			}
+			if = {
+				limit = {
+					NOR = {
+						trait = vigor_1
+						trait = vigor_2
+						trait = vigor_3
+						trait = vigor_4
+						trait = vigor_5
+					}
+				}
+				random = {
+					chance = 2
+					add_trait = vigor_1
+				}
+			}
+			if = {
+				limit = {
+					NOR = {
+						trait = majesty_1
+						trait = majesty_2
+						trait = majesty_3
+						trait = majesty_4
+						trait = majesty_5
+					}
+				}
+				random = {
+					chance = 2
+					add_trait = majesty_1
+				}
+			}
+		}
+	}
+}
 										

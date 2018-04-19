@@ -6,7 +6,7 @@ namespace=POD_court_controllers
 #	5 - 9 	Good Events
 #	10 - 15	Bad Events
 #	16 - 17 Flavor Events
-#	100+	Test Events
+#	100+	Test Events, Maintenance Events
 #
 ##################################
 #AI Court Event Controller - Check what kind of court
@@ -138,6 +138,12 @@ character_event = {
 				NOT = {
 					is_elder_vampire = yes
 				}
+				NOT = {
+					AND = {
+						trait = player_childe
+						NOT = { higher_tier_than = COUNT }
+					}
+				}
 				OR = {
 					had_character_flag = {
 						flag = challenged_by_elder
@@ -219,7 +225,7 @@ character_event = {
 				opinion = {
 					modifier = opinion_happy
 					who = ROOT
-					years = 50
+					years = 60
 				}
 			}
 		}else = {
@@ -229,7 +235,7 @@ character_event = {
 					opinion = {
 						modifier = opinion_happy
 						who = ROOT
-						years = 50
+						years = 60
 					}
 				}
 			}
@@ -267,7 +273,7 @@ character_event = {
 	}
 }
 
-#elder and ambitious vampires gain claims on titles held by higher vampires
+#elder and ambitious vampires gain claims on titles held by higher vampires who are weak
 character_event = {
     id = POD_court_controllers.8
 	
@@ -280,6 +286,15 @@ character_event = {
 				OR = {
 					trait = ambitious
 					is_elder_vampire = yes
+				}
+				NOT = {
+				opinion = {
+					who = LIEGE
+					value = 10
+				}
+				}
+				liege = {
+					is_strong_ruler = no
 				}
 			}
 		if = {
@@ -329,8 +344,15 @@ character_event = {
 				trait = vampire
 				higher_tier_than = BARON
 			}
-			event_target:disgruntled_vassal = {
-				add_friend = PREV
+			random_list = {
+				5 = {
+					add_favor = event_target:disgruntled_vassal
+				}
+				5 = {
+					event_target:disgruntled_vassal = {
+						add_friend = PREV
+					}
+				}
 			}
 		}
 	}
@@ -348,7 +370,7 @@ character_event = {
 			limit = {
 				is_elder_vampire = yes
 				higher_tier_than = BARON
-				NOT = { opinion = { who = ROOT value = 40 } }
+				NOT = { opinion = { who = ROOT value = 15 } }
 			}
 			opinion = {
 				modifier = opinion_seed_of_rebellion
@@ -367,14 +389,20 @@ character_event = {
 	hide_window = yes
 
     immediate = {
-		random_vassal = {
+		if = {
 			limit = {
-				is_elder_vampire = yes
-				higher_tier_than = BARON
-				NOT = { opinion = { who = ROOT value = 40 } }
+				is_strong_ruler = yes
 			}
-			defacto_liege_title = {
-				add_claim = PREV
+		}else = {
+			random_vassal = {
+				limit = {
+					is_elder_vampire = yes
+					higher_tier_than = BARON
+					NOT = { opinion = { who = ROOT value = 0 } }
+				}
+				defacto_liege_title = {
+					add_claim = PREV
+				}
 			}
 		}
 	}
@@ -480,16 +508,32 @@ character_event = {
 	hide_window = yes
 
     immediate = {
+		top_liege = {
 		random_realm_character = {
+			limit = {
+				NOT = { trait = torpor }
+				has_powerful_generation = yes
+				is_elder_vampire = yes
+				is_landed = no
+			}
+			save_event_target_as = elder_challenger
+		}
+		if = {
+			limit = { event_target:elder_challenger = { is_alive = yes } }
+		}else = {
+			random_realm_character = {
 			limit = {
 				NOT = { trait = torpor }
 				OR = {
 					has_strong_generation = yes
 					has_powerful_generation = yes
 				}
+				is_landed = no
 				is_elder_vampire = yes
 			}
 			save_event_target_as = elder_challenger
+			}
+		}
 		}
 		if = {
 			limit = { event_target:elder_challenger = { is_alive = yes } }
@@ -890,7 +934,7 @@ character_event = {
     immediate = {
 		if = {
 			limit = {
-				num_of_rivals = 2
+				num_of_rivals = 1
 			}
 			random_rival = {
 			limit = {
