@@ -88,4 +88,372 @@ narrative_event = {
 
 }
 
+### End of the civil war, Ashirra victory
+
+# Ashirra victory
+narrative_event = {
+	id = POD1230OBJ.3
+	title = EVTNAMEPOD1230OBJ.3
+	desc = EVTDESCPOD1230OBJ.3
 	
+	picture = GFX_evt_kaaba
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAPOD1230OBJ.3
+		give_nickname = nick_the_eternal_caliph
+		add_artifact = seal_of_mohammad 
+		add_artifact = holy_banner_of_mohammad
+		add_artifact = sword_of_mohammad 
+		add_artifact = cloak_of_mohammad 
+		prestige = 2000
+		custom_tooltip = { text = obj3_custom }
+		hidden_tooltip = {
+			any_playable_ruler = {
+				limit = {
+					religion = lasombra_high
+				}
+				narrative_event = { id = POD1230OBJ.4 }
+			}
+		}
+		hidden_tooltip = {
+			any_playable_ruler = {
+				limit = {
+					ai = no
+					NOR = { religion = lasombra_high 
+					has_landed_title = e_ashirra  }
+				}
+				narrative_event = { id = POD1230OBJ.5 }
+			}
+		}
+	}
+}
+
+# The Crescent or the Sun ?
+narrative_event = {
+	id = POD1230OBJ.4
+	title = EVTNAMEPOD1230OBJ.3
+	desc = EVTDESCPOD1230OBJ.3
+	
+	picture = GFX_evt_kaaba
+	
+	is_triggered_only = yes
+	
+	option = { # Yes
+		name = EVTOPTAPOD1230OBJ.4
+		ai_chance = { factor = 80 }
+		religion = FROM
+		any_courtier = {
+			limit = {
+				religion = lasombra_high
+				liege = { character = ROOT }
+			}
+			religion = FROM
+		}
+		capital_scope = {
+			religion = FROM
+		}
+	}
+	option = { # No
+		name = EVTOPTBPOD1230OBJ.4
+		ai_chance = { 
+			factor = 20
+			modifier = { 
+				factor = 0 
+				trait = cynical }
+		}
+		add_trait = zealous
+	}
+}
+	
+# Informed about Ashirra Victory
+narrative_event = {
+	id = POD1230OBJ.5 
+	title = EVTNAMEPOD1230OBJ.3
+	desc = EVTDESCPOD1230OBJ.3
+	
+	picture = GFX_evt_kaaba
+	
+	is_triggered_only = yes
+	
+	option = {
+		name =  EVTOPTAOBJ.5
+		}
+}
+
+### Tremere victory
+
+# Tremere wins
+narrative_event = {
+	id = POD1230OBJ.6
+	title = EVTNAMEPOD1230OBJ.6
+	desc = EVTDESCPOD1230OBJ.6
+	
+	picture = GFX_evt_council
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAPOD1230OBJ.6
+
+
+		hidden_tooltip = {
+			any_playable_ruler = {
+				limit = {
+					NOT = { has_landed_title = e_tremere }
+					ai = no
+				}
+				narrative_event = { id = POD1230OBJ.7 }
+			}
+		}
+		change_society_currency = 100
+		piety = 1000
+		add_trait = primecouncilor
+		religion_authority = { modifier = won_crusade }
+		set_parent_religion = { religion = koldun parent = vampire_low_clans }
+		set_parent_religion = { religion = salubri_high parent = baali }
+		}
+		
+	}
+
+# Informed about Tremere victory
+narrative_event = {
+	id = POD1230OBJ.7 
+	title = EVTNAMEPOD1230OBJ.6 
+	desc = EVTDESCPOD1230OBJ.6 
+	
+	picture = GFX_evt_council
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = { 
+		text = EVTOPTAobj.7 
+		trigger = {
+				religion = koldun
+		}
+		}
+		name = { 
+		text = EVTOPTBobj.7 
+		trigger = {
+			religion = salubri_high
+		}
+		}
+		name = { 
+		text = EVTOPTCobj.7 
+		trigger = {
+			NOT = { religion = salubri_high
+			religion = koldun		}
+		}
+	}
+	}
+}
+
+### Setite victory
+
+# Setite victory
+narrative_event = {
+	id = POD1230OBJ.8
+	title = EVTNAMEPOD1230OBJ.8
+	desc = EVTDESCPOD1230OBJ.8
+	
+	picture = GFX_evt_ghoul_sexy_domitor
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAobj.8
+		add_trait = serpentsallure	
+		prestige = 2000
+		custom_tooltip = { text = obj8_custom }
+		hidden_tooltip = {
+			any_playable_ruler = {
+				limit = {
+					NOT = { religion = setite }
+				}
+				narrative_event = { id = POD1230OBJ.9 }
+			}
+		}
+		hidden_tooltip = {
+			any_playable_ruler = {
+				limit = {
+					ai = no
+					 religion = setite
+					NOT = { has_landed_title = e_setite  }
+				}
+				narrative_event = { id = POD1230OBJ.10 }
+			}
+		}
+	}
+}
+
+# Worship Set ?
+narrative_event = {
+	id = POD1230OBJ.9
+	title = EVTNAMEPOD1230OBJ.8
+	desc = EVTDESCPOD1230OBJ.8
+	
+	picture = GFX_evt_ghoul_sexy_domitor
+	
+	is_triggered_only = yes
+	
+	option = { # Yes
+		name = EVTOPTAobj.9
+		ai_chance = { factor = 20 
+		modifier = {
+			factor = 60
+				OR = { trait = cynical 
+					trait = ambitious
+					trait = lustful	
+					trait = hedonist }	
+		}
+		}
+		religion = FROM
+		any_courtier = {
+			limit = {
+				liege = { character = ROOT }
+			}
+			religion = FROM
+		}
+		capital_scope = {
+			religion = FROM
+		}
+	}
+	option = { # No
+		name = EVTOPTBobj.9
+		ai_chance = { 
+			factor = 20 
+			modifier = { 
+				factor = 90 
+				trait = zealous	}
+		}
+	}
+	option = { # Secretly
+		name = EVTOPTCobj.9
+		ai_chance = { 
+			factor = 60 
+		}
+	set_secret_religion = setite
+	}
+}
+
+# Informed about Setite Victory
+narrative_event = {
+	id = POD1230OBJ.10 
+	title = EVTNAMEPOD1230OBJ.8
+	desc = EVTDESCPOD1230OBJ.8
+	
+	picture = GFX_evt_ghoul_sexy_domitor
+	
+	is_triggered_only = yes
+	
+	option = {
+		name =  EVTOPTAobj.10
+		}
+}
+
+
+
+### Heresy victory
+
+# Heresy victory
+narrative_event = {
+	id = POD1230OBJ.11
+	title = EVTNAMEPOD1230OBJ.11
+	desc = EVTDESCPOD1230OBJ.11
+	
+	picture = GFX_evt_bishop_byzantine
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAobj.11
+		add_artifact = Euagetaematikon
+		prestige = 2000
+		custom_tooltip = { text = obj11_custom }
+		hidden_tooltip = {
+			any_playable_ruler = {
+				limit = {
+					NOT = { religion = cainite }
+				}
+				narrative_event = { id = POD1230OBJ.12 }
+			}
+		}
+		hidden_tooltip = {
+			any_playable_ruler = {
+				limit = {
+					ai = no
+					 religion = cainite
+					NOT = { has_landed_title = k_seeofnod  }
+				}
+				narrative_event = { id = POD1230OBJ.13 }
+			}
+		}
+	}
+}
+
+# Worship the Third Caine ?
+narrative_event = {
+	id = POD1230OBJ.12
+	title = EVTNAMEPOD1230OBJ.11
+	desc = EVTDESCPOD1230OBJ.11
+	
+	picture = GFX_evt_bishop_byzantine
+	
+	is_triggered_only = yes
+	
+	option = { # Yes
+		name = EVTOPTAobj.12
+		ai_chance = { factor = 20 
+		modifier = {
+			factor = 60
+				OR = { trait = cynical 
+					trait = ambitious
+					trait = lustful	
+					trait = hedonist }	
+		}
+		}
+		religion = FROM
+		any_courtier = {
+			limit = {
+				liege = { character = ROOT }
+			}
+			religion = FROM
+		}
+		capital_scope = {
+			religion = FROM
+		}
+	}
+	option = { # No
+		name = EVTOPTBobj.12
+		ai_chance = { 
+			factor = 20 
+			modifier = { 
+				factor = 90 
+				trait = zealous	}
+		}
+	}
+	option = { # Secretly
+		name = EVTOPTCobj.12
+		ai_chance = { 
+			factor = 60 
+		}
+	set_secret_religion = cainite
+	}
+}
+
+# Informed about cainite Victory
+narrative_event = {
+	id = POD1230OBJ.13 
+	title = EVTNAMEPOD1230OBJ.11
+	desc = EVTDESCPOD1230OBJ.11
+	
+	picture = GFX_evt_bishop_byzantine
+	
+	is_triggered_only = yes
+	
+	option = {
+		name =  EVTOPTAobj.13
+		}
+}

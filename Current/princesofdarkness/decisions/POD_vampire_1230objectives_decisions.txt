@@ -8,10 +8,10 @@ decisions = {
 			religion = ventrue_high
 			is_playable = yes
 			trait = vampire
+			NOT = { trait = torpor }
 			is_adult = yes
 			prisoner = no
 			NOT = { trait = incapable }
-			NOT = { trait = torpor }
 			NOT = { has_global_flag = eternal_rome_restored }
 		}
 		allow = {
@@ -26,6 +26,149 @@ decisions = {
 		effect = {
 			set_global_flag = eternal_rome_restored
 			narrative_event = { id = POD1230OBJ.1 tooltip = EVTTOOLTIPPOD_VAMPIRE_1230_OBJECTIVES1 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	end_civil_war = {
+		only_independent = yes
+		is_high_prio = yes
+		
+		potential = {
+			has_global_flag = bookmark1230
+			religion = ashirra
+			is_playable = yes
+			is_adult = yes
+			trait = vampire
+			NOT = { trait = torpor }
+			prisoner = no
+			independent = yes
+			NOT = { trait = incapable }
+			NOT = { has_global_flag = end_civil_war }
+			}
+
+		allow = {
+			OR = { has_landed_title = e_sea_of_shadows
+			e_sea_of_shadows = { has_holder = no }
+				}
+			piety = 1000
+			completely_controls = d_medina
+			completely_controls = d_latium
+			completely_controls = d_cordoba
+			completely_controls = d_jerusalem
+			completely_controls = d_thrace
+			completely_controls = d_baghdad
+			has_landed_title = e_ashirra
+			}
+		effect = {
+			narrative_event = { id = POD1230OBJ.3 tooltip = EVTTOOLTIPPOD1230OBJ.3}
+			set_global_flag = end_civil_war
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	tremere_victory = {
+		only_independent = yes
+		is_high_prio = yes
+		
+		potential = {
+			has_global_flag = bookmark1230
+			religion = tremerelow
+			is_playable = yes
+			is_adult = yes
+			trait = vampire
+			NOT = { trait = torpor }
+			prisoner = no
+			independent = yes
+			NOT = { trait = incapable }
+			NOT = { has_global_flag = tremere_victory }
+			}
+
+		allow = {
+			realm_size = 150
+			e_voivodate = { has_holder = no }
+			k_olives = { has_holder = no }
+			prestige = 1000
+			completely_controls = k_dacia
+			has_landed_title = e_tremere
+			}
+		effect = {
+			narrative_event = { id = POD1230OBJ.6 tooltip = EVTTOOLTIPPOD1230OBJ.6}
+			set_global_flag = tremere_victory
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	setite_victory = {
+		only_independent = yes
+		is_high_prio = yes
+		
+		potential = {
+			has_global_flag = bookmark1230
+			religion = setite
+			is_playable = yes
+			is_adult = yes
+			trait = vampire
+			NOT = { trait = torpor }
+			prisoner = no
+			independent = yes
+			NOT = { trait = incapable }
+			NOT = { has_global_flag = setite_victory }
+			}
+
+		allow = {
+			realm_size = 250
+			e_ashirra = { has_holder = no }
+			k_olives = { has_holder = no }
+			e_assamites = { has_holder = no }
+			piety = 1000
+			completely_controls = k_egypt
+			has_landed_title = e_setite
+			}
+		effect = {
+			narrative_event = { id = POD1230OBJ.8 tooltip = EVTTOOLTIPPOD1230OBJ.8}
+			set_global_flag = setite_victory
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	heresy_victory = {
+		only_independent = yes
+		is_high_prio = yes
+		
+		potential = {
+			has_global_flag = bookmark1230
+			religion = cainite
+			is_playable = yes
+			is_adult = yes
+			trait = vampire
+			NOT = { trait = torpor }
+			prisoner = no
+			independent = yes
+			NOT = { trait = incapable }
+			NOT = { has_global_flag = cainite_victory }
+			}
+
+		allow = {
+			realm_size = 150
+			completely_controls = d_thrace
+			piety = 1000
+			completely_controls = d_venice
+			completely_controls = d_latium
+			has_landed_title = k_seeofnod
+			}
+		effect = {
+			narrative_event = { id = POD1230OBJ.11 tooltip = EVTTOOLTIPPOD1230OBJ.11}
+			set_global_flag = cainite_victory
 		}
 		ai_will_do = {
 			factor = 1

@@ -1,0 +1,21 @@
+decisions = {
+	change_mortal_influence_approach = {
+		only_playable = yes
+		ai = no
+		
+		potential = {
+			trait = vampire
+			NOT = { trait = torpor }
+			is_adult = yes
+			prisoner = no
+		}
+		allow = {
+			capital_scope = {
+				has_province_flag = MI_initial_decision_taken
+			}
+		}
+		effect = {
+			character_event = { id = POD_mortal_ruler_influence_events.5 }
+		}
+	}
+}

@@ -1,0 +1,935 @@
+#########################################
+#	Mortal Ruler Influence Events by AJ
+#
+#
+#
+#
+#########################################
+namespace = POD_mortal_ruler_influence_events
+character_event = {
+    id = POD_mortal_ruler_influence_events.1
+	hide_window = yes
+	only_playable = yes
+	ai = no
+    is_triggered_only = yes
+
+	
+	trigger = {
+		is_alive = yes
+	}
+	
+	#Mortal Ruler Influence
+    immediate = {
+		#random events - aim is for 1 every 10 years
+		random_list = {
+			60 = {
+				modifier = {
+					factor = 1.5
+					OR = {
+						capital_scope = {
+							has_province_flag = MI_using_spymaster
+						}
+						capital_scope = {
+							has_province_flag = MI_using_harpy
+						}
+					}
+				}
+				modifier = {
+					factor = 0
+					check_for_mortal_influence = no
+				}
+				if = {
+					limit = {
+						capital_scope = {
+							NOT = { has_province_modifier = superb_mortal_ruler_influence }
+						}
+					}
+					character_event = { id = POD_mortal_ruler_influence_events.2 days = 10 }
+				}
+			}
+			40 = {
+				modifier = {
+					factor = 0
+					capital_scope = {
+						has_province_modifier = terrible_mortal_ruler_influence
+					}
+				}
+				modifier = {
+					factor = 0
+					check_for_mortal_influence = no
+				}
+				character_event = { id = POD_mortal_ruler_influence_events.3 days = 10 }
+			}
+			10 = {
+				modifier = {
+					factor = 1.8
+					OR = {
+						capital_scope = {
+							has_province_flag = MI_using_spymaster
+						}
+						capital_scope = {
+							has_province_flag = MI_using_harpy
+						}
+					}
+				}
+				modifier = {
+					factor = 0
+					capital_scope = {
+						has_province_modifier = terrible_mortal_ruler_influence
+					}
+				}
+				modifier = {
+					factor = 0
+					check_for_mortal_influence = no
+				}
+				character_event = { id = POD_mortal_ruler_influence_events.15 days = 10 }
+			}
+		}
+		
+		#if no influence, start initial influence event.  don't fire in the first eight years
+		if = {
+			limit = {
+				year > 1238
+				OR = {
+					check_for_mortal_influence = no
+					check_for_mortal_influence_plan = no
+				}
+			}
+			character_event = { id = POD_mortal_ruler_influence_events.4 }
+		}
+	}
+}
+
+#good
+character_event = {
+    id = POD_mortal_ruler_influence_events.2
+	hide_window = yes
+	only_playable = yes
+	ai = no
+    is_triggered_only = yes
+
+	
+	trigger = {
+		is_alive = yes
+	}
+	
+    immediate = {
+		set_character_flag = EVENT_2_fired
+		random_list = {
+			5 = {
+				modifier = {
+					factor = 0
+					capital_scope = {
+						has_province_flag = family_controlled
+					}
+				}
+				character_event = { id = POD_mortal_ruler_influence_events.6 days = 30 random = 30 }
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					capital_scope = {
+						has_province_flag = servants_controlled
+					}
+				}
+				character_event = { id = POD_mortal_ruler_influence_events.7 days = 30 random = 30 }
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					capital_scope = {
+						has_province_flag = powerful_mortal_controlled
+					}
+				}
+				character_event = { id = POD_mortal_ruler_influence_events.8 days = 30 random = 30 }
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					capital_scope = {
+						has_province_flag = council_controlled
+					}
+				}
+				character_event = { id = POD_mortal_ruler_influence_events.9 days = 30 random = 30 }
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					capital_scope = {
+						has_province_flag = family_empowered
+					}
+				}
+				modifier = {
+					factor = 0
+					capital_scope = {
+						NOT = { has_province_flag = family_controlled }
+					}
+				}
+				character_event = { id = POD_mortal_ruler_influence_events.10 days = 30 random = 30 }
+			}
+		}
+	}
+}
+
+#bad
+character_event = {
+    id = POD_mortal_ruler_influence_events.3
+	hide_window = yes
+	only_playable = yes
+	ai = no
+    is_triggered_only = yes
+
+	
+	trigger = {
+		is_alive = yes
+	}
+	
+    immediate = {
+		set_character_flag = EVENT_3_fired
+		random_list = {
+			5 = {
+				modifier = {
+					factor = 0
+					capital_scope = {
+						NOT = { has_province_flag = family_controlled }
+					}
+				}
+				character_event = { id = POD_mortal_ruler_influence_events.11 days = 30 random = 30 }
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					capital_scope = {
+						NOT = { has_province_flag = servants_controlled }
+					}
+				}
+				character_event = { id = POD_mortal_ruler_influence_events.12 days = 30 random = 30 }
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					capital_scope = {
+						NOT = { has_province_flag = powerful_mortal_controlled }
+					}
+				}
+				character_event = { id = POD_mortal_ruler_influence_events.13 days = 30 random = 30 }
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					capital_scope = {
+						NOT = { has_province_flag = council_controlled }
+					}
+				}
+				character_event = { id = POD_mortal_ruler_influence_events.14 days = 30 random = 30 }
+			}
+		}
+	}
+}
+
+#initial choice for influence
+character_event = {
+	id = POD_mortal_ruler_influence_events.4
+	desc = "EVTDESC_POD_MORTAL_RULER_INF_1"
+	picture = GFX_evt_vampire_chair_up_stairs
+	only_playable = yes
+	ai = no
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		pod_cleanse_all_mortal_influence = yes
+	}
+	option = {
+		name = "EVTOPTA_POD_MORTAL_RULER_INF_1" # Create minor ghouls of important families, long-term
+		POD_vampire_blood_thirst_increase_effect = yes
+		capital_scope = {
+			add_province_modifier = { name = bad_mortal_ruler_influence duration = -1 }
+		}
+		hidden_tooltip = {
+			capital_scope = {
+				set_province_flag = MI_initial_decision_taken
+				set_province_flag = MI_ghouling_nobles
+				set_province_flag = servants_controlled
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTB_POD_MORTAL_RULER_INF_1" # Use money to buy favors
+		scaled_wealth = -3.0
+		capital_scope = {
+			add_province_modifier = { name = average_mortal_ruler_influence duration = -1 }
+		}
+		hidden_tooltip = {
+			capital_scope = {
+				set_province_flag = MI_initial_decision_taken
+				set_province_flag = MI_buying_favors
+				set_province_flag = council_controlled
+				set_province_flag = servants_controlled
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTC_POD_MORTAL_RULER_INF_1" # Use spymaster and blood to spread control
+		scaled_wealth = -1.0
+		POD_vampire_blood_thirst_increase_effect = yes
+		
+		capital_scope = {
+			add_province_modifier = { name = bad_mortal_ruler_influence duration = -1 }
+		}
+		hidden_tooltip = {
+			capital_scope = {
+				set_province_flag = MI_initial_decision_taken
+				set_province_flag = MI_using_spymaster
+				set_province_flag = servants_controlled
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTD_POD_MORTAL_RULER_INF_1" # Use harpy and blood to spread control
+		scaled_wealth = -1.0
+		POD_vampire_blood_thirst_increase_effect = yes
+		capital_scope = {
+			add_province_modifier = { name = bad_mortal_ruler_influence duration = -1 }
+		}
+		hidden_tooltip = {
+			capital_scope = {
+				set_province_flag = MI_initial_decision_taken
+				set_province_flag = MI_using_harpy
+				set_province_flag = servants_controlled
+			}
+		}
+	}
+}
+
+#change decision after initial start
+character_event = {
+	id = POD_mortal_ruler_influence_events.5
+	desc = "EVTDESC_POD_MORTAL_RULER_INF_2"
+	picture = GFX_evt_vampire_chair_up_stairs
+	only_playable = yes
+	ai = no
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		pod_cleanse_mortal_choice_flags = yes
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_MORTAL_RULER_INF_2" # Create minor ghouls of important families, long-term
+		POD_vampire_blood_thirst_increase_effect = yes
+		hidden_tooltip = {
+			capital_scope = {
+				set_province_flag = MI_ghouling_nobles
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTB_POD_MORTAL_RULER_INF_2" # Use money to buy favors
+		trigger = {
+			capital_scope = {
+				NOT = { has_province_flag = council_controlled }
+			}
+		}
+		scaled_wealth = -3.0
+		POD_vampire_blood_thirst_increase_effect = yes
+		increase_mortal_influence = yes
+		hidden_tooltip = {
+			capital_scope = {
+				set_province_flag = MI_buying_favors
+				set_province_flag = council_controlled
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTC_POD_MORTAL_RULER_INF_2" # Use spymaster and blood to spread control
+		scaled_wealth = -1.0
+		POD_vampire_blood_thirst_increase_effect = yes
+		hidden_tooltip = {
+			capital_scope = {
+				set_province_flag = MI_using_spymaster
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTD_POD_MORTAL_RULER_INF_2" # Use harpy and blood to spread control
+		scaled_wealth = -1.0
+		POD_vampire_blood_thirst_increase_effect = yes
+		hidden_tooltip = {
+			capital_scope = {
+				set_province_flag = MI_using_harpy
+			}
+		}
+	}
+}
+
+#gain control of key mortal family
+character_event = {
+	id = POD_mortal_ruler_influence_events.6
+	desc = "EVTDESC_POD_MORTAL_RULER_INF_3.1"
+	desc = "EVTDESC_POD_MORTAL_RULER_INF_3.2"
+	desc = "EVTDESC_POD_MORTAL_RULER_INF_3.3"
+	desc = "EVTDESC_POD_MORTAL_RULER_INF_3.4"
+	picture = GFX_evt_vampire_chair_up_stairs
+	only_playable = yes
+
+	is_triggered_only = yes
+	
+	immediate = {
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_MORTAL_RULER_INF_3"
+		hidden_tooltip = {
+			capital_scope = {
+				set_province_flag = family_controlled
+			}
+		}
+		increase_mortal_influence = yes
+	}
+}
+
+#gain control of servants
+character_event = {
+	id = POD_mortal_ruler_influence_events.7
+	desc = "EVTDESC_POD_MORTAL_RULER_INF_4.1"
+	desc = "EVTDESC_POD_MORTAL_RULER_INF_4.2"
+	desc = "EVTDESC_POD_MORTAL_RULER_INF_4.3"
+	desc = "EVTDESC_POD_MORTAL_RULER_INF_4.4"
+	picture = GFX_evt_vampire_chair_up_stairs
+	only_playable = yes
+
+	is_triggered_only = yes
+	
+	immediate = {
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_MORTAL_RULER_INF_4"
+		hidden_tooltip = {
+			capital_scope = {
+				set_province_flag = servants_controlled
+			}
+		}
+		increase_mortal_influence = yes
+	}
+}
+
+#gain control of powerful mortal
+character_event = {
+	id = POD_mortal_ruler_influence_events.8
+	desc = "EVTDESC_POD_MORTAL_RULER_INF_5.1"
+	desc = "EVTDESC_POD_MORTAL_RULER_INF_5.2"
+	picture = GFX_evt_vampire_chair_up_stairs
+	only_playable = yes
+
+	is_triggered_only = yes
+	
+	immediate = {
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_MORTAL_RULER_INF_5"
+		hidden_tooltip = {
+			capital_scope = {
+				set_province_flag = powerful_mortal_controlled
+			}
+		}
+		increase_mortal_influence = yes
+	}
+}
+
+#gain control of a council
+character_event = {
+	id = POD_mortal_ruler_influence_events.9
+	desc = "EVTDESC_POD_MORTAL_RULER_INF_6"
+	picture = GFX_evt_vampire_chair_up_stairs
+	only_playable = yes
+
+	is_triggered_only = yes
+	
+	immediate = {
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_MORTAL_RULER_INF_6"
+		hidden_tooltip = {
+			capital_scope = {
+				set_province_flag = council_controlled
+			}
+		}
+		increase_mortal_influence = yes
+	}
+}
+
+#controlled family rises in power
+character_event = {
+	id = POD_mortal_ruler_influence_events.10
+	desc = "EVTDESC_POD_MORTAL_RULER_INF_7"
+	picture = GFX_evt_vampire_chair_up_stairs
+	only_playable = yes
+
+	is_triggered_only = yes
+	
+	trigger = {
+		capital_scope = {
+			has_province_flag = family_controlled
+		}
+	}
+	immediate = {
+		
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_MORTAL_RULER_INF_7"
+		hidden_tooltip = {
+			capital_scope = {
+				set_province_flag = family_empowered
+			}
+		}
+		increase_mortal_influence = yes
+	}
+}
+
+#controlled family loses power
+character_event = {
+	id = POD_mortal_ruler_influence_events.11
+	desc = "EVTDESC_POD_MORTAL_RULER_INF_8.1"
+	desc = "EVTDESC_POD_MORTAL_RULER_INF_8.2"
+	desc = "EVTDESC_POD_MORTAL_RULER_INF_8.3"
+	picture = GFX_evt_vampire_chair_up_stairs
+	only_playable = yes
+
+	is_triggered_only = yes
+	
+	trigger = {
+		capital_scope = {
+			has_province_flag = family_controlled
+		}
+	}
+	immediate = {
+		
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_MORTAL_RULER_INF_8"
+		hidden_tooltip = {
+			capital_scope = {
+				clr_province_flag = family_controlled
+			}
+		}
+		decrease_mortal_influence = yes
+		if = {
+			limit = {
+				capital_scope = {
+					has_province_flag = family_empowered
+				}
+			}
+			decrease_mortal_influence = yes
+			hidden_tooltip = {
+				capital_scope = {
+					clr_province_flag = family_empowered
+				}
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTB_POD_MORTAL_RULER_INF_8"
+		hidden_tooltip = {
+			capital_scope = {
+				clr_province_flag = family_controlled
+			}
+		}
+		decrease_mortal_influence = yes
+		if = {
+			limit = {
+				capital_scope = {
+					has_province_flag = family_empowered
+				}
+			}
+			decrease_mortal_influence = yes
+			hidden_tooltip = {
+				capital_scope = {
+					clr_province_flag = family_empowered
+				}
+			}
+		}
+		
+		
+		scaled_wealth = -2.0
+		POD_vampire_blood_thirst_increase_effect = yes
+		random = {
+			chance = 60
+			character_event = { id = POD_player_politics_events.6 days = 5 }
+		}
+	}
+}
+
+#powerful mortal dies
+character_event = {
+	id = POD_mortal_ruler_influence_events.12
+	desc = "EVTDESC_POD_MORTAL_RULER_INF_9.1"
+	desc = "EVTDESC_POD_MORTAL_RULER_INF_9.2"
+	desc = "EVTDESC_POD_MORTAL_RULER_INF_9.3"
+	picture = GFX_evt_vampire_chair_up_stairs
+	only_playable = yes
+
+	is_triggered_only = yes
+	
+	trigger = {
+		capital_scope = {
+			has_province_flag = powerful_mortal_controlled
+		}
+	}
+	immediate = {
+		
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_MORTAL_RULER_INF_9"
+		hidden_tooltip = {
+			capital_scope = {
+				clr_province_flag = powerful_mortal_controlled
+			}
+		}
+		decrease_mortal_influence = yes
+	}
+}
+
+#servants replaced
+character_event = {
+	id = POD_mortal_ruler_influence_events.13
+	desc = "EVTDESC_POD_MORTAL_RULER_INF_10"
+	picture = GFX_evt_vampire_chair_up_stairs
+	only_playable = yes
+
+	is_triggered_only = yes
+	
+	trigger = {
+		capital_scope = {
+			has_province_flag = servants_controlled
+		}
+	}
+	immediate = {
+		
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_MORTAL_RULER_INF_10"
+		hidden_tooltip = {
+			capital_scope = {
+				clr_province_flag = servants_controlled
+			}
+		}
+		decrease_mortal_influence = yes
+	}
+}
+
+#servants replaced
+character_event = {
+	id = POD_mortal_ruler_influence_events.14
+	desc = "EVTDESC_POD_MORTAL_RULER_INF_11"
+	picture = GFX_evt_vampire_chair_up_stairs
+	only_playable = yes
+
+	is_triggered_only = yes
+	
+	trigger = {
+		capital_scope = {
+			has_province_flag = council_controlled
+		}
+	}
+	immediate = {
+		
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_MORTAL_RULER_INF_11"
+		hidden_tooltip = {
+			capital_scope = {
+				clr_province_flag = council_controlled
+			}
+		}
+		decrease_mortal_influence = yes
+	}
+}
+
+#servants replaced
+character_event = {
+	id = POD_mortal_ruler_influence_events.15
+	desc = "EVTDESC_POD_MORTAL_RULER_INF_12.1"
+	desc = "EVTDESC_POD_MORTAL_RULER_INF_12.2"
+	desc = "EVTDESC_POD_MORTAL_RULER_INF_12.3"
+	desc = "EVTDESC_POD_MORTAL_RULER_INF_12.4"
+	desc = "EVTDESC_POD_MORTAL_RULER_INF_12.5"
+	picture = GFX_evt_vampire_chair_up_stairs
+	only_playable = yes
+
+	is_triggered_only = yes
+	
+	trigger = {
+		check_for_mortal_influence = no
+	}
+	immediate = {
+		
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_MORTAL_RULER_INF_12"
+		random = {
+			chance = 80
+			if = {
+				limit = {
+					capital_scope = {
+						has_province_flag = family_controlled
+					}
+				}
+				hidden_tooltip = {
+					capital_scope = {
+						clr_province_flag = family_controlled
+					}
+				}
+				decrease_mortal_influence = yes
+			}
+			if = {
+				limit = {
+					capital_scope = {
+						has_province_flag = family_empowered
+					}
+				}
+				hidden_tooltip = {
+					capital_scope = {
+						clr_province_flag = family_empowered
+					}
+				}
+				decrease_mortal_influence = yes
+			}
+		}
+		random = {
+			chance = 80
+			if = {
+				limit = {
+					capital_scope = {
+						has_province_flag = servants_controlled
+					}
+				}
+				hidden_tooltip = {
+					capital_scope = {
+						clr_province_flag = servants_controlled
+					}
+				}
+				decrease_mortal_influence = yes
+			}
+		}
+		random = {
+			chance = 80
+			if = {
+				limit = {
+					capital_scope = {
+						has_province_flag = powerful_mortal_controlled
+					}
+				}
+				hidden_tooltip = {
+					capital_scope = {
+						clr_province_flag = powerful_mortal_controlled
+					}
+				}
+				decrease_mortal_influence = yes
+			}
+		}
+		random = {
+			chance = 80
+			if = {
+				limit = {
+					capital_scope = {
+						has_province_flag = council_controlled
+					}
+				}
+				hidden_tooltip = {
+					capital_scope = {
+						clr_province_flag = council_controlled
+					}
+				}
+				decrease_mortal_influence = yes
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTB_POD_MORTAL_RULER_INF_12"
+		random = {
+			chance = 80
+			if = {
+				limit = {
+					capital_scope = {
+						has_province_flag = family_controlled
+					}
+				}
+				hidden_tooltip = {
+					capital_scope = {
+						clr_province_flag = family_controlled
+					}
+				}
+				decrease_mortal_influence = yes
+			}
+			if = {
+				limit = {
+					capital_scope = {
+						has_province_flag = family_empowered
+					}
+				}
+				hidden_tooltip = {
+					capital_scope = {
+						clr_province_flag = family_empowered
+					}
+				}
+				decrease_mortal_influence = yes
+			}
+		}
+		random = {
+			chance = 80
+			if = {
+				limit = {
+					capital_scope = {
+						has_province_flag = servants_controlled
+					}
+				}
+				hidden_tooltip = {
+					capital_scope = {
+						clr_province_flag = servants_controlled
+					}
+				}
+				decrease_mortal_influence = yes
+			}
+		}
+		random = {
+			chance = 80
+			if = {
+				limit = {
+					capital_scope = {
+						has_province_flag = powerful_mortal_controlled
+					}
+				}
+				hidden_tooltip = {
+					capital_scope = {
+						clr_province_flag = powerful_mortal_controlled
+					}
+				}
+				decrease_mortal_influence = yes
+			}
+		}
+		random = {
+			chance = 80
+			if = {
+				limit = {
+					capital_scope = {
+						has_province_flag = council_controlled
+					}
+				}
+				hidden_tooltip = {
+					capital_scope = {
+						clr_province_flag = council_controlled
+					}
+				}
+				decrease_mortal_influence = yes
+			}
+		}
+
+		create_character = {
+			age = 26
+			trait = mortal
+			female = 50
+			religion = innocent
+			dynasty = none
+			culture = LOCATION
+			attributes = {
+			}
+		}
+		new_character = {
+			death = {
+				death_reason = death_execution
+				who = ROOT
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTC_POD_MORTAL_RULER_INF_12"
+		random = {
+			chance = 80
+			if = {
+				limit = {
+					capital_scope = {
+						has_province_flag = family_controlled
+					}
+				}
+				hidden_tooltip = {
+					capital_scope = {
+						clr_province_flag = family_controlled
+					}
+				}
+				decrease_mortal_influence = yes
+			}
+			if = {
+				limit = {
+					capital_scope = {
+						has_province_flag = family_empowered
+					}
+				}
+				hidden_tooltip = {
+					capital_scope = {
+						clr_province_flag = family_empowered
+					}
+				}
+				decrease_mortal_influence = yes
+			}
+		}
+		random = {
+			chance = 80
+			if = {
+				limit = {
+					capital_scope = {
+						has_province_flag = servants_controlled
+					}
+				}
+				hidden_tooltip = {
+					capital_scope = {
+						clr_province_flag = servants_controlled
+					}
+				}
+				decrease_mortal_influence = yes
+			}
+		}
+		random = {
+			chance = 80
+			if = {
+				limit = {
+					capital_scope = {
+						has_province_flag = powerful_mortal_controlled
+					}
+				}
+				hidden_tooltip = {
+					capital_scope = {
+						clr_province_flag = powerful_mortal_controlled
+					}
+				}
+				decrease_mortal_influence = yes
+			}
+		}
+		random = {
+			chance = 80
+			if = {
+				limit = {
+					capital_scope = {
+						has_province_flag = council_controlled
+					}
+				}
+				hidden_tooltip = {
+					capital_scope = {
+						clr_province_flag = council_controlled
+					}
+				}
+				decrease_mortal_influence = yes
+			}
+		}
+	}
+}

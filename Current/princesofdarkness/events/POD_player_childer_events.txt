@@ -48,7 +48,10 @@ character_event = {
     immediate = {
 		save_event_target_as = player_childe
 		if = {
-			limit = { NOT = { has_character_flag = MENTOR_DECISION_TAKEN } }
+			limit = { 
+				NOT = { has_character_flag = MENTOR_DECISION_TAKEN }
+				age < 120
+			}
 			set_character_flag = MENTOR_DECISION_TAKEN
 			event_target:player_parent = {
 				character_event = { id = POD_player_childe_events.6 }
@@ -108,7 +111,7 @@ character_event = {
 				event_target:player_parent = { character_event = { id = POD_player_childe_events.19 days = 1 random = 20 } }
 			}
 			random_list = {
-				5 = {
+				3 = {
 					character_event = { id = POD_player_childe_events.3 }
 				}
 				5 = {
@@ -342,7 +345,7 @@ character_event = {
 			}
 		}
 		random_list = {
-			5 = {
+			3 = {
 				#mentee crisis
 				modifier = {
 					factor = 0
@@ -353,7 +356,7 @@ character_event = {
 					character_event = { id = POD_player_childe_events.13 days = 1 random = 25 }
 				}
 			}
-			11 = {
+			9 = {
 				#mentee gains a trait of yours
 				event_target:player_parent = {
 					character_event = { id = POD_player_childe_events.14 days = 1 random = 25 }
@@ -393,7 +396,7 @@ character_event = {
 					NOT = { opinion = { who = event_target:player_parent value = 0 } } 
 				}
 				modifier = {
-					factor = 0.5
+					factor = 0.1
 					opinion = { who = event_target:player_parent value = 50 }
 				}
 				event_target:player_parent = {
@@ -401,7 +404,7 @@ character_event = {
 				}
 				#mentee becomes rival with you and leaves court
 			}
-			75 = {
+			80 = {
 				#no event
 			}
 		}
@@ -2352,7 +2355,10 @@ character_event = {
 						trait = cruel
 					}
 				}
-				add_trait = cruel
+				event_target:player_childe = {
+					add_trait = cruel
+				}
+				
 			}
 			5 = {
 				modifier = {
@@ -2361,7 +2367,9 @@ character_event = {
 						trait = proud
 					}
 				}
-				add_trait = proud
+				event_target:player_childe = {
+					add_trait = proud
+				}
 			}
 			5 = {
 				modifier = {
@@ -2370,7 +2378,9 @@ character_event = {
 						trait = arbitrary
 					}
 				}
-				add_trait = arbitrary
+				event_target:player_childe = {
+					add_trait = arbitrary
+				}
 			}
 			5 = {
 				modifier = {
@@ -2379,7 +2389,9 @@ character_event = {
 						trait = deceitful
 					}
 				}
-				add_trait = deceitful
+				event_target:player_childe = {
+					add_trait = deceitful
+				}
 			}
 			5 = {
 				modifier = {
@@ -2388,7 +2400,9 @@ character_event = {
 						trait = wroth
 					}
 				}
-				add_trait = wroth
+				event_target:player_childe = {
+					add_trait = wroth
+				}
 			}
 		}
 	}
@@ -2409,7 +2423,9 @@ character_event = {
 						trait = stubborn
 					}
 				}
-				add_trait = stubborn
+				event_target:player_childe = {
+					add_trait = stubborn
+				}
 			}
 			5 = {
 				modifier = {
@@ -2418,7 +2434,9 @@ character_event = {
 						trait = shy
 					}
 				}
-				add_trait = shy
+				event_target:player_childe = {
+					add_trait = shy
+				}
 			}
 			5 = {
 				modifier = {
@@ -2427,7 +2445,9 @@ character_event = {
 						trait = craven
 					}
 				}
-				add_trait = craven
+				event_target:player_childe = {
+					add_trait = craven
+				}
 			}
 			5 = {
 				modifier = {
@@ -2436,7 +2456,9 @@ character_event = {
 						trait = slothful
 					}
 				}
-				add_trait = slothful
+				event_target:player_childe = {
+					add_trait = slothful
+				}
 			}
 			5 = {
 				modifier = {
@@ -2445,7 +2467,9 @@ character_event = {
 						trait = lunatic
 					}
 				}
-				add_trait = lunatic
+				event_target:player_childe = {
+					add_trait = lunatic
+				}
 			}
 		}
 	}
@@ -2575,6 +2599,10 @@ character_event = {
     is_triggered_only = yes
 	trigger = {
 		is_alive = yes
+		event_target:player_childe = {
+			NOT = { age > 85 }
+			is_landed = no
+		}
 	}
 	
     immediate = {

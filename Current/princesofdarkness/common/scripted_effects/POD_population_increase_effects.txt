@@ -1,0 +1,32 @@
+pod_increase_population_effect = {
+	if = {
+		limit = { has_10k_pop = yes }
+		add_building = ct_pop_20k
+	}else_if = {
+		limit = { has_20k_pop = yes }
+		add_building = ct_pop_50k
+	}else_if = {
+		limit = { has_50k_pop = yes }
+		add_building = ct_pop_100k
+	}else_if = {
+		limit = { has_100k_pop = yes }
+		add_building = ct_pop_150k
+	}else_if = {
+		limit = { has_150k_pop = yes }
+		add_building = ct_pop_200k
+	}else_if = {
+		limit = { has_200k_pop = yes }
+		add_building = ct_pop_250k
+	}else_if = {
+		limit = { has_250k_pop = yes }
+		add_building = ct_pop_500k
+	}else_if = {
+		limit = { has_500k_pop = yes }
+		add_building = ct_pop_1m
+	}else_if = {
+		limit = { has_1m_pop = yes }
+		add_building = ct_pop_2m
+	}else = {
+		add_building = ct_pop_10k
+	}
+}

@@ -46,6 +46,39 @@ clear_court_size_flag = {
 	}
 }
 
+clear_mortal_ruler_influence_flags = {
+	if = {
+		limit = {
+			has_character_flag = terrible_mortal_ruler_influence
+		}
+		clr_character_flag = terrible_mortal_ruler_influence
+	}
+	if = {
+		limit = {
+			has_character_flag = bad_mortal_ruler_influence
+		}
+		clr_character_flag = bad_mortal_ruler_influence
+	}
+	if = {
+		limit = {
+			has_character_flag = average_mortal_ruler_influence
+		}
+		clr_character_flag = average_mortal_ruler_influence
+	}
+	if = {
+		limit = {
+			has_character_flag = good_mortal_ruler_influence
+		}
+		clr_character_flag = good_mortal_ruler_influence
+	}
+	if = {
+		limit = {
+			has_character_flag = superb_mortal_ruler_influence
+		}
+		clr_character_flag = superb_mortal_ruler_influence
+	}
+}
+
 increase_mortal_influence = {
 	capital_scope = {
 		trigger_switch = {
@@ -115,4 +148,94 @@ decrease_mortal_influence = {
 			add_province_modifier = { name = bad_mortal_ruler_influence duration = -1 }
 		}
 	}
+}
+
+pod_cleanse_mortal_choice_flags = {
+	capital_scope = {
+	if = {
+		limit = { has_province_flag = MI_ghouling_nobles }
+		clr_province_flag = MI_ghouling_nobles
+	}
+	if = {
+		limit = { has_province_flag = MI_buying_favors }
+		clr_province_flag = MI_buying_favors
+	}
+	if = {
+		limit = { has_province_flag = MI_using_spymaster }
+		clr_province_flag = MI_using_spymaster
+	}
+	if = {
+		limit = { has_province_flag = MI_using_harpy }
+		clr_province_flag = MI_using_harpy
+	}
+	}
+	
+}
+
+pod_cleanse_all_mortal_influence= {
+	capital_scope = {
+	if = {
+		limit = { has_province_flag = MI_ghouling_nobles }
+		clr_province_flag = MI_ghouling_nobles
+	}
+	if = {
+		limit = { has_province_flag = MI_buying_favors }
+		clr_province_flag = MI_buying_favors
+	}
+	if = {
+		limit = { has_province_flag = MI_using_spymaster }
+		clr_province_flag = MI_using_spymaster
+	}
+	if = {
+		limit = { has_province_flag = MI_using_harpy }
+		clr_province_flag = MI_using_harpy
+	}
+	if = {
+		limit = { has_province_modifier = superb_mortal_ruler_influence }
+		remove_province_modifier = superb_mortal_ruler_influence
+	}
+	if = {
+		limit = { has_province_modifier = good_mortal_ruler_influence }
+		remove_province_modifier = good_mortal_ruler_influence
+	}
+	if = {
+		limit = { has_province_modifier = average_mortal_ruler_influence }
+		remove_province_modifier = average_mortal_ruler_influence
+	}
+	if = {
+		limit = { has_province_modifier = bad_mortal_ruler_influence }
+		remove_province_modifier = bad_mortal_ruler_influence
+	}
+	if = {
+		limit = { has_province_modifier = terrible_mortal_ruler_influence }
+		remove_province_modifier = terrible_mortal_ruler_influence
+	}
+	if = {
+		limit = { has_province_flag = family_controlled }
+		clr_province_flag = family_controlled
+	}
+	if = {
+		limit = { has_province_flag = servants_controlled }
+		clr_province_flag = servants_controlled
+	}
+	if = {
+		limit = { has_province_flag = powerful_mortal_controlled }
+		clr_province_flag = powerful_mortal_controlled
+	}
+	if = {
+		limit = { has_province_flag = council_controlled }
+		clr_province_flag = council_controlled
+	}
+	if = {
+		limit = { has_province_flag = family_empowered }
+		clr_province_flag = family_empowered
+	}
+	if = {
+		limit = { has_province_flag = MI_initial_decision_taken }
+		clr_province_flag = MI_initial_decision_taken
+	}
+	}
+	
+}
+pod_cleanse_secret_society = {
 }

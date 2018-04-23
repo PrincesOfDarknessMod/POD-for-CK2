@@ -71,19 +71,24 @@ pod_check_great_people = {
 	spawn_sparc = yes
 	spawn_niccolo_machiavelli = yes
 	spawn_girolamo_savonarola = yes
+	spawn_neboitsya_babayaga = yes
+	spawn_ibn_arabi = yes
+	spawn_subutai = yes
+	spawn_baba_ishak = yes
+	spawn_allan_percy = yes
 }
 
 pod_spawn_great_person_effect = {
 	if = {
 		limit = {
 			any_player = {
-				NOT = { distance = { who = new_character value = 700 } }
+				NOT = { distance = { who = new_character value = 350 } }
 			}
 		}
 		set_character_flag = PLAYER_FOUND_SIRE
 		random_player = {
 			limit = {
-				NOT = { distance = { who = new_character value = 700 } }
+				NOT = { distance = { who = new_character value = 350 } }
 			}
 			character_event = { id = POD_great_childer_events.10 days = 1 random = 40 }
 		}
@@ -360,7 +365,7 @@ move_great_person_place = {
 
 great_rebel_sire_check = {
 	random_list = {
-		60 = {
+		65 = {
 			modifier = {
 				factor = 0
 				check_for_brujah_sire = no
@@ -394,6 +399,13 @@ great_rebel_sire_check = {
 				check_for_assamite_sire = no
 			}
 			great_person_assamite_sire = yes
+		}
+		10 = {
+			modifier = {
+				factor = 0
+				check_for_baali_sire = no
+			}
+			great_person_baali_sire = yes
 		}
 		1 = {
 			move_great_person_place = yes
@@ -583,14 +595,14 @@ great_intrigue_sire_check = {
 
 great_warrior_sire_check = {
 	random_list = {
-		20 = {
+		25 = {
 			modifier = {
 				factor = 0
 				check_for_gangrel_sire = no
 			}
 			great_person_gangrel_sire = yes
 		}
-		40 = {
+		20 = {
 			modifier = {
 				factor = 0
 				check_for_toreador_sire = no
@@ -638,6 +650,13 @@ great_warrior_sire_check = {
 				check_for_salubri_sire = no
 			}
 			great_person_salubri_sire = yes
+		}
+		15 = {
+			modifier = {
+				factor = 0
+				check_for_nosferatu_sire = no
+			}
+			great_person_nosferatu_sire = yes
 		}
 		1 = {
 			move_great_person_place = yes
@@ -3653,22 +3672,24 @@ spawn_niccolo_machiavelli = {
 				trait = mortal
 				trait = canon
 				trait = great_person
-				trait = elusive_shadow
+				trait = grey_eminence
 				trait = quick
 				trait = schemer
 				trait = scholar
 				trait = cynical
 				trait = cruel
 				trait = diligent
+				trait = lustful
 				trait = deceitful
 				female = no
 				religion = innocent
 				dynasty = none
 				culture = "italian"
 				attributes = {
-					diplomacy = 12
-					intrigue = 16
+					diplomacy = 16
+					intrigue = 12
 					learning = 12
+					martial = 8
 				}
 			}
 			new_character = {
@@ -3768,6 +3789,258 @@ spawn_pedro_gonzalez = {
 				set_character_flag = great_person
 				set_character_flag = girolamo_savonarola
 				set_character_flag = great_occultist
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+#1275
+spawn_neboitsya_babayaga = {
+	if = {
+		limit = { 
+			year = 1275
+			NOT = { year > 1275 }
+		}
+		random_province = {
+			limit = {
+				culture = "russian"
+			}
+			create_character = {
+				name = "Neboitsya Babayaga"
+				age = 35
+				dna="aecff0hhba0"
+				properties="bl0adk000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = underhanded_rogue
+				trait = gamer
+				trait = cynical
+				trait = indolent
+				trait = mystic
+				female = no
+				religion = innocent
+				dynasty = none
+				culture = "russian"
+				attributes = {
+					diplomacy = 8
+				}
+			}
+			new_character = {
+				
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = neboitsya_babayaga
+				set_character_flag = great_intrigue
+				c_505075 = {
+					if = {
+						limit = {
+							is_alive = yes
+						}
+						character_event = { id = POD_great_childer_events.22 }
+					}else = {
+						new_character = {
+							pod_spawn_great_person_effect = yes
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+#1240
+spawn_ibn_arabi = {
+	if = {
+		limit = { 
+			year = 1240
+			NOT = { year > 1240 }
+		}
+		random_province = {
+			limit = {
+				culture = "persian"
+			}
+			create_character = {
+				name = "Ibn Arabi"
+				age = 35
+				dna="afcdd0baca0"
+				properties="qn0faf000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = mastermind_theologian
+				trait = mystic
+				trait = poet
+				trait = erudite
+				trait = faqih
+				trait = hajjaj
+				trait = diligent
+				female = no
+				religion = innocent
+				dynasty = none
+				culture = "persian"
+				attributes = {
+					learning = 17
+					martial = 12
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = ibn_arabi
+				set_character_flag = great_theologian
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+#1242
+spawn_baba_ishak = {
+	if = {
+		limit = { 
+			year = 1242
+			NOT = { year > 1242 }
+		}
+		random_province = {
+			limit = {
+				culture = "turkish"
+			}
+			create_character = {
+				name = "Baba Ishak"
+				age = 25
+				dna="afcdd0baca0"
+				properties="qn0faf000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = martial_cleric
+				trait = mystic
+				trait = zealous
+				trait = peasant_leader
+				trait = mountain_terrain_leader
+				trait = holy_warrior
+				trait = ambitious
+				trait = drunkard
+				trait = sympathy_christendom
+				female = no
+				religion = innocent
+				dynasty = none
+				culture = "turkish"
+				attributes = {
+					diplomacy = 15
+					learning = 12
+					martial = 12
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = baba_ishak
+				set_character_flag = great_rebel
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+#1248
+spawn_subutai = {
+	if = {
+		limit = { 
+			year = 1248
+			NOT = { year > 1248 }
+		}
+		random_province = {
+			limit = {
+				culture = "polish"
+			}
+			create_character = {
+				name = "Subutai"
+				age = 25
+				dna="afcdd0baca0"
+				properties="qn0faf000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = brilliant_strategist
+				trait = quick
+				trait = strategist
+				trait = brave
+				trait = siege_leader
+				trait = organizer
+				trait = flat_terrain_leader
+				trait = aggressive_leader
+				trait = cavalry_leader
+				trait = tengri_warrior
+				trait = diligent
+				trait = cruel
+				female = no
+				religion = innocent
+				dynasty = none
+				culture = "mongol"
+				attributes = {
+					martial = 17
+					learning = 7
+					intrigue = 7
+					diplomacy = 7
+					stewardship = 7
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = subutai
+				set_character_flag = great_rebel
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+#1437
+spawn_allan_percy = {
+	if = {
+		limit = { 
+			year = 1437
+			NOT = { year > 1437 }
+		}
+		random_province = {
+			limit = {
+				culture = "english"
+			}
+			create_character = {
+				name = "Allan Percy"
+				age = 25
+				dna="be0bh0dccc0"
+				properties="0e0j0k000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = brilliant_strategist
+				trait = brave
+				trait = strong
+				trait = honest
+				trait = ambitious
+				trait = duelist
+				female = no
+				religion = innocent
+				dynasty = none
+				culture = "english"
+				attributes = {
+					diplomacy = 9
+					martial = 6
+					stewardship = 6
+					intrigue = 6
+					learning = 5
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_ruler
+				set_character_flag = allan_percy
+				set_character_flag = great_noble
 				pod_spawn_great_person_effect = yes
 			}
 		}

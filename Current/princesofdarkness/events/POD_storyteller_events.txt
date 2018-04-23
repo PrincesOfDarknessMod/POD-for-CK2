@@ -15,7 +15,6 @@ character_event = {
 	immediate = {
 		character_event = { id = storyteller.2 days = 1 } #allows the other initialisation events to take effect, and precludes them afterwards.
 		character_event = { id = storyteller.13 days = 10} #allows the other initialisation events to take effect, and precludes them afterwards.
-		#character_event = { id = storyteller.17 days = 35 } #culls useless characters from AI courts
 		c_ile_de_france = {
 			location = {
 				province_event = { id = storyteller.18 days = 65 }
@@ -4867,6 +4866,8 @@ province_event = {
 		c_ile_de_france = {
 			location = {
 				province_event = { id = storyteller.18 days = 3650 }
+				province_event = { id = storyteller.21 days = 60 }
+				province_event = { id = storyteller.22 days = 120 }
 			}
 		}
 		change_variable = { which = global_cull_times value = 1 }
@@ -4879,6 +4880,9 @@ province_event = {
 			}
 			death = { death_reason = death_natural }
 			change_variable = { which = global_cull_amount value = 1 }
+		}
+		any_player = {
+			character_event = { id = POD_mortal_ruler_influence_events.1 days = 30 random = 50 }
 		}
 	}
 }
@@ -4930,6 +4934,79 @@ province_event = {
 		}
 		any_player = {
 			character_event = { id = POD_player_childe_events.1 days = 5 random = 15 }
+		}
+	}
+}
+
+province_event = {
+    id = storyteller.21
+	
+    is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+	}
+	
+	immediate = {
+		any_character = {
+			limit = {
+				has_secret_religion = yes
+				NOR = {
+					secret_religion = sabbat
+					secret_religion = anarchs
+					secret_religion = inconnu
+					secret_religion = setite
+					secret_religion = baali
+					secret_religion = furores
+					secret_religion = vampire_promethean
+					secret_religion = cainite
+				}
+			}
+			clear_secret_religion = yes
+		}
+	}
+}
+
+province_event = {
+    id = storyteller.22
+	
+    is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+	}
+	
+	immediate = {
+		any_province = {
+			any_province_holding = {
+				limit = {
+					is_pop_city = yes
+				}
+				random = {
+					chance = 15
+					modifier = {
+						factor = 3
+						has_10k_pop = yes
+					}
+					modifier = {
+						factor = 2
+						has_20k_pop = yes
+					}
+					modifier = {
+						factor = 0.5
+						has_250k_pop = yes
+					}
+					modifier = {
+						factor = 0.3
+						has_500k_pop = yes
+					}
+					modifier = {
+						factor = 0.2
+						has_1m_pop = yes
+					}
+					pod_increase_population_effect = yes
+				}
+			}
 		}
 	}
 }
