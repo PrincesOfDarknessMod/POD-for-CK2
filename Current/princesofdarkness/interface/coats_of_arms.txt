@@ -220,6 +220,24 @@ culture =
 			emblem = no
 			random = no # Do not use for random CoAs			
 		}		
+		
+		texture = {
+			file = "gfx\\coats_of_arms\\POD_dynasties_laibon.tga"
+			size = { x = 10 y = 2 }
+			noOfFrames = 20
+			color = 0
+			emblem = no
+			random = no # Do not use for random CoAs			
+		}			
+	
+		texture = {
+			file = "gfx\\coats_of_arms\\POD_pattern_vampire_assamites.tga"
+			size = { x = 10 y = 1 }
+			noOfFrames = 10
+			color = 0
+			emblem = no
+			random = no # Do not use for random CoAs			
+		}		
 	
 		texture = {
 			file = "gfx\\coats_of_arms\\POD_dynasties_vampire.tga"
@@ -1189,6 +1207,7 @@ culture = {
 		{ 255 231 93 }	#7  	Or (Gold)
 		{ 113 0 0 }		#8   	Sanguine (Blood Red)
 		{ 113 0 0 }		#9   	Sanguine (Blood Red)
+		{ 195 195 195 }	#10		Silver
 		
 	}
 	
@@ -1199,6 +1218,7 @@ culture = {
 		{ 0 1 2 6 }
 		{ 5 8 9 }
 		{ 3 7 }
+		{ 4 10 }
 	}
 	
 	emblem = {
@@ -1213,7 +1233,7 @@ culture = {
 			file = "gfx\\coats_of_arms\\POD_pattern_vampire_brujah.tga"
 			size = { x = 4 y = 6 }
 			noOfFrames = 24
-			color = 2
+			color = 3
 			emblem = no
 			random = yes # Do not use for random CoAs			
 		}			
@@ -1307,7 +1327,7 @@ culture = {
 		{ 245 245 245 } #4   	Argent (White )
 		{ 201 43 43 } 	#5   	Gules (Red)
 		{ 20 20 20 }	#6   	Sable (Black)
-		{ 15 15 204 }	#7  	Grey
+		{ 195 195 195 }	#7		Silver
 		{ 113 0 0 }		#8   	Sanguine (Blood Red)
 		{ 113 0 0 }		#9   	Sanguine (Blood Red)
 		
@@ -1368,7 +1388,7 @@ culture = {
 		{ 245 245 245 } #4   	Argent (White )
 		{ 201 43 43 } 	#5   	Gules (Red)
 		{ 83 141 39 } 	#6		Green
-		{ 15 15 204 }	#7  	Grey
+		{ 195 195 195 }	#7		Silver
 		{ 113 0 0 }		#8   	Sanguine (Blood Red)
 		{ 113 0 0 }		#9   	Sanguine (Blood Red)
 		
@@ -1467,7 +1487,6 @@ culture =
 {
 	religion = {
 		"ashirra"
-		"assamite"
 	}
 
 	templates = { 
@@ -1547,6 +1566,102 @@ culture =
 			random = no # Do not use for random CoAs			
 		}	
 
+		
+	}
+}
+
+culture =
+{
+	religion = {
+		"assamite"
+	}
+
+	templates = { 
+		"coa_plain_muslim:1"
+		#"coa_party_per_fess:2"
+		#"coa_party_per_pale:2"
+		#"coa_party_per_cross:4"
+		#"coa_party_triangle:3"
+	}
+
+	color = {
+		{ 255 231 93 }		# 0		Gold
+		{ 245 245 245 } 	# 1 	White
+		{ 35 101 29 } 		# 2 	Dark Green
+		{ 176 0 0 } 		# 3		Red
+		{ 83 141 39 } 		# 4 	Green
+		{ 20 20 20 }		# 5 	Black
+		{ 80 40 0 }			# 6 	Brown
+		{ 130 0 0 }			# 7 	Dark Red
+		{ 205 87 10 }		# 8 	Orange
+		{ 110 181 90 } 		# 9 	Light Green
+		{ 128 0 40 }		# 10 	Mulberry
+		{ 50 162 150 }		# 11	Turqouise
+		{ 195 195 195 }		# 12	Silver
+	}
+	
+	rebel_colors = { 3 5 7 }
+	
+	banned_colors = 
+	{
+		{ 0 1 9 12 }			# Gold
+		{ 1 0 12 }				# White
+		{ 2 4 6 8 10 11 }		# Dark Green
+		{ 3 4 6 7 8 10 }		# Red
+		{ 4 2 3 6 8 9 11 }		# Green
+		{ 5 6 }					# Black
+		{ 6 2 3 4 5 7 8 10 11 }	# Brown
+		{ 7 3 6 8 10 }			# Dark Red
+		{ 8 2 3 4 6 7 9 10 11 }	# Orange
+		{ 9 0 4 8 11 12 }		# Light Green
+		{ 10 2 3 6 7 8 }		# Mulberry
+		{ 11 2 4 6 8 9  }		# Turqouise
+		{ 12 0 1 9  }			# Silver
+	}
+
+	emblem = {
+		file = "gfx\\coats_of_arms\\emblem_muslim.dds"
+		noOfFrames = 1
+	}
+
+	# WHEN ADDING NEW, ALWAYS ADD AT THE END
+	textures = {
+
+		texture = {
+			file = "gfx\\coats_of_arms\\POD_pattern_vampire_assamite.tga"
+			size = { x = 10 y = 1 }
+			noOfFrames = 10
+			color = 3
+			emblem = no
+			random = yes # Do use for random CoAs			
+		}	
+
+		texture = {
+			file = "gfx\\coats_of_arms\\POD_pattern_vampire_ashirra.tga"
+			size = { x = 4 y = 3 }
+			noOfFrames = 12
+			color = 3
+			emblem = no
+			random = yes # Do use for random CoAs	
+		}		
+		
+		texture = {
+			file = "gfx\\coats_of_arms\\POD_pattern_vampire_ashirra_clans.tga"
+			size = { x = 4 y = 3 }
+			noOfFrames = 12
+			color = 3
+			emblem = no
+			random = no # Do not use for random CoAs
+		}				
+		
+		texture = {
+			file = "gfx\\coats_of_arms\\POD_pattern_dynasties_vampire_ashirra.tga"
+			size = { x = 6 y = 2 }
+			noOfFrames = 12
+			color = 0
+			emblem = no
+			random = no # Do not use for random CoAs			
+		}			
 		
 	}
 }
@@ -3135,7 +3250,6 @@ culture = {
 
 culture = {
 	religion = {
-		"laibon"
 		"madzimbabwe"
 	}
 	
@@ -3203,6 +3317,88 @@ culture = {
 			color = 0
 			random = no # Do not use for random CoAs
 		}
+	}
+}
+
+culture = {
+	religion = {
+		"laibon"
+	}
+	
+	templates = { 
+		"coa_plain_pagan:1"
+	}
+
+	color = {
+		{ 255 231 93 }	# 0		Gold
+		{ 245 245 245 } # 1 	White
+		{ 35 101 29 } 	# 2 	Dark Green
+		{ 176 0 0 } 		#	3		Red
+		{ 20 20 20 }		# 4 	Black
+		{ 20 20 20 }		# 5 	Black
+		{ 80 40 0 }			# 6 	Brown
+		{ 130 0 0 }			# 7 	Dark Red
+		{ 20 20 20 }		# 8 	Black
+		{ 20 20 20 }		# 9 	Black
+		{ 128 0 40 }		# 10 	Mulberry
+	}
+	
+	rebel_colors = { 3 5 7 }
+	
+	banned_colors = 
+	{
+		{ 0 1 4 9 }				# Gold
+		{ 1 0 9 }				# White
+		{ 2 4 6 8 9 10 }		# Dark Green
+		{ 3 4 6 7 8 10 }		# Red
+		{ 5 6 }					# Black
+		{ 5 6 }					# Black
+		{ 6 2 3 4 5 7 8 9 10 }	# Brown
+		{ 7 3 6 8 10 }			# Dark Red
+		{ 5 6 }					# Black
+		{ 5 6 }					# Black
+		{ 10 2 3 6 7 8 }		# Mulberry
+	}
+
+	emblem = {
+		file = "gfx\\coats_of_arms\\emblem_muslim.dds"
+		noOfFrames = 1
+	}
+
+	# WHEN ADDING NEW, ALWAYS ADD AT THE END
+	textures = {
+		texture = {
+			file = "gfx\\coats_of_arms\\pattern_westafrican.tga"
+			size = { x = 10 y = 1 }
+			noOfFrames = 10
+			color = 2
+			emblem = no
+		}
+		texture = {
+			file = "gfx\\coats_of_arms\\pattern2_westafrican.tga"
+			size = { x = 10 y = 1 }
+			noOfFrames = 10
+			color = 3
+			emblem = no
+		}
+		texture = {
+		# Jylland, Kiev, Livonia, Meath, Novgorod, Orkney, Ostlandet, Sjaelland, The Isles, Trondelag, Uppland, Vastergotland, York
+			file = "gfx\\coats_of_arms\\pagans.tga"
+			size = { x = 13 y = 1 }
+			noOfFrames = 13
+			color = 0
+			random = no # Do not use for random CoAs
+		}
+
+		texture = {
+			file = "gfx\\coats_of_arms\\POD_dynasties_laibon.tga"
+			size = { x = 10 y = 2 }
+			noOfFrames = 20
+			color = 0
+			emblem = no
+			random = no # Do not use for random CoAs			
+		}		
+		
 	}
 }
 
