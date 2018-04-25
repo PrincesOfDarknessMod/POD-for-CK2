@@ -1,0 +1,146 @@
+#########################################
+#	Player Politics Events by AJ
+#	Many will be added in for Camarilla / Sabbat courts later
+#
+#
+#
+#########################################
+namespace = POD_player_politics_events
+character_event = {
+    id = POD_player_politics_events.1
+	hide_window = yes
+	only_playable = yes
+	ai = no
+    is_triggered_only = yes
+
+	
+	trigger = {
+		is_alive = yes
+	}
+	
+	#May you live in interesting times
+    immediate = {
+		random_list = {
+			5 = {
+				character_event = { id = POD_player_politics_events.10 }
+			}
+			5 = {
+				character_event = { id = POD_player_politics_events.11 }
+			}
+			6 = {
+				character_event = { id = POD_player_politics_events.12 }
+			}
+			6 = {
+				character_event = { id = POD_player_politics_events.13 }
+			}
+			60 = {
+			}
+		}
+	}
+}
+
+#Help disgruntled vassals form factions
+character_event = {
+    id = POD_player_politics_events.10
+	 
+    is_triggered_only = yes
+	hide_window = yes
+
+    immediate = {
+		random_vassal = {
+			limit = {
+				trait = vampire
+				higher_tier_than = BARON
+				among_most_powerful_vassals = 10
+				NOT = { opinion = { who = ROOT value = 15 } }
+			}
+			save_event_target_as = disgrunted_vassal
+		}
+		random_vassal = {
+			limit = {
+				trait = vampire
+				higher_tier_than = BARON
+				among_most_powerful_vassals = 8
+			}
+			random_list = {
+				5 = {
+					add_favor = event_target:disgruntled_vassal
+				}
+				5 = {
+					event_target:disgruntled_vassal = {
+						add_friend = PREV
+					}
+				}
+			}
+		}
+	}
+}
+
+#plants seed of rebellion in someone who isn't enamored of you
+character_event = {
+    id = POD_player_politics_events.11
+	
+    is_triggered_only = yes
+	hide_window = yes
+
+    immediate = {
+		random_vassal = {
+			limit = {
+				is_elder_vampire = yes
+				higher_tier_than = BARON
+				among_most_powerful_vassals = 10
+				NOT = { opinion = { who = ROOT value = 15 } }
+			}
+			opinion = {
+				modifier = opinion_seed_of_rebellion
+				who = ROOT
+				years = 500
+			}
+		}
+	}
+}
+
+#create a rival for power when possible for player
+character_event = {
+    id = POD_player_politics_events.12
+	
+    is_triggered_only = yes
+	hide_window = yes
+
+    immediate = {
+		random_vassal = {
+			limit = {
+				is_elder_vampire = yes
+				is_powerful_vassal = yes
+				NOT = { dynasty = ROOT }
+				NOT = { opinion = { who = ROOT value = 40 } }
+			}
+			opinion = {
+				modifier = opinion_seed_of_rebellion
+				who = ROOT
+				years = 500
+			}
+		}
+	}
+}
+
+#vassal fabricates title on you if possible target exists
+character_event = {
+    id = POD_player_politics_events.13
+	
+    is_triggered_only = yes
+	hide_window = yes
+
+    immediate = {
+		random_vassal = {
+			limit = {
+				is_elder_vampire = yes
+				is_powerful_vassal = yes
+				NOT = { opinion = { who = ROOT value = -10 } }
+			}
+			defacto_liege_title = {
+				add_claim = PREV
+			}
+		}
+	}
+}

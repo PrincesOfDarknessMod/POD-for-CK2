@@ -44,7 +44,7 @@ narrative_event = {
 					NOT = { has_landed_title = c_roma }
 					ai = no
 				}
-				narrative_event = { id = POD_VAMPIRE_1230_OBJECTIVES2 }
+				narrative_event = { id = POD1230OBJ.2 }
 			}
 		}
 		add_trait = eternalconsul
@@ -103,10 +103,9 @@ narrative_event = {
 	option = {
 		name = EVTOPTAPOD1230OBJ.3
 		give_nickname = nick_the_eternal_caliph
-		add_artifact = seal_of_mohammad 
-		add_artifact = holy_banner_of_mohammad
-		add_artifact = sword_of_mohammad 
-		add_artifact = cloak_of_mohammad 
+		add_artifact = celestial_necklace
+		add_artifact = ruby_bracelets
+		add_artifact = dagger_of_glory 
 		prestige = 2000
 		custom_tooltip = { text = obj3_custom }
 		hidden_tooltip = {
@@ -410,8 +409,7 @@ narrative_event = {
 			factor = 60
 				OR = { trait = cynical 
 					trait = ambitious
-					trait = lustful	
-					trait = hedonist }	
+									}	
 		}
 		}
 		religion = FROM
@@ -456,4 +454,281 @@ narrative_event = {
 	option = {
 		name =  EVTOPTAobj.13
 		}
+}
+
+### Restore Carthage
+
+# Carthage restored
+narrative_event = {
+	id = POD1230OBJ.14
+	title = EVTNAMEPOD1230OBJ.14
+	desc = EVTDESCPOD1230OBJ.14
+	
+	picture = GFX_evt_magnificent_castle
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAobj.14
+		add_artifact = true_sword_of_troile
+		custom_tooltip = { text = obj14_custom }
+		hidden_tooltip = {
+		activate_title = { title = e_carthage status = yes }
+			primary_title = {
+				any_direct_de_jure_vassal_title = {
+					de_jure_liege = e_carthage
+				}
+			}
+		}
+		e_carthage = {
+			grant_title = ROOT
+			make_primary_title = yes
+		}
+		if = {
+			limit = {
+				religion = brujah_high }
+			religion = vampire_promethean 
+			}			
+		hidden_tooltip = {
+			any_playable_ruler = {
+				limit = {
+					ai = no
+					NOR = { 
+							religion = brujah_high
+							has_landed_title = d_tunis	}
+				}
+				narrative_event = { id = POD1230OBJ.16 }
+			}
+		}
+		hidden_tooltip = {
+			any_playable_ruler = {
+				limit = {
+					 religion = brujah_high
+					NOT = { has_landed_title = d_tunis }
+				}
+				narrative_event = { id = POD1230OBJ.15 }
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTBobj.14
+		prestige = 2000
+		piety = 1000
+		change_diplomacy = 10
+		change_stewardship = 5
+		wealth = 2000
+		hidden_tooltip = {
+		activate_title = { title = e_carthage status = yes }
+			primary_title = {
+				any_direct_de_jure_vassal_title = {
+					de_jure_liege = e_carthage
+				}
+			}
+		}
+		e_carthage = {
+			grant_title = ROOT
+			make_primary_title = yes
+		}
+		hidden_tooltip = {
+			any_playable_ruler = {
+				limit = {
+					ai = no
+					NOT = { has_landed_title = d_tunis }
+				}
+				narrative_event = { id = POD1230OBJ.16 }
+			}
+		}
+	}
+}
+
+# Brujah : Become Promethean ?
+narrative_event = {
+	id = POD1230OBJ.15
+	title = EVTNAMEPOD1230OBJ.14
+	desc = EVTDESCPOD1230OBJ.14
+	
+	picture = GFX_evt_magnificent_castle
+	
+	is_triggered_only = yes
+	
+	option = { # Yes
+		name = EVTOPTAobj.15
+		ai_chance = { factor = 50 
+		modifier = {
+			factor = 90
+				OR = { trait = cynical 
+					trait = ambitious
+										}	
+		}
+		}
+		religion = vampire_promethean
+		any_courtier = {
+			limit = {
+				liege = { character = ROOT }
+			}
+			religion = vampire_promethean
+		}
+		capital_scope = {
+			religion = FROM
+		}
+	}
+	option = { # No
+		name = EVTOPTBobj.15
+		ai_chance = { 
+			factor = 20 
+			modifier = { 
+				factor = 90 
+				trait = zealous	}
+		}
+	}
+	option = { # Secretly
+		name = EVTOPTCobj.15
+		ai_chance = { 
+			factor = 30 
+		}
+	set_secret_religion = vampire_promethean
+	}
+}
+
+# Informed about Carthage
+narrative_event = {
+	id = POD1230OBJ.16
+	title = EVTNAMEPOD1230OBJ.14
+	desc = EVTDESCPOD1230OBJ.14
+	
+	picture = GFX_evt_magnificent_castle
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = { 
+		text = EVTOPTAobj.16
+		trigger = {
+			OR = { religion = brujah_high
+					religion = vampire_promethean }
+		}
+		}
+		name = { 
+		text = EVTOPTBobj.16
+		trigger = {
+			religion = ventrue_high
+		}
+		}
+		name = { 
+		text = EVTOPTCobj.16
+		trigger = {
+			NOR = { religion = brujah_high
+			religion = ventrue_high
+			religion = vampire_promethean			}
+		}
+	}
+	}
+}
+
+### Restore the Dream
+
+# Dream restored
+narrative_event = {
+	id = POD1230OBJ.17
+	title = EVTNAMEPOD1230OBJ.17
+	desc = EVTDESCPOD1230OBJ.17
+	
+	picture = GFX_evt_victory_arch_byzantine
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAobj.17
+		add_trait = michaelsheir
+		piety = 2000
+		change_learning = 5
+		culture_techpoints = 200
+		hidden_tooltip = {
+		activate_title = { title = e_second_dream status = yes }
+			primary_title = {
+				any_direct_de_jure_vassal_title = {
+					de_jure_liege = e_second_dream
+				}
+			}
+		}
+		e_second_dream = {
+			grant_title = ROOT
+			make_primary_title = yes
+		}
+			
+		hidden_tooltip = {
+			any_playable_ruler = {
+				limit = {
+					NOT = { has_landed_title = c_byzantion }
+				}
+				narrative_event = { id = POD1230OBJ.18 }
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTBobj.17
+		prestige = 2000
+		change_stewardship = 10
+		wealth = 2000
+		add_artifact = sword_of_heroes
+		add_artifact = crown_of_majesty
+		hidden_tooltip = {
+		activate_title = { title = e_second_dream status = yes }
+			primary_title = {
+				any_direct_de_jure_vassal_title = {
+					de_jure_liege = e_second_dream
+				}
+			}
+		}
+		e_second_dream = {
+			grant_title = ROOT
+			make_primary_title = yes
+		}
+			
+		hidden_tooltip = {
+			any_playable_ruler = {
+				limit = {
+					NOT = { has_landed_title = c_byzantion }
+				}
+				narrative_event = { id = POD1230OBJ.18 }
+			}
+		}
+	}
+}
+
+
+# Informed about Dream
+narrative_event = {
+	id = POD1230OBJ.18
+	title = EVTNAMEPOD1230OBJ.17
+	desc = EVTDESCPOD1230OBJ.17
+	
+	picture = GFX_evt_victory_arch_byzantine
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = { 
+		text = EVTOPTAobj.18
+		trigger = {
+			religion = baali
+
+		}
+		}
+		name = { 
+		text = EVTOPTBobj.18
+		trigger = {
+			religion = toreador_high
+		}
+		}
+		name = { 
+		text = EVTOPTCobj.18
+		trigger = {
+			NOR = { religion = toreador_high
+			religion = baali	}
+		}
+	}
+	}
 }

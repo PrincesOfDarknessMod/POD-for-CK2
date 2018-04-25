@@ -136,7 +136,7 @@ Ankaran_Sarcophagus = {
 }
 
 Kristrbani = {
-	max_amount = 1
+	max_amount = 0
 	spawn_date = 1006.6.6
 	
 	spawn_chance = {
@@ -208,6 +208,32 @@ Euagetaematikon = {
 
 	artifacts = {
 		Sword_of_Troile = {
+			value = 1
+		}
+	}
+}
+
+true_sword_of_troile = {
+	max_amount = 0
+	spawn_date = 6.6.6
+	
+	spawn_chance = {
+		value = 0
+	}
+
+	weight = {
+		value = 0
+		additive_modifier = {
+			value = 5
+			OR = {
+				trait = vampire
+				}
+			is_landed = yes
+		}
+	}
+
+	artifacts = {
+		true_sword_of_troile = {
 			value = 1
 		}
 	}

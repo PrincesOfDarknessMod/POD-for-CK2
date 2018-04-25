@@ -174,4 +174,63 @@ decisions = {
 			factor = 1
 		}
 	}
+	
+	restore_carthage = {
+		only_independent = yes
+		is_high_prio = yes
+		
+		potential = {
+			has_global_flag = bookmark1230
+			OR = { religion = brujah_high
+			religion = vampire_promethean }
+			is_playable = yes
+			trait = vampire
+			NOT = { trait = torpor }
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			NOT = { has_global_flag = carthage_restored }
+		}
+		allow = {
+			completely_controls = d_latium
+			completely_controls = d_tunis
+			realm_size = 200
+		}
+		effect = {
+			set_global_flag = carthage_restored
+			narrative_event = { id = POD1230OBJ.14 tooltip = EVTTOOLTIPPOD1230OBJ.14 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	restore_dream = {
+		only_independent = yes
+		is_high_prio = yes
+		
+		potential = {
+			has_global_flag = bookmark1230
+			religion = toreador_high
+			is_playable = yes
+			trait = vampire
+			NOT = { trait = torpor }
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			NOT = { has_global_flag = dream_restored }
+		}
+		allow = {
+			completely_controls = k_anatolia
+			completely_controls = k_byzantium
+			realm_size = 220
+		}
+		effect = {
+			set_global_flag = dream_restored
+			narrative_event = { id = POD1230OBJ.17 tooltip = EVTTOOLTIPPOD1230OBJ.17 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
 }

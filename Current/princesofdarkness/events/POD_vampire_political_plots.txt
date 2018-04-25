@@ -36,8 +36,15 @@ character_event = {
 			NOT = { is_murder_quest_target_of_root_trigger = yes }
 			NOT = { trait = incapable }
 			prisoner = no
-			NOT = { is_inaccessible_trigger = yes }
-			NOT = { trait = torpor }
+			AND = {
+				NOT = { is_inaccessible_trigger = yes }
+				NOT = { ROOT = { has_plot = plot_awaken_target } }
+			}
+			AND = {
+				NOT = { trait = torpor }
+				NOT = { ROOT = { has_plot = plot_awaken_target } }
+			}
+			
 		}
 		plot_power_contribution = 
 		{
@@ -81,7 +88,13 @@ character_event = {
 			factor = 0.4
 			intrigue = 40
 		}
-		
+		modifier = {
+			factor = 0.1
+			has_plot = plot_awaken_target
+			plot_target_char = {
+				is_friend = ROOT
+			}
+		}
 	}
 	
 	immediate = {
