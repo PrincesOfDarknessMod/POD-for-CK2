@@ -1,0 +1,356 @@
+##########################################
+#	Shadow Inquisition Events by AJ
+#
+#
+#
+#
+#
+#
+##########################################
+namespace = POD_Shadow_Inquisition_Events
+province_event = {
+	id = POD_Shadow_Inquisition_Events.1
+	hide_window = yes
+	
+	is_triggered_only = yes
+
+	prisoner = no
+	only_capable = yes
+	
+	trigger = {
+		has_global_flag = bookmark1230
+		NOT = { has_global_flag = shadow_inquisition_end }
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				NOT = { has_global_flag = shadow_inquisition_began }
+				year > 1289
+			}
+			set_global_flag = shadow_inquisition_began
+			set_global_flag = shadow_inquisition_stage_1
+			any_player = {
+				narrative_event = { id = POD_Shadow_Inquisition_Events.100 days = 5 random = 10 }
+			}
+			province_event = { id = POD_Shadow_Inquisition_Events.2 }
+			set_variable = { which = global_shadow_inquisition_level value = 1 }
+		}
+	}
+}
+
+#shadow inquisition in motion
+province_event = {
+	id = POD_Shadow_Inquisition_Events.2
+	hide_window = yes
+	
+	is_triggered_only = yes
+
+	prisoner = no
+	only_capable = yes
+	
+	trigger = {
+		has_global_flag = bookmark1230
+		has_global_flag = shadow_inquisition_began
+		NOT = { has_global_flag = shadow_inquisition_end }
+	}
+	
+	immediate = {
+		check_inquisition_stage_effect = yes
+		if = {
+			limit = {
+				NOT = { has_global_flag = shadow_inquisition_end }
+			}
+			masquerade_breach_province_effect = yes
+			shadow_inquisition_province_effect = yes
+			shadow_inquistion_poll_provinces = yes
+			shadow_inquistion_revolt_provinces = yes
+			province_event = { id = POD_Shadow_Inquisition_Events.2 days = 365 }
+		}
+	}
+}
+
+province_event = {
+	id = POD_Shadow_Inquisition_Events.3
+	hide_window = yes
+	
+	is_triggered_only = yes
+
+	prisoner = no
+	only_capable = yes
+	
+	trigger = {
+		has_global_flag = bookmark1230
+		has_global_flag = shadow_inquisition_began
+		NOT = { has_global_flag = shadow_inquisition_end }
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				NOT = { has_global_flag = shadow_inquisition_began }
+				year > 1230
+			}
+			set_global_flag = shadow_inquisition_began
+			character_event = { id = POD_Shadow_Inquisition_Events.100 }
+		}
+	}
+}
+
+#spawn army and attack target YOLO
+character_event = {
+	id = POD_Shadow_Inquisition_Events.10
+	
+	hide_window = yes # Only fires for unplayable landless characters
+	
+	is_triggered_only = yes
+
+	prisoner = no
+	only_capable = yes
+	
+	trigger = {
+	}
+	
+	immediate = {
+		save_event_target_as = target_owner
+		capital_scope = {
+			save_event_target_as = target_province
+			
+			pod_shadow_inquisition_spawn = yes
+		}
+		
+		#pod_anarch_uprising_spawn = yes
+	}
+}
+
+#player gets shadow inquisition event fired on them
+character_event = {
+	id = POD_Shadow_Inquisition_Events.11
+	desc = "EVTDESC_POD_INQUISITION_KILL_1"
+	picture = GFX_evt_ghoul_execution
+	
+	is_triggered_only = yes
+
+	prisoner = no
+	only_capable = yes
+	
+	trigger = {
+		
+	}
+	
+	immediate = {
+		random_realm_character = {
+			limit = {
+				NOT = { ai = no }
+				NOT = { trait = canon }
+				NOT = { is_ruler = yes }
+				NOT = { trait = mortal }
+				has_powerful_generation = no
+			}
+			save_event_target_as = dead_dude
+		}
+	}
+	option = {
+		name = "EVTOPTA_POD_INQUISITION_KILL_1"
+		event_target:dead_dude = {
+			death = {
+				death_reason = death_shadow_inquisition_unknown
+			}
+		}
+	}
+}
+
+#player masquerade decision
+character_event = {
+	id = POD_Shadow_Inquisition_Events.12
+	desc = {
+		trigger = {
+			NOT = { has_character_flag = heavy_masquerade_decision }
+		}
+		text = EVTDESC_POD_INQUISITION_KILL_2.1
+	}
+	desc = {
+		trigger = {
+			has_character_flag = heavy_masquerade_decision
+		}
+		text = EVTDESC_POD_INQUISITION_KILL_2.2
+	}
+	picture = GFX_evt_vampire_chair_up_stairs
+	
+	is_triggered_only = yes
+
+	prisoner = no
+	only_capable = yes
+	
+	trigger = {
+		
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				has_character_flag = heavy_masquerade_decision
+			}
+			clr_character_flag = heavy_masquerade_decision
+		}else = {
+			set_character_flag = heavy_masquerade_decision
+			capital_scope = {
+				pod_cleanse_all_mortal_influence = yes
+				add_province_modifier = { name = terrible_mortal_ruler_influence duration = -1 }
+			}
+		}
+		
+	}
+	option = {
+		name = "EVTOPTA_POD_INQUISITION_KILL_2"
+		
+	}
+}
+
+#player target character using inquisition
+character_event = {
+	id = POD_Shadow_Inquisition_Events.13
+	hide_window = yes
+	
+	is_triggered_only = yes
+
+	prisoner = no
+	only_capable = yes
+	
+	trigger = {
+		
+	}
+	
+	immediate = {
+
+	}
+}
+#initial Shadow Inquisition Notification
+narrative_event = {
+	id = POD_Shadow_Inquisition_Events.100
+	title = "EVTTITLE_POD_INQUISITION_NARRATIVE_1"
+	desc = "EVTDESC_POD_INQUISITION_NARRATIVE_1"
+	picture = GFX_evt_vampire_chair_up_stairs
+	only_playable = yes
+
+	is_triggered_only = yes
+	
+	immediate = {
+	}
+	option = {
+		name = "EVTOPTA_POD_INQUISITION_NARRATIVE_1"
+	}
+	option = {
+		name = "EVTOPTB_POD_INQUISITION_NARRATIVE_1"
+	}
+}
+
+narrative_event = {
+	id = POD_Shadow_Inquisition_Events.101
+	title = "EVTTITLE_POD_INQUISITION_NARRATIVE_2"
+	desc = "EVTDESC_POD_INQUISITION_NARRATIVE_2"
+	picture = GFX_evt_vampire_chair_up_stairs
+	only_playable = yes
+
+	is_triggered_only = yes
+	
+	immediate = {
+	}
+	option = {
+		name = "EVTOPTA_POD_INQUISITION_NARRATIVE_2"
+	}
+	option = {
+		name = "EVTOPTB_POD_INQUISITION_NARRATIVE_2"
+	}
+}
+
+narrative_event = {
+	id = POD_Shadow_Inquisition_Events.102
+	title = "EVTTITLE_POD_INQUISITION_NARRATIVE_3"
+	desc = "EVTDESC_POD_INQUISITION_NARRATIVE_3"
+	picture = GFX_evt_vampire_chair_up_stairs
+	only_playable = yes
+
+	is_triggered_only = yes
+	
+	immediate = {
+	}
+	option = {
+		name = "EVTOPTA_POD_INQUISITION_NARRATIVE_3"
+	}
+	option = {
+		name = "EVTOPTB_POD_INQUISITION_NARRATIVE_3"
+	}
+}
+
+narrative_event = {
+	id = POD_Shadow_Inquisition_Events.103
+	title = "EVTTITLE_POD_INQUISITION_NARRATIVE_4"
+	desc = "EVTDESC_POD_INQUISITION_NARRATIVE_4"
+	picture = GFX_evt_vampire_chair_up_stairs
+	only_playable = yes
+
+	is_triggered_only = yes
+	
+	immediate = {
+	}
+	option = {
+		name = "EVTOPTA_POD_INQUISITION_NARRATIVE_4"
+	}
+	option = {
+		name = "EVTOPTB_POD_INQUISITION_NARRATIVE_4"
+	}
+}
+
+narrative_event = {
+	id = POD_Shadow_Inquisition_Events.104
+	title = "EVTTITLE_POD_INQUISITION_NARRATIVE_5"
+	desc = "EVTDESC_POD_INQUISITION_NARRATIVE_5"
+	picture = GFX_evt_vampire_chair_up_stairs
+	only_playable = yes
+
+	is_triggered_only = yes
+	
+	immediate = {
+	}
+	option = {
+		name = "EVTOPTA_POD_INQUISITION_NARRATIVE_5"
+	}
+	option = {
+		name = "EVTOPTB_POD_INQUISITION_NARRATIVE_5"
+	}
+}
+
+narrative_event = {
+	id = POD_Shadow_Inquisition_Events.104
+	title = "EVTTITLE_POD_INQUISITION_NARRATIVE_5"
+	desc = "EVTDESC_POD_INQUISITION_NARRATIVE_5"
+	picture = GFX_evt_vampire_chair_up_stairs
+	only_playable = yes
+
+	is_triggered_only = yes
+	
+	immediate = {
+	}
+	option = {
+		name = "EVTOPTA_POD_INQUISITION_NARRATIVE_5"
+	}
+	option = {
+		name = "EVTOPTB_POD_INQUISITION_NARRATIVE_5"
+	}
+}
+
+character_event = {
+	id = POD_Shadow_Inquisition_Events.200
+	desc = "EVTDESC_POD_INQUISITION_TEST_1"
+	picture = GFX_evt_vampire_chair_up_stairs
+	only_playable = yes
+
+	is_triggered_only = yes
+	
+	immediate = {
+	}
+	option = {
+		name = "EVTOPTA_POD_INQUISITION_TEST_1"
+	}
+}

@@ -1,0 +1,496 @@
+##########################################
+#	Anarch Revolt Events by AJ
+#
+#
+#
+#
+#
+#
+##########################################
+namespace = POD_Anarch_Revolt_Events
+province_event = {
+	id = POD_Anarch_Revolt_Events.1
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_global_flag = bookmark1230
+		NOT = { has_global_flag = anarch_revolt_end }
+	}
+	
+	immediate = {
+		log = "triggering Anarch Revolt Beginning in [This.GetName]"
+		if = {
+			limit = {
+				NOT = { has_global_flag = anarch_revolt_began }
+			}
+			set_global_flag = anarch_revolt_began
+			set_global_flag = anarch_revolt_stage_1
+			province_event = { id = POD_Anarch_Revolt_Events.2 }
+			set_variable = { which = global_anarch_revolt_level value = 1 }
+			any_player = {
+				narrative_event = { id = POD_Anarch_Revolt_Events.100 days = 5 }
+			}
+		}
+	}
+}
+
+#anarch revolt in motion
+province_event = {
+	id = POD_Anarch_Revolt_Events.2
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_global_flag = bookmark1230
+		has_global_flag = shadow_inquisition_began
+		has_global_flag = anarch_revolt_began
+		NOT = { has_global_flag = anarch_revolt_end }
+	}
+	
+	immediate = {
+		check_anarch_revolt_stage_effect = yes
+		if = {
+			limit = {
+				NOT = { has_global_flag = anarch_revolt_end }
+			}
+			anarch_problem_province_effect = yes
+			pod_anarch_revolt_provinces_effect = yes
+			province_event = { id = POD_Anarch_Revolt_Events.2 days = 365 }
+		}
+	}
+}
+
+#spawn army and attack target YOLO
+province_event = {
+	id = POD_Anarch_Revolt_Events.9
+	
+	hide_window = yes # Only fires for unplayable landless characters
+	
+	is_triggered_only = yes
+
+	prisoner = no
+	only_capable = yes
+	
+	trigger = {
+	}
+	
+	immediate = {
+		#log = "Anarch Revolt Logging:"
+		#add_trait = great_person
+		owner = {
+			#pod_select_narrative_targets = yes
+			pod_make_mithras_anarch = yes
+		}
+		pod_select_narrative_targets = yes
+		pod_first_sabbat_usurpation = yes
+		pod_second_sabbat_usurpation = yes
+	}
+}
+
+#spawn army and attack target YOLO
+character_event = {
+	id = POD_Anarch_Revolt_Events.10
+	
+	hide_window = yes # Only fires for unplayable landless characters
+	
+	is_triggered_only = yes
+
+	prisoner = no
+	only_capable = yes
+	
+	trigger = {
+	}
+	
+	immediate = {
+		log = "Anarch Revolt Logging: YO"
+		save_event_target_as = target_owner
+		random_demesne_province = {
+			save_event_target_as = target_province
+		}
+		pod_spawn_anarch_adventurer = yes
+	}
+}
+
+province_event = {
+	id = POD_Anarch_Revolt_Events.11
+	hide_window = yes
+	
+	is_triggered_only = yes
+	trigger = {
+		NOT = { # Not if there is already an ongoing revolt
+			owner = {
+				top_liege = {
+					war = yes
+					any_war = {
+						defender = { character = PREV }
+						OR = {
+							AND = {
+								using_cb = peasant_revolt
+								war_title = ROOT # The county
+							}
+							AND = {
+								using_cb = heretic_revolt
+								attacker = { religion = anarchs }
+							}
+							AND = {
+								using_cb = religious_revolt
+								attacker = { religion = anarchs }
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	immediate = {
+		pod_anarch_uprising_spawn = yes
+	}
+}
+
+province_event = {
+	id = POD_Anarch_Revolt_Events.12
+	hide_window = yes
+	
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+	
+	immediate = {
+		pod_anarch_uprising_spawn = yes
+	}
+	
+}
+
+narrative_event = {
+	id = POD_Anarch_Revolt_Events.100
+	title = "EVTTITLE_POD_ANARCHREVOLT_NARRATIVE_1"
+	desc = "EVTDESC_POD_ANARCHREVOLT_NARRATIVE_1"
+	picture = GFX_evt_ghoul_beating
+	only_playable = yes
+
+	is_triggered_only = yes
+	
+	immediate = {
+	}
+	option = {
+		name = "EVTOPTA_POD_ANARCHREVOLT_NARRATIVE_1"
+	}
+	option = {
+		name = "EVTOPTB_POD_ANARCHREVOLT_NARRATIVE_1"
+	}
+}
+
+narrative_event = {
+	id = POD_Anarch_Revolt_Events.101
+	title = "EVTTITLE_POD_ANARCHREVOLT_NARRATIVE_2"
+	desc = "EVTDESC_POD_ANARCHREVOLT_NARRATIVE_2"
+	picture = GFX_evt_ghoul_beating
+	only_playable = yes
+
+	is_triggered_only = yes
+	
+	immediate = {
+	}
+	option = {
+		name = "EVTOPTA_POD_ANARCHREVOLT_NARRATIVE_2"
+	}
+	option = {
+		name = "EVTOPTB_POD_ANARCHREVOLT_NARRATIVE_2"
+	}
+}
+
+
+narrative_event = {
+	id = POD_Anarch_Revolt_Events.102
+	title = "EVTTITLE_POD_ANARCHREVOLT_NARRATIVE_3"
+	desc = "EVTDESC_POD_ANARCHREVOLT_NARRATIVE_3"
+	picture = GFX_evt_ghoul_beating
+	only_playable = yes
+
+	is_triggered_only = yes
+	
+	immediate = {
+	}
+	option = {
+		name = "EVTOPTA_POD_ANARCHREVOLT_NARRATIVE_3"
+	}
+	option = {
+		name = "EVTOPTB_POD_ANARCHREVOLT_NARRATIVE_3"
+	}
+}
+
+
+narrative_event = {
+	id = POD_Anarch_Revolt_Events.103
+	title = "EVTTITLE_POD_ANARCHREVOLT_NARRATIVE_4"
+	desc = "EVTDESC_POD_ANARCHREVOLT_NARRATIVE_4"
+	picture = GFX_evt_ghoul_beating
+	only_playable = yes
+
+	is_triggered_only = yes
+	
+	immediate = {
+	}
+	option = {
+		name = "EVTOPTA_POD_ANARCHREVOLT_NARRATIVE_4"
+	}
+	option = {
+		name = "EVTOPTB_POD_ANARCHREVOLT_NARRATIVE_4"
+	}
+}
+
+narrative_event = {
+	id = POD_Anarch_Revolt_Events.200
+	desc = {
+		trigger = {
+			has_global_flag = ante_is_alive
+		}
+		text = EVTDESC_POD_ANARCHREVOLT_USURPER_1_A
+	}
+	desc = {
+		trigger = {
+			NOT = { has_global_flag = ante_is_alive }
+		}
+		text = EVTDESC_POD_ANARCHREVOLT_USURPER_1_B
+	}
+	title = "EVTTITLE_POD_ANARCHREVOLT_USURPER_1"
+	picture = GFX_evt_ghoul_beating
+	only_playable = yes
+
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				event_target:target_ante = {
+					is_alive = yes
+				}
+			}
+			set_global_flag = ante_is_alive
+		}
+	}
+	option = {
+		name = "EVTOPTA_POD_ANARCHREVOLT_USURPER_1"
+		hidden_tooltip = {
+			clr_global_flag = ante_is_alive
+		}
+	}
+	option = {
+		name = "EVTOPTB_POD_ANARCHREVOLT_USURPER_1"
+		hidden_tooltip = {
+			clr_global_flag = ante_is_alive
+		}
+	}
+}
+narrative_event = {
+	id = POD_Anarch_Revolt_Events.201
+	desc = {
+		trigger = {
+			has_global_flag = ante_is_alive
+		}
+		text = EVTDESC_POD_ANARCHREVOLT_USURPER_2_A
+	}
+	desc = {
+		trigger = {
+			NOT = { has_global_flag = ante_is_alive }
+		}
+		text = EVTDESC_POD_ANARCHREVOLT_USURPER_2_B
+	}
+	title = "EVTTITLE_POD_ANARCHREVOLT_USURPER_2"
+	picture = GFX_evt_ghoul_beating
+	only_playable = yes
+
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				event_target:target_ante = {
+					is_alive = yes
+				}
+			}
+			set_global_flag = ante_is_alive
+		}
+	}
+	option = {
+		name = "EVTOPTA_POD_ANARCHREVOLT_USURPER_2"
+		hidden_tooltip = {
+			clr_global_flag = ante_is_alive
+		}
+	}
+	option = {
+		name = "EVTOPTB_POD_ANARCHREVOLT_USURPER_2"
+		hidden_tooltip = {
+			clr_global_flag = ante_is_alive
+		}
+	}
+}
+
+#anarch conversion event
+narrative_event = {
+	id = POD_Anarch_Revolt_Events.202
+	title = "EVTTITLE_POD_ANARCHREVOLT_WIDE1"
+	desc = "EVTDESC_POD_ANARCHREVOLT_WIDE1"
+	picture = GFX_evt_ghoul_beating
+	only_playable = yes
+
+	is_triggered_only = yes
+	trigger = {
+	}
+	
+	immediate = {
+	}
+	option = {
+		name = "EVTOPTA_POD_ANARCHREVOLT_WIDE1"
+	}
+	option = {
+		name = "EVTOPTB_POD_ANARCHREVOLT_WIDE1"
+	}
+}
+
+#mithras goes anarch
+narrative_event = {
+	id = POD_Anarch_Revolt_Events.203
+	title = "EVTTITLE_POD_ANARCHREVOLT_WIDE2"
+	desc = "EVTDESC_POD_ANARCHREVOLT_WIDE2"
+	picture = GFX_evt_ghoul_beating
+	only_playable = yes
+
+	is_triggered_only = yes
+	trigger = {
+	}
+	
+	immediate = {
+	}
+	option = {
+		name = "EVTOPTA_POD_ANARCHREVOLT_WIDE2"
+	}
+	option = {
+		name = "EVTOPTB_POD_ANARCHREVOLT_WIDE2"
+	}
+}
+
+narrative_event = {
+	id = POD_Anarch_Revolt_Events.204
+	title = "EVTTITLE_POD_ANARCHREVOLT_BRUJAH1"
+	desc = "EVTDESC_POD_ANARCHREVOLT_BRUJAH1"
+	picture = GFX_evt_ghoul_beating
+	only_playable = yes
+
+	is_triggered_only = yes
+	trigger = {
+	}
+	
+	immediate = {
+	}
+	option = {
+		name = "EVTOPTA_POD_ANARCHREVOLT_BRUJAH1"
+	}
+	option = {
+		name = "EVTOPTB_POD_ANARCHREVOLT_BRUJAH1"
+	}
+}
+
+#player chooses to embrace anarch or not
+narrative_event = {
+	id = POD_Anarch_Revolt_Events.205
+	title = "EVTTITLE_POD_ANARCHREVOLT_PLAYER1"
+	desc = "EVTDESC_POD_ANARCHREVOLT_PLAYER1"
+	picture = GFX_evt_ghoul_beating
+	only_playable = yes
+
+	is_triggered_only = yes
+	trigger = {
+	}
+	
+	immediate = {
+	}
+	option = {
+		name = "EVTOPTA_POD_ANARCHREVOLT_PLAYER1"
+		hidden_tooltip = {
+			pod_switch_ruler_anarch_effect = yes
+		}
+	}
+	option = {
+		name = "EVTOPTB_POD_ANARCHREVOLT_PLAYER1"
+	}
+}
+#sabbat usurper 1
+province_event = {
+	id = POD_Anarch_Revolt_Events.210
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_global_flag = bookmark1230
+		has_global_flag = shadow_inquisition_began
+		has_global_flag = anarch_revolt_began
+		NOT = { has_global_flag = anarch_revolt_end }
+		NOT = { has_global_flag = sabbat_usurper_1_fired }
+	}
+	
+	immediate = {
+		set_global_flag = sabbat_usurper_1_fired
+		pod_select_narrative_targets = yes
+		pod_first_sabbat_usurpation = yes
+		any_player = {
+			narrative_event = { id = POD_Anarch_Revolt_Events.200 }
+		}
+	}
+}
+
+#sabbat usurper 2
+province_event = {
+	id = POD_Anarch_Revolt_Events.211
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_global_flag = bookmark1230
+		has_global_flag = shadow_inquisition_began
+		has_global_flag = anarch_revolt_began
+		NOT = { has_global_flag = anarch_revolt_end }
+		NOT = { has_global_flag = sabbat_usurper_2_fired }
+	}
+	
+	immediate = {
+		set_global_flag = sabbat_usurper_2_fired
+		pod_second_sabbat_usurpation = yes
+		any_player = {
+			narrative_event = { id = POD_Anarch_Revolt_Events.201 }
+		}
+	}
+}
+
+#wide-spread anarch event
+province_event = {
+	id = POD_Anarch_Revolt_Events.212
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_global_flag = bookmark1230
+		has_global_flag = shadow_inquisition_began
+		has_global_flag = anarch_revolt_began
+		NOT = { has_global_flag = anarch_revolt_end }
+		NOT = { has_global_flag = pod_fired_global_anarch_change }
+	}
+	
+	immediate = {
+		set_global_flag = pod_fired_global_anarch_change
+		pod_change_clans_to_anarch = yes
+		pod_check_rulers_to_convert = yes
+		any_player = {
+			narrative_event = { id = POD_Anarch_Revolt_Events.202 }
+		}
+	}
+}
+

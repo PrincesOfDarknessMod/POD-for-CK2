@@ -1,0 +1,28 @@
+
+targetted_decisions = {
+
+	shadow_inquisition_leak_target_decision = {
+		ai = no
+		
+		from_potential = {
+			always = no
+			trait = vampire
+			OR = { 
+				has_global_flag = shadow_inquisition_stage_2
+				has_global_flag = shadow_inquisition_stage_3
+			}			
+		}
+		
+		potential = {
+			OR = 
+			{
+				trait = werewolf 
+				trait = mage
+				trait = revenant
+				trait = vampire
+			}
+		}
+		
+		effect = {
+		}
+}

@@ -1,0 +1,7004 @@
+pod_break_bloodbond = {
+	if = {
+		limit = {
+			trait = bloodbound
+		}
+		save_event_target_as = target_bound_person
+		any_opinion_modifier_target = {
+			limit = {
+				has_opinion_modifier = {
+					who = event_target:target_bound_person
+					modifier = opinion_blood_bond_to_me
+				}
+			}
+			log = "[This.GetTitledName] is domitor to [target_bound_person.GetTitledName], now broken"
+			save_event_target_as = domitor_target
+			event_target:target_bound_person = {
+				remove_opinion = {
+					who = event_target:domitor_target
+					modifier = opinion_blood_bond_to_domitor
+				}
+			}
+			remove_opinion = {
+				who = event_target:target_bound_person
+				modifier = opinion_blood_bond_to_me
+			}				
+		}
+		remove_trait = bloodbound
+	}
+}
+
+pod_clean_anarch_pack = {
+	pod_break_bloodbond = yes
+	pod_switch_anarch_effect = yes
+	any_courtier_or_vassal = {
+		pod_break_bloodbond = yes
+		pod_switch_anarch_effect = yes
+		give_minor_title = title_commander
+	}
+}
+pod_create_bloodbond = {
+	add_trait = bloodbound
+                
+	opinion = {
+		modifier = opinion_blood_bond_to_domitor
+		who = FROM
+		years = 1000
+	}
+	reverse_opinion = {
+		modifier = opinion_blood_bond_to_me
+		who = FROM
+		years = 1000
+	}
+}
+
+pod_create_bloodbond_root = {
+	add_trait = bloodbound       
+	opinion = {
+		modifier = opinion_blood_bond_to_domitor
+		who = ROOT
+		years = 1000
+	}
+	reverse_opinion = {
+		modifier = opinion_blood_bond_to_me
+		who = ROOT
+		years = 1000
+	}
+}
+anarch_problem_province_effect = {
+	set_variable = { which = anarch_count value = 5 }
+	trigger_switch = {
+		on_trigger = has_global_flag
+		anarch_revolt_stage_1 = {
+			set_variable = { which = anarch_count value = 5 }
+		}
+		anarch_revolt_stage_2 = {
+			set_variable = { which = anarch_count value = 12 }
+		}
+		anarch_revolt_stage_3 = {
+			set_variable = { which = anarch_count value = 24 }
+		}
+	}
+	while = {
+		limit = {
+			check_variable = {
+				which = anarch_count
+				value = 1
+			}
+		}    
+		subtract_variable = {
+			which = anarch_count
+			value = 1
+		}
+		random_province = {
+			limit = {
+				NOT = { has_province_modifier = anarch_problem_1_modifier }
+				NOT = { has_province_modifier = anarch_problem_2_modifier }
+				NOT = { has_province_modifier = anarch_problem_3_modifier }
+				owner = { 
+					trait = vampire
+					NOT = { trait = storyteller }
+					is_vampire_anarch = no
+				}
+			}
+			
+			random_list = {
+				5 = {
+					modifier = {
+						factor = 5
+						has_global_flag = anarch_revolt_stage_1
+					}
+					add_province_modifier = {
+						name = anarch_problem_1_modifier
+						years = 10
+					}
+				}
+				5 = {
+					modifier = {
+						factor = 4
+						has_global_flag = anarch_revolt_stage_2
+					}
+					add_province_modifier = {
+						name = anarch_problem_2_modifier
+						years = 10
+					}
+				}
+				5 = {
+					modifier = {
+						factor = 3
+						has_global_flag = anarch_revolt_stage_3
+					}
+					add_province_modifier = {
+						name = anarch_problem_3_modifier
+						years = 10
+					}
+				}
+			}
+		}
+		change_variable = { which = global_anarch_revolt_counter value = 1 }
+	}
+}
+
+anarch_major_revolt_center_effect = {
+	random_province = {
+		limit = {
+			OR = { 
+				has_province_modifier = anarch_problem_1_modifier
+				has_province_modifier = anarch_problem_2_modifier
+				has_province_modifier = anarch_problem_3_modifier
+			}
+		}
+		pod_spawn_anarch_adventurer = yes
+	}
+}
+
+anarch_revolt_adventurer_effect = {
+	random_province = {
+		limit = {
+			OR = { 
+				has_province_modifier = anarch_problem_1_modifier
+				has_province_modifier = anarch_problem_2_modifier
+				has_province_modifier = anarch_problem_3_modifier
+			}
+		}
+		spawn_religion_anarch_adventurer = yes
+	}
+}
+
+check_anarch_revolt_stage_effect = {
+	log = "checking anarch revolt stage"
+	log = "Anarch Revolt Counter: [global_anarch_revolt_counter.GetValue]"
+	log = "Minor Anarch Uprisings: [global_anarch_minor_revolt_count.GetValue]"
+	log = "Major Anarch Uprisings: [global_anarch_major_revolt_count.GetValue]"
+	if = {
+		limit = {
+			check_variable = { which = "global_anarch_revolt_counter" value = 20 }
+			NOT = { has_global_flag = first_brujah_adventurer }
+		}
+		log = "firing brujah anarch adventurer"
+		set_global_flag = first_brujah_adventurer
+		pod_fire_brujah_anarch_1 = yes
+		any_player = {
+			narrative_event = { id = POD_Anarch_Revolt_Events.204 days = 3 } 
+		}
+	}else_if = {
+		limit = {
+			check_variable = { which = "global_anarch_revolt_counter" value = 200 }
+			NOR = { 
+				has_global_flag = anarch_revolt_stage_2
+				has_global_flag = anarch_revolt_stage_3
+				has_global_flag = anarch_revolt_stage_4
+			}
+		}
+		set_global_flag = anarch_revolt_stage_2
+		clr_global_flag = anarch_revolt_stage_1
+		log = "setting anarch revolt stage 2"
+		set_variable = { which = global_anarch_revolt_level value = 2 }
+		any_player = {
+			narrative_event = { id = POD_Anarch_Revolt_Events.101 days = 10 }
+			narrative_event = { id = POD_Anarch_Revolt_Events.205 days = 30 random = 30 }
+		}
+	}else_if = {
+		limit = {
+			check_variable = { which = "global_anarch_revolt_counter" value = 680 }
+			NOR = { 
+				has_global_flag = anarch_revolt_stage_3
+				has_global_flag = anarch_revolt_stage_4
+			}
+		}
+		set_global_flag = anarch_revolt_stage_3
+		clr_global_flag = anarch_revolt_stage_2
+		log = "setting anarch revolt stage 3"
+		set_variable = { which = global_anarch_revolt_level value = 3 }
+		any_player = {
+			narrative_event = { id = POD_Anarch_Revolt_Events.102 }
+		}
+		log = "firing wide anarch conversion"
+		province_event = { id = POD_Anarch_Revolt_Events.212 days = 30 random = 60 }
+	}else_if = {
+		limit = {
+			check_variable = { which = "global_anarch_revolt_counter" value = 920 }
+			NOT = { has_global_flag = sabbat_usurper_1_fired }
+		}
+		log = "firing sabbat usurper 1"
+		province_event = { id = POD_Anarch_Revolt_Events.210 days = 30 random = 60 }
+	}else_if = {
+		limit = {
+			check_variable = { which = "global_anarch_revolt_counter" value = 1160 }
+			NOT = { has_global_flag = sabbat_usurper_2_fired }
+		}
+		log = "firing sabbat usurper 2"
+		province_event = { id = POD_Anarch_Revolt_Events.211 days = 30 random = 60 }
+	}else_if = {
+		limit = {
+			check_variable = { which = "global_anarch_revolt_counter" value = 1400 }
+			NOR = { 
+				has_global_flag = anarch_revolt_stage_4
+			}
+		}
+		set_variable = { which = global_anarch_revolt_level value = 4 }
+		set_global_flag = anarch_revolt_stage_4
+		set_global_flag = anarch_revolt_end
+		clr_global_flag = anarch_revolt_stage_3
+		log = "setting anarch revolt stage 4"
+		any_player = {
+			narrative_event = { id = POD_Anarch_Revolt_Events.103 days = 3 }
+		}
+	}
+}
+pod_select_narrative_targets = {
+	pod_count_clans = yes
+	pod_find_narrative_targets = yes	
+}
+
+pod_first_sabbat_usurpation = {
+	pod_target_first_sabbat = yes
+	event_target:biggest_ruler = {
+		set_character_flag = sabbat_target_ruler_1
+	}
+	event_target:sabbat_usurper = {
+		set_character_flag = sabbat_target_usurper_1
+		pod_break_bloodbond = yes
+		add_trait = anarch_revolt_figure_trait
+		pod_sabbat_usurper_gen_effect = yes
+	}
+	log = "Target Ruler 1: [biggest_ruler.GetTitledName], Target Usurper 1: [sabbat_usurper.GetTitledName]"
+	pod_sabbat_usurpation_effect = yes
+}
+pod_second_sabbat_usurpation = {
+	pod_target_second_sabbat = yes
+	event_target:biggest_ruler = {
+		set_character_flag = sabbat_target_ruler_2
+	}
+	event_target:sabbat_usurper = {
+		set_character_flag = sabbat_target_usurper_2
+		pod_break_bloodbond = yes
+		add_trait = anarch_revolt_figure_trait
+		pod_sabbat_usurper_gen_effect = yes
+	}
+	log = "Target Ruler 2: [biggest_ruler.GetTitledName], Target Usurper 2: [sabbat_usurper.GetTitledName]"
+	pod_sabbat_usurpation_effect = yes
+}
+
+pod_sabbat_usurpation_effect = {
+	event_target:biggest_ruler = {
+		abdicate_to = event_target:sabbat_usurper
+		clear_wealth = yes
+	}
+	event_target:sabbat_usurper = {
+		wealth = 10000
+	}
+}
+pod_target_first_sabbat = {
+	log = "starting first sabbat target check"
+	set_variable = { which = global_sabbat_size value = 0 }
+	trigger_switch = {
+		on_trigger = has_global_flag
+		assamite_sabbat_1 = {
+			any_independent_ruler = {
+				limit = {
+					trait = assamite
+					ai = yes
+				}
+				pod_check_target_size_effect = yes
+			}
+			pod_find_assamite_sabbat_usurper = yes
+			random_character = {
+				limit = {
+					age > 700
+					OR = {
+						trait = vampgeneration2
+						trait = vampgeneration3
+					}
+					trait = assamite
+				}
+				set_character_flag = target_ante_1
+				save_event_target_as = target_ante
+				log = "Ante: [This.GetTitledName]"
+			}
+		}
+		brujah_sabbat_1 = {
+			any_independent_ruler = {
+				limit = {
+					trait = brujah
+					ai = yes
+				}
+				pod_check_target_size_effect = yes
+			}
+			pod_find_brujah_sabbat_usurper = yes
+			random_character = {
+				limit = {
+					age > 700
+					OR = {
+						trait = vampgeneration2
+						trait = vampgeneration3
+					}
+					trait = brujah
+				}
+				set_character_flag = target_ante_1
+				save_event_target_as = target_ante
+				log = "Ante: [This.GetTitledName]"
+			}
+		}
+		cappadocian_sabbat_1 = {
+			any_independent_ruler = {
+				limit = {
+					trait = cappadocian
+					NOT = { culture = italian }
+					ai = yes
+				}
+				pod_check_target_size_effect = yes
+			}
+			pod_find_cappadocian_sabbat_usurper = yes
+			random_character = {
+				limit = {
+					age > 700
+					OR = {
+						trait = vampgeneration2
+						trait = vampgeneration3
+					}
+					trait = cappadocian
+				}
+				set_character_flag = target_ante_1
+				save_event_target_as = target_ante
+				log = "Ante: [This.GetTitledName]"
+			}
+		}
+		followerofset_sabbat_1 = {
+			any_independent_ruler = {
+				limit = {
+					trait = followerofset
+					ai = yes
+				}
+				pod_check_target_size_effect = yes
+			}
+			pod_find_followerofset_sabbat_usurper = yes
+			random_character = {
+				limit = {
+					age > 700
+					OR = {
+						trait = vampgeneration2
+						trait = vampgeneration3
+					}
+					trait = followerofset
+				}
+				set_character_flag = target_ante_1
+				save_event_target_as = target_ante
+				log = "Ante: [This.GetTitledName]"
+			}
+		}
+		giovanni_sabbat_1 = {
+			any_independent_ruler = {
+				limit = {
+					trait = cappadocian
+					culture = italian
+					ai = yes
+				}
+				pod_check_target_size_effect = yes
+			}
+			pod_find_giovanni_sabbat_usurper = yes
+			random_character = {
+				limit = {
+					age > 700
+					OR = {
+						trait = vampgeneration2
+						trait = vampgeneration3
+					}
+					trait = cappadocian
+				}
+				set_character_flag = target_ante_1
+				save_event_target_as = target_ante
+				log = "Ante: [This.GetTitledName]"
+			}
+		}
+		lasombra_sabbat_1 = {
+			log = "lasombra sabbat 1"
+			any_independent_ruler = {
+				limit = {
+					trait = lasombra
+					ai = yes
+				}
+				pod_check_target_size_effect = yes
+			}
+			pod_find_lasombra_sabbat_usurper = yes
+			random_character = {
+				limit = {
+					age > 700
+					OR = {
+						trait = vampgeneration2
+						trait = vampgeneration3
+					}
+					trait = lasombra
+				}
+				set_character_flag = target_ante_1
+				save_event_target_as = target_ante
+				log = "Ante: [This.GetTitledName]"
+			}
+		}
+		malkavian_sabbat_1 = {
+			any_independent_ruler = {
+				limit = {
+					trait = malkavian
+					ai = yes
+				}
+				pod_check_target_size_effect = yes
+			}
+			pod_find_malkavian_sabbat_usurper = yes
+			random_character = {
+				limit = {
+					age > 700
+					OR = {
+						trait = vampgeneration2
+						trait = vampgeneration3
+					}
+					trait = malkavian
+				}
+				set_character_flag = target_ante_1
+				save_event_target_as = target_ante
+				log = "Ante: [This.GetTitledName]"
+			}
+		}
+		ravnos_sabbat_1 = {
+			any_independent_ruler = {
+				limit = {
+					trait = ravnos
+					ai = yes
+				}
+				pod_check_target_size_effect = yes
+			}
+			pod_find_ravnos_sabbat_usurper = yes
+			random_character = {
+				limit = {
+					age > 700
+					OR = {
+						trait = vampgeneration2
+						trait = vampgeneration3
+					}
+					trait = ravnos
+				}
+				set_character_flag = target_ante_1
+				save_event_target_as = target_ante
+				log = "Ante: [This.GetTitledName]"
+			}
+		}
+		salubri_sabbat_1 = {
+			any_independent_ruler = {
+				limit = {
+					trait = salubri
+					ai = yes
+				}
+				pod_check_target_size_effect = yes
+			}
+			pod_find_salubri_sabbat_usurper = yes
+			random_character = {
+				limit = {
+					age > 700
+					OR = {
+						trait = vampgeneration2
+						trait = vampgeneration3
+					}
+					trait = tzimisce
+				}
+				set_character_flag = target_ante_1
+				save_event_target_as = target_ante
+				log = "Ante: [This.GetTitledName]"
+			}
+		}
+		toreador_sabbat_1 = {
+			any_independent_ruler = {
+				limit = {
+					trait = toreador
+					ai = yes
+				}
+				pod_check_target_size_effect = yes
+			}
+			pod_find_toreador_sabbat_usurper = yes
+			random_character = {
+				limit = {
+					age > 700
+					OR = {
+						trait = vampgeneration2
+						trait = vampgeneration3
+					}
+					trait = toreador
+				}
+				set_character_flag = target_ante_1
+				save_event_target_as = target_ante
+				log = "Ante: [This.GetTitledName]"
+			}
+		}
+		tremere_sabbat_1 = {
+			any_independent_ruler = {
+				limit = {
+					trait = tremere
+					ai = yes
+				}
+				pod_check_target_size_effect = yes
+			}
+			pod_find_tremere_sabbat_usurper = yes
+			random_character = {
+				limit = {
+					age > 700
+					OR = {
+						trait = vampgeneration2
+						trait = vampgeneration3
+					}
+					trait = tzimisce
+				}
+				set_character_flag = target_ante_1
+				save_event_target_as = target_ante
+				log = "Ante: [This.GetTitledName]"
+			}
+		}
+		tzimisce_sabbat_1 = {
+			any_independent_ruler = {
+				limit = {
+					trait = tzimisce
+					ai = yes
+				}
+				pod_check_target_size_effect = yes
+			}
+			pod_find_tzimisce_sabbat_usurper = yes
+			random_character = {
+				limit = {
+					age > 700
+					OR = {
+						trait = vampgeneration2
+						trait = vampgeneration3
+					}
+					trait = tzimisce
+				}
+				set_character_flag = target_ante_1
+				save_event_target_as = target_ante
+				log = "Ante: [This.GetTitledName]"
+			}
+		}
+		baali_sabbat_1 = {
+			any_independent_ruler = {
+				limit = {
+					trait = baali
+					ai = yes
+				}
+				pod_check_target_size_effect = yes
+			}
+			pod_find_baali_sabbat_usurper = yes
+			random_character = {
+				limit = {
+					age > 700
+					OR = {
+						trait = vampgeneration2
+						trait = vampgeneration3
+					}
+					trait = tzimisce
+				}
+				set_character_flag = target_ante_1
+				save_event_target_as = target_ante
+				log = "Ante: [This.GetTitledName]"
+			}
+		}
+		gangrel_sabbat_1 = {
+			any_independent_ruler = {
+				limit = {
+					trait = gangrel
+					ai = yes
+				}
+				pod_check_target_size_effect = yes
+			}
+			pod_find_gangrel_sabbat_usurper = yes
+			random_character = {
+				limit = {
+					age > 700
+					OR = {
+						trait = vampgeneration2
+						trait = vampgeneration3
+					}
+					trait = gangrel
+				}
+				set_character_flag = target_ante_1
+				save_event_target_as = target_ante
+				log = "Ante: [This.GetTitledName]"
+			}
+		}
+		ventrue_sabbat_1 = {
+			any_independent_ruler = {
+				limit = {
+					trait = ventrue
+					ai = yes
+				}
+				pod_check_target_size_effect = yes
+			}
+			pod_find_ventrue_sabbat_usurper = yes
+			random_character = {
+				limit = {
+					age > 700
+					OR = {
+						trait = vampgeneration2
+						trait = vampgeneration3
+					}
+					trait = ventrue
+				}
+				set_character_flag = target_ante_1
+				save_event_target_as = target_ante
+				log = "Ante: [This.GetTitledName]"
+			}
+		}
+	}
+}
+
+pod_target_second_sabbat = {
+	log = "starting first sabbat target check"
+	set_variable = { which = global_sabbat_size value = 0 }
+	trigger_switch = {
+		on_trigger = has_global_flag
+		assamite_sabbat_2 = {
+			any_independent_ruler = {
+				limit = {
+					trait = assamite
+					ai = yes
+				}
+				pod_check_target_size_effect = yes
+			}
+			pod_find_assamite_sabbat_usurper = yes
+			random_character = {
+				limit = {
+					age > 700
+					OR = {
+						trait = vampgeneration2
+						trait = vampgeneration3
+					}
+					trait = assamite
+				}
+				set_character_flag = target_ante_2
+				save_event_target_as = target_ante
+				log = "Ante: [This.GetTitledName]"
+			}
+		}
+		brujah_sabbat_2 = {
+			any_independent_ruler = {
+				limit = {
+					trait = brujah
+					ai = yes
+				}
+				pod_check_target_size_effect = yes
+			}
+			pod_find_brujah_sabbat_usurper = yes
+			random_character = {
+				limit = {
+					age > 700
+					OR = {
+						trait = vampgeneration2
+						trait = vampgeneration3
+					}
+					trait = brujah
+				}
+				set_character_flag = target_ante_2
+				save_event_target_as = target_ante
+				log = "Ante: [This.GetTitledName]"
+			}
+		}
+		cappadocian_sabbat_2 = {
+			any_independent_ruler = {
+				limit = {
+					trait = cappadocian
+					NOT = { culture = italian }
+					ai = yes
+				}
+				pod_check_target_size_effect = yes
+			}
+			pod_find_cappadocian_sabbat_usurper = yes
+			random_character = {
+				limit = {
+					age > 700
+					OR = {
+						trait = vampgeneration2
+						trait = vampgeneration3
+					}
+					trait = cappadocian
+				}
+				set_character_flag = target_ante_2
+				save_event_target_as = target_ante
+				log = "Ante: [This.GetTitledName]"
+			}
+		}
+		followerofset_sabbat_2 = {
+			any_independent_ruler = {
+				limit = {
+					trait = followerofset
+					ai = yes
+				}
+				pod_check_target_size_effect = yes
+			}
+			pod_find_followerofset_sabbat_usurper = yes
+			random_character = {
+				limit = {
+					age > 700
+					OR = {
+						trait = vampgeneration2
+						trait = vampgeneration3
+					}
+					trait = followerofset
+				}
+				set_character_flag = target_ante_2
+				save_event_target_as = target_ante
+				log = "Ante: [This.GetTitledName]"
+			}
+		}
+		giovanni_sabbat_2 = {
+			any_independent_ruler = {
+				limit = {
+					trait = cappadocian
+					culture = italian
+					ai = yes
+				}
+				pod_check_target_size_effect = yes
+			}
+			pod_find_giovanni_sabbat_usurper = yes
+			random_character = {
+				limit = {
+					age > 700
+					OR = {
+						trait = vampgeneration2
+						trait = vampgeneration3
+					}
+					trait = cappadocian
+				}
+				set_character_flag = target_ante_2
+				save_event_target_as = target_ante
+				log = "Ante: [This.GetTitledName]"
+			}
+		}
+		lasombra_sabbat_2 = {
+			log = "lasombra sabbat 1"
+			any_independent_ruler = {
+				limit = {
+					trait = lasombra
+					ai = yes
+				}
+				pod_check_target_size_effect = yes
+			}
+			pod_find_lasombra_sabbat_usurper = yes
+			random_character = {
+				limit = {
+					age > 700
+					OR = {
+						trait = vampgeneration2
+						trait = vampgeneration3
+					}
+					trait = lasombra
+				}
+				set_character_flag = target_ante_2
+				save_event_target_as = target_ante
+				log = "Ante: [This.GetTitledName]"
+			}
+		}
+		malkavian_sabbat_2 = {
+			any_independent_ruler = {
+				limit = {
+					trait = malkavian
+					ai = yes
+				}
+				pod_check_target_size_effect = yes
+			}
+			pod_find_malkavian_sabbat_usurper = yes
+			random_character = {
+				limit = {
+					age > 700
+					OR = {
+						trait = vampgeneration2
+						trait = vampgeneration3
+					}
+					trait = malkavian
+				}
+				set_character_flag = target_ante_2
+				save_event_target_as = target_ante
+				log = "Ante: [This.GetTitledName]"
+			}
+		}
+		ravnos_sabbat_2 = {
+			any_independent_ruler = {
+				limit = {
+					trait = ravnos
+					ai = yes
+				}
+				pod_check_target_size_effect = yes
+			}
+			pod_find_ravnos_sabbat_usurper = yes
+			random_character = {
+				limit = {
+					age > 700
+					OR = {
+						trait = vampgeneration2
+						trait = vampgeneration3
+					}
+					trait = ravnos
+				}
+				set_character_flag = target_ante_2
+				save_event_target_as = target_ante
+				log = "Ante: [This.GetTitledName]"
+			}
+		}
+		salubri_sabbat_2 = {
+			any_independent_ruler = {
+				limit = {
+					trait = salubri
+					ai = yes
+				}
+				pod_check_target_size_effect = yes
+			}
+			pod_find_salubri_sabbat_usurper = yes
+			random_character = {
+				limit = {
+					age > 700
+					OR = {
+						trait = vampgeneration2
+						trait = vampgeneration3
+					}
+					trait = tzimisce
+				}
+				set_character_flag = target_ante_2
+				save_event_target_as = target_ante
+				log = "Ante: [This.GetTitledName]"
+			}
+		}
+		toreador_sabbat_2 = {
+			any_independent_ruler = {
+				limit = {
+					trait = toreador
+					ai = yes
+				}
+				pod_check_target_size_effect = yes
+			}
+			pod_find_toreador_sabbat_usurper = yes
+			random_character = {
+				limit = {
+					age > 700
+					OR = {
+						trait = vampgeneration2
+						trait = vampgeneration3
+					}
+					trait = toreador
+				}
+				set_character_flag = target_ante_2
+				save_event_target_as = target_ante
+				log = "Ante: [This.GetTitledName]"
+			}
+		}
+		tremere_sabbat_2 = {
+			any_independent_ruler = {
+				limit = {
+					trait = tremere
+					ai = yes
+				}
+				pod_check_target_size_effect = yes
+			}
+			pod_find_tremere_sabbat_usurper = yes
+			random_character = {
+				limit = {
+					age > 700
+					OR = {
+						trait = vampgeneration2
+						trait = vampgeneration3
+					}
+					trait = tzimisce
+				}
+				set_character_flag = target_ante_2
+				save_event_target_as = target_ante
+				log = "Ante: [This.GetTitledName]"
+			}
+		}
+		tzimisce_sabbat_2 = {
+			any_independent_ruler = {
+				limit = {
+					trait = tzimisce
+					ai = yes
+				}
+				pod_check_target_size_effect = yes
+			}
+			pod_find_tzimisce_sabbat_usurper = yes
+			random_character = {
+				limit = {
+					age > 700
+					OR = {
+						trait = vampgeneration2
+						trait = vampgeneration3
+					}
+					trait = tzimisce
+				}
+				set_character_flag = target_ante_2
+				save_event_target_as = target_ante
+				log = "Ante: [This.GetTitledName]"
+			}
+		}
+		baali_sabbat_2 = {
+			any_independent_ruler = {
+				limit = {
+					trait = baali
+					ai = yes
+				}
+				pod_check_target_size_effect = yes
+			}
+			pod_find_baali_sabbat_usurper = yes
+			random_character = {
+				limit = {
+					age > 700
+					OR = {
+						trait = vampgeneration2
+						trait = vampgeneration3
+					}
+					trait = tzimisce
+				}
+				set_character_flag = target_ante_2
+				save_event_target_as = target_ante
+				log = "Ante: [This.GetTitledName]"
+			}
+		}
+		gangrel_sabbat_2 = {
+			any_independent_ruler = {
+				limit = {
+					trait = gangrel
+					ai = yes
+				}
+				pod_check_target_size_effect = yes
+			}
+			pod_find_gangrel_sabbat_usurper = yes
+			random_character = {
+				limit = {
+					age > 700
+					OR = {
+						trait = vampgeneration2
+						trait = vampgeneration3
+					}
+					trait = gangrel
+				}
+				set_character_flag = target_ante_2
+				save_event_target_as = target_ante
+				log = "Ante: [This.GetTitledName]"
+			}
+		}
+		ventrue_sabbat_2 = {
+			any_independent_ruler = {
+				limit = {
+					trait = ventrue
+					ai = yes
+				}
+				pod_check_target_size_effect = yes
+			}
+			pod_find_ventrue_sabbat_usurper = yes
+			random_character = {
+				limit = {
+					age > 700
+					OR = {
+						trait = vampgeneration2
+						trait = vampgeneration3
+					}
+					trait = ventrue
+				}
+				set_character_flag = target_ante_2
+				save_event_target_as = target_ante
+				log = "Ante: [This.GetTitledName]"
+			}
+		}
+	}
+}
+pod_check_target_size_effect = {
+	export_to_variable = { which = local_new_size value = realm_size }
+			if = {
+				limit = {
+					NOT = { check_variable = { which = global_sabbat_size which = local_new_size } }
+				}
+				log = "changed largest ruler: [local_new_size.GetValue] [This.GetTitledName]"
+				set_variable = { which = global_sabbat_size which = local_new_size }
+				save_event_target_as = biggest_ruler
+			}
+}
+
+pod_find_assamite_sabbat_usurper = {
+	random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = assamite
+				age < 401
+				OR = {
+					has_powerful_generation = yes
+					has_strong_generation = yes
+				}
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = assamite
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = assamite
+				martial = 20
+				age < 401
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = assamite
+				trait = player_childe
+				age < 401
+				has_strong_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = assamite
+				trait = player_childe
+				age < 401
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = assamite
+				trait = canon_childe
+				age < 401
+				has_strong_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = assamite
+				trait = canon_childe
+				age < 401
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = assamite
+				trait = canon
+				age < 401
+				has_strong_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = assamite
+				trait = canon
+				age < 401
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = assamite
+				trait = great_person
+				has_character_flag = great_rebel
+				age < 401
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+}
+pod_find_brujah_sabbat_usurper = {
+	random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = brujah
+				age < 401
+				OR = {
+					has_powerful_generation = yes
+					has_strong_generation = yes
+				}
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = brujah
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = brujah
+				martial = 20
+				age < 401
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = brujah
+				trait = player_childe
+				age < 401
+				has_strong_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = brujah
+				trait = player_childe
+				age < 401
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = brujah
+				trait = canon_childe
+				age < 401
+				has_strong_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = brujah
+				trait = canon_childe
+				age < 401
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = brujah
+				trait = canon
+				age < 401
+				has_strong_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = brujah
+				trait = canon
+				age < 401
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = brujah
+				trait = great_person
+				has_character_flag = great_rebel
+				age < 401
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+}
+pod_find_cappadocian_sabbat_usurper = {
+	random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = cappadocian
+				NOT = { culture = italian }
+				age < 401
+				OR = {
+					has_powerful_generation = yes
+					has_strong_generation = yes
+				}
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = cappadocian
+				NOT = { culture = italian }
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = cappadocian
+				NOT = { culture = italian }
+				martial = 20
+				age < 401
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = cappadocian
+				NOT = { culture = italian }
+				trait = player_childe
+				age < 401
+				has_strong_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = cappadocian
+				NOT = { culture = italian }
+				trait = player_childe
+				age < 401
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = cappadocian
+				NOT = { culture = italian }
+				trait = canon_childe
+				age < 401
+				has_strong_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = cappadocian
+				NOT = { culture = italian }
+				trait = canon_childe
+				age < 401
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = cappadocian
+				NOT = { culture = italian }
+				trait = canon
+				age < 401
+				has_strong_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = cappadocian
+				NOT = { culture = italian }
+				trait = canon
+				age < 401
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = cappadocian
+				NOT = { culture = italian }
+				trait = great_person
+				has_character_flag = great_rebel
+				age < 401
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+}
+pod_find_followerofset_sabbat_usurper = {
+	random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = followerofset
+				age < 401
+				OR = {
+					has_powerful_generation = yes
+					has_strong_generation = yes
+				}
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = followerofset
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = followerofset
+				martial = 20
+				age < 401
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = followerofset
+				trait = player_childe
+				age < 401
+				has_strong_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = followerofset
+				trait = player_childe
+				age < 401
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = followerofset
+				trait = canon_childe
+				age < 401
+				has_strong_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = followerofset
+				trait = canon_childe
+				age < 401
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = followerofset
+				trait = canon
+				age < 401
+				has_strong_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = followerofset
+				trait = canon
+				age < 401
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = followerofset
+				trait = great_person
+				has_character_flag = great_rebel
+				age < 401
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+}
+pod_find_giovanni_sabbat_usurper = {
+	random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = giovanni
+				culture = italian
+				age < 401
+				OR = {
+					has_powerful_generation = yes
+					has_strong_generation = yes
+				}
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = giovanni
+				culture = italian
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = giovanni
+				culture = italian
+				martial = 20
+				age < 401
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = giovanni
+				culture = italian
+				trait = player_childe
+				age < 401
+				has_strong_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = giovanni
+				culture = italian
+				trait = player_childe
+				age < 401
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = giovanni
+				culture = italian
+				trait = canon_childe
+				age < 401
+				has_strong_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = giovanni
+				culture = italian
+				trait = canon_childe
+				age < 401
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = giovanni
+				culture = italian
+				trait = canon
+				age < 401
+				has_strong_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = giovanni
+				culture = italian
+				trait = canon
+				age < 401
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = giovanni
+				culture = italian
+				trait = great_person
+				has_character_flag = great_rebel
+				age < 401
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+}
+pod_find_lasombra_sabbat_usurper = {
+	random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = lasombra
+				age < 401
+				OR = {
+					has_powerful_generation = yes
+					has_strong_generation = yes
+				}
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = lasombra
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = lasombra
+				martial = 20
+				age < 401
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = lasombra
+				trait = player_childe
+				age < 401
+				has_strong_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = lasombra
+				trait = player_childe
+				age < 401
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = lasombra
+				trait = canon_childe
+				age < 401
+				has_strong_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = lasombra
+				trait = canon_childe
+				age < 401
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = lasombra
+				trait = canon
+				age < 401
+				has_strong_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = lasombra
+				trait = canon
+				age < 401
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = lasombra
+				trait = great_person
+				has_character_flag = great_rebel
+				age < 401
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+}
+pod_find_malkavian_sabbat_usurper = {
+	random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = malkavian
+				age < 401
+				OR = {
+					has_powerful_generation = yes
+					has_strong_generation = yes
+				}
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = malkavian
+				has_powerful_generation = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = malkavian
+				martial = 20
+				age < 401
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = malkavian
+				trait = player_childe
+				age < 401
+				has_strong_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = malkavian
+				trait = player_childe
+				age < 401
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = malkavian
+				trait = canon_childe
+				age < 401
+				has_strong_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = malkavian
+				trait = canon_childe
+				age < 401
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = malkavian
+				trait = canon
+				age < 401
+				has_strong_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = malkavian
+				trait = canon
+				age < 401
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = malkavian
+				trait = great_person
+				has_character_flag = great_rebel
+				age < 401
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+}
+pod_find_ravnos_sabbat_usurper = {
+	random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = ravnos
+				age < 401
+				OR = {
+					has_powerful_generation = yes
+					has_strong_generation = yes
+				}
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = ravnos
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = ravnos
+				martial = 20
+				age < 401
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = ravnos
+				trait = player_childe
+				age < 401
+				has_strong_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = ravnos
+				trait = player_childe
+				age < 401
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = ravnos
+				trait = canon_childe
+				age < 401
+				has_strong_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = ravnos
+				trait = canon_childe
+				age < 401
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = ravnos
+				trait = canon
+				age < 401
+				has_strong_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = ravnos
+				trait = canon
+				age < 401
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = ravnos
+				trait = great_person
+				has_character_flag = great_rebel
+				age < 401
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+}
+pod_find_salubri_sabbat_usurper = {
+	random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = salubri
+				age < 401
+				OR = {
+					has_powerful_generation = yes
+					has_strong_generation = yes
+				}
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = salubri
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = salubri
+				martial = 20
+				age < 401
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = salubri
+				trait = player_childe
+				age < 401
+				has_strong_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = salubri
+				trait = player_childe
+				age < 401
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = salubri
+				trait = canon_childe
+				age < 401
+				has_strong_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = salubri
+				trait = canon_childe
+				age < 401
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = salubri
+				trait = canon
+				age < 401
+				has_strong_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = salubri
+				trait = canon
+				age < 401
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = salubri
+				trait = great_person
+				has_character_flag = great_rebel
+				age < 401
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+}
+pod_find_toreador_sabbat_usurper = {
+	random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = toreador
+				age < 401
+				OR = {
+					has_powerful_generation = yes
+					has_strong_generation = yes
+				}
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = toreador
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = toreador
+				martial = 20
+				age < 401
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = toreador
+				trait = player_childe
+				age < 401
+				has_strong_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = toreador
+				trait = player_childe
+				age < 401
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = toreador
+				trait = canon_childe
+				age < 401
+				has_strong_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = toreador
+				trait = canon_childe
+				age < 401
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = toreador
+				trait = canon
+				age < 401
+				has_strong_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = toreador
+				trait = canon
+				age < 401
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = toreador
+				trait = great_person
+				has_character_flag = great_rebel
+				age < 401
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+}
+pod_find_tremere_sabbat_usurper = {
+	random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = tremere
+				age < 401
+				OR = {
+					has_powerful_generation = yes
+					has_strong_generation = yes
+				}
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = tremere
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = tremere
+				martial = 20
+				age < 401
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = tremere
+				trait = player_childe
+				age < 401
+				has_strong_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = tremere
+				trait = player_childe
+				age < 401
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = tremere
+				trait = canon_childe
+				age < 401
+				has_strong_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = tremere
+				trait = canon_childe
+				age < 401
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = tremere
+				trait = canon
+				age < 401
+				has_strong_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = tremere
+				trait = canon
+				age < 401
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = tremere
+				trait = great_person
+				has_character_flag = great_rebel
+				age < 401
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+}
+pod_find_tzimisce_sabbat_usurper = {
+	random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = tzimisce
+				age < 401
+				OR = {
+					has_powerful_generation = yes
+					has_strong_generation = yes
+				}
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = tzimisce
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = tzimisce
+				martial = 20
+				age < 401
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = tzimisce
+				trait = player_childe
+				age < 401
+				has_strong_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = tzimisce
+				trait = player_childe
+				age < 401
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = tzimisce
+				trait = canon_childe
+				age < 401
+				has_strong_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = tzimisce
+				trait = canon_childe
+				age < 401
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = tzimisce
+				trait = canon
+				age < 401
+				has_strong_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = tzimisce
+				trait = canon
+				age < 401
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = tzimisce
+				trait = great_person
+				has_character_flag = great_rebel
+				age < 401
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+}
+pod_find_baali_sabbat_usurper = {
+	random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = baali
+				age < 401
+				OR = {
+					has_powerful_generation = yes
+					has_strong_generation = yes
+				}
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = baali
+				has_powerful_generation = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = baali
+				martial = 20
+				age < 401
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = baali
+				trait = player_childe
+				age < 401
+				has_strong_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = baali
+				trait = player_childe
+				age < 401
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = baali
+				trait = canon_childe
+				age < 401
+				has_strong_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = baali
+				trait = canon_childe
+				age < 401
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = baali
+				trait = canon
+				age < 401
+				has_strong_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = baali
+				trait = canon
+				age < 401
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = baali
+				trait = great_person
+				has_character_flag = great_rebel
+				age < 401
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+}
+pod_find_gangrel_sabbat_usurper = {
+	random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = gangrel
+				age < 401
+				OR = {
+					has_powerful_generation = yes
+					has_strong_generation = yes
+				}
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = gangrel
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = gangrel
+				martial = 20
+				age < 401
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = gangrel
+				trait = player_childe
+				age < 401
+				has_strong_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = gangrel
+				trait = player_childe
+				age < 401
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = gangrel
+				trait = canon_childe
+				age < 401
+				has_strong_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = gangrel
+				trait = canon_childe
+				age < 401
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = gangrel
+				trait = canon
+				age < 401
+				has_strong_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = gangrel
+				trait = canon
+				age < 401
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = gangrel
+				trait = great_person
+				has_character_flag = great_rebel
+				age < 401
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+}
+pod_find_ventrue_sabbat_usurper = {
+	random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = ventrue
+				age < 401
+				OR = {
+					has_powerful_generation = yes
+					has_strong_generation = yes
+				}
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = ventrue
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = ventrue
+				martial = 20
+				age < 401
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = ventrue
+				trait = player_childe
+				age < 401
+				has_strong_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = ventrue
+				trait = player_childe
+				age < 401
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = ventrue
+				trait = canon_childe
+				age < 401
+				has_strong_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = ventrue
+				trait = canon_childe
+				age < 401
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = ventrue
+				trait = canon
+				age < 401
+				has_strong_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = ventrue
+				trait = canon
+				age < 401
+				has_powerful_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = ventrue
+				trait = great_person
+				has_character_flag = great_rebel
+				age < 401
+				is_vampire_capable = yes
+			}
+			save_event_target_as = sabbat_usurper
+		}
+}
+
+pod_find_narrative_targets = {
+	if = {
+		limit = {
+			NOT = { check_variable = { which = global_assamite_rank value = 2 } }
+		}
+		set_global_flag = assamite_camarilla
+	}else_if = {
+		limit = {
+			NOT = { check_variable = { which = global_assamite_rank value = 3 } }
+		}
+		set_global_flag = assamite_sabbat_1
+	}else_if = {
+		limit = {
+			NOT = { check_variable = { which = global_assamite_rank value = 4 } }
+		}
+		set_global_flag = assamite_sabbat_2
+	}
+	if = {
+		limit = {
+			NOT = { check_variable = { which = global_brujah_rank value = 2 } }
+		}
+		set_global_flag = brujah_camarilla
+	}else_if = {
+		limit = {
+			NOT = { check_variable = { which = global_brujah_rank value = 3 } }
+		}
+		set_global_flag = brujah_sabbat_1
+	}else_if = {
+		limit = {
+			NOT = { check_variable = { which = global_brujah_rank value = 4 } }
+		}
+		set_global_flag = brujah_sabbat_2
+	}
+	if = {
+		limit = {
+			NOT = { check_variable = { which = global_cappadocian_rank value = 2 } }
+		}
+		set_global_flag = cappadocian_camarilla
+	}else_if = {
+		limit = {
+			NOT = { check_variable = { which = global_cappadocian_rank value = 3 } }
+		}
+		set_global_flag = cappadocian_sabbat_1
+	}else_if = {
+		limit = {
+			NOT = { check_variable = { which = global_cappadocian_rank value = 4 } }
+		}
+		set_global_flag = cappadocian_sabbat_2
+	}
+	if = {
+		limit = {
+			NOT = { check_variable = { which = global_followerofset_rank value = 2 } }
+		}
+		set_global_flag = followerofset_camarilla
+	}else_if = {
+		limit = {
+			NOT = { check_variable = { which = global_followerofset_rank value = 3 } }
+		}
+		set_global_flag = followerofset_sabbat_1
+	}else_if = {
+		limit = {
+			NOT = { check_variable = { which = global_followerofset_rank value = 4 } }
+		}
+		set_global_flag = followerofset_sabbat_2
+	}
+	if = {
+		limit = {
+			NOT = { check_variable = { which = global_giovanni_rank value = 2 } }
+		}
+		set_global_flag = giovanni_camarilla
+	}else_if = {
+		limit = {
+			NOT = { check_variable = { which = global_giovanni_rank value = 3 } }
+		}
+		set_global_flag = giovanni_sabbat_1
+	}else_if = {
+		limit = {
+			NOT = { check_variable = { which = global_giovanni_rank value = 4 } }
+		}
+		set_global_flag = giovanni_sabbat_2
+	}
+	if = {
+		limit = {
+			NOT = { check_variable = { which = global_lasombra_rank value = 2 } }
+		}
+		set_global_flag = lasombra_camarilla
+	}else_if = {
+		limit = {
+			NOT = { check_variable = { which = global_lasombra_rank value = 3 } }
+		}
+		set_global_flag = lasombra_sabbat_1
+	}else_if = {
+		limit = {
+			NOT = { check_variable = { which = global_lasombra_rank value = 4 } }
+		}
+		set_global_flag = lasombra_sabbat_2
+	}
+	if = {
+		limit = {
+			NOT = { check_variable = { which = global_malkavian_rank value = 2 } }
+		}
+		set_global_flag = malkavian_camarilla
+	}else_if = {
+		limit = {
+			NOT = { check_variable = { which = global_malkavian_rank value = 3 } }
+		}
+		set_global_flag = malkavian_sabbat_1
+	}else_if = {
+		limit = {
+			NOT = { check_variable = { which = global_malkavian_rank value = 4 } }
+		}
+		set_global_flag = malkavian_sabbat_2
+	}
+	if = {
+		limit = {
+			NOT = { check_variable = { which = global_ravnos_rank value = 2 } }
+		}
+		set_global_flag = ravnos_camarilla
+	}else_if = {
+		limit = {
+			NOT = { check_variable = { which = global_ravnos_rank value = 3 } }
+		}
+		set_global_flag = ravnos_sabbat_1
+	}else_if = {
+		limit = {
+			NOT = { check_variable = { which = global_ravnos_rank value = 4 } }
+		}
+		set_global_flag = ravnos_sabbat_2
+	}
+	if = {
+		limit = {
+			NOT = { check_variable = { which = global_salubri_rank value = 2 } }
+		}
+		set_global_flag = salubri_camarilla
+	}else_if = {
+		limit = {
+			NOT = { check_variable = { which = global_salubri_rank value = 3 } }
+		}
+		set_global_flag = salubri_sabbat_1
+	}else_if = {
+		limit = {
+			NOT = { check_variable = { which = global_salubri_rank value = 4 } }
+		}
+		set_global_flag = salubri_sabbat_2
+	}
+	if = {
+		limit = {
+			NOT = { check_variable = { which = global_toreador_rank value = 2 } }
+		}
+		set_global_flag = toreador_camarilla
+	}else_if = {
+		limit = {
+			NOT = { check_variable = { which = global_toreador_rank value = 3 } }
+		}
+		set_global_flag = toreador_sabbat_1
+	}else_if = {
+		limit = {
+			NOT = { check_variable = { which = global_toreador_rank value = 4 } }
+		}
+		set_global_flag = toreador_sabbat_2
+	}
+	if = {
+		limit = {
+			NOT = { check_variable = { which = global_tremere_rank value = 2 } }
+		}
+		set_global_flag = tremere_camarilla
+	}else_if = {
+		limit = {
+			NOT = { check_variable = { which = global_tremere_rank value = 3 } }
+		}
+		set_global_flag = tremere_sabbat_1
+	}else_if = {
+		limit = {
+			NOT = { check_variable = { which = global_tremere_rank value = 4 } }
+		}
+		set_global_flag = tremere_sabbat_2
+	}
+	if = {
+		limit = {
+			NOT = { check_variable = { which = global_tzimisce_rank value = 2 } }
+		}
+		set_global_flag = tzimisce_camarilla
+	}else_if = {
+		limit = {
+			NOT = { check_variable = { which = global_tzimisce_rank value = 3 } }
+		}
+		set_global_flag = tzimisce_sabbat_1
+	}else_if = {
+		limit = {
+			NOT = { check_variable = { which = global_tzimisce_rank value = 4 } }
+		}
+		set_global_flag = tzimisce_sabbat_2
+	}
+	if = {
+		limit = {
+			NOT = { check_variable = { which = global_baali_rank value = 2 } }
+		}
+		set_global_flag = baali_camarilla
+	}else_if = {
+		limit = {
+			NOT = { check_variable = { which = global_baali_rank value = 3 } }
+		}
+		set_global_flag = baali_sabbat_1
+	}else_if = {
+		limit = {
+			NOT = { check_variable = { which = global_baali_rank value = 4 } }
+		}
+		set_global_flag = baali_sabbat_2
+	}
+	if = {
+		limit = {
+			NOT = { check_variable = { which = global_gangrel_rank value = 2 } }
+		}
+		set_global_flag = gangrel_camarilla
+	}else_if = {
+		limit = {
+			NOT = { check_variable = { which = global_gangrel_rank value = 3 } }
+		}
+		set_global_flag = gangrel_sabbat_1
+	}else_if = {
+		limit = {
+			NOT = { check_variable = { which = global_gangrel_rank value = 4 } }
+		}
+		set_global_flag = gangrel_sabbat_2
+	}
+	if = {
+		limit = {
+			NOT = { check_variable = { which = global_ventrue_rank value = 2 } }
+		}
+		set_global_flag = ventrue_camarilla
+	}else_if = {
+		limit = {
+			NOT = { check_variable = { which = global_ventrue_rank value = 3 } }
+		}
+		set_global_flag = ventrue_sabbat_1
+	}else_if = {
+		limit = {
+			NOT = { check_variable = { which = global_ventrue_rank value = 4 } }
+		}
+		set_global_flag = ventrue_sabbat_2
+	}
+}
+pod_count_clans = {
+	log = "starting clan count"
+	any_independent_ruler = {
+		limit = {
+			trait = assamite
+		}
+		export_to_variable = { which = temp_realmsize value = realm_size }
+		change_variable = { which = global_assamite_count which = temp_realmsize }
+	}
+	log = "assamite: [global_assamite_count.GetValue]"
+	any_independent_ruler = {
+		limit = {
+			trait = brujah
+		}
+		export_to_variable = { which = temp_realmsize value = realm_size }
+		change_variable = { which = global_brujah_count which = temp_realmsize }
+	}
+	log = "brujah: [global_brujah_count.GetValue]"
+	any_independent_ruler = {
+		limit = {
+			trait = cappadocian
+			NOT = { culture = italian }
+		}
+		export_to_variable = { which = temp_realmsize value = realm_size }
+		change_variable = { which = global_cappadocian_count which = temp_realmsize }
+	}
+	log = "cappadocian: [global_cappadocian_count.GetValue]"
+	any_independent_ruler = {
+		limit = {
+			trait = followerofset
+		}
+		export_to_variable = { which = temp_realmsize value = realm_size }
+		change_variable = { which = global_followerofset_count which = temp_realmsize }
+	}
+	log = "followerofset: [global_followerofset_count.GetValue]"
+	any_independent_ruler = {
+		limit = {
+			trait = cappadocian
+			culture = italian
+			
+		}
+		export_to_variable = { which = temp_realmsize value = realm_size }
+		change_variable = { which = global_giovanni_count which = temp_realmsize }
+	}
+	log = "giovanni: [global_giovanni_count.GetValue]"
+	any_independent_ruler = {
+		limit = {
+			trait = lasombra
+		}
+		export_to_variable = { which = temp_realmsize value = realm_size }
+		change_variable = { which = global_lasombra_count which = temp_realmsize }
+	}
+	log = "lasombra: [global_lasombra_count.GetValue]"
+	any_independent_ruler = {
+		limit = {
+			trait = malkavian
+		}
+		export_to_variable = { which = temp_realmsize value = realm_size }
+		change_variable = { which = global_malkavian_count which = temp_realmsize }
+	}
+	log = "malkavian: [global_malkavian_count.GetValue]"
+	any_independent_ruler = {
+		limit = {
+			trait = ravnos
+		}
+		export_to_variable = { which = temp_realmsize value = realm_size }
+		change_variable = { which = global_ravnos_count which = temp_realmsize }
+	}
+	set_variable = { which = global_ravnos_count value = 1 } 
+	log = "ravnos: [global_ravnos_count.GetValue]"
+	any_independent_ruler = {
+		limit = {
+			trait = salubri
+		}
+		export_to_variable = { which = temp_realmsize value = realm_size }
+		change_variable = { which = global_salubri_count which = temp_realmsize }
+	}
+	log = "salubri: [global_salubri_count.GetValue]"
+	any_independent_ruler = {
+		limit = {
+			trait = toreador
+		}
+		export_to_variable = { which = temp_realmsize value = realm_size }
+		change_variable = { which = global_toreador_count which = temp_realmsize }
+	}
+	log = "toreador: [global_toreador_count.GetValue]"
+	any_independent_ruler = {
+		limit = {
+			trait = tremere
+		}
+		export_to_variable = { which = temp_realmsize value = realm_size }
+		change_variable = { which = global_tremere_count which = temp_realmsize }
+	}
+	log = "tremere: [global_tremere_count.GetValue]"
+	any_independent_ruler = {
+		limit = {
+			trait = baali
+		}
+		export_to_variable = { which = temp_realmsize value = realm_size }
+		change_variable = { which = global_baali_count which = temp_realmsize }
+	}
+	log = "baali: [global_baali_count.GetValue]"
+	any_independent_ruler = {
+		limit = {
+			trait = tzimisce
+		}
+		export_to_variable = { which = temp_realmsize value = realm_size }
+		change_variable = { which = global_tzimisce_count which = temp_realmsize }
+	}
+	log = "tzimisce: [global_tzimisce_count.GetValue]"
+	any_independent_ruler = {
+		limit = {
+			trait = gangrel
+		}
+		export_to_variable = { which = temp_realmsize value = realm_size }
+		change_variable = { which = global_gangrel_count which = temp_realmsize }
+	}
+	log = "gangrel: [global_gangrel_count.GetValue]"
+	any_independent_ruler = {
+		limit = {
+			trait = ventrue
+		}
+		export_to_variable = { which = temp_realmsize value = realm_size }
+		change_variable = { which = global_ventrue_count which = temp_realmsize }
+	}
+	log = "ventrue: [global_ventrue_count.GetValue]"
+	pod_make_clan_comparisons = yes
+}
+
+pod_make_clan_comparisons = {
+	pod_compare_assamite = yes
+	pod_compare_brujah = yes
+	pod_compare_cappadocian = yes
+	pod_compare_followerofset = yes
+	pod_compare_giovanni = yes
+	pod_compare_lasombra = yes
+	pod_compare_malkavian = yes
+	pod_compare_ravnos = yes
+	pod_compare_salubri = yes
+	pod_compare_toreador = yes
+	pod_compare_tremere = yes
+	pod_compare_tzimisce = yes
+	pod_compare_baali = yes
+	pod_compare_gangrel = yes
+	pod_compare_ventrue = yes
+}
+pod_compare_assamite = {
+	set_variable = { which = check_varable which = global_assamite_count }
+	set_variable = { which = local_how_many_times value = 0 }
+	pod_clan_comparison_effect = yes
+	set_variable = { which = global_assamite_rank which = local_how_many_times }
+	change_variable = { which = global_assamite_rank value = 1 }
+	log = "assamite rank: [global_assamite_rank.GetValue]"
+}
+pod_compare_brujah = {
+	set_variable = { which = check_varable which = global_brujah_count }
+	set_variable = { which = local_how_many_times value = 0 }
+	pod_clan_comparison_effect = yes
+	set_variable = { which = global_brujah_rank which = local_how_many_times }
+	change_variable = { which = global_brujah_rank value = 1 }
+	log = "brujah rank: [global_brujah_rank.GetValue]"
+}
+pod_compare_cappadocian = {
+	set_variable = { which = check_varable which = global_cappadocian_count }
+	set_variable = { which = local_how_many_times value = 0 }
+	pod_clan_comparison_effect = yes
+	set_variable = { which = global_cappadocian_rank which = local_how_many_times }
+	change_variable = { which = global_cappadocian_rank value = 1 }
+	log = "cappadocian rank: [global_cappadocian_rank.GetValue]"
+}
+
+pod_compare_followerofset = {
+	set_variable = { which = check_varable which = global_followerofset_count }
+	set_variable = { which = local_how_many_times value = 0 }
+	pod_clan_comparison_effect = yes
+	set_variable = { which = global_followerofset_rank which = local_how_many_times }
+	change_variable = { which = global_followerofset_rank value = 1 }
+	log = "followerofset rank: [global_followerofset_rank.GetValue]"
+}
+pod_compare_giovanni = {
+	set_variable = { which = check_varable which = global_giovanni_count }
+	set_variable = { which = local_how_many_times value = 0 }
+	pod_clan_comparison_effect = yes
+	set_variable = { which = global_giovanni_rank which = local_how_many_times }
+	change_variable = { which = global_giovanni_rank value = 1 }
+	log = "giovanni rank: [global_giovanni_rank.GetValue]"
+}
+pod_compare_lasombra = {
+	set_variable = { which = check_varable which = global_lasombra_count }
+	set_variable = { which = local_how_many_times value = 0 }
+	pod_clan_comparison_effect = yes
+	set_variable = { which = global_lasombra_rank which = local_how_many_times }
+	change_variable = { which = global_lasombra_rank value = 1 }
+	log = "lasombra rank: [global_lasombra_rank.GetValue]"
+}
+pod_compare_malkavian = {
+	set_variable = { which = check_varable which = global_malkavian_count }
+	set_variable = { which = local_how_many_times value = 0 }
+	pod_clan_comparison_effect = yes
+	set_variable = { which = global_malkavian_rank which = local_how_many_times }
+	change_variable = { which = global_malkavian_rank value = 1 }
+	log = "malkavian rank: [global_malkavian_rank.GetValue]"
+}
+pod_compare_ravnos = {
+	set_variable = { which = check_varable which = global_ravnos_count }
+	set_variable = { which = local_how_many_times value = 0 }
+	pod_clan_comparison_effect = yes
+	set_variable = { which = global_ravnos_rank which = local_how_many_times }
+	change_variable = { which = global_ravnos_rank value = 1 }
+	log = "ravnos rank: [global_ravnos_rank.GetValue]"
+}
+pod_compare_salubri = {
+	set_variable = { which = check_varable which = global_salubri_count }
+	set_variable = { which = local_how_many_times value = 0 }
+	pod_clan_comparison_effect = yes
+	set_variable = { which = global_salubri_rank which = local_how_many_times }
+	change_variable = { which = global_salubri_rank value = 1 }
+	log = "salubri rank: [global_salubri_rank.GetValue]"
+}
+pod_compare_toreador = {
+	set_variable = { which = check_varable which = global_toreador_count }
+	set_variable = { which = local_how_many_times value = 0 }
+	pod_clan_comparison_effect = yes
+	set_variable = { which = global_toreador_rank which = local_how_many_times }
+	change_variable = { which = global_toreador_rank value = 1 }
+	log = "toreador rank: [global_toreador_rank.GetValue]"
+}
+pod_compare_tremere = {
+	set_variable = { which = check_varable which = global_tremere_count }
+	set_variable = { which = local_how_many_times value = 0 }
+	pod_clan_comparison_effect = yes
+	set_variable = { which = global_tremere_rank which = local_how_many_times }
+	change_variable = { which = global_tremere_rank value = 1 }
+	log = "tremere rank: [global_tremere_rank.GetValue]"
+}
+pod_compare_tzimisce = {
+	set_variable = { which = check_varable which = global_tzimisce_count }
+	set_variable = { which = local_how_many_times value = 0 }
+	pod_clan_comparison_effect = yes
+	set_variable = { which = global_tzimisce_rank which = local_how_many_times }
+	change_variable = { which = global_tzimisce_rank value = 1 }
+	log = "tzimisce rank: [global_tzimisce_rank.GetValue]"
+}
+pod_compare_baali = {
+	set_variable = { which = check_varable which = global_baali_count }
+	set_variable = { which = local_how_many_times value = 0 }
+	pod_clan_comparison_effect = yes
+	set_variable = { which = global_baali_rank which = local_how_many_times }
+	change_variable = { which = global_baali_rank value = 1 }
+	log = "baali rank: [global_baali_rank.GetValue]"
+}
+pod_compare_gangrel = {
+	set_variable = { which = check_varable which = global_gangrel_count }
+	set_variable = { which = local_how_many_times value = 0 }
+	pod_clan_comparison_effect = yes
+	set_variable = { which = global_gangrel_rank which = local_how_many_times }
+	change_variable = { which = global_gangrel_rank value = 1 }
+	log = "gangrel rank: [global_gangrel_rank.GetValue]"
+}
+pod_compare_ventrue = {
+	set_variable = { which = check_varable which = global_ventrue_count }
+	set_variable = { which = local_how_many_times value = 0 }
+	pod_clan_comparison_effect = yes
+	set_variable = { which = global_ventrue_rank which = local_how_many_times }
+	change_variable = { which = global_ventrue_rank value = 1 }
+	log = "ventrue rank: [global_ventrue_rank.GetValue]"
+}
+pod_clan_comparison_effect = {
+	if = {
+		limit = {
+			NOT = { check_variable = { which = check_varable which = global_assamite_count } }
+		}
+		change_variable = { which = local_how_many_times value = 1 }
+	}
+	if = {
+		limit = {
+			NOT = { check_variable = { which = check_varable which = global_brujah_count } }
+		}
+		change_variable = { which = local_how_many_times value = 1 }
+	}
+	if = {
+		limit = {
+			NOT = { check_variable = { which = check_varable which = global_cappadocian_count } }
+		}
+		change_variable = { which = local_how_many_times value = 1 }
+	}
+	if = {
+		limit = {
+			NOT = { check_variable = { which = check_varable which = global_followerofset_count } }
+		}
+		change_variable = { which = local_how_many_times value = 1 }
+	}
+	if = {
+		limit = {
+			NOT = { check_variable = { which = check_varable which = global_giovanni_count } }
+		}
+		change_variable = { which = local_how_many_times value = 1 }
+	}
+	if = {
+		limit = {
+			NOT = { check_variable = { which = check_varable which = global_lasombra_count } }
+		}
+		change_variable = { which = local_how_many_times value = 1 }
+	}
+	if = {
+		limit = {
+			NOT = { check_variable = { which = check_varable which = global_malkavian_count } }
+		}
+		change_variable = { which = local_how_many_times value = 1 }
+	}
+	if = {
+		limit = {
+			NOT = { check_variable = { which = check_varable which = global_ravnos_count } }
+		}
+		change_variable = { which = local_how_many_times value = 1 }
+	}
+	if = {
+		limit = {
+			NOT = { check_variable = { which = check_varable which = global_toreador_count } }
+		}
+		change_variable = { which = local_how_many_times value = 1 }
+	}
+	if = {
+		limit = {
+			NOT = { check_variable = { which = check_varable which = global_tremere_count } }
+		}
+		change_variable = { which = local_how_many_times value = 1 }
+	}
+	if = {
+		limit = {
+			NOT = { check_variable = { which = check_varable which = global_baali_count } }
+		}
+		change_variable = { which = local_how_many_times value = 1 }
+	}
+	if = {
+		limit = {
+			NOT = { check_variable = { which = check_varable which = global_tzimisce_count } }
+		}
+		change_variable = { which = local_how_many_times value = 1 }
+	}
+	if = {
+		limit = {
+			NOT = { check_variable = { which = check_varable which = global_gangrel_count } }
+		}
+		change_variable = { which = local_how_many_times value = 1 }
+	}
+	if = {
+		limit = {
+			NOT = { check_variable = { which = check_varable which = global_ventrue_count } }
+		}
+		change_variable = { which = local_how_many_times value = 1 }
+	}
+}
+
+pod_spawn_anarch_adventurer = {
+	trigger_switch = {
+		on_trigger = has_global_flag
+		anarch_revolt_stage_1 = {
+			pod_spawn_anarch_adventurer_stage_1 = yes
+		}
+		anarch_revolt_stage_2 = {
+			pod_spawn_anarch_adventurer_stage_2 = yes
+		}
+		anarch_revolt_stage_3 = {
+			pod_spawn_anarch_adventurer_stage_3 = yes
+		}
+	}
+}
+
+pod_spawn_anarch_adventurer_stage_1 = {
+	random_list = {
+		15 = {
+			spawn_brujah_anarch_adventurer = yes
+		}
+		5 = {
+			spawn_lasombra_anarch_adventurer = yes
+		}
+		5 = {
+			spawn_tzimisce_anarch_adventurer = yes
+		}
+	}
+}
+
+pod_spawn_anarch_adventurer_stage_2 = {
+	random_list = {
+		10 = {
+			spawn_brujah_anarch_adventurer = yes
+		}
+		10 = {
+			spawn_lasombra_anarch_adventurer = yes
+		}
+		5 = {
+			spawn_followerofset_anarch_adventurer = yes
+		}
+		5 = {
+			spawn_malkavian_anarch_adventurer = yes
+		}
+		10 = {
+			spawn_tzimisce_anarch_adventurer = yes
+		}
+		5 = {
+			spawn_toreador_anarch_adventurer = yes
+		}
+		5 = {
+			spawn_gangrel_anarch_adventurer = yes
+		}
+	}
+}
+pod_spawn_anarch_adventurer_stage_3 = {
+	random_list = {
+		5 = {
+			spawn_brujah_anarch_adventurer = yes
+		}
+		5 = {
+			spawn_lasombra_anarch_adventurer = yes
+		}
+		5 = {
+			spawn_followerofset_anarch_adventurer = yes
+		}
+		5 = {
+			spawn_assamite_anarch_adventurer = yes
+		}
+		5 = {
+			spawn_gangrel_anarch_adventurer = yes
+		}
+		5 = {
+			spawn_cappadocian_anarch_adventurer = yes
+		}
+		5 = {
+			spawn_nosferatu_anarch_adventurer = yes
+		}
+		5 = {
+			spawn_tremere_anarch_adventurer = yes
+		}
+		5 = {
+			spawn_malkavian_anarch_adventurer = yes
+		}
+		5 = {
+			spawn_tzimisce_anarch_adventurer = yes
+		}
+		5 = {
+			spawn_toreador_anarch_adventurer = yes
+		}
+		5 = {
+			spawn_baali_anarch_adventurer = yes
+		}
+		5 = {
+			spawn_ventrue_anarch_adventurer = yes
+		}
+	}
+}
+
+pod_change_clans_to_anarch = {
+	change_assamite_to_anarch = yes
+	change_brujah_to_anarch = yes
+	change_cappadocian_to_anarch = yes
+	change_followerofset_to_anarch = yes
+	change_giovanni_to_anarch = yes
+	change_lasombra_to_anarch = yes
+	change_malkavian_to_anarch = yes
+	change_nosferatu_to_anarch = yes
+	change_ravnos_to_anarch = yes
+	change_salubri_to_anarch = yes
+	change_toreador_to_anarch = yes
+	change_tremere_to_anarch = yes
+	change_tzimisce_to_anarch = yes
+	change_baali_to_anarch = yes
+	change_gangrel_to_anarch = yes
+	change_ventrue_to_anarch = yes
+}
+
+change_assamite_to_anarch = {
+	any_character = {
+		limit = {
+			trait = vampire
+			trait = assamite
+			can_go_anarch = yes
+		}
+		random = {
+			chance = 30
+			modifier = {
+				factor = 1.5
+				is_likely_anarch = yes	
+			}
+			modifier = {
+				factor = 0.1
+				not_likely_anarch = yes
+			}
+			pod_break_bloodbond = yes
+			pod_switch_anarch_effect = yes
+		}
+	}
+}
+change_brujah_to_anarch = {
+	any_character = {
+		limit = {
+			trait = vampire
+			trait = brujah
+			can_go_anarch = yes
+		}
+		random = {
+			chance = 40
+			modifier = {
+				factor = 1.5
+				is_likely_anarch = yes	
+			}
+			pod_break_bloodbond = yes
+			pod_switch_anarch_effect = yes
+		}
+	}
+}
+change_cappadocian_to_anarch = {
+	any_character = {
+		limit = {
+			trait = vampire
+			trait = cappadocian
+			NOT = { culture = italian }
+			can_go_anarch = yes
+		}
+		random = {
+			chance = 30
+			modifier = {
+				factor = 1.5
+				is_likely_anarch = yes	
+			}
+			modifier = {
+				factor = 0.1
+				not_likely_anarch = yes
+			}
+			pod_break_bloodbond = yes
+			pod_switch_anarch_effect = yes
+		}
+	}
+}
+change_followerofset_to_anarch = {
+	any_character = {
+		limit = {
+			trait = vampire
+			trait = followerofset
+			can_go_anarch = yes
+		}
+		random = {
+			chance = 35
+			modifier = {
+				factor = 1.5
+				is_likely_anarch = yes	
+			}
+			modifier = {
+				factor = 0.1
+				not_likely_anarch = yes
+			}
+			pod_break_bloodbond = yes
+			pod_switch_anarch_effect = yes
+		}
+	}
+}
+change_giovanni_to_anarch = {
+	any_character = {
+		limit = {
+			trait = vampire
+			trait = cappadocian
+			culture = italian
+			can_go_anarch = yes
+		}
+		random = {
+			chance = 15
+			modifier = {
+				factor = 1.5
+				is_likely_anarch = yes	
+			}
+			modifier = {
+				factor = 0.1
+				not_likely_anarch = yes
+			}
+			pod_break_bloodbond = yes
+			pod_switch_anarch_effect = yes
+		}
+	}
+}
+change_lasombra_to_anarch = {
+	any_character = {
+		limit = {
+			trait = vampire
+			trait = lasombra
+			can_go_anarch = yes
+		}
+		random = {
+			chance = 40
+			modifier = {
+				factor = 1.5
+				is_likely_anarch = yes	
+			}
+			modifier = {
+				factor = 0.1
+				not_likely_anarch = yes
+			}
+			pod_break_bloodbond = yes
+			pod_switch_anarch_effect = yes
+		}
+	}
+}
+change_malkavian_to_anarch = {
+	any_character = {
+		limit = {
+			trait = vampire
+			trait = malkavian
+			can_go_anarch = yes
+		}
+		random = {
+			chance = 40
+			modifier = {
+				factor = 1.5
+				is_likely_anarch = yes	
+			}
+			modifier = {
+				factor = 0.1
+				not_likely_anarch = yes
+			}
+			pod_break_bloodbond = yes
+			pod_switch_anarch_effect = yes
+		}
+	}
+}
+change_nosferatu_to_anarch = {
+	any_character = {
+		limit = {
+			trait = vampire
+			trait = nosferatu
+			can_go_anarch = yes
+		}
+		random = {
+			chance = 25
+			modifier = {
+				factor = 1.5
+				is_likely_anarch = yes	
+			}
+			modifier = {
+				factor = 0.1
+				not_likely_anarch = yes
+			}
+			pod_break_bloodbond = yes
+			pod_switch_anarch_effect = yes
+		}
+	}
+}
+change_ravnos_to_anarch = {
+	any_character = {
+		limit = {
+			trait = vampire
+			trait = ravnos
+			can_go_anarch = yes
+		}
+		random = {
+			chance = 30
+			modifier = {
+				factor = 1.5
+				is_likely_anarch = yes	
+			}
+			modifier = {
+				factor = 0.1
+				not_likely_anarch = yes
+			}
+			pod_break_bloodbond = yes
+			pod_switch_anarch_effect = yes
+		}
+	}
+}
+change_salubri_to_anarch = {
+	any_character = {
+		limit = {
+			trait = vampire
+			trait = salubri
+			can_go_anarch = yes
+		}
+		random = {
+			chance = 60
+			modifier = {
+				factor = 1.5
+				is_likely_anarch = yes	
+			}
+			pod_break_bloodbond = yes
+			pod_switch_anarch_effect = yes
+		}
+	}
+}
+change_toreador_to_anarch = {
+	any_character = {
+		limit = {
+			trait = vampire
+			trait = toreador
+			can_go_anarch = yes
+		}
+		random = {
+			chance = 30
+			modifier = {
+				factor = 1.5
+				is_likely_anarch = yes	
+			}
+			modifier = {
+				factor = 0.1
+				not_likely_anarch = yes
+			}
+			pod_break_bloodbond = yes
+			pod_switch_anarch_effect = yes
+		}
+	}
+}
+change_tremere_to_anarch = {
+	any_character = {
+		limit = {
+			trait = vampire
+			trait = tremere
+			can_go_anarch = yes
+		}
+		random = {
+			chance = 20
+			modifier = {
+				factor = 1.5
+				is_likely_anarch = yes	
+			}
+			modifier = {
+				factor = 0.1
+				not_likely_anarch = yes
+			}
+			pod_break_bloodbond = yes
+			pod_switch_anarch_effect = yes
+		}
+	}
+}
+change_tzimisce_to_anarch = {
+	any_character = {
+		limit = {
+			trait = vampire
+			trait = tzimisce
+			can_go_anarch = yes
+		}
+		random = {
+			chance = 40
+			modifier = {
+				factor = 1.5
+				is_likely_anarch = yes	
+			}
+			modifier = {
+				factor = 0.1
+				not_likely_anarch = no
+			}
+			pod_break_bloodbond = yes
+			pod_switch_anarch_effect = yes
+		}
+	}
+}
+change_baali_to_anarch = {
+	any_character = {
+		limit = {
+			trait = vampire
+			trait = baali
+			can_go_anarch = yes
+		}
+		random = {
+			chance = 35
+			modifier = {
+				factor = 1.5
+				is_likely_anarch = yes	
+			}
+			modifier = {
+				factor = 0.1
+				not_likely_anarch = no
+			}
+			pod_break_bloodbond = yes
+			pod_switch_anarch_effect = yes
+		}
+	}
+}
+change_gangrel_to_anarch = {
+	any_character = {
+		limit = {
+			trait = vampire
+			trait = gangrel
+			can_go_anarch = yes
+		}
+		random = {
+			chance = 30
+			modifier = {
+				factor = 1.5
+				is_likely_anarch = yes	
+			}
+			modifier = {
+				factor = 0.1
+				not_likely_anarch = no
+			}
+			pod_break_bloodbond = yes
+			pod_switch_anarch_effect = yes
+		}
+	}
+}
+change_ventrue_to_anarch = {
+	any_character = {
+		limit = {
+			trait = vampire
+			trait = ventrue
+			can_go_anarch = yes
+		}
+		random = {
+			chance = 20
+			modifier = {
+				factor = 1.5
+				is_likely_anarch = yes	
+			}
+			modifier = {
+				factor = 0.1
+				not_likely_anarch = no
+			}
+			pod_break_bloodbond = yes
+			pod_switch_anarch_effect = yes
+		}
+	}
+}
+
+find_assamite_anarch_adventurer = {
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = assamite
+			}
+			save_event_target_as = anarch_adventurer
+			log = "[anarch_adventurer.GetTitledName] is 1 choice"
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = assamite
+				martial = 20
+			}
+			save_event_target_as = anarch_adventurer
+			log = "[anarch_adventurer.GetTitledName] is 2 choice"
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = assamite
+				trait = canon_childe
+				age < 401
+				not_likely_anarch = no
+			}
+			save_event_target_as = anarch_adventurer
+			log = "[anarch_adventurer.GetTitledName] is 3 choice"
+		}
+		if = {
+			limit = {
+				is_late_anarch_revolt = yes
+			}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = assamite
+				trait = canon
+				age < 401
+				not_likely_anarch = no
+			}
+			save_event_target_as = anarch_adventurer
+			log = "[anarch_adventurer.GetTitledName] is 4 choice"
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = assamite
+				trait = great_person
+				has_character_flag = great_rebel
+				age < 401
+				not_likely_anarch = no
+			}
+			save_event_target_as = anarch_adventurer
+			log = "[anarch_adventurer.GetTitledName] is 5 choice"
+		}
+		}
+		if = {
+			limit = { NOT = { event_target:anarch_adventurer = { always = yes } } }
+			break = yes
+		}
+		event_target:anarch_adventurer = {
+			set_character_flag = anarch_revolter
+			set_character_flag = anarch_adventurer
+			set_character_flag = made_into_anarch
+			create_anarch_adventurer_titles = yes
+			#add_trait = anarch_revolt_figure_trait
+		}
+}
+find_brujah_anarch_adventurer = {
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = brujah
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = brujah
+				martial = 20
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = brujah
+				trait = canon_childe
+				age < 401
+				not_likely_anarch = no
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		if = {
+			limit = {
+				is_late_anarch_revolt = yes
+			}
+			log = "Late anarch revolt is firing!"
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = brujah
+				trait = canon
+				age < 401
+				not_likely_anarch = no
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = brujah
+				trait = great_person
+				has_character_flag = great_rebel
+				age < 401
+				not_likely_anarch = no
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		}
+		if = {
+			limit = { NOT = { event_target:anarch_adventurer = { always = yes } } }
+			break = yes
+		}
+		event_target:anarch_adventurer = {
+			set_character_flag = anarch_revolter
+			set_character_flag = anarch_adventurer
+			set_character_flag = made_into_anarch
+			create_anarch_adventurer_titles = yes
+			#add_trait = anarch_revolt_figure_trait
+		}
+}
+find_cappadocian_anarch_adventurer = {
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = cappadocian
+				NOT = { culture = italian }
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = cappadocian
+				NOT = { culture = italian }
+				martial = 20
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = cappadocian
+				NOT = { culture = italian }
+				trait = canon_childe
+				age < 401
+				not_likely_anarch = no
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		if = {
+			limit = {
+				is_late_anarch_revolt = yes
+			}
+			log = "Late anarch revolt is firing!"
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = cappadocian
+				NOT = { culture = italian }
+				trait = canon
+				age < 401
+				not_likely_anarch = no
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = cappadocian
+				NOT = { culture = italian }
+				trait = great_person
+				has_character_flag = great_rebel
+				age < 401
+				not_likely_anarch = no
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		}
+		if = {
+			limit = { NOT = { event_target:anarch_adventurer = { always = yes } } }
+			break = yes
+		}
+		event_target:anarch_adventurer = {
+			set_character_flag = anarch_revolter
+			set_character_flag = anarch_adventurer
+			set_character_flag = made_into_anarch
+			create_anarch_adventurer_titles = yes
+			#add_trait = anarch_revolt_figure_trait
+		}
+}
+find_followerofset_anarch_adventurer = {
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = followerofset
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = followerofset
+				martial = 20
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = followerofset
+				trait = canon_childe
+				age < 401
+				not_likely_anarch = no
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		if = {
+			limit = {
+				is_late_anarch_revolt = yes
+			}
+			log = "Late anarch revolt is firing!"
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = followerofset
+				trait = canon
+				age < 401
+				not_likely_anarch = no
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = followerofset
+				trait = great_person
+				has_character_flag = great_rebel
+				age < 401
+				not_likely_anarch = no
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		}
+		if = {
+			limit = { NOT = { event_target:anarch_adventurer = { always = yes } } }
+			break = yes
+		}
+		event_target:anarch_adventurer = {
+			set_character_flag = anarch_revolter
+			set_character_flag = anarch_adventurer
+			set_character_flag = made_into_anarch
+			create_anarch_adventurer_titles = yes
+			#add_trait = anarch_revolt_figure_trait
+		}
+}
+find_giovanni_anarch_adventurer = {
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = cappadocian
+				culture = italian
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = cappadocian
+				culture = italian
+				martial = 20
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = cappadocian
+				culture = italian
+				trait = canon_childe
+				age < 401
+				not_likely_anarch = no
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		if = {
+			limit = {
+				is_late_anarch_revolt = yes
+			}
+			log = "Late anarch revolt is firing!"
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = cappadocian
+				culture = italian
+				trait = canon
+				age < 401
+				not_likely_anarch = no
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = cappadocian
+				culture = italian
+				trait = great_person
+				has_character_flag = great_rebel
+				age < 401
+				not_likely_anarch = no
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		}
+		if = {
+			limit = { NOT = { event_target:anarch_adventurer = { always = yes } } }
+			break = yes
+		}
+		event_target:anarch_adventurer = {
+			set_character_flag = anarch_revolter
+			set_character_flag = anarch_adventurer
+			set_character_flag = made_into_anarch
+			create_anarch_adventurer_titles = yes
+			#add_trait = anarch_revolt_figure_trait
+		}
+}
+find_lasombra_anarch_adventurer = {
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = lasombra
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = lasombra
+				martial = 20
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = lasombra
+				trait = canon_childe
+				age < 401
+				not_likely_anarch = no
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		if = {
+			limit = {
+				is_late_anarch_revolt = yes
+			}
+			log = "Late anarch revolt is firing!"
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = lasombra
+				trait = canon
+				age < 401
+				not_likely_anarch = no
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = lasombra
+				trait = great_person
+				has_character_flag = great_rebel
+				age < 401
+				not_likely_anarch = no
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		}
+		if = {
+			limit = { NOT = { event_target:anarch_adventurer = { always = yes } } }
+			break = yes
+		}
+		event_target:anarch_adventurer = {
+			set_character_flag = anarch_revolter
+			set_character_flag = anarch_adventurer
+			set_character_flag = made_into_anarch
+			create_anarch_adventurer_titles = yes
+			#add_trait = anarch_revolt_figure_trait
+		}
+}
+find_malkavian_anarch_adventurer = {
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = malkavian
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = malkavian
+				martial = 20
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = malkavian
+				trait = canon_childe
+				age < 401
+				not_likely_anarch = no
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		if = {
+			limit = {
+				is_late_anarch_revolt = yes
+			}
+			log = "Late anarch revolt is firing!"
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = malkavian
+				trait = canon
+				age < 401
+				not_likely_anarch = no
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = malkavian
+				trait = great_person
+				has_character_flag = great_rebel
+				age < 401
+				not_likely_anarch = no
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		}
+		if = {
+			limit = { NOT = { event_target:anarch_adventurer = { always = yes } } }
+			break = yes
+		}
+		event_target:anarch_adventurer = {
+			set_character_flag = anarch_revolter
+			set_character_flag = anarch_adventurer
+			set_character_flag = made_into_anarch
+			create_anarch_adventurer_titles = yes
+			#add_trait = anarch_revolt_figure_trait
+		}
+}
+find_nosferatu_anarch_adventurer = {
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = nosferatu
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = nosferatu
+				martial = 20
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = nosferatu
+				trait = canon_childe
+				age < 401
+				not_likely_anarch = no
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		if = {
+			limit = {
+				is_late_anarch_revolt = yes
+			}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = nosferatu
+				trait = canon
+				age < 401
+				not_likely_anarch = no
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = nosferatu
+				trait = great_person
+				has_character_flag = great_rebel
+				age < 401
+				not_likely_anarch = no
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		}
+		if = {
+			limit = { NOT = { event_target:anarch_adventurer = { always = yes } } }
+			break = yes
+		}
+		event_target:anarch_adventurer = {
+			set_character_flag = anarch_revolter
+			set_character_flag = anarch_adventurer
+			set_character_flag = made_into_anarch
+			create_anarch_adventurer_titles = yes
+			#add_trait = anarch_revolt_figure_trait
+		}
+}
+find_ravnos_anarch_adventurer = {
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = ravnos
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = ravnos
+				martial = 20
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = ravnos
+				trait = canon_childe
+				age < 401
+				not_likely_anarch = no
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		if = {
+			limit = {
+				is_late_anarch_revolt = yes
+			}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = ravnos
+				trait = canon
+				age < 401
+				not_likely_anarch = no
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = ravnos
+				trait = great_person
+				has_character_flag = great_rebel
+				age < 401
+				not_likely_anarch = no
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		}
+		if = {
+			limit = { NOT = { event_target:anarch_adventurer = { always = yes } } }
+			break = yes
+		}
+		event_target:anarch_adventurer = {
+			set_character_flag = anarch_revolter
+			set_character_flag = anarch_adventurer
+			set_character_flag = made_into_anarch
+			create_anarch_adventurer_titles = yes
+			#add_trait = anarch_revolt_figure_trait
+		}
+}
+find_salubri_anarch_adventurer = {
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = salubri
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = salubri
+				martial = 20
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = salubri
+				trait = canon_childe
+				age < 401
+				not_likely_anarch = no
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		if = {
+			limit = {
+				is_late_anarch_revolt = yes
+			}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = salubri
+				trait = canon
+				age < 401
+				not_likely_anarch = no
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = salubri
+				trait = great_person
+				has_character_flag = great_rebel
+				age < 401
+				not_likely_anarch = no
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		}
+		if = {
+			limit = { NOT = { event_target:anarch_adventurer = { always = yes } } }
+			break = yes
+		}
+		event_target:anarch_adventurer = {
+			set_character_flag = anarch_revolter
+			set_character_flag = anarch_adventurer
+			set_character_flag = made_into_anarch
+			create_anarch_adventurer_titles = yes
+			#add_trait = anarch_revolt_figure_trait
+		}
+}
+find_toreador_anarch_adventurer = {
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = toreador
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = toreador
+				martial = 20
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = toreador
+				trait = canon_childe
+				age < 401
+				not_likely_anarch = no
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		if = {
+			limit = {
+				is_late_anarch_revolt = yes
+			}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = toreador
+				trait = canon
+				age < 401
+				not_likely_anarch = no
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = toreador
+				trait = great_person
+				has_character_flag = great_rebel
+				age < 401
+				not_likely_anarch = no
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		}
+		if = {
+			limit = { NOT = { event_target:anarch_adventurer = { always = yes } } }
+			break = yes
+		}
+		event_target:anarch_adventurer = {
+			set_character_flag = anarch_revolter
+			set_character_flag = anarch_adventurer
+			set_character_flag = made_into_anarch
+			create_anarch_adventurer_titles = yes
+			#add_trait = anarch_revolt_figure_trait
+		}
+}
+find_tremere_anarch_adventurer = {
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = tremere
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = tremere
+				martial = 20
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = tremere
+				trait = canon_childe
+				age < 401
+				not_likely_anarch = no
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		if = {
+			limit = {
+				is_late_anarch_revolt = yes
+			}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = tremere
+				trait = canon
+				age < 401
+				not_likely_anarch = no
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = tremere
+				trait = great_person
+				has_character_flag = great_rebel
+				age < 401
+				not_likely_anarch = no
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		}
+		if = {
+			limit = { NOT = { event_target:anarch_adventurer = { always = yes } } }
+			break = yes
+		}
+		event_target:anarch_adventurer = {
+			set_character_flag = anarch_revolter
+			set_character_flag = anarch_adventurer
+			set_character_flag = made_into_anarch
+			create_anarch_adventurer_titles = yes
+			#add_trait = anarch_revolt_figure_trait
+		}
+}
+find_tzimisce_anarch_adventurer = {
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = tzimisce
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = tzimisce
+				martial = 20
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = tzimisce
+				trait = canon_childe
+				age < 401
+				not_likely_anarch = no
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		if = {
+			limit = {
+				is_late_anarch_revolt = yes
+			}
+			log = "Late anarch revolt is firing!"
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = tzimisce
+				trait = canon
+				age < 401
+				not_likely_anarch = no
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = tzimisce
+				trait = great_person
+				has_character_flag = great_rebel
+				age < 401
+				not_likely_anarch = no
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		}
+		if = {
+			limit = { NOT = { event_target:anarch_adventurer = { always = yes } } }
+			break = yes
+		}
+		event_target:anarch_adventurer = {
+			set_character_flag = anarch_revolter
+			set_character_flag = anarch_adventurer
+			set_character_flag = made_into_anarch
+			create_anarch_adventurer_titles = yes
+			#add_trait = anarch_revolt_figure_trait
+		}
+}
+find_baali_anarch_adventurer = {
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = baali
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = baali
+				martial = 20
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = baali
+				trait = canon_childe
+				age < 401
+				not_likely_anarch = no
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		if = {
+			limit = {
+				is_late_anarch_revolt = yes
+			}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = baali
+				trait = canon
+				age < 401
+				not_likely_anarch = no
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = baali
+				trait = great_person
+				has_character_flag = great_rebel
+				age < 401
+				not_likely_anarch = no
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		}
+		if = {
+			limit = { NOT = { event_target:anarch_adventurer = { always = yes } } }
+			break = yes
+		}
+		event_target:anarch_adventurer = {
+			set_character_flag = anarch_revolter
+			set_character_flag = anarch_adventurer
+			set_character_flag = made_into_anarch
+			create_anarch_adventurer_titles = yes
+			#add_trait = anarch_revolt_figure_trait
+		}
+}
+find_gangrel_anarch_adventurer = {
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = gangrel
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = gangrel
+				martial = 20
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = gangrel
+				trait = canon_childe
+				age < 401
+				not_likely_anarch = no
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		if = {
+			limit = {
+				is_late_anarch_revolt = yes
+			}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = gangrel
+				trait = canon
+				age < 401
+				not_likely_anarch = no
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = gangrel
+				trait = great_person
+				has_character_flag = great_rebel
+				age < 401
+				not_likely_anarch = no
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		}
+		if = {
+			limit = { NOT = { event_target:anarch_adventurer = { always = yes } } }
+			break = yes
+		}
+		event_target:anarch_adventurer = {
+			set_character_flag = anarch_revolter
+			set_character_flag = anarch_adventurer
+			set_character_flag = made_into_anarch
+			create_anarch_adventurer_titles = yes
+			#add_trait = anarch_revolt_figure_trait
+		}
+}
+find_ventrue_anarch_adventurer = {
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = ventrue
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = ventrue
+				martial = 20
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = ventrue
+				trait = canon_childe
+				age < 401
+				not_likely_anarch = no
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		if = {
+			limit = {
+				is_late_anarch_revolt = yes
+			}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = ventrue
+				trait = canon
+				age < 401
+				not_likely_anarch = no
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = ventrue
+				trait = great_person
+				has_character_flag = great_rebel
+				age < 401
+				not_likely_anarch = no
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		if = {
+			limit = { NOT = { event_target:anarch_adventurer = { always = yes } } }
+			break = yes
+		}
+		}
+		event_target:anarch_adventurer = {
+			set_character_flag = anarch_revolter
+			set_character_flag = anarch_adventurer
+			set_character_flag = made_into_anarch
+			create_anarch_adventurer_titles = yes
+			#add_trait = anarch_revolt_figure_trait
+		}
+}
+find_religion_anarch_adventurer = {
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				religion = anarchs
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				religion = anarchs
+				martial = 20
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				religion = anarchs
+				trait = canon_childe
+				age < 401
+				not_likely_anarch = no
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		if = {
+			limit = {
+				is_late_anarch_revolt = yes
+			}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				religion = anarchs
+				trait = canon
+				age < 401
+				not_likely_anarch = no
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				religion = anarchs
+				trait = great_person
+				has_character_flag = great_rebel
+				age < 401
+				not_likely_anarch = no
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_adventurer
+		}
+		}
+		if = {
+			limit = { NOT = { event_target:anarch_adventurer = { always = yes } } }
+			break = yes
+		}
+		event_target:anarch_adventurer = {
+			set_character_flag = anarch_revolter
+			set_character_flag = anarch_adventurer
+			set_character_flag = made_into_anarch
+			create_anarch_adventurer_titles = yes
+			#add_trait = anarch_revolt_figure_trait
+		}
+}
+
+find_assamite_anarch_general = {
+	random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = assamite
+				NOT = { trait = great_person }
+				NOT = { trait = canon }
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = assamite
+				NOT = { trait = great_person }
+				NOT = { trait = canon }
+				is_vampire_capable = yes
+				martial = 20
+				can_go_anarch = yes
+				is_likely_anarch = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = assamite
+				trait = canon_childe
+				martial = 15
+				OR = {
+					trait = stubborn
+					trait = proud
+					trait = ambitious
+				}
+				is_likely_anarch = yes
+				can_go_anarch = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = assamite
+				can_go_anarch = yes
+				is_likely_anarch = yes
+				has_strong_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		event_target:anarch_general = {
+			move_character = event_target:anarch_adventurer
+			set_character_flag = made_into_anarch
+			create_anarch_troops = yes
+			pod_switch_anarch_effect = yes
+		}
+}
+find_brujah_anarch_general = {
+	random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = brujah
+				NOT = { trait = great_person }
+				NOT = { trait = canon }
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = brujah
+				NOT = { trait = great_person }
+				NOT = { trait = canon }
+				martial = 20
+				can_go_anarch = yes
+				is_likely_anarch = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = brujah
+				trait = canon_childe
+				martial = 15
+				OR = {
+					trait = stubborn
+					trait = proud
+					trait = ambitious
+				}
+				is_likely_anarch = yes
+				can_go_anarch = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = brujah
+				can_go_anarch = yes
+				is_likely_anarch = yes
+				has_strong_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		event_target:anarch_general = {
+			move_character = event_target:anarch_adventurer
+			set_character_flag = made_into_anarch
+			create_anarch_troops = yes
+			pod_switch_anarch_effect = yes
+		}
+}
+find_cappadocian_anarch_general = {
+	random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = cappadocian
+				NOT = { culture = italian }
+				NOT = { trait = great_person }
+				NOT = { trait = canon }
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = cappadocian
+				NOT = { culture = italian }
+				NOT = { trait = great_person }
+				NOT = { trait = canon }
+				is_vampire_capable = yes
+				martial = 20
+				can_go_anarch = yes
+				is_likely_anarch = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = cappadocian
+				NOT = { culture = italian }
+				trait = canon_childe
+				martial = 15
+				OR = {
+					trait = stubborn
+					trait = proud
+					trait = ambitious
+				}
+				is_likely_anarch = yes
+				can_go_anarch = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = cappadocian
+				NOT = { culture = italian }
+				can_go_anarch = yes
+				is_likely_anarch = yes
+				has_strong_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		event_target:anarch_general = {
+			move_character = event_target:anarch_adventurer
+			set_character_flag = made_into_anarch
+			create_anarch_troops = yes
+			pod_switch_anarch_effect = yes
+		}
+}
+find_followerofset_anarch_general = {
+	random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = followerofset
+				NOT = { trait = great_person }
+				NOT = { trait = canon }
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = followerofset
+				NOT = { trait = great_person }
+				NOT = { trait = canon }
+				martial = 20
+				can_go_anarch = yes
+				is_likely_anarch = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = followerofset
+				trait = canon_childe
+				martial = 15
+				OR = {
+					trait = stubborn
+					trait = proud
+					trait = ambitious
+				}
+				is_likely_anarch = yes
+				can_go_anarch = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = followerofset
+				can_go_anarch = yes
+				is_likely_anarch = yes
+				has_strong_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		event_target:anarch_general = {
+			move_character = event_target:anarch_adventurer
+			set_character_flag = made_into_anarch
+			create_anarch_troops = yes
+			pod_switch_anarch_effect = yes
+		}
+}
+find_giovanni_anarch_general = {
+	random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = cappadocian
+				culture = italian
+				NOT = { trait = great_person }
+				NOT = { trait = canon }
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = cappadocian
+				culture = italian
+				NOT = { trait = great_person }
+				NOT = { trait = canon }
+				martial = 20
+				can_go_anarch = yes
+				is_likely_anarch = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = cappadocian
+				culture = italian
+				trait = canon_childe
+				martial = 15
+				OR = {
+					trait = stubborn
+					trait = proud
+					trait = ambitious
+				}
+				is_likely_anarch = yes
+				can_go_anarch = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = cappadocian
+				culture = italian
+				can_go_anarch = yes
+				is_likely_anarch = yes
+				has_strong_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		event_target:anarch_general = {
+			move_character = event_target:anarch_adventurer
+			set_character_flag = made_into_anarch
+			create_anarch_troops = yes
+			pod_switch_anarch_effect = yes
+		}
+}
+find_lasombra_anarch_general = {
+	random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = lasombra
+				NOT = { trait = great_person }
+				NOT = { trait = canon }
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = lasombra
+				NOT = { trait = great_person }
+				NOT = { trait = canon }
+				martial = 20
+				can_go_anarch = yes
+				is_likely_anarch = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = lasombra
+				trait = canon_childe
+				martial = 15
+				OR = {
+					trait = stubborn
+					trait = proud
+					trait = ambitious
+				}
+				is_likely_anarch = yes
+				can_go_anarch = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = lasombra
+				can_go_anarch = yes
+				is_likely_anarch = yes
+				has_strong_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		event_target:anarch_general = {
+			move_character = event_target:anarch_adventurer
+			set_character_flag = made_into_anarch
+			create_anarch_troops = yes
+			pod_switch_anarch_effect = yes
+		}
+}
+find_malkavian_anarch_general = {
+	random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = malkavian
+				NOT = { trait = great_person }
+				NOT = { trait = canon }
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = malkavian
+				NOT = { trait = great_person }
+				NOT = { trait = canon }
+				martial = 20
+				can_go_anarch = yes
+				is_likely_anarch = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = malkavian
+				trait = canon_childe
+				martial = 15
+				OR = {
+					trait = stubborn
+					trait = proud
+					trait = ambitious
+				}
+				is_likely_anarch = yes
+				can_go_anarch = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = malkavian
+				can_go_anarch = yes
+				is_likely_anarch = yes
+				has_strong_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		event_target:anarch_general = {
+			move_character = event_target:anarch_adventurer
+			set_character_flag = made_into_anarch
+			create_anarch_troops = yes
+			pod_switch_anarch_effect = yes
+		}
+}
+find_nosferatu_anarch_general = {
+	random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = nosferatu
+				NOT = { trait = great_person }
+				NOT = { trait = canon }
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = nosferatu
+				NOT = { trait = great_person }
+				NOT = { trait = canon }
+				martial = 20
+				can_go_anarch = yes
+				is_likely_anarch = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = nosferatu
+				trait = canon_childe
+				martial = 15
+				OR = {
+					trait = stubborn
+					trait = proud
+					trait = ambitious
+				}
+				is_likely_anarch = yes
+				can_go_anarch = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = nosferatu
+				can_go_anarch = yes
+				is_likely_anarch = yes
+				has_strong_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		event_target:anarch_general = {
+			move_character = event_target:anarch_adventurer
+			set_character_flag = made_into_anarch
+			create_anarch_troops = yes
+			pod_switch_anarch_effect = yes
+		}
+}
+find_ravnos_anarch_general = {
+	random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = ravnos
+				NOT = { trait = great_person }
+				NOT = { trait = canon }
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = ravnos
+				NOT = { trait = great_person }
+				NOT = { trait = canon }
+				martial = 20
+				can_go_anarch = yes
+				is_likely_anarch = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = ravnos
+				trait = canon_childe
+				martial = 15
+				OR = {
+					trait = stubborn
+					trait = proud
+					trait = ambitious
+				}
+				is_likely_anarch = yes
+				can_go_anarch = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = ravnos
+				can_go_anarch = yes
+				is_likely_anarch = yes
+				has_strong_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		event_target:anarch_general = {
+			move_character = event_target:anarch_adventurer
+			set_character_flag = made_into_anarch
+			create_anarch_troops = yes
+			pod_switch_anarch_effect = yes
+		}
+}
+find_salubri_anarch_general = {
+	random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = salubri
+				NOT = { trait = great_person }
+				NOT = { trait = canon }
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = salubri
+				NOT = { trait = great_person }
+				NOT = { trait = canon }
+				martial = 20
+				can_go_anarch = yes
+				is_likely_anarch = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = salubri
+				trait = canon_childe
+				martial = 15
+				OR = {
+					trait = stubborn
+					trait = proud
+					trait = ambitious
+				}
+				is_likely_anarch = yes
+				can_go_anarch = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = salubri
+				can_go_anarch = yes
+				is_likely_anarch = yes
+				has_strong_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		event_target:anarch_general = {
+			move_character = event_target:anarch_adventurer
+			set_character_flag = made_into_anarch
+			create_anarch_troops = yes
+			pod_switch_anarch_effect = yes
+		}
+}
+find_toreador_anarch_general = {
+	random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = toreador
+				NOT = { trait = great_person }
+				NOT = { trait = canon }
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = toreador
+				NOT = { trait = great_person }
+				NOT = { trait = canon }
+				martial = 20
+				can_go_anarch = yes
+				is_likely_anarch = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = toreador
+				trait = canon_childe
+				martial = 15
+				OR = {
+					trait = stubborn
+					trait = proud
+					trait = ambitious
+				}
+				is_likely_anarch = yes
+				can_go_anarch = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = toreador
+				can_go_anarch = yes
+				is_likely_anarch = yes
+				has_strong_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		event_target:anarch_general = {
+			move_character = event_target:anarch_adventurer
+			set_character_flag = made_into_anarch
+			create_anarch_troops = yes
+			pod_switch_anarch_effect = yes
+		}
+}
+find_tremere_anarch_general = {
+	random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = tremere
+				NOT = { trait = great_person }
+				NOT = { trait = canon }
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = tremere
+				NOT = { trait = great_person }
+				NOT = { trait = canon }
+				martial = 20
+				can_go_anarch = yes
+				is_likely_anarch = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = tremere
+				trait = canon_childe
+				martial = 15
+				OR = {
+					trait = stubborn
+					trait = proud
+					trait = ambitious
+				}
+				is_likely_anarch = yes
+				can_go_anarch = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = tremere
+				can_go_anarch = yes
+				is_likely_anarch = yes
+				has_strong_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		event_target:anarch_general = {
+			move_character = event_target:anarch_adventurer
+			set_character_flag = made_into_anarch
+			create_anarch_troops = yes
+			pod_switch_anarch_effect = yes
+		}
+}
+find_tzimisce_anarch_general = {
+	random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = tzimisce
+				NOT = { trait = great_person }
+				NOT = { trait = canon }
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = tzimisce
+				NOT = { trait = great_person }
+				NOT = { trait = canon }
+				martial = 20
+				can_go_anarch = yes
+				is_likely_anarch = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = tzimisce
+				trait = canon_childe
+				martial = 15
+				OR = {
+					trait = stubborn
+					trait = proud
+					trait = ambitious
+				}
+				is_likely_anarch = yes
+				can_go_anarch = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = tzimisce
+				can_go_anarch = yes
+				is_likely_anarch = yes
+				has_strong_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		event_target:anarch_general = {
+			move_character = event_target:anarch_adventurer
+			set_character_flag = made_into_anarch
+			create_anarch_troops = yes
+			pod_switch_anarch_effect = yes
+		}
+}
+find_baali_anarch_general = {
+	random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = baali
+				NOT = { trait = great_person }
+				NOT = { trait = canon }
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = baali
+				NOT = { trait = great_person }
+				NOT = { trait = canon }
+				martial = 20
+				can_go_anarch = yes
+				is_likely_anarch = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = baali
+				trait = canon_childe
+				martial = 15
+				OR = {
+					trait = stubborn
+					trait = proud
+					trait = ambitious
+				}
+				is_likely_anarch = yes
+				can_go_anarch = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = baali
+				can_go_anarch = yes
+				is_likely_anarch = yes
+				has_strong_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		event_target:anarch_general = {
+			move_character = event_target:anarch_adventurer
+			set_character_flag = made_into_anarch
+			create_anarch_troops = yes
+			pod_switch_anarch_effect = yes
+		}
+}
+find_gangrel_anarch_general = {
+	random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = gangrel
+				NOT = { trait = great_person }
+				NOT = { trait = canon }
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = gangrel
+				NOT = { trait = great_person }
+				NOT = { trait = canon }
+				martial = 20
+				can_go_anarch = yes
+				is_likely_anarch = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = gangrel
+				trait = canon_childe
+				martial = 15
+				OR = {
+					trait = stubborn
+					trait = proud
+					trait = ambitious
+				}
+				is_likely_anarch = yes
+				can_go_anarch = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = gangrel
+				can_go_anarch = yes
+				is_likely_anarch = yes
+				has_strong_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		event_target:anarch_general = {
+			move_character = event_target:anarch_adventurer
+			set_character_flag = made_into_anarch
+			create_anarch_troops = yes
+			pod_switch_anarch_effect = yes
+		}
+}
+find_ventrue_anarch_general = {
+	random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = ventrue
+				NOT = { trait = great_person }
+				NOT = { trait = canon }
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = ventrue
+				NOT = { trait = great_person }
+				NOT = { trait = canon }
+				martial = 20
+				can_go_anarch = yes
+				is_likely_anarch = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = ventrue
+				trait = canon_childe
+				martial = 15
+				OR = {
+					trait = stubborn
+					trait = proud
+					trait = ambitious
+				}
+				is_likely_anarch = yes
+				can_go_anarch = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				trait = ventrue
+				can_go_anarch = yes
+				is_likely_anarch = yes
+				has_strong_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		event_target:anarch_general = {
+			move_character = event_target:anarch_adventurer
+			set_character_flag = made_into_anarch
+			create_anarch_troops = yes
+			pod_switch_anarch_effect = yes
+		}
+}
+find_religion_anarch_general = {
+	random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				religion = anarchs
+				NOT = { trait = great_person }
+				NOT = { trait = canon }
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				religion = anarchs
+				NOT = { trait = great_person }
+				NOT = { trait = canon }
+				martial = 20
+				can_go_anarch = yes
+				is_likely_anarch = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				religion = anarchs
+				trait = canon_childe
+				martial = 15
+				OR = {
+					trait = stubborn
+					trait = proud
+					trait = ambitious
+				}
+				is_likely_anarch = yes
+				can_go_anarch = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		random_character = {
+			limit = {
+				is_ruler = no
+				trait = vampire
+				religion = anarchs
+				can_go_anarch = yes
+				is_likely_anarch = yes
+				has_strong_generation = yes
+				is_vampire_capable = yes
+			}
+			save_event_target_as = anarch_general
+		}
+		event_target:anarch_general = {
+			move_character = event_target:anarch_adventurer
+			set_character_flag = made_into_anarch
+			create_anarch_troops = yes
+			religion = anarchs
+		}
+}
+
+pod_anarch_uprising_spawn = {
+	create_character = {
+		random_traits = yes
+		dynasty = none
+		religion = anarchs
+		culture = event_target:target_province
+		female = 50
+		age = 32
+		attributes = {
+			martial = 7
+		}
+		trait = zealous
+		trait = skilled_tactician
+		trait = vampire
+		trait = neonate
+		trait = wyrm_taint
+		trait = bloodpotency_1
+	}
+	new_character = {
+		POD_cleanse_mortal_effect = yes
+		set_character_flag = anarch_revolter
+		set_anarch_type = yes
+		save_event_target_as = rebel_leader
+		create_title = {
+			tier = DUKE
+			landless = yes
+			temporary = yes
+			rebel = yes
+			culture = event_target:target_province
+			name = "ANARCH_REVOLT"
+			holder = THIS
+		}
+		spawn_anarch_army_effect = yes
+		pod_clean_anarch_pack = yes
+		event_target:target_province = {
+			owner = {
+				top_liege = {
+					log = "Minor Anarch Revolt [rebel_leader.GetTitledName] war vs [This.GetTitledName] in [rebel_leader.Location.GetName]"
+					reverse_war = {
+						target = PREVPREVPREV
+						casus_belli = anarch_revolt
+						thirdparty_title = event_target:target_province # The county...
+						tier = DUKE # ... but really the de jure duchy
+					}
+					reverse_opinion = {
+						who = PREVPREVPREV
+						modifier = opinion_evil_tyrant
+					}
+				}
+			}
+		}	
+	}
+}
+
+set_anarch_type = {
+	random_list = {
+		50 = {
+			set_anarch_generation = yes
+			add_trait = brujah
+			add_trait = vigor_2
+			add_trait = majesty_2
+			add_trait = celerity_2
+		}
+		10 = {
+			set_anarch_generation = yes
+			add_trait = lasombra
+			add_trait = vigor_2
+			add_trait = dominate_2
+			add_trait = obtenebration_2
+		}
+		10 = {
+			set_anarch_generation = yes
+			add_trait = gangrel
+			add_trait = celerity_2
+			add_trait = protean_2
+			add_trait = animalism_2
+		}
+		10 = {
+			set_anarch_generation = yes
+			add_trait = tzimisce
+			add_trait = auspex_2
+			add_trait = vicissitude_2
+			add_trait = animalism_2
+		}
+	}
+}
+
+set_anarch_generation = {
+	random_list = {
+		5 = {
+			add_trait = vampgeneration9
+		}
+		5 = {
+			add_trait = vampgeneration8
+		}
+		5 = {
+			add_trait = vampgeneration7
+		}
+		5 = {
+			add_trait = vampgeneration6
+		}
+	}
+}
+
+spawn_anarch_army_effect = {
+	spawn_anarch_general_effect = yes
+	spawn_anarch_general_effect = yes
+	spawn_anarch_general_effect = yes
+	trigger_switch = {
+		on_trigger = has_global_flag
+		anarch_revolt_stage_1 = {
+			random = {
+				chance = 33
+				spawn_anarch_general_effect = yes
+			}
+		}
+		anarch_revolt_stage_2 = {
+			random = {
+				chance = 33
+				spawn_anarch_general_effect = yes
+			}
+			random = {
+				chance = 33
+				spawn_anarch_general_effect = yes
+			}
+			random = {
+				chance = 33
+				spawn_anarch_general_effect = yes
+			}
+		}
+		anarch_revolt_stage_3 = {
+			random = {
+				chance = 50
+				spawn_anarch_general_effect = yes
+			}
+			random = {
+				chance = 50
+				spawn_anarch_general_effect = yes
+			}
+			random = {
+				chance = 50
+				spawn_anarch_general_effect = yes
+			}
+		}
+	}
+}
+
+spawn_anarch_general_effect = {
+	wealth = 100
+	create_character = {
+		random_traits = yes
+		dynasty = none
+		religion = anarchs
+		culture = event_target:target_province
+		female = 50
+		age = 25
+		trait = peasant_leader
+		trait = tough_soldier
+		trait = vampire
+		trait = neonate
+		trait = wyrm_taint
+		trait = bloodpotency_1
+	}
+	new_character = {
+		POD_cleanse_mortal_effect = yes
+		set_anarch_type = yes
+		spawn_unit = {
+			province = event_target:target_province
+			home = event_target:target_province
+			owner = event_target:rebel_leader
+			match_character = event_target:target_owner
+			match_mult = 0.1
+			match_max = 3000
+			match_min = 100
+			troops = {
+				light_infantry = { 2 2 }
+				heavy_infantry = { 2 2 }
+				mass_vampires = { 10 10 }
+			}
+			attrition = 0.1
+		}
+	}
+}
+
+spawn_anarch_army = {
+	spawn_unit = {
+			province = event_target:target_province
+			home = event_target:target_province
+			owner = event_target:anarch_adventurer
+			match_character = event_target:target_owner
+			match_mult = 0.1
+			match_max = 3000
+			match_min = 100
+			troops = {
+				light_infantry = { 2 2 }
+				heavy_infantry = { 2 2 }
+				mass_vampires = { 10 10 }
+			}
+			attrition = 0.1
+		}
+}
+
+spawn_anarch_army_vamps = {
+	spawn_unit = {
+			province = event_target:target_province
+			home = event_target:target_province
+			owner = event_target:anarch_adventurer
+			troops = {
+				mass_vampires = { 50 50 }
+			}
+			attrition = 0.1
+		}
+}
+
+spawn_anarch_host = {
+	if = {
+		limit = {
+			event_target:anarch_adventurer = {
+				OR = {
+					trait = great_person
+					trait = canon
+				}
+			}
+		}
+		event_target:target_owner = {
+			top_liege = {
+				save_event_target_as = target_owner
+			}
+		}
+	}
+	trigger_switch = {
+		on_trigger = has_global_flag
+		anarch_revolt_stage_1 = {
+			spawn_anarch_army = yes
+			spawn_anarch_army = yes
+			spawn_anarch_army = yes
+			spawn_anarch_army = yes
+			spawn_anarch_army_vamps = yes
+			random = {
+				chance = 30
+				modifier = {
+					factor = 3
+					event_target:anarch_adventurer = {
+						trait = great_person
+					}
+				}
+				spawn_anarch_army = yes
+				spawn_anarch_army = yes
+				spawn_anarch_army = yes
+				spawn_anarch_army = yes
+				spawn_anarch_army = yes
+				spawn_anarch_army_vamps = yes
+			}
+		}
+		anarch_revolt_stage_2 = {
+			spawn_anarch_army = yes
+			spawn_anarch_army = yes
+			spawn_anarch_army = yes
+			spawn_anarch_army = yes
+			spawn_anarch_army = yes
+			spawn_anarch_army_vamps = yes
+			random = {
+				chance = 30
+				modifier = {
+					factor = 3
+					event_target:anarch_adventurer = {
+						trait = great_person
+					}
+				}
+				modifier = {
+					factor = 1.5
+					event_target:anarch_adventurer = {
+						trait = canon
+					}
+				}
+				spawn_anarch_army = yes
+				spawn_anarch_army = yes
+				spawn_anarch_army = yes
+				spawn_anarch_army = yes
+				spawn_anarch_army = yes
+				spawn_anarch_army = yes
+				spawn_anarch_army_vamps = yes
+				spawn_anarch_army_vamps = yes
+			}
+		}
+		anarch_revolt_stage_3 = {
+			spawn_anarch_army = yes
+			spawn_anarch_army = yes
+			spawn_anarch_army = yes
+			spawn_anarch_army = yes
+			spawn_anarch_army = yes
+			spawn_anarch_army_vamps = yes
+			random = {
+				chance = 30
+				modifier = {
+					factor = 3
+					event_target:anarch_adventurer = {
+						trait = great_person
+					}
+				}
+				modifier = {
+					factor = 1.5
+					event_target:anarch_adventurer = {
+						trait = canon
+					}
+				}
+				spawn_anarch_army = yes
+				spawn_anarch_army = yes
+				spawn_anarch_army = yes
+				spawn_anarch_army = yes
+				spawn_anarch_army = yes
+				spawn_anarch_army = yes
+				spawn_anarch_army = yes
+				spawn_anarch_army_vamps = yes
+				spawn_anarch_army_vamps = yes
+			}
+		}
+	}
+}
+
+create_anarch_troops = {
+	spawn_anarch_army = yes
+}
+
+create_anarch_adventurer_titles = {
+	pod_switch_anarch_effect = yes
+	create_title = {
+			tier = DUKE
+			landless = yes
+			temporary = yes
+			rebel = yes
+			culture = event_target:target_province
+			name = "ANARCH_UPRISING"
+			holder = THIS
+		}
+		spawn_anarch_host = yes
+		event_target:target_province = {
+			owner = {
+				top_liege = {
+					log = "Major Anarch Adventurer [anarch_adventurer.GetTitledName] spawned in [target_province.GetName], attacking [This.GetTitledName]"
+					reverse_war = {
+						target = PREVPREVPREV
+						casus_belli = anarch_adventurer
+						thirdparty_title = event_target:target_province # The county...
+						tier = DUKE # ... but really the de jure duchy
+					}
+					reverse_opinion = {
+						who = PREVPREVPREV
+						modifier = opinion_evil_tyrant
+					}
+				}
+			}
+		}
+}
+pod_log_anarch_adventurer = {
+	log = "Major Anarch Adventurer [rebel_leader.GetTitledName] spawned in [target_province.GetName]"
+}
+spawn_assamite_anarch_adventurer = {
+	find_assamite_anarch_adventurer = yes
+	find_assamite_anarch_general = yes
+	find_assamite_anarch_general = yes
+	find_assamite_anarch_general = yes
+	find_assamite_anarch_general = yes
+	find_assamite_anarch_general = yes
+	pod_clean_anarch_pack = yes
+	pod_log_anarch_adventurer = yes
+}
+spawn_brujah_anarch_adventurer = {
+	find_brujah_anarch_adventurer = yes
+	find_brujah_anarch_general = yes
+	find_brujah_anarch_general = yes
+	find_brujah_anarch_general = yes
+	find_brujah_anarch_general = yes
+	find_brujah_anarch_general = yes
+	pod_clean_anarch_pack = yes
+	pod_log_anarch_adventurer = yes
+}
+spawn_cappadocian_anarch_adventurer = {
+	find_cappadocian_anarch_adventurer = yes
+	find_cappadocian_anarch_general = yes
+	find_cappadocian_anarch_general = yes
+	find_cappadocian_anarch_general = yes
+	find_cappadocian_anarch_general = yes
+	find_cappadocian_anarch_general = yes
+	pod_clean_anarch_pack = yes
+	pod_log_anarch_adventurer = yes
+}
+spawn_followerofset_anarch_adventurer = {
+	find_followerofset_anarch_adventurer = yes
+	find_followerofset_anarch_general = yes
+	find_followerofset_anarch_general = yes
+	find_followerofset_anarch_general = yes
+	find_followerofset_anarch_general = yes
+	find_followerofset_anarch_general = yes
+	pod_clean_anarch_pack = yes
+	pod_log_anarch_adventurer = yes
+}
+spawn_giovanni_anarch_adventurer = {
+	find_giovanni_anarch_adventurer = yes
+	find_giovanni_anarch_general = yes
+	find_giovanni_anarch_general = yes
+	find_giovanni_anarch_general = yes
+	find_giovanni_anarch_general = yes
+	find_giovanni_anarch_general = yes
+	pod_clean_anarch_pack = yes
+	pod_log_anarch_adventurer = yes
+}
+spawn_lasombra_anarch_adventurer = {
+	find_lasombra_anarch_adventurer = yes
+	find_lasombra_anarch_general = yes
+	find_lasombra_anarch_general = yes
+	find_lasombra_anarch_general = yes
+	find_lasombra_anarch_general = yes
+	find_lasombra_anarch_general = yes
+	pod_clean_anarch_pack = yes
+	pod_log_anarch_adventurer = yes
+}
+spawn_malkavian_anarch_adventurer = {
+	find_malkavian_anarch_adventurer = yes
+	find_malkavian_anarch_general = yes
+	find_malkavian_anarch_general = yes
+	find_malkavian_anarch_general = yes
+	find_malkavian_anarch_general = yes
+	find_malkavian_anarch_general = yes
+	pod_clean_anarch_pack = yes
+	pod_log_anarch_adventurer = yes
+}
+spawn_nosferatu_anarch_adventurer = {
+	find_nosferatu_anarch_adventurer = yes
+	find_nosferatu_anarch_general = yes
+	find_nosferatu_anarch_general = yes
+	find_nosferatu_anarch_general = yes
+	find_nosferatu_anarch_general = yes
+	find_nosferatu_anarch_general = yes
+	pod_clean_anarch_pack = yes
+	pod_log_anarch_adventurer = yes
+}
+spawn_ravnos_anarch_adventurer = {
+	find_ravnos_anarch_adventurer = yes
+	find_ravnos_anarch_general = yes
+	find_ravnos_anarch_general = yes
+	find_ravnos_anarch_general = yes
+	find_ravnos_anarch_general = yes
+	find_ravnos_anarch_general = yes
+	pod_clean_anarch_pack = yes
+	pod_log_anarch_adventurer = yes
+}
+spawn_salubri_anarch_adventurer = {
+	find_salubri_anarch_adventurer = yes
+	find_salubri_anarch_general = yes
+	find_salubri_anarch_general = yes
+	find_salubri_anarch_general = yes
+	find_salubri_anarch_general = yes
+	find_salubri_anarch_general = yes
+	pod_clean_anarch_pack = yes
+	pod_log_anarch_adventurer = yes
+}
+spawn_toreador_anarch_adventurer = {
+	find_toreador_anarch_adventurer = yes
+	find_toreador_anarch_general = yes
+	find_toreador_anarch_general = yes
+	find_toreador_anarch_general = yes
+	find_toreador_anarch_general = yes
+	find_toreador_anarch_general = yes
+	pod_clean_anarch_pack = yes
+	pod_log_anarch_adventurer = yes
+}
+spawn_tremere_anarch_adventurer = {
+	find_tremere_anarch_adventurer = yes
+	find_tremere_anarch_general = yes
+	find_tremere_anarch_general = yes
+	find_tremere_anarch_general = yes
+	find_tremere_anarch_general = yes
+	find_tremere_anarch_general = yes
+	pod_clean_anarch_pack = yes
+	pod_log_anarch_adventurer = yes
+}
+spawn_tzimisce_anarch_adventurer = {
+	find_tzimisce_anarch_adventurer = yes
+	find_tzimisce_anarch_general = yes
+	find_tzimisce_anarch_general = yes
+	find_tzimisce_anarch_general = yes
+	find_tzimisce_anarch_general = yes
+	find_tzimisce_anarch_general = yes
+	pod_clean_anarch_pack = yes
+	pod_log_anarch_adventurer = yes
+}
+spawn_baali_anarch_adventurer = {
+	find_baali_anarch_adventurer = yes
+	find_baali_anarch_general = yes
+	find_baali_anarch_general = yes
+	find_baali_anarch_general = yes
+	find_baali_anarch_general = yes
+	find_baali_anarch_general = yes
+	pod_clean_anarch_pack = yes
+	pod_log_anarch_adventurer = yes
+}
+spawn_gangrel_anarch_adventurer = {
+	find_gangrel_anarch_adventurer = yes
+	find_gangrel_anarch_general = yes
+	find_gangrel_anarch_general = yes
+	find_gangrel_anarch_general = yes
+	find_gangrel_anarch_general = yes
+	find_gangrel_anarch_general = yes
+	pod_clean_anarch_pack = yes
+	pod_log_anarch_adventurer = yes
+}
+spawn_ventrue_anarch_adventurer = {
+	find_ventrue_anarch_adventurer = yes
+	find_ventrue_anarch_general = yes
+	find_ventrue_anarch_general = yes
+	find_ventrue_anarch_general = yes
+	find_ventrue_anarch_general = yes
+	find_ventrue_anarch_general = yes
+	pod_clean_anarch_pack = yes
+	pod_log_anarch_adventurer = yes
+}
+
+spawn_religion_anarch_adventurer = {
+	find_religion_anarch_adventurer = yes
+	find_religion_anarch_general = yes
+	find_religion_anarch_general = yes
+	find_religion_anarch_general = yes
+	find_religion_anarch_general = yes
+	find_religion_anarch_general = yes
+	pod_clean_anarch_pack = yes
+	pod_log_anarch_adventurer = yes
+}
+
+pod_switch_anarch_effect = {
+	religion = anarchs
+	set_government_type = free_state_government
+	add_trait = sabbat_founder_trait
+}
+pod_switch_ruler_anarch_effect = {
+	if = {
+		limit = {
+			is_alive = yes
+			NOT = { trait = torpor }
+		}
+		pod_switch_anarch_effect = yes
+		any_realm_character = {
+			random = {
+				chance = 90
+				pod_switch_anarch_effect = yes
+			}
+		}
+	}
+}
+
+pod_check_rulers_to_convert = {
+	c_790132 = {
+		random = {
+			chance = 50
+			pod_switch_ruler_anarch_effect = yes
+		}
+		
+	}
+	c_505071 = {
+		random = {
+			chance = 50
+			pod_switch_ruler_anarch_effect = yes
+			set_global_flag = mithras_goes_anarch
+			any_player = {
+				narrative_event = { id = POD_Anarch_Revolt_Events.203 days = 1 random = 1 }
+			}
+		}
+	}
+}
+
+pod_anarch_revolt_provinces_effect = {
+	set_variable = { which = anarch_revolt_count value = 2 }
+	trigger_switch = {
+		on_trigger = has_global_flag
+		anarch_revolt_stage_1 = {
+			set_variable = { which = anarch_revolt_count value = 2 }
+		}
+		anarch_revolt_stage_2 = {
+			set_variable = { which = anarch_revolt_count value = 4 }
+		}
+		anarch_revolt_stage_3 = {
+			set_variable = { which = anarch_revolt_count value = 5 }
+		}
+	}
+	while = {
+		limit = {
+			check_variable = {
+				which = anarch_revolt_count
+				value = 1
+			}
+		}
+		subtract_variable = {
+			which = anarch_revolt_count
+			value = 1
+		}
+		random_province = {
+			limit = {
+				OR = {
+					has_province_modifier = anarch_problem_1_modifier
+					has_province_modifier = anarch_problem_2_modifier
+					has_province_modifier = anarch_problem_3_modifier
+				}
+				owner = {
+					is_vampire_anarch = no
+				}
+			}
+			save_event_target_as = target_province
+			owner = {
+				save_event_target_as = target_owner
+			}
+			trigger_switch = {
+				on_trigger = has_global_flag
+				anarch_revolt_stage_1 = {
+					pod_anarch_revolt_1 = yes
+				}
+				anarch_revolt_stage_2 = {
+					pod_anarch_revolt_2 = yes
+				}
+				anarch_revolt_stage_3 = {
+					pod_anarch_revolt_3 = yes
+				}
+			}
+		}
+	}
+}
+
+pod_anarch_revolt_1 = {
+	random_list = {
+		30 = {
+			pod_anarch_uprising_spawn = yes
+			change_variable = { which = global_anarch_minor_revolt_count value = 1 }
+		}
+		5 = {
+			pod_spawn_anarch_adventurer_stage_1 = yes
+			change_variable = { which = global_anarch_major_revolt_count value = 1 }
+		}
+	}
+}
+pod_anarch_revolt_2 = {
+	random_list = {
+		16 = {
+			pod_anarch_uprising_spawn = yes
+			change_variable = { which = global_anarch_minor_revolt_count value = 1 }
+		}
+		5 = {
+			pod_spawn_anarch_adventurer_stage_2 = yes
+			change_variable = { which = global_anarch_major_revolt_count value = 1 }
+		}
+	}
+}
+
+pod_anarch_revolt_3 = {
+	random_list = {
+		12 = {
+			pod_anarch_uprising_spawn = yes
+			change_variable = { which = global_anarch_minor_revolt_count value = 1 }
+		}
+		5 = {
+			pod_spawn_anarch_adventurer_stage_3 = yes
+			change_variable = { which = global_anarch_major_revolt_count value = 1 }
+		}
+	}
+}
+
+pod_fire_brujah_anarch_1 = {
+	random_province = {
+		limit = {
+			OR = {
+				has_province_modifier = anarch_problem_1_modifier
+				has_province_modifier = anarch_problem_2_modifier
+				has_province_modifier = anarch_problem_3_modifier
+			}
+			owner = {
+				is_vampire_anarch = no
+			}
+		}
+		spawn_brujah_anarch_adventurer = yes
+	}
+}
+
+pod_sabbat_usurper_gen_effect = {
+	trigger_switch = {
+		on_trigger = trait
+		vampgeneration3 = {
+			remove_trait = vampgeneration3
+		}
+		vampgeneration4 = {
+			remove_trait = vampgeneration4
+		}
+		vampgeneration5 = {
+			remove_trait = vampgeneration5
+		}
+		vampgeneration6 = {
+			remove_trait = vampgeneration6
+		}
+		vampgeneration7 = {
+			remove_trait = vampgeneration7
+		}
+		vampgeneration8 = {
+			remove_trait = vampgeneration8
+		}
+		vampgeneration9 = {
+			remove_trait = vampgeneration9
+		}
+		vampgeneration10 = {
+			remove_trait = vampgeneration10
+		}
+		vampgeneration11 = {
+			remove_trait = vampgeneration11
+		}
+		vampgeneration12 = {
+			remove_trait = vampgeneration12
+		}
+		vampgeneration13 = {
+			remove_trait = vampgeneration13
+		}
+		vampgeneration14 = {
+			remove_trait = vampgeneration14
+		}
+		vampgeneration15 = {
+			remove_trait = vampgeneration15
+		}
+	}
+	add_trait = vampgeneration4
+}

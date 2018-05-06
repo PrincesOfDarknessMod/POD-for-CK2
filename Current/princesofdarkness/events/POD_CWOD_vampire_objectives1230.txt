@@ -48,6 +48,8 @@ narrative_event = {
 			}
 		}
 		add_trait = eternalconsul
+		prestige = 2000
+		piety = 1000
 		
 	}
 }
@@ -728,6 +730,1208 @@ narrative_event = {
 		trigger = {
 			NOR = { religion = toreador_high
 			religion = baali	}
+		}
+	}
+	}
+}
+
+### Baali victory
+
+# Baali victory
+narrative_event = {
+	id = POD1230OBJ.19
+	title = EVTNAMEPOD1230OBJ.19
+	desc = EVTDESCPOD1230OBJ.19
+	
+	picture = GFX_evt_rome_falls
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAobj.19
+		add_artifact = crown_of_shaitan
+		give_nickname = nick_the_great_enemy
+		prestige = 2000
+		custom_tooltip = { text = obj19_custom }
+		activate_title = { title = e_baali status = yes }
+			primary_title = {
+				any_direct_de_jure_vassal_title = {
+					de_jure_liege = e_baali
+				}
+			}
+		
+		e_baali = {
+			grant_title = ROOT
+			make_primary_title = yes
+		}
+		hidden_tooltip = {
+			any_playable_ruler = {
+				limit = {
+					NOT = { religion = baali }
+				}
+				narrative_event = { id = POD1230OBJ.20 }
+			}
+		}
+		hidden_tooltip = {
+			any_playable_ruler = {
+				limit = {
+					ai = no
+					 religion = baali
+					NOT = { has_landed_title = c_jerusalem  }
+				}
+				narrative_event = { id = POD1230OBJ.21 }
+			}
+		}
+	}
+}
+
+# Become infernalist ?
+narrative_event = {
+	id = POD1230OBJ.20
+	title = EVTNAMEPOD1230OBJ.19
+	desc = EVTDESCPOD1230OBJ.19
+	
+	picture = GFX_evt_rome_falls
+	
+	is_triggered_only = yes
+	
+	option = { # Yes
+		name = EVTOPTAobj.20
+		ai_chance = { factor = 10 
+		modifier = {
+			factor = 50
+				OR = { trait = cynical 
+					trait = cruel
+									}	
+		}
+		}
+		religion = FROM
+		any_courtier = {
+			limit = {
+				liege = { character = ROOT }
+			}
+			religion = FROM
+		}
+		capital_scope = {
+			religion = FROM
+		}
+	}
+	option = { # No
+		name = EVTOPTBobj.20
+		ai_chance = { 
+			factor = 20 
+			modifier = { 
+				factor = 90 
+				trait = zealous	}
+		}
+	}
+	option = { # Secretly
+		name = EVTOPTCobj.20
+		ai_chance = { 
+			factor = 70 
+		}
+	set_secret_religion = baali
+	}
+}
+
+# Informed about baali Victory
+narrative_event = {
+	id = POD1230OBJ.21
+	title = EVTNAMEPOD1230OBJ.19
+	desc = EVTDESCPOD1230OBJ.19
+	
+	picture = GFX_evt_rome_falls
+	
+	is_triggered_only = yes
+	
+	option = {
+		name =  EVTOPTAobj.21
+		}
+}
+
+### Assamite unity
+
+# Assamite victory
+narrative_event = {
+	id = POD1230OBJ.22
+	title = EVTNAMEPOD1230OBJ.22
+	desc = EVTDESCPOD1230OBJ.22
+	
+	picture = GFX_evt_Council_sitting_around_table_muslim
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAobj.22
+		add_artifact = shard_black_throne
+		add_trait = assamitezealot
+		custom_tooltip = { text = obja22_custom }
+		hidden_tooltip = {
+			any_character = { 
+				limit = {
+					religion = assamite
+					NOR = { has_landed_title = e_assamites 
+							trait = vampgeneration4
+							trait = vampgeneration3
+							} }
+					add_trait = assamitezealot
+						
+		}
+		}
+			
+		hidden_tooltip = {
+			any_playable_ruler = {
+				limit = {
+					ai = no
+					NOT = { has_landed_title = e_assamites }
+				}
+				narrative_event = { id = POD1230OBJ.23 }
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTBobj.22
+		add_artifact = shard_black_throne
+		add_trait = assamitediplomat
+		custom_tooltip = { text = objb22_custom }
+		hidden_tooltip = {
+			any_character = { 
+				limit = {
+					religion = assamite
+					NOR = { has_landed_title = e_assamites 
+							trait = vampgeneration4
+							trait = vampgeneration3
+							} }
+					add_trait = assamitediplomat
+						
+		}
+		}
+			
+		hidden_tooltip = {
+			any_playable_ruler = {
+				limit = {
+					ai = no
+					NOT = { has_landed_title = e_assamites }
+				}
+				narrative_event = { id = POD1230OBJ.23 }
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTCobj.22
+		add_artifact = shard_black_throne
+		add_trait = assamiteassasin
+		custom_tooltip = { text = objc22_custom }
+		hidden_tooltip = {
+			any_character = { 
+				limit = {
+					religion = assamite
+					NOR = { has_landed_title = e_assamites 
+							trait = vampgeneration4
+							trait = vampgeneration3
+							} }
+					add_trait = assamiteassasin
+						
+		}
+		}
+			
+		hidden_tooltip = {
+			any_playable_ruler = {
+				limit = {
+					ai = no
+					NOT = { has_landed_title = e_assamites }
+				}
+				narrative_event = { id = POD1230OBJ.23 }
+			}
+		}
+	}
+}
+
+
+# Informed about Assamite victory
+narrative_event = {
+	id = POD1230OBJ.23
+	title = EVTNAMEPOD1230OBJ.22
+	desc = EVTDESCPOD1230OBJ.22
+	
+	picture = GFX_evt_Council_sitting_around_table_muslim
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = { 
+		text = EVTOPTAobj.23
+		trigger = {
+			religion = baali
+
+		}
+		}
+		name = { 
+		text = EVTOPTBobj.23
+		trigger = {
+			religion = assamite
+		}
+		}
+		name = { 
+		text = EVTOPTCobj.23
+		trigger = {
+			NOR = { religion = toreador_high
+			religion = baali	}
+		}
+	}
+	}
+}
+
+### Diablerie of Cappadocius
+
+# The Giovanni Conspiracy
+narrative_event = {
+	id = POD1230OBJ.24
+	title = EVTNAMEPOD1230OBJ.24
+	desc = EVTDESCPOD1230OBJ.24
+	
+	picture = GFX_evt_shadowy_cabal
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAobj.24
+			ROOT = { 
+			if = {
+				limit = { 
+					trait = vampgeneration4 }
+						remove_trait = vampgeneration4
+						add_trait = vampgeneration3 }
+			else_if = {
+				limit = { 
+					trait = vampgeneration5 }
+						remove_trait = vampgeneration5
+						add_trait = vampgeneration4 }
+			else_if = {
+				limit = { 
+					trait = vampgeneration6 }
+						remove_trait = vampgeneration6
+						add_trait = vampgeneration5 }
+			else_if = {
+				limit = { 
+					trait = vampgeneration7 }
+						remove_trait = vampgeneration7
+						add_trait = vampgeneration5 }
+			else_if = {
+				limit = { 
+					trait = vampgeneration8 }
+						remove_trait = vampgeneration8
+						add_trait = vampgeneration6 }
+			else_if = {
+				limit = { 
+					trait = vampgeneration9 }
+						remove_trait = vampgeneration9
+						add_trait = vampgeneration6 }
+			else_if = {
+				limit = { 
+					trait = vampgeneration10 }
+						remove_trait = vampgeneration10
+						add_trait = vampgeneration7	}
+			else_if = {
+				limit = { 
+					trait = vampgeneration11 }
+						remove_trait = vampgeneration11
+						add_trait = vampgeneration8 }
+			if = {
+				limit = { 
+					NOT = { trait = diabolist } }
+						add_trait = diabolist }
+		remove_trait = "cappadocian"
+		add_trait = "giovanni"
+			religion = giovanni
+			add_artifact = crown_of_the_sea
+			 }
+		custom_tooltip = { text = obj24_custom }
+		hidden_tooltip = {
+			any_character = { 
+				limit = {
+					AND = { religion = cappadocian_high
+					culture = italian }
+					NOT = { has_landed_title = e_giovanni
+							} }
+					remove_trait = "cappadocian"
+					add_trait = "giovanni"
+					unsafe_religion = giovanni
+				}
+				}
+		set_parent_religion = { religion = cappadocian_high parent = giovanni }
+		c_505017 = { death = { death_reason = death_execution killer = ROOT } }
+		hidden_tooltip = {
+			any_playable_ruler = {
+				limit = {
+					ai = no
+					NOT = { has_landed_title = e_giovanni }
+				}
+				narrative_event = { id = POD1230OBJ.25 }
+			}
+		}						
+}
+}
+
+# Informed about the Conspiracy
+narrative_event = {
+	id = POD1230OBJ.25
+	title = EVTNAMEPOD1230OBJ.24
+	desc = EVTDESCPOD1230OBJ.24
+	
+	picture = GFX_evt_shadowy_cabal
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = { 
+		text = EVTOPTAobj.25
+		trigger = {
+			religion = giovanni
+		}
+		}
+		name = { 
+		text = EVTOPTBobj.25
+		trigger = {
+			religion = cappadocian_high
+		}
+		}
+		name = { 
+		text = EVTOPTCobj.25
+		trigger = {
+			NOR = { religion = cappadocian_high
+			religion = giovanni		}
+		}
+	}
+	}
+}
+
+### The Sargon Codex
+
+# Codex rebuilt
+narrative_event = {
+	id = POD1230OBJ.26
+	title = EVTNAMEPOD1230OBJ.26
+	desc = EVTDESCPOD1230OBJ.26
+	
+	picture = GFX_evt_book_carolingian_script
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAobj.26
+		custom_tooltip = { text = obj26_custom }
+		add_artifact = the_sargon_codex
+		ROOT = {
+			if = { 
+				limit = { trait = lunatic 
+				NOT = { trait = possessed }
+					} 
+				add_trait = possessed }
+			if = { 
+				limit = { NOT = { trait = lunatic }
+				 trait = possessed 
+					} 
+				add_trait = lunatic }
+			if = { 
+				limit = { NOT = { trait = lunatic }
+				NOT = { trait = possessed }
+					} 
+				add_trait = lunatic 
+				add_trait = possessed	
+					}
+			}
+		hidden_tooltip = {
+			any_playable_ruler = {
+				limit = {
+					ai = no
+					NOT = { has_landed_title = k_erciyes }
+				}
+				narrative_event = { id = POD1230OBJ.27 }
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTBobj.26
+		piety = 1000
+		prestige = 1000
+		change_diplomacy = 5
+		add_artifact = The_Sargon_Fragment
+		give_nickname = nick_the_wise
+		ROOT = {
+			if = { 
+				limit = { trait = scholar
+				NOT = { trait = erudite }
+					} 
+				add_trait = erudite }
+			if = { 
+				limit = { NOT = { trait = scholar }
+				 trait = erudite
+					} 
+				add_trait = scholar }
+			if = { 
+				limit = { NOT = { trait = scholar }
+				NOT = { trait = erudite }
+					} 
+				add_trait = scholar
+				add_trait = erudite	
+					}
+			}
+		
+		hidden_tooltip = {
+			any_playable_ruler = {
+				limit = {
+				 ai = no
+					NOT = { has_landed_title = k_erciyes }
+				}
+				narrative_event = { id = POD1230OBJ.27 }
+			}
+		}
+	}
+}
+
+
+# Informed about the codex
+narrative_event = {
+	id = POD1230OBJ.27
+	title = EVTNAMEPOD1230OBJ.26
+	desc = EVTDESCPOD1230OBJ.26
+	
+	picture = GFX_evt_book_carolingian_script
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = { 
+		text = EVTOPTAobj.27
+		trigger = {
+			religion = cappadocian_high
+
+		}
+		}
+		name = { 
+		text = EVTOPTBobj.27
+		trigger = {
+			religion = malkavianlow
+		}
+		}
+		name = { 
+		text = EVTOPTCobj.27
+		trigger = {
+			NOR = { religion = malkavianlow
+			religion = cappadocian_high	}
+		}
+	}
+	}
+}
+
+### Salubri comeback
+
+# Salubri victory
+narrative_event = {
+	id = POD1230OBJ.28
+	title = EVTNAMEPOD1230OBJ.28
+	desc = EVTDESCPOD1230OBJ.28
+	
+	picture = GFX_evt_pale_rider
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAobj.28
+		add_trait = saulotsheir
+		piety = 2000
+		culture_techpoints = 200
+		ROOT = {
+			if = { 
+				limit = { 
+				NOT = { trait = patient }
+					} 
+				add_trait = patient }
+			if = { 
+				limit = { 
+				NOT = { trait = kind }
+					} 
+				add_trait = kind }
+			if = { 
+				limit = { 
+				NOT = { trait = charitable }
+					} 
+				add_trait = charitable }
+				}
+		hidden_tooltip = {
+		activate_title = { title = e_salubri status = yes }
+			primary_title = {
+				any_direct_de_jure_vassal_title = {
+					de_jure_liege = e_salubri
+				}
+			}
+		}
+		e_salubri = {
+			grant_title = ROOT
+			make_primary_title = yes
+		}
+			
+		hidden_tooltip = {
+			any_playable_ruler = {
+				narrative_event = { id = POD1230OBJ.29 }
+			}
+		}
+	}
+	option = {
+		name = EVTOPTBobj.28
+		prestige = 2000
+		give_nickname = nick_the_avenging_angel
+		add_artifact = sword_of_samiel
+		ROOT = {
+			if = { 
+				limit = { 
+				NOT = { trait = wroth }
+					} 
+				add_trait = wroth }
+			if = { 
+				limit = { 
+				NOT = { trait = cruel }
+					} 
+				add_trait = cruel }
+			if = { 
+				limit = { 
+				NOT = { trait = impaler }
+					} 
+				add_trait = impaler }
+				}
+		hidden_tooltip = {
+		activate_title = { title = e_salubri status = yes }
+			primary_title = {
+				any_direct_de_jure_vassal_title = {
+					de_jure_liege = e_salubri
+				}
+			}
+		}
+		e_salubri = {
+			grant_title = ROOT
+			make_primary_title = yes
+		}
+			
+		hidden_tooltip = {
+			any_playable_ruler = {
+				narrative_event = { id = POD1230OBJ.29 }
+			}
+		}
+	}
+}
+
+
+# Informed about Salubri victory
+narrative_event = {
+	id = POD1230OBJ.29
+	title = EVTNAMEPOD1230OBJ.28
+	desc = EVTDESCPOD1230OBJ.28
+	
+	picture = GFX_evt_pale_rider
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = { 
+		text = EVTOPTAobj.29
+		trigger = {
+			religion = tremerelow
+
+		}
+		}
+		name = { 
+		text = EVTOPTBobj.29
+		trigger = {
+			religion = salubri_high
+		}
+		}
+		name = { 
+		text = EVTOPTCobj.29
+		trigger = {
+			NOR = { religion = salubri_high
+			religion = tremerelow	}
+		}
+	}
+	}
+}
+
+### Furores victory
+
+# Furores victory
+narrative_event = {
+	id = POD1230OBJ.30
+	title = EVTNAMEPOD1230OBJ.30
+	desc = EVTDESCPOD1230OBJ.30
+	
+	picture = GFX_evt_rider_adventure
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAobj.30
+		add_trait = firstamongequals
+		give_nickname = nick_the_eternal_rebel
+		hidden_tooltip = {
+		activate_title = { title = e_free_state status = yes }
+			primary_title = {
+				any_direct_de_jure_vassal_title = {
+					de_jure_liege = e_free_state
+				}
+			}
+		}
+		e_free_state = {
+			grant_title = ROOT
+			make_primary_title = yes
+		}
+			
+		hidden_tooltip = {
+			any_playable_ruler = {
+				narrative_event = { id = POD1230OBJ.31 }
+			}
+		}
+	}
+}
+
+
+# Informed about furores victory
+narrative_event = {
+	id = POD1230OBJ.31
+	title = EVTNAMEPOD1230OBJ.30
+	desc = EVTDESCPOD1230OBJ.30
+	
+	picture = GFX_evt_rider_adventure
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = { 
+		text = EVTOPTAobj.31
+		trigger = {
+			religion = furores
+
+		}
+		}
+		name = { 
+		text = EVTOPTBobj.31
+		trigger = {
+			religion = brujah_high
+		}
+		}
+		name = { 
+		text = EVTOPTCobj.31
+		trigger = {
+			NOR = { religion = brujah_high
+			religion = furores	}
+		}
+	}
+	}
+}
+
+### End of the civil war, Lasombra victory
+
+# Lasombra victory
+narrative_event = {
+	id = POD1230OBJ.32
+	title = EVTNAMEPOD1230OBJ.32
+	desc = EVTDESCPOD1230OBJ.32
+	
+	picture = GFX_evt_book_carolingian_script
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAobj.32
+		give_nickname = nick_the_shadow
+		add_artifact = clan_lasombra_chronicles
+		piety = 1000
+		prestige = 2000
+		custom_tooltip = { text = obj32_custom }
+		hidden_tooltip = {
+			any_playable_ruler = {
+				limit = {
+					religion = ashirra
+				}
+				narrative_event = { id = POD1230OBJ.33 }
+			}
+		}
+		hidden_tooltip = {
+			any_playable_ruler = {
+				limit = {
+					ai = no
+					NOR = { religion = ashirra
+					has_landed_title = e_sea_of_shadows }
+				}
+				narrative_event = { id = POD1230OBJ.34 }
+			}
+		}
+	}
+}
+
+# Clan before Faith ?
+narrative_event = {
+	id = POD1230OBJ.33
+	title = EVTNAMEPOD1230OBJ.32
+	desc = EVTDESCPOD1230OBJ.32
+	
+	picture = GFX_evt_book_carolingian_script
+	
+	is_triggered_only = yes
+	
+	option = { # Yes
+		name = EVTOPTAobj.33
+		ai_chance = { factor = 60 }
+		religion = FROM
+		any_courtier = {
+			limit = {
+				religion = ashirra
+				liege = { character = ROOT }
+			}
+			religion = FROM
+		}
+		capital_scope = {
+			religion = FROM
+		}
+	}
+	option = { # No
+		name = EVTOPTBobj.33
+		ai_chance = { 
+			factor = 40
+			modifier = { 
+				factor = 0 
+				trait = cynical }
+		}
+		add_trait = zealous
+	}
+}
+	
+# Informed about Lasombra Victory
+narrative_event = {
+	id = POD1230OBJ.34
+	title = EVTNAMEPOD1230OBJ.32
+	desc = EVTDESCPOD1230OBJ.32
+	
+	picture = GFX_evt_book_carolingian_script
+	
+	is_triggered_only = yes
+	
+	option = {
+		name =  EVTOPTAobj.34
+		}
+}
+
+### Golconda question
+
+# Inconnu victory
+narrative_event = {
+	id = POD1230OBJ.35
+	title = EVTNAMEPOD1230OBJ.35
+	desc = EVTDESCPOD1230OBJ.35
+	
+	picture = GFX_evt_garden
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAobj.35
+		add_trait = seekerofgolconda
+		piety = 1000
+		custom_tooltip = { text = obj35_custom }
+		if = {
+			limit = {
+				NOT = { trait = zealous } }
+			add_trait = zealous
+			}			
+		hidden_tooltip = {
+			any_playable_ruler = {
+				limit = {
+					NOR = { 
+							religion = inconnu
+							has_landed_title = d_latium	}
+				}
+				narrative_event = { id = POD1230OBJ.36 }
+			}
+		}
+		hidden_tooltip = {
+			any_playable_ruler = {
+				limit = {
+					 ai = no
+					 religion = inconnu
+				}
+				narrative_event = { id = POD1230OBJ.37 }
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTBobj.35
+		prestige = 2000
+		hidden_tooltip = {
+		activate_title = { title = e_inconnu status = yes }
+			primary_title = {
+				any_direct_de_jure_vassal_title = {
+					de_jure_liege = e_inconnu
+				}
+			}
+		}
+		e_inconnu = {
+			grant_title = ROOT
+			make_primary_title = yes
+		}
+		add_trait = eternalconsul
+		hidden_tooltip = {
+			any_playable_ruler = {
+				limit = {
+					ai = no
+					NOT = { has_landed_title = d_latium }
+				}
+				narrative_event = { id = POD1230OBJ.37 }
+			}
+		}
+	}
+}
+
+# Inconnu : Yay or Nay ?
+narrative_event = {
+	id = POD1230OBJ.36
+	title = EVTNAMEPOD1230OBJ.35
+	desc = EVTDESCPOD1230OBJ.35
+	
+	picture = GFX_evt_garden
+	
+	is_triggered_only = yes
+	
+	option = { # Yes
+		name = EVTOPTAobj.36
+		ai_chance = { factor = 30 
+		modifier = {
+			factor = 90
+				OR = { trait = cynical 
+					trait = ambitious
+										}	
+		}
+		}
+		religion = inconnu
+		any_courtier = {
+			limit = {
+				liege = { character = ROOT }
+			}
+			religion = inconnu
+		}
+		capital_scope = {
+			religion = FROM
+		}
+	}
+	option = { # No
+		name = EVTOPTBobj.36
+		ai_chance = { 
+			factor = 30 
+			modifier = { 
+				factor = 90 
+				trait = zealous	}
+		}
+	}
+	option = { # Secretly
+		name = EVTOPTCobj.36
+		ai_chance = { 
+			factor = 40 
+		}
+	set_secret_religion = inconnu
+	}
+}
+
+# Informed about Inconnu
+narrative_event = {
+	id = POD1230OBJ.37
+	title = EVTNAMEPOD1230OBJ.35
+	desc = EVTDESCPOD1230OBJ.35
+	
+	picture = GFX_evt_garden
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = { 
+		text = EVTOPTAobj.37
+		trigger = {
+			religion = inconnu
+		}
+		}
+		name = { 
+		text = EVTOPTBobj.37
+		trigger = {
+			religion = ventrue_high
+		}
+		}
+		name = { 
+		text = EVTOPTCobj.37
+		trigger = {
+			NOR = { religion = inconnu
+			religion = ventrue_high		}
+		}
+	}
+	}
+}
+
+### Gangrel victory
+
+# gangrel victory
+narrative_event = {
+	id = POD1230OBJ.38
+	title = EVTNAMEPOD1230OBJ.38
+	desc = EVTDESCPOD1230OBJ.38
+	
+	picture = GFX_evt_wolf
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAobj.38
+		add_trait = thescourge
+		custom_tooltip = { text = obj38_custom }
+		hidden_tooltip = {
+		activate_title = { title = e_gangrel status = yes }
+			primary_title = {
+				any_direct_de_jure_vassal_title = {
+					de_jure_liege = e_gangrel
+				}
+			}
+		}
+		e_gangrel = {
+			grant_title = ROOT
+			make_primary_title = yes
+		}
+			
+		hidden_tooltip = {
+			any_independent_ruler = {
+					limit = { religion_group = vampire_high_clans_group }
+					add_character_modifier = {
+						modifier = end_of_civilization
+							duration = 120
+											}
+			}
+		}
+		hidden_tooltip = {
+			any_playable_ruler = {
+				narrative_event = { id = POD1230OBJ.39 }
+			}
+	}
+}
+}
+
+# Informed about gangrel victory
+narrative_event = {
+	id = POD1230OBJ.39
+	title = EVTNAMEPOD1230OBJ.38
+	desc = EVTDESCPOD1230OBJ.38
+	
+	picture = GFX_evt_wolf
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = { 
+		text = EVTOPTAobj.39
+		trigger = {
+			OR = { religion = gangrellow
+			religion = anda }
+
+		}
+		}
+		name = { 
+		text = EVTOPTBobj.39
+		trigger = {
+			religion = einherjar
+		}
+		}
+		name = { 
+		text = EVTOPTCobj.39
+		trigger = {
+			NOR = { religion = gangrellow
+			religion = anda	
+			religion = einherjar }
+		}
+	}
+	}
+}
+
+### Malkavian victory
+
+# The Little Prank
+narrative_event = {
+	id = POD1230OBJ.40
+	title = EVTNAMEPOD1230OBJ.40
+	desc = EVTDESCPOD1230OBJ.40
+	
+	picture = GFX_evt_lunatic
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAobj.40
+		give_nickname = nick_the_little_pranker
+		change_diplomacy = 10
+		change_learning = 10
+		custom_tooltip = { text = obj40a_custom }
+		hidden_tooltip = {
+		activate_title = { title = e_malkavian status = yes }
+			primary_title = {
+				any_direct_de_jure_vassal_title = {
+					de_jure_liege = e_malkavian
+				}
+			}
+		}
+		e_malkavian = {
+			grant_title = ROOT
+			make_primary_title = yes
+		}
+			
+		hidden_tooltip = {
+			any_character = {
+					limit = { religion = malkavianlow }
+						change_learning = 5
+						change_diplomacy = 5
+											
+			}
+		}
+		hidden_tooltip = {
+			any_playable_ruler = {
+				narrative_event = { id = POD1230OBJ.41 }
+			}
+	}
+}
+
+	option = {
+		name = EVTOPTBobj.40
+		give_nickname = nick_the_little_pranker
+
+			add_trait = possessed 
+		custom_tooltip = { text = obj40b_custom }
+		hidden_tooltip = {
+		activate_title = { title = e_malkavian status = yes }
+			primary_title = {
+				any_direct_de_jure_vassal_title = {
+					de_jure_liege = e_malkavian
+				}
+			}
+		}
+		e_malkavian = {
+			grant_title = ROOT
+			make_primary_title = yes
+		}
+			
+		hidden_tooltip = {
+			any_character = {
+					limit = { religion = malkavianlow 
+	 }
+			add_trait = possessed }							
+			}
+		
+		hidden_tooltip = {
+			any_playable_ruler = {
+				narrative_event = { id = POD1230OBJ.41 }
+			}
+	}
+}
+
+	option = {
+		name = EVTOPTCobj.40
+		give_nickname = nick_the_little_pranker
+			add_trait = depressed 
+			add_trait = genius 
+		custom_tooltip = { text = obj40c_custom }
+		hidden_tooltip = {
+		activate_title = { title = e_malkavian status = yes }
+			primary_title = {
+				any_direct_de_jure_vassal_title = {
+					de_jure_liege = e_malkavian
+				}
+			}
+		}
+		e_malkavian = {
+			grant_title = ROOT
+			make_primary_title = yes
+		}
+			
+		hidden_tooltip = {
+			any_character = {
+					limit = { religion = malkavianlow 
+ }
+			add_trait = depressed }							
+			}
+		
+		hidden_tooltip = {
+			any_playable_ruler = {
+				narrative_event = { id = POD1230OBJ.41 }
+			}
+	}
+}
+
+	option = {
+		name = EVTOPTDobj.40
+		give_nickname = nick_the_little_pranker
+			add_trait = possessed 
+		custom_tooltip = { text = obj40d_custom }
+		hidden_tooltip = {
+		activate_title = { title = e_malkavian status = yes }
+			primary_title = {
+				any_direct_de_jure_vassal_title = {
+					de_jure_liege = e_malkavian
+				}
+			}
+		}
+		e_malkavian = {
+			grant_title = ROOT
+			make_primary_title = yes
+		}
+			
+		hidden_tooltip = {
+			any_playable_ruler = {	
+						add_trait = lunatic 		
+						add_trait = possessed		
+			}
+		}
+		
+		hidden_tooltip = {
+			any_playable_ruler = {
+				narrative_event = { id = POD1230OBJ.41 }
+			}
+	}	
+	}
+}
+
+
+# Informed about malkavian victory
+narrative_event = {
+	id = POD1230OBJ.41
+	title = EVTNAMEPOD1230OBJ.40
+	desc = EVTDESCPOD1230OBJ.40
+	
+	picture = GFX_evt_lunatic
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = { 
+		text = EVTOPTAobj.41
+		trigger = {
+			religion = baali
+		}
+		}
+		name = { 
+		text = EVTOPTBobj.41
+		trigger = {
+			religion = malkavianlow
+		}
+		}
+		name = { 
+		text = EVTOPTCobj.41
+		trigger = {
+			NOR = { religion = malkavianlow
+			religion = baali }
 		}
 	}
 	}

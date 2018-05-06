@@ -382,7 +382,7 @@ force_vassalization = { # New2
 				}
 				ROOT = {
 					show_scope_change = no
-					prestige = 1200
+					prestige = 1500
 				}
 			}
 			conditional_tooltip = {
@@ -391,7 +391,7 @@ force_vassalization = { # New2
 				}
 				ROOT = {
 					show_scope_change = no
-					prestige = 5000
+					prestige = 6000
 				}
 			}
 			conditional_tooltip = {
@@ -400,7 +400,7 @@ force_vassalization = { # New2
 				}
 				ROOT = {
 					show_scope_change = no
-					prestige = 12500
+					prestige = 15000
 				}
 			}
 		}
@@ -413,7 +413,7 @@ force_vassalization = { # New2
 					tier = COUNT
 				}
 				ROOT = {
-					prestige = -250
+					prestige = -1500
 				}
 			}
 			if = {
@@ -421,7 +421,7 @@ force_vassalization = { # New2
 					tier = DUKE
 				}
 				ROOT = {
-					prestige = -1000
+					prestige = -6000
 				}
 			}
 			if = {
@@ -429,7 +429,7 @@ force_vassalization = { # New2
 					tier = KING
 				}
 				ROOT = {
-					prestige = -2500
+					prestige = -15000
 				}
 			}
 		}
@@ -2508,6 +2508,7 @@ tributary_permanent_cb = { # New8
 					value = off
 				}
 			}
+			prestige = 6000
 			is_nomadic = no
 			independent = yes
 			mercenary = no
@@ -2632,7 +2633,10 @@ tributary_permanent_cb = { # New8
 
 	on_add = {
 		# Chance to surrender early
-		ROOT = { save_event_target_as = tribute_war_suzerain }
+		ROOT = {
+			prestige = -6000
+			save_event_target_as = tribute_war_suzerain 
+			}
 		FROM = {
 			save_event_target_as = tribute_war_target
 			set_character_flag = surrender_tributary_permanent_cb
@@ -2799,6 +2803,7 @@ tributary_nomad_cb = { # New9
 	
 	can_use = {
 		ROOT = {
+			prestige = 5000
 			is_nomadic = yes
 			mercenary = no
 			OR = {
@@ -2921,7 +2926,10 @@ tributary_nomad_cb = { # New9
 
 	on_add = {
 		# Chance to surrender early
-		ROOT = { save_event_target_as = tribute_war_suzerain }
+		ROOT = {
+			prestige = -5000
+			save_event_target_as = tribute_war_suzerain 
+		}
 		FROM = {
 			save_event_target_as = tribute_war_target
 			set_character_flag = surrender_tributary_nomad_cb

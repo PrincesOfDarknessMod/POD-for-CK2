@@ -1,0 +1,162 @@
+#To add a great person to the list copy one of the existing blocks and edit it to your new person and add them to the pod_check_great_people with the new 'spawn_<personname> = yes'.
+#For AI embrace patterns you must set one of the following flags in the new_character block before spawn
+#great_rebel
+#great_ruler
+#great_steward
+#great_theologian
+#great_intrigue
+#great_warrior
+#great_scientist
+#great_philosopher
+#great_artist
+#great_seducer
+#great_occultist
+#great_tyrant
+#great_special - this flag is for handling very special people like vlad tepes
+pod_spawn_great_people_1600_to_1799 = {
+	spawn_elizabeth_bathory = yes
+	spawn_ernst_von_mansfeld = yes
+	spawn_thomas_paine = yes
+}
+#1614
+spawn_elizabeth_bathory = {
+	if = {
+		limit = { 
+			year = 1614
+			NOT = { year > 1614 }
+		}
+		random_province = {
+			limit = {
+				culture = "hungarian"
+			}
+			create_character = {
+				name = "Elizabeth Bathory"
+				age = 24
+				dna="bgkff0jaca0"
+				properties="mc0j0k0000000000000"
+				trait = mortal
+				trait = canon
+				trait = wyrm-tainted
+				trait = great_person
+				trait = grey_eminence
+				trait = impaler
+				trait = proud
+				trait = cruel
+				trait = diligent
+				trait = schemer
+				trait = deceitful
+				female = yes
+				religion = innocent
+				dynasty = none
+				culture = "hungarian"
+				attributes = {
+					diplomacy = 12
+					intrigue = 15
+					learning = 13
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = elizabeth_bathory
+				set_character_flag = great_tyrant
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+#1620
+spawn_ernst_von_mansfeld = {
+	if = {
+		limit = { 
+			year = 1620
+			NOT = { year > 1620 }
+		}
+		random_province = {
+			limit = {
+				culture = "german"
+			}
+			create_character = {
+				name = "Ernst von Mansfeld"
+				age = 30
+				dna="ddddgmhceco"
+				properties="cd00fa00000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = brilliant_strategist
+				trait = genius
+				trait = strategist
+				trait = diligent
+				trait = arbitrary
+				trait = cruel
+				female = no
+				religion = innocent
+				dynasty = none
+				culture = "german"
+				attributes = {
+					intrigue = 9
+					martial = 15
+					diplomacy = 13
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = ernst_von_mansfeld
+				set_character_flag = great_warrior
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+#1776
+spawn_thomas_paine = {
+	if = {
+		limit = { 
+			year = 1776
+			NOT = { year > 1776 }
+		}
+		random_province = {
+			limit = {
+				culture = "english"
+			}
+			create_character = {
+				name = "Thomas Paine"
+				age = 30
+				dna="ddddgmhceco"
+				properties="cd00fa00000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = misguided_warrior
+				trait = genius
+				trait = cynical
+				trait = diligent
+				trait = ambitious
+				trait = brave
+				trait = just
+				trait = stubborn
+				trait = peasant_leader
+				trait = excommunicated
+				trait = stressed
+				female = no
+				religion = innocent
+				dynasty = none
+				culture = "english"
+				attributes = {
+					intrigue = 12
+					learning = 14
+					diplomacy = 12
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = thomas_paine
+				set_character_flag = great_rebel
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}

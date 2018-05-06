@@ -57,6 +57,13 @@ is_elder_vampire = {
 	}
 }
 
+is_late_anarch_revolt = {
+	OR = {
+		#has_global_flag = anarch_revolt_stage_2
+		has_global_flag = anarch_revolt_stage_3
+	}
+}
+
 has_offensive_discipline = {
 	trait = vigor_5
 	trait = celerity_5
@@ -476,4 +483,47 @@ has_obfuscate = {
 		trait = obfuscate_4
 		trait = obfuscate_5
 	}
+}
+
+is_vampire_anarch = {
+	OR = {
+		religion = furores
+		religion = vampire_promethean
+		religion = anarchs
+		secret_religion = vampire_promethean
+		secret_religion = furores
+		secret_religion = anarchs
+	}
+}
+is_likely_anarch = {
+	OR = {
+		trait = ambitious
+		trait = stubborn
+		trait = proud
+	}
+}
+not_likely_anarch = {
+	OR = {
+		trait = kind
+		higher_tier_than = DUKE
+		opinion = { who = LIEGE value = 95 }
+	}
+}
+can_go_anarch = {
+	NOT = { age > 401 }
+	NOT = { trait = torpor }
+}
+is_special_defense = {
+	OR = {
+		trait = canon
+		trait = camarilla_founder_trait
+		trait = sabbat_founder_trait
+		trait = great_person
+		trait = anarch_revolt_figure_trait
+	}
+}
+is_vampire_capable = {
+	NOT = { trait = torpor }
+	prisoner = no
+	ai = yes
 }

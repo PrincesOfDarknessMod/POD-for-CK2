@@ -1,0 +1,523 @@
+shadow_inquisition_province_effect = {
+	set_variable = { which = shadow_count value = 3 }
+	trigger_switch = {
+		on_trigger = has_global_flag
+		shadow_inquisition_stage_1 = {
+			set_variable = { which = shadow_count value = 3 }
+		}
+		shadow_inquisition_stage_2 = {
+			set_variable = { which = shadow_count value = 10 }
+		}
+		shadow_inquisition_stage_3 = {
+			set_variable = { which = shadow_count value = 30 }
+		}
+		shadow_inquisition_stage_4 = {
+			set_variable = { which = shadow_count value = 3 }
+		}
+	}
+	while = {
+		limit = {
+			check_variable = {
+				which = shadow_count
+				value = 1
+			}
+		}    
+		subtract_variable = {
+			which = shadow_count
+			value = 1
+		}
+		random_province = {
+			limit = {
+				NOT = { has_province_modifier = shadow_inquisition_modifier }
+				owner = { 
+					trait = vampire
+					NOT = { trait = storyteller }
+				}
+			}
+			add_province_modifier = {
+				name = shadow_inquisition_modifier
+				years = 10
+			}
+			if = {
+				limit = {
+					owner = {
+						has_character_flag = heavy_masquerade_decision
+					}
+				}
+				random = {
+					chance = 70
+					remove_province_modifier = shadow_inquisition_modifier
+				}
+			}
+		}
+	}
+}
+
+masquerade_breach_province_effect = {
+	set_variable = { which = breach_count value = 3 }
+	while = {
+		limit = {
+			check_variable = {
+				which = breach_count
+				value = 1
+			}
+		}    
+		subtract_variable = {
+			which = breach_count
+			value = 1
+		}
+		random_province = {
+			limit = {
+				NOT = { has_province_modifier = masquerade_breach }
+				owner = { 
+					trait = vampire
+					NOT = { trait = storyteller }
+				}
+			}
+			
+			add_province_modifier = {
+				name = masquerade_breach
+				years = 5
+			}
+			if = {
+				limit = {
+					owner = {
+						has_character_flag = heavy_masquerade_decision
+					}
+				}
+				random = {
+					chance = 70
+					remove_province_modifier = shadow_inquisition_modifier
+				}
+			}
+		}
+		change_variable = { which = global_shadow_inquisition_counter value = 1 }
+	}
+}
+
+check_inquisition_stage_effect = {
+	log = "checking inquisition stage"
+	log = "Total SI Kills: [global_shadow_inquisition_toll.GetValue]"
+	if = {
+		limit = {
+			check_variable = { which = "global_shadow_inquisition_counter" value = 120 }
+			NOR = { 
+				has_global_flag = shadow_inquisition_stage_2
+				has_global_flag = shadow_inquisition_stage_3
+				has_global_flag = shadow_inquisition_stage_4
+				has_global_flag = shadow_inquisition_stage_5
+			}
+		}
+		set_global_flag = shadow_inquisition_stage_2
+		clr_global_flag = shadow_inquisition_stage_1
+		set_variable = { which = global_shadow_inquisition_level value = 2 }
+		log = "setting inquisition stage 2"
+		any_player = {
+			narrative_event = { id = POD_Shadow_Inquisition_Events.101 days = 10 random = 20 }
+		}
+	}else_if = {
+		limit = {
+			check_variable = { which = "global_shadow_inquisition_counter" value = 240 }
+			NOR = { 
+				has_global_flag = shadow_inquisition_stage_3
+				has_global_flag = shadow_inquisition_stage_4
+				has_global_flag = shadow_inquisition_stage_5
+			}
+		}
+		set_global_flag = shadow_inquisition_stage_3
+		clr_global_flag = shadow_inquisition_stage_2
+		log = "setting inquisition stage 3"
+		set_variable = { which = global_shadow_inquisition_level value = 3 }
+		province_event = { id = POD_Anarch_Revolt_Events.1 days = 60 random = 120 }
+		any_player = {
+			narrative_event = { id = POD_Shadow_Inquisition_Events.102 days = 10 random = 20 }
+		}
+	}else_if = {
+		limit = {
+			check_variable = { which = "global_shadow_inquisition_counter" value = 390 }
+			NOR = { 
+				has_global_flag = shadow_inquisition_stage_4
+				has_global_flag = shadow_inquisition_stage_5
+			}
+		}
+		set_variable = { which = global_shadow_inquisition_level value = 4 }
+		set_global_flag = shadow_inquisition_stage_4
+		clr_global_flag = shadow_inquisition_stage_3
+		log = "setting inquisition stage 4"
+		any_player = {
+			narrative_event = { id = POD_Shadow_Inquisition_Events.103 days = 10 random = 20 }
+		}
+	}else_if = {
+		limit = {
+			check_variable = { which = "global_shadow_inquisition_counter" value = 690 }
+			NOT = { has_global_flag = shadow_inquisition_stage_5 }
+		}
+		set_variable = { which = global_shadow_inquisition_level value = 5 }
+		set_global_flag = shadow_inquisition_stage_5
+		clr_global_flag = shadow_inquisition_stage_4
+		log = "setting inquisition stage 5"
+		set_global_flag = shadow_inquisition_end
+		any_player = {
+			if = {
+				limit = {
+					has_character_flag = heavy_masquerade_decision
+				}
+				clr_character_flag = heavy_masquerade_decision
+			}
+			narrative_event = { id = POD_Shadow_Inquisition_Events.104 days = 10 random = 20 }
+		}
+	}
+}
+
+shadow_inquistion_poll_provinces = {
+	set_variable = { which = kill_count value = 1 }
+	trigger_switch = {
+		on_trigger = has_global_flag
+		shadow_inquisition_stage_1 = {
+			set_variable = { which = kill_count value = 3 }
+		}
+		shadow_inquisition_stage_2 = {
+			set_variable = { which = kill_count value = 10 }
+		}
+		shadow_inquisition_stage_3 = {
+			set_variable = { which = kill_count value = 15 }
+		}
+		shadow_inquisition_stage_4 = {
+			set_variable = { which = kill_count value = 6 }
+		}
+	}
+	while = {
+		limit = {
+			check_variable = {
+				which = kill_count
+				value = 1
+			}
+		}
+		subtract_variable = {
+			which = kill_count
+			value = 1
+		}
+		random_province = {
+			limit = {
+				has_province_modifier = shadow_inquisition_modifier
+			}
+			shadow_inquisition_kill_effect = yes
+		}
+	}
+}
+shadow_inquistion_revolt_provinces = {
+	set_variable = { which = revolt_count value = 1 }
+	trigger_switch = {
+		on_trigger = has_global_flag
+		shadow_inquisition_stage_1 = {
+			set_variable = { which = revolt_count value = 2 }
+		}
+		shadow_inquisition_stage_2 = {
+			set_variable = { which = revolt_count value = 4 }
+		}
+		shadow_inquisition_stage_3 = {
+			set_variable = { which = revolt_count value = 7 }
+		}
+		shadow_inquisition_stage_4 = {
+			set_variable = { which = revolt_count value = 2 }
+		}
+	}
+	while = {
+		limit = {
+			check_variable = {
+				which = revolt_count
+				value = 1
+			}
+		}
+		subtract_variable = {
+			which = revolt_count
+			value = 1
+		}
+		random_province = {
+			limit = {
+				has_province_modifier = shadow_inquisition_modifier
+			}
+			save_event_target_as = target_province
+			owner = {
+				save_event_target_as = target_owner
+			}
+			pod_shadow_inquisition_spawn = yes
+		}
+	}
+}
+
+shadow_inquisition_kill_effect = {
+	save_event_target_as = kill_province
+	if = {
+		limit = {
+			owner = { ai = no }
+		}
+		owner = {
+			log = "SI kill in [This.GetName] : PLAYER"
+			character_event = { id = POD_Shadow_Inquisition_Events.11 days = 20 random = 150 }
+		}
+	}else = {
+		set_variable = { which = ensured_kill value = 1 }
+		while = {
+			limit = {
+				check_variable = {
+					which = ensured_kill
+					value = 1
+				}
+			}
+			random_province_character = {
+				limit = {
+					ai = yes
+					NOT = { trait = canon }
+					NOT = { trait = mortal }
+					has_powerful_generation = no
+					is_ruler = no
+					is_special_defense = no
+				}
+				death = {
+					death_reason = death_shadow_inquisition_unknown
+				}
+				log = "SI kill of [This.GetTitledName] in [kill_province.GetName]"
+				
+				subtract_variable = {
+					which = ensured_kill
+					value = 10
+				}
+				change_variable = { which = global_shadow_inquisition_toll value = 1 }
+			}
+			subtract_variable = {
+				which = ensured_kill
+				value = 1
+			}
+			change_variable = { which = global_shadow_inquisition_province_kill value = 1 }
+		}
+	}
+}
+
+pod_shadow_inquisition_spawn = {
+	create_character = {
+		random_traits = yes
+		dynasty = none
+		religion = shadow_inquisition
+		culture = event_target:target_province
+		female = 50
+		age = 32
+		attributes = {
+			martial = 7
+		}
+		trait = zealous
+		trait = skilled_tactician
+		trait = mortal
+		trait = supe_hunter
+	}
+	new_character = {
+		log = "SI Revolt started by [This.GetTitledName] in [target_province.GetName]"
+		POD_cleanse_mortal_effect = yes
+		set_character_flag = SI_revolter
+		set_hunter_type = yes
+		save_event_target_as = rebel_leader
+		create_title = {
+			tier = DUKE
+			landless = yes
+			temporary = yes
+			rebel = yes
+			culture = event_target:target_province
+			name = "SI_REVOLT"
+			holder = THIS
+		}
+		spawn_SI_army_effect = yes
+		event_target:target_province = {
+			owner = {
+				top_liege = {
+					log = "[rebel_leader.GetTitledName] war vs [This.GetTitledName] in [rebel_leader.Location.GetName]"
+					reverse_war = {
+						target = PREVPREVPREV
+						casus_belli = SI_inquisition_uprising_war
+						thirdparty_title = ROOT # The county...
+						tier = DUKE # ... but really the de jure duchy
+					}
+					reverse_opinion = {
+						who = PREVPREVPREV
+						modifier = opinion_evil_tyrant
+					}
+				}
+			}
+		}	
+	}
+}
+
+set_hunter_type = {
+	random_list = {
+		10 = {
+			add_trait = mystic
+		}
+		10 = {
+			add_trait = nun
+		}
+		10 = {	
+			add_trait = crusader
+		}
+	}
+}
+spawn_SI_army_effect = {
+	spawn_hunter_general_effect = yes
+	spawn_mage_general_effect = yes
+	trigger_switch = {
+		on_trigger = has_global_flag
+		shadow_inquisition_stage_1 = {
+			random = {
+				chance = 33
+				spawn_hunter_general_effect = yes
+			}
+			random = {
+				chance = 33
+				spawn_mage_general_effect = yes
+			}
+			random = {
+				chance = 33
+				spawn_mage_general_effect = yes
+			}
+		}
+		shadow_inquisition_stage_2 = {
+			random = {
+				chance = 33
+				spawn_hunter_general_effect = yes
+			}
+			random = {
+				chance = 33
+				spawn_mage_general_effect = yes
+			}
+			random = {
+				chance = 33
+				spawn_mage_general_effect = yes
+			}
+			random = {
+				chance = 33
+				spawn_hunter_general_effect = yes
+			}
+			random = {
+				chance = 33
+				spawn_mage_general_effect = yes
+			}
+		}
+		shadow_inquisition_stage_3 = {
+			random = {
+				chance = 33
+				spawn_hunter_general_effect = yes
+			}
+			random = {
+				chance = 33
+				spawn_mage_general_effect = yes
+			}
+			random = {
+				chance = 33
+				spawn_mage_general_effect = yes
+			}
+			random = {
+				chance = 33
+				spawn_hunter_general_effect = yes
+			}
+			random = {
+				chance = 33
+				spawn_mage_general_effect = yes
+			}
+			random = {
+				chance = 33
+				spawn_hunter_general_effect = yes
+			}
+			random = {
+				chance = 33
+				spawn_mage_general_effect = yes
+			}
+			random = {
+				chance = 33
+				spawn_hunter_general_effect = yes
+			}
+			random = {
+				chance = 33
+				spawn_mage_general_effect = yes
+			}
+		}
+		shadow_inquisition_stage_4 = {
+			random = {
+				chance = 33
+				spawn_hunter_general_effect = yes
+			}
+			random = {
+				chance = 33
+				spawn_mage_general_effect = yes
+			}
+			random = {
+				chance = 33
+				spawn_mage_general_effect = yes
+			}
+		}
+	}
+}
+spawn_hunter_general_effect = {
+	wealth = 100
+	create_character = {
+		random_traits = yes
+		dynasty = none
+		religion = shadow_inquisition
+		culture = THIS
+		female = 50
+		age = 25
+		trait = peasant_leader
+		trait = tough_soldier
+		trait = mortal
+		trait = supe_hunter
+	}
+	new_character = {
+		POD_cleanse_mortal_effect = yes
+		set_hunter_type = yes
+		spawn_unit = {
+			province = event_target:target_province
+			home = event_target:target_province
+			owner = event_target:rebel_leader
+			match_character = event_target:target_owner
+			match_mult = 0.1
+			match_max = 3000
+			match_min = 100
+			troops = {
+				light_infantry = { 3 3 }
+				heavy_infantry = { 3 3 }
+				mass_mages = { 1 1 }
+			}
+			attrition = 1.0
+		}
+	}
+}
+
+spawn_mage_general_effect = {
+	wealth = 100
+	create_character = {
+		random_traits = yes
+		dynasty = none
+		religion = shadow_inquisition
+		culture = THIS
+		female = 50
+		age = 25
+		trait = peasant_leader
+		trait = mage
+	}
+	new_character = {
+		POD_cleanse_mortal_effect = yes
+		character_event = { id = CWOD_mage_commoner.1 }
+		spawn_unit = {
+			province = event_target:target_province
+			home = event_target:target_province
+			owner = event_target:rebel_leader
+			match_character = event_target:target_owner
+			match_mult = 0.1
+			match_max = 3000
+			match_min = 100
+			troops = {
+				light_infantry = { 3 3 }
+				heavy_infantry = { 3 3 }
+				mass_mages = { 1 1 }
+			}
+			attrition = 1.0
+		}
+	}
+}

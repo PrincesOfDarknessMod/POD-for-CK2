@@ -292,6 +292,7 @@ other_claim = {
 	can_use = {
 		ROOT = {
 			mercenary = no
+			NOT = { trait = torpor }
 		}
 	}
 
@@ -3677,7 +3678,7 @@ religious = {
 		ROOT = {
 			OR = {
 				NOT = { religion = buddhist }
-				piety = 250
+				piety = 600
 			}
 		}
 	}
@@ -3688,7 +3689,7 @@ religious = {
 				limit = {
 					religion = buddhist
 				}
-				piety = -250
+				piety = -600
 			}
 		}
 		if = {
@@ -8987,12 +8988,12 @@ pagan_holy_war = {
 	
 	can_use_gui = {
 		ROOT = {
-			piety = 100
+			piety = 600
 		}
 	}
 	
 	on_add = {
-		ROOT = { piety = -100 }
+		ROOT = { piety = -600 }
 		if = {
 			limit = { defender = { is_offmap_governor = offmap_china } }
 			attacker = {  
@@ -12591,6 +12592,7 @@ tributary_cb = {
 		has_dlc = "Horse Lords"
 
 		ROOT = {
+			prestige = 5000
 			mercenary = no
 			OR = {
 				is_tributary = no
@@ -12696,6 +12698,7 @@ tributary_cb = {
 	}
 
 	on_add = {
+		prestige = -5000
 		# Chance to surrender early
 		ROOT = { save_event_target_as = tribute_war_suzerain }
 		FROM = {

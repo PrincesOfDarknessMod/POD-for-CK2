@@ -1,0 +1,415 @@
+# Anarch Revolt CB
+# Shadow Inquisition CB
+
+# The CB used by the cool kids
+anarch_revolt = {
+	name = CB_NAME_ANARCH_UPRISING
+	war_name = WAR_NAME_ANARCH_UPRISING
+	sprite = 7
+	truce_days = 365
+	hostile_against_others = yes
+	attacker_can_call_allies = no
+	defender_can_call_allies = no
+	can_ask_to_join_war = no
+	check_de_jure_tier = DUKE
+	
+	can_use = {
+		ROOT = { has_character_flag = anarch_revolter }
+	}
+	
+	is_valid = {
+
+	}
+
+	on_add = {
+		if = {
+			limit = { defender = { is_offmap_governor = offmap_china } }
+			attacker = {  
+				sound_effect = china_angered_emperor
+				detract_grace_super_huge_effect = yes 
+			}
+		}
+	}
+ 
+	on_success = {
+		ROOT = {
+			prestige = 200
+			piety = 100
+			occupy_minors_of_occupied_settlements = FROM
+			gain_all_occupied_titles = { who = FROM type = revolt }
+			clr_character_flag = anarch_revolter
+		}
+		
+		FROM = {
+			prestige = -500
+			piety = -500
+			religion_authority = {
+				modifier = lost_religious_revolt
+			}		
+		}
+	}
+	
+	on_success_title = {
+		ROOT = {
+			vassalize_or_take_under_title = {
+				title = PREV
+				enemy = FROM
+				same_religion = yes # Only vassalize rulers of my religion
+				is_religious = yes
+				type = holy_war
+			}
+		}
+		if = {
+			limit = {
+				controls_religion = no
+				holder_scope = {
+					OR = {
+						character = FROM
+						is_liege_or_above = FROM
+					}
+				}
+			}
+			usurp_title = { target = ROOT type = holy_war }
+		}
+		if = {
+			limit = {
+				has_holder = no
+			}
+			usurp_title = { target = ROOT type = holy_war }
+		}
+	}
+
+	on_fail = {
+		ROOT = {
+			clear_wealth = yes
+			imprison = FROM
+			clr_character_flag = anarch_revolter
+			hidden_tooltip = {
+				add_character_modifier = { 
+					name = broken_spirit
+					days = -1
+				}
+			}
+		}
+		FROM = {
+			prestige = 50
+			piety = 100
+			hidden_tooltip = {
+				opinion = {
+					modifier = opinion_rebel_traitor 
+					who = ROOT
+					months = 1200
+				}
+			}
+			religion_authority = {
+				modifier = won_religious_revolt
+			}
+		}
+	}
+
+	on_reverse_demand = {
+		ROOT = {
+			clear_wealth = yes
+			imprison = FROM
+			clr_character_flag = anarch_revolter
+			hidden_tooltip = {
+				add_character_modifier = { 
+					name = broken_spirit
+					days = -1
+				}
+			}
+		}
+		FROM = {
+			prestige = 100
+			piety = 200
+			hidden_tooltip = {
+				opinion = {
+					modifier = opinion_rebel_traitor 
+					who = ROOT
+					months = 1200
+				}
+				add_character_modifier = { 
+					name = crushed_revolt
+					days = 3650
+				}
+			}
+			religion_authority = {
+				modifier = won_religious_revolt
+			}
+		}
+	}
+
+	attacker_ai_victory_worth = {
+		factor = 100
+	}
+	
+	attacker_ai_defeat_worth = {
+		factor = 100
+	}
+
+	defender_ai_victory_worth = {
+		factor = -1 # always accept
+	}
+	
+	defender_ai_defeat_worth = {
+		factor = 150
+	}
+}
+
+#buffy the vampire slayer
+SI_inquisition_uprising_war = {
+	name = CB_NAME_SI_UPRISING
+	war_name = WAR_NAME_SI_UPRISING
+	sprite = 7
+	truce_days = 365
+	hostile_against_others = yes
+	attacker_can_call_allies = no
+	defender_can_call_allies = no
+	can_ask_to_join_war = no
+	check_de_jure_tier = DUKE
+	
+	can_use = {
+		ROOT = { has_character_flag = SI_revolter }
+	}
+	
+	is_valid = {
+
+	}
+
+	on_add = {
+		if = {
+			limit = { defender = { is_offmap_governor = offmap_china } }
+			attacker = {  
+				sound_effect = china_angered_emperor
+				detract_grace_super_huge_effect = yes 
+			}
+		}
+	}
+ 
+	on_success = {
+		ROOT = {
+			prestige = 200
+			piety = 100
+			occupy_minors_of_occupied_settlements = FROM
+			gain_all_occupied_titles = { who = FROM type = revolt }
+			clr_character_flag = SI_revolter
+		}
+		
+		FROM = {
+			prestige = -500
+			piety = -500
+			religion_authority = {
+				modifier = lost_religious_revolt
+			}		
+		}
+	}
+	
+	on_success_title = {
+		ROOT = {
+			vassalize_or_take_under_title = {
+				title = PREV
+				enemy = FROM
+				same_religion = yes
+				is_religious = yes
+				type = holy_war
+			}
+		}
+		if = {
+			limit = {
+				controls_religion = no
+				holder_scope = {
+					OR = {
+						character = FROM
+						is_liege_or_above = FROM
+					}
+				}
+			}
+			usurp_title = { target = ROOT type = holy_war }
+		}
+		if = {
+			limit = {
+				has_holder = no
+			}
+			usurp_title = { target = ROOT type = holy_war }
+		}
+	}
+
+	on_fail = {
+		ROOT = {
+			clear_wealth = yes
+			imprison = FROM
+			clr_character_flag = SI_revolter
+			hidden_tooltip = {
+				add_character_modifier = { 
+					name = broken_spirit
+					days = -1
+				}
+			}
+		}
+		FROM = {
+			prestige = 50
+			piety = 100
+			religion_authority = {
+				modifier = won_religious_revolt
+			}
+		}
+	}
+
+	on_reverse_demand = {
+		ROOT = {
+			clear_wealth = yes
+			imprison = FROM
+			clr_character_flag = SI_revolter
+			hidden_tooltip = {
+				add_character_modifier = { 
+					name = broken_spirit
+					days = -1
+				}
+			}
+		}
+		FROM = {
+			prestige = 100
+			piety = 200
+			religion_authority = {
+				modifier = won_religious_revolt
+			}
+		}
+	}
+
+	attacker_ai_victory_worth = {
+		factor = 100
+	}
+	
+	attacker_ai_defeat_worth = {
+		factor = 100
+	}
+
+	defender_ai_victory_worth = {
+		factor = -1 # always accept
+	}
+	
+	defender_ai_defeat_worth = {
+		factor = 150
+	}
+}
+
+anarch_adventurer = {
+	name = CB_NAME_ANARCH_ADVENTURER
+	war_name = WAR_NAME_ANARCH_ADVENTURER
+	sprite = 7
+	truce_days = 365
+	hostile_against_others = yes
+	attacker_can_call_allies = no
+	defender_can_call_allies = no
+	can_ask_to_join_war = no
+	check_de_jure_tier = DUKE
+	
+	can_use = {
+		#ROOT = { has_character_flag = anarch_revolter }
+		ROOT = {
+			has_character_flag = anarch_adventurer
+			is_vampire_anarch = yes
+		}
+	}
+	
+	is_valid = {
+		#ROOT = { has_character_flag = anarch_revolter }
+	}
+
+	on_add = {
+	}
+ 
+	on_success = {
+		ROOT = {
+			prestige = 200
+			piety = 100
+			occupy_minors_of_occupied_settlements = FROM
+			gain_all_occupied_titles = { who = FROM type = revolt }
+			clr_character_flag = anarch_revolter
+			clr_character_flag = anarch_adventurer
+			add_trait = anarch_revolt_figure_trait
+		}
+		
+		FROM = {
+			prestige = -500
+			piety = -500
+			religion_authority = {
+				modifier = lost_religious_revolt
+			}		
+		}
+		log = "Successful Major Anarch Uprising by [Root.GetTitledName] against [From.GetTitledName]"
+	}
+	
+	on_success_title = {
+		usurp_title_plus_barony_if_unlanded = ROOT
+	}
+
+	on_fail = {
+		ROOT = {
+			clear_wealth = yes
+			#imprison = FROM
+			banish = yes
+			clr_character_flag = anarch_revolter
+			clr_character_flag = anarch_adventurer
+		}
+		FROM = {
+			prestige = 50
+			piety = 100
+			hidden_tooltip = {
+				opinion = {
+					modifier = opinion_rebel_traitor 
+					who = ROOT
+					months = 1200
+				}
+			}
+			religion_authority = {
+				modifier = won_religious_revolt
+			}
+		}
+		log = "Failed Major Anarch Uprising by [Root.GetTitledName] against [From.GetTitledName]"
+	}
+
+	on_reverse_demand = {
+		ROOT = {
+			clear_wealth = yes
+			banish = yes
+			clr_character_flag = anarch_revolter
+			clr_character_flag = anarch_adventurer
+		}
+		FROM = {
+			prestige = 100
+			piety = 200
+			hidden_tooltip = {
+				opinion = {
+					modifier = opinion_rebel_traitor 
+					who = ROOT
+					months = 1200
+				}
+				add_character_modifier = { 
+					name = crushed_revolt
+					days = 3650
+				}
+			}
+			religion_authority = {
+				modifier = won_religious_revolt
+			}
+		}
+		log = "Completely lost Major Anarch Uprising by [Root.GetTitledName] against [From.GetTitledName]"
+	}
+
+	attacker_ai_victory_worth = {
+		factor = 100
+	}
+	
+	attacker_ai_defeat_worth = {
+		factor = 100
+	}
+
+	defender_ai_victory_worth = {
+		factor = -1 # always accept
+	}
+	
+	defender_ai_defeat_worth = {
+		factor = 150
+	}
+}

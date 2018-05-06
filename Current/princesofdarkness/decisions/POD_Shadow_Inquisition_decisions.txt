@@ -1,0 +1,55 @@
+decisions = {
+			
+	SI_heavy_masquerade_decision = {
+		ai = no
+		is_high_prio = yes
+		potential = {
+			trait = vampire
+			NOT = { trait = torpor }
+			NOT = { has_character_flag = heavy_masquerade_decision }
+			OR = { 
+				has_global_flag = shadow_inquisition_stage_2
+				has_global_flag = shadow_inquisition_stage_3
+				has_global_flag = shadow_inquisition_stage_4
+			}
+		}
+		
+		allow = {
+			trait = vampire		
+			prisoner = no
+			wealth = 300
+			piety = 300
+			NOT = { has_character_flag = heavy_masquerade_decision }
+		}
+		effect = {
+			wealth = -400
+			piety = -200
+			character_event = { id = POD_Shadow_Inquisition_Events.12 }		
+		}
+	}
+	
+	SI_normal_measures_decision = {
+		ai = no
+		is_high_prio = yes
+		potential = {
+			trait = vampire		
+			NOT = { trait = torpor }
+			has_character_flag = heavy_masquerade_decision
+			OR = { 
+				has_global_flag = shadow_inquisition_stage_2
+				has_global_flag = shadow_inquisition_stage_3
+				has_global_flag = shadow_inquisition_stage_4
+			}
+		}
+		
+		allow = {
+			trait = vampire		
+			prisoner = no
+			has_character_flag = heavy_masquerade_decision
+		}
+		effect = {
+			character_event = { id = POD_Shadow_Inquisition_Events.12 }				
+		}
+	}
+
+}
