@@ -33,7 +33,7 @@ character_event = {
 			character_event = { id = POD_player_childe_events.2 days = 1 random = 80 }
 		}
 		random = {
-			chance = 8
+			chance = 6
 			character_event = { id = POD_player_childe_events.34 days = 60 random = 90 }
 		}
 	}
@@ -68,6 +68,7 @@ character_event = {
 						trait = ancient
 						trait = methuselah
 						NOT = { any_liege = { character = event_target:player_parent } }
+						trait = torpor
 					}
 				}
 				if = {
@@ -98,6 +99,7 @@ character_event = {
 			if = {
 				limit = {
 					NOT = { has_character_flag = REACTION_TO_UNLIFE }
+					NOT = { trait = torpor }
 					had_character_flag = { flag = MENTOR_DECISION_TAKEN days = 1200 }
 				}
 				set_character_flag = REACTION_TO_UNLIFE
@@ -106,11 +108,14 @@ character_event = {
 			if = {
 				limit = {
 					NOT = { has_character_flag = REACTION_TO_SIRE }
+					NOT = { trait = torpor }
 					had_character_flag = { flag = MENTOR_DECISION_TAKEN days = 4500 }
 				}
 				set_character_flag = REACTION_TO_SIRE
 				event_target:player_parent = { character_event = { id = POD_player_childe_events.19 days = 1 random = 20 } }
 			}
+			if = {
+				limit = { NOT = { trait = torpor } }
 			random_list = {
 				3 = {
 					character_event = { id = POD_player_childe_events.3 }
@@ -124,6 +129,7 @@ character_event = {
 				180 = {
 					#nothing
 				}
+			}
 			}
 		}
 	}

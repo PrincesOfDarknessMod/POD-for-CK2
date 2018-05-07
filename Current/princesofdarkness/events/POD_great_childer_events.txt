@@ -309,11 +309,41 @@ character_event = {
 		random_rival = {
 			limit = {
 				trait = vampire
+				is_worthy_great_sire = yes
 			}
 			save_event_target_as = a_rival
 		}
 		random_list = {
-			14 = {
+			6 = {
+				modifier = {
+					factor = 1.4
+					player_powerful_gen = yes
+				}
+				modifier = {
+					factor = 0.5
+					player_powerful_gen = no
+					player_strong_gen = no
+				}
+				modifier = {
+					factor = 0.5
+					player_old_age = no
+				}
+				modifier = {
+					factor = 1.3
+					higher_tier_than = COUNT
+				}
+				modifier = {
+					factor = 1.3
+					higher_tier_than = DUKE
+				}
+				modifier = {
+					factor = 1.1
+					higher_tier_than = KING
+				}
+				modifier = {
+					factor = 1.1
+					player_very_old_age = yes
+				}
 				set_character_flag = success_gp
 			}
 			4 = {

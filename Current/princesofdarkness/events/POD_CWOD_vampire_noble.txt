@@ -4,7 +4,7 @@ character_event = {
 	hide_window = yes
 	is_triggered_only = yes
 	
-	immediate = {
+	immediate = {		
 		if = {
 			limit = {
 				is_adult = yes
@@ -721,15 +721,19 @@ character_event = {
 			}	
 			
 		}
-
 		POD_CWOD_bookmark_DAV_init_effect = yes	
 		POD_CWOD_bookmark_masquerade_init_effect = yes
 		POD_CWOD_dynasty_effect = yes
 		POD_CWOD_vampire_governments_init_effect = yes
 		POD_CWOD_vampire_disciplines_init_effect = yes
-	
+			
 # Vampire next generation
-			character_event = { id = CWOD_vampire_noble.2 days = 1}
+			if = {
+				limit = { ai = no }
+				character_event = { id = CWOD_vampire_noble.3 days = 2}
+			}else = {
+				character_event = { id = CWOD_vampire_noble.2 days = 1}
+			}
 			}
 		}	
 	}
@@ -749,7 +753,7 @@ character_event = {
 						female = no
 						age = 250
 						immortal_age = 20
-						dynasty = actually_culture
+						dynasty = ROOT
 						culture = ROOT
 						religion = ROOT
 					}
@@ -773,7 +777,7 @@ character_event = {
 						female = yes
 						age = 250
 						immortal_age = 20
-						dynasty = actually_culture
+						dynasty = ROOT
 						culture = ROOT
 						religion = ROOT
 					}
@@ -797,7 +801,7 @@ character_event = {
 						female = no
 						age = 150
 						immortal_age = 20
-						dynasty = actually_culture
+						dynasty = ROOT
 						culture = ROOT
 						religion = ROOT
 					}
@@ -821,7 +825,7 @@ character_event = {
 						female = yes
 						age = 150
 						immortal_age = 20
-						dynasty = actually_culture
+						dynasty = ROOT
 						culture = ROOT
 						religion = ROOT
 					}
@@ -845,7 +849,7 @@ character_event = {
 						female = yes
 						age = 1100
 						immortal_age = 20
-						dynasty = actually_culture
+						dynasty = ROOT
 						culture = ROOT
 						religion = ROOT
 					}
@@ -871,7 +875,7 @@ character_event = {
 						female = no
 						age = 1100
 						immortal_age = 20
-						dynasty = actually_culture
+						dynasty = ROOT
 						culture = ROOT
 						religion = ROOT
 					}
@@ -897,7 +901,7 @@ character_event = {
 						female = yes
 						age = 100
 						immortal_age = 20
-						dynasty = actually_culture
+						dynasty = ROOT
 						culture = ROOT
 						religion = ROOT
 					}
@@ -921,7 +925,7 @@ character_event = {
 						female = no
 						age = 100
 						immortal_age = 20
-						dynasty = actually_culture
+						dynasty = ROOT
 						culture = ROOT
 						religion = ROOT
 					}
@@ -966,5 +970,145 @@ character_event = {
 				}
 			}	
 		death = "yes"
+	}
+}
+
+character_event = {
+	id = CWOD_vampire_noble.3
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		log = "Vampire noble 3 fired"
+		random_list = {	
+				20 = {
+					create_character = {
+						random_traits = yes
+						trait = vampire
+						trait = wyrm_taint
+						female = 50
+						age = 250
+						immortal_age = 20
+						dynasty = actually_culture
+						culture = ROOT
+						religion = ROOT
+					}
+					new_character = {
+						add_trait = elder							
+						#inherit = ROOT
+						recalc_succession = yes		
+						if = { limit = { ROOT = { is_female = no } } 
+						set_father = ROOT }
+						if = { limit = { ROOT = { is_female = yes } } 
+						set_mother = ROOT }							
+						add_trait = bloodpotency_4
+						add_trait = vampgeneration7
+					}
+				}
+				20 = {
+					create_character = {
+						random_traits = yes
+						trait = vampire
+						trait = wyrm_taint
+						female = 50
+						age = 150
+						immortal_age = 20
+						dynasty = actually_culture
+						culture = ROOT
+						religion = ROOT
+					}
+					new_character = {
+						#inherit = ROOT
+						recalc_succession = yes		
+						if = { limit = { ROOT = { is_female = no } } 
+						set_father = ROOT }
+						if = { limit = { ROOT = { is_female = yes } } 
+						set_mother = ROOT }							
+						add_trait = ancilla
+						add_trait = bloodpotency_3
+						add_trait = vampgeneration8		
+					}
+				}
+				5 = {
+					create_character = {
+						random_traits = yes
+						trait = vampire
+						trait = wyrm_taint
+						female = 50
+						age = 1100
+						immortal_age = 20
+						dynasty = actually_culture
+						culture = ROOT
+						religion = ROOT
+					}
+					new_character = {
+						#inherit = ROOT
+						recalc_succession = yes		
+						if = { limit = { ROOT = { is_female = no } } 
+						set_father = ROOT }
+						if = { limit = { ROOT = { is_female = yes } } 
+						set_mother = ROOT }							
+						add_trait = ancient
+						set_secret_religion = inconnu
+						join_society = secret_religious_cult
+						add_trait = bloodpotency_5
+						add_trait = vampgeneration6	
+					}
+				}
+				5 = {
+					create_character = {
+						random_traits = yes
+						trait = vampire
+						trait = wyrm_taint
+						female = 50
+						age = 100
+						immortal_age = 20
+						dynasty = actually_culture
+						culture = ROOT
+						religion = ROOT
+					}
+					new_character = {
+						#inherit = ROOT
+						recalc_succession = yes		
+						if = { limit = { ROOT = { is_female = no } } 
+						set_father = ROOT }
+						if = { limit = { ROOT = { is_female = yes } } 
+						set_mother = ROOT }							
+						add_trait = ancilla	
+						add_trait = bloodpotency_2
+						add_trait = vampgeneration9		
+					}
+				}
+			}
+			new_character = { 
+				if = { limit = { trait = slow } 
+					remove_trait = slow
+				}
+				if = { limit = { trait = imbecile } 
+					remove_trait = imbecile
+				}						
+				if = { limit = { trait = inbred } 
+					remove_trait = inbred
+				}
+				POD_CWOD_vampire_inherit_sire_clan_effect = yes
+				POD_CWOD_bookmark_DAV_init_effect = yes
+				POD_CWOD_vampire_governments_init_effect = yes
+				POD_CWOD_vampire_disciplines_init_effect = yes	
+				POD_CWOD_vampire_roads_init_effect = yes
+				POD_CWOD_vampire_paths_init_effect = yes
+				POD_CWOD_vampire_secret_religion_init_effect = yes
+				POD_CWOD_vampire_sabbat_secret_religion_init_effect = yes
+				POD_CWOD_vampire_roads_grand_master_init_effect = yes
+					
+				if = { 
+					limit = { 
+						ai = yes
+					}
+					POD_CWOD_dynasty_effect = yes			
+				}
+				dynasty = ROOT
+				inherit = ROOT
+			}
+		ROOT = { death = "yes" }
 	}
 }

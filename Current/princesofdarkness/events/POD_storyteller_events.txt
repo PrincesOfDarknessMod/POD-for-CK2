@@ -17,6 +17,8 @@ character_event = {
 		character_event = { id = storyteller.13 days = 10} #allows the other initialisation events to take effect, and precludes them afterwards.
 		c_ile_de_france = {
 			location = {
+				province_event = { id = storyteller.24 }
+				province_event = { id = storyteller.23 days = 2 }
 				province_event = { id = storyteller.18 days = 65 }
 				province_event = { id = storyteller.20 days = 95 }
 				province_event = { id = POD_great_childer_events.1 days = 123 }
@@ -4936,6 +4938,7 @@ province_event = {
 				}
 			}
 		}
+		pod_start_black_death_sequence = yes
 		any_player = {
 			character_event = { id = POD_player_childe_events.1 days = 5 random = 15 }
 			character_event = { id = POD_player_politics_events.1 days = 5 random = 15 }
@@ -4988,9 +4991,9 @@ province_event = {
 					is_pop_city = yes
 				}
 				random = {
-					chance = 15
+					chance = 10
 					modifier = {
-						factor = 3
+						factor = 2
 						has_10k_pop = yes
 					}
 					modifier = {
@@ -5015,3 +5018,44 @@ province_event = {
 		}
 	}
 }
+
+
+province_event = {
+    id = storyteller.23
+	
+    is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+		is_save_game = no
+		NOT = { has_global_flag = initial_setup_started }
+	}
+	
+	immediate = {
+		any_player = {
+			character_event = { id = storyteller.16 }
+			character_event = { id = ruler_designer.1 }
+			#character_event = { id = CWOD_setup_noble_player.2 }
+			character_event = { id = CWOD_setup_noble_player.1 }
+		}
+	}
+}
+
+province_event = {
+    id = storyteller.24
+	
+    is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+		is_save_game = no
+		NOT = { has_global_flag = initial_setup_started }
+	}
+	
+	immediate = {
+		any_player = {
+			narrative_event = { id = POD_narrative_events.1 }
+		}
+	}
+}
+

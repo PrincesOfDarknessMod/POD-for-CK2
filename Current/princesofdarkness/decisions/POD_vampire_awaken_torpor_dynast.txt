@@ -41,5 +41,37 @@ targetted_decisions = {
 			}
 		}
 	}
+	give_elder_dynast_titles = {
+		filter = dynasty
+		ai = no
+		from_potential = {
+			trait = vampire
+			ai = no
+		}
+		potential = {}
+		
+		
+		allow = {
+			age = 16
+			age_diff = { who = FROM years = 1 }
+			dynasty = FROM # we should test if the filter makes this redundant or not
+			trait = vampire
+			NOT = { trait = torpor }
+			NOT = { trait = vampgeneration3 }
+			NOT = { trait = vampgeneration2 }
+			NOT = { trait = vampgeneration1 }
+		}
+				
+		effect = {
+			save_event_target_as = elder_dynast
+			FROM = {	
+				any_demesne_title = {
+					FROM = {
+						abdicate_to = event_target:elder_dynast
+					}
+				}
+			}
+		}
+	}
 }
 	

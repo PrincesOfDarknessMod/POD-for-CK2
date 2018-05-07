@@ -1,0 +1,194 @@
+pod_start_black_death_sequence = {
+	if = {
+		limit = {
+			has_global_flag = bookmark1230
+			NOT = { has_global_flag = POD_Gehenna_Black_Death_End }
+			NOT = { has_global_flag = POD_Gehenna_Black_Death_Started }
+			year < 1380
+			year > 1320
+		}
+		province_event = { id = POD_Black_Death.1 days = 30 random = 90 }
+		log = "Starting Black Death Sequence"
+	}
+}
+
+pod_check_for_black_death_outbreak = {
+	if = {
+		limit = {
+			year < 1370
+			year > 1320
+			NOT = { has_global_flag = POD_Gehenna_Black_Death_First }
+		}
+		random = {
+			chance = 2
+			set_global_flag = POD_Gehenna_Black_Death_First
+			province_event = { id = POD_Black_Death.10 days = 30 random = 90 }
+			log = "Firing a first gehenna black death"
+		}
+	}else_if = {
+		limit = {
+			year < 1390
+			year > 1369
+			NOT = { has_global_flag = POD_Gehenna_Black_Death_First }
+		}
+		log = "Firing a first gehenna black death, forced at 1370"
+		set_global_flag = POD_Gehenna_Black_Death_First
+		province_event = { id = POD_Black_Death.10 days = 30 random = 90 }
+	}else_if = {
+		limit = {
+			year > 1320
+			year < 1390
+			has_global_flag = POD_Gehenna_Black_Death_First
+		}
+		random = {
+			chance = 1
+			modifier = {
+				factor = 0
+				has_global_flag = POD_Gehenna_Black_Death_Second
+			}
+			log = "Firing a second gehenna black death"
+			set_global_flag = POD_Gehenna_Black_Death_Second
+			province_event = { id = POD_Black_Death.11 days = 30 random = 90 }
+		}
+	}else_if = {
+		limit = {
+			year > 1389
+			}
+		pod_stop_black_death_effect = yes
+	}
+}
+
+pod_stop_black_death_effect = {
+	log = "Stopping Black Death"
+	set_global_flag = POD_Gehenna_Black_Death_End
+	any_player = {
+		narrative_event = { id = POD_Black_Death.201 days = 10 random = 180 }
+	}
+}
+
+pod_commence_black_death_effect = {
+	log = "Firing Gehenna Black Death Commencement Event"
+	any_province = {
+		pod_start_black_death_province_effect = yes
+	}
+}
+pod_start_black_death_province_effect = {
+	pod_check_province_effect = yes
+	pod_black_death_building_destroy_effect = yes
+	pod_bd_torpor_effect = yes
+}
+
+pod_black_death_building_destroy_effect = {
+	any_province_holding = {
+		while = {
+			limit = {
+				num_of_buildings = 1
+			}
+			destroy_random_building = yes
+		}
+	}
+}
+
+pod_check_province_effect = {
+	any_province_holding = {
+		limit = {
+			is_pop_city = yes
+		}
+		log = "[This.GetName] has a city."
+		trigger_switch = {
+		on_trigger = has_building
+		ct_pop_2m = {
+			pod_save_holding_target = yes
+			location = { province_event = { id = POD_Black_Death.100 days = 4 } }
+		}
+		ct_pop_1m = {
+			pod_save_holding_target = yes
+			location = { province_event = { id = POD_Black_Death.101 days = 4 } }
+		}
+		ct_pop_500k = {
+			pod_save_holding_target = yes
+			location = { province_event = { id = POD_Black_Death.102 days = 4 } }
+		}
+		ct_pop_250k = {
+			pod_save_holding_target = yes
+			location = { province_event = { id = POD_Black_Death.103 days = 4 } }
+		}
+		ct_pop_200k = {
+			pod_save_holding_target = yes
+			location = { province_event = { id = POD_Black_Death.104 days = 4 } }
+		}
+		ct_pop_150k = {
+			pod_save_holding_target = yes
+			location = { province_event = { id = POD_Black_Death.105 days = 4 } }
+		}
+		ct_pop_100k = {
+			pod_save_holding_target = yes
+			location = { province_event = { id = POD_Black_Death.106 days = 4 } }
+		}
+		ct_pop_50k = {
+			pod_save_holding_target = yes
+			location = { province_event = { id = POD_Black_Death.107 days = 4 } }
+		}
+		ct_pop_20k = {
+			pod_save_holding_target = yes
+			location = { province_event = { id = POD_Black_Death.108 days = 4 } }
+		}
+		ct_pop_10k = {
+			pod_save_holding_target = yes
+			location = { province_event = { id = POD_Black_Death.109 days = 4 } }
+		}
+		ct_pop_1 = {
+			pod_save_holding_target = yes
+			location = { province_event = { id = POD_Black_Death.110 days = 4 } }
+		}
+		}
+	}
+}
+
+pod_save_holding_target = {
+	save_event_target_as = target_holding
+}
+pod_bd_torpor_effect = {
+	any_province_character = {
+		limit = {
+			trait = vampire
+			NOT = { trait = torpor }
+			ai = yes
+		}
+		random = {
+			chance = 50
+			modifier = {
+				factor = 0.5
+				pod_black_death_protection = yes
+			}
+			pod_enter_torpor_effect = yes
+		}
+	}
+}
+
+pod_enter_torpor_effect = {
+	add_trait = torpor
+	add_trait = in_hiding
+							
+	if = { 
+		limit = { is_in_society = yes }
+		leave_society = yes 
+	}
+	abdicate = yes
+	#log = "[This.GetTitledName] has entered torpor!"
+	trigger_switch = {
+		on_trigger = trait
+		zulo_form = {
+			remove_trait = zulo_form
+		}
+		blood_form = {
+			remove_trait = blood_form
+		}
+		mist_form = {
+			remove_trait = mist_form
+		}
+		shadow_form = {
+			remove_trait = shadow_form
+		}
+	}
+}

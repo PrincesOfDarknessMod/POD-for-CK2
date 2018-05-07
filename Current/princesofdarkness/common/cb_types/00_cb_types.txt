@@ -3677,27 +3677,29 @@ religious = {
 	can_use_gui = {
 		ROOT = {
 			OR = {
-				NOT = { religion = buddhist }
-				piety = 600
+				piety = 450
+				AND = {
+					piety = 300
+					ai = no
+				}
 			}
 		}
 	}
 	
 	on_add = {
 		ROOT = {
-			if = {
-				limit = {
-					religion = buddhist
-				}
-				piety = -600
+			if = { limit = { ai = no }
+				piety = -300
+			}else = {
+				piety = -450
 			}
-		}
 		if = {
 			limit = { defender = { is_offmap_governor = offmap_china } }
 			attacker = {  
 				sound_effect = china_angered_emperor
 				detract_grace_super_huge_effect = yes 
 			}
+		}
 		}
 	}
 

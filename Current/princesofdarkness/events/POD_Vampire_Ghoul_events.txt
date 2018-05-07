@@ -743,14 +743,21 @@ character_event = {
 			set_father = 0
 			set_mother = ROOT
 		}	
-			
+		
 		ROOT = {
 			POD_vampire_blood_thirst_increase_effect = yes
 			remove_opinion = {
 				who = event_target:ghoul_one
+				modifier = opinion_my_ghoul
+			}
+		}
+		event_target:ghoul_one = {
+			remove_opinion = {
+				who = event_target:ghoul_domitor
 				modifier = opinion_blood_bond_to_domitor_ghoul
 			}
-        }
+			pod_create_bloodbond_root = yes
+		}
 		character_event = { 
 			id = vampire_embrace.2
 			days = 1

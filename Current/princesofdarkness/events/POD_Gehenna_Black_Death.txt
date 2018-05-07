@@ -1,0 +1,501 @@
+##########################################
+#	Gehenna: Black Death Events by AJ
+#
+#
+#
+#
+#
+#
+##########################################
+namespace = POD_Black_Death
+province_event = {
+	id = POD_Black_Death.1
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_global_flag = bookmark1230
+		NOT = { has_global_flag = POD_Gehenna_Black_Death_End }
+	}
+	
+	immediate = {
+		log = "triggering Black Death Beginning in [This.GetName]"
+		if = {
+			limit = {
+				NOT = { has_global_flag = POD_Gehenna_Black_Death_Started }
+			}
+			set_global_flag = POD_Gehenna_Black_Death_Started
+			province_event = { id = POD_Black_Death.2 days = 60 random = 60 }
+			any_player = {
+				narrative_event = { id = POD_Black_Death.200 days = 10 }
+				narrative_event = { id = POD_Black_Death.204 days = 60 }
+			}
+		}
+	}
+}
+province_event = {
+	id = POD_Black_Death.2
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_global_flag = bookmark1230
+		NOT = { has_global_flag = POD_Gehenna_Black_Death_End }
+	}
+	
+	immediate = {
+		log = "Checking for Gehenna: Black Death effects"
+		if = {
+			limit = {
+				has_global_flag = POD_Gehenna_Black_Death_Started
+				NOT = { has_global_flag = POD_Gehenna_Black_Death_End }
+			}
+			pod_check_for_black_death_outbreak = yes
+			province_event = { id = POD_Black_Death.2 days = 365 }
+		}
+	}
+}
+
+province_event = {
+	id = POD_Black_Death.3
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_global_flag = bookmark1230
+		NOT = { has_global_flag = POD_Gehenna_Black_Death_End }
+	}
+	
+	immediate = {
+		log = "Checking for Gehenna: Black Death effects"
+		pod_check_for_black_death_outbreak = yes
+		any_player = {
+		narrative_event = { id = POD_Black_Death.200 }
+		narrative_event = { id = POD_Black_Death.201 }
+		narrative_event = { id = POD_Black_Death.202 }
+		narrative_event = { id = POD_Black_Death.203 }
+		narrative_event = { id = POD_Black_Death.204 }
+		}
+	}
+}
+
+province_event = {
+	id = POD_Black_Death.10
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_global_flag = bookmark1230
+		NOT = { has_global_flag = POD_Gehenna_Black_Death_End }
+	}
+	
+	immediate = {
+		log = "Firing Gehenna Black Death 1 Province Event"
+		any_player = {
+			narrative_event = { id = POD_Black_Death.202 }
+		}
+		pod_commence_black_death_effect = yes
+	}
+}
+province_event = {
+	id = POD_Black_Death.11
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_global_flag = bookmark1230
+		NOT = { has_global_flag = POD_Gehenna_Black_Death_End }
+	}
+	
+	immediate = {
+		log = "Firing Gehenna Black Death 2 Province Event"
+		any_player = {
+			narrative_event = { id = POD_Black_Death.203 }
+		}
+		pod_commence_black_death_effect = yes		
+	}
+}
+
+#2m rebuilt
+province_event = {
+	id = POD_Black_Death.100
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_global_flag = bookmark1230
+		NOT = { has_global_flag = POD_Gehenna_Black_Death_End }
+	}
+	
+	immediate = {
+		event_target:target_holding = {
+		log = "[This.GetName] rebuilt to 1m."
+		add_building = ct_pop_1
+		add_building = ct_pop_10k
+		add_building = ct_pop_20k
+		add_building = ct_pop_50k
+		add_building = ct_pop_100k
+		add_building = ct_pop_150k
+		add_building = ct_pop_200k
+		add_building = ct_pop_250k
+		add_building = ct_pop_500k
+		add_building = ct_pop_1m
+		#add_building = ct_pop_2m
+		}
+	}
+}
+
+#1m rebuilt
+province_event = {
+	id = POD_Black_Death.101
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_global_flag = bookmark1230
+		NOT = { has_global_flag = POD_Gehenna_Black_Death_End }
+	}
+	
+	immediate = {
+		event_target:target_holding = {
+		log = "[This.GetName] rebuilt to 500k."
+		add_building = ct_pop_1
+		add_building = ct_pop_10k
+		add_building = ct_pop_20k
+		add_building = ct_pop_50k
+		add_building = ct_pop_100k
+		add_building = ct_pop_150k
+		add_building = ct_pop_200k
+		add_building = ct_pop_250k
+		add_building = ct_pop_500k
+		#add_building = ct_pop_1m
+		}
+	}
+}
+#500k rebuilt
+province_event = {
+	id = POD_Black_Death.102
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_global_flag = bookmark1230
+		NOT = { has_global_flag = POD_Gehenna_Black_Death_End }
+	}
+	
+	immediate = {
+		event_target:target_holding = {
+		log = "[This.GetName] rebuilt to 250."
+		add_building = ct_pop_1
+		add_building = ct_pop_10k
+		add_building = ct_pop_20k
+		add_building = ct_pop_50k
+		add_building = ct_pop_100k
+		add_building = ct_pop_150k
+		add_building = ct_pop_200k
+		add_building = ct_pop_250k
+		#add_building = ct_pop_500k
+		}
+	}
+}
+#250k rebuilt
+province_event = {
+	id = POD_Black_Death.103
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_global_flag = bookmark1230
+		NOT = { has_global_flag = POD_Gehenna_Black_Death_End }
+	}
+	
+	immediate = {
+		event_target:target_holding = {
+		log = "[This.GetName] rebuilt to 200k."
+		add_building = ct_pop_1
+		add_building = ct_pop_10k
+		add_building = ct_pop_20k
+		add_building = ct_pop_50k
+		add_building = ct_pop_100k
+		add_building = ct_pop_150k
+		add_building = ct_pop_200k
+		#add_building = ct_pop_250k
+		}
+	}
+}
+#200k rebuilt
+province_event = {
+	id = POD_Black_Death.104
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_global_flag = bookmark1230
+		NOT = { has_global_flag = POD_Gehenna_Black_Death_End }
+	}
+	
+	immediate = {
+		event_target:target_holding = {
+		log = "[This.GetName] rebuilt to 150k."
+		add_building = ct_pop_1
+		add_building = ct_pop_10k
+		add_building = ct_pop_20k
+		add_building = ct_pop_50k
+		add_building = ct_pop_100k
+		add_building = ct_pop_150k
+		#add_building = ct_pop_200k
+		}
+	}
+}
+#150k rebuilt
+province_event = {
+	id = POD_Black_Death.105
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_global_flag = bookmark1230
+		NOT = { has_global_flag = POD_Gehenna_Black_Death_End }
+	}
+	
+	immediate = {
+		event_target:target_holding = {
+		log = "[This.GetName] rebuilt to 100k."
+		add_building = ct_pop_1
+		add_building = ct_pop_10k
+		add_building = ct_pop_20k
+		add_building = ct_pop_50k
+		add_building = ct_pop_100k
+		#add_building = ct_pop_150k
+		}
+	}
+}
+#100k rebuilt
+province_event = {
+	id = POD_Black_Death.106
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_global_flag = bookmark1230
+		NOT = { has_global_flag = POD_Gehenna_Black_Death_End }
+	}
+	
+	immediate = {
+		event_target:target_holding = {
+		log = "[This.GetName] rebuilt to 50k."
+		add_building = ct_pop_1
+		add_building = ct_pop_10k
+		add_building = ct_pop_20k
+		add_building = ct_pop_50k
+		#add_building = ct_pop_100k
+		}
+	}
+}
+#50k rebuilt
+province_event = {
+	id = POD_Black_Death.107
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_global_flag = bookmark1230
+		NOT = { has_global_flag = POD_Gehenna_Black_Death_End }
+	}
+	
+	immediate = {
+		event_target:target_holding = {
+		log = "[This.GetName] rebuilt to 20k."
+		add_building = ct_pop_1
+		add_building = ct_pop_10k
+		add_building = ct_pop_20k
+		#add_building = ct_pop_50k
+		}
+	}
+}
+#20k rebuilt
+province_event = {
+	id = POD_Black_Death.108
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_global_flag = bookmark1230
+		NOT = { has_global_flag = POD_Gehenna_Black_Death_End }
+	}
+	
+	immediate = {
+		event_target:target_holding = {
+		log = "[This.GetName] rebuilt to 20k."
+		add_building = ct_pop_1
+		add_building = ct_pop_10k
+		add_building = ct_pop_20k
+		}
+	}
+}
+#10k rebuilt
+province_event = {
+	id = POD_Black_Death.109
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_global_flag = bookmark1230
+		NOT = { has_global_flag = POD_Gehenna_Black_Death_End }
+	}
+	
+	immediate = {
+		event_target:target_holding = {
+		log = "[This.GetName] rebuilt to 10k."
+		add_building = ct_pop_1
+		add_building = ct_pop_10k
+		}
+	}
+}
+#mud huts rebuilt
+province_event = {
+	id = POD_Black_Death.110
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_global_flag = bookmark1230
+		NOT = { has_global_flag = POD_Gehenna_Black_Death_End }
+	}
+	
+	immediate = {
+		event_target:target_holding = {
+		log = "[This.GetName] rebuilt to dirt."
+		add_building = ct_pop_1
+		}
+	}
+}
+
+#gehenna now
+narrative_event = {
+	id = POD_Black_Death.200
+	title = "EVTTITLE_POD_BLACKDEATH_START"
+	desc = "EVTDESC_POD_BLACKDEATH_START"
+	picture = GFX_evt_mass_embrace
+	only_playable = yes
+
+	is_triggered_only = yes
+	trigger = {
+	}
+	
+	immediate = {
+	}
+	option = {
+		name = "EVTOPTA_POD_BLACKDEATH_START"
+	}
+	option = {
+		name = "EVTOPTB_POD_BLACKDEATH_START"
+	}
+}
+
+#it will be missed
+narrative_event = {
+	id = POD_Black_Death.201
+	title = "EVTTITLE_POD_BLACKDEATH_END"
+	desc = "EVTDESC_POD_BLACKDEATH_END"
+	picture = GFX_evt_mass_embrace
+	only_playable = yes
+
+	is_triggered_only = yes
+	trigger = {
+	}
+	
+	immediate = {
+	}
+	option = {
+		name = "EVTOPTA_POD_BLACKDEATH_END"
+	}
+	option = {
+		name = "EVTOPTB_POD_BLACKDEATH_END"
+	}
+}
+
+#commence the festivities
+narrative_event = {
+	id = POD_Black_Death.202
+	title = "EVTTITLE_POD_BLACKDEATH_STRIKE"
+	desc = "EVTDESC_POD_BLACKDEATH_STRIKE"
+	picture = GFX_evt_mass_embrace
+	only_playable = yes
+
+	is_triggered_only = yes
+	trigger = {
+	}
+	
+	immediate = {
+	}
+	option = {
+		name = "EVTOPTA_POD_BLACKDEATH_STRIKE"
+	}
+	option = {
+		name = "EVTOPTB_POD_BLACKDEATH_STRIKE"
+	}
+}
+
+#he's not dead yet
+narrative_event = {
+	id = POD_Black_Death.203
+	title = "EVTTITLE_POD_BLACKDEATH_AGAIN"
+	desc = "EVTDESC_POD_BLACKDEATH_AGAIN"
+	picture = GFX_evt_mass_embrace
+	only_playable = yes
+
+	is_triggered_only = yes
+	trigger = {
+	}
+	
+	immediate = {
+	}
+	option = {
+		name = "EVTOPTA_POD_BLACKDEATH_AGAIN"
+	}
+	option = {
+		name = "EVTOPTB_POD_BLACKDEATH_AGAIN"
+	}
+}
+
+#rip van winkle
+narrative_event = {
+	id = POD_Black_Death.204
+	title = "EVTTITLE_POD_BLACKDEATH_CHOICE"
+	desc = "EVTDESC_POD_BLACKDEATH_CHOICE"
+	picture = GFX_evt_mass_embrace
+	only_playable = yes
+
+	is_triggered_only = yes
+	trigger = {
+	}
+	
+	immediate = {
+	}
+	option = {
+		name = "EVTOPTA_POD_BLACKDEATH_CHOICE"
+		hidden_tooltip = {
+			pod_enter_torpor_effect = yes
+		}
+	}
+	option = {
+		name = "EVTOPTB_POD_BLACKDEATH_CHOICE"
+	}
+}
