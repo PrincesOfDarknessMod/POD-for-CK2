@@ -17,6 +17,8 @@ pod_spawn_great_people_1600_to_1799 = {
 	spawn_elizabeth_bathory = yes
 	spawn_ernst_von_mansfeld = yes
 	spawn_thomas_paine = yes
+	spawn_jeanne_poisson = yes
+	spawn_theodor_von_neuhoff = yes
 }
 #1614
 spawn_elizabeth_bathory = {
@@ -154,6 +156,99 @@ spawn_thomas_paine = {
 				save_event_target_as = great_person
 				set_character_flag = great_person
 				set_character_flag = thomas_paine
+				set_character_flag = great_rebel
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+spawn_jeanne_poisson = {
+	if = {
+		limit = { 
+			year = 1751
+			NOT = { year > 1751 }
+		}
+		random_province = {
+			limit = {
+				culture = "frankish"
+			}
+			create_character = {
+				name = "Jeanne Antoinette Poisson"
+				age = 18
+				dna="cdgkh00d000"
+				properties="ej000k0000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = grey_eminence
+				trait = fair
+				trait = seductress
+				trait = proud
+				trait = cruel
+				trait = diligent
+				trait = schemer
+				trait = deceitful
+				female = yes
+				religion = innocent
+				dynasty = none
+				culture = "frankish"
+				attributes = {
+					diplomacy = 12
+					intrigue = 12
+					learning = 7
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = jeanne_poisson
+				set_character_flag = great_seducer
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+spawn_theodor_von_neuhoff = {
+	if = {
+		limit = { 
+			year = 1745
+			NOT = { year > 1745 }
+		}
+		random_province = {
+			limit = {
+				culture = "italian"
+			}
+			create_character = {
+				name = "Theodor von Neuhoff"
+				age = 30
+				dna="ddddgmhceco"
+				properties="cd00fa00000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = grey_eminence
+				trait = quick
+				trait = ambitious
+				trait = strategist
+				trait = diligent
+				trait = proud
+				trait = stubborn
+				female = no
+				religion = innocent
+				dynasty = none
+				culture = "german"
+				attributes = {
+					intrigue = 13
+					martial = 10
+					diplomacy = 13
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = theodor_von_neuhoff
 				set_character_flag = great_rebel
 				pod_spawn_great_person_effect = yes
 			}

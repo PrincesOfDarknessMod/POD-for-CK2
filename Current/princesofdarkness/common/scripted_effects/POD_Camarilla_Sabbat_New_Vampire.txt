@@ -1,0 +1,108 @@
+pod_sabbat_new_character_spawn = {
+	log = "[This.GetTitledName] is new sabbat character spawning"
+	religion = sabbat
+	random_playable_ruler = {
+		limit = {
+			is_sabbat_vamp = yes
+		}
+		pod_assign_clan_for_new_vampire = yes
+	}
+}
+
+pod_camarilla_new_character_spawn = {
+	log = "[This.GetTitledName] is new camarilla character spawning"
+	religion = masquerade_camarilla
+	random_playable_ruler = {
+		limit = {
+			is_camarilla_vamp = yes
+		}
+		pod_assign_clan_for_new_vampire = yes
+	}
+}
+
+pod_assign_clan_for_new_vampire = {
+	trigger_switch = {
+		on_trigger = trait
+		assamite = {
+			event_target:new_spawn_vamp = {
+				add_trait = assamite
+			}
+		}
+		brujah = {
+			event_target:new_spawn_vamp = {
+				add_trait = brujah
+			}
+		}
+		cappadocian = {
+			event_target:new_spawn_vamp = {
+				add_trait = cappadocian
+			}
+		}
+		followerofset = {
+			event_target:new_spawn_vamp = {
+				add_trait = followerofset
+			}
+		}
+		giovanni = {
+			event_target:new_spawn_vamp = {
+				add_trait = giovanni
+			}
+		}
+		lasombra = {
+			event_target:new_spawn_vamp = {
+				add_trait = lasombra
+			}
+		}
+		malkavian = {
+			event_target:new_spawn_vamp = {
+				add_trait = malkavian
+			}
+		}
+		nosferatu = {
+			event_target:new_spawn_vamp = {
+				add_trait = nosferatu
+				set_graphical_culture = nosferatu
+			}
+		}
+		ravnos = {
+			event_target:new_spawn_vamp = {
+				add_trait = ravnos
+			}
+		}
+		salubri = {
+			event_target:new_spawn_vamp = {
+				add_trait = salubri
+			}
+		}
+		toreador = {
+			event_target:new_spawn_vamp = {
+				add_trait = toreador
+			}
+		}
+		tremere = {
+			event_target:new_spawn_vamp = {
+				add_trait = tremere
+			}
+		}
+		tzimisce = {
+			event_target:new_spawn_vamp = {
+				add_trait = tzimisce
+			}
+		}
+		baali = {
+			event_target:new_spawn_vamp = {
+				add_trait = baali
+			}
+		}
+		gangrel = {
+			event_target:new_spawn_vamp = {
+				add_trait = gangrel
+			}
+		}
+		ventrue = {
+			event_target:new_spawn_vamp = {
+				add_trait = ventrue
+			}
+		}
+	}
+}

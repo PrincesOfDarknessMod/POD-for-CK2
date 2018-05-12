@@ -24,7 +24,24 @@ character_event = {
 				NOT = { religion = revenant_mayaparisataya }
 				NOT = { religion = revenant_assamite }
 				NOT = { trait = storyteller }					
-			}	
+			}
+			if = {
+				limit = {
+				has_global_flag = bookmark1230
+					location = {
+						religion = sabbat
+					}
+				}
+				religion = sabbat
+			}else_if = {
+				limit = {
+					has_global_flag = bookmark1230
+					location = {
+						religion = masquerade_camarilla
+					}
+				}
+				religion = masquerade_camarilla
+			}
 # make vampire ruler
 						if = { limit = { trait = slow } 
 							remove_trait = slow
@@ -121,19 +138,27 @@ character_event = {
 					}
 				}	 
 				religion = sabbat
-				random_list = {
-					10 = { add_trait = lasombra }
-					10 = { add_trait = gangrelantitribu }
-					10 = { add_trait = brujahantitribu }
-					10 = { remove_trait = fair
-					add_trait = nosferatuantitribu 
-					set_graphical_culture = nosferatu } 
-					5 = { add_trait = malkavianantitribu }
-					5 = { add_trait = ventrueantitribu }
-					5 = { add_trait = ravnosantitribu }
-					5 = { add_trait = toreadorantitribu }
-					35 = { add_trait = assamiteantitribu }
-					5 = { add_trait = caitiff }							
+				if = {
+					limit = {
+						has_global_flag = bookmark1230
+					}
+					save_event_target_as = new_spawn_vamp
+					pod_sabbat_new_character_spawn = yes
+				}else = {
+					random_list = {
+						10 = { add_trait = lasombra }
+						10 = { add_trait = gangrelantitribu }
+						10 = { add_trait = brujahantitribu }
+						10 = { remove_trait = fair
+						add_trait = nosferatuantitribu 
+						set_graphical_culture = nosferatu } 
+						5 = { add_trait = malkavianantitribu }
+						5 = { add_trait = ventrueantitribu }
+						5 = { add_trait = ravnosantitribu }
+						5 = { add_trait = toreadorantitribu }
+						35 = { add_trait = assamiteantitribu }
+						5 = { add_trait = caitiff }							
+					}
 				}
 			}	
 			if = { 
@@ -530,21 +555,37 @@ character_event = {
 				}
 				if = { 
 					limit = { religion = sabbat }
-					random_list = {
-						5 = { add_trait = brujahantitribu }												
-						30 = { add_trait = lasombra }
-						5 = { add_trait = toreadorantitribu }
-						30 = { add_trait = tzimisce }	
-						5 = { add_trait = ventrueantitribu }	
-						5 = { add_trait = assamiteantitribu }	
-						5 = { add_trait = gangrelantitribu }	
-						5 = { add_trait = malkavianantitribu }	
-						5 = { remove_trait = fair
-					add_trait = nosferatuantitribu
-							set_graphical_culture = nosferatu }	
-						5 = { add_trait = ravnosantitribu }	
+					#log = "is sabbat"
+					if = {
+						limit = {
+							has_global_flag = bookmark1230
+						}
+						#log = "is sabbat bookmark1230"
+						save_event_target_as = new_spawn_vamp
+						pod_sabbat_new_character_spawn = yes
+					}else = {
+						#log = "is sabbat bookmark1230"
+						random_list = {
+							10 = { add_trait = lasombra }
+							10 = { add_trait = gangrelantitribu }
+							10 = { add_trait = brujahantitribu }
+							10 = { remove_trait = fair
+							add_trait = nosferatuantitribu 
+							set_graphical_culture = nosferatu } 
+							5 = { add_trait = malkavianantitribu }
+							5 = { add_trait = ventrueantitribu }
+							5 = { add_trait = ravnosantitribu }
+							5 = { add_trait = toreadorantitribu }
+							35 = { add_trait = assamiteantitribu }
+							5 = { add_trait = caitiff }							
+						}
 					}
-				}	
+				}
+				if = {
+					limit = { religion = masquerade_camarilla }
+					save_event_target_as = new_spawn_vamp
+					pod_camarilla_new_character_spawn = yes
+				}
 				if = { 
 					limit = { 
 						religion = ashirra 
@@ -753,7 +794,7 @@ character_event = {
 						female = no
 						age = 250
 						immortal_age = 20
-						dynasty = ROOT
+						dynasty = actually_culture
 						culture = ROOT
 						religion = ROOT
 					}
@@ -777,7 +818,7 @@ character_event = {
 						female = yes
 						age = 250
 						immortal_age = 20
-						dynasty = ROOT
+						dynasty = actually_culture
 						culture = ROOT
 						religion = ROOT
 					}
@@ -801,7 +842,7 @@ character_event = {
 						female = no
 						age = 150
 						immortal_age = 20
-						dynasty = ROOT
+						dynasty = actually_culture
 						culture = ROOT
 						religion = ROOT
 					}
@@ -825,7 +866,7 @@ character_event = {
 						female = yes
 						age = 150
 						immortal_age = 20
-						dynasty = ROOT
+						dynasty = actually_culture
 						culture = ROOT
 						religion = ROOT
 					}
@@ -849,7 +890,7 @@ character_event = {
 						female = yes
 						age = 1100
 						immortal_age = 20
-						dynasty = ROOT
+						dynasty = actually_culture
 						culture = ROOT
 						religion = ROOT
 					}
@@ -875,7 +916,7 @@ character_event = {
 						female = no
 						age = 1100
 						immortal_age = 20
-						dynasty = ROOT
+						dynasty = actually_culture
 						culture = ROOT
 						religion = ROOT
 					}
@@ -901,7 +942,7 @@ character_event = {
 						female = yes
 						age = 100
 						immortal_age = 20
-						dynasty = ROOT
+						dynasty = actually_culture
 						culture = ROOT
 						religion = ROOT
 					}
@@ -925,7 +966,7 @@ character_event = {
 						female = no
 						age = 100
 						immortal_age = 20
-						dynasty = ROOT
+						dynasty = actually_culture
 						culture = ROOT
 						religion = ROOT
 					}
@@ -979,7 +1020,7 @@ character_event = {
 	is_triggered_only = yes
 	
 	immediate = {
-		log = "Vampire noble 3 fired"
+		#log = "Vampire noble 3 fired"
 		random_list = {	
 				20 = {
 					create_character = {

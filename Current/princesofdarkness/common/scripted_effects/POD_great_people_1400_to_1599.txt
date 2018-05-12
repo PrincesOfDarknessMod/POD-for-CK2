@@ -42,6 +42,9 @@ pod_spawn_great_people_1400_to_1599 = {
 	spawn_gotzen_von_berlichingen = yes
 	spawn_thomas_muntzer = yes
 	spawn_florian_geyer = yes
+	spawn_diane_de_poitiers = yes
+	spawn_saint_teresa = yes
+	spawn_saint_beatriz = yes
 }
 #1497
 spawn_imperia_cognati = {
@@ -1439,4 +1442,141 @@ spawn_florian_geyer = {
             }
         }
     }
+}
+
+spawn_diane_de_poitiers = {
+	if = {
+		limit = { 
+			year = 1551
+			NOT = { year > 1551 }
+		}
+		random_province = {
+			limit = {
+				culture = "frankish"
+			}
+			create_character = {
+				name = "Diane de Poitiers"
+				age = 18
+				dna="cebaggbdaap"
+				properties="0i0cad"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = grey_eminence
+				trait = fair
+				trait = quick
+				trait = proud
+				trait = gregarious
+				female = yes
+				religion = innocent
+				dynasty = none
+				culture = "italian"
+				attributes = {
+					diplomacy = 12
+					intrigue = 12
+					learning = 8
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = diane_de_poitiers 
+				set_character_flag = great_seducer
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+spawn_saint_teresa = {
+	if = {
+		limit = { 
+			year = 1562
+			NOT = { year > 1562 }
+		}
+		random_province = {
+			limit = {
+				culture = "castillan"
+			}
+			create_character = {
+				name = "Saint Teresa"
+				age = 18
+				dna="0cab00daba0"
+				properties="0e0a0k000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = scholarly_theologian
+				trait = theologian
+				trait = chaste
+				trait = humble
+				trait = zealous
+				trait = diligent
+				trait = temperate
+				female = yes
+				religion = innocent
+				dynasty = none
+				culture = "castillan"
+				attributes = {
+					stewardship = 12
+					learning = 8
+					diplomacy = 8
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = saint_teresa 
+				set_character_flag = great_theologian
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+spawn_saint_beatriz = {
+	if = {
+		limit = { 
+			year = 1452
+			NOT = { year > 1452 }
+		}
+		random_province = {
+			limit = {
+				culture = "portuguese"
+			}
+			create_character = {
+				name = "Saint Beatriz"
+				age = 18
+				dna="0ffdc0gc0c0"
+				properties="ee0h0a000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = scholarly_theologian
+				trait = theologian
+				trait = fair
+				trait = patient
+				trait = zealous
+				trait = diligent
+				trait = temperate
+				female = yes
+				religion = innocent
+				dynasty = none
+				culture = "portuguese"
+				attributes = {
+					stewardship = 8
+					learning = 11
+					diplomacy = 12
+				}
+			}
+			new_character = {
+				set_graphical_culture = andalusian_arabic
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = saint_beatriz 
+				set_character_flag = great_theologian
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
 }

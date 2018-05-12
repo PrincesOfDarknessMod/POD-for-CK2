@@ -52,7 +52,7 @@ character_event = {
 				trait = vampire
 				higher_tier_than = BARON
 				among_most_powerful_vassals = 10
-				NOT = { opinion = { who = ROOT value = 15 } }
+				NOT = { opinion = { who = ROOT value = 29 } }
 			}
 			save_event_target_as = disgrunted_vassal
 		}
@@ -64,10 +64,10 @@ character_event = {
 			}
 			random_list = {
 				5 = {
-					add_favor = event_target:disgruntled_vassal
+					reverse_add_favor = event_target:disgrunted_vassal
 				}
 				5 = {
-					event_target:disgruntled_vassal = {
+					event_target:disgrunted_vassal = {
 						add_friend = PREV
 					}
 				}
@@ -89,7 +89,7 @@ character_event = {
 				is_elder_vampire = yes
 				higher_tier_than = BARON
 				among_most_powerful_vassals = 10
-				NOT = { opinion = { who = ROOT value = 15 } }
+				NOT = { opinion = { who = ROOT value = 29 } }
 			}
 			opinion = {
 				modifier = opinion_seed_of_rebellion
@@ -138,9 +138,23 @@ character_event = {
 				is_powerful_vassal = yes
 				NOT = { opinion = { who = ROOT value = -10 } }
 			}
-			defacto_liege_title = {
+			dejure_liege_title = {
 				add_claim = PREV
 			}
 		}
+	}
+}
+
+character_event = {
+    id = POD_player_politics_events.20
+	
+    is_triggered_only = yes
+	hide_window = yes
+
+    immediate = {
+		location = {
+			province_event = { id = POD_Camarilla_Sabbat_Formation_Events.1 }
+		}
+		#pod_start_camarilla_sabbat_formation = yes
 	}
 }

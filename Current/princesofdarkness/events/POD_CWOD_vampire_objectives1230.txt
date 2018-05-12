@@ -1710,15 +1710,18 @@ narrative_event = {
 					limit = { religion_group = vampire_high_clans_group }
 					add_character_modifier = {
 						modifier = end_of_civilization
-							duration = 120
+							duration = 1200
 											}
 			}
 		}
 		hidden_tooltip = {
 			any_playable_ruler = {
+				limit = {
+					ai = no
+				}
 				narrative_event = { id = POD1230OBJ.39 }
 			}
-	}
+		}
 }
 }
 
@@ -1932,6 +1935,617 @@ narrative_event = {
 		trigger = {
 			NOR = { religion = malkavianlow
 			religion = baali }
+		}
+	}
+	}
+}
+
+### Nosferatu defence
+
+# Nosferatu victory
+narrative_event = {
+	id = POD1230OBJ.42
+	title = EVTNAMEPOD1230OBJ.42
+	desc = EVTDESCPOD1230OBJ.42
+	
+	picture = GFX_evt_heretic
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAobj.42
+		add_trait = thedefender
+		piety = 1000
+		ROOT = { 
+			if = {
+				limit = { 
+					trait = craven}
+						remove_trait = craven }
+			if = {
+				limit = { 
+					trait = wroth}
+						remove_trait = wroth }
+			if = {
+				limit = { 
+					trait = slothful}
+						remove_trait = slothful}
+			if = {
+				limit = { 
+					trait = content}
+						remove_trait = content}
+						}
+		add_trait = patient
+		add_trait = brave
+		add_trait = diligent
+		add_trait = ambitious
+		military_techpoints = 200
+		hidden_tooltip = {
+			any_playable_ruler = {
+				limit = {
+					NOT = { has_landed_title = e_shadow_curtain }
+					ai = no
+				}
+				narrative_event = { id = POD1230OBJ.43 }
+			}
+		}
+}
+}
+
+# Informed about nosferatu victory
+narrative_event = {
+	id = POD1230OBJ.43
+	title = EVTNAMEPOD1230OBJ.42
+	desc = EVTDESCPOD1230OBJ.42
+	
+	picture = GFX_evt_heretic
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = { 
+		text = EVTOPTAobj.43
+		trigger = {
+			religion = toreador_high
+		}
+		}
+		name = { 
+		text = EVTOPTBobj.43
+		trigger = {
+			religion = nosferatulow
+		}
+		}
+		name = { 
+		text = EVTOPTCobj.43
+		trigger = {
+			NOR = { religion = toreador_high
+			religion = nosferatulow }
+		}
+	}
+	}
+}
+
+### Ravnos unity
+
+# Ravnos victory
+narrative_event = {
+	id = POD1230OBJ.44
+	title = EVTNAMEPOD1230OBJ.44
+	desc = EVTDESCPOD1230OBJ.44
+	
+	picture = GFX_evt_cathedral_indian_group
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAobj.44
+		add_trait = ravnostrickster
+		custom_tooltip = { text = obja44_custom }
+		hidden_tooltip = {
+			any_character = { 
+				limit = {
+					religion = mayaparisataya
+					NOR = { 
+							trait = vampgeneration4
+							trait = vampgeneration3
+							} }
+					add_trait = ravnostrickster
+						
+		}
+		}
+		hidden_tooltip = {
+		activate_title = { title = e_ravnos status = yes }
+			primary_title = {
+				any_direct_de_jure_vassal_title = {
+					de_jure_liege = e_ravnos
+				}
+			}
+		}
+		e_ravnos = {
+			grant_title = ROOT
+			make_primary_title = yes
+		}	
+		hidden_tooltip = {
+			any_playable_ruler = {
+				limit = {
+					ai = no
+				}
+				narrative_event = { id = POD1230OBJ.45 }
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTBobj.44
+		add_trait = ravnosruler
+		custom_tooltip = { text = objb44_custom }
+		hidden_tooltip = {
+			any_character = { 
+				limit = {
+					religion = mayaparisataya
+					NOR = { 
+							trait = vampgeneration4
+							trait = vampgeneration3
+							} }
+					add_trait = ravnosruler
+						
+		}
+		}
+		hidden_tooltip = {
+		activate_title = { title = e_ravnos status = yes }
+			primary_title = {
+				any_direct_de_jure_vassal_title = {
+					de_jure_liege = e_ravnos
+				}
+			}
+		}
+		e_ravnos = {
+			grant_title = ROOT
+			make_primary_title = yes
+		}
+		
+		hidden_tooltip = {
+			any_playable_ruler = {
+				limit = {
+					ai = no
+				}
+				narrative_event = { id = POD1230OBJ.45 }
+			}
+		}
+	}
+	
+
+}
+
+
+# Informed about Ravnos victory
+narrative_event = {
+	id = POD1230OBJ.45
+	title = EVTNAMEPOD1230OBJ.44
+	desc = EVTDESCPOD1230OBJ.44
+	
+	picture = GFX_evt_cathedral_indian_group
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = { 
+		text = EVTOPTAobj.45
+		trigger = {
+			religion = mayaparisataya
+
+		}
+		}
+		name = { 
+		text = EVTOPTBobj.45
+		trigger = {
+			religion = ventrue_high
+		}
+		}
+		name = { 
+		text = EVTOPTCobj.45
+		trigger = {
+			NOR = { religion = ventrue_high
+			religion = mayaparisataya	}
+		}
+	}
+	}
+}
+
+### Einherjar Reform
+
+# Einherjar victory
+narrative_event = {
+	id = POD1230OBJ.46
+	title = EVTNAMEPOD1230OBJ.46
+	desc = EVTDESCPOD1230OBJ.46
+	
+	picture = GFX_evt_viking_throneroom_oldgods
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAobj.46
+		add_trait = thelasteinherjar
+		add_artifact = bloodhorn
+		piety = 1000
+		prestige = 2000
+		custom_tooltip = { text = obja46_custom }
+		if = {
+			limit = {
+				NOT = { trait = zealous } }
+			add_trait = zealous
+			}			
+		hidden_tooltip = {
+			any_playable_ruler = {
+				limit = {
+				ai = no
+					NOT = { 
+							religion = einherjar
+								}
+				}
+				narrative_event = { id = POD1230OBJ.48 }
+			}
+		}
+		hidden_tooltip = {
+			any_character = {
+				limit = {
+					 religion = einherjar
+					 NOT = { has_landed_title = e_midgard}
+				}
+				narrative_event = { id = POD1230OBJ.47 }
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTBobj.46
+		add_character_modifier = {
+						modifier = christian_revolt
+							duration = 1200
+											}
+		add_trait = moderneinherjar
+		add_artifact = bloodhorn
+		custom_tooltip = { text = objb46_custom }
+		hidden_tooltip = {
+			any_character = {
+				limit = {
+					 religion = einherjar
+					 NOT = { has_landed_title = e_midgard}
+				}
+				add_trait = moderneinherjar
+				narrative_event = { id = POD1230OBJ.48 }
+			}
+		}
+		hidden_tooltip = {
+			any_playable_ruler = {
+				limit = {
+					ai = no
+					NOT = { has_landed_title = e_midgard }
+				}
+				narrative_event = { id = POD1230OBJ.48 }
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTCobj.46
+		change_diplomacy = 5
+		change_stewardship = 5
+		religion = furores
+		add_artifact = bloodhorn
+		custom_tooltip = { text = objc46_custom }
+		hidden_tooltip = {
+			any_character = {
+				limit = {
+					 religion = einherjar
+					 NOT = { has_landed_title = e_midgard}
+				}
+				religion = furores
+				narrative_event = { id = POD1230OBJ.48 }
+			}
+		}
+		hidden_tooltip = {
+			any_playable_ruler = {
+				limit = {
+					ai = no
+					NOT = { has_landed_title = e_midgard }
+				}
+				narrative_event = { id = POD1230OBJ.48 }
+			}
+		}
+	}
+}
+
+# Unlife after Ragnarok 
+narrative_event = {
+	id = POD1230OBJ.47
+	title = EVTNAMEPOD1230OBJ.46
+	desc = EVTDESCPOD1230OBJ.46
+	
+	picture = GFX_evt_viking_throneroom_oldgods
+	
+	is_triggered_only = yes
+	
+	option = { # furores
+		name = EVTOPTAobj.47
+		ai_chance = { factor = 30 
+		modifier = {
+			factor = 90
+				OR = { trait = cynical 
+					trait = wroth
+										}	
+		}
+		}
+		religion = furores
+		any_courtier = {
+			limit = {
+				liege = { character = ROOT }
+			}
+			religion = furores
+		}
+		capital_scope = {
+			religion = furores
+		}
+	}
+	option = { # Einherjar to the last breath
+		name = EVTOPTBobj.47
+		ai_chance = { 
+			factor = 0 
+			modifier = { 
+				factor = 90 
+				trait = zealous	}
+		}
+
+	}
+	option = { # Back to basics
+		name = EVTOPTCobj.47
+		ai_chance = { 
+			factor = 70 
+		}
+		religion = gangrellow
+		any_courtier = {
+			limit = {
+				liege = { character = ROOT }
+			}
+			religion = gangrellow
+		}
+		capital_scope = {
+			religion = gangrellow
+		}
+	}
+}
+
+# Informed about Einherjar
+narrative_event = {
+	id = POD1230OBJ.48
+	title = EVTNAMEPOD1230OBJ.46
+	desc = EVTDESCPOD1230OBJ.46
+	
+	picture = GFX_evt_viking_throneroom_oldgods
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = { 
+		text = EVTOPTAobj.48
+		trigger = {
+			religion = einherjar
+		}
+		}
+		name = { 
+		text = EVTOPTBobj.48
+		trigger = {
+			religion = ventrue_high
+		}
+		}
+		name = { 
+		text = EVTOPTCobj.48
+		trigger = {
+			NOR = { religion = einherjar
+			religion = ventrue_high		}
+		}
+	}
+	}
+}
+
+### Autarkis victory
+
+# Autarkis victory
+narrative_event = {
+	id = POD1230OBJ.49
+	title = EVTNAMEPOD1230OBJ.49
+	desc = EVTDESCPOD1230OBJ.49
+	
+	picture = GFX_evt_judged_by_ruler
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAobj.49
+		add_trait = trueindependent
+		add_artifact = scepter_of_enoch
+		add_artifact = crown_of_majesty
+		add_artifact = ruby_bracelets
+		wealth = 500
+		hidden_tooltip = {
+			any_playable_ruler = {
+				limit = {
+					ai = no
+				}
+				narrative_event = { id = POD1230OBJ.50 }
+			}
+		}
+	}
+}
+
+
+# Informed about autarkis victory
+narrative_event = {
+	id = POD1230OBJ.50
+	title = EVTNAMEPOD1230OBJ.49
+	desc = EVTDESCPOD1230OBJ.49
+	
+	picture = GFX_evt_judged_by_ruler
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = { 
+		text = EVTOPTAobj.50
+		trigger = {
+			religion = autarkis
+
+		}
+		}
+		name = { 
+		text = EVTOPTBobj.50
+		trigger = {
+			religion = ventrue_high
+		}
+		}
+		name = { 
+		text = EVTOPTCobj.50
+		trigger = {
+			NOR = { religion = autarkis
+			religion = ventrue_high	}
+		}
+	}
+	}
+}
+
+### Tzimisce victory
+
+# Tzimisce victory
+narrative_event = {
+	id = POD1230OBJ.51
+	title = EVTNAMEPOD1230OBJ.51
+	desc = EVTDESCPOD1230OBJ.51
+	
+	picture = GFX_evt_beheading
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAobj.51
+		add_artifact = ainkurn
+		add_trait = tzimisceruler
+		set_parent_religion = { religion = tremerelow parent = koldun }
+		custom_tooltip = { text = obja51_custom }
+		hidden_tooltip = {
+			any_character = { 
+				limit = {
+					religion = koldun
+					NOR = { has_landed_title = e_voivodate
+							trait = vampgeneration4
+							trait = vampgeneration3
+							} }
+					add_trait = tzimisceruler
+						
+		}
+		}
+			
+		hidden_tooltip = {
+			any_playable_ruler = {
+				limit = {
+					ai = no
+					NOT = { has_landed_title = e_voivodate }
+				}
+				narrative_event = { id = POD1230OBJ.52 }
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTBobj.51
+		add_artifact = ainkurn
+		add_trait = tzimiscescholar
+		set_parent_religion = { religion = tremerelow parent = koldun }
+		custom_tooltip = { text = objb51_custom }
+		hidden_tooltip = {
+			any_character = { 
+				limit = {
+					religion = koldun
+					NOR = { has_landed_title = e_voivodate
+							trait = vampgeneration4
+							trait = vampgeneration3
+							} }
+					add_trait = tzimiscescholar
+						
+		}
+		}
+			
+		hidden_tooltip = {
+			any_playable_ruler = {
+				limit = {
+					ai = no
+					NOT = { has_landed_title = e_voivodate }
+				}
+				narrative_event = { id = POD1230OBJ.52 }
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTCobj.51
+		add_artifact = ainkurn
+		add_trait = kupalasfavor
+		set_parent_religion = { religion = tremerelow parent = koldun }
+		custom_tooltip = { text = objc51_custom }
+		hidden_tooltip = {
+			any_character = { 
+				limit = {
+					religion = koldun
+					NOR = { has_landed_title = e_voivodate
+							trait = vampgeneration4
+							trait = vampgeneration3
+							} }
+					add_trait = kupalasfavor
+						
+		}
+		}
+			
+		hidden_tooltip = {
+			any_playable_ruler = {
+				limit = {
+					ai = no
+					NOT = { has_landed_title = e_voivodate }
+				}
+				narrative_event = { id = POD1230OBJ.52 }
+			}
+		}
+	}
+}
+
+
+# Informed about Tzimisce victory
+narrative_event = {
+	id = POD1230OBJ.52
+	title = EVTNAMEPOD1230OBJ.51
+	desc = EVTDESCPOD1230OBJ.51
+	
+	picture = GFX_evt_beheading
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = { 
+		text = EVTOPTAobj.52
+		trigger = {
+			religion = tremerelow
+
+		}
+		}
+		name = { 
+		text = EVTOPTBobj.52
+		trigger = {
+			religion = koldun
+		}
+		}
+		name = { 
+		text = EVTOPTCobj.52
+		trigger = {
+			NOR = { religion = koldun
+			religion = tremerelow	}
 		}
 	}
 	}

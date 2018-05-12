@@ -1,0 +1,1707 @@
+pod_start_camarilla_sabbat_formation = {
+	pod_mark_player_vampires = yes
+	pod_target_first_camarilla = yes
+	log = "moved to next"
+	pod_mark_baronies_effect = yes
+	log = "post baronies effect"
+	#pod_camarilla_end_wars = yes
+	log = "post camarilla war end effect"
+	pod_convert_camarilla_founder = yes
+	log = "post camarilla founder conversion"
+	event_target:biggest_ruler = {
+		set_character_flag = camarilla_ruler
+		log = "Camarilla Emperor is [This.GetTitledName]"
+		save_event_target_as = camarilla_founder
+	}
+	pod_check_for_who_camarilla = yes
+	
+	pod_convert_first_sabbat = yes
+	event_target:biggest_ruler = {
+		set_character_flag = sabbat_ruler
+		log = "Sabbat Emperor is [This.GetTitledName]"
+		save_event_target_as = sabbat_founder_1
+	}
+	pod_convert_second_sabbat = yes
+	event_target:biggest_ruler = {
+		set_character_flag = sabbat_ruler
+		log = "Sabbat Emperor is [This.GetTitledName]"
+		save_event_target_as = sabbat_founder_2
+	}
+	pod_convert_anarchs_to_sects = yes
+	pod_convert_province_religion_to_ruler = yes
+	pod_give_sabbat_armies = yes
+}
+
+pod_start_camarilla_formation_ai = {
+	log = "camarilla ai formation started"
+	pod_mark_player_vampires = yes
+	pod_mark_baronies_effect = yes
+	#pod_camarilla_end_wars = yes
+	pod_convert_camarilla_founder = yes
+	#event_target:biggest_ruler = {
+		#set_character_flag = camarilla_ruler
+		#set_character_flag = camarilla_emperor_flag
+		#log = "Camarilla Emperor is [This.GetTitledName]"
+		#save_event_target_as = camarilla_founder
+	#}
+	pod_check_for_who_camarilla = yes
+	log = "camarilla ai formation ended"
+}
+
+pod_start_camarilla_formation_player = {
+	pod_mark_player_vampires = yes
+	pod_mark_baronies_effect = yes
+	#pod_camarilla_end_wars = yes
+	pod_convert_camarilla_founder = yes
+	pod_convert_camarilla_player = yes
+	
+	add_trait = camarilla_founder_trait
+	set_character_flag = camarilla_emperor_flag
+	pod_check_for_who_camarilla = yes
+}
+
+pod_start_sabbat_formation = {
+	pod_convert_first_sabbat = yes
+	event_target:biggest_ruler = {
+		set_character_flag = sabbat_ruler
+		log = "Sabbat Emperor is [This.GetTitledName]"
+		save_event_target_as = sabbat_founder_1
+		pod_convert_sabbat_ruler_vampires = yes
+	}
+	pod_convert_second_sabbat = yes
+	event_target:biggest_ruler = {
+		set_character_flag = sabbat_ruler
+		log = "Sabbat Emperor is [This.GetTitledName]"
+		save_event_target_as = sabbat_founder_2
+		pod_convert_sabbat_ruler_vampires = yes
+	}
+	pod_give_sabbat_armies = yes
+	
+	pod_convert_anarchs_to_sects = yes
+	pod_convert_province_religion_to_ruler = yes
+}
+
+pod_convert_player_to_camarilla = {
+	pod_convert_province_religion_to_ruler = yes
+}
+pod_convert_player_to_sabbat = {
+	pod_convert_province_religion_to_ruler = yes
+}
+pod_check_for_player_camarilla = {
+	pod_target_first_camarilla = yes
+	event_target:biggest_ruler = {
+		save_event_target_as = camarilla_founder
+		if = {
+			limit = {
+				ai = no
+			}
+			save_event_target_as = player_camarilla_emperor
+			set_global_flag = PLAYER_CAMARILLA_EMPEROR
+		}
+	}
+}
+pod_give_sabbat_armies = {
+	any_playable_ruler = {
+		limit = {
+			has_character_flag = sabbat_ruler
+		}
+		location = {
+			save_event_target_as = target_province
+		}
+		save_event_target_as = target_sabbat_ruler
+		pod_spawn_sabbat_host = yes
+	}
+}
+pod_spawn_sabbat_host = {
+	spawn_sabbat_mass_troops = yes
+	spawn_sabbat_mass_troops = yes
+	spawn_sabbat_mass_troops = yes
+	spawn_sabbat_mass_troops = yes
+	spawn_sabbat_mass_troops = yes
+	spawn_sabbat_mass_troops = yes
+	spawn_sabbat_mass_troops = yes
+	spawn_sabbat_mass_troops = yes
+	spawn_sabbat_mass_troops = yes
+	spawn_sabbat_mass_troops = yes
+}
+spawn_sabbat_mass_troops = {
+	spawn_unit = {
+		province = event_target:target_province
+		home = event_target:target_province
+		owner = event_target:target_sabbat_ruler
+		troops = {
+			mass_vampires = { 250 250 }
+		}
+		attrition = 0.1
+	}
+}
+pod_mark_baronies_effect = {
+	e_avalon = {
+		owner = {
+			set_character_flag = baronies_avalon_member
+			set_character_flag = baronies_avalon_ruler
+			any_realm_character = {
+				set_character_flag = baronies_avalon_member
+			}
+		}
+	}
+}
+
+pod_convert_province_religion_to_ruler = {
+	any_province = {
+		owner = {
+			top_liege = {
+				save_event_target_as = targetruler
+			}
+		}
+		religion = event_target:targetruler
+	}
+}
+
+pod_convert_province_religion_to_ruler_player = {
+	any_realm_province = {
+		owner = {
+			top_liege = {
+				save_event_target_as = targetruler
+			}
+		}
+		religion = event_target:targetruler
+	}
+}
+pod_camarilla_end_wars = {
+	any_playable_ruler = {
+		any_war = {
+			end_war = whitepeace
+		}
+	}
+}
+
+pod_check_for_who_camarilla = {
+	pod_check_assamite_for_camarilla = yes
+	pod_check_brujah_for_camarilla = yes
+	pod_check_cappadocian_for_camarilla = yes
+	pod_check_followerofset_for_camarilla = yes
+	pod_check_giovanni_for_camarilla = yes
+	pod_check_lasombra_for_camarilla = yes
+	pod_check_malkavian_for_camarilla = yes
+	pod_check_nosferatu_for_camarilla = yes
+	pod_check_ravnos_for_camarilla = yes
+	pod_check_salubri_for_camarilla = yes
+	pod_check_toreador_for_camarilla = yes
+	pod_check_tremere_for_camarilla = yes
+	pod_check_tzimisce_for_camarilla = yes
+	pod_check_baali_for_camarilla = yes
+	pod_check_gangrel_for_camarilla = yes
+	pod_check_ventrue_for_camarilla = yes
+	pod_check_inconnu_for_camarilla = yes
+	pod_check_avalon_for_camarilla = yes
+	pod_check_ashirra_for_camarilla = yes
+	pod_check_cainiteheresy_for_camarilla = yes
+}
+
+pod_kneel_to_sabbat = {
+	any_independent_ruler = {
+		limit = {
+			has_character_flag = sabbat_ruler
+		}
+		save_event_target_as = sabbat_emperor
+	}
+	any_independent_ruler = {
+		limit = {
+			religion = sabbat
+		}
+		set_defacto_liege = event_target:sabbat_emperor
+	}
+}
+
+pod_kneel_to_camarilla = {
+	any_independent_ruler = {
+		limit = {
+			has_character_flag = camarilla_ruler
+		}
+		save_event_target_as = camarilla_emperor
+	}
+	any_independent_ruler = {
+		limit = {
+			religion = masquerade_camarilla
+		}
+		any_demesne_title = {
+			set_defacto_liege = event_target:camarilla_emperor
+		}
+	}
+}
+pod_convert_to_camarilla = {
+	#religion = masquerade_camarilla
+	#set_government_type  = traditions_government
+	if = {
+		limit = {
+			religion = sabbat
+		}
+		random = {
+			chance = 40
+			modifier = {
+				factor = 0
+				trait = sabbat_founder_trait
+			}
+			religion = masquerade_camarilla
+			set_government_type  = traditions_government
+		}
+	}else_if = {
+		limit = { NOT = { trait = sabbat_founder_trait } }
+		religion = masquerade_camarilla
+		set_government_type  = traditions_government
+	}
+}
+
+pod_convert_to_sabbat = {
+	if = {
+		limit = {
+			religion = masquerade_camarilla
+		}
+		random = {
+			chance = 60
+			modifier = {
+				factor = 0
+				trait = camarilla_founder_trait
+			}
+			religion = sabbat
+			set_government_type  = milan_government
+		}
+	}else_if = {
+		limit = { NOT = { trait = camarilla_founder_trait } }
+		religion = sabbat
+		set_government_type  = milan_government
+	}
+}
+
+pod_convert_to_sabbat_player_version = {
+	if = {
+		limit = {
+			religion = masquerade_camarilla
+		}
+		random = {
+			chance = 80
+			modifier = {
+				factor = 0
+				trait = camarilla_founder_trait
+			}
+			religion = sabbat
+			set_government_type  = milan_government
+		}
+	}else_if = {
+		limit = { NOT = { trait = camarilla_founder_trait } }
+		religion = sabbat
+		set_government_type  = milan_government
+	}
+}
+
+pod_convert_anarchs_to_sects = {
+	any_character = {
+		limit = {
+			is_vamp_anarch = yes
+		}
+		if = {
+			limit = {
+				top_liege = { is_sabbat_vamp = yes }
+			}
+			pod_convert_to_sabbat = yes
+		}else_if = {
+			limit = {
+				top_liege = { is_camarilla_vamp = yes }
+			}
+			random_list = {
+				5 = {
+					pod_convert_to_sabbat = yes
+				}
+				5 = {
+					pod_convert_to_camarilla = yes
+				}
+			}
+		}
+		else = {
+			#not in a majority sect, keep their anarchy
+		}
+	}
+}
+
+pod_convert_anarch_sabbat = {
+	random_list = {
+		7 = {
+			pod_convert_to_sabbat = yes
+		}
+		3 = {
+			#FREEEEEDOOOM
+		}
+	}
+}
+
+pod_convert_anarch_camarilla = {
+	random_list = {
+		7 = {
+			pod_convert_to_camarilla = yes
+		}
+		3 = {
+			#FREEEEEDOOOM
+		}
+	}
+}
+
+pod_convert_assamite_to_camarilla = {
+	any_character = {
+		limit = {
+			trait = assamite
+			conversion_clan_check = no
+		}
+		pod_convert_to_camarilla = yes
+	}
+}
+pod_convert_brujah_to_camarilla = {
+	any_character = {
+		limit = {
+			trait = brujah
+			conversion_clan_check = no
+		}
+		pod_convert_to_camarilla = yes
+	}
+}
+pod_convert_cappadocian_to_camarilla = {
+	any_character = {
+		limit = {
+			trait = cappadocian
+			conversion_clan_check = no
+		}
+		pod_convert_to_camarilla = yes
+	}
+}
+pod_convert_followerofset_to_camarilla = {
+	any_character = {
+		limit = {
+			OR = {
+				trait = followerofset
+				religion = setite
+			}
+		}
+		pod_convert_to_camarilla = yes
+		random = {
+			chance = 10
+			clear_secret_religion = yes
+			set_secret_religion = setite
+		}
+	}
+}
+pod_convert_giovanni_to_camarilla = {
+	any_character = {
+		limit = {
+			is_vamp_giovanni = yes
+			is_cam_sab_player = no
+			#check_clans_for_cases = no
+		}
+		pod_convert_to_camarilla = yes
+	}
+}
+pod_convert_lasombra_to_camarilla = {
+	any_character = {
+		limit = {
+			trait = lasombra
+			conversion_clan_check = no
+		}
+		pod_convert_to_camarilla = yes
+	}
+}
+pod_convert_malkavian_to_camarilla = {
+	any_character = {
+		limit = {
+			trait = malkavian
+			conversion_clan_check = no
+		}
+		pod_convert_to_camarilla = yes
+	}
+}
+pod_convert_nosferatu_to_camarilla = {
+	any_character = {
+		limit = {
+			trait = nosferatu
+			conversion_clan_check = no
+		}
+		pod_convert_to_camarilla = yes
+	}
+}
+pod_convert_ravnos_to_camarilla = {
+	any_character = {
+		limit = {
+			trait = ravnos
+			conversion_clan_check = no
+		}
+		save_event_target_as = ravnos_target
+		if = {
+			limit = {
+				is_euro_ravnos = yes
+			}
+			log = "RAVNOS TO CAMARILLA: [ravnos_target.GetTitledName]" 
+			pod_convert_to_camarilla = yes
+		}
+		
+	}
+}
+pod_convert_salubri_to_camarilla = {
+	any_character = {
+		limit = {
+			trait = salubri
+			conversion_clan_check = no
+		}
+		pod_convert_to_camarilla = yes
+	}
+}
+pod_convert_toreador_to_camarilla = {
+	any_character = {
+		limit = {
+			trait = toreador
+			conversion_clan_check = no
+		}
+		#log = "TOREADOR TO CAM: [This.GetTitledName"
+		pod_convert_to_camarilla = yes
+	}
+}
+pod_convert_tremere_to_camarilla = {
+	any_character = {
+		limit = {
+			trait = tremere
+			conversion_clan_check = no
+		}
+		pod_convert_to_camarilla = yes
+	}
+}
+pod_convert_tzimisce_to_camarilla = {
+	any_character = {
+		limit = {
+			trait = tzimisce
+			conversion_clan_check = no
+		}
+		pod_convert_to_camarilla = yes
+	}
+}
+pod_convert_baali_to_camarilla = {
+	any_character = {
+		limit = {
+			is_baali_vamp = yes
+			is_cam_sab_player = no
+			#check_clans_for_cases = no
+		}
+		pod_convert_to_camarilla = yes
+	}
+}
+pod_convert_gangrel_to_camarilla = {
+	any_character = {
+		limit = {
+			trait = gangrel
+			conversion_clan_check = no
+		}
+		pod_convert_to_camarilla = yes
+	}
+}
+pod_convert_ventrue_to_camarilla = {
+	any_character = {
+		limit = {
+			trait = ventrue
+			conversion_clan_check = no
+		}
+		pod_convert_to_camarilla = yes
+	}
+}
+pod_convert_inconnu_to_camarilla = {
+	any_character = {
+		limit = {
+			religion = inconnu
+			is_cam_sab_player = no
+		}
+		pod_convert_to_camarilla = yes
+	}
+}
+pod_convert_avalon_to_camarilla = {
+	any_character = {
+		limit = {
+			is_baronies_of_avalon = yes
+			is_cam_sab_player = no
+		}
+		pod_convert_to_camarilla = yes
+	}
+}
+pod_convert_ashirra_to_camarilla = {
+	any_character = {
+		limit = {
+			religion = ashirra
+			is_cam_sab_player = no
+		}
+		pod_convert_to_camarilla = yes
+	}
+}
+
+
+pod_convert_assamite_to_sabbat = {
+	any_character = {
+		limit = {
+			trait = assamite
+			conversion_clan_check = no
+		}
+		pod_convert_to_sabbat = yes
+	}
+}
+pod_convert_brujah_to_sabbat = {
+	any_character = {
+		limit = {
+			trait = brujah
+			conversion_clan_check = no
+		}
+		#log = "Brujah is sabbat"
+		pod_convert_to_sabbat = yes
+	}
+}
+pod_convert_cappadocian_to_sabbat = {
+	any_character = {
+		limit = {
+			trait = cappadocian
+			conversion_clan_check = no
+		}
+		pod_convert_to_sabbat = yes
+	}
+}
+pod_convert_followerofset_to_sabbat = {
+	any_character = {
+		limit = {
+			trait = followerofset
+			conversion_clan_check = no
+		}
+		pod_convert_to_sabbat = yes
+		random = {
+			chance = 10
+			clear_secret_religion = yes
+			set_secret_religion = setite
+		}
+	}
+}
+pod_convert_giovanni_to_sabbat = {
+	any_character = {
+		limit = {
+			is_vamp_giovanni = yes
+			is_cam_sab_player = no
+			#check_clans_for_cases = no
+		}
+		pod_convert_to_sabbat = yes
+	}
+}
+pod_convert_lasombra_to_sabbat = {
+	any_character = {
+		limit = {
+			trait = lasombra
+			conversion_clan_check = no
+		}
+		#log = "Lasombra is sabbat"
+		pod_convert_to_sabbat = yes
+	}
+}
+pod_convert_malkavian_to_sabbat = {
+	any_character = {
+		limit = {
+			trait = malkavian
+			conversion_clan_check = no
+		}
+		pod_convert_to_sabbat = yes
+	}
+}
+pod_convert_nosferatu_to_sabbat = {
+	any_character = {
+		limit = {
+			trait = nosferatu
+			conversion_clan_check = no
+		}
+		pod_convert_to_sabbat = yes
+	}
+}
+pod_convert_ravnos_to_sabbat = {
+	any_character = {
+		limit = {
+			trait = ravnos
+			conversion_clan_check = no
+		}
+		save_event_target_as = ravnos_target
+		if = {
+			limit = {
+				is_euro_ravnos = yes
+			}
+			#log = "RAVNOS TO SABBAT: [This.GetTitledName]" 
+			pod_convert_to_sabbat = yes
+		}
+		#log = "RAVNOS TO SABBAT: [This.GetTitledName]" 
+		#pod_convert_to_sabbat = yes
+	}
+}
+pod_convert_salubri_to_sabbat = {
+	any_character = {
+		limit = {
+			trait = salubri
+			conversion_clan_check = no
+		}
+		pod_convert_to_sabbat = yes
+	}
+}
+pod_convert_toreador_to_sabbat = {
+	any_character = {
+		limit = {
+			trait = toreador
+			conversion_clan_check = no
+		}
+		pod_convert_to_sabbat = yes
+	}
+}
+pod_convert_tremere_to_sabbat = {
+	any_character = {
+		limit = {
+			trait = tremere
+			conversion_clan_check = no
+		}
+		pod_convert_to_sabbat = yes
+	}
+}
+pod_convert_tzimisce_to_sabbat = {
+	any_character = {
+		limit = {
+			trait = tzimisce
+			conversion_clan_check = no
+		}
+		pod_convert_to_sabbat = yes
+	}
+}
+pod_convert_baali_to_sabbat = {
+	any_character = {
+		limit = {
+			is_baali_vamp = yes
+			is_cam_sab_player = no
+			#check_clans_for_cases = no
+		}
+		#log = "BAALI TO SABBAT: [This.GetTitledName]" 
+		pod_convert_to_sabbat = yes
+	}
+}
+pod_convert_gangrel_to_sabbat = {
+	any_character = {
+		limit = {
+			trait = gangrel
+			conversion_clan_check = no
+		}
+		pod_convert_to_sabbat = yes
+	}
+}
+pod_convert_ventrue_to_sabbat = {
+	any_character = {
+		limit = {
+			trait = ventrue
+			conversion_clan_check = no
+		}
+		pod_convert_to_sabbat = yes
+	}
+}
+pod_convert_cainite_to_sabbat = {
+	any_character = {
+		limit = {
+			religion = cainite
+			is_cam_sab_player = no
+		}
+		pod_convert_to_sabbat = yes
+	}
+}
+pod_convert_avalon_to_sabbat = {
+	any_character = {
+		limit = {
+			is_baronies_of_avalon = yes
+			is_cam_sab_player = no
+		}
+		pod_convert_to_sabbat = yes
+	}
+}
+pod_convert_ashirra_to_sabbat = {
+	any_character = {
+		limit = {
+			religion = ashirra
+			is_cam_sab_player = no
+		}
+		pod_convert_to_sabbat = yes
+	}
+}
+
+pod_count_ashirra_to_lasombra_sabbat = {
+	set_variable = { which = global_ashirra_size value = 0 }
+	set_variable = { which = global_nonlasombra_size value = 0 }
+	any_independent_ruler = {
+		limit = {
+			religion = ashirra
+			is_cam_sab_player = no
+		}
+		export_to_variable = { which = temp_realmsize value = realm_size }
+		change_variable = { which = global_ashirra_size which = temp_realmsize }
+	}
+	any_independent_ruler = {
+		limit = {
+			trait = lasombra
+			NOT = { religion = ashirra }
+			is_cam_sab_player = no
+		}
+		export_to_variable = { which = temp_realmsize value = realm_size }
+		change_variable = { which = global_nonlasombra_size which = temp_realmsize }
+	}
+	if = {
+		limit = {
+			NOT = { check_variable = { which = global_nonlasombra_size which = global_ashirra_size } }
+		}
+		pod_convert_ashirra_to_sabbat = yes
+	}else = {
+		#do nothing, let them remain independent
+	}
+}
+
+pod_count_ashirra_to_lasombra_camarilla = {
+	set_variable = { which = global_ashirra_size value = 0 }
+	set_variable = { which = global_nonlasombra_size value = 0 }
+	any_independent_ruler = {
+		limit = {
+			religion = ashirra
+			is_cam_sab_player = no
+		}
+		export_to_variable = { which = temp_realmsize value = realm_size }
+		change_variable = { which = global_ashirra_size which = temp_realmsize }
+	}
+	any_independent_ruler = {
+		limit = {
+			trait = lasombra
+			NOT = { religion = ashirra }
+			is_cam_sab_player = no
+		}
+		export_to_variable = { which = temp_realmsize value = realm_size }
+		change_variable = { which = global_nonlasombra_size which = temp_realmsize }
+	}
+	if = {
+		limit = {
+			NOT = { check_variable = { which = global_nonlasombra_size which = global_ashirra_size } }
+		}
+		pod_convert_ashirra_to_camarilla = yes
+	}else = {
+		#do nothing, let them remain independent
+	}
+}
+
+pod_convert_first_sabbat = {
+	log = "starting first sabbat global conversion"
+	trigger_switch = {
+		on_trigger = has_global_flag
+		assamite_sabbat_1 = {
+			pod_convert_assamite_to_sabbat = yes
+			pod_find_assamite_founder = yes
+			event_target:biggest_ruler = {
+				add_trait = sabbat_founder_trait
+			}
+		}
+		brujah_sabbat_1 = {
+			pod_convert_brujah_to_sabbat = yes
+			pod_find_brujah_founder = yes
+			event_target:biggest_ruler = {
+				add_trait = sabbat_founder_trait
+			}
+		}
+		cappadocian_sabbat_1 = {
+			pod_convert_cappadocian_to_sabbat = yes
+			pod_find_cappadocian_founder = yes
+			event_target:biggest_ruler = {
+				add_trait = sabbat_founder_trait
+			}
+		}
+		followerofset_sabbat_1 = {
+			pod_convert_followerofset_to_sabbat = yes
+			pod_find_followerofset_founder = yes
+			event_target:biggest_ruler = {
+				add_trait = sabbat_founder_trait
+			}
+		}
+		giovanni_sabbat_1 = {
+			pod_convert_giovanni_to_sabbat = yes
+			pod_find_giovanni_founder = yes
+			event_target:biggest_ruler = {
+				add_trait = sabbat_founder_trait
+			}
+		}
+		lasombra_sabbat_1 = {
+			pod_convert_lasombra_to_sabbat = yes
+			pod_count_ashirra_to_lasombra_sabbat = yes
+			pod_find_lasombra_founder = yes
+			event_target:biggest_ruler = {
+				add_trait = sabbat_founder_trait
+			}
+		}
+		malkavian_sabbat_1 = {
+			pod_convert_malkavian_to_sabbat = yes
+			pod_find_malkavian_founder = yes
+			event_target:biggest_ruler = {
+				add_trait = sabbat_founder_trait
+			}
+		}
+		nosferatu_sabbat_1 = {
+			pod_convert_nosferatu_to_sabbat = yes
+			pod_find_nosferatu_founder = yes
+			event_target:biggest_ruler = {
+				add_trait = sabbat_founder_trait
+			}
+		}
+		ravnos_sabbat_1 = {
+			pod_convert_ravnos_to_sabbat = yes
+			pod_find_ravnos_founder = yes
+			event_target:biggest_ruler = {
+				add_trait = sabbat_founder_trait
+			}
+		}
+		salubri_sabbat_1 = {
+			pod_convert_salubri_to_sabbat = yes
+			pod_find_salubri_founder = yes
+			event_target:biggest_ruler = {
+				add_trait = sabbat_founder_trait
+			}
+		}
+		toreador_sabbat_1 = {
+			pod_convert_toreador_to_sabbat = yes
+			pod_find_toreador_founder = yes
+			event_target:biggest_ruler = {
+				add_trait = sabbat_founder_trait
+			}
+		}
+		tremere_sabbat_1 = {
+			pod_convert_tremere_to_sabbat = yes
+			pod_find_tremere_founder = yes
+			event_target:biggest_ruler = {
+				add_trait = sabbat_founder_trait
+			}
+		}
+		tzimisce_sabbat_1 = {
+			pod_convert_tzimisce_to_sabbat = yes
+			pod_find_tzimisce_founder = yes
+			event_target:biggest_ruler = {
+				add_trait = sabbat_founder_trait
+			}
+		}
+		baali_sabbat_1 = {
+			pod_convert_baali_to_sabbat = yes
+			pod_find_baali_founder = yes
+			event_target:biggest_ruler = {
+				add_trait = sabbat_founder_trait
+			}
+		}
+		gangrel_sabbat_1 = {
+			pod_convert_gangrel_to_sabbat = yes
+			pod_find_gangrel_founder = yes
+			event_target:biggest_ruler = {
+				add_trait = sabbat_founder_trait
+			}
+		}
+		ventrue_sabbat_1 = {
+			pod_convert_ventrue_to_sabbat = yes
+			pod_find_ventrue_founder = yes
+			event_target:biggest_ruler = {
+				add_trait = sabbat_founder_trait
+			}
+		}
+	}
+}
+
+pod_convert_second_sabbat = {
+	log = "starting second sabbat global conversion"
+	trigger_switch = {
+		on_trigger = has_global_flag
+		assamite_sabbat_2 = {
+			pod_convert_assamite_to_sabbat = yes
+			pod_find_assamite_founder = yes
+			event_target:biggest_ruler = {
+				add_trait = sabbat_founder_trait
+			}
+		}
+		brujah_sabbat_2 = {
+			pod_convert_brujah_to_sabbat = yes
+			pod_find_brujah_founder = yes
+			event_target:biggest_ruler = {
+				add_trait = sabbat_founder_trait
+			}
+		}
+		cappadocian_sabbat_2 = {
+			pod_convert_cappadocian_to_sabbat = yes
+			pod_find_cappadocian_founder = yes
+			event_target:biggest_ruler = {
+				add_trait = sabbat_founder_trait
+			}
+		}
+		followerofset_sabbat_2 = {
+			pod_convert_followerofset_to_sabbat = yes
+			pod_find_followerofset_founder = yes
+			event_target:biggest_ruler = {
+				add_trait = sabbat_founder_trait
+			}
+		}
+		giovanni_sabbat_2 = {
+			pod_convert_giovanni_to_sabbat = yes
+			pod_find_giovanni_founder = yes
+			event_target:biggest_ruler = {
+				add_trait = sabbat_founder_trait
+			}
+		}
+		lasombra_sabbat_2 = {
+			pod_convert_lasombra_to_sabbat = yes
+			pod_count_ashirra_to_lasombra_sabbat = yes
+			pod_find_lasombra_founder = yes
+			event_target:biggest_ruler = {
+				add_trait = sabbat_founder_trait
+			}
+		}
+		malkavian_sabbat_2 = {
+			pod_convert_malkavian_to_sabbat = yes
+			pod_find_malkavian_founder = yes
+			event_target:biggest_ruler = {
+				add_trait = sabbat_founder_trait
+			}
+		}
+		nosferatu_sabbat_2 = {
+			pod_convert_nosferatu_to_sabbat = yes
+			pod_find_nosferatu_founder = yes
+			event_target:biggest_ruler = {
+				add_trait = sabbat_founder_trait
+			}
+		}
+		ravnos_sabbat_2 = {
+			pod_convert_ravnos_to_sabbat = yes
+			pod_find_ravnos_founder = yes
+			event_target:biggest_ruler = {
+				add_trait = sabbat_founder_trait
+			}
+		}
+		salubri_sabbat_2 = {
+			pod_convert_salubri_to_sabbat = yes
+			pod_find_salubri_founder = yes
+			event_target:biggest_ruler = {
+				add_trait = sabbat_founder_trait
+			}
+		}
+		toreador_sabbat_2 = {
+			pod_convert_toreador_to_sabbat = yes
+			pod_find_toreador_founder = yes
+			event_target:biggest_ruler = {
+				add_trait = sabbat_founder_trait
+			}
+		}
+		tremere_sabbat_2 = {
+			pod_convert_tremere_to_sabbat = yes
+			pod_find_tremere_founder = yes
+			event_target:biggest_ruler = {
+				add_trait = sabbat_founder_trait
+			}
+		}
+		tzimisce_sabbat_2 = {
+			pod_convert_tzimisce_to_sabbat = yes
+			pod_find_tzimisce_founder = yes
+			event_target:biggest_ruler = {
+				add_trait = sabbat_founder_trait
+			}
+		}
+		baali_sabbat_2 = {
+			pod_convert_baali_to_sabbat = yes
+			pod_find_baali_founder = yes
+			event_target:biggest_ruler = {
+				add_trait = sabbat_founder_trait
+			}
+		}
+		gangrel_sabbat_2 = {
+			pod_convert_gangrel_to_sabbat = yes
+			pod_find_gangrel_founder = yes
+			event_target:biggest_ruler = {
+				add_trait = sabbat_founder_trait
+			}
+		}
+		ventrue_sabbat_2 = {
+			pod_convert_ventrue_to_sabbat = yes
+			pod_find_ventrue_founder = yes
+			event_target:biggest_ruler = {
+				add_trait = sabbat_founder_trait
+			}
+		}
+	}
+}
+
+pod_convert_camarilla_founder = {
+	log = "starting camarilla founder conversion"
+	trigger_switch = {
+		on_trigger = has_global_flag
+		assamite_camarilla = {
+			pod_convert_assamite_to_camarilla = yes
+			pod_find_assamite_founder = yes
+			event_target:biggest_ruler = {
+				add_trait = camarilla_founder_trait
+			}
+		}
+		brujah_camarilla = {
+			pod_convert_brujah_to_camarilla = yes
+			pod_find_brujah_founder = yes
+			event_target:biggest_ruler = {
+				add_trait = camarilla_founder_trait
+			}
+		}
+		cappadocian_camarilla = {
+			pod_convert_cappadocian_to_camarilla = yes
+			pod_find_cappadocian_founder = yes
+			event_target:biggest_ruler = {
+				add_trait = camarilla_founder_trait
+			}
+		}
+		followerofset_camarilla = {
+			pod_convert_followerofset_to_camarilla = yes
+			pod_find_followerofset_founder = yes
+			event_target:biggest_ruler = {
+				add_trait = camarilla_founder_trait
+				pod_convert_to_camarilla = yes
+			}
+		}
+		giovanni_camarilla = {
+			pod_convert_giovanni_to_camarilla = yes
+			pod_find_giovanni_founder = yes
+			event_target:biggest_ruler = {
+				add_trait = camarilla_founder_trait
+			}
+		}
+		lasombra_camarilla = {
+			pod_convert_lasombra_to_camarilla = yes
+			pod_count_ashirra_to_lasombra_camarilla = yes
+			pod_find_lasombra_founder = yes
+			event_target:biggest_ruler = {
+				add_trait = camarilla_founder_trait
+			}
+		}
+		malkavian_camarilla = {
+			pod_convert_malkavian_to_camarilla = yes
+			pod_find_malkavian_founder = yes
+			event_target:biggest_ruler = {
+				add_trait = camarilla_founder_trait
+			}
+		}
+		nosferatu_camarilla = {
+			pod_convert_nosferatu_to_camarilla = yes
+			pod_find_nosferatu_founder = yes
+			event_target:biggest_ruler = {
+				add_trait = camarilla_founder_trait
+			}
+		}
+		ravnos_camarilla = {
+			pod_convert_ravnos_to_camarilla = yes
+			pod_find_ravnos_founder = yes
+			event_target:biggest_ruler = {
+				add_trait = camarilla_founder_trait
+			}
+		}
+		salubri_camarilla = {
+			pod_convert_salubri_to_camarilla = yes
+			pod_find_salubri_founder = yes
+			event_target:biggest_ruler = {
+				add_trait = camarilla_founder_trait
+			}
+		}
+		toreador_camarilla = {
+			pod_convert_toreador_to_camarilla = yes
+			pod_find_toreador_founder = yes
+			event_target:biggest_ruler = {
+				add_trait = camarilla_founder_trait
+			}
+		}
+		tremere_camarilla = {
+			pod_convert_tremere_to_camarilla = yes
+			pod_find_tremere_founder = yes
+			event_target:biggest_ruler = {
+				add_trait = camarilla_founder_trait
+			}
+		}
+		tzimisce_camarilla = {
+			pod_convert_tzimisce_to_camarilla = yes
+			pod_find_tzimisce_founder = yes
+			event_target:biggest_ruler = {
+				add_trait = camarilla_founder_trait
+			}
+		}
+		baali_camarilla = {
+			pod_convert_baali_to_camarilla = yes
+			pod_find_baali_founder = yes
+			event_target:biggest_ruler = {
+				add_trait = camarilla_founder_trait
+			}
+		}
+		gangrel_camarilla = {
+			pod_convert_gangrel_to_camarilla = yes
+			pod_find_gangrel_founder = yes
+			event_target:biggest_ruler = {
+				add_trait = camarilla_founder_trait
+			}
+		}
+		ventrue_camarilla = {
+			pod_convert_ventrue_to_camarilla = yes
+			pod_find_ventrue_founder = yes
+			event_target:biggest_ruler = {
+				add_trait = camarilla_founder_trait
+			}
+		}
+	}
+}
+
+pod_check_founder_size_effect = {
+	export_to_variable = { which = local_new_size value = realm_size }
+	log = "[This.GetTitledName] is size [local_new_size.GetValue]"
+	if = {
+		limit = {
+			NOT = { check_variable = { which = global_check_size which = local_new_size } }
+		}
+		set_variable = { which = global_check_size which = local_new_size }
+		save_event_target_as = biggest_ruler
+		event_target:biggest_ruler = {
+			#log = "Biggest Ruler is [This.GetTitledName], size [global_check_size.GetValue]"
+		}
+	}else = {
+		#log = "NOT CHANGED: [This.GetTitledName] is size [local_new_size.GetValue]"
+	}
+}
+
+pod_find_assamite_founder = {
+	set_variable = { which = global_check_size value = 0 }
+	any_playable_ruler = {
+		limit = {
+			trait = assamite
+			#check_clans_for_cases = no
+			is_cam_sab_player = no
+			is_not_mercenary = yes
+			leader_check_case = yes
+		}
+		log = "Assamite Ruler: [This.GetTitledName]"
+		pod_check_founder_size_effect = yes
+	}
+}
+pod_find_brujah_founder = {
+	set_variable = { which = global_check_size value = 0 }
+	any_playable_ruler = {
+		limit = {
+			trait = brujah
+			#check_clans_for_cases = no
+			is_cam_sab_player = no
+			is_not_mercenary = yes
+			leader_check_case = yes
+		}
+		pod_check_founder_size_effect = yes
+	}
+}
+pod_find_cappadocian_founder = {
+	set_variable = { which = global_check_size value = 0 }
+	any_playable_ruler = {
+		limit = {
+			trait = cappadocian
+			#check_clans_for_cases = no
+			is_cam_sab_player = no
+			is_not_mercenary = yes
+			leader_check_case = yes
+		}
+		pod_check_founder_size_effect = yes
+	}
+}
+pod_find_followerofset_founder = {
+	set_variable = { which = global_check_size value = 0 }
+	any_playable_ruler = {
+		limit = {
+			trait = followerofset
+			#check_clans_for_cases = no
+			is_cam_sab_player = no
+			is_not_mercenary = yes
+			leader_check_case = yes
+		}
+		pod_check_founder_size_effect = yes
+	}
+}
+pod_find_giovanni_founder = {
+	set_variable = { which = global_check_size value = 0 }
+	any_playable_ruler = {
+		limit = {
+			is_vamp_giovanni = yes
+			is_cam_sab_player = no
+			is_not_mercenary = yes
+			leader_check_case = yes
+			#check_clans_for_cases = no
+		}
+		pod_check_founder_size_effect = yes
+	}
+}
+pod_find_lasombra_founder = {
+	set_variable = { which = global_check_size value = 0 }
+	any_playable_ruler = {
+		limit = {
+			trait = lasombra
+			#check_clans_for_cases = no
+			is_cam_sab_player = no
+			is_not_mercenary = yes
+			leader_check_case = yes
+		}
+		pod_check_founder_size_effect = yes
+	}
+}
+pod_find_malkavian_founder = {
+	set_variable = { which = global_check_size value = 0 }
+	any_playable_ruler = {
+		limit = {
+			trait = malkavian
+			#check_clans_for_cases = no
+			is_cam_sab_player = no
+			is_not_mercenary = yes
+			leader_check_case = yes
+		}
+		pod_check_founder_size_effect = yes
+	}
+}
+pod_find_nosferatu_founder = {
+	set_variable = { which = global_check_size value = 0 }
+	any_playable_ruler = {
+		limit = {
+			trait = nosferatu
+			#check_clans_for_cases = no
+			is_cam_sab_player = no
+			is_not_mercenary = yes
+			leader_check_case = yes
+		}
+		pod_check_founder_size_effect = yes
+	}
+}
+pod_find_ravnos_founder = {
+	set_variable = { which = global_check_size value = 0 }
+	any_playable_ruler = {
+		limit = {
+			trait = ravnos
+			#check_clans_for_cases = no
+			is_cam_sab_player = no
+			is_not_mercenary = yes
+			leader_check_case = yes
+		}
+		save_event_target_as = ravnos_target
+		if = {
+			limit = {
+				is_euro_ravnos = yes
+			}
+			pod_check_founder_size_effect = yes
+		}
+	}
+}
+pod_find_salubri_founder = {
+	set_variable = { which = global_check_size value = 0 }
+	any_playable_ruler = {
+		limit = {
+			trait = salubri
+			#check_clans_for_cases = no
+			is_cam_sab_player = no
+			is_not_mercenary = yes
+			leader_check_case = yes
+		}
+		pod_check_founder_size_effect = yes
+	}
+}
+pod_find_toreador_founder = {
+	set_variable = { which = global_check_size value = 0 }
+	any_playable_ruler = {
+		limit = {
+			trait = toreador
+			#check_clans_for_cases = no
+			is_cam_sab_player = no
+			is_not_mercenary = yes
+			leader_check_case = yes
+		}
+		pod_check_founder_size_effect = yes
+	}
+}
+pod_find_tremere_founder = {
+	set_variable = { which = global_check_size value = 0 }
+	any_playable_ruler = {
+		limit = {
+			trait = tremere
+			#check_clans_for_cases = no
+			is_cam_sab_player = no
+			is_not_mercenary = yes
+			leader_check_case = yes
+		}
+		pod_check_founder_size_effect = yes
+	}
+}
+pod_find_tzimisce_founder = {
+	set_variable = { which = global_check_size value = 0 }
+	any_playable_ruler = {
+		limit = {
+			trait = tzimisce
+			#check_clans_for_cases = no
+			is_cam_sab_player = no
+			is_not_mercenary = yes
+			leader_check_case = yes
+		}
+		pod_check_founder_size_effect = yes
+	}
+}
+pod_find_baali_founder = {
+	set_variable = { which = global_check_size value = 0 }
+	any_playable_ruler = {
+		limit = {
+			is_baali_vamp = yes
+			#check_clans_for_cases = no
+			is_cam_sab_player = no
+			is_not_mercenary = yes
+		}
+		pod_check_founder_size_effect = yes
+	}
+}
+pod_find_gangrel_founder = {
+	set_variable = { which = global_check_size value = 0 }
+	any_playable_ruler = {
+		limit = {
+			trait = gangrel
+			#check_clans_for_cases = no
+			is_cam_sab_player = no
+			is_not_mercenary = yes
+			is_baali_vamp = no
+			NOT = { religion = cainite }
+			NOT = { religion = inconnu }
+		}
+		pod_check_founder_size_effect = yes
+	}
+}
+pod_find_ventrue_founder = {
+	set_variable = { which = global_check_size value = 0 }
+	any_playable_ruler = {
+		limit = {
+			trait = ventrue
+			check_clans_for_cases = no
+			is_cam_sab_player = no
+			is_not_mercenary = yes
+			leader_check_case = yes
+		}
+		pod_check_founder_size_effect = yes
+	}
+}
+pod_find_cainite_founder = {
+	set_variable = { which = global_check_size value = 0 }
+	any_playable_ruler = {
+		limit = {
+			religion = cainite
+			is_cam_sab_player = no
+			is_not_mercenary = yes
+		}
+		pod_check_founder_size_effect = yes
+	}
+}
+pod_find_avalon_founder = {
+	set_variable = { which = global_check_size value = 0 }
+	any_playable_ruler = {
+		limit = {
+			is_baronies_of_avalon = yes
+			is_cam_sab_player = no
+			is_not_mercenary = yes
+		}
+		pod_check_founder_size_effect = yes
+	}
+}
+pod_find_ashirra_founder = {
+	set_variable = { which = global_check_size value = 0 }
+	any_playable_ruler = {
+		limit = {
+			religion = ashirra
+			is_cam_sab_player = no
+			is_not_mercenary = yes
+		}
+		pod_check_founder_size_effect = yes
+	}
+}
+pod_find_inconnu_founder = {
+	set_variable = { which = global_check_size value = 0 }
+	any_playable_ruler = {
+		limit = {
+			religion = inconnu
+			is_cam_sab_player = no
+			is_not_mercenary = yes
+		}
+		pod_check_founder_size_effect = yes
+	}
+}
+
+pod_give_camarilla_founder_trait = {
+	event_target:biggest_ruler = {
+		log = "Camarilla Founder: [This.GetTitledName]"
+		add_trait = camarilla_founder_trait
+	}
+}
+
+pod_give_sabbat_founder_trait = {
+	event_target:biggest_ruler = {
+		if = {
+			limit = { trait = camarilla_founder_trait }
+			remove_trait = camarilla_founder_trait
+		}
+		log = "Sabbat Founder: [This.GetTitledName]"
+		add_trait = sabbat_founder_trait
+	}
+}
+pod_check_assamite_for_camarilla = {
+	if = {
+		limit = {
+			check_variable = { which = global_assamite_rank value = 4 }
+		}
+		pod_convert_assamite_to_camarilla = yes
+		pod_find_assamite_founder = yes
+		pod_give_camarilla_founder_trait = yes
+		#log = "Assamite is camarilla"
+	}
+}
+pod_check_brujah_for_camarilla = {
+	if = {
+		limit = {
+			check_variable = { which = global_brujah_rank value = 4 }
+		}
+		pod_convert_brujah_to_camarilla = yes
+		pod_find_brujah_founder = yes
+		pod_give_camarilla_founder_trait = yes
+		#log = "Brujah is camarilla"
+	}
+}
+pod_check_cappadocian_for_camarilla = {
+	if = {
+		limit = {
+			check_variable = { which = global_cappadocian_rank value = 4 }
+		}
+		pod_convert_cappadocian_to_camarilla = yes
+		pod_find_cappadocian_founder = yes
+		pod_give_camarilla_founder_trait = yes
+		#log = "Cappadocian is camarilla"
+	}
+}
+pod_check_cainiteheresy_for_camarilla = {
+	pod_convert_cainite_to_sabbat = yes
+}
+pod_check_followerofset_for_camarilla = {
+	if = {
+		limit = {
+			check_variable = { which = global_followerofset_rank value = 4 }
+		}
+		log = "fire followerofset camarilla"
+		pod_convert_followerofset_to_camarilla = yes
+		pod_find_followerofset_founder = yes
+		pod_give_camarilla_founder_trait = yes
+	}
+}
+pod_check_giovanni_for_camarilla = {
+	if = {
+		limit = {
+			check_variable = { which = global_giovanni_rank value = 4 }
+		}
+		random_list = {
+			10 = {
+				pod_convert_giovanni_to_camarilla = yes
+				pod_find_giovanni_founder = yes
+				pod_give_camarilla_founder_trait = yes
+			}
+			4 = {
+				pod_convert_giovanni_to_sabbat = yes
+				pod_find_giovanni_founder = yes
+				pod_give_sabbat_founder_trait = yes
+			}
+			4 = {
+				#yolo
+			}
+		}
+		
+	}
+}
+pod_check_lasombra_for_camarilla = {
+	if = {
+		limit = {
+			check_variable = { which = global_lasombra_rank value = 4 }
+		}
+		pod_convert_lasombra_to_camarilla = yes
+		pod_find_lasombra_founder = yes
+		pod_give_camarilla_founder_trait = yes
+	}
+}
+pod_check_malkavian_for_camarilla = {
+	if = {
+		limit = {
+			check_variable = { which = global_malkavian_rank value = 4 }
+		}
+		pod_convert_malkavian_to_camarilla = yes
+		pod_find_malkavian_founder = yes
+		pod_give_camarilla_founder_trait = yes
+	}
+}
+pod_check_nosferatu_for_camarilla = {
+	if = {
+		limit = {
+			always = yes
+		}
+		pod_convert_nosferatu_to_camarilla = yes
+		pod_find_nosferatu_founder = yes
+		pod_give_camarilla_founder_trait = yes
+		#nobody cares about the nosferatu except the nictuku
+	}
+}
+pod_check_ravnos_for_camarilla = {
+	if = {
+		limit = {
+			check_variable = { which = global_ravnos_rank value = 4 }
+		}
+		pod_convert_ravnos_to_camarilla = yes
+		pod_find_ravnos_founder = yes
+		pod_give_camarilla_founder_trait = yes
+	}
+}
+pod_check_salubri_for_camarilla = {
+	if = {
+		limit = {
+			check_variable = { which = global_salubri_rank value = 4 }
+		}
+		pod_convert_salubri_to_sabbat = yes
+		pod_find_salubri_founder = yes
+		pod_give_sabbat_founder_trait = yes
+	}
+}
+pod_check_toreador_for_camarilla = {
+	if = {
+		limit = {
+			check_variable = { which = global_toreador_rank value = 4 }
+		}
+		pod_convert_toreador_to_camarilla = yes
+		pod_find_toreador_founder = yes
+		pod_give_camarilla_founder_trait = yes
+	}
+}
+pod_check_tremere_for_camarilla = {
+	if = {
+		limit = {
+			check_variable = { which = global_tremere_rank value = 4 }
+		}
+		pod_convert_tremere_to_camarilla = yes
+		pod_find_tremere_founder = yes
+		pod_give_camarilla_founder_trait = yes
+	}
+}
+pod_check_tzimisce_for_camarilla = {
+	if = {
+		limit = {
+			check_variable = { which = global_tzimisce_rank value = 4 }
+		}
+		pod_convert_tzimisce_to_sabbat = yes
+		pod_find_tzimisce_founder = yes
+		pod_give_camarilla_founder_trait = yes
+	}
+}
+pod_check_baali_for_camarilla = {
+	if = {
+		limit = {
+			always = yes
+		}
+		#lol
+		pod_convert_baali_to_sabbat = yes
+		pod_find_baali_founder = yes
+		pod_give_sabbat_founder_trait = yes
+		#pod_give_camarilla_founder_trait = yes
+	}
+}
+pod_check_gangrel_for_camarilla = {
+	if = {
+		limit = {
+			check_variable = { which = global_gangrel_rank value = 4 }
+		}
+		pod_convert_gangrel_to_camarilla = yes
+		pod_find_gangrel_founder = yes
+		pod_give_camarilla_founder_trait = yes
+		event_target:biggest_ruler = {
+			pod_convert_to_camarilla = yes
+		}
+		#
+	}
+}
+pod_check_ventrue_for_camarilla = {
+	if = {
+		limit = {
+			check_variable = { which = global_ventrue_rank value = 4 }
+		}
+		pod_convert_ventrue_to_camarilla = yes
+		pod_give_camarilla_founder_trait = yes
+		#like they will ever drop below rank 3
+	}
+}
+pod_check_inconnu_for_camarilla = {
+	if = {
+		limit = {
+			always = yes
+		}
+		pod_convert_inconnu_to_camarilla = yes
+		pod_find_inconnu_founder = yes
+		pod_give_camarilla_founder_trait = yes
+		#they like order and doing nothing
+	}
+}
+pod_check_avalon_for_camarilla = {
+	if = {
+		limit = {
+			is_baronies_cam_founder = no
+		}
+		#anarchy in the uk
+		pod_convert_avalon_to_sabbat = yes
+		pod_find_avalon_founder = yes
+		pod_give_sabbat_founder_trait = yes
+		#pod_give_camarilla_founder_trait = yes
+	}
+}
+pod_check_ashirra_for_camarilla = {
+	if = {
+		limit = {
+			is_ashirra_cam_founder = no
+		}
+		#help the sabbat out
+		pod_convert_ashirra_to_sabbat = yes
+		pod_find_ashirra_founder = yes
+		pod_give_sabbat_founder_trait = yes
+	}
+}
+
+pod_convert_sabbat_ruler_vampires = {
+	any_realm_character = {
+		limit = {
+			is_cam_sab_player = no
+			trait = vampire
+			NOT = { religion = sabbat }
+		}
+		pod_convert_to_sabbat = yes
+	}
+}
+
+pod_convert_sabbat_player = {
+	add_trait = sabbat_founder_trait
+	pod_convert_to_sabbat_player_version = yes
+	any_realm_character = {
+		limit = { has_character_flag = player_cam_sab_vampire }
+		pod_convert_to_sabbat_player_version = yes
+	}
+	pod_convert_province_religion_to_ruler_player = yes
+}
+
+pod_convert_camarilla_player = {
+	add_trait = camarilla_founder_trait
+	pod_convert_to_camarilla = yes
+	any_realm_character = {
+		limit = { has_character_flag = player_cam_sab_vampire }
+		pod_convert_to_camarilla = yes
+	}
+	pod_convert_province_religion_to_ruler_player = yes
+}
+
+pod_mark_player_vampires = {
+	any_player = {
+	any_realm_character = {
+		limit = { trait = vampire }
+		set_character_flag = player_cam_sab_vampire
+	}
+	}
+}

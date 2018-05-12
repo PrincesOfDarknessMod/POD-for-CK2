@@ -52,6 +52,14 @@ pod_spawn_great_people_1200_to_1399 = {
 	spawn_subutai = yes
 	spawn_baba_ishak = yes
 	spawn_alice_kyteler = yes
+	spawn_saint_catherine = yes
+	spawn_saint_clare = yes
+	spawn_saint_birgitta = yes
+	spawn_saint_matilda = yes
+	spawn_hadewijch = yes
+	spawn_theodore_metochites = yes
+	spawn_nikephoros_blemmydes = yes
+	spawn_theodora_palaiologina = yes
 }
 
 spawn_anthony_of_padua = {
@@ -65,7 +73,7 @@ spawn_anthony_of_padua = {
 				culture = "portuguese"
 			}
 			create_character = {
-				name = "Anthony of Padua"
+				name = "Saint Anthony"
 				age = 35
 				dna="bfdca0i0aa0"
 				properties="fc0c0k000000000000"
@@ -164,7 +172,7 @@ spawn_abd_al_latif = {
 		}
 		random_province = {
 			limit = {
-				culture = "arab"
+				culture = "levantine"
 			}
 			create_character = {
 				name = "Abd al-Latif al-Baghdadi"
@@ -184,7 +192,7 @@ spawn_abd_al_latif = {
 				female = no
 				religion = innocent
 				dynasty = none
-				culture = "arab"
+				culture = "levantine"
 				attributes = {
 					learning = 17
 				}
@@ -1899,6 +1907,378 @@ spawn_alice_kyteler = {
 				set_character_flag = great_person
 				set_character_flag = alice_kyteler
 				set_character_flag = great_occultist
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+spawn_saint_catherine = {
+	if = {
+		limit = { 
+			year = 1371
+			NOT = { year > 1371 }
+		}
+		random_province = {
+			limit = {
+				culture = "italian"
+			}
+			create_character = {
+				name = "Saint Catherine"
+				age = 18
+				dna="bcada0hcc00"
+				properties="ni0e0k000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = grey_eminence
+				trait = quick
+				trait = theologian
+				trait = erudite
+				trait = humble
+				trait = zealous
+				female = yes
+				religion = innocent
+				dynasty = none
+				culture = "italian"
+				attributes = {
+					diplomacy = 14
+					learning = 12
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = saint_catherine 
+				set_character_flag = great_theologian
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+spawn_saint_clare = {
+	if = {
+		limit = { 
+			year = 1253
+			NOT = { year > 1253 }
+		}
+		random_province = {
+			limit = {
+				culture = "italian"
+			}
+			create_character = {
+				name = "Saint Clare"
+				age = 18
+				dna="cg0cd0ac0c0"
+				properties="h00j0k000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = thrifty_clerk
+				trait = theologian
+				trait = chaste
+				trait = humble
+				trait = zealous
+				trait = diligent
+				trait = stubborn
+				female = yes
+				religion = innocent
+				dynasty = none
+				culture = "italian"
+				attributes = {
+					stewardship = 12
+					learning = 8
+					diplomacy = 8
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = saint_catherine 
+				set_character_flag = great_theologian
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+spawn_saint_birgitta = {
+	if = {
+		limit = { 
+			year = 1361
+			NOT = { year > 1361 }
+		}
+		random_province = {
+			limit = {
+				culture = "german"
+			}
+			create_character = {
+				name = "Saint Birgitta"
+				age = 18
+				dna="ceib00h0e00"
+				properties="f00j0k000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = charismatic_negotiator
+				trait = fair
+				trait = patient
+				trait = temperate
+				trait = zealous
+				trait = diligent
+				trait = brave
+				trait = humble
+				female = yes
+				religion = innocent
+				dynasty = none
+				culture = "swedish"
+				attributes = {
+					stewardship = 8
+					learning = 8
+					diplomacy = 11
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = saint_birgitta 
+				set_character_flag = great_theologian
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+spawn_saint_matilda = {
+	if = {
+		limit = { 
+			year = 1288
+			NOT = { year > 1288 }
+		}
+		random_province = {
+			limit = {
+				culture = "german"
+			}
+			create_character = {
+				name = "Saint Matilda"
+				age = 18
+				dna="bcbab0hcbd0"
+				properties="lc0k0k000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = grey_eminence
+				trait = fair
+				trait = stubborn
+				trait = patient
+				trait = temperate
+				trait = zealous
+				trait = diligent
+				trait = brave
+				trait = poet
+				trait = mystic
+				female = yes
+				religion = innocent
+				dynasty = none
+				culture = "german"
+				attributes = {
+					stewardship = 7
+					learning = 12
+					diplomacy = 13
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = saint_matilda 
+				set_character_flag = great_theologian
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+spawn_hadewijch = {
+	if = {
+		limit = { 
+			year = 1271
+			NOT = { year > 1271 }
+		}
+		random_province = {
+			limit = {
+				culture = "dutch"
+			}
+			create_character = {
+				name = "Hadewijch"
+				age = 18
+				dna="aecdi0iafa0"
+				properties="bf0k0i000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = grey_eminence
+				trait = fair
+				trait = stubborn
+				trait = patient
+				trait = diligent
+				trait = poet
+				trait = mystic
+				trait = scholar
+				trait = erudite
+				female = yes
+				religion = innocent
+				dynasty = none
+				culture = "dutch"
+				attributes = {
+					stewardship = 10
+					learning = 13
+					diplomacy = 12
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = hadewijch 
+				set_character_flag = great_theologian
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+spawn_theodore_metochites = {
+	if = {
+		limit = { 
+			year = 1332
+			NOT = { year > 1332 }
+		}
+		random_province = {
+			limit = {
+				culture = "greek"
+			}
+			create_character = {
+				name = "Theodore Metochites"
+				age = 25
+				dna="bhdff0fada0"
+				properties="0c0gek000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = grey_eminence
+				trait = quick
+				trait = administrator
+				trait = poet
+				trait = patient
+				trait = diligent
+				trait = mystic
+				trait = scholar
+				trait = erudite
+				female = no
+				religion = innocent
+				dynasty = none
+				culture = "greek"
+				attributes = {
+					learning = 12
+					diplomacy = 14
+					stewardship = 10
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = theodore_metochites
+				set_character_flag = great_philosopher
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+spawn_nikephoros_blemmydes = {
+	if = {
+		limit = { 
+			year = 1255
+			NOT = { year > 1255 }
+		}
+		random_province = {
+			limit = {
+				culture = "greek"
+			}
+			create_character = {
+				name = "Nikephoros Blemmydes"
+				age = 35
+				dna="bdcde0eb0b0"
+				properties="sa0d0d000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = grey_eminence
+				trait = quick
+				trait = poet
+				trait = diligent
+				trait = scholar
+				trait = erudite
+				female = no
+				religion = innocent
+				dynasty = none
+				culture = "greek"
+				attributes = {
+					learning = 13
+					diplomacy = 13
+					stewardship = 8
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = nikephoros_blemmydes
+				set_character_flag = great_philosopher
+				pod_spawn_great_person_effect = yes
+			}
+		}
+	}
+}
+
+spawn_theodora_palaiologina = {
+	if = {
+		limit = { 
+			year = 1278
+			NOT = { year > 1278 }
+		}
+		random_province = {
+			limit = {
+				culture = "greek"
+			}
+			create_character = {
+				name = "Theodora Palaiologina"
+				age = 18
+				dna="cecad00cca0"
+				properties="ti0c0b000000000000"
+				trait = mortal
+				trait = canon
+				trait = great_person
+				trait = charismatic_negotiator
+				trait = fair
+				trait = quick
+				trait = just
+				trait = erudite
+				trait = administrator
+				female = yes
+				religion = innocent
+				dynasty = none
+				culture = "greek"
+				attributes = {
+					learning = 8
+					diplomacy = 12
+					stewardship = 9
+				}
+			}
+			new_character = {
+				save_event_target_as = great_person
+				set_character_flag = great_person
+				set_character_flag = theodora_palaiologina
+				set_character_flag = great_ruler
 				pod_spawn_great_person_effect = yes
 			}
 		}

@@ -1,0 +1,109 @@
+is_cam_sab_edge_case = {
+	OR = {
+		religion = ashirra
+		is_vamp_giovanni = yes
+		is_baronies_of_avalon = yes
+		is_vamp_anarch = yes
+		religion = einherjar
+		religion = cainite
+		religion = inconnu
+		is_cam_sab_player = yes
+		religion = baali
+	}
+}
+leader_check_case = {
+	NOR = {
+	is_baali_vamp = yes
+	religion = einherjar
+	religion = cainite
+	religion = inconnu
+	}
+}
+conversion_clan_check = {
+	OR = {
+		religion = ashirra
+		is_vamp_giovanni = yes
+		#is_baronies_of_avalon = yes
+		is_vamp_anarch = yes
+		religion = einherjar
+		religion = cainite
+		religion = inconnu
+		is_cam_sab_player = yes
+		religion = baali
+	}
+}
+is_cam_sab_player = {
+	has_character_flag = player_cam_sab_vampire
+}
+
+is_not_mercenary = {
+	mercenary = no
+	holy_order = no
+}
+is_euro_ravnos = {
+	c_ile_de_france = {
+		location = {
+			NOT = { distance = { who = event_target:ravnos_target value = 1300 } }
+		}
+	}
+}
+
+is_baali_vamp = {
+	#trait = vampire
+	religion = baali
+}
+
+check_clans_for_cases = {
+	is_cam_sab_edge_case = yes
+}
+is_vamp_anarch = {
+	religion = furores
+	religion = vampire_promethean
+	religion = anarchs
+}
+
+is_ashirra_vampire = {
+	trait = vampire
+	religion = ashirra
+}
+is_vamp_giovanni = {
+	trait = cappadocian
+	culture = italian
+}
+
+is_baronies_of_avalon = {
+	has_character_flag = baronies_avalon_member
+	#NOT = { has_character_flag = baronies_avalon_ruler }
+}
+
+is_baronies_cam_founder = {
+	e_avalon = {
+		owner = {
+			has_character_flag = CAMARILLA_EMPEROR_PERSON
+		}
+	}
+}
+is_clean_usurper_vampire = {
+	NOR = {
+		holy_order = yes
+		mercenary = yes
+		any_demesne_title = {
+			has_holder = yes
+		}
+	}
+}
+
+is_ashirra_cam_founder = {
+	any_independent_ruler = {
+		religion = ashirra
+		has_character_flag = CAMARILLA_EMPEROR_PERSON
+	}
+}
+
+is_sabbat_vamp = {
+	religion = sabbat
+}
+
+is_camarilla_vamp = {
+	religion = masquerade_camarilla
+}

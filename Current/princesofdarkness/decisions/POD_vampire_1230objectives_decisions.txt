@@ -503,7 +503,8 @@ decisions = {
 		potential = {
 			has_global_flag = bookmark1230
 			OR = { religion = gangrellow
-			religion = anda }
+			religion = anda 
+			religion = noiad }
 			is_playable = yes
 			trait = vampire
 			NOT = { trait = torpor }
@@ -551,6 +552,159 @@ decisions = {
 		effect = {
 			set_global_flag = malkavian_victory
 			narrative_event = { id = POD1230OBJ.40 tooltip = EVTTOOLTIPPOD1230OBJ.40}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	nosferatu_victory = {
+		only_independent = yes
+		is_high_prio = yes
+		
+		potential = {
+			has_global_flag = bookmark1230
+			religion = nosferatulow
+			is_playable = yes
+			trait = vampire
+			NOT = { trait = torpor }
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			NOT = { has_global_flag = nosferatu_victory }
+		}
+		allow = {
+			has_landed_title = e_shadow_curtain
+			OR = { has_landed_title = k_rus 
+			k_rus = { has_holder = no }}
+			realm_size = 150
+		}
+		effect = {
+			set_global_flag = nosferatu_victory
+			narrative_event = { id = POD1230OBJ.42 tooltip = EVTTOOLTIPPOD1230OBJ.42}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	ravnos_victory = {
+		only_independent = yes
+		is_high_prio = yes
+		
+		potential = {
+			has_global_flag = bookmark1230
+			religion = mayaparisataya
+			is_playable = yes
+			trait = vampire
+			NOT = { trait = torpor }
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			NOT = { has_global_flag = ravnos_victory }
+		}
+		allow = {
+			e_shadow_curtain = { has_holder = no }
+			realm_size = 150
+		}
+		effect = {
+			set_global_flag = ravnos_victory
+			narrative_event = { id = POD1230OBJ.44 tooltip = EVTTOOLTIPPOD1230OBJ.44}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	einherjar_victory = {
+		only_independent = yes
+		is_high_prio = yes
+		
+		potential = {
+			has_global_flag = bookmark1230
+			religion = einherjar
+			is_playable = yes
+			trait = vampire
+			NOT = { trait = torpor }
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			NOT = { has_global_flag = einherjar_victory }
+		}
+		allow = {
+			has_landed_title = e_midgard
+			e_fiefs_of_the_black_cross = { has_holder = no }
+			e_avalon = { has_holder = no }
+			completely_controls = k_norway
+			completely_controls = k_sweden
+			completely_controls = k_denmark
+		}
+		effect = {
+			set_global_flag = einherjar_victory
+			narrative_event = { id = POD1230OBJ.46 tooltip = EVTTOOLTIPPOD1230OBJ.46}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	autarkis_victory = {
+		only_independent = yes
+		is_high_prio = yes
+		
+		potential = {
+			has_global_flag = bookmark1230
+			religion = autarkis
+			is_playable = yes
+			trait = vampire
+			NOT = { trait = torpor }
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			NOT = { has_global_flag = autarkis_victory }
+		}
+		allow = {
+			realm_size = 200
+			piety = 500
+			prestige = 2000
+		}
+		effect = {
+			set_global_flag = autarkis_victory
+			narrative_event = { id = POD1230OBJ.49 tooltip = EVTTOOLTIPPOD1230OBJ.49}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	tzimisce_victory = {
+		only_independent = yes
+		is_high_prio = yes
+		
+		potential = {
+			has_global_flag = bookmark1230
+			religion = koldun
+			is_playable = yes
+			trait = vampire
+			NOT = { trait = torpor }
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			NOT = { has_global_flag = tzimisce_victory }
+		}
+		allow = {
+			has_landed_title = e_voivodate
+			e_fiefs_of_the_black_cross = { has_holder = no }
+			e_tremere = { has_holder = no }
+			OR = { k_obertus = { has_holder = no }
+			has_landed_title = k_obertus }
+			completely_controls = k_dacia
+			completely_controls = k_hungary
+			realm_size = 100
+		}
+		effect = {
+			set_global_flag = tzimisce_victory
+			narrative_event = { id = POD1230OBJ.51 tooltip = EVTTOOLTIPPOD1230OBJ.51}
 		}
 		ai_will_do = {
 			factor = 1

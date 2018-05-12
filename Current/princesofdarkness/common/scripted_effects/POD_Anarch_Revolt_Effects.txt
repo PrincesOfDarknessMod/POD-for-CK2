@@ -241,6 +241,7 @@ check_anarch_revolt_stage_effect = {
 		set_global_flag = anarch_revolt_end
 		clr_global_flag = anarch_revolt_stage_3
 		log = "setting anarch revolt stage 4"
+		province_event = { id = POD_Camarilla_Sabbat_Formation_Events.1 days = 30 random = 260 }
 		any_player = {
 			narrative_event = { id = POD_Anarch_Revolt_Events.103 days = 3 }
 		}
@@ -281,10 +282,6 @@ pod_second_sabbat_usurpation = {
 }
 
 pod_sabbat_usurpation_effect = {
-	event_target:biggest_ruler = {
-		abdicate_to = event_target:sabbat_usurper
-		clear_wealth = yes
-	}
 	event_target:sabbat_usurper = {
 		wealth = 10000
 	}
@@ -1000,6 +997,165 @@ pod_target_second_sabbat = {
 		}
 	}
 }
+
+pod_check_target_for_player={
+	if = {
+		limit = {
+			event_target:biggest_ruler = {
+				ai = no
+			}
+		}
+		set_global_flag = camarilla_founder_is_player
+		log = "CAMARILLA FOUNDER IS PLAYER"
+	}else = {
+		log = "CAMARILLA FOUNDER IS NOT PLAYER"
+	}
+	set_character_flag = CAMARILLA_EMPEROR_PERSON
+}
+pod_target_first_camarilla = {
+	log = "starting first camarilla target check"
+	set_variable = { which = global_sabbat_size value = 0 }
+	trigger_switch = {
+		on_trigger = has_global_flag
+		assamite_camarilla = {
+			any_independent_ruler = {
+				limit = {
+					trait = assamite
+				}
+				pod_check_target_size_effect = yes
+			}
+			pod_check_target_for_player = yes
+		}
+		brujah_camarilla = {
+			any_independent_ruler = {
+				limit = {
+					trait = brujah
+				}
+				pod_check_target_size_effect = yes
+			}
+			pod_check_target_for_player = yes
+		}
+		cappadocian_camarilla = {
+			any_independent_ruler = {
+				limit = {
+					trait = cappadocian
+					NOT = { culture = italian }
+				}
+				pod_check_target_size_effect = yes
+			}
+			pod_check_target_for_player = yes
+		}
+		followerofset_camarilla = {
+			any_independent_ruler = {
+				limit = {
+					trait = followerofset
+				}
+				pod_check_target_size_effect = yes
+			}
+		}
+		giovanni_camarilla = {
+			any_independent_ruler = {
+				limit = {
+					trait = cappadocian
+					culture = italian
+				}
+				pod_check_target_size_effect = yes
+			}
+			pod_check_target_for_player = yes
+		}
+		lasombra_camarilla = {
+			log = "lasombra sabbat 1"
+			any_independent_ruler = {
+				limit = {
+					trait = lasombra
+				}
+				pod_check_target_size_effect = yes
+			}
+			pod_check_target_for_player = yes
+		}
+		malkavian_camarilla = {
+			any_independent_ruler = {
+				limit = {
+					trait = malkavian
+				}
+				pod_check_target_size_effect = yes
+			}
+			pod_check_target_for_player = yes
+		}
+		nosferatu_camarilla = {
+			any_independent_ruler = {
+				limit = {
+					trait = ravnos
+				}
+				pod_check_target_size_effect = yes
+			}
+		}
+		ravnos_camarilla = {
+			any_independent_ruler = {
+				limit = {
+					trait = salubri
+				}
+				pod_check_target_size_effect = yes
+			}
+			pod_check_target_for_player = yes
+		}
+		salubri_camarilla = {
+			any_independent_ruler = {
+				limit = {
+					trait = toreador
+				}
+				pod_check_target_size_effect = yes
+			}
+			pod_check_target_for_player = yes
+		}
+		toreador_camarilla = {
+			any_independent_ruler = {
+				limit = {
+					trait = tremere
+				}
+				pod_check_target_size_effect = yes
+			}
+			pod_check_target_for_player = yes
+		}
+		tremere_camarilla = {
+			any_independent_ruler = {
+				limit = {
+					trait = tzimisce
+				}
+				pod_check_target_size_effect = yes
+			}
+			pod_check_target_for_player = yes
+		}
+		baali_camarilla = {
+			any_independent_ruler = {
+				limit = {
+					trait = baali
+				}
+				pod_check_target_size_effect = yes
+			}
+			pod_check_target_for_player = yes
+		}
+		gangrel_camarilla = {
+			any_independent_ruler = {
+				limit = {
+					trait = gangrel
+				}
+				pod_check_target_size_effect = yes
+			}
+			pod_check_target_for_player = yes
+		}
+		ventrue_camarilla = {
+			any_independent_ruler = {
+				limit = {
+					trait = ventrue
+				}
+				pod_check_target_size_effect = yes
+			}
+			pod_check_target_for_player = yes
+		}
+	}
+}
+
 pod_check_target_size_effect = {
 	export_to_variable = { which = local_new_size value = realm_size }
 			if = {

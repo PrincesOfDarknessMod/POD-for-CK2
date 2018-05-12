@@ -151,6 +151,8 @@ character_event = {
 					}
 					NOT = { has_character_flag = challenged_by_elder }
 				}
+				mercenary = no
+				holy_order = no
 			}
 			if = {
 				limit = {
@@ -346,10 +348,10 @@ character_event = {
 			}
 			random_list = {
 				5 = {
-					add_favor = event_target:disgruntled_vassal
+					add_favor = event_target:disgrunted_vassal
 				}
 				5 = {
-					event_target:disgruntled_vassal = {
+					event_target:disgrunted_vassal = {
 						add_friend = PREV
 					}
 				}
@@ -508,20 +510,9 @@ character_event = {
 	hide_window = yes
 
     immediate = {
+		log = "Young ruler gets challenged, [This.GetTitledName]"
 		top_liege = {
 		random_realm_character = {
-			limit = {
-				NOT = { trait = torpor }
-				has_powerful_generation = yes
-				is_elder_vampire = yes
-				is_landed = no
-			}
-			save_event_target_as = elder_challenger
-		}
-		if = {
-			limit = { event_target:elder_challenger = { is_alive = yes } }
-		}else = {
-			random_realm_character = {
 			limit = {
 				NOT = { trait = torpor }
 				OR = {
@@ -530,15 +521,69 @@ character_event = {
 				}
 				is_landed = no
 				is_elder_vampire = yes
+				#NOT = { distance = { who = ROOT value = 350 } }
+				#is_clean_usurper_vampire = yes
 			}
 			save_event_target_as = elder_challenger
+		}
+		random_realm_character = {
+			limit = {
+				NOT = { trait = torpor }
+				has_powerful_generation = yes
+				is_elder_vampire = yes
+				is_landed = no
+				#NOT = { distance = { who = ROOT value = 350 } }
+				#is_clean_usurper_vampire = yes
 			}
+			save_event_target_as = elder_challenger
+		}
+		random_realm_character = {
+			limit = {
+				NOT = { trait = torpor }
+				is_elder_vampire = yes
+				is_landed = no
+				OR = {
+					trait = canon
+					trait = canon_childe
+				}
+				OR = {
+					has_powerful_generation = yes
+					has_strong_generation = yes
+				}
+				#NOT = { distance = { who = ROOT value = 350 } }
+				#is_clean_usurper_vampire = yes
+			}
+			save_event_target_as = elder_challenger
+		}
+		random_realm_character = {
+			limit = {
+				NOT = { trait = torpor }
+				has_powerful_generation = yes
+				is_elder_vampire = yes
+				is_landed = no
+				trait = canon_childe
+				#NOT = { distance = { who = ROOT value = 350 } }
+				#is_clean_usurper_vampire = yes
+			}
+			save_event_target_as = elder_challenger
+		}
+		random_realm_character = {
+			limit = {
+				NOT = { trait = torpor }
+				has_powerful_generation = yes
+				is_elder_vampire = yes
+				trait = canon
+				is_landed = no
+				#NOT = { distance = { who = ROOT value = 350 } }
+				#is_clean_usurper_vampire = yes
+			}
+			save_event_target_as = elder_challenger
 		}
 		}
 		if = {
 			limit = { event_target:elder_challenger = { is_alive = yes } }
 			random_list = {
-				5 = {
+				9 = {
 					any_demesne_title = {
 						usurp_title = event_target:elder_challenger
 					}
@@ -547,53 +592,18 @@ character_event = {
 					event_target:elder_challenger = {
 						set_character_flag = ELDER_USURPER_SUCCESS
 					}
+					log = "Elder Usurper [elder_challenger.GetTitledName] usurped [This.GetTitledName]"
 				}
-				5 = {
+				1 = {
 					event_target:elder_challenger = {
 						banish = yes
 						set_character_flag = ELDER_USURPER_BANISHED
 					}
+					log = "Failed Usurper [elder_challenger.GetTitledName] lost to [This.GetTitledName]"
 				}
 			}
-		}else_if = {
-			limit = { independent = no }
-			liege = {
-				random_realm_character = {
-					limit = {
-						NOT = { trait = torpor }
-						OR = {
-							has_strong_generation = yes
-							has_powerful_generation = yes
-						}
-						is_elder_vampire = yes
-						NOT = {
-							character = ROOT
-							character = PREV
-						}
-					}
-					save_event_target_as = elder_challenger
-				}
-			}
-		}if = {
-			limit = { event_target:elder_challenger = { is_alive = yes } }
-			random_list = {
-				5 = {
-					any_demesne_title = {
-						usurp_title = event_target:elder_challenger
-					}
-					banish = yes
-					set_character_flag = ELDER_USURPED
-					event_target:elder_challenger = {
-						set_character_flag = ELDER_USURPER_SUCCESS
-					}
-				}
-				5 = {
-					event_target:elder_challenger = {
-						banish = yes
-						set_character_flag = ELDER_USURPER_BANISHED
-					}
-				}
-			}
+		}else = {
+			log = "Failed to find Elder Usurper"
 		}
 	}
 }
@@ -930,6 +940,7 @@ character_event = {
 	only_rulers = yes
     is_triggered_only = yes
 	hide_window = yes
+	ai = yes
 
     immediate = {
 		if = {
@@ -974,16 +985,302 @@ character_event = {
 				limit = { trait = gluttonous }
 				remove_trait = gluttonous
 			}
+			if = {
+				limit = { trait = one_handed }
+				remove_trait = one_handed
+			}
+			if = {
+				limit = { trait = one_eyed }
+				remove_trait = one_eyed
+			}
+			if = {
+				limit = { trait = scarred }
+				remove_trait = scarred
+			}
+			if = {
+				limit = { trait = severely_injured }
+				remove_trait = severely_injured
+			}
+			if = {
+				limit = { 
+					trait = lunatic
+					NOT = { trait = malkavian }
+				}
+				random_list = {
+					7 = {
+					}
+					3 = {
+						remove_trait = lunatic
+					}
+				}
+			}
 		}
 		if = {
 			limit = {
-					OR = {
+				trait = vampire
+				OR = {
 					trait = obtenebration_5
 					trait = protean_5
 					trait = vicissitude_5
+					trait = obfuscate_5
+					has_powerful_generation = yes
 				}
 			}
+			log = "POWERFUL PRISONER RELEASE: [This.GetTitledName] released from prison, clean up event"
 			prisoner = no
+		}else_if = {
+			limit = {
+				trait = vampire
+				has_strong_generation = yes
+			}
+			random = {
+				chance = 50
+				prisoner = no
+				log = "STRONG PRISONER RELEASE: [This.GetTitledName] released from prison, clean up event"
+			}
+		}
+		
+		if = {
+			limit = {
+				diplomacy = 44
+			}
+			change_diplomacy = -5
+		}
+		if = {
+			limit = {
+				trait = vampire
+				any_demesne_title = {
+					is_pop_city = no
+				}
+				any_realm_title = {
+					is_pop_city = yes
+					owner = {
+						ai = yes
+					}
+				}
+			}
+			save_event_target_as = ruler_needs_cities
+			random_realm_title = {
+				limit = {
+					is_pop_city = yes
+					owner = {
+						ai = yes
+					}
+				}
+				if = {
+					limit = {
+						higher_tier_than = BARON
+					}
+					grant_title = event_target:ruler_needs_cities
+					province_capital = yes
+					log = "CITY TAKEN: [Root.GetTitledName] usurped the city and county of [This.GetName]"
+					location = {
+						religion = ROOT
+					}
+					save_event_target_as = new_city_title
+				}else = {
+					defacto_liege_title = {
+						grant_title = event_target:ruler_needs_cities
+						log = "COUNTY TAKEN: [Root.GetTitledName] usurped county [This.GetName] to move for city"
+						location = {
+							religion = ROOT
+						}
+						save_event_target_as = new_city_title
+					}
+					grant_title = event_target:ruler_needs_cities
+					province_capital = yes
+					log = "BARONY TAKEN: [Root.GetTitledName] usurped barony to his city of [This.GetName]"
+				}
+			}
+			random_realm_character = {
+				limit = {
+					trait = vampire
+					not = { trait = torpor }
+					ai = yes
+					opinion = { who = ROOT value = 40 }
+				}
+				save_event_target_as = new_landed_character
+			}
+			random_realm_character = {
+				limit = {
+					trait = vampire
+					not = { trait = torpor }
+					is_elder_vampire = yes
+					ai = yes
+				}
+				save_event_target_as = new_landed_character
+			}
+			random_realm_character = {
+				limit = {
+					trait = vampire
+					not = { trait = torpor }
+					is_elder_vampire = yes
+					ai = yes
+					opinion = { who = ROOT value = 40 }
+				}
+				save_event_target_as = new_landed_character
+			}
+			random_realm_character = {
+				limit = {
+					trait = vampire
+					not = { trait = torpor }
+					is_elder_vampire = yes
+					is_landed = no
+					ai = yes
+				}
+				save_event_target_as = new_landed_character
+			}
+			random_realm_character = {
+				limit = {
+					trait = vampire
+					not = { trait = torpor }
+					is_elder_vampire = yes
+					is_landed = no
+					ai = yes
+					OR = {
+						trait = canon
+						trait = canon_childe
+					}
+				}
+				save_event_target_as = new_landed_character
+			}
+			if = {
+				limit = {
+					over_max_demesne_size = 1
+				}
+				random_demesne_title = {
+					limit = {
+						OR = {
+							tier = BARON
+							tier = COUNT
+						} 
+						is_pop_city = no
+					}
+					grant_title = event_target:new_landed_character
+					log = "GAVE AWAY AFTER CITY TAKEN: [Root.GetTitledName] gives away [This.GetName] to [new_landed_character.GetTitledName]"
+				}
+			}
+		}
+		if = {
+			limit = {
+				over_max_demesne_size = 1
+			}
+			random_realm_character = {
+				limit = {
+					trait = vampire
+					not = { trait = torpor }
+					ai = yes
+					opinion = { who = ROOT value = 40 }
+				}
+				save_event_target_as = new_landed_character
+			}
+			random_realm_character = {
+				limit = {
+					trait = vampire
+					not = { trait = torpor }
+					is_elder_vampire = yes
+					ai = yes
+				}
+				save_event_target_as = new_landed_character
+			}
+			random_realm_character = {
+				limit = {
+					trait = vampire
+					not = { trait = torpor }
+					is_elder_vampire = yes
+					ai = yes
+					opinion = { who = ROOT value = 40 }
+				}
+				save_event_target_as = new_landed_character
+			}
+			random_realm_character = {
+				limit = {
+					trait = vampire
+					not = { trait = torpor }
+					is_elder_vampire = yes
+					is_landed = no
+					ai = yes
+				}
+				save_event_target_as = new_landed_character
+			}
+			random_realm_character = {
+				limit = {
+					trait = vampire
+					not = { trait = torpor }
+					is_elder_vampire = yes
+					is_landed = no
+					ai = yes
+					OR = {
+						trait = canon
+						trait = canon_childe
+					}
+				}
+				save_event_target_as = new_landed_character
+			}
+			if = {
+				limit = {
+				event_target:new_landed_character = { is_alive = yes }
+				}
+			random_demesne_title = {
+				limit = {
+					OR = {
+						tier = BARON
+						tier = COUNT
+					} 
+					is_pop_city = no
+				}
+				grant_title = event_target:new_landed_character
+				log = "GAVE AWAY OVER LIMIT: [Root.GetTitledName] gives away [This.GetName] to [new_landed_character.GetTitledName]"
+			}
+			}
+		}
+		
+		#help migration, aim for the weak
+		
+		random_realm_character = {
+			limit = {
+				trait = vampire
+				is_elder_vampire = yes
+				NOT = { trait = torpor }
+				is_landed = no
+				has_minor_title = no
+				has_job_title = no
+				NOT = { trait = torpor }
+				OR = {
+					has_strong_generation = yes
+					has_powerful_generation = yes
+				}
+				prisoner = no
+			}
+			if = {
+				limit = { is_alive = yes }
+				random_playable_ruler = {
+					limit = {
+						realm_size = 11
+					}
+					save_event_target_as = new_court
+				}
+				random_playable_ruler = {
+					limit = {
+						trait = vampire
+						NOT = { trait = canon }
+						NOT = {
+							is_elder_vampire = yes
+						}
+						NOT = {
+							AND = {
+								trait = player_childe
+								NOT = { higher_tier_than = COUNT }
+							}
+						}
+						mercenary = no
+						holy_order = no
+					}
+					save_event_target_as = new_court
+				}
+				move_character = new_court
+				log = "MOVED LANDLESS ELDER: [This.GetTitledName] moved to [new_court.GetTitledName]'s court"
+			}
 		}
 	}
 }
@@ -995,15 +1292,35 @@ character_event = {
 	hide_window = yes
 
     immediate = {
+		ROOT = {
 		if = {
 			limit = {
-					OR = {
+				trait = vampire
+				OR = {
 					trait = obtenebration_5
 					trait = protean_5
 					trait = vicissitude_5
+					trait = obfuscate_5
+					has_powerful_generation = yes
 				}
 			}
+			log = "POWERFUL PRISONER RELEASE: [This.GetTitledName] released from prison, on prison event"
 			prisoner = no
+		}else_if = {
+			limit = {
+				trait = vampire
+				has_strong_generation = yes
+			}
+			random_list = {
+				5 = {
+					log = "STRONG PRISONER IMPRISONED: [This.GetTitledName] imprisoned, on prison event" 
+				}
+				5 = {
+					prisoner = no
+					log = "STRONG PRISONER RELEASE: [This.GetTitledName] released from prison, on prison event"
+				}
+			}
+		}
 		}
 	}
 }
