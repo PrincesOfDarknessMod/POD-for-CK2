@@ -136,8 +136,8 @@ culture =
 		
 		texture = {
 			file = "gfx\\coats_of_arms\\POD_dynasties_vampire_canon.tga"
-			size = { x = 10 y = 2 }
-			noOfFrames = 20
+			size = { x = 10 y = 3 }
+			noOfFrames = 30
 			color = 0
 			random = no # Do not use for random CoAs
 		}
@@ -274,6 +274,15 @@ culture =
 			emblem = no
 			random = no # Do not use for random CoAs			
 		}			
+	
+		texture = {
+			file = "gfx\\coats_of_arms\\POD_pattern_vampire_setite.tga"
+			size = { x = 4 y = 6 }
+			noOfFrames = 24
+			color = 3
+			emblem = no
+			random = no # Do not use for random CoAs			
+		}	
 	
 		texture = {
 			file = "gfx\\coats_of_arms\\POD_dynasties_vampire.tga"
@@ -1254,8 +1263,8 @@ culture = {
 
 		texture = {
 			file = "gfx\\coats_of_arms\\POD_pattern_vampire_koldun.tga"
-			size = { x = 4 y = 6 }
-			noOfFrames = 24
+			size = { x = 4 y = 7 }
+			noOfFrames = 28
 			color = 3
 			emblem = no
 			random = yes # Do not use for random CoAs			
@@ -1361,9 +1370,9 @@ culture = {
 		{ 245 245 245 } #4   	Argent (White )
 		{ 201 43 43 } 	#5   	Gules (Red)
 		{ 20 20 20 }	#6   	Sable (Black)
-		{ 15 15 204 }	#7  	Deep Blue
+		{ 70 209 255 }	#7  	Light Blue
 		{ 113 0 0 }		#8   	Sanguine (Blood Red)
-		{ 113 0 0 }		#9   	Sanguine (Blood Red)
+		{ 15 15 204 }	#9  	Deep Blue
 		
 	}
 	
@@ -1373,7 +1382,7 @@ culture = {
 	{ 	
 		{ 0 1 6 }
 		{ 2 3 }
-		{ 5 8 9 }
+		{ 5 8 }
 	}
 	
 	emblem = {
@@ -1811,6 +1820,64 @@ culture = {
 		
 		texture = {
 			file = "gfx\\coats_of_arms\\POD_pattern_vampire_anarch.tga"
+			size = { x = 4 y = 6 }
+			noOfFrames = 24
+			color = 3
+			emblem = no
+			random = yes # Do not use for random CoAs			
+		}					
+		
+	}
+		
+}
+
+culture = {
+
+	religion = { 
+		"setite"
+		"revennant_setite"
+	}
+	
+	templates = { 
+		"coa_plain:1"
+		#"coa_party_per_fess:2"
+		#"coa_party_per_pale:2"
+		#"coa_party_per_cross:4"
+		#"coa_party_triangle:3"
+	}
+
+	color = {
+		{ 255 231 93 }	#0		Gold
+		{ 20 20 20 }	#1   	Sable (Black)
+		{ 20 20 20 }	#2   	Sable (Black)	
+		{ 20 20 20 }	#3  	Sable (Black)
+		{ 245 245 245 } #4   	Argent (White )
+		{ 201 43 43 } 	#5   	Gules (Red)
+		{ 70 209 255 }	#6  	Light Blue
+		{ 15 15 204 }	#7  	Deep Blue
+		{ 113 0 0 }		#8   	Sanguine (Blood Red)
+		{ 113 0 0 }		#9   	Sanguine (Blood Red)
+		
+	}
+	
+	rebel_colors = { 2 5 8 }
+
+	banned_colors = 
+	{ 	
+		{ 1 2 3 }
+		{ 5 8 9 }
+	}
+	
+	emblem = {
+		file = "gfx\\coats_of_arms\\emblem.tga"
+		noOfFrames = 25
+	}
+	
+	# WHEN ADDING NEW, ALWAYS ADD AT THE END
+	textures = {	
+		
+		texture = {
+			file = "gfx\\coats_of_arms\\POD_pattern_vampire_setite.tga"
 			size = { x = 4 y = 6 }
 			noOfFrames = 24
 			color = 3
@@ -4504,4 +4571,123 @@ culture = {
 	}
 }
 
+culture = 
+{
+	religion_group =  "innocent_group" 
 
+	templates = { 
+		"coa_plain:1"
+		"coa_party_per_fess:2"
+		"coa_party_per_pale:2"
+		"coa_party_per_cross:4"
+		"coa_party_triangle:3"
+	}
+
+	color = {
+		{ 255 231 93 }		# 0		Gold
+		{ 245 245 245 } 	# 1 	White
+		{ 35 101 29 } 		# 2 	Dark Green
+		{ 176 0 0 } 		# 3		Red
+		{ 83 141 39 } 		# 4 	Green
+		{ 20 20 20 }		# 5 	Black
+		{ 80 40 0 }			# 6 	Brown
+		{ 130 0 0 }			# 7 	Dark Red
+		{ 205 87 10 }		# 8 	Orange
+		{ 110 181 90 } 		# 9 	Light Green
+		{ 128 0 40 }		# 10 	Mulberry
+		{ 50 162 150 }		# 11	Turqouise
+		{ 195 195 195 }		# 12	Silver
+	}
+	
+	rebel_colors = { 3 5 7 }
+	
+	banned_colors = 
+	{
+		{ 0 1 9 12 }			# Gold
+		{ 1 0 12 }				# White
+		{ 2 4 6 8 10 11 }		# Dark Green
+		{ 3 4 6 7 8 10 }		# Red
+		{ 4 2 3 6 8 9 11 }		# Green
+		{ 5 6 }					# Black
+		{ 6 2 3 4 5 7 8 10 11 }	# Brown
+		{ 7 3 6 8 10 }			# Dark Red
+		{ 8 2 3 4 6 7 9 10 11 }	# Orange
+		{ 9 0 4 8 11 12 }		# Light Green
+		{ 10 2 3 6 7 8 }		# Mulberry
+		{ 11 2 4 6 8 9  }		# Turqouise
+		{ 12 0 1 9  }			# Silver
+	}
+	
+	emblem = {
+		file = "gfx\\coats_of_arms\\emblem.tga"
+		noOfFrames = 25
+	}
+
+	# WHEN ADDING NEW, ALWAYS ADD AT THE END !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11111
+	textures = {
+		texture = {
+			file = "gfx\\coats_of_arms\\pattern.tga"
+			size = { x = 10 y = 5 }
+			noOfFrames = 47
+			color = 2
+			emblem = no
+		}
+		texture = {
+			file = "gfx\\coats_of_arms\\pattern2.tga"
+			size = { x = 10 y = 3 }
+			noOfFrames = 22
+			color = 3
+			emblem = no
+		}
+		texture = {
+			file = "gfx\\coats_of_arms\\pattern3.tga"
+			size = { x = 10 y = 5 }
+			noOfFrames = 44
+			color = 3
+			emblem = no
+		}
+		
+		texture = {
+			file = "gfx\\coats_of_arms\\dynasties.tga"
+			size = { x = 16 y = 4 }
+			noOfFrames = 51
+			color = 0
+			random = no # Do not use for random CoAs
+		}
+		texture = {
+			file = "gfx\\coats_of_arms\\pattern4.tga"
+			size = { x = 10 y = 5 }
+			noOfFrames = 45
+			color = 2
+			emblem = no
+		}
+		texture = {
+			file = "gfx\\coats_of_arms\\dynasties2.tga"
+			size = { x = 16 y = 4 }
+			noOfFrames = 50
+			color = 0
+			random = no # Do not use for random CoAs
+		}
+		texture = {
+			file = "gfx\\coats_of_arms\\patricians.tga"
+			size = { x = 16 y = 2 }
+			noOfFrames = 25
+			color = 0
+			random = no # Do not use for random CoAs
+		}
+		texture = {
+			file = "gfx\\coats_of_arms\\dynasties3.tga"
+			size = { x = 16 y = 4 }
+			noOfFrames = 51
+			color = 0
+			random = no # Do not use for random CoAs
+		}
+		texture = {
+			file = "gfx\\coats_of_arms\\dynasties4.tga"
+			size = { x = 16 y = 4 }
+			noOfFrames = 52
+			color = 0
+			random = no # Do not use for random CoAs
+		}
+	}
+}

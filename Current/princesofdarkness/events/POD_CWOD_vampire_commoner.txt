@@ -21,7 +21,10 @@ character_event = {
 						}						
 						if = { limit = { trait = inbred } 
 							remove_trait = inbred
-						}			
+						}		
+
+
+						
 # vamp merc clans
 			if = { 
 				limit = { 
@@ -3192,7 +3195,68 @@ character_event = {
 					
 				}
 			}	
+
+# get a new dynasty names
+
+			if = 
+			{ limit = { 
 			
+					ai = yes 				
+			}
+						create_character = 
+						{
+							random_traits = yes
+							age = 30
+							culture = ROOT
+							religion = ROOT
+							dynasty = random
+						}
+						
+						new_character =
+						{
+							save_event_target_as = new_dynasty_character
+							ROOT = 
+							{ 
+								dynasty = event_target:new_dynasty_character
+							}							
+							clear_event_target = event_target:new_dynasty_character
+							death = "yes"
+						}					
+							
+			}
+
+		random =
+		{
+			chance = 95
+			
+			if = 
+			{ limit = { ai = yes 					
+						}
+			
+						create_character = 
+						{
+							random_traits = yes
+							age = 30
+							culture = ROOT
+							religion = ROOT
+							dynasty = actually_culture
+						}
+						
+						new_character =
+						{
+							save_event_target_as = new_dynasty_character
+							ROOT = 
+							{ 
+								dynasty = event_target:new_dynasty_character 
+							}							
+							clear_event_target = event_target:new_dynasty_character
+							death = "yes"
+						}					
+							
+			}
+		}			
+
+				POD_CWOD_dynasty_effect = yes
 				POD_CWOD_vampire_governments_init_effect = yes
 				POD_CWOD_vampire_disciplines_init_effect = yes		
 				POD_CWOD_vampire_roads_init_effect = yes
