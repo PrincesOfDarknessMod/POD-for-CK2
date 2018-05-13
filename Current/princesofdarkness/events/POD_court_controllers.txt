@@ -529,6 +529,38 @@ character_event = {
 		random_realm_character = {
 			limit = {
 				NOT = { trait = torpor }
+				OR = {
+					has_strong_generation = yes
+					has_powerful_generation = yes
+				}
+				is_elder_vampire = yes
+				trait = canon_childe
+				
+				#is_landed = no
+				#NOT = { distance = { who = ROOT value = 350 } }
+				#is_clean_usurper_vampire = yes
+			}
+			save_event_target_as = elder_challenger
+		}
+		random_realm_character = {
+			limit = {
+				NOT = { trait = torpor }
+				OR = {
+					has_strong_generation = yes
+					has_powerful_generation = yes
+				}
+				is_elder_vampire = yes
+				trait = canon
+				
+				#is_landed = no
+				#NOT = { distance = { who = ROOT value = 350 } }
+				#is_clean_usurper_vampire = yes
+			}
+			save_event_target_as = elder_challenger
+		}
+		random_realm_character = {
+			limit = {
+				NOT = { trait = torpor }
 				has_powerful_generation = yes
 				is_elder_vampire = yes
 				is_landed = no
@@ -574,6 +606,18 @@ character_event = {
 				is_elder_vampire = yes
 				trait = canon
 				is_landed = no
+				#NOT = { distance = { who = ROOT value = 350 } }
+				#is_clean_usurper_vampire = yes
+			}
+			save_event_target_as = elder_challenger
+		}
+		random_realm_character = {
+			limit = {
+				NOT = { trait = torpor }
+				has_powerful_generation = yes
+				is_elder_vampire = yes
+				trait = canon
+				#is_landed = no
 				#NOT = { distance = { who = ROOT value = 350 } }
 				#is_clean_usurper_vampire = yes
 			}

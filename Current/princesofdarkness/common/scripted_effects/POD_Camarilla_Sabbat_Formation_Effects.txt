@@ -244,12 +244,22 @@ pod_convert_to_camarilla = {
 				trait = sabbat_founder_trait
 			}
 			religion = masquerade_camarilla
-			set_government_type  = traditions_government
+			set_government_type = traditions_government
 		}
 	}else_if = {
-		limit = { NOT = { trait = sabbat_founder_trait } }
-		religion = masquerade_camarilla
-		set_government_type  = traditions_government
+		limit = { 
+			NOT = { trait = sabbat_founder_trait }
+		}
+		random_list = {
+			10 = {
+				religion = masquerade_camarilla
+				set_government_type = traditions_government
+			}
+			2 = {
+				religion = sabbat
+				set_government_type = milan_government
+			}
+		}
 	}
 }
 
@@ -265,12 +275,20 @@ pod_convert_to_sabbat = {
 				trait = camarilla_founder_trait
 			}
 			religion = sabbat
-			set_government_type  = milan_government
+			set_government_type = milan_government
 		}
 	}else_if = {
 		limit = { NOT = { trait = camarilla_founder_trait } }
-		religion = sabbat
-		set_government_type  = milan_government
+		random_list = {
+			10 = {
+				religion = sabbat
+				set_government_type = milan_government
+			}
+			2 = {
+				religion = masquerade_camarilla
+				set_government_type = traditions_government
+			}
+		}
 	}
 }
 
@@ -1175,6 +1193,7 @@ pod_find_assamite_founder = {
 			is_cam_sab_player = no
 			is_not_mercenary = yes
 			leader_check_case = yes
+			is_steppe_region_vamp = no
 		}
 		log = "Assamite Ruler: [This.GetTitledName]"
 		pod_check_founder_size_effect = yes
@@ -1189,6 +1208,7 @@ pod_find_brujah_founder = {
 			is_cam_sab_player = no
 			is_not_mercenary = yes
 			leader_check_case = yes
+			is_steppe_region_vamp = no
 		}
 		pod_check_founder_size_effect = yes
 	}
@@ -1202,6 +1222,7 @@ pod_find_cappadocian_founder = {
 			is_cam_sab_player = no
 			is_not_mercenary = yes
 			leader_check_case = yes
+			is_steppe_region_vamp = no
 		}
 		pod_check_founder_size_effect = yes
 	}
@@ -1215,6 +1236,7 @@ pod_find_followerofset_founder = {
 			is_cam_sab_player = no
 			is_not_mercenary = yes
 			leader_check_case = yes
+			is_steppe_region_vamp = no
 		}
 		pod_check_founder_size_effect = yes
 	}
@@ -1227,6 +1249,7 @@ pod_find_giovanni_founder = {
 			is_cam_sab_player = no
 			is_not_mercenary = yes
 			leader_check_case = yes
+			is_steppe_region_vamp = no
 			#check_clans_for_cases = no
 		}
 		pod_check_founder_size_effect = yes
@@ -1241,6 +1264,7 @@ pod_find_lasombra_founder = {
 			is_cam_sab_player = no
 			is_not_mercenary = yes
 			leader_check_case = yes
+			is_steppe_region_vamp = no
 		}
 		pod_check_founder_size_effect = yes
 	}
@@ -1254,6 +1278,7 @@ pod_find_malkavian_founder = {
 			is_cam_sab_player = no
 			is_not_mercenary = yes
 			leader_check_case = yes
+			is_steppe_region_vamp = no
 		}
 		pod_check_founder_size_effect = yes
 	}
@@ -1267,6 +1292,7 @@ pod_find_nosferatu_founder = {
 			is_cam_sab_player = no
 			is_not_mercenary = yes
 			leader_check_case = yes
+			is_steppe_region_vamp = no
 		}
 		pod_check_founder_size_effect = yes
 	}
@@ -1280,6 +1306,7 @@ pod_find_ravnos_founder = {
 			is_cam_sab_player = no
 			is_not_mercenary = yes
 			leader_check_case = yes
+			is_steppe_region_vamp = no
 		}
 		save_event_target_as = ravnos_target
 		if = {
@@ -1299,6 +1326,7 @@ pod_find_salubri_founder = {
 			is_cam_sab_player = no
 			is_not_mercenary = yes
 			leader_check_case = yes
+			is_steppe_region_vamp = no
 		}
 		pod_check_founder_size_effect = yes
 	}
@@ -1312,6 +1340,7 @@ pod_find_toreador_founder = {
 			is_cam_sab_player = no
 			is_not_mercenary = yes
 			leader_check_case = yes
+			is_steppe_region_vamp = no
 		}
 		pod_check_founder_size_effect = yes
 	}
@@ -1325,6 +1354,7 @@ pod_find_tremere_founder = {
 			is_cam_sab_player = no
 			is_not_mercenary = yes
 			leader_check_case = yes
+			is_steppe_region_vamp = no
 		}
 		pod_check_founder_size_effect = yes
 	}
@@ -1338,6 +1368,7 @@ pod_find_tzimisce_founder = {
 			is_cam_sab_player = no
 			is_not_mercenary = yes
 			leader_check_case = yes
+			is_steppe_region_vamp = no
 		}
 		pod_check_founder_size_effect = yes
 	}
@@ -1350,6 +1381,7 @@ pod_find_baali_founder = {
 			#check_clans_for_cases = no
 			is_cam_sab_player = no
 			is_not_mercenary = yes
+			is_steppe_region_vamp = no
 		}
 		pod_check_founder_size_effect = yes
 	}
@@ -1365,6 +1397,7 @@ pod_find_gangrel_founder = {
 			is_baali_vamp = no
 			NOT = { religion = cainite }
 			NOT = { religion = inconnu }
+			is_steppe_region_vamp = no
 		}
 		pod_check_founder_size_effect = yes
 	}
@@ -1378,6 +1411,7 @@ pod_find_ventrue_founder = {
 			is_cam_sab_player = no
 			is_not_mercenary = yes
 			leader_check_case = yes
+			is_steppe_region_vamp = no
 		}
 		pod_check_founder_size_effect = yes
 	}
@@ -1389,6 +1423,7 @@ pod_find_cainite_founder = {
 			religion = cainite
 			is_cam_sab_player = no
 			is_not_mercenary = yes
+			is_steppe_region_vamp = no
 		}
 		pod_check_founder_size_effect = yes
 	}
@@ -1400,6 +1435,7 @@ pod_find_avalon_founder = {
 			is_baronies_of_avalon = yes
 			is_cam_sab_player = no
 			is_not_mercenary = yes
+			is_steppe_region_vamp = no
 		}
 		pod_check_founder_size_effect = yes
 	}
@@ -1411,6 +1447,7 @@ pod_find_ashirra_founder = {
 			religion = ashirra
 			is_cam_sab_player = no
 			is_not_mercenary = yes
+			is_steppe_region_vamp = no
 		}
 		pod_check_founder_size_effect = yes
 	}
@@ -1422,6 +1459,7 @@ pod_find_inconnu_founder = {
 			religion = inconnu
 			is_cam_sab_player = no
 			is_not_mercenary = yes
+			is_steppe_region_vamp = no
 		}
 		pod_check_founder_size_effect = yes
 	}
@@ -1453,6 +1491,19 @@ pod_check_assamite_for_camarilla = {
 		pod_find_assamite_founder = yes
 		pod_give_camarilla_founder_trait = yes
 		#log = "Assamite is camarilla"
+		random_list = {
+			20 = {
+				pod_convert_assamite_to_camarilla = yes
+				pod_find_assamite_founder = yes
+				pod_give_camarilla_founder_trait = yes
+			}
+			5 = {
+				#yolo
+				pod_convert_assamite_to_sabbat = yes
+				pod_find_assamite_founder = yes
+				pod_give_sabbat_founder_trait = yes
+			}
+		}
 	}
 }
 pod_check_brujah_for_camarilla = {
@@ -1463,6 +1514,19 @@ pod_check_brujah_for_camarilla = {
 		pod_convert_brujah_to_camarilla = yes
 		pod_find_brujah_founder = yes
 		pod_give_camarilla_founder_trait = yes
+		random_list = {
+			20 = {
+				pod_convert_brujah_to_camarilla = yes
+				pod_find_brujah_founder = yes
+				pod_give_camarilla_founder_trait = yes
+			}
+			6 = {
+				#yolo
+				pod_convert_brujah_to_sabbat = yes
+				pod_find_brujah_founder = yes
+				pod_give_sabbat_founder_trait = yes
+			}
+		}
 		#log = "Brujah is camarilla"
 	}
 }
@@ -1497,17 +1561,17 @@ pod_check_giovanni_for_camarilla = {
 			check_variable = { which = global_giovanni_rank value = 4 }
 		}
 		random_list = {
-			10 = {
+			5 = {
 				pod_convert_giovanni_to_camarilla = yes
 				pod_find_giovanni_founder = yes
 				pod_give_camarilla_founder_trait = yes
 			}
-			4 = {
+			2 = {
 				pod_convert_giovanni_to_sabbat = yes
 				pod_find_giovanni_founder = yes
 				pod_give_sabbat_founder_trait = yes
 			}
-			4 = {
+			5 = {
 				#yolo
 			}
 		}
@@ -1560,9 +1624,17 @@ pod_check_salubri_for_camarilla = {
 		limit = {
 			check_variable = { which = global_salubri_rank value = 4 }
 		}
-		pod_convert_salubri_to_sabbat = yes
-		pod_find_salubri_founder = yes
-		pod_give_sabbat_founder_trait = yes
+		random_list = {
+			8 = {
+				pod_convert_salubri_to_sabbat = yes
+				pod_find_salubri_founder = yes
+				pod_give_sabbat_founder_trait = yes
+			}
+			4 = {
+				#yolo
+			}
+		}
+
 	}
 }
 pod_check_toreador_for_camarilla = {
@@ -1592,7 +1664,7 @@ pod_check_tzimisce_for_camarilla = {
 		}
 		pod_convert_tzimisce_to_sabbat = yes
 		pod_find_tzimisce_founder = yes
-		pod_give_camarilla_founder_trait = yes
+		pod_give_sabbat_founder_trait = yes
 	}
 }
 pod_check_baali_for_camarilla = {
@@ -1601,10 +1673,16 @@ pod_check_baali_for_camarilla = {
 			always = yes
 		}
 		#lol
-		pod_convert_baali_to_sabbat = yes
-		pod_find_baali_founder = yes
-		pod_give_sabbat_founder_trait = yes
-		#pod_give_camarilla_founder_trait = yes
+		random_list = {
+			4 = {
+				pod_convert_baali_to_sabbat = yes
+				pod_find_baali_founder = yes
+				pod_give_sabbat_founder_trait = yes
+			}
+			4 = {
+				#yolo
+			}
+		}
 	}
 }
 pod_check_gangrel_for_camarilla = {
@@ -1651,6 +1729,21 @@ pod_check_avalon_for_camarilla = {
 		pod_convert_avalon_to_sabbat = yes
 		pod_find_avalon_founder = yes
 		pod_give_sabbat_founder_trait = yes
+		random_list = {
+			10 = {
+				pod_convert_avalon_to_sabbat = yes
+				pod_find_avalon_founder = yes
+				pod_give_sabbat_founder_trait = yes
+			}
+			6 = {
+				pod_convert_avalon_to_camarilla = yes
+				pod_find_avalon_founder = yes
+				pod_give_camarilla_founder_trait = yes
+			}
+			4 = {
+				#yolo
+			}
+		}
 		#pod_give_camarilla_founder_trait = yes
 	}
 }
@@ -1659,10 +1752,30 @@ pod_check_ashirra_for_camarilla = {
 		limit = {
 			is_ashirra_cam_founder = no
 		}
-		#help the sabbat out
-		pod_convert_ashirra_to_sabbat = yes
-		pod_find_ashirra_founder = yes
-		pod_give_sabbat_founder_trait = yes
+		if = {
+			limit = {
+				OR = {
+					has_global_flag = lasombra_sabbat_1
+					has_global_flag = lasombra_sabbat_2
+				}
+				#pod_count_ashirra_to_lasombra_sabbat = yes
+			}
+		}else = {
+			#keep them neutral
+			5 = {
+				pod_convert_ashirra_to_sabbat = yes
+				pod_find_ashirra_founder = yes
+				pod_give_sabbat_founder_trait = yes
+			}
+			5 = {
+				pod_convert_ashirra_to_camarilla = yes
+				pod_find_ashirra_founder = yes
+				pod_give_camarilla_founder_trait = yes
+			}
+			15 = {
+				#yolo
+			}
+		}
 	}
 }
 
