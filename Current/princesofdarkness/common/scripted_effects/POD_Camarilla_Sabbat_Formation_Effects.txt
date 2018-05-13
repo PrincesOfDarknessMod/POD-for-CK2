@@ -75,8 +75,8 @@ pod_start_sabbat_formation = {
 		save_event_target_as = sabbat_founder_2
 		pod_convert_sabbat_ruler_vampires = yes
 	}
+	pod_keep_founders_stable = yes
 	pod_give_sabbat_armies = yes
-	
 	pod_convert_anarchs_to_sects = yes
 	pod_convert_province_religion_to_ruler = yes
 }
@@ -197,6 +197,7 @@ pod_check_for_who_camarilla = {
 	pod_check_avalon_for_camarilla = yes
 	pod_check_ashirra_for_camarilla = yes
 	pod_check_cainiteheresy_for_camarilla = yes
+	pod_keep_founders_stable = yes
 }
 
 pod_kneel_to_sabbat = {
@@ -247,8 +248,11 @@ pod_convert_to_camarilla = {
 			set_government_type = traditions_government
 		}
 	}else_if = {
-		limit = { 
+		limit = {
+			OR = {
 			NOT = { trait = sabbat_founder_trait }
+			NOT = { trait = camarilla_founder_trait }
+			}
 		}
 		random_list = {
 			10 = {
@@ -278,7 +282,12 @@ pod_convert_to_sabbat = {
 			set_government_type = milan_government
 		}
 	}else_if = {
-		limit = { NOT = { trait = camarilla_founder_trait } }
+		limit = {
+			OR = {
+			NOT = { trait = camarilla_founder_trait }
+			NOT = { trait = sabbat_founder_trait }
+			}
+		}
 		random_list = {
 			10 = {
 				religion = sabbat
@@ -292,6 +301,25 @@ pod_convert_to_sabbat = {
 	}
 }
 
+pod_keep_founders_stable = {
+	any_playable_ruler = {
+		limit = {
+			OR = {
+				trait = camarilla_founder_trait
+				trait = sabbat_founder_trait
+			}
+		}
+	if = {
+		limit = { trait = camarilla_founder_trait }
+		religion = masquerade_camarilla
+		set_government_type = traditions_government
+	}else_if = {
+		limit = { trait = sabbat_founder_trait }
+		religion = sabbat
+		set_government_type = milan_government
+	}
+	}
+}
 pod_convert_to_sabbat_player_version = {
 	if = {
 		limit = {
@@ -304,12 +332,17 @@ pod_convert_to_sabbat_player_version = {
 				trait = camarilla_founder_trait
 			}
 			religion = sabbat
-			set_government_type  = milan_government
+			set_government_type = milan_government
 		}
 	}else_if = {
-		limit = { NOT = { trait = camarilla_founder_trait } }
+		limit = {
+			OR = {
+			NOT = { trait = camarilla_founder_trait }
+			NOT = { trait = sabbat_founder_trait }
+			}
+		}
 		religion = sabbat
-		set_government_type  = milan_government
+		set_government_type = milan_government
 	}
 }
 
@@ -1469,6 +1502,8 @@ pod_give_camarilla_founder_trait = {
 	event_target:biggest_ruler = {
 		log = "Camarilla Founder: [This.GetTitledName]"
 		add_trait = camarilla_founder_trait
+		religion = masquerade_camarilla
+		set_government_type = traditions_government
 	}
 }
 
@@ -1480,6 +1515,8 @@ pod_give_sabbat_founder_trait = {
 		}
 		log = "Sabbat Founder: [This.GetTitledName]"
 		add_trait = sabbat_founder_trait
+		religion = sabbat
+		set_government_type = milan_government
 	}
 }
 pod_check_assamite_for_camarilla = {
@@ -1792,6 +1829,8 @@ pod_convert_sabbat_ruler_vampires = {
 
 pod_convert_sabbat_player = {
 	add_trait = sabbat_founder_trait
+	religion = sabbat
+	set_government_type = milan_government
 	pod_convert_to_sabbat_player_version = yes
 	any_realm_character = {
 		limit = { has_character_flag = player_cam_sab_vampire }
@@ -1802,6 +1841,8 @@ pod_convert_sabbat_player = {
 
 pod_convert_camarilla_player = {
 	add_trait = camarilla_founder_trait
+	religion = masquerade_camarilla
+	set_government_type = traditions_government
 	pod_convert_to_camarilla = yes
 	any_realm_character = {
 		limit = { has_character_flag = player_cam_sab_vampire }
