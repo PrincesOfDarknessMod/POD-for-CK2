@@ -53,7 +53,8 @@ targetted_decisions = {
 		
 		allow = {
 			age = 16
-			age_diff = { who = FROM years = 1 }
+			#age_diff = { who = FROM years = 1 }
+			ROOT = { is_older_than = FROM }
 			dynasty = FROM # we should test if the filter makes this redundant or not
 			trait = vampire
 			NOT = { trait = torpor }
