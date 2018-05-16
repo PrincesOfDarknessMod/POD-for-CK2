@@ -592,6 +592,17 @@ character_event = {
 				NOT = { trait = torpor }
 				has_powerful_generation = yes
 				is_elder_vampire = yes
+				trait = canon_childe
+				#NOT = { distance = { who = ROOT value = 350 } }
+				#is_clean_usurper_vampire = yes
+			}
+			save_event_target_as = elder_challenger
+		}
+		random_realm_character = {
+			limit = {
+				NOT = { trait = torpor }
+				has_powerful_generation = yes
+				is_elder_vampire = yes
 				is_landed = no
 				trait = canon_childe
 				#NOT = { distance = { who = ROOT value = 350 } }
@@ -605,7 +616,20 @@ character_event = {
 				has_powerful_generation = yes
 				is_elder_vampire = yes
 				trait = canon
-				is_landed = no
+				#is_landed = no
+				#NOT = { distance = { who = ROOT value = 350 } }
+				#is_clean_usurper_vampire = yes
+			}
+			save_event_target_as = elder_challenger
+		}
+		random_realm_character = {
+			limit = {
+				NOT = { trait = torpor }
+				NOT = { higher_tier_than = COUNT }
+				has_powerful_generation = yes
+				is_elder_vampire = yes
+				trait = canon
+				#is_landed = no
 				#NOT = { distance = { who = ROOT value = 350 } }
 				#is_clean_usurper_vampire = yes
 			}
@@ -617,7 +641,7 @@ character_event = {
 				has_powerful_generation = yes
 				is_elder_vampire = yes
 				trait = canon
-				#is_landed = no
+				is_landed = no
 				#NOT = { distance = { who = ROOT value = 350 } }
 				#is_clean_usurper_vampire = yes
 			}
@@ -639,6 +663,10 @@ character_event = {
 					log = "Elder Usurper [elder_challenger.GetTitledName] usurped [This.GetTitledName]"
 				}
 				1 = {
+					modifier = {
+						factor = 0
+						event_target:elder_challenger = { is_landed = yes }
+					}
 					event_target:elder_challenger = {
 						banish = yes
 						set_character_flag = ELDER_USURPER_BANISHED
