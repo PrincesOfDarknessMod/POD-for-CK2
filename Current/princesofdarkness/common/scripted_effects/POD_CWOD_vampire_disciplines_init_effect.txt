@@ -1565,5 +1565,472 @@ POD_CWOD_vampire_disciplines_init_effect = {
 			add_trait = dominate_5
 			add_trait = resilience_5
 		}
-	}					
-}
+	}	
+	
+	# Nagaraja
+	if = {
+		limit = {
+				trait = "nagaraja"
+			}
+		}		
+		if = {
+			limit = { trait = "neonate" }
+			if = 
+			{ 
+				limit = { 
+					NOT = { trait = dominate_2 }
+					NOT = { trait = dominate_3 }
+					NOT = { trait = dominate_4 }
+					NOT = { trait = dominate_5 }
+					}			
+			add_trait = dominate_1
+			}
+			if = 
+			{ 
+				limit = { 
+					NOT = { trait = thaumaturgy_2 }
+					NOT = { trait = thaumaturgy_3 }
+					NOT = { trait = thaumaturgy_4 }
+					NOT = { trait = thaumaturgy_5 }
+					}			
+			add_trait = thaumaturgy_1
+			}
+			if = 
+			{ 
+				limit = { 
+					NOT = { trait = auspex_2 }
+					NOT = { trait = auspex_3 }
+					NOT = { trait = auspex_4 }
+					NOT = { trait = auspex_5 }
+					}			
+			add_trait = auspex_1
+			}
+		}
+		if = {
+			limit = { trait = "ancilla" }
+			random_list = {
+				70 = {
+					add_trait = auspex_2
+					add_trait = dominate_3
+					add_trait = thaumaturgy_2
+				}
+				10 = {
+					add_trait = auspex_5
+					add_trait = dominate_1
+					add_trait = thaumaturgy_1
+				}
+				10 = {
+					add_trait = auspex_1
+					add_trait = dominate_5
+					add_trait = thaumaturgy_1
+				}
+				10 = {
+					add_trait = auspex_1
+					add_trait = dominate_1
+					add_trait = thaumaturgy_5
+				}
+			}
+		}
+		if = {
+			limit = { trait = "elder" }
+			random_list = {
+				40 = {
+					add_trait = auspex_3
+					add_trait = dominate_5
+					add_trait = thaumaturgy_3
+				}
+				30 = {
+					add_trait = auspex_5
+					add_trait = dominate_3
+					add_trait = thaumaturgy_3
+				}
+				30 = {
+					add_trait = auspex_3
+					add_trait = dominate_3
+					add_trait = thaumaturgy_5
+				}
+			}
+		}
+		if = {
+			limit = { trait = "ancient" }
+			add_trait = auspex_5
+			add_trait = dominate_5
+			add_trait = thaumaturgy_5
+		}
+		
+	# kyasid and maeghar
+	if = {
+		limit = {
+			OR = {
+				trait = "maeghar"
+				trait = "kyasid"
+			}
+		}
+		if = {
+			limit = { trait = "neonate" }
+			if = 
+			{ 
+				limit = { 
+					NOT = { trait = dominate_2 }
+					NOT = { trait = dominate_3 }
+					NOT = { trait = dominate_4 }
+					NOT = { trait = dominate_5 }
+					}			
+			add_trait = dominate_1
+			}
+			if = 
+			{ 
+				limit = { 
+					NOT = { trait = obtenebration_2 }
+					NOT = { trait = obtenebration_3 }
+					NOT = { trait = obtenebration_4 }
+					NOT = { trait = obtenebration_5 }
+					}			
+			add_trait = dominate_1
+			}			
+			add_trait = obtenebration_1
+			if = 
+			{ 
+				limit = { 
+					NOT = { trait = vigor_2 }
+					NOT = { trait = vigor_3 }
+					NOT = { trait = vigor_4 }
+					NOT = { trait = vigor_5 }
+					}			
+			add_trait = vigor_1
+			}
+		}
+		if = {
+			limit = { trait = "ancilla" }
+			random_list = {
+				70 = {
+					add_trait = obtenebration_2
+					add_trait = dominate_3
+					add_trait = vigor_2
+				}
+				10 = {
+					add_trait = obtenebration_5
+					add_trait = dominate_1
+					add_trait = vigor_1
+				}
+				10 = {
+					add_trait = obtenebration_1
+					add_trait = dominate_5
+					add_trait = vigor_1
+				}
+				10 = {
+					add_trait = obtenebration_1
+					add_trait = dominate_1
+					add_trait = vigor_5
+				}
+			}
+		}
+		if = {
+			limit = { trait = "elder" }
+			random_list = {
+				40 = {
+					add_trait = obtenebration_3
+					add_trait = dominate_5
+					add_trait = vigor_3
+				}
+				30 = {
+					add_trait = obtenebration_5
+					add_trait = dominate_3
+					add_trait = vigor_3
+				}
+				30 = {
+					add_trait = obtenebration_3
+					add_trait = dominate_3
+					add_trait = vigor_5
+				}
+			}
+		}
+		if = {
+			limit = { trait = "ancient" }
+			add_trait = obtenebration_5
+			add_trait = dominate_5
+			add_trait = vigor_5
+		}
+	}	
+
+	# True Brujah
+	
+	if = {
+		limit = {
+					trait = "true_brujah"
+			}
+			
+		if = {
+			limit = { trait = "neonate" }
+			if =
+			{ 
+				limit = { 
+					NOT = { trait = celerity_2 }
+					NOT = { trait = celerity_3 }
+					NOT = { trait = celerity_4 }
+					NOT = { trait = celerity_5 }
+					}
+			add_trait = celerity_1
+			}
+			if =
+			{ 
+				limit = { 
+					NOT = { trait = majesty_2 }
+					NOT = { trait = majesty_3 }
+					NOT = { trait = majesty_4 }
+					NOT = { trait = majesty_5 }
+					}		
+			add_trait = majesty_1
+			}
+			if =
+			{ 
+				limit = { 
+					NOT = { trait = vigor_2 }
+					NOT = { trait = vigor_3 }
+					NOT = { trait = vigor_4 }
+					NOT = { trait = vigor_5 }
+					}			
+			add_trait = vigor_1
+			}
+		}
+		if = {
+		
+			limit = { trait = "ancilla" }
+			random_list = {
+				70 = {
+					add_trait = celerity_2
+					add_trait = majesty_3
+					add_trait = vigor_2
+				}
+				10 = {
+					add_trait = celerity_5
+					add_trait = majesty_1
+					add_trait = vigor_1
+				}
+				10 = {
+					add_trait = celerity_1
+					add_trait = majesty_5
+					add_trait = vigor_1
+				}
+				10 = {
+					add_trait = celerity_1
+					add_trait = majesty_1
+					add_trait = vigor_5
+				}
+			}
+		}
+		if = {
+			limit = { trait = "elder" }
+			random_list = {
+				40 = {
+					add_trait = celerity_3
+					add_trait = majesty_5
+					add_trait = vigor_3
+				}
+				30 = {
+					add_trait = celerity_5
+					add_trait = majesty_3
+					add_trait = vigor_3
+				}
+				30 = {
+					add_trait = celerity_3
+					add_trait = majesty_3
+					add_trait = vigor_5
+				}
+			}
+		}
+		if = {
+			limit = { trait = "ancient" }
+			add_trait = celerity_5
+			add_trait = majesty_5
+			add_trait = vigor_5
+		}
+	}
+
+	# harbingers of skulls and samedi
+	
+	if = 
+	{
+		limit = {
+			OR = {
+				trait = "harbingers_of_skulls"
+				trait = "samedi"
+			}
+		}
+		if = {
+			limit = { trait = "neonate" }
+			if = 
+			{ 
+				limit = { 
+					NOT = { trait = auspex_2 }
+					NOT = { trait = auspex_3 }
+					NOT = { trait = auspex_4 }
+					NOT = { trait = auspex_5 }
+					}			
+			add_trait = auspex_1
+			}
+			if = 
+			{ 
+				limit = { 
+					NOT = { trait = mortis_2 }
+					NOT = { trait = mortis_3 }
+					NOT = { trait = mortis_4 }
+					NOT = { trait = mortis_5 }
+					}			
+			add_trait = mortis_1
+			}
+			if =
+			{ 
+				limit = { 
+					NOT = { trait = resilience_2 }
+					NOT = { trait = resilience_3 }
+					NOT = { trait = resilience_4 }
+					NOT = { trait = resilience_5 }
+					}			
+			add_trait = resilience_1
+			}
+		}
+		if = {
+			limit = { trait = "ancilla" }
+			random_list = {
+				70 = {
+					add_trait = auspex_2
+					add_trait = mortis_3
+					add_trait = resilience_2
+				}
+				10 = {
+					add_trait = auspex_5
+					add_trait = mortis_1
+					add_trait = resilience_1
+				}
+				10 = {
+					add_trait = auspex_1
+					add_trait = mortis_5
+					add_trait = resilience_1
+				}
+				10 = {
+					add_trait = auspex_1
+					add_trait = mortis_1
+					add_trait = resilience_5
+				}
+			}
+		}
+		if = {
+			limit = { trait = "elder" }
+			random_list = {
+				40 = {
+					add_trait = auspex_3
+					add_trait = mortis_5
+					add_trait = resilience_3
+				}
+				30 = {
+					add_trait = auspex_5
+					add_trait = mortis_3
+					add_trait = resilience_3
+				}
+				30 = {
+					add_trait = auspex_3
+					add_trait = mortis_3
+					add_trait = resilience_5
+				}
+			}
+		}	
+		if = {
+			limit = { trait = "ancient" }
+			add_trait = auspex_5
+			add_trait = mortis_5
+			add_trait = resilience_5
+		}
+	}	
+	# daughters of cacophony
+	if = {
+		limit = {
+				trait = "daughters_of_cacophony"
+		}
+		if = {
+			limit = { trait = "neonate" }
+			if =
+			{ 
+				limit = { 
+					NOT = { trait = celerity_2 }
+					NOT = { trait = celerity_3 }
+					NOT = { trait = celerity_4 }
+					NOT = { trait = celerity_5 }
+					}			
+			add_trait = celerity_1
+			}
+			if =
+			{ 
+				limit = { 
+					NOT = { trait = majesty_2 }
+					NOT = { trait = majesty_3 }
+					NOT = { trait = majesty_4 }
+					NOT = { trait = majesty_5 }
+					}		
+			add_trait = majesty_1
+			}
+			if = 
+			{ 
+				limit = { 
+					NOT = { trait = auspex_2 }
+					NOT = { trait = auspex_3 }
+					NOT = { trait = auspex_4 }
+					NOT = { trait = auspex_5 }
+					}			
+			add_trait = auspex_1
+			}
+		}
+		if = {
+			limit = { trait = "ancilla" }
+			random_list = {
+				70 = {
+					add_trait = celerity_2
+					add_trait = majesty_3
+					add_trait = auspex_2
+				}
+				10 = {
+					add_trait = celerity_5
+					add_trait = majesty_1
+					add_trait = auspex_1
+				}
+				10 = {
+					add_trait = celerity_1
+					add_trait = majesty_5
+					add_trait = auspex_1
+				}
+				10 = {
+					add_trait = celerity_1
+					add_trait = majesty_1
+					add_trait = auspex_5
+				}
+			}
+		}
+		if = {
+			limit = { trait = "elder"
+			}
+			random_list = {
+				40 = {
+					add_trait = celerity_3
+					add_trait = majesty_5
+					add_trait = auspex_3
+				}
+				30 = {
+					add_trait = celerity_5
+					add_trait = majesty_3
+					add_trait = auspex_3
+				}
+				30 = {
+					add_trait = celerity_3
+					add_trait = majesty_3
+					add_trait = auspex_5
+				}
+			}
+		}
+		if = {
+			limit = { trait = "ancient" }
+			add_trait = celerity_5
+			add_trait = majesty_5
+			add_trait = auspex_5
+		}
+	}	
+ }

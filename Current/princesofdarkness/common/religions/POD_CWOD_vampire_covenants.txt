@@ -5,6 +5,7 @@ vampire_high_clans_group = {
 	graphical_culture = westerngfx
 	crusade_cb = crusade
 	playable = yes
+	color = { 0.3 0.0 0.6 }
 
 	ai_peaceful = yes # Will make Hordes lose their super aggressiveness
 
@@ -660,7 +661,7 @@ revenant_high_clans = {
 		intermarry = revenant_sabbat
 		intermarry = revenant_inconnu
 		intermarry = revenant_masquerade_camarilla
-		intermarry = revenant_anarch
+		intermarry = revenant_anarchs
 		}	
 
 koldun = {
@@ -746,6 +747,7 @@ ashirra_vampire_group = {
 	crusade_cb = crusade
 	playable = yes
 	hostile_within_group = no
+	color = { 1.0 0.7 0.4 }
 
 	male_names = {
 		Abbas Abdul Abdullah Abolhassan Abu-Bakr Ahmad Akbar Allahyar Ali Ali-Fay Ali-Kolon Ali-Zalil Hasan Hossein Hussayn Ismail Mahmud Mohammed Muammar Muhammad
@@ -908,7 +910,7 @@ revenant_ashirra = {
 		intermarry = revenant_sabbat
 		intermarry = revenant_inconnu
 		intermarry = revenant_masquerade_camarilla
-		intermarry = revenant_anarch
+		intermarry = revenant_anarchs
 		
 	}
 
@@ -1094,7 +1096,7 @@ cainite = {
 		priest_title = ASHEN_PRIEST
 		high_god_name = GOD_CAINE
 		god_names = {
-			CAINE
+			GOD_CAINE
 		}
 		evil_god_names = {
 			DEVIL
@@ -1184,7 +1186,7 @@ vampire_low_clans = {
 			GOD_CAINE HEL
 		}
 		evil_god_names = {
-			GOD_THOR GOD_THE_THUNDERER GOD_THE_ALLFATHER GOD_THE_ODIN GOD_FREY GOD_TYR
+			GOD_THOR GOD_THE_THUNDERER GOD_THE_ALLFATHER GOD_FREY GOD_TYR
 		}
 		
 		unit_modifier = {		
@@ -1310,7 +1312,7 @@ nosferatulow = {
 		
 		independence_war_score_bonus = 30 # Overrides define CONTESTED_TITLE_OCCUPIED_WARSCORE_BONUS_INDEP
 
-		intermarry = tzimisce
+		intermarry = koldun
 		intermarry = furores
 		intermarry = vampire_promethean
 		intermarry = autarkis
@@ -1402,7 +1404,7 @@ malkavianlow = {
 
 		intermarry = ventrue_high
 		intermarry = toreador_high
-		intermarry = tzimisce
+		intermarry = koldun
 		intermarry = furores
 		intermarry = vampire_promethean
 		intermarry = autarkis
@@ -1506,6 +1508,95 @@ anarchs = {
 		intermarry = autarkis
 		intermarry = vampire_promethean
 		intermarry = cainite
+		
+		aggression = 1.5
+		
+	}
+
+church_of_caine = {
+		graphical_culture = westerngfx
+
+		icon = 84
+		heresy_icon = 84
+		
+		color = { 0.4 0.4 0.4 }
+		crusade_name = JYHAD
+		scripture_name = BOOK_OF_NOD
+		piety_name = LOYALTY
+		priest_title = ASHEN_PRIEST
+		high_god_name = GOD_CAINE
+		parent = anarchs
+		god_names = {
+			GOD_CAINE
+		}
+		evil_god_names = {
+			THE_MAN
+		}
+		
+		unit_modifier = {		
+			garrison_size = 0.3
+			levy_size = 0.1
+			
+			key = "DEF_RELIGION"
+		}
+		unit_home_modifier = {
+			land_morale = 0.8
+			light_infantry_defensive = 0.8
+			heavy_infantry_defensive = 0.8
+			pikemen_defensive = 0.8
+			light_cavalry_defensive = 0.8
+			knights_defensive = 0.8
+			archers_defensive = 0.8
+			horse_archers_defensive = 0.8
+			
+			garrison_size = 0.4
+			
+			key = "DEF_RELIGION_HOME_TERRITORY"
+		}
+		
+		priests_can_marry = yes
+		can_grant_divorce = yes
+		
+		priests_can_inherit = yes
+		
+		female_temple_holders = yes
+		feminist = yes      # Nullifies the negative opinion modifier that vassals normally get if ruler is female or has female heir
+
+		defensive_attrition = yes
+		allow_looting = yes
+		
+		max_consorts = 3
+		bs_marriage = yes
+		pc_marriage = yes
+		allow_rivermovement = yes
+		has_heir_designation = yes
+		attacking_same_religion_piety_loss = yes
+		hard_to_convert = yes
+		dynamic_cult = no
+		secret_religion = no
+		
+		independence_war_score_bonus = 30 # Overrides define CONTESTED_TITLE_OCCUPIED_WARSCORE_BONUS_INDEP
+		 
+		
+		short_reign_opinion_year_mult = 1
+		ai_convert_same_group = 2
+		ai_convert_other_group = 2  
+		
+		religious_clothing_head = 0
+		religious_clothing_priest = 1
+		
+		intermarry = ashirra
+		intermarry = sabbat
+		intermarry = vampire_low_clans_group
+		intermarry = vampire_high_clans_group
+		intermarry = gangrellow
+		intermarry = nosferatulow
+		intermarry = malkavianlow
+		intermarry = fuores
+		intermarry = autarkis
+		intermarry = vampire_promethean
+		intermarry = cainite
+		intermarry = masquerade_camarilla_group
 		
 		aggression = 1.5
 		
@@ -2164,13 +2255,13 @@ tremerelow = {
 		crusade_name = JYHAD
 		scripture_name = BOOK_OF_NOD
 		piety_name = LOYALTY
-		priest_title = ASHEN_PRIEST
+		priest_title = MAGI
 		high_god_name = GOD_CLAN_TREMERE
 		god_names = {
 			GOD_CLAN_TREMERE
 		}
 		evil_god_names = {
-			DEVIL
+			BONISANGUS
 		}
 		
 		unit_modifier = {		
@@ -2216,13 +2307,186 @@ tremerelow = {
 		secret_religion = yes
 		
 		independence_war_score_bonus = 30 # Overrides define CONTESTED_TITLE_OCCUPIED_WARSCORE_BONUS_INDEP
-		
+		intermarry = ashirra
+		intermarry = sabbat
+		intermarry = vampire_low_clans_group
+		intermarry = vampire_high_clans_group
+		intermarry = gangrellow
+		intermarry = nosferatulow
+		intermarry = malkavianlow
+		intermarry = fuores
+		intermarry = autarkis
+		intermarry = vampire_promethean
+		intermarry = cainite
+		intermarry = masquerade_camarilla_group
 		
 		ai_convert_same_group = 0
 		ai_convert_other_group = 0  
 		
 		aggression = 2.0
-	}		
+	}	
+
+code_of_carna = {
+		graphical_culture = westerngfx
+
+		icon = 97
+		heresy_icon = 97
+		
+		color = { 0.0 0.4 0.0 }
+		crusade_name = JYHAD
+		scripture_name = BOOK_OF_NOD
+		piety_name = LOYALTY
+		priest_title = MAGI
+		high_god_name = THE_REVOLUTION
+		god_names = {
+			THE_REVOLUTION
+		}
+		evil_god_names = {
+			GOD_CLAN_TREMERE
+		}
+		
+		unit_modifier = {		
+			garrison_size = 0.3
+			levy_size = 0.1
+			
+			key = "DEF_RELIGION"
+		}
+		unit_home_modifier = {
+			land_morale = 0.8
+			light_infantry_defensive = 0.8
+			heavy_infantry_defensive = 0.8
+			pikemen_defensive = 0.8
+			light_cavalry_defensive = 0.8
+			knights_defensive = 0.8
+			archers_defensive = 0.8
+			horse_archers_defensive = 0.8
+			
+			garrison_size = 0.4
+			
+			key = "DEF_RELIGION_HOME_TERRITORY"
+		}
+		
+		priests_can_marry = yes
+		can_grant_divorce = yes
+		parent = tremerelow
+		priests_can_inherit = yes
+		
+		female_temple_holders = yes
+		feminist = yes      # Nullifies the negative opinion modifier that vassals normally get if ruler is female or has female heir
+
+		defensive_attrition = yes
+		allow_looting = yes
+		
+		max_consorts = 3
+		bs_marriage = yes
+		pc_marriage = yes
+		allow_rivermovement = yes
+		has_heir_designation = yes
+		attacking_same_religion_piety_loss = yes
+		hard_to_convert = yes
+		dynamic_cult = no
+		secret_religion = no
+		
+		independence_war_score_bonus = 30 # Overrides define CONTESTED_TITLE_OCCUPIED_WARSCORE_BONUS_INDEP
+		intermarry = ashirra
+		intermarry = sabbat
+		intermarry = vampire_low_clans_group
+		intermarry = vampire_high_clans_group
+		intermarry = gangrellow
+		intermarry = nosferatulow
+		intermarry = malkavianlow
+		intermarry = fuores
+		intermarry = autarkis
+		intermarry = vampire_promethean
+		intermarry = cainite
+		intermarry = masquerade_camarilla_group
+		
+		ai_convert_same_group = 0
+		ai_convert_other_group = 0  
+		
+		aggression = 2.0
+	}	
+
+code_of_goratrix = {
+		graphical_culture = westerngfx
+
+		icon = 97
+		heresy_icon = 97
+		
+		color = { 0.0 0.4 0.0 }
+		crusade_name = JYHAD
+		scripture_name = BOOK_OF_NOD
+		piety_name = LOYALTY
+		priest_title = MAGI
+		high_god_name = GOD_CLAN_TREMERE
+		god_names = {
+			GOD_CLAN_TREMERE
+		}
+		evil_god_names = {
+			GOD_CLAN_SALUBRI
+		}
+		
+		unit_modifier = {		
+			garrison_size = 0.3
+			levy_size = 0.1
+			
+			key = "DEF_RELIGION"
+		}
+		unit_home_modifier = {
+			land_morale = 0.8
+			light_infantry_defensive = 0.8
+			heavy_infantry_defensive = 0.8
+			pikemen_defensive = 0.8
+			light_cavalry_defensive = 0.8
+			knights_defensive = 0.8
+			archers_defensive = 0.8
+			horse_archers_defensive = 0.8
+			
+			garrison_size = 0.4
+			
+			key = "DEF_RELIGION_HOME_TERRITORY"
+		}
+		
+		priests_can_marry = yes
+		can_grant_divorce = yes
+		parent = tremerelow
+		priests_can_inherit = yes
+		
+		female_temple_holders = yes
+		feminist = yes      # Nullifies the negative opinion modifier that vassals normally get if ruler is female or has female heir
+
+		defensive_attrition = yes
+		allow_looting = yes
+		
+		max_consorts = 3
+		bs_marriage = yes
+		pc_marriage = yes
+		allow_rivermovement = yes
+		has_heir_designation = yes
+		attacking_same_religion_piety_loss = yes
+		hard_to_convert = yes
+		dynamic_cult = no
+		secret_religion = no
+		
+		independence_war_score_bonus = 30 # Overrides define CONTESTED_TITLE_OCCUPIED_WARSCORE_BONUS_INDEP
+		intermarry = ashirra
+		intermarry = sabbat
+		intermarry = vampire_low_clans_group
+		intermarry = vampire_high_clans_group
+		intermarry = gangrellow
+		intermarry = nosferatulow
+		intermarry = malkavianlow
+		intermarry = fuores
+		intermarry = autarkis
+		intermarry = vampire_promethean
+		intermarry = cainite
+		intermarry = masquerade_camarilla_group
+		
+		ai_convert_same_group = 0
+		ai_convert_other_group = 0  
+		
+		aggression = 2.0
+	}	
 
 anda = {
 		graphical_culture = mongolgfx
@@ -4102,7 +4366,7 @@ setite = {
 	}	
 
 revenant_setite = {
-		graphical_culture = muslimgfx
+		graphical_culture = westerngfx
 
 		icon = 81
 		heresy_icon = 81
@@ -4538,4 +4802,214 @@ laibon = {
 	}	
 	
 }		
+
+talmahera_group = {
+# Tal'mahe'Ra
+	has_coa_on_barony_only = yes
+	graphical_culture = hindugfx
+	color = { 0.1 0.2 0.35 }
+	crusade_cb = jyhad
+	playable = yes
+	hostile_within_group = yes
+
+	ai_peaceful = no # Will NOT make Hordes lose their super aggressiveness
+	
+		ai_convert_same_group = 0 # never try to convert
+		ai_convert_other_group = 2 # always try to convert	
+
+	male_names = {
+	}
+	female_names = {
+	}		
+		
+talmahera = {
+		graphical_culture = hindugfx
+
+		icon = 147
+		heresy_icon = 147
+		
+		color = { 0.1 0.2 0.35 }
+		crusade_name = JYHAD
+		scripture_name = BOOK_OF_NOD
+		piety_name = LOYALTY
+		priest_title = CULTIST
+		high_god_name = GOD_LILITH
+		god_names = {
+			GOD_LILITH
+		}
+		evil_god_names = {
+			GOD_CAINE
+		}
+		
+		unit_modifier = {		
+			garrison_size = 0.3
+			levy_size = 0.1
+			
+			key = "DEF_RELIGION"
+		}
+		unit_home_modifier = {
+			land_morale = 0.8
+			light_infantry_defensive = 0.8
+			heavy_infantry_defensive = 0.8
+			pikemen_defensive = 0.8
+			light_cavalry_defensive = 0.8
+			knights_defensive = 0.8
+			archers_defensive = 0.8
+			horse_archers_defensive = 0.8
+			
+			garrison_size = 0.4
+			
+			key = "DEF_RELIGION_HOME_TERRITORY"
+		}
+		
+		priests_can_marry = yes
+		can_grant_divorce = yes
+		allow_in_ruler_designer  = no
+		priests_can_inherit = yes
+		
+		female_temple_holders = yes
+		feminist = yes      # Nullifies the negative opinion modifier that vassals normally get if ruler is female or has female heir
+
+		defensive_attrition = yes
+		allow_looting = yes
+		
+		max_consorts = 3
+		bs_marriage = yes
+		pc_marriage = yes
+		allow_rivermovement = yes
+		has_heir_designation = yes
+		attacking_same_religion_piety_loss = yes
+		hard_to_convert = yes
+		dynamic_cult = yes
+		secret_religion = yes
+		
+		independence_war_score_bonus = 30 # Overrides define CONTESTED_TITLE_OCCUPIED_WARSCORE_BONUS_INDEP
+		 
+		ai_convert_same_group = 2
+		ai_convert_other_group = 2  
+		
+		religious_clothing_head = 0
+		religious_clothing_priest = 1
+		
+		intermarry = ashirra
+		intermarry = sabbat
+		intermarry = vampire_low_clans_group
+		intermarry = vampire_high_clans_group
+		intermarry = gangrellow
+		intermarry = nosferatulow
+		intermarry = malkavianlow
+		intermarry = fuores
+		intermarry = autarkis
+		intermarry = vampire_promethean
+		intermarry = cainite
+		intermarry = masquerade_camarilla_group
+		
+		aggression = 2.0
+	}
+}	
+
+bloodlines_group = {
+# Bloodlines Beckett's Diary
+	has_coa_on_barony_only = yes
+	graphical_culture = westerngfx
+	color = { 0.1 0.5 0.45 }
+	crusade_cb = jyhad
+	playable = yes
+	hostile_within_group = yes
+
+	ai_peaceful = no # Will NOT make Hordes lose their super aggressiveness
+	
+		ai_convert_same_group = 0 # never try to convert
+		ai_convert_other_group = 2 # always try to convert	
+
+	male_names = {
+	}
+	female_names = {
+	}		
+		
+bloodlines_covenant = {
+		graphical_culture = westerngfx
+
+		icon = 148
+		heresy_icon = 148
+		
+		color = { 0.1 0.2 0.35 }
+		crusade_name = JYHAD
+		scripture_name = BOOK_OF_NOD
+		piety_name = LOYALTY
+		priest_title = ARTIST
+		high_god_name = GOD_CAINE
+		god_names = {
+			GOD_CAINE
+		}
+		evil_god_names = {
+			GOD_THE_ADVERSARY
+		}
+		
+		unit_modifier = {		
+			garrison_size = 0.3
+			levy_size = 0.1
+			
+			key = "DEF_RELIGION"
+		}
+		unit_home_modifier = {
+			land_morale = 0.8
+			light_infantry_defensive = 0.8
+			heavy_infantry_defensive = 0.8
+			pikemen_defensive = 0.8
+			light_cavalry_defensive = 0.8
+			knights_defensive = 0.8
+			archers_defensive = 0.8
+			horse_archers_defensive = 0.8
+			
+			garrison_size = 0.4
+			
+			key = "DEF_RELIGION_HOME_TERRITORY"
+		}
+		
+		priests_can_marry = yes
+		can_grant_divorce = yes
+		allow_in_ruler_designer  = no
+		priests_can_inherit = yes
+		
+		female_temple_holders = yes
+		feminist = yes      # Nullifies the negative opinion modifier that vassals normally get if ruler is female or has female heir
+
+		defensive_attrition = yes
+		allow_looting = yes
+		
+		max_consorts = 3
+		bs_marriage = yes
+		pc_marriage = yes
+		allow_rivermovement = yes
+		has_heir_designation = yes
+		attacking_same_religion_piety_loss = yes
+		hard_to_convert = yes
+		dynamic_cult = no
+		secret_religion = no
+		
+		independence_war_score_bonus = 30 # Overrides define CONTESTED_TITLE_OCCUPIED_WARSCORE_BONUS_INDEP
+		 
+		ai_convert_same_group = 2
+		ai_convert_other_group = 2  
+		
+		religious_clothing_head = 0
+		religious_clothing_priest = 1
+		
+		intermarry = ashirra
+		intermarry = sabbat
+		intermarry = vampire_low_clans_group
+		intermarry = vampire_high_clans_group
+		intermarry = gangrellow
+		intermarry = nosferatulow
+		intermarry = malkavianlow
+		intermarry = fuores
+		intermarry = autarkis
+		intermarry = vampire_promethean
+		intermarry = cainite
+		intermarry = masquerade_camarilla_group
+		
+		aggression = 1.0
+	}
+}
 	

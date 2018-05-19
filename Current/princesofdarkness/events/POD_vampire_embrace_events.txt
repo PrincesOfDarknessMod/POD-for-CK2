@@ -114,13 +114,12 @@ character_event = {
 					trait = vampire
 					female = 50
 					dynasty = ROOT
+					culture = ROOT
 					religion = ROOT
 				}
 			}
 		}
 		new_character = {
-			dynasty = ROOT
-			religion = ROOT
 			if = { 
 				limit = { ROOT = { is_female = no } }
 				set_father = ROOT
@@ -588,7 +587,35 @@ character_event = {
 			if = { 
 				limit = { father = { trait = caitiff } }
 				add_trait = caitiff	
+			}
+			if = { 
+				limit = { father= { trait = daughters_of_cacophony } }
+				add_trait = daughters_of_cacophony
+			}
+			if = {
+				limit = { father= { trait = nagaraja } }
+				add_trait = nagaraja
 			}	
+			if = {
+				limit = { father= { trait = harbingers_of_skulls } }
+				add_trait = harbingers_of_skulls
+			}	
+			if = { 
+				limit = { father= { trait = samedi } }
+				add_trait = samedi
+			}
+			if = { 
+				limit = { father= { trait = true_brujah} }
+				add_trait = true_brujah
+			}
+			if = {
+				limit = { father= { trait = kyasid } }
+				add_trait = kyasid	
+			}
+			if = { 
+				limit = { father = { trait = maeghar } }
+				add_trait = maeghar
+			}			
 			}
 			
 		if = { 
@@ -998,6 +1025,34 @@ character_event = {
 				limit = { mother= { trait = caitiff } }
 				add_trait = caitiff
 			}	
+			if = { 
+				limit = { mother= { trait = daughters_of_cacophony } }
+				add_trait = daughters_of_cacophony
+			}
+			if = {
+				limit = { mother= { trait = nagaraja } }
+				add_trait = nagaraja
+			}	
+			if = {
+				limit = { mother= { trait = harbingers_of_skulls } }
+				add_trait = harbingers_of_skulls
+			}	
+			if = { 
+				limit = { mother= { trait = samedi } }
+				add_trait = samedi
+			}
+			if = { 
+				limit = { mother= { trait = true_brujah} }
+				add_trait = true_brujah
+			}
+			if = {
+				limit = { mother= { trait = kyasid } }
+				add_trait = kyasid	
+			}
+			if = { 
+				limit = { mother = { trait = maeghar } }
+				add_trait = maeghar
+			}				
 			}
 
 if = {
