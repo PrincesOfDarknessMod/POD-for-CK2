@@ -2909,11 +2909,15 @@ plot_kill_elder = {
 	
 	creation_effect = {
 		change_variable = { which = global_elder_plot_count value = 1 }
-		if = {
-			limit = { has_character_flag = plotted_kill_elder }
-			clr_character_flag = plotted_kill_elder
+		FROM = {
+			pod_reset_kill_elder_flags = yes
+			pod_set_kill_elder_flag = yes
+			if = {
+				limit = { has_character_flag = plotted_kill_elder }
+					clr_character_flag = plotted_kill_elder
+			}
+			#set_character_flag = plotted_kill_elder
 		}
-		#set_character_flag = plotted_kill_elder
 	}
 	success = {
 		OR = {
@@ -2931,13 +2935,17 @@ plot_kill_elder = {
 		}
 	}
 	abort_effect = {
-		FROM = { clr_character_flag = murder_in_motion }
+		FROM = { 
+			clr_character_flag = murder_in_motion
+			pod_reset_kill_elder_flags = yes
+		}
 	}
 	effect = {
 		FROM = {
 			# Clear flags
 			hidden_tooltip = {
 				clr_character_flag = murder_in_motion
+				pod_reset_kill_elder_flags = yes
 			}
 		}
 	}

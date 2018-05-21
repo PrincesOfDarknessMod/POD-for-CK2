@@ -68,6 +68,7 @@ immediate = {
 						trait = daimoinon_1
 						trait = flight_1
 						trait = visceratika_1
+						trait = temporis_1
 				}
 			}		
 					set_character_flag = POD_CWOD_vampire_ai_train_flag_to_2
@@ -202,7 +203,14 @@ immediate = {
 							chance = 50
 							
 							add_trait = thaumaturgy_2
-							remove_trait = thaumaturgy_1 } } 
+							remove_trait = thaumaturgy_1 } }
+							
+						if = { limit = { trait = temporis_1 }  
+							random = {
+							chance = 40
+							
+							add_trait = temporis_2
+							remove_trait = temporis_1 } }
 							
 						if = { limit = { trait = vicissitude_1 } 
 							random = {
@@ -284,6 +292,7 @@ immediate = {
 						trait = daimoinon_2
 						trait = flight_2
 						trait = visceratika_2
+						trait = temporis_2
 				}
 			}		
 					set_character_flag = POD_CWOD_vampire_ai_train_flag_to_3
@@ -420,6 +429,13 @@ immediate = {
 							add_trait = thaumaturgy_3
 							remove_trait = thaumaturgy_2 } } 
 							
+						if = { limit = { trait = temporis_2 }  
+							random = {
+							chance = 40
+							
+							add_trait = temporis_3
+							remove_trait = temporis_2 } }
+							
 						if = { limit = { trait = vicissitude_2 } 
 							random = {
 							chance = 40
@@ -500,6 +516,7 @@ immediate = {
 						trait = daimoinon_3
 						trait = flight_3
 						trait = visceratika_3
+						trait = temporis_3
 				}
 			}		
 					set_character_flag = POD_CWOD_vampire_ai_train_flag_to_4
@@ -634,7 +651,14 @@ immediate = {
 							chance = 40
 							
 							add_trait = thaumaturgy_4
-							remove_trait = thaumaturgy_3 } } 
+							remove_trait = thaumaturgy_3 } }
+							
+						if = { limit = { trait = temporis_3 }  
+							random = {
+							chance = 40
+							
+							add_trait = temporis_4
+							remove_trait = temporis_3 } }
 							
 						if = { limit = { trait = vicissitude_3 } 
 							random = {
@@ -717,6 +741,7 @@ immediate = {
 						trait = daimoinon_4
 						trait = flight_4
 						trait = visceratika_4
+						trait = temporis_4
 				}
 			}
 						
@@ -852,7 +877,14 @@ immediate = {
 							chance = 40
 							
 							add_trait = thaumaturgy_5
-							remove_trait = thaumaturgy_4 } } 
+							remove_trait = thaumaturgy_4 } }
+						
+						if = { limit = { trait = temporis_4 }  
+							random = {
+							chance = 40
+							
+							add_trait = temporis_5
+							remove_trait = temporis_4 } }
 							
 						if = { limit = { trait = vicissitude_4 } 
 							random = {
@@ -873,7 +905,7 @@ immediate = {
 							chance = 40
 							
 							add_trait = visceratika_5
-							remove_trait = visceratikan_4 } } 
+							remove_trait = visceratika_4 } } 
 							
 						if = { limit = { trait = flight_4 } 
 							random = {
@@ -946,6 +978,11 @@ character_event = {
 						trait = celerity_3
 						trait = celerity_4
 						trait = celerity_5
+						trait = temporis_1
+						trait = temporis_2
+						trait = temporis_3
+						trait = temporis_4
+						trait = temporis_5
 					}
 				}
 				random = {

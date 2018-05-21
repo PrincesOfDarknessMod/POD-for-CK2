@@ -1,4 +1,4 @@
-namespace = POD_vampire_kill_plots
+namespace = POD_vampire_kill_imprison
 ##############################################
 #	Elder vampire kill plots
 #	by AJ
@@ -11,489 +11,44 @@ namespace = POD_vampire_kill_plots
 ### Elder Plot
 # Where it all begins...
 character_event = {
-	id = POD_vampire_kill_plots.1
-	desc = "EVTDESC_POD_ATTACKELDER_DECISION_1"
-	picture = GFX_evt_ghoul_nos_basement_conspiracy
+	id = POD_vampire_kill_imprison.1
+	desc = "EVTDESC_POD_ATTACKIMPRISON_DECISION_1"
+	picture = GFX_evt_ghoul_beating
 	border = GFX_event_normal_frame_intrigue
 	
-	is_part_of_plot = yes
 	capable_only = yes
 	prisoner = no
+	is_triggered_only = yes
 	
 	
 	trigger = {
-		#always = no
-		has_plot = plot_kill_elder
-		plot_target_char = {
-			NOT = { is_murder_quest_target_of_root_trigger = yes }
-			is_elder_vampire = yes
-			NOT = { trait = incapable }
-			prisoner = no
-			NOT = { is_inaccessible_trigger = yes }
-			NOT = { trait = torpor }
-		}
-		OR = {
-			NOT = { has_character_flag = murder_in_motion }
-			had_character_flag = { flag = murder_in_motion days = 100 }
-		}
-		plot_power_contribution = 
-		{
-			plotter = ROOT
-			power = 0.020
-		}
-	}
-	
-	mean_time_to_happen = {
-		months = 3300
-		
-		modifier = {
-			factor = 0.7
-			plot_power_contribution = 
-			{
-				plotter = ROOT
-				power = 0.10
-			}
-		}
-		modifier = {
-			factor = 0.7
-			plot_power_contribution = 
-			{
-				plotter = ROOT
-				power = 0.20
-			}
-		}
-		modifier = {
-			factor = 0.7
-			plot_power_contribution = 
-			{
-				plotter = ROOT
-				power = 0.30
-			}
-		}
-		modifier = {
-			factor = 0.7
-			plot_power_contribution = 
-			{
-				plotter = ROOT
-				power = 0.40
-			}
-		}
-		modifier = {
-			factor = 0.7
-			plot_power_contribution = 
-			{
-				plotter = ROOT
-				power = 0.50
-			}
-		}
-		modifier = {
-			factor = 0.7
-			plot_power_contribution = 
-			{
-				plotter = ROOT
-				power = 0.60
-			}
-		}
-		modifier = {
-			factor = 0.7
-			plot_power_contribution = 
-			{
-				plotter = ROOT
-				power = 0.70
-			}
-		}
-		modifier = {
-			factor = 0.6
-			any_backed_character = {
-				has_plot = plot_kill_elder
-				ROOT = {
-					plot_power_contribution = 
-					{
-						plotter = PREV
-						power = 0.10
-					}
-				}
-			}
-		}
-		modifier = {
-			factor = 0.6
-			any_backed_character = {
-				has_plot = plot_kill_elder
-				ROOT = {
-					plot_power_contribution = 
-					{
-						plotter = PREV
-						power = 0.20
-					}
-				}
-			}
-		}
-		modifier = {
-			factor = 0.6
-			any_backed_character = {
-				has_plot = plot_kill_elder
-				ROOT = {
-					plot_power_contribution = 
-					{
-						plotter = PREV
-						power = 0.30
-					}
-				}
-			}
-		}
-		modifier = {
-			factor = 0.6
-			any_backed_character = {
-				has_plot = plot_kill_elder
-				ROOT = {
-					plot_power_contribution = 
-					{
-						plotter = PREV
-						power = 0.40
-					}
-				}
-			}
-		}
-		modifier = {
-			factor = 0.6
-			any_backed_character = {
-				has_plot = plot_kill_elder
-				ROOT = {
-					plot_power_contribution = 
-					{
-						plotter = PREV
-						power = 0.50
-					}
-				}
-			}
-		}
-		modifier = {
-			factor = 0.6
-			any_backed_character = {
-				has_plot = plot_kill_elder
-				ROOT = {
-					plot_power_contribution = 
-					{
-						plotter = PREV
-						power = 0.60
-					}
-				}
-			}
-		}
-		modifier = {
-			factor = 0.6
-			any_backed_character = {
-				has_plot = plot_kill_elder
-				ROOT = {
-					plot_power_contribution = 
-					{
-						plotter = PREV
-						power = 0.70
-					}
-				}
-			}
-		}
-		modifier = {
-			factor = 0.6
-			any_backed_character = {
-				has_plot = plot_kill_elder
-				ROOT = {
-					plot_power_contribution = 
-					{
-						plotter = PREV
-						power = 0.80
-					}
-				}
-			}
-		}
-		modifier = {
-			factor = 0.6
-			any_backed_character = {
-				has_plot = plot_kill_elder
-				ROOT = {
-					plot_power_contribution = 
-					{
-						plotter = PREV
-						power = 0.90
-					}
-				}
-			}
-		}
-		modifier = {
-			factor = 0.43
-			plot_power = 1.0
-		}
-		modifier = {
-			factor = 0.43
-			plot_power = 1.5
-		}
-		modifier = {
-			factor = 0.2
-			plot_power = 2.0
-		}
-		modifier = {
-			factor = 0.2
-			plot_power = 2.5
-		}
-		modifier = {
-			factor = 0.01
-			plot_power = 3.0
-		}
-		modifier = {
-			factor = 0.01
-			plot_power = 3.5
-		}
-		modifier = {
-			factor = 0.01
-			plot_power = 4.0
-		}
-		modifier = {
-			factor = 1.5
-			plot_target_char = {
-				has_defensive_discipline = yes
-			}
-		}
-		modifier = {
-			factor = 1.3
-			plot_target_char = {
-				intrigue = 10
-			}
-		}
-		modifier = {
-			factor = 1.5
-			plot_target_char = {
-				intrigue = 20
-			}
-		}
-		modifier = {
-			factor = 2
-			plot_target_char = {
-				intrigue = 30
-			}
-		}
-		modifier = {
-			factor = 2
-			plot_target_char = {
-				intrigue = 40
-			}
-		}
-		modifier = {
-			factor = 0.8
-			intrigue = 10
-		}
-		modifier = {
-			factor = 0.6
-			intrigue = 20
-		}
-		modifier = {
-			factor = 0.5
-			intrigue = 30
-		}
-		modifier = {
-			factor = 0.3
-			intrigue = 40
-		}
-		modifier = {
-			factor = 0.8
-			higher_tier_than = BARON
-		}
-		modifier = {
-			factor = 0.6
-			higher_tier_than = COUNT
-		}
-		modifier = {
-			factor = 0.4
-			higher_tier_than = DUKE
-		}
-		modifier = {
-			factor = 0.3
-			higher_tier_than = KING
-		}
-		modifier = {
-			factor = 2
-			plot_target_char = {
-				higher_tier_than = BARON
-			}
-		}
-		modifier = {
-			factor = 5
-			plot_target_char = {
-				higher_tier_than = COUNT
-			}
-		}
-		modifier = {
-			factor = 9
-			plot_target_char = {
-				higher_tier_than = DUKE
-			}
-		}
-		modifier = {
-			factor = 13
-			plot_target_char = {
-				higher_tier_than = KING
-			}
-		}
-		modifier = {
-			factor = 3
-			pod_is_narrative_person = yes
-		}
-		modifier = {
-			factor = 0.1
-			has_character_flag = attack_elder_breakthrough_1
-		}
-		modifier = {
-			factor = 0.1
-			has_character_flag = attack_elder_breakthrough_2
-		}
-		modifier = {
-			factor = 0.07
-			has_character_flag = attack_elder_breakthrough_3
-		}
-		modifier = {
-			factor = 0.05
-			has_character_flag = attack_elder_breakthrough_4
-		}
-		modifier = {
-			factor = 0.01
-			has_character_flag = attack_elder_breakthrough_5
-		}
-		modifier = {
-			factor = 0.01
-			has_character_flag = attack_elder_reckless
-		}
+		ai = no
 	}
 	
 	immediate = {
-		plot_target_char = { save_event_target_as = plot_target }
-		save_event_target_as = plot_creator
-	}
-	
-		option = {
-		name = "EVTOPTA_POD_ATTACKELDER_DECISION_1" # Diablerize
-		trigger = {
-			plot_power = 0.2
-			wealth = 10
-		}
-		ai_chance = {
-			factor = 10
-			modifier = {
-				factor = 2
-				attribute_diff = {
-					character = event_target:plot_target
-					attribute = martial
-					value = 10
-				}
-			}
-			modifier = {
-				factor = 0.1
-				OR = {
-					trait = craven
-					trait = kind
-					trait = just
-					trait = content
-				}
-			}
-			modifier = {
-				factor = 1.3
-				OR = {
-					trait = wroth
-					trait = ambitious
-					trait = cruel
-				}
-			}
-			modifier = {
-				factor = 0
-				trait = craven
-			}
-			modifier = {
-				factor = 0
-				event_target:plot_target = {
-					attribute_diff = {
-						character = ROOT
-						attribute = martial
-						value = 10
-					}
-				}
-			}
-			modifier = {
-				factor = 0
-				event_target:plot_target = {
-					attribute_diff = {
-						character = ROOT
-						attribute = martial
-						value = 1
-					}
-				}
-			}
-		}
-		#WoD central bank prints money for AI
-		if = {
-			limit = { ai = no }
-			wealth = -10
-		}
-		set_character_flag = murder_in_motion
-		hidden_tooltip = {
-			change_variable = { which = global_elder_diablerie_count value = 1 }
-		}
-		character_event = { id = POD_vampire_kill_plots.2 days = 1 }
+		save_event_target_as = imprison_attacker
 	}
 	
 	option = {
-		name = "EVTOPTB_POD_ATTACKELDER_DECISION_1" # Daylight Haven Attack
-		trigger = {
-			plot_power = 0.2
-			wealth = 50
-			#cannot attack gangrel hiding in earth
-			event_target:plot_target = {
-					NOT = { trait = protean_5 }
-			}
-		}
-		ai_chance = {
-			factor = 25
-		}
-		#WoD central bank prints money for AI
-		if = {
-			limit = { ai = no }
-			wealth = -50
-		}
-		set_character_flag = murder_in_motion
-		hidden_tooltip = {
-			change_variable = { which = global_elder_havenattack_count value = 1 }
-		}
-		character_event = { id = POD_vampire_kill_plots.11 days = 1 }
+		name = "EVTOPTA_POD_ATTACKIMPRISON_DECISION_1" # Diablerize
+		character_event = { id = POD_vampire_kill_imprison.2 }
 	}
 	
 	option = {
-		name = "EVTOPTC_POD_ATTACKELDER_DECISION_1" # Use someone to lead an attack
-		trigger = {
-			plot_power = 0.2
-			wealth = 50
-		}
-		ai_chance = {
-			factor = 25
-		}
-		#WoD central bank prints money for AI
-		if = {
-			limit = { ai = no }
-			wealth = -50
-		}
-		set_character_flag = murder_in_motion
-		character_event = { id = POD_vampire_kill_plots.24 days = 1}
+		name = "EVTOPTB_POD_ATTACKIMPRISON_DECISION_1" # Use someone to lead an attack
+		character_event = { id = POD_vampire_kill_imprison.25 }
 	}
 	
 	option = {
-		name = "EVTOPTD_POD_ATTACKELDER_DECISION_1" # Can't afford / Backout
-		ai_chance = {
-			factor = 0
-		}
-		clr_character_flag = murder_in_motion
+		name = "EVTOPTC_POD_ATTACKIMPRISON_DECISION_1" # Let them go
+		clr_character_flag = imprison_attack_in_motion
 	}
 }
 
 #Diablerie attack
 character_event = {
-	id = POD_vampire_kill_plots.2
-	desc = "EVTDESC_POD_ATTACKELDER_DIABLERIZE_2"
+	id = POD_vampire_kill_imprison.2
+	desc = "EVTDESC_POD_ATTACKIMPRISON_DIABLERIZE_2"
 	picture = GFX_evt_spymaster
 	border = GFX_event_normal_frame_intrigue
 	
@@ -501,7 +56,7 @@ character_event = {
 	
 	
 	option = {
-		name = "EVTOPTA_POD_ATTACKELDER_DIABLERIZE_2" # Attack.  Fortune favors the bold!
+		name = "EVTOPTA_POD_ATTACKIMPRISON_DIABLERIZE_2" # Attack.  Fortune favors the bold!
 		ai_chance = {
 			factor = 100
 			modifier = {
@@ -509,12 +64,12 @@ character_event = {
 				trait = craven
 			}
 		}
-		save_event_target_as = plot_attacker
-		event_target:plot_target = { character_event = { id = POD_vampire_kill_plots.3 days = 30 } }
+		save_event_target_as = imprison_attacking_char
+		event_target:imprison_target = { character_event = { id = POD_vampire_kill_imprison.3 } }
 		
 	}
 	option = {
-		name = "EVTOPTB_POD_ATTACKELDER_DIABLERIZE_2" # Cancel Attack. Wuss.
+		name = "EVTOPTB_POD_ATTACKIMPRISON_DIABLERIZE_2" # Cancel Attack. Wuss.
 		ai_chance = {
 			factor = 0
 			modifier = {
@@ -522,13 +77,13 @@ character_event = {
 				trait = craven
 			}
 		}
-		clr_character_flag = murder_in_motion
+		clr_character_flag = imprison_attack_in_motion
 	}
 }
 
 character_event = {
-	id = POD_vampire_kill_plots.3
-	desc = "EVTDESC_POD_ATTACKELDER_DIABLERIZE_3"
+	id = POD_vampire_kill_imprison.3
+	desc = "EVTDESC_POD_ATTACKIMPRISON_DIABLERIZE_3"
 	picture = GFX_evt_spymaster
 	border = GFX_event_normal_frame_intrigue
 	
@@ -544,9 +99,9 @@ character_event = {
 			10 = {
 				modifier = {
 					factor = 2
-					event_target:plot_attacker = {
+					event_target:imprison_attacking_char = {
 						attribute_diff = {
-							character = event_target:plot_target
+							character = event_target:imprison_target
 							attribute = martial
 							value = 10
 						}
@@ -554,9 +109,9 @@ character_event = {
 				}
 				modifier = {
 					factor = 1.3
-					event_target:plot_attacker = {
+					event_target:imprison_attacking_char = {
 						attribute_diff = {
-							character = event_target:plot_target
+							character = event_target:imprison_target
 							attribute = martial
 							value = 1
 						}
@@ -564,31 +119,31 @@ character_event = {
 				}
 				modifier = {
 					factor = 1.2
-					event_target:plot_attacker = {
+					event_target:imprison_attacking_char = {
 						trait = elder
 					}
 				}
 				modifier = {
 					factor = 1.4
-					event_target:plot_attacker = {
+					event_target:imprison_attacking_char = {
 						trait = ancient
 					}
 				}
 				modifier = {
 					factor = 1.5
-					event_target:plot_attacker = {
+					event_target:imprison_attacking_char = {
 						trait = methuselah
 					}
 				}
 				modifier = {
 					factor = 3
-					event_target:plot_attacker = {
+					event_target:imprison_attacking_char = {
 						has_powerful_generation = yes
 					}
 				}
 				modifier = {
-					factor = 1.2
-					event_target:plot_attacker = {
+					factor = 1.5
+					event_target:imprison_attacking_char = {
 						has_strong_generation = yes
 					}
 				}
@@ -609,7 +164,7 @@ character_event = {
 					has_powerful_generation = yes
 				}
 				modifier = {
-					factor = 0.8
+					factor = 0.6
 					has_strong_generation = yes
 				}
 				modifier = {
@@ -619,7 +174,7 @@ character_event = {
 				modifier = {
 					factor = 0.5
 					attribute_diff = {
-						character = event_target:plot_attacker
+						character = event_target:imprison_attacking_char
 						attribute = martial
 						value = 10
 					}
@@ -627,15 +182,9 @@ character_event = {
 				modifier = {
 					factor = 0.8
 					attribute_diff = {
-						character = event_target:plot_attacker
+						character = event_target:imprison_attacking_char
 						attribute = martial
 						value = 1
-					}
-				}
-				modifier = {
-					factor = 0.1
-					event_target:plot_creator = {
-						has_character_flag = attack_elder_reckless
 					}
 				}
 				#Attack Success
@@ -668,9 +217,9 @@ character_event = {
 					5 = {
 						modifier = {
 							factor = 1.5
-							event_target:plot_attacker = {
+							event_target:imprison_attacking_char = {
 								attribute_diff = {
-									character = event_target:plot_target
+									character = event_target:imprison_target
 									attribute = martial
 									value = 10
 								}
@@ -678,19 +227,19 @@ character_event = {
 						}
 						modifier = {
 							factor = 1.5
-							event_target:plot_attacker = {
+							event_target:imprison_attacking_char = {
 								trait = ancient
 							}
 						}
 						modifier = {
 							factor = 1.5
-							event_target:plot_attacker = {
+							event_target:imprison_attacking_char = {
 								trait = methuselah
 							}
 						}
 						modifier = {
 							factor = 1.5
-							event_target:plot_attacker = {
+							event_target:imprison_attacking_char = {
 								has_powerful_generation = yes
 							}
 						}
@@ -712,9 +261,9 @@ character_event = {
 						#Both vampires injured
 						modifier = {
 							factor = 3
-							event_target:plot_attacker = {
+							event_target:imprison_attacking_char = {
 								attribute_diff = {
-									character = event_target:plot_target
+									character = event_target:imprison_target
 									attribute = martial
 									value = 8
 								}
@@ -726,35 +275,35 @@ character_event = {
 					5 = {
 						modifier = {
 							factor = 0.1
-							event_target:plot_attacker = { has_defensive_discipline = yes }
+							event_target:imprison_attacking_char = { has_defensive_discipline = yes }
 						}
 						modifier = {
 							factor = 0.7
-							event_target:plot_attacker = {
+							event_target:imprison_attacking_char = {
 								trait = elder
 							}
 						}
 						modifier = {
 							factor = 0.4
-							event_target:plot_attacker = {
+							event_target:imprison_attacking_char = {
 								trait = ancient
 							}
 						}
 						modifier = {
 							factor = 0.3
-							event_target:plot_attacker = {
+							event_target:imprison_attacking_char = {
 								trait = methuselah
 							}
 						}
 						modifier = {
 							factor = 0.5
-							event_target:plot_attacker = {
+							event_target:imprison_attacking_char = {
 								has_powerful_generation = yes
 							}
 						}
 						modifier = {
 							factor = 0.8
-							event_target:plot_attacker = {
+							event_target:imprison_attacking_char = {
 								has_strong_generation = yes
 							}
 						}
@@ -769,25 +318,25 @@ character_event = {
 			10 = {
 				modifier = {
 					factor = 2
-					event_target:plot_creator = {
+					event_target:imprison_attacker = {
 						intrigue = 10
 					}
 				}
 				modifier = {
 					factor = 1.5
-					event_target:plot_creator = {
+					event_target:imprison_attacker = {
 						intrigue = 20
 					}
 				}
 				modifier = {
 					factor = 1.5
-					event_target:plot_creator = {
+					event_target:imprison_attacker = {
 						intrigue = 30
 					}
 				}
 				modifier = {
 					factor = 1.5
-					event_target:plot_creator = {
+					event_target:imprison_attacker = {
 						intrigue = 40
 					}
 				}
@@ -815,10 +364,15 @@ character_event = {
 				set_character_flag = plotter_discovered
 			}
 		}
+		if = {
+			limit = { has_character_flag = plotter_not_discovered }
+			clr_character_flag = plotter_not_discovered
+		}
+		set_character_flag = plotter_discovered
 	}
 	
 	option = {
-		name = "EVTOPTA_POD_ATTACKELDER_DIABLERIZE_3" # Diablerie successful
+		name = "EVTOPTA_POD_ATTACKIMPRISON_DIABLERIZE_3" # Diablerie successful
 		trigger = {
 			has_character_flag = target_diablerized
 		}
@@ -826,7 +380,7 @@ character_event = {
 			limit = {
 				has_character_flag = plotter_not_discovered
 			}
-			event_target:plot_creator = { character_event = { id = POD_vampire_kill_plots.5 }
+			event_target:imprison_attacker = { character_event = { id = POD_vampire_kill_imprison.5 }
 			}
 			clr_character_flag = plotter_not_discovered
 		}
@@ -834,14 +388,14 @@ character_event = {
 			limit = {
 				has_character_flag = plotter_discovered
 			}
-				event_target:plot_creator = { character_event = { id = POD_vampire_kill_plots.5 }
+				event_target:imprison_attacker = { character_event = { id = POD_vampire_kill_imprison.5 }
 			}
 			clr_character_flag = plotter_discovered
 		}
 		clr_character_flag = target_diablerized
 	}
 	option = {
-		name = "EVTOPTB_POD_ATTACKELDER_DIABLERIZE_3" # Target enters Torpor
+		name = "EVTOPTB_POD_ATTACKIMPRISON_DIABLERIZE_3" # Target enters Torpor
 		trigger = {
 			has_character_flag = target_enters_torpor
 		}
@@ -849,7 +403,7 @@ character_event = {
 			limit = {
 				has_character_flag = plotter_not_discovered
 			}
-			event_target:plot_creator = { character_event = { id = POD_vampire_kill_plots.6 }
+			event_target:imprison_attacker = { character_event = { id = POD_vampire_kill_imprison.6 }
 			}
 			clr_character_flag = plotter_not_discovered
 		}
@@ -857,7 +411,7 @@ character_event = {
 			limit = {
 				has_character_flag = plotter_discovered
 			}
-			event_target:plot_creator = { character_event = { id = POD_vampire_kill_plots.7 }
+			event_target:imprison_attacker = { character_event = { id = POD_vampire_kill_imprison.7 }
 			}
 			clr_character_flag = plotter_discovered
 		}
@@ -866,7 +420,7 @@ character_event = {
 		if = { limit = { has_character_flag = plotter_not_discovered } clr_character_flag = plotter_not_discovered }
 	}
 	option = {
-		name = "EVTOPTC_POD_ATTACKELDER_DIABLERIZE_3" # Attack Fails both injured
+		name = "EVTOPTC_POD_ATTACKIMPRISON_DIABLERIZE_3" # Attack Fails both injured
 		trigger = {
 			has_character_flag = both_injured
 		}
@@ -875,7 +429,7 @@ character_event = {
 			limit = {
 				has_character_flag = plotter_not_discovered
 			}
-			event_target:plot_creator = { character_event = { id = POD_vampire_kill_plots.8 }
+			event_target:imprison_attacker = { character_event = { id = POD_vampire_kill_imprison.8 }
 			}
 			clr_character_flag = plotter_not_discovered
 		}
@@ -883,14 +437,14 @@ character_event = {
 			limit = {
 				has_character_flag = plotter_discovered
 			}
-			event_target:plot_creator = { character_event = { id = POD_vampire_kill_plots.8 }
+			event_target:imprison_attacker = { character_event = { id = POD_vampire_kill_imprison.8 }
 			}
 			clr_character_flag = plotter_discovered
 		}
 		clr_character_flag = both_injured
 	}
 	option = {
-		name = "EVTOPTD_POD_ATTACKELDER_DIABLERIZE_3" # Attack Fails both maimed
+		name = "EVTOPTD_POD_ATTACKIMPRISON_DIABLERIZE_3" # Attack Fails both maimed
 		trigger = {
 			has_character_flag = both_maimed
 		}
@@ -899,7 +453,7 @@ character_event = {
 			limit = {
 				has_character_flag = plotter_not_discovered
 			}
-			event_target:plot_creator = { character_event = { id = POD_vampire_kill_plots.9 }
+			event_target:imprison_attacker = { character_event = { id = POD_vampire_kill_imprison.9 }
 			}
 			clr_character_flag = plotter_not_discovered
 		}
@@ -907,14 +461,14 @@ character_event = {
 			limit = {
 				has_character_flag = plotter_discovered
 			}
-			event_target:plot_creator = { character_event = { id = POD_vampire_kill_plots.9 }
+			event_target:imprison_attacker = { character_event = { id = POD_vampire_kill_imprison.9 }
 			}
 			clr_character_flag = plotter_discovered
 		}
 		clr_character_flag = both_maimed
 	}
 	option = {
-		name = "EVTOPTE_POD_ATTACKELDER_DIABLERIZE_3" # Attack Fails attacker dies
+		name = "EVTOPTE_POD_ATTACKIMPRISON_DIABLERIZE_3" # Attack Fails attacker dies
 		trigger = {
 			has_character_flag = attacker_dead
 		}
@@ -923,7 +477,7 @@ character_event = {
 			limit = {
 				has_character_flag = plotter_not_discovered
 			}
-			event_target:plot_creator = { character_event = { id = POD_vampire_kill_plots.10 }
+			event_target:imprison_attacker = { character_event = { id = POD_vampire_kill_imprison.10 }
 			}
 			clr_character_flag = plotter_not_discovered
 		}
@@ -931,7 +485,7 @@ character_event = {
 			limit = {
 				has_character_flag = plotter_discovered
 			}
-			event_target:plot_creator = { character_event = { id = POD_vampire_kill_plots.10 }
+			event_target:imprison_attacker = { character_event = { id = POD_vampire_kill_imprison.10 }
 			}
 			clr_character_flag = plotter_discovered
 		}
@@ -941,8 +495,8 @@ character_event = {
 
 # Diablerie successful
 character_event = {
-	id = POD_vampire_kill_plots.5
-	desc = "EVTDESC_POD_ATTACKELDER_DIABLERIZE_5"
+	id = POD_vampire_kill_imprison.5
+	desc = "EVTDESC_POD_ATTACKIMPRISON_DIABLERIZE_5"
 	picture = GFX_evt_vampire_chair_up_stairs
 	border = GFX_event_normal_frame_intrigue
 	
@@ -955,7 +509,7 @@ character_event = {
 	immediate = {
 	}
 	option = {
-		name = "EVTOPTA_POD_ATTACKELDER_DIABLERIZE_5" # Aww yeah
+		name = "EVTOPTA_POD_ATTACKIMPRISON_DIABLERIZE_5" # Aww yeah
 		add_character_modifier = {
 			name = blood_of_vampire
 			duration = 356
@@ -1130,7 +684,7 @@ character_event = {
 					has_global_flag = bookmark1506
 				}
 			}
-			event_target:plot_target = {
+			event_target:imprison_target = {
 			trigger_switch = {
 				on_trigger = trait
 				vampgeneration1 = {
@@ -1551,8 +1105,8 @@ character_event = {
 
 # Diablerie attack success torpor - not found out
 character_event = {
-	id = POD_vampire_kill_plots.6
-	desc = "EVTDESC_POD_ATTACKELDER_DIABLERIZE_6"
+	id = POD_vampire_kill_imprison.6
+	desc = "EVTDESC_POD_ATTACKIMPRISON_DIABLERIZE_6"
 	picture = GFX_evt_vampire_chair_up_stairs
 	border = GFX_event_normal_frame_intrigue
 	
@@ -1566,9 +1120,9 @@ character_event = {
 	immediate = {
 	}
 	option = {
-		name = "EVTOPTA_POD_ATTACKELDER_DIABLERIZE_6" # Aww yeah
+		name = "EVTOPTA_POD_ATTACKIMPRISON_DIABLERIZE_6" # Aww yeah
 		count_adversaries = yes
-		event_target:plot_target = {
+		event_target:imprison_target = {
 			trigger_switch = {
 			on_trigger = trait
 				zulo_form = {
@@ -1618,8 +1172,8 @@ character_event = {
 
 # Diablerie attack success torpor - found out
 character_event = {
-	id = POD_vampire_kill_plots.7
-	desc = "EVTDESC_POD_ATTACKELDER_DIABLERIZE_7"
+	id = POD_vampire_kill_imprison.7
+	desc = "EVTDESC_POD_ATTACKIMPRISON_DIABLERIZE_7"
 	picture = GFX_evt_vampire_chair_up_stairs
 	border = GFX_event_normal_frame_intrigue
 	
@@ -1632,9 +1186,9 @@ character_event = {
 	immediate = {
 	}
 	option = {
-		name = "EVTOPTA_POD_ATTACKELDER_DIABLERIZE_7" # Aww yeah
+		name = "EVTOPTA_POD_ATTACKIMPRISON_DIABLERIZE_7" # Aww yeah
 		count_adversaries = yes
-		event_target:plot_target = {
+		event_target:imprison_target = {
 				trigger_switch = {
 				on_trigger = trait
 				zulo_form = {
@@ -1721,8 +1275,8 @@ character_event = {
 
 #Failure Injured
 character_event = {
-	id = POD_vampire_kill_plots.8
-	desc = "EVTDESC_POD_ATTACKELDER_DIABLERIZE_8"
+	id = POD_vampire_kill_imprison.8
+	desc = "EVTDESC_POD_ATTACKIMPRISON_DIABLERIZE_8"
 	picture = GFX_evt_vampire_chair_up_stairs
 	border = GFX_event_normal_frame_intrigue
 	
@@ -1734,13 +1288,13 @@ character_event = {
 	immediate = {
 	}
 	option = {
-		name = "EVTOPTA_POD_ATTACKELDER_DIABLERIZE_8" # Aww yeah
+		name = "EVTOPTA_POD_ATTACKIMPRISON_DIABLERIZE_8" # Aww yeah
 		count_adversaries = yes
-		event_target:plot_target = {
+		event_target:imprison_target = {
 			add_trait = severely_injured
 		}
 		add_trait = severely_injured
-		event_target:plot_target = {
+		event_target:imprison_target = {
 			count_adversaries = yes
 			#add_rival = ROOT
 			if = {
@@ -1769,8 +1323,8 @@ character_event = {
 
 #Failure Maimed
 character_event = {
-	id = POD_vampire_kill_plots.9
-	desc = "EVTDESC_POD_ATTACKELDER_DIABLERIZE_9"
+	id = POD_vampire_kill_imprison.9
+	desc = "EVTDESC_POD_ATTACKIMPRISON_DIABLERIZE_9"
 	picture = GFX_evt_vampire_chair_up_stairs
 	border = GFX_event_normal_frame_intrigue
 	
@@ -1782,13 +1336,13 @@ character_event = {
 	immediate = {
 	}
 	option = {
-		name = "EVTOPTA_POD_ATTACKELDER_DIABLERIZE_9" # Aww yeah
+		name = "EVTOPTA_POD_ATTACKIMPRISON_DIABLERIZE_9" # Aww yeah
 		count_adversaries = yes
-		event_target:plot_target = {
+		event_target:imprison_target = {
 			add_trait = maimed
 		}
 		add_trait = maimed
-		event_target:plot_target = {
+		event_target:imprison_target = {
 			count_adversaries = yes
 			#add_rival = ROOT
 			if = {
@@ -1817,8 +1371,8 @@ character_event = {
 
 #Failure Death
 character_event = {
-	id = POD_vampire_kill_plots.10
-	desc = "EVTDESC_POD_ATTACKELDER_DIABLERIZE_10"
+	id = POD_vampire_kill_imprison.10
+	desc = "EVTDESC_POD_ATTACKIMPRISON_DIABLERIZE_10"
 	picture = GFX_evt_vampire_chair_up_stairs
 	border = GFX_event_normal_frame_intrigue
 	
@@ -1830,19 +1384,19 @@ character_event = {
 	immediate = {
 	}
 	option = {
-		name = "EVTOPTA_POD_ATTACKELDER_DIABLERIZE_10" # Aww yeah
+		name = "EVTOPTA_POD_ATTACKIMPRISON_DIABLERIZE_10" # Aww yeah
 		
 		death = {
 			death_reason = death_battle
-			killer = event_target:plot_target
+			killer = event_target:imprison_target
 		}
 	}
 }
 
 #Haven attack start
 character_event = {
-	id = POD_vampire_kill_plots.11
-	desc = "EVTDESC_POD_ATTACKELDER_HAVEN_11"
+	id = POD_vampire_kill_imprison.11
+	desc = "EVTDESC_POD_ATTACKIMPRISON_HAVEN_11"
 	picture = GFX_evt_vampire_manor_i
 	border = GFX_event_normal_frame_intrigue
 	
@@ -1865,7 +1419,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA_POD_ATTACKELDER_HAVEN_11" # Send a ghoul
+		name = "EVTOPTA_POD_ATTACKIMPRISON_HAVEN_11" # Send a ghoul
 		trigger = {
 			has_character_flag = has_ghouls
 		}
@@ -1874,10 +1428,10 @@ character_event = {
 		}
 
 		clr_character_flag = has_ghouls
-		character_event = { id = POD_vampire_kill_plots.12 }
+		character_event = { id = POD_vampire_kill_imprison.12 }
 	}
 	option = {
-		name = "EVTOPTB_POD_ATTACKELDER_HAVEN_11" # Prepare someone expendable
+		name = "EVTOPTB_POD_ATTACKIMPRISON_HAVEN_11" # Prepare someone expendable
 		ai_chance = {
 			factor = 10
 		}
@@ -1910,7 +1464,7 @@ character_event = {
 							chance = 25
 							add_trait = ambitious
 						}
-						save_event_target_as = plot_attacker
+						save_event_target_as = imprison_attacking_char
 						if = { limit = { trait = slow } 
 							remove_trait = slow
 						}
@@ -1930,7 +1484,7 @@ character_event = {
 						ROOT = {
 							opinion = {
 								modifier = opinion_my_ghoul
-									who = event_target:plot_attacker
+									who = event_target:imprison_attacking_char
 									years = 3000
 							}
 						}
@@ -1964,7 +1518,7 @@ character_event = {
 							chance = 25
 							add_trait = ambitious
 						}
-						save_event_target_as = plot_attacker
+						save_event_target_as = imprison_attacking_char
 						if = { limit = { trait = slow } 
 							remove_trait = slow
 						}
@@ -1985,7 +1539,7 @@ character_event = {
 						ROOT = {
 							opinion = {
 								modifier = opinion_my_ghoul
-									who = event_target:plot_attacker
+									who = event_target:imprison_attacking_char
 									years = 3000
 							}
 						}
@@ -1997,11 +1551,11 @@ character_event = {
 					}
 				}
 		}
-		show_portrait = event_target:plot_attacker
-		event_target:plot_target = { character_event = { id = POD_vampire_kill_plots.13 days = 30 } }
+		show_portrait = event_target:imprison_attacking_char
+		event_target:imprison_target = { character_event = { id = POD_vampire_kill_imprison.13 } }
 	}
 	option = {
-		name = "EVTOPTC_POD_ATTACKELDER_HAVEN_11" # Cancel Attack. Wuss.
+		name = "EVTOPTC_POD_ATTACKIMPRISON_HAVEN_11" # Cancel Attack. Wuss.
 		ai_chance = {
 			factor = 0
 		}
@@ -2009,14 +1563,14 @@ character_event = {
 			limit = { has_character_flag = has_ghouls }
 			clr_character_flag = has_ghouls
 		}
-		clr_character_flag = murder_in_motion
+		clr_character_flag = imprison_attack_in_motion
 	}
 }
 
 #pick ghoul to make haven attack
 character_event = {
-	id = POD_vampire_kill_plots.12
-	desc = "EVTDESC_POD_ATTACKELDER_HAVEN_12"
+	id = POD_vampire_kill_imprison.12
+	desc = "EVTDESC_POD_ATTACKIMPRISON_HAVEN_12"
 	picture = GFX_evt_ghoul_request
 	border = GFX_event_normal_frame_intrigue
 	
@@ -2073,7 +1627,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA_POD_ATTACKELDER_HAVEN_12" # Ghoul 1 leads
+		name = "EVTOPTA_POD_ATTACKIMPRISON_HAVEN_12" # Ghoul 1 leads
 		trigger = {
 			event_target:ghoul_number_1 = { is_alive = yes }
 		}
@@ -2083,12 +1637,12 @@ character_event = {
 		show_portrait = event_target:ghoul_number_1
 		
 		event_target:ghoul_number_1 = {
-			save_event_target_as = plot_attacker
+			save_event_target_as = imprison_attacking_char
 		}
-		event_target:plot_target = { character_event = { id = POD_vampire_kill_plots.13 days = 30 } }
+		event_target:imprison_target = { character_event = { id = POD_vampire_kill_imprison.13 } }
 	}
 	option = {
-		name = "EVTOPTB_POD_ATTACKELDER_HAVEN_12" #  Ghoul 2 leads
+		name = "EVTOPTB_POD_ATTACKIMPRISON_HAVEN_12" #  Ghoul 2 leads
 		trigger = {
 			event_target:ghoul_number_2 = { is_alive = yes }
 		}
@@ -2098,12 +1652,12 @@ character_event = {
 		show_portrait = event_target:ghoul_number_2
 		
 		event_target:ghoul_number_2 = {
-			save_event_target_as = plot_attacker
+			save_event_target_as = imprison_attacking_char
 		}
-		event_target:plot_target = { character_event = { id = POD_vampire_kill_plots.13 days = 30 } }
+		event_target:imprison_target = { character_event = { id = POD_vampire_kill_imprison.13 } }
 	}
 	option = {
-		name = "EVTOPTC_POD_ATTACKELDER_HAVEN_12" #  Ghoul 3 leads
+		name = "EVTOPTC_POD_ATTACKIMPRISON_HAVEN_12" #  Ghoul 3 leads
 		trigger = {
 			event_target:ghoul_number_3 = { is_alive = yes }
 		}
@@ -2113,22 +1667,22 @@ character_event = {
 		show_portrait = event_target:ghoul_number_3
 		
 		event_target:ghoul_number_3 = {
-			save_event_target_as = plot_attacker
+			save_event_target_as = imprison_attacking_char
 		}
-		event_target:plot_target = { character_event = { id = POD_vampire_kill_plots.13 days = 30 } }
+		event_target:imprison_target = { character_event = { id = POD_vampire_kill_imprison.13 } }
 	}
 	option = {
-		name = "EVTOPTD_POD_ATTACKELDER_HAVEN_12" # Cancel Attack. Wuss.
+		name = "EVTOPTD_POD_ATTACKIMPRISON_HAVEN_12" # Cancel Attack. Wuss.
 		ai_chance = {
 			factor = 0
 		}
-		clr_character_flag = murder_in_motion
+		clr_character_flag = imprison_attack_in_motion
 	}
 }
 
 character_event = {
-	id = POD_vampire_kill_plots.13
-	desc = "EVTDESC_POD_ATTACKELDER_HAVEN_13"
+	id = POD_vampire_kill_imprison.13
+	desc = "EVTDESC_POD_ATTACKIMPRISON_HAVEN_13"
 	picture = GFX_evt_spymaster
 	border = GFX_event_normal_frame_intrigue
 	
@@ -2153,12 +1707,6 @@ character_event = {
 				modifier = {
 					factor = 0.05
 					primary_title = { higher_tier_than = DUKE }
-				}
-				modifier = {
-					factor = 0.1
-					event_target:plot_creator = {
-						has_character_flag = attack_elder_reckless
-					}
 				}
 				#Attack Success
 				random_list = {
@@ -2194,13 +1742,13 @@ character_event = {
 					5 = {
 						modifier = {
 							factor = 0.5
-							event_target:plot_attacker = {
+							event_target:imprison_attacking_char = {
 								martial = 16
 							}
 						}
 						modifier = {
 							factor = 0.5
-							event_target:plot_attacker = {
+							event_target:imprison_attacking_char = {
 								intrigue = 16
 							}
 						}
@@ -2215,25 +1763,25 @@ character_event = {
 			10 = {
 				modifier = {
 					factor = 2
-					event_target:plot_creator = {
+					event_target:imprison_attacker = {
 						intrigue = 10
 					}
 				}
 				modifier = {
 					factor = 1.5
-					event_target:plot_creator = {
+					event_target:imprison_attacker = {
 						intrigue = 20
 					}
 				}
 				modifier = {
 					factor = 1.5
-					event_target:plot_creator = {
+					event_target:imprison_attacker = {
 						intrigue = 30
 					}
 				}
 				modifier = {
 					factor = 1.5
-					event_target:plot_creator = {
+					event_target:imprison_attacker = {
 						intrigue = 40
 					}
 				}
@@ -2264,7 +1812,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA_POD_ATTACKELDER_HAVEN_13" # Haven attack successful
+		name = "EVTOPTA_POD_ATTACKIMPRISON_HAVEN_13" # Haven attack successful
 		trigger = {
 			has_character_flag = target_killed
 		}
@@ -2272,7 +1820,7 @@ character_event = {
 			limit = {
 				has_character_flag = plotter_not_discovered
 			}
-			event_target:plot_creator = { character_event = { id = POD_vampire_kill_plots.14 }
+			event_target:imprison_attacker = { character_event = { id = POD_vampire_kill_imprison.14 }
 			}
 			clr_character_flag = plotter_not_discovered
 		}
@@ -2280,14 +1828,14 @@ character_event = {
 			limit = {
 				has_character_flag = plotter_discovered
 			}
-				event_target:plot_creator = { character_event = { id = POD_vampire_kill_plots.15 }
+				event_target:imprison_attacker = { character_event = { id = POD_vampire_kill_imprison.15 }
 			}
 			clr_character_flag = plotter_discovered
 		}
 		clr_character_flag = target_killed
 	}
 	option = {
-		name = "EVTOPTB_POD_ATTACKELDER_HAVEN_13" # Target enters Torpor
+		name = "EVTOPTB_POD_ATTACKIMPRISON_HAVEN_13" # Target enters Torpor
 		trigger = {
 			has_character_flag = target_enters_torpor
 		}
@@ -2295,7 +1843,7 @@ character_event = {
 			limit = {
 				has_character_flag = plotter_not_discovered
 			}
-			event_target:plot_creator = { character_event = { id = POD_vampire_kill_plots.16 }
+			event_target:imprison_attacker = { character_event = { id = POD_vampire_kill_imprison.16 }
 			}
 			clr_character_flag = plotter_not_discovered
 		}
@@ -2303,7 +1851,7 @@ character_event = {
 			limit = {
 				has_character_flag = plotter_discovered
 			}
-			event_target:plot_creator = { character_event = { id = POD_vampire_kill_plots.17 }
+			event_target:imprison_attacker = { character_event = { id = POD_vampire_kill_imprison.17 }
 			}
 			clr_character_flag = plotter_discovered
 		}
@@ -2312,7 +1860,7 @@ character_event = {
 		if = { limit = { has_character_flag = plotter_not_discovered } clr_character_flag = plotter_not_discovered }
 	}
 	option = {
-		name = "EVTOPTC_POD_ATTACKELDER_HAVEN_13" # Attack Fails servant_dead
+		name = "EVTOPTC_POD_ATTACKIMPRISON_HAVEN_13" # Attack Fails servant_dead
 		trigger = {
 			has_character_flag = servant_dead
 		}
@@ -2321,7 +1869,7 @@ character_event = {
 			limit = {
 				has_character_flag = plotter_not_discovered
 			}
-			event_target:plot_creator = { character_event = { id = POD_vampire_kill_plots.18 }
+			event_target:imprison_attacker = { character_event = { id = POD_vampire_kill_imprison.18 }
 			}
 			clr_character_flag = plotter_not_discovered
 		}
@@ -2329,14 +1877,14 @@ character_event = {
 			limit = {
 				has_character_flag = plotter_discovered
 			}
-			event_target:plot_creator = { character_event = { id = POD_vampire_kill_plots.19 }
+			event_target:imprison_attacker = { character_event = { id = POD_vampire_kill_imprison.19 }
 			}
 			clr_character_flag = plotter_discovered
 		}
 		clr_character_flag = servant_dead
 	}
 	option = {
-		name = "EVTOPTD_POD_ATTACKELDER_HAVEN_13" # Attack Fails two dead
+		name = "EVTOPTD_POD_ATTACKIMPRISON_HAVEN_13" # Attack Fails two dead
 		trigger = {
 			has_character_flag = two_dead
 		}
@@ -2345,7 +1893,7 @@ character_event = {
 			limit = {
 				has_character_flag = plotter_not_discovered
 			}
-			event_target:plot_creator = { character_event = { id = POD_vampire_kill_plots.20 }
+			event_target:imprison_attacker = { character_event = { id = POD_vampire_kill_imprison.20 }
 			}
 			clr_character_flag = plotter_not_discovered
 		}
@@ -2353,14 +1901,14 @@ character_event = {
 			limit = {
 				has_character_flag = plotter_discovered
 			}
-			event_target:plot_creator = { character_event = { id = POD_vampire_kill_plots.21 }
+			event_target:imprison_attacker = { character_event = { id = POD_vampire_kill_imprison.21 }
 			}
 			clr_character_flag = plotter_discovered
 		}
 		clr_character_flag = two_dead
 	}
 	option = {
-		name = "EVTOPTE_POD_ATTACKELDER_HAVEN_13" # Attack Fails attacker dies
+		name = "EVTOPTE_POD_ATTACKIMPRISON_HAVEN_13" # Attack Fails attacker dies
 		trigger = {
 			has_character_flag = attacker_dead
 		}
@@ -2369,7 +1917,7 @@ character_event = {
 			limit = {
 				has_character_flag = plotter_not_discovered
 			}
-			event_target:plot_creator = { character_event = { id = POD_vampire_kill_plots.22 }
+			event_target:imprison_attacker = { character_event = { id = POD_vampire_kill_imprison.22 }
 			}
 			clr_character_flag = plotter_not_discovered
 		}
@@ -2377,7 +1925,7 @@ character_event = {
 			limit = {
 				has_character_flag = plotter_discovered
 			}
-			event_target:plot_creator = { character_event = { id = POD_vampire_kill_plots.23 }
+			event_target:imprison_attacker = { character_event = { id = POD_vampire_kill_imprison.23 }
 			}
 			clr_character_flag = plotter_discovered
 		}
@@ -2388,8 +1936,8 @@ character_event = {
 
 # Haven attack success target killed - not found out
 character_event = {
-	id = POD_vampire_kill_plots.14
-	desc = "EVTDESC_POD_ATTACKELDER_HAVEN_14"
+	id = POD_vampire_kill_imprison.14
+	desc = "EVTDESC_POD_ATTACKIMPRISON_HAVEN_14"
 	picture = GFX_evt_ghoul_beating
 	border = GFX_event_normal_frame_intrigue
 	
@@ -2403,9 +1951,9 @@ character_event = {
 	immediate = {
 	}
 	option = {
-		name = "EVTOPTA_POD_ATTACKELDER_HAVEN_14" # Aww yeah
+		name = "EVTOPTA_POD_ATTACKIMPRISON_HAVEN_14" # Aww yeah
 		
-		event_target:plot_target = {
+		event_target:imprison_target = {
 			trigger_switch = {
 			on_trigger = trait
 				zulo_form = {
@@ -2430,8 +1978,8 @@ character_event = {
 
 # Haven attack success target killed - found out
 character_event = {
-	id = POD_vampire_kill_plots.15
-	desc = "EVTDESC_POD_ATTACKELDER_HAVEN_15"
+	id = POD_vampire_kill_imprison.15
+	desc = "EVTDESC_POD_ATTACKIMPRISON_HAVEN_15"
 	picture = GFX_evt_ghoul_beating
 	border = GFX_event_normal_frame_intrigue
 	
@@ -2445,9 +1993,9 @@ character_event = {
 	immediate = {
 	}
 	option = {
-		name = "EVTOPTA_POD_ATTACKELDER_HAVEN_15" # Aww yeah
+		name = "EVTOPTA_POD_ATTACKIMPRISON_HAVEN_15" # Aww yeah
 		
-		event_target:plot_target = {
+		event_target:imprison_target = {
 			trigger_switch = {
 			on_trigger = trait
 				zulo_form = {
@@ -2465,7 +2013,7 @@ character_event = {
 			}
 			death = {
 				death_reason = death_haven_attack
-				killer = event_target:plot_creator
+				killer = event_target:imprison_attacker
 			}
 			mother = {
 				opinion = {
@@ -2511,8 +2059,8 @@ character_event = {
 
 # Haven attack success target torpor - not found out
 character_event = {
-	id = POD_vampire_kill_plots.16
-	desc = "EVTDESC_POD_ATTACKELDER_HAVEN_16"
+	id = POD_vampire_kill_imprison.16
+	desc = "EVTDESC_POD_ATTACKIMPRISON_HAVEN_16"
 	picture = GFX_evt_ghoul_beating
 	border = GFX_event_normal_frame_intrigue
 	
@@ -2526,9 +2074,9 @@ character_event = {
 	immediate = {
 	}
 	option = {
-		name = "EVTOPTA_POD_ATTACKELDER_HAVEN_16" # Aww yeah
+		name = "EVTOPTA_POD_ATTACKIMPRISON_HAVEN_16" # Aww yeah
 		count_adversaries = yes
-		event_target:plot_target = {
+		event_target:imprison_target = {
 			trigger_switch = {
 			on_trigger = trait
 				zulo_form = {
@@ -2578,8 +2126,8 @@ character_event = {
 
 # Haven attack success target torpor - found out
 character_event = {
-	id = POD_vampire_kill_plots.17
-	desc = "EVTDESC_POD_ATTACKELDER_HAVEN_17"
+	id = POD_vampire_kill_imprison.17
+	desc = "EVTDESC_POD_ATTACKIMPRISON_HAVEN_17"
 	picture = GFX_evt_ghoul_beating
 	border = GFX_event_normal_frame_intrigue
 	
@@ -2593,9 +2141,9 @@ character_event = {
 	immediate = {
 	}
 	option = {
-		name = "EVTOPTA_POD_ATTACKELDER_HAVEN_17" # Aww yeah
+		name = "EVTOPTA_POD_ATTACKIMPRISON_HAVEN_17" # Aww yeah
 		count_adversaries = yes
-		event_target:plot_target = {
+		event_target:imprison_target = {
 			trigger_switch = {
 			on_trigger = trait
 				zulo_form = {
@@ -2684,8 +2232,8 @@ character_event = {
 
 # Haven attack failure target has courtier killed - not found out
 character_event = {
-	id = POD_vampire_kill_plots.18
-	desc = "EVTDESC_POD_ATTACKELDER_HAVEN_18"
+	id = POD_vampire_kill_imprison.18
+	desc = "EVTDESC_POD_ATTACKIMPRISON_HAVEN_18"
 	picture = GFX_evt_ghoul_beating
 	border = GFX_event_normal_frame_intrigue
 	
@@ -2699,17 +2247,17 @@ character_event = {
 	immediate = {
 	}
 	option = {
-		name = "EVTOPTA_POD_ATTACKELDER_HAVEN_18" # Aww yeah
+		name = "EVTOPTA_POD_ATTACKIMPRISON_HAVEN_18" # Aww yeah
 		
-		event_target:plot_target = {
+		event_target:imprison_target = {
 			any_courtier = {
 				limit = {
 					has_opinion_modifier = {
-						who = event_target:plot_target
+						who = event_target:imprison_target
 						modifier = opinion_blood_bond_to_domitor_ghoul
 					}
 				}
-				event_target:plot_target = { set_character_flag = has_ghoul_to_kill }
+				event_target:imprison_target = { set_character_flag = has_ghoul_to_kill }
 			}
 			if = {
 				limit = {
@@ -2719,7 +2267,7 @@ character_event = {
 				random_courtier = {
 					limit = {
 						has_opinion_modifier = {
-							who = event_target:plot_target
+							who = event_target:imprison_target
 							modifier = opinion_blood_bond_to_domitor_ghoul
 						}
 					}
@@ -2730,7 +2278,7 @@ character_event = {
 			} else = {
 				random_courtier = {
 					limit = {
-						NOT = { character = event_target:plot_target }
+						NOT = { character = event_target:imprison_target }
 						NOT = { is_elder_vampire = yes }
 					}
 					death = {
@@ -2744,8 +2292,8 @@ character_event = {
 
 # Haven attack failure target has courtier killed - found out
 character_event = {
-	id = POD_vampire_kill_plots.19
-	desc = "EVTDESC_POD_ATTACKELDER_HAVEN_19"
+	id = POD_vampire_kill_imprison.19
+	desc = "EVTDESC_POD_ATTACKIMPRISON_HAVEN_19"
 	picture = GFX_evt_ghoul_beating
 	border = GFX_event_normal_frame_intrigue
 	
@@ -2759,17 +2307,17 @@ character_event = {
 	immediate = {
 	}
 	option = {
-		name = "EVTOPTA_POD_ATTACKELDER_HAVEN_19" # Aww yeah
+		name = "EVTOPTA_POD_ATTACKIMPRISON_HAVEN_19" # Aww yeah
 		
-		event_target:plot_target = {
+		event_target:imprison_target = {
 			any_courtier = {
 				limit = {
 					has_opinion_modifier = {
-						who = event_target:plot_target
+						who = event_target:imprison_target
 						modifier = opinion_blood_bond_to_domitor_ghoul
 					}
 				}
-				event_target:plot_target = { set_character_flag = has_ghoul_to_kill }
+				event_target:imprison_target = { set_character_flag = has_ghoul_to_kill }
 			}
 			if = {
 				limit = {
@@ -2779,24 +2327,24 @@ character_event = {
 				random_courtier = {
 					limit = {
 						has_opinion_modifier = {
-							who = event_target:plot_target
+							who = event_target:imprison_target
 							modifier = opinion_blood_bond_to_domitor_ghoul
 						}
 					}
 					death = {
 						death_reason = death_haven_attack
-						killer = event_target:plot_creator
+						killer = event_target:imprison_attacker
 					}
 				}
 			} else = {
 				random_courtier = {
 					limit = {
-						NOT = { character = event_target:plot_target }
+						NOT = { character = event_target:imprison_target }
 						NOT = { is_elder_vampire = yes }
 					}
 					death = {
 						death_reason = death_haven_attack
-						killer = event_target:plot_attacker
+						killer = event_target:imprison_attacking_char
 					}
 				}
 			}
@@ -2810,8 +2358,8 @@ character_event = {
 
 # Haven attack failure attacker two deaths - not found out
 character_event = {
-	id = POD_vampire_kill_plots.20
-	desc = "EVTDESC_POD_ATTACKELDER_HAVEN_20"
+	id = POD_vampire_kill_imprison.20
+	desc = "EVTDESC_POD_ATTACKIMPRISON_HAVEN_20"
 	picture = GFX_evt_ghoul_dies_defending
 	border = GFX_event_normal_frame_intrigue
 	
@@ -2825,17 +2373,17 @@ character_event = {
 	immediate = {
 	}
 	option = {
-		name = "EVTOPTA_POD_ATTACKELDER_HAVEN_20" # Aww yeah
+		name = "EVTOPTA_POD_ATTACKIMPRISON_HAVEN_20" # Aww yeah
 		
-		event_target:plot_target = {
+		event_target:imprison_target = {
 			any_courtier = {
 				limit = {
 					has_opinion_modifier = {
-						who = event_target:plot_target
+						who = event_target:imprison_target
 						modifier = opinion_blood_bond_to_domitor_ghoul
 					}
 				}
-				event_target:plot_target = { set_character_flag = has_ghoul_to_kill }
+				event_target:imprison_target = { set_character_flag = has_ghoul_to_kill }
 			}
 			if = {
 				limit = {
@@ -2845,19 +2393,19 @@ character_event = {
 				random_courtier = {
 					limit = {
 						has_opinion_modifier = {
-							who = event_target:plot_target
+							who = event_target:imprison_target
 							modifier = opinion_blood_bond_to_domitor_ghoul
 						}
 					}
 					death = {
 						death_reason = death_haven_attack
-						killer = event_target:plot_attacker
+						killer = event_target:imprison_attacking_char
 					}
 				}
 			} else = {
 				random_courtier = {
 					limit = {
-						NOT = { character = event_target:plot_target }
+						NOT = { character = event_target:imprison_target }
 						NOT = { is_elder_vampire = yes }
 					}
 					death = {
@@ -2866,10 +2414,10 @@ character_event = {
 				}
 			}
 		}
-		event_target:plot_attacker = {
+		event_target:imprison_attacking_char = {
 			death = {
 				death_reason = death_battle
-				killer = event_target:plot_target
+				killer = event_target:imprison_target
 			}
 		}
 	}
@@ -2877,8 +2425,8 @@ character_event = {
 
 # Haven attack failure attacker two deaths - found out
 character_event = {
-	id = POD_vampire_kill_plots.21
-	desc = "EVTDESC_POD_ATTACKELDER_HAVEN_21"
+	id = POD_vampire_kill_imprison.21
+	desc = "EVTDESC_POD_ATTACKIMPRISON_HAVEN_21"
 	picture = GFX_evt_ghoul_dies_defending
 	border = GFX_event_normal_frame_intrigue
 	
@@ -2892,13 +2440,13 @@ character_event = {
 	immediate = {
 	}
 	option = {
-		name = "EVTOPTA_POD_ATTACKELDER_HAVEN_21" # Aww yeah
+		name = "EVTOPTA_POD_ATTACKIMPRISON_HAVEN_21" # Aww yeah
 		
-		event_target:plot_target = {
+		event_target:imprison_target = {
 			any_courtier = {
 				limit = {
 					has_opinion_modifier = {
-						who = event_target:plot_target
+						who = event_target:imprison_target
 						modifier = opinion_blood_bond_to_domitor_ghoul
 					}
 				}
@@ -2912,24 +2460,24 @@ character_event = {
 				random_courtier = {
 					limit = {
 						has_opinion_modifier = {
-							who = event_target:plot_target
+							who = event_target:imprison_target
 							modifier = opinion_blood_bond_to_domitor_ghoul
 						}
 					}
 					death = {
 						death_reason = death_haven_attack
-						killer = event_target:plot_creator
+						killer = event_target:imprison_attacker
 					}
 				}
 			} else = {
 				random_courtier = {
 					limit = {
-						NOT = { character = event_target:plot_target }
+						NOT = { character = event_target:imprison_target }
 						NOT = { is_elder_vampire = yes }
 					}
 					death = {
 						death_reason = death_haven_attack
-						killer = event_target:plot_attacker
+						killer = event_target:imprison_attacking_char
 					}
 				}
 			}
@@ -2937,10 +2485,10 @@ character_event = {
 				modifier = attempted_murder
 				who = ROOT
 			}
-			event_target:plot_attacker = {
+			event_target:imprison_attacking_char = {
 				death = {
 					death_reason = death_battle
-					killer = event_target:plot_target
+					killer = event_target:imprison_target
 				}
 			}
 		}
@@ -2949,8 +2497,8 @@ character_event = {
 
 # Haven attack failure attacker killed - not found out
 character_event = {
-	id = POD_vampire_kill_plots.22
-	desc = "EVTDESC_POD_ATTACKELDER_HAVEN_22"
+	id = POD_vampire_kill_imprison.22
+	desc = "EVTDESC_POD_ATTACKIMPRISON_HAVEN_22"
 	picture = GFX_evt_ghoul_dies_defending
 	border = GFX_event_normal_frame_intrigue
 	
@@ -2964,12 +2512,12 @@ character_event = {
 	immediate = {
 	}
 	option = {
-		name = "EVTOPTA_POD_ATTACKELDER_HAVEN_22" # Aww yeah
+		name = "EVTOPTA_POD_ATTACKIMPRISON_HAVEN_22" # Aww yeah
 		
-		event_target:plot_attacker = {
+		event_target:imprison_attacking_char = {
 			death = {
 				death_reason = death_battle
-				killer = event_target:plot_target
+				killer = event_target:imprison_target
 			}
 		}
 	}
@@ -2977,8 +2525,8 @@ character_event = {
 
 # Haven attack failure attacker killed - found out
 character_event = {
-	id = POD_vampire_kill_plots.23
-	desc = "EVTDESC_POD_ATTACKELDER_HAVEN_23"
+	id = POD_vampire_kill_imprison.23
+	desc = "EVTDESC_POD_ATTACKIMPRISON_HAVEN_23"
 	picture = GFX_evt_ghoul_dies_defending
 	border = GFX_event_normal_frame_intrigue
 	
@@ -2992,15 +2540,15 @@ character_event = {
 	immediate = {
 	}
 	option = {
-		name = "EVTOPTA_POD_ATTACKELDER_HAVEN_23" # Aww yeah
+		name = "EVTOPTA_POD_ATTACKIMPRISON_HAVEN_23" # Aww yeah
 		
-		event_target:plot_attacker = {
+		event_target:imprison_attacking_char = {
 			death = {
 				death_reason = death_battle
-				killer = event_target:plot_target
+				killer = event_target:imprison_target
 			}
 		}
-		event_target:plot_target = {
+		event_target:imprison_target = {
 			opinion = {
 				modifier = attempted_murder
 				who = ROOT
@@ -3013,8 +2561,8 @@ character_event = {
 
 #Delegated attack start
 character_event = {
-	id = POD_vampire_kill_plots.24
-	desc = "EVTDESC_POD_ATTACKELDER_DELEGATE_24"
+	id = POD_vampire_kill_imprison.24
+	desc = "EVTDESC_POD_ATTACKIMPRISON_DELEGATE_24"
 	picture = GFX_evt_vampire_manor_i
 	border = GFX_event_normal_frame_intrigue
 	
@@ -3030,39 +2578,20 @@ character_event = {
 				NOT = { is_inaccessible_trigger = yes }
 				NOT = { trait = torpor }
 				OR = { 
-					opinion = { who = ROOT value = 40 }
+					opinion = { who = ROOT value = 10 }
 					owes_favor_to = ROOT
 				}
 				ai = yes
+				has_minor_title = title_commander
 			}
 			ROOT = { 
 				set_character_flag = has_vampire
 			}
 		}
-		#check for vampires who are ok at combat and hate the target
-		event_target:plot_target = {
-			random_realm_character = {
-				limit = {
-					trait = vampire
-					martial = 10
-					prisoner = no
-					NOT = { is_inaccessible_trigger = yes }
-					NOT = { trait = torpor }
-					ai = yes
-					OR = {
-						NOT = { opinion = { who = event_target:plot_target value = -40 } }
-						is_foe = event_target:plot_target
-					}
-				}
-				ROOT = { 
-					set_character_flag = has_vampire_rivals
-				}
-			}
-		}
 	}
 	
 	option = {
-		name = "EVTOPTA_POD_ATTACKELDER_DELEGATE_24" # Send a vampire
+		name = "EVTOPTA_POD_ATTACKIMPRISON_DELEGATE_24" # Send a vampire
 		trigger = {
 			has_character_flag = has_vampire
 		}
@@ -3079,29 +2608,10 @@ character_event = {
 		}
 		clr_character_flag = has_vampire
 		set_character_flag = use_own_vampire
-		character_event = { id = POD_vampire_kill_plots.25 }
+		character_event = { id = POD_vampire_kill_imprison.25 }
 	}
 	option = {
-		name = "EVTOPTB_POD_ATTACKELDER_DELEGATE_24" # Use an enemy of target
-		trigger = {
-			has_character_flag = has_vampire_rivals
-		}
-		ai_chance = {
-			factor = 13
-		}
-		hidden_tooltip = {
-			change_variable = { which = global_elder_sendsomeone_count value = 1 }
-			change_variable = { which = global_elder_sendenemy_count value = 1 }
-		}
-		if = {
-			limit = { has_character_flag = has_vampire }
-			clr_character_flag = has_vampire
-		}
-		clr_character_flag = has_vampire_rivals
-		character_event = { id = POD_vampire_kill_plots.25 }
-	}
-	option = {
-		name = "EVTOPTC_POD_ATTACKELDER_DELEGATE_24" # Cancel Attack. Wuss.
+		name = "EVTOPTC_POD_ATTACKIMPRISON_DELEGATE_24" # Cancel Attack. Wuss.
 		ai_chance = {
 			factor = 0
 		}
@@ -3109,25 +2619,21 @@ character_event = {
 			limit = { has_character_flag = has_vampire }
 			clr_character_flag = has_vampire
 		}
-		character_event = { id = POD_vampire_kill_plots.24 days = 1}
-		clr_character_flag = murder_in_motion
+		character_event = { id = POD_vampire_kill_imprison.24 }
+		clr_character_flag = imprison_attack_in_motion
 	}
 }
 
 #pick vampire to delegate attack to
 character_event = {
-	id = POD_vampire_kill_plots.25
-	desc = "EVTDESC_POD_ATTACKELDER_DELEGATE_25"
+	id = POD_vampire_kill_imprison.25
+	desc = "EVTDESC_POD_ATTACKIMPRISON_DELEGATE_25"
 	picture = GFX_evt_ghoul_request
 	border = GFX_event_normal_frame_intrigue
 	
 	is_triggered_only = yes
 	
 	immediate = {
-		if = {
-			limit = {
-				has_character_flag = use_own_vampire
-			}
 			random_realm_character = {
 				limit = {
 					trait = vampire
@@ -3136,10 +2642,11 @@ character_event = {
 					NOT = { is_inaccessible_trigger = yes }
 					NOT = { trait = torpor }
 					OR = { 
-						opinion = { who = ROOT value = 40 }
+						opinion = { who = ROOT value = 10 }
 						owes_favor_to = ROOT
 					}
 					ai = yes
+					has_minor_title = title_commander
 				}
 				set_character_flag = vamp_1
 				save_event_target_as = vampire_number_1
@@ -3152,11 +2659,12 @@ character_event = {
 					NOT = { is_inaccessible_trigger = yes }
 					NOT = { trait = torpor }
 					OR = { 
-						opinion = { who = ROOT value = 40 }
+						opinion = { who = ROOT value = 10 }
 						owes_favor_to = ROOT
 					}
 					NOT = { has_character_flag = vamp_1 }
 					ai = yes
+					has_minor_title = title_commander
 				}
 				set_character_flag = vamp_2
 				save_event_target_as = vampire_number_2
@@ -3169,71 +2677,17 @@ character_event = {
 					NOT = { is_inaccessible_trigger = yes }
 					NOT = { trait = torpor }
 					OR = { 
-						opinion = { who = ROOT value = 40 }
+						opinion = { who = ROOT value = 10 }
 						owes_favor_to = ROOT
 					}
 					NOT = { has_character_flag = vamp_1 }
 					NOT = { has_character_flag = vamp_2 }
 					ai = yes
+					has_minor_title = title_commander
 				}
 				#set_character_flag = vamp_3
 				save_event_target_as = vampire_number_3
 			}
-		}else = {
-			event_target:plot_target = {
-			random_realm_character = {
-				limit = {
-					trait = vampire
-					martial = 10
-					prisoner = no
-					NOT = { is_inaccessible_trigger = yes }
-					NOT = { trait = torpor }
-					ai = yes
-					OR = {
-						NOT = { opinion = { who = event_target:plot_target value = -40 } }
-						is_foe = event_target:plot_target
-					}
-				}
-				set_character_flag = vamp_1
-				save_event_target_as = vampire_number_1
-			}
-			random_realm_character = {
-				limit = {
-					trait = vampire
-					martial = 10
-					prisoner = no
-					NOT = { is_inaccessible_trigger = yes }
-					NOT = { trait = torpor }
-					ai = yes
-					OR = {
-						NOT = { opinion = { who = event_target:plot_target value = -40 } }
-						is_foe = event_target:plot_target
-					}
-					NOT = { has_character_flag = vamp_1 }
-				}
-				set_character_flag = vamp_2
-				save_event_target_as = vampire_number_2
-			}
-			random_realm_character = {
-				limit = {
-					trait = vampire
-					martial = 10
-					prisoner = no
-					NOT = { is_inaccessible_trigger = yes }
-					NOT = { trait = torpor }
-					ai = yes
-					OR = {
-						NOT = { opinion = { who = event_target:plot_target value = -40 } }
-						is_foe = event_target:plot_target
-					}
-					NOT = { has_character_flag = vamp_1 }
-					NOT = { has_character_flag = vamp_2 }
-				}
-				#set_character_flag = vamp_3
-				save_event_target_as = vampire_number_3
-			}
-			}
-		}
 		#clear flags
 		event_target:vampire_number_1 = {
 			if = {
@@ -3254,7 +2708,7 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA_POD_ATTACKELDER_DELEGATE_25" # Vamp 1 leads
+		name = "EVTOPTA_POD_ATTACKIMPRISON_DELEGATE_25" # Vamp 1 leads
 		trigger = {
 			event_target:vampire_number_1 = { is_alive = yes }
 		}
@@ -3264,12 +2718,12 @@ character_event = {
 		show_portrait = event_target:vampire_number_1
 		change_variable = { which = global_elder_picksomeone1_count value = 1 }
 		event_target:vampire_number_1 = {
-			save_event_target_as = plot_attacker
+			save_event_target_as = imprison_attacking_char
 		}
-		event_target:plot_target = { character_event = { id = POD_vampire_kill_plots.26 days = 30 } }
+		event_target:imprison_target = { character_event = { id = POD_vampire_kill_imprison.26 } }
 	}
 	option = {
-		name = "EVTOPTB_POD_ATTACKELDER_DELEGATE_25" #  Vamp 2 leads
+		name = "EVTOPTB_POD_ATTACKIMPRISON_DELEGATE_25" #  Vamp 2 leads
 		trigger = {
 			event_target:vampire_number_2 = { is_alive = yes }
 		}
@@ -3279,12 +2733,12 @@ character_event = {
 		show_portrait = event_target:vampire_number_2
 		change_variable = { which = global_elder_picksomeone2_count value = 1 }
 		event_target:vampire_number_2 = {
-			save_event_target_as = plot_attacker
+			save_event_target_as = imprison_attacking_char
 		}
-		event_target:plot_target = { character_event = { id = POD_vampire_kill_plots.26 days = 30 } }
+		event_target:imprison_target = { character_event = { id = POD_vampire_kill_imprison.26 } }
 	}
 	option = {
-		name = "EVTOPTC_POD_ATTACKELDER_DELEGATE_25" #  Vamp 3 leads
+		name = "EVTOPTC_POD_ATTACKIMPRISON_DELEGATE_25" #  Vamp 3 leads
 		trigger = {
 			event_target:vampire_number_3 = { is_alive = yes }
 		}
@@ -3294,23 +2748,23 @@ character_event = {
 		show_portrait = event_target:vampire_number_3
 		change_variable = { which = global_elder_picksomeone3_count value = 1 }
 		event_target:vampire_number_3 = {
-			save_event_target_as = plot_attacker
+			save_event_target_as = imprison_attacking_char
 		}
-		event_target:plot_target = { character_event = { id = POD_vampire_kill_plots.26 days = 30 } }
+		event_target:imprison_target = { character_event = { id = POD_vampire_kill_imprison.26 } }
 	}
 	option = {
-		name = "EVTOPTD_POD_ATTACKELDER_DELEGATE_25" # Cancel Attack. Wuss.
+		name = "EVTOPTD_POD_ATTACKIMPRISON_DELEGATE_25" # Cancel Attack. Wuss.
 		ai_chance = {
 			factor = 0
 		}
 		change_variable = { which = global_elder_picksomeonecancel_count value = 1 }
-		clr_character_flag = murder_in_motion
+		clr_character_flag = imprison_attack_in_motion
 	}
 }
 #Delegate target event
 character_event = {
-	id = POD_vampire_kill_plots.26
-	desc = "EVTDESC_POD_ATTACKELDER_DELEGATE_26"
+	id = POD_vampire_kill_imprison.26
+	desc = "EVTDESC_POD_ATTACKIMPRISON_DELEGATE_26"
 	picture = GFX_evt_spymaster
 	border = GFX_event_normal_frame_intrigue
 	
@@ -3326,9 +2780,9 @@ character_event = {
 			10 = {
 				modifier = {
 					factor = 2
-					event_target:plot_attacker = {
+					event_target:imprison_attacking_char = {
 						attribute_diff = {
-							character = event_target:plot_target
+							character = event_target:imprison_target
 							attribute = martial
 							value = 10
 						}
@@ -3336,9 +2790,9 @@ character_event = {
 				}
 				modifier = {
 					factor = 1.5
-					event_target:plot_attacker = {
+					event_target:imprison_attacking_char = {
 						attribute_diff = {
-							character = event_target:plot_target
+							character = event_target:imprison_target
 							attribute = martial
 							value = 1
 						}
@@ -3346,31 +2800,31 @@ character_event = {
 				}
 				modifier = {
 					factor = 1.2
-					event_target:plot_attacker = {
+					event_target:imprison_attacking_char = {
 						trait = elder
 					}
 				}
 				modifier = {
 					factor = 1.4
-					event_target:plot_attacker = {
+					event_target:imprison_attacking_char = {
 						trait = ancient
 					}
 				}
 				modifier = {
 					factor = 1.5
-					event_target:plot_attacker = {
+					event_target:imprison_attacking_char = {
 						trait = methuselah
 					}
 				}
 				modifier = {
 					factor = 3
-					event_target:plot_attacker = {
+					event_target:imprison_attacking_char = {
 						has_powerful_generation = yes
 					}
 				}
 				modifier = {
 					factor = 1.2
-					event_target:plot_attacker = {
+					event_target:imprison_attacking_char = {
 						has_strong_generation = yes
 					}
 				}
@@ -3401,7 +2855,7 @@ character_event = {
 				modifier = {
 					factor = 0.5
 					attribute_diff = {
-						character = event_target:plot_attacker
+						character = event_target:imprison_attacking_char
 						attribute = martial
 						value = 10
 					}
@@ -3409,15 +2863,9 @@ character_event = {
 				modifier = {
 					factor = 0.8
 					attribute_diff = {
-						character = event_target:plot_attacker
+						character = event_target:imprison_attacking_char
 						attribute = martial
 						value = 1
-					}
-				}
-				modifier = {
-					factor = 0.1
-					event_target:plot_creator = {
-						has_character_flag = attack_elder_reckless
 					}
 				}
 				#Attack Success
@@ -3450,9 +2898,9 @@ character_event = {
 					5 = {
 						modifier = {
 							factor = 1.5
-							event_target:plot_attacker = {
+							event_target:imprison_attacking_char = {
 								attribute_diff = {
-									character = event_target:plot_target
+									character = event_target:imprison_target
 									attribute = martial
 									value = 10
 								}
@@ -3460,19 +2908,19 @@ character_event = {
 						}
 						modifier = {
 							factor = 1.5
-							event_target:plot_attacker = {
+							event_target:imprison_attacking_char = {
 								trait = ancient
 							}
 						}
 						modifier = {
 							factor = 1.5
-							event_target:plot_attacker = {
+							event_target:imprison_attacking_char = {
 								trait = methuselah
 							}
 						}
 						modifier = {
 							factor = 1.5
-							event_target:plot_attacker = {
+							event_target:imprison_attacking_char = {
 								has_powerful_generation = yes
 							}
 						}
@@ -3495,9 +2943,9 @@ character_event = {
 						#Both vampires injured
 						modifier = {
 							factor = 3
-							event_target:plot_attacker = {
+							event_target:imprison_attacking_char = {
 								attribute_diff = {
-									character = event_target:plot_target
+									character = event_target:imprison_target
 									attribute = martial
 									value = 8
 								}
@@ -3509,35 +2957,35 @@ character_event = {
 					5 = {
 						modifier = {
 							factor = 0.1
-							event_target:plot_attacker = { has_defensive_discipline = yes }
+							event_target:imprison_attacking_char = { has_defensive_discipline = yes }
 						}
 						modifier = {
 							factor = 0.7
-							event_target:plot_attacker = {
+							event_target:imprison_attacking_char = {
 								trait = elder
 							}
 						}
 						modifier = {
 							factor = 0.4
-							event_target:plot_attacker = {
+							event_target:imprison_attacking_char = {
 								trait = ancient
 							}
 						}
 						modifier = {
 							factor = 0.3
-							event_target:plot_attacker = {
+							event_target:imprison_attacking_char = {
 								trait = methuselah
 							}
 						}
 						modifier = {
 							factor = 0.5
-							event_target:plot_attacker = {
+							event_target:imprison_attacking_char = {
 								has_powerful_generation = yes
 							}
 						}
 						modifier = {
 							factor = 0.8
-							event_target:plot_attacker = {
+							event_target:imprison_attacking_char = {
 								has_strong_generation = yes
 							}
 						}
@@ -3552,25 +3000,25 @@ character_event = {
 			10 = {
 				modifier = {
 					factor = 2
-					event_target:plot_creator = {
+					event_target:imprison_attacker = {
 						intrigue = 10
 					}
 				}
 				modifier = {
 					factor = 1.5
-					event_target:plot_creator = {
+					event_target:imprison_attacker = {
 						intrigue = 20
 					}
 				}
 				modifier = {
 					factor = 1.5
-					event_target:plot_creator = {
+					event_target:imprison_attacker = {
 						intrigue = 30
 					}
 				}
 				modifier = {
 					factor = 1.5
-					event_target:plot_creator = {
+					event_target:imprison_attacker = {
 						intrigue = 40
 					}
 				}
@@ -3598,10 +3046,15 @@ character_event = {
 				set_character_flag = plotter_discovered
 			}
 		}
+		if = {
+			limit = { has_character_flag = plotter_not_discovered }
+			clr_character_flag = plotter_not_discovered
+		}
+		set_character_flag = plotter_discovered
 	}
 	
 	option = {
-		name = "EVTOPTA_POD_ATTACKELDER_DELEGATE_26" # Diablerie successful
+		name = "EVTOPTA_POD_ATTACKIMPRISON_DELEGATE_26" # Diablerie successful
 		trigger = {
 			has_character_flag = target_diablerized
 		}
@@ -3609,7 +3062,7 @@ character_event = {
 			limit = {
 				has_character_flag = plotter_not_discovered
 			}
-			event_target:plot_creator = { character_event = { id = POD_vampire_kill_plots.27 }
+			event_target:imprison_attacker = { character_event = { id = POD_vampire_kill_imprison.27 }
 			}
 			clr_character_flag = plotter_not_discovered
 		}
@@ -3617,14 +3070,14 @@ character_event = {
 			limit = {
 				has_character_flag = plotter_discovered
 			}
-				event_target:plot_creator = { character_event = { id = POD_vampire_kill_plots.28 }
+				event_target:imprison_attacker = { character_event = { id = POD_vampire_kill_imprison.28 }
 			}
 			clr_character_flag = plotter_discovered
 		}
 		clr_character_flag = target_diablerized
 	}
 	option = {
-		name = "EVTOPTB_POD_ATTACKELDER_DELEGATE_26" # Target enters Torpor
+		name = "EVTOPTB_POD_ATTACKIMPRISON_DELEGATE_26" # Target enters Torpor
 		trigger = {
 			has_character_flag = target_enters_torpor
 		}
@@ -3632,7 +3085,7 @@ character_event = {
 			limit = {
 				has_character_flag = plotter_not_discovered
 			}
-			event_target:plot_creator = { character_event = { id = POD_vampire_kill_plots.29 }
+			event_target:imprison_attacker = { character_event = { id = POD_vampire_kill_imprison.29 }
 			}
 			clr_character_flag = plotter_not_discovered
 		}
@@ -3640,7 +3093,7 @@ character_event = {
 			limit = {
 				has_character_flag = plotter_discovered
 			}
-			event_target:plot_creator = { character_event = { id = POD_vampire_kill_plots.30 }
+			event_target:imprison_attacker = { character_event = { id = POD_vampire_kill_imprison.30 }
 			}
 			clr_character_flag = plotter_discovered
 		}
@@ -3649,7 +3102,7 @@ character_event = {
 		if = { limit = { has_character_flag = plotter_not_discovered } clr_character_flag = plotter_not_discovered }
 	}
 	option = {
-		name = "EVTOPTC_POD_ATTACKELDER_DELEGATE_26" # Attack Fails both injured
+		name = "EVTOPTC_POD_ATTACKIMPRISON_DELEGATE_26" # Attack Fails both injured
 		trigger = {
 			has_character_flag = both_injured
 		}
@@ -3658,7 +3111,7 @@ character_event = {
 			limit = {
 				has_character_flag = plotter_not_discovered
 			}
-			event_target:plot_creator = { character_event = { id = POD_vampire_kill_plots.31 }
+			event_target:imprison_attacker = { character_event = { id = POD_vampire_kill_imprison.31 }
 			}
 			clr_character_flag = plotter_not_discovered
 		}
@@ -3666,14 +3119,14 @@ character_event = {
 			limit = {
 				has_character_flag = plotter_discovered
 			}
-			event_target:plot_creator = { character_event = { id = POD_vampire_kill_plots.32 }
+			event_target:imprison_attacker = { character_event = { id = POD_vampire_kill_imprison.32 }
 			}
 			clr_character_flag = plotter_discovered
 		}
 		clr_character_flag = both_injured
 	}
 	option = {
-		name = "EVTOPTD_POD_ATTACKELDER_DELEGATE_26" # Attack Fails both maimed
+		name = "EVTOPTD_POD_ATTACKIMPRISON_DELEGATE_26" # Attack Fails both maimed
 		trigger = {
 			has_character_flag = both_maimed
 		}
@@ -3682,7 +3135,7 @@ character_event = {
 			limit = {
 				has_character_flag = plotter_not_discovered
 			}
-			event_target:plot_creator = { character_event = { id = POD_vampire_kill_plots.33 }
+			event_target:imprison_attacker = { character_event = { id = POD_vampire_kill_imprison.33 }
 			}
 			clr_character_flag = plotter_not_discovered
 		}
@@ -3690,14 +3143,14 @@ character_event = {
 			limit = {
 				has_character_flag = plotter_discovered
 			}
-			event_target:plot_creator = { character_event = { id = POD_vampire_kill_plots.34 }
+			event_target:imprison_attacker = { character_event = { id = POD_vampire_kill_imprison.34 }
 			}
 			clr_character_flag = plotter_discovered
 		}
 		clr_character_flag = both_maimed
 	}
 	option = {
-		name = "EVTOPTE_POD_ATTACKELDER_DELEGATE_26" # Attack Fails attacker dies
+		name = "EVTOPTE_POD_ATTACKIMPRISON_DELEGATE_26" # Attack Fails attacker dies
 		trigger = {
 			has_character_flag = attacker_dead
 		}
@@ -3706,7 +3159,7 @@ character_event = {
 			limit = {
 				has_character_flag = plotter_not_discovered
 			}
-			event_target:plot_creator = { character_event = { id = POD_vampire_kill_plots.35 }
+			event_target:imprison_attacker = { character_event = { id = POD_vampire_kill_imprison.35 }
 			}
 			clr_character_flag = plotter_not_discovered
 		}
@@ -3714,7 +3167,7 @@ character_event = {
 			limit = {
 				has_character_flag = plotter_discovered
 			}
-			event_target:plot_creator = { character_event = { id = POD_vampire_kill_plots.36 }
+			event_target:imprison_attacker = { character_event = { id = POD_vampire_kill_imprison.36 }
 			}
 			clr_character_flag = plotter_discovered
 		}
@@ -3724,8 +3177,8 @@ character_event = {
 
 # Delegate attack success target killed - not found out
 character_event = {
-	id = POD_vampire_kill_plots.27
-	desc = "EVTDESC_POD_ATTACKELDER_DELEGATE_27"
+	id = POD_vampire_kill_imprison.27
+	desc = "EVTDESC_POD_ATTACKIMPRISON_DELEGATE_27"
 	picture = GFX_evt_ghoul_beating
 	border = GFX_event_normal_frame_intrigue
 	
@@ -3738,7 +3191,7 @@ character_event = {
 	
 	immediate = {
 		
-		plot_target_char = {
+		event_target:imprison_target = {
 			trigger_switch = {
 			on_trigger = trait
 			vampgeneration1 = {
@@ -3787,7 +3240,7 @@ character_event = {
 				ROOT =  { set_variable = { which = target_gen value = 15 } }
 			}
 			}
-			event_target:plot_attacker = {
+			event_target:imprison_attacking_char = {
 			trigger_switch = {
 			on_trigger = trait
 			vampgeneration1 = {
@@ -3847,9 +3300,9 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA_POD_ATTACKELDER_DELEGATE_27" # Aww yeah
+		name = "EVTOPTA_POD_ATTACKIMPRISON_DELEGATE_27" # Aww yeah
 		
-		event_target:plot_target = {
+		event_target:imprison_target = {
 			trigger_switch = {
 			on_trigger = trait
 				zulo_form = {
@@ -3870,7 +3323,7 @@ character_event = {
 						ROOT = { has_character_flag = generation_change_yes }
 					}
 					ROOT = { clr_character_flag = generation_change_yes }
-					event_target:plot_attacker = {
+					event_target:imprison_attacking_char = {
 						add_character_modifier = {
 							name = blood_of_vampire
 							duration = 356
@@ -3929,60 +3382,60 @@ character_event = {
 					trigger_switch = {
 					on_trigger = trait
 					vampgeneration1 = {
-						event_target:plot_attacker = { add_trait = vampgeneration1 }
+						event_target:imprison_attacking_char = { add_trait = vampgeneration1 }
 					}
 					vampgeneration2 = {
-						event_target:plot_attacker = { add_trait = vampgeneration2 }
+						event_target:imprison_attacking_char = { add_trait = vampgeneration2 }
 					}
 					vampgeneration3 = {
-						event_target:plot_attacker = { add_trait = vampgeneration3 }
+						event_target:imprison_attacking_char = { add_trait = vampgeneration3 }
 					}
 					vampgeneration4 = {
-						event_target:plot_attacker = { add_trait = vampgeneration4 }
+						event_target:imprison_attacking_char = { add_trait = vampgeneration4 }
 					}
 					vampgeneration5 = {
-						event_target:plot_attacker = { add_trait = vampgeneration5 }
+						event_target:imprison_attacking_char = { add_trait = vampgeneration5 }
 					}
 					vampgeneration6 = {
-						event_target:plot_attacker = { add_trait = vampgeneration6 }
+						event_target:imprison_attacking_char = { add_trait = vampgeneration6 }
 					}
 					vampgeneration7 = {
-						event_target:plot_attacker = { add_trait = vampgeneration7 }
+						event_target:imprison_attacking_char = { add_trait = vampgeneration7 }
 					}
 					vampgeneration8 = {
-						event_target:plot_attacker = { add_trait = vampgeneration8 }
+						event_target:imprison_attacking_char = { add_trait = vampgeneration8 }
 					}
 					vampgeneration9 = {
-						event_target:plot_attacker = { add_trait = vampgeneration9 }
+						event_target:imprison_attacking_char = { add_trait = vampgeneration9 }
 					}
 					vampgeneration10 = {
-						event_target:plot_attacker = { add_trait = vampgeneration10 }
+						event_target:imprison_attacking_char = { add_trait = vampgeneration10 }
 					}
 					vampgeneration11 = {
-						event_target:plot_attacker = { add_trait = vampgeneration11 }
+						event_target:imprison_attacking_char = { add_trait = vampgeneration11 }
 					}
 					vampgeneration12 = {
-						event_target:plot_attacker = { add_trait = vampgeneration12 }
+						event_target:imprison_attacking_char = { add_trait = vampgeneration12 }
 					}
 					vampgeneration13 = {
-						event_target:plot_attacker = { add_trait = vampgeneration13 }
+						event_target:imprison_attacking_char = { add_trait = vampgeneration13 }
 					}
 					vampgeneration14 = {
-						event_target:plot_attacker = { add_trait = vampgeneration14 }
+						event_target:imprison_attacking_char = { add_trait = vampgeneration14 }
 					}
 					vampgeneration15 = {
-						event_target:plot_attacker = { add_trait = vampgeneration15 }
+						event_target:imprison_attacking_char = { add_trait = vampgeneration15 }
 					}
 					}
 				}
 			}
-			event_target:plot_attacker = {
+			event_target:imprison_attacking_char = {
 				trigger_switch = {
 				on_trigger = trait
 				bloodpotency_1 = {
 				if = { 
 					limit = {
-						event_target:plot_target = {
+						event_target:imprison_target = {
 							OR = {    
 								trait = bloodpotency_2
 								trait = bloodpotency_3
@@ -4003,7 +3456,7 @@ character_event = {
 				bloodpotency_2 = {
 				if = { 
 					limit = {
-						event_target:plot_target = {
+						event_target:imprison_target = {
 							OR = {    
 								trait = bloodpotency_3
 								trait = bloodpotency_4
@@ -4023,7 +3476,7 @@ character_event = {
 				bloodpotency_3 = {
 				if = { 
 					limit = {
-						event_target:plot_target = {
+						event_target:imprison_target = {
 							OR = {    
 								trait = bloodpotency_4
 								trait = bloodpotency_5
@@ -4042,7 +3495,7 @@ character_event = {
 				bloodpotency_4 = {
 				if = { 
 					limit = {
-						event_target:plot_target = {
+						event_target:imprison_target = {
 							OR = {    
 								trait = bloodpotency_5
 								trait = bloodpotency_6
@@ -4060,7 +3513,7 @@ character_event = {
 				bloodpotency_5 = {
 				if = { 
 					limit = {
-						event_target:plot_target = {
+						event_target:imprison_target = {
 							OR = {    
 								trait = bloodpotency_6
 								trait = bloodpotency_7
@@ -4077,7 +3530,7 @@ character_event = {
 				bloodpotency_6 = {
 				if = { 
 					limit = {
-						event_target:plot_target = {
+						event_target:imprison_target = {
 							OR = {    
 								trait = bloodpotency_7
 								trait = bloodpotency_8
@@ -4093,7 +3546,7 @@ character_event = {
 				bloodpotency_7 = {
 				if = { 
 					limit = {
-						event_target:plot_target = {
+						event_target:imprison_target = {
 							OR = {    
 								trait = bloodpotency_8
 								trait = bloodpotency_9
@@ -4108,7 +3561,7 @@ character_event = {
 				bloodpotency_8 = {
 				if = { 
 					limit = {
-						event_target:plot_target = {
+						event_target:imprison_target = {
 							OR = {    
 								trait = bloodpotency_9
 								trait = bloodpotency_10
@@ -4122,7 +3575,7 @@ character_event = {
 				bloodpotency_9 = {
 				if = { 
 					limit = {
-						event_target:plot_target = {
+						event_target:imprison_target = {
 							OR = {    
 								trait = bloodpotency_10
 							}
@@ -4136,7 +3589,7 @@ character_event = {
 			}
 			
 			
-			event_target:plot_target = {
+			event_target:imprison_target = {
 			death = {
 				death_reason = death_execution_diablerie_unknown
 			}
@@ -4147,8 +3600,8 @@ character_event = {
 
 # Delegate attack success target killed - found out
 character_event = {
-	id = POD_vampire_kill_plots.28
-	desc = "EVTDESC_POD_ATTACKELDER_DELEGATE_28"
+	id = POD_vampire_kill_imprison.28
+	desc = "EVTDESC_POD_ATTACKIMPRISON_DELEGATE_28"
 	picture = GFX_evt_ghoul_beating
 	border = GFX_event_normal_frame_intrigue
 	
@@ -4161,7 +3614,7 @@ character_event = {
 	
 	immediate = {
 		
-		plot_target_char = {
+		event_target:imprison_target = {
 			trigger_switch = {
 			on_trigger = trait
 			vampgeneration1 = {
@@ -4210,7 +3663,7 @@ character_event = {
 				ROOT =  { set_variable = { which = target_gen value = 15 } }
 			}
 			}
-			event_target:plot_attacker = {
+			event_target:imprison_attacking_char = {
 			trigger_switch = {
 			on_trigger = trait
 			vampgeneration1 = {
@@ -4270,9 +3723,9 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA_POD_ATTACKELDER_DELEGATE_28" # Aww yeah
+		name = "EVTOPTA_POD_ATTACKIMPRISON_DELEGATE_28" # Aww yeah
 		
-		event_target:plot_target = {
+		event_target:imprison_target = {
 			trigger_switch = {
 			on_trigger = trait
 				zulo_form = {
@@ -4293,7 +3746,7 @@ character_event = {
 						ROOT = { has_character_flag = generation_change_yes }
 					}
 					ROOT = { clr_character_flag = generation_change_yes }
-					event_target:plot_attacker = {
+					event_target:imprison_attacking_char = {
 						add_character_modifier = {
 							name = blood_of_vampire
 							duration = 356
@@ -4352,60 +3805,60 @@ character_event = {
 					trigger_switch = {
 					on_trigger = trait
 					vampgeneration1 = {
-						event_target:plot_attacker = { add_trait = vampgeneration1 }
+						event_target:imprison_attacking_char = { add_trait = vampgeneration1 }
 					}
 					vampgeneration2 = {
-						event_target:plot_attacker = { add_trait = vampgeneration2 }
+						event_target:imprison_attacking_char = { add_trait = vampgeneration2 }
 					}
 					vampgeneration3 = {
-						event_target:plot_attacker = { add_trait = vampgeneration3 }
+						event_target:imprison_attacking_char = { add_trait = vampgeneration3 }
 					}
 					vampgeneration4 = {
-						event_target:plot_attacker = { add_trait = vampgeneration4 }
+						event_target:imprison_attacking_char = { add_trait = vampgeneration4 }
 					}
 					vampgeneration5 = {
-						event_target:plot_attacker = { add_trait = vampgeneration5 }
+						event_target:imprison_attacking_char = { add_trait = vampgeneration5 }
 					}
 					vampgeneration6 = {
-						event_target:plot_attacker = { add_trait = vampgeneration6 }
+						event_target:imprison_attacking_char = { add_trait = vampgeneration6 }
 					}
 					vampgeneration7 = {
-						event_target:plot_attacker = { add_trait = vampgeneration7 }
+						event_target:imprison_attacking_char = { add_trait = vampgeneration7 }
 					}
 					vampgeneration8 = {
-						event_target:plot_attacker = { add_trait = vampgeneration8 }
+						event_target:imprison_attacking_char = { add_trait = vampgeneration8 }
 					}
 					vampgeneration9 = {
-						event_target:plot_attacker = { add_trait = vampgeneration9 }
+						event_target:imprison_attacking_char = { add_trait = vampgeneration9 }
 					}
 					vampgeneration10 = {
-						event_target:plot_attacker = { add_trait = vampgeneration10 }
+						event_target:imprison_attacking_char = { add_trait = vampgeneration10 }
 					}
 					vampgeneration11 = {
-						event_target:plot_attacker = { add_trait = vampgeneration11 }
+						event_target:imprison_attacking_char = { add_trait = vampgeneration11 }
 					}
 					vampgeneration12 = {
-						event_target:plot_attacker = { add_trait = vampgeneration12 }
+						event_target:imprison_attacking_char = { add_trait = vampgeneration12 }
 					}
 					vampgeneration13 = {
-						event_target:plot_attacker = { add_trait = vampgeneration13 }
+						event_target:imprison_attacking_char = { add_trait = vampgeneration13 }
 					}
 					vampgeneration14 = {
-						event_target:plot_attacker = { add_trait = vampgeneration14 }
+						event_target:imprison_attacking_char = { add_trait = vampgeneration14 }
 					}
 					vampgeneration15 = {
-						event_target:plot_attacker = { add_trait = vampgeneration15 }
+						event_target:imprison_attacking_char = { add_trait = vampgeneration15 }
 					}
 					}
 				}
 			}
-			event_target:plot_attacker = {
+			event_target:imprison_attacking_char = {
 				trigger_switch = {
 				on_trigger = trait
 				bloodpotency_1 = {
 				if = { 
 					limit = {
-						event_target:plot_target = {
+						event_target:imprison_target = {
 							OR = {    
 								trait = bloodpotency_2
 								trait = bloodpotency_3
@@ -4426,7 +3879,7 @@ character_event = {
 				bloodpotency_2 = {
 				if = { 
 					limit = {
-						event_target:plot_target = {
+						event_target:imprison_target = {
 							OR = {    
 								trait = bloodpotency_3
 								trait = bloodpotency_4
@@ -4446,7 +3899,7 @@ character_event = {
 				bloodpotency_3 = {
 				if = { 
 					limit = {
-						event_target:plot_target = {
+						event_target:imprison_target = {
 							OR = {    
 								trait = bloodpotency_4
 								trait = bloodpotency_5
@@ -4465,7 +3918,7 @@ character_event = {
 				bloodpotency_4 = {
 				if = { 
 					limit = {
-						event_target:plot_target = {
+						event_target:imprison_target = {
 							OR = {    
 								trait = bloodpotency_5
 								trait = bloodpotency_6
@@ -4483,7 +3936,7 @@ character_event = {
 				bloodpotency_5 = {
 				if = { 
 					limit = {
-						event_target:plot_target = {
+						event_target:imprison_target = {
 							OR = {    
 								trait = bloodpotency_6
 								trait = bloodpotency_7
@@ -4500,7 +3953,7 @@ character_event = {
 				bloodpotency_6 = {
 				if = { 
 					limit = {
-						event_target:plot_target = {
+						event_target:imprison_target = {
 							OR = {    
 								trait = bloodpotency_7
 								trait = bloodpotency_8
@@ -4516,7 +3969,7 @@ character_event = {
 				bloodpotency_7 = {
 				if = { 
 					limit = {
-						event_target:plot_target = {
+						event_target:imprison_target = {
 							OR = {    
 								trait = bloodpotency_8
 								trait = bloodpotency_9
@@ -4531,7 +3984,7 @@ character_event = {
 				bloodpotency_8 = {
 				if = { 
 					limit = {
-						event_target:plot_target = {
+						event_target:imprison_target = {
 							OR = {    
 								trait = bloodpotency_9
 								trait = bloodpotency_10
@@ -4545,7 +3998,7 @@ character_event = {
 				bloodpotency_9 = {
 				if = { 
 					limit = {
-						event_target:plot_target = {
+						event_target:imprison_target = {
 							OR = {    
 								trait = bloodpotency_10
 							}
@@ -4557,7 +4010,7 @@ character_event = {
 				}
 			}
 			}
-			event_target:plot_target = {
+			event_target:imprison_target = {
 			mother = {
 				opinion = {
 					modifier = opinion_killed_close_kin
@@ -4565,7 +4018,7 @@ character_event = {
 				}
 				opinion = {
 					modifier = opinion_killed_close_kin
-					who = event_target:plot_attacker
+					who = event_target:imprison_attacking_char
 				}
 			}
 			father = {
@@ -4575,7 +4028,7 @@ character_event = {
 				}
 				opinion = {
 					modifier = opinion_killed_close_kin
-					who = event_target:plot_attacker
+					who = event_target:imprison_attacking_char
 				}
 			}
 			spouse = {
@@ -4585,7 +4038,7 @@ character_event = {
 				}
 				opinion = {
 					modifier = opinion_killed_close_kin
-					who = event_target:plot_attacker
+					who = event_target:imprison_attacking_char
 				}
 			}
 			any_child = {
@@ -4595,20 +4048,20 @@ character_event = {
 				}
 				opinion = {
 					modifier = opinion_killed_father
-					who = event_target:plot_attacker
+					who = event_target:imprison_attacking_char
 				}
 			}
 			if = {
 				limit = {
 					FROM = {
-						NOT = { dynasty = event_target:plot_attacker }
-						NOT = { sibling = event_target:plot_attacker }
+						NOT = { dynasty = event_target:imprison_attacking_char }
+						NOT = { sibling = event_target:imprison_attacking_char }
 					}
 				}
 				any_sibling = {
 					opinion = {
 						modifier = opinion_killed_close_kin
-						who = event_target:plot_attacker
+						who = event_target:imprison_attacking_char
 					}
 				}
 			}
@@ -4630,7 +4083,7 @@ character_event = {
 			
 			death = {
 				death_reason = death_execution_diablerie
-				killer = event_target:plot_attacker
+				killer = event_target:imprison_attacking_char
 			}
 			}
 	}
@@ -4643,8 +4096,8 @@ character_event = {
 			
 # Delegate attack success target torpor - not found out
 character_event = {
-	id = POD_vampire_kill_plots.29
-	desc = "EVTDESC_POD_ATTACKELDER_DELEGATE_29"
+	id = POD_vampire_kill_imprison.29
+	desc = "EVTDESC_POD_ATTACKIMPRISON_DELEGATE_29"
 	picture = GFX_evt_ghoul_beating
 	border = GFX_event_normal_frame_intrigue
 	
@@ -4658,9 +4111,9 @@ character_event = {
 	immediate = {
 	}
 	option = {
-		name = "EVTOPTA_POD_ATTACKELDER_DELEGATE_29" # Aww yeah
+		name = "EVTOPTA_POD_ATTACKIMPRISON_DELEGATE_29" # Aww yeah
 		
-		event_target:plot_target = {
+		event_target:imprison_target = {
 			trigger_switch = {
 			on_trigger = trait
 				zulo_form = {
@@ -4677,21 +4130,21 @@ character_event = {
 				}	
 			}
 			count_adversaries = yes
-			event_target:plot_attacker = { count_adversaries = yes }
-			#add_rival = event_target:plot_attacker
+			event_target:imprison_attacking_char = { count_adversaries = yes }
+			#add_rival = event_target:imprison_attacking_char
 			if = {
 				limit = {
 					can_have_adversary = yes
-					event_target:plot_attacker = { can_have_adversary = yes }
+					event_target:imprison_attacking_char = { can_have_adversary = yes }
 					is_possible_adversary = yes
-					event_target:plot_attacker = { is_possible_adversary = yes }
+					event_target:imprison_attacking_char = { is_possible_adversary = yes }
 				}
 				opinion = {
 					modifier = opinion_adversary
-					who = event_target:plot_attacker
+					who = event_target:imprison_attacking_char
 					years = 500
 				}
-				event_target:plot_attacker = {
+				event_target:imprison_attacking_char = {
 					opinion = {
 						modifier = opinion_adversary
 						who = PREV
@@ -4711,8 +4164,8 @@ character_event = {
 
 # Delegate attack success target torpor - found out
 character_event = {
-	id = POD_vampire_kill_plots.30
-	desc = "EVTDESC_POD_ATTACKELDER_DELEGATE_30"
+	id = POD_vampire_kill_imprison.30
+	desc = "EVTDESC_POD_ATTACKIMPRISON_DELEGATE_30"
 	picture = GFX_evt_ghoul_beating
 	border = GFX_event_normal_frame_intrigue
 	
@@ -4726,9 +4179,9 @@ character_event = {
 	immediate = {
 	}
 	option = {
-		name = "EVTOPTA_POD_ATTACKELDER_DELEGATE_30" # Aww yeah
+		name = "EVTOPTA_POD_ATTACKIMPRISON_DELEGATE_30" # Aww yeah
 		
-		event_target:plot_target = {
+		event_target:imprison_target = {
 			trigger_switch = {
 			on_trigger = trait
 				zulo_form = {
@@ -4745,22 +4198,22 @@ character_event = {
 				}	
 			}
 			count_adversaries = yes
-			event_target:plot_attacker = { count_adversaries = yes }
+			event_target:imprison_attacking_char = { count_adversaries = yes }
 			#add_rival = ROOT
-			#add_rival = event_target:plot_attacker
+			#add_rival = event_target:imprison_attacking_char
 			if = {
 				limit = {
 					can_have_adversary = yes
-					event_target:plot_attacker = { can_have_adversary = yes }
+					event_target:imprison_attacking_char = { can_have_adversary = yes }
 					is_possible_adversary = yes
-					event_target:plot_attacker = { is_possible_adversary = yes }
+					event_target:imprison_attacking_char = { is_possible_adversary = yes }
 				}
 				opinion = {
 					modifier = opinion_adversary
-					who = event_target:plot_attacker
+					who = event_target:imprison_attacking_char
 					years = 500
 				}
-				event_target:plot_attacker = {
+				event_target:imprison_attacking_char = {
 					opinion = {
 						modifier = opinion_adversary
 						who = PREV
@@ -4782,7 +4235,7 @@ character_event = {
 				}
 				opinion = {
 					modifier = opinion_killed_close_kin
-					who = event_target:plot_attacker
+					who = event_target:imprison_attacking_char
 				}
 			}
 			father = {
@@ -4792,7 +4245,7 @@ character_event = {
 				}
 				opinion = {
 					modifier = opinion_killed_close_kin
-					who = event_target:plot_attacker
+					who = event_target:imprison_attacking_char
 				}
 			}
 			spouse = {
@@ -4802,7 +4255,7 @@ character_event = {
 				}
 				opinion = {
 					modifier = opinion_killed_close_kin
-					who = event_target:plot_attacker
+					who = event_target:imprison_attacking_char
 				}
 			}
 			any_child = {
@@ -4812,20 +4265,20 @@ character_event = {
 				}
 				opinion = {
 					modifier = opinion_killed_father
-					who = event_target:plot_attacker
+					who = event_target:imprison_attacking_char
 				}
 			}
 			if = {
 				limit = {
 					FROM = {
-						NOT = { dynasty = event_target:plot_attacker }
-						NOT = { sibling = event_target:plot_attacker }
+						NOT = { dynasty = event_target:imprison_attacking_char }
+						NOT = { sibling = event_target:imprison_attacking_char }
 					}
 				}
 				any_sibling = {
 					opinion = {
 						modifier = opinion_killed_close_kin
-						who = event_target:plot_attacker
+						who = event_target:imprison_attacking_char
 					}
 				}
 			}
@@ -4849,8 +4302,8 @@ character_event = {
 
 # Delegate attack failure target both injured - not found out
 character_event = {
-	id = POD_vampire_kill_plots.31
-	desc = "EVTDESC_POD_ATTACKELDER_DELEGATE_31"
+	id = POD_vampire_kill_imprison.31
+	desc = "EVTDESC_POD_ATTACKIMPRISON_DELEGATE_31"
 	picture = GFX_evt_ghoul_beating
 	border = GFX_event_normal_frame_intrigue
 	
@@ -4864,32 +4317,32 @@ character_event = {
 	immediate = {
 	}
 	option = {
-		name = "EVTOPTA_POD_ATTACKELDER_DELEGATE_31" # Aww yeah
+		name = "EVTOPTA_POD_ATTACKIMPRISON_DELEGATE_31" # Aww yeah
 		
-		event_target:plot_target = {
+		event_target:imprison_target = {
 			add_trait = severely_injured
 		}
-		event_target:plot_attacker = {
+		event_target:imprison_attacking_char = {
 			add_trait = severely_injured
 		}
 		
-		event_target:plot_target = {
-			#add_rival = event_target:plot_attacker
+		event_target:imprison_target = {
+			#add_rival = event_target:imprison_attacking_char
 			count_adversaries = yes
-			event_target:plot_attacker = { count_adversaries = yes }
+			event_target:imprison_attacking_char = { count_adversaries = yes }
 			if = {
 				limit = {
 					can_have_adversary = yes
-					event_target:plot_attacker = { can_have_adversary = yes }
+					event_target:imprison_attacking_char = { can_have_adversary = yes }
 					is_possible_adversary = yes
-					event_target:plot_attacker = { is_possible_adversary = yes }
+					event_target:imprison_attacking_char = { is_possible_adversary = yes }
 				}
 				opinion = {
 					modifier = opinion_adversary
-					who = event_target:plot_attacker
+					who = event_target:imprison_attacking_char
 					years = 500
 				}
-				event_target:plot_attacker = {
+				event_target:imprison_attacking_char = {
 					opinion = {
 						modifier = opinion_adversary
 						who = PREV
@@ -4903,8 +4356,8 @@ character_event = {
 
 # Delegate attack failure target both injured - found out
 character_event = {
-	id = POD_vampire_kill_plots.32
-	desc = "EVTDESC_POD_ATTACKELDER_DELEGATE_32"
+	id = POD_vampire_kill_imprison.32
+	desc = "EVTDESC_POD_ATTACKIMPRISON_DELEGATE_32"
 	picture = GFX_evt_ghoul_beating
 	border = GFX_event_normal_frame_intrigue
 	
@@ -4918,36 +4371,36 @@ character_event = {
 	immediate = {
 	}
 	option = {
-		name = "EVTOPTA_POD_ATTACKELDER_DELEGATE_32" # Aww yeah
+		name = "EVTOPTA_POD_ATTACKIMPRISON_DELEGATE_32" # Aww yeah
 		
-		event_target:plot_target = {
+		event_target:imprison_target = {
 			add_trait = severely_injured
 			opinion = {
 				modifier = attempted_murder
 				who = ROOT
 			}
 		}
-		event_target:plot_attacker = {
+		event_target:imprison_attacking_char = {
 			add_trait = severely_injured
 		}
 		
-		event_target:plot_target = {
-			#add_rival = event_target:plot_attacker
+		event_target:imprison_target = {
+			#add_rival = event_target:imprison_attacking_char
 			count_adversaries = yes
-			event_target:plot_attacker = { count_adversaries = yes }
+			event_target:imprison_attacking_char = { count_adversaries = yes }
 			if = {
 				limit = {
 					can_have_adversary = yes
-					event_target:plot_attacker = { can_have_adversary = yes }
+					event_target:imprison_attacking_char = { can_have_adversary = yes }
 					is_possible_adversary = yes
-					event_target:plot_attacker = { is_possible_adversary = yes }
+					event_target:imprison_attacking_char = { is_possible_adversary = yes }
 				}
 				opinion = {
 					modifier = opinion_adversary
-					who = event_target:plot_attacker
+					who = event_target:imprison_attacking_char
 					years = 500
 				}
-				event_target:plot_attacker = {
+				event_target:imprison_attacking_char = {
 					opinion = {
 						modifier = opinion_adversary
 						who = PREV
@@ -4961,8 +4414,8 @@ character_event = {
 
 # Delegate attack failure target both maimed - not found out
 character_event = {
-	id = POD_vampire_kill_plots.33
-	desc = "EVTDESC_POD_ATTACKELDER_DELEGATE_33"
+	id = POD_vampire_kill_imprison.33
+	desc = "EVTDESC_POD_ATTACKIMPRISON_DELEGATE_33"
 	picture = GFX_evt_ghoul_dies_defending
 	border = GFX_event_normal_frame_intrigue
 	
@@ -4976,32 +4429,32 @@ character_event = {
 	immediate = {
 	}
 	option = {
-		name = "EVTOPTA_POD_ATTACKELDER_DELEGATE_33" # Aww yeah
+		name = "EVTOPTA_POD_ATTACKIMPRISON_DELEGATE_33" # Aww yeah
 		
-		event_target:plot_target = {
+		event_target:imprison_target = {
 			add_trait = maimed
 		}
-		event_target:plot_attacker = {
+		event_target:imprison_attacking_char = {
 			add_trait = maimed
 		}
 		
-		event_target:plot_target = {
-			#add_rival = event_target:plot_attacker
+		event_target:imprison_target = {
+			#add_rival = event_target:imprison_attacking_char
 			count_adversaries = yes
-			event_target:plot_attacker = { count_adversaries = yes }
+			event_target:imprison_attacking_char = { count_adversaries = yes }
 			if = {
 				limit = {
 					can_have_adversary = yes
-					event_target:plot_attacker = { can_have_adversary = yes }
+					event_target:imprison_attacking_char = { can_have_adversary = yes }
 					is_possible_adversary = yes
-					event_target:plot_attacker = { is_possible_adversary = yes }
+					event_target:imprison_attacking_char = { is_possible_adversary = yes }
 				}
 				opinion = {
 					modifier = opinion_adversary
-					who = event_target:plot_attacker
+					who = event_target:imprison_attacking_char
 					years = 500
 				}
-				event_target:plot_attacker = {
+				event_target:imprison_attacking_char = {
 					opinion = {
 						modifier = opinion_adversary
 						who = PREV
@@ -5015,8 +4468,8 @@ character_event = {
 
 # Delegate attack failure target both maimed - found out
 character_event = {
-	id = POD_vampire_kill_plots.34
-	desc = "EVTDESC_POD_ATTACKELDER_DELEGATE_34"
+	id = POD_vampire_kill_imprison.34
+	desc = "EVTDESC_POD_ATTACKIMPRISON_DELEGATE_34"
 	picture = GFX_evt_ghoul_dies_defending
 	border = GFX_event_normal_frame_intrigue
 	
@@ -5030,36 +4483,36 @@ character_event = {
 	immediate = {
 	}
 	option = {
-		name = "EVTOPTA_POD_ATTACKELDER_DELEGATE_34" # Aww yeah
+		name = "EVTOPTA_POD_ATTACKIMPRISON_DELEGATE_34" # Aww yeah
 		
-		event_target:plot_target = {
+		event_target:imprison_target = {
 			add_trait = maimed
 			opinion = {
 				modifier = attempted_murder
 				who = ROOT
 			}
 		}
-		event_target:plot_attacker = {
+		event_target:imprison_attacking_char = {
 			add_trait = maimed
 		}
 		
-		event_target:plot_target = {
-			#add_rival = event_target:plot_attacker
+		event_target:imprison_target = {
+			#add_rival = event_target:imprison_attacking_char
 			count_adversaries = yes
-			event_target:plot_attacker = { count_adversaries = yes }
+			event_target:imprison_attacking_char = { count_adversaries = yes }
 			if = {
 				limit = {
 					can_have_adversary = yes
-					event_target:plot_attacker = { can_have_adversary = yes }
+					event_target:imprison_attacking_char = { can_have_adversary = yes }
 					is_possible_adversary = yes
-					event_target:plot_attacker = { is_possible_adversary = yes }
+					event_target:imprison_attacking_char = { is_possible_adversary = yes }
 				}
 				opinion = {
 					modifier = opinion_adversary
-					who = event_target:plot_attacker
+					who = event_target:imprison_attacking_char
 					years = 500
 				}
-				event_target:plot_attacker = {
+				event_target:imprison_attacking_char = {
 					opinion = {
 						modifier = opinion_adversary
 						who = PREV
@@ -5073,8 +4526,8 @@ character_event = {
 
 # Haven attack failure attacker killed - not found out
 character_event = {
-	id = POD_vampire_kill_plots.35
-	desc = "EVTDESC_POD_ATTACKELDER_DELEGATE_35"
+	id = POD_vampire_kill_imprison.35
+	desc = "EVTDESC_POD_ATTACKIMPRISON_DELEGATE_35"
 	picture = GFX_evt_ghoul_dies_defending
 	border = GFX_event_normal_frame_intrigue
 	
@@ -5088,12 +4541,12 @@ character_event = {
 	immediate = {
 	}
 	option = {
-		name = "EVTOPTA_POD_ATTACKELDER_DELEGATE_35" # Aww yeah
+		name = "EVTOPTA_POD_ATTACKIMPRISON_DELEGATE_35" # Aww yeah
 		
-		event_target:plot_attacker = {
+		event_target:imprison_attacking_char = {
 			death = {
 				death_reason = death_battle
-				killer = event_target:plot_target
+				killer = event_target:imprison_target
 			}
 		}
 	}
@@ -5101,8 +4554,8 @@ character_event = {
 
 # Haven attack failure attacker killed - found out
 character_event = {
-	id = POD_vampire_kill_plots.36
-	desc = "EVTDESC_POD_ATTACKELDER_DELEGATE_36"
+	id = POD_vampire_kill_imprison.36
+	desc = "EVTDESC_POD_ATTACKIMPRISON_DELEGATE_36"
 	picture = GFX_evt_ghoul_dies_defending
 	border = GFX_event_normal_frame_intrigue
 	
@@ -5116,15 +4569,15 @@ character_event = {
 	immediate = {
 	}
 	option = {
-		name = "EVTOPTA_POD_ATTACKELDER_DELEGATE_36" # Aww yeah
+		name = "EVTOPTA_POD_ATTACKIMPRISON_DELEGATE_36" # Aww yeah
 		
-		event_target:plot_attacker = {
+		event_target:imprison_attacking_char = {
 			death = {
 				death_reason = death_battle
-				killer = event_target:plot_target
+				killer = event_target:imprison_target
 			}
 		}
-		event_target:plot_target = {
+		event_target:imprison_target = {
 			opinion = {
 				modifier = attempted_murder
 				who = ROOT
@@ -5135,8 +4588,8 @@ character_event = {
 
 # Vampire plot stats event
 character_event = {
-	id = POD_vampire_kill_plots.100
-	desc = "EVTDESC_POD_ATTACKELDERSTATS"
+	id = POD_vampire_kill_imprison.100
+	desc = "EVTDESC_POD_ATTACKIMPRISONSTATS"
 	picture = GFX_evt_vampire_rumbles_and_intrigues_i
 	border = GFX_event_normal_frame_intrigue
 	
@@ -5146,27 +4599,27 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA_POD_ATTACKELDERSTATS"
-		character_event = { id = POD_vampire_kill_plots.101 }
+		name = "EVTOPTA_POD_ATTACKIMPRISONSTATS"
+		character_event = { id = POD_vampire_kill_imprison.101 }
 	}
 	option = {
-		name = "EVTOPTB_POD_ATTACKELDERSTATS" 
-		character_event = { id = POD_vampire_kill_plots.102 }
+		name = "EVTOPTB_POD_ATTACKIMPRISONSTATS" 
+		character_event = { id = POD_vampire_kill_imprison.102 }
 	}
 	option = {
-		name = "EVTOPTC_POD_ATTACKELDERSTATS"
-		character_event = { id = POD_vampire_kill_plots.103 }
+		name = "EVTOPTC_POD_ATTACKIMPRISONSTATS"
+		character_event = { id = POD_vampire_kill_imprison.103 }
 	}
 	option = {
-		name = "EVTOPTD_POD_ATTACKELDERSTATS"
+		name = "EVTOPTD_POD_ATTACKIMPRISONSTATS"
 		character_event = { id = POD_generic_kill_plots.100 }
 	}
 }
 
 # Vampire plot stats event
 character_event = {
-	id = POD_vampire_kill_plots.101
-	desc = "EVTDESC_POD_ATTACKELDERSTATS1"
+	id = POD_vampire_kill_imprison.101
+	desc = "EVTDESC_POD_ATTACKIMPRISONSTATS1"
 	picture = GFX_evt_vampire_rumbles_and_intrigues_i
 	border = GFX_event_normal_frame_intrigue
 	
@@ -5176,15 +4629,15 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA_POD_ATTACKELDERSTATS1"
-		character_event = { id = POD_vampire_kill_plots.100 }
+		name = "EVTOPTA_POD_ATTACKIMPRISONSTATS1"
+		character_event = { id = POD_vampire_kill_imprison.100 }
 	}
 }
 
 # Vampire plot stats event
 character_event = {
-	id = POD_vampire_kill_plots.102
-	desc = "EVTDESC_POD_ATTACKELDERSTATS2"
+	id = POD_vampire_kill_imprison.102
+	desc = "EVTDESC_POD_ATTACKIMPRISONSTATS2"
 	picture = GFX_evt_vampire_rumbles_and_intrigues_i
 	border = GFX_event_normal_frame_intrigue
 	
@@ -5194,16 +4647,16 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA_POD_ATTACKELDERSTATS2"
-		character_event = { id = POD_vampire_kill_plots.100 }
+		name = "EVTOPTA_POD_ATTACKIMPRISONSTATS2"
+		character_event = { id = POD_vampire_kill_imprison.100 }
 	}
 }
 
 
 # Vampire plot stats event
 character_event = {
-	id = POD_vampire_kill_plots.103
-	desc = "EVTDESC_POD_ATTACKELDERSTATS3"
+	id = POD_vampire_kill_imprison.103
+	desc = "EVTDESC_POD_ATTACKIMPRISONSTATS3"
 	picture = GFX_evt_vampire_rumbles_and_intrigues_i
 	border = GFX_event_normal_frame_intrigue
 	
@@ -5213,512 +4666,8 @@ character_event = {
 	}
 	
 	option = {
-		name = "EVTOPTA_POD_ATTACKELDERSTATS3"
-		character_event = { id = POD_vampire_kill_plots.100 }
-	}
-}
-
-# Vampire plot stats event
-character_event = {
-	id = POD_vampire_kill_plots.200
-	
-	is_triggered_only = yes
-	hide_window = yes
-	
-	trigger = {
-		is_alive = yes
-		NOT = { trait = torpor }
-		has_character_flag = is_aiming_at_an_elder
-		has_plot = plot_kill_elder
-		OR = {
-			NOT = { has_character_flag = murder_in_motion }
-			had_character_flag = { flag = murder_in_motion days = 100 }
-		}
-		NOT = { has_character_flag = attack_elder_reckless }
-		NOT = { has_character_flag = attack_elder_breakthrough_5 }
-	}
-	
-	immediate = {
-		plot_target_char = {
-			save_event_target_as = my_target
-		}
-		#character_event = { id = POD_vampire_kill_plots.201 }
-		if = {
-			limit = {
-				has_character_flag = is_aiming_at_an_elder
-			}
-			log = "HAS THE FLAG TO KILL THE ELDER BRO"
-		}
-		random_list = {
-			5 = {
-				log = "YOHOOO: advance plot chance happened"
-				if = {
-					limit = { NOT = { has_character_flag = attack_elder_breakthrough_1 } }
-					log = "YOHOOO: advance plot chance 1 happened"
-					character_event = { id = POD_vampire_kill_plots.201 }
-				}else_if = {
-					limit = { NOT = { has_character_flag = attack_elder_breakthrough_2 } }
-					log = "YOHOOO: advance plot chance 2 happened"
-					character_event = { id = POD_vampire_kill_plots.202 }
-				}
-				else_if = {
-					limit = { NOT = { has_character_flag = attack_elder_breakthrough_3 } }
-					log = "YOHOOO: advance plot chance 3 happened"
-					character_event = { id = POD_vampire_kill_plots.203 }
-				}
-				else_if = {
-					limit = { NOT = { has_character_flag = attack_elder_breakthrough_4 } }
-					log = "YOHOOO: advance plot chance 4 happened"
-					character_event = { id = POD_vampire_kill_plots.204 }
-				}
-				else_if = {
-					limit = { NOT = { has_character_flag = attack_elder_breakthrough_5 } }
-					log = "YOHOOO: advance plot chance 5 happened"
-					character_event = { id = POD_vampire_kill_plots.205 }
-				}
-			}
-			8 = {
-				#womp womp
-				log = "YOHOOO: nothing happened"
-			}
-		}
-		
-	}
-}
-
-
-# Attack Elder Progress 1
-character_event = {
-	id = POD_vampire_kill_plots.201
-	desc = {
-		trigger = {
-			has_character_flag = attack_elder_breakthrough_1
-		}
-		text = EVTDESC_POD_ATTACKELDER_PROGRESS_1.1
-	}
-	desc = {
-		trigger = {
-			NOT = { has_character_flag = attack_elder_breakthrough_1 }
-		}
-		text = EVTDESC_POD_ATTACKELDER_PROGRESS_1.2
-	}
-	picture = GFX_evt_ghoul_nos_basement_conspiracy
-	border = GFX_event_normal_frame_intrigue
-	
-	is_triggered_only = yes
-	
-	trigger = {
-		is_alive = yes
-		NOT = { trait = torpor }
-		has_character_flag = is_aiming_at_an_elder
-		has_plot = plot_kill_elder
-	}
-	
-	immediate = {
-		log = "Running 201 now"
-		random_list = {
-			24 = {
-				modifier = {
-					factor = 0.8
-					intrigue = 10
-				}
-				modifier = {
-					factor = 0.6
-					intrigue = 20
-				}
-				modifier = {
-					factor = 0.5
-					intrigue = 30
-				}
-			}
-			5 = {
-				set_character_flag = attack_elder_breakthrough_1
-			}
-		}
-	}
-	option = {
-		name = "EVTOPTA_POD_ATTACKELDER_PROGRESS_1" # Highway to hell
-		hidden_tooltip = {
-			set_character_flag = attack_elder_breakthrough_1
-			set_character_flag = attack_elder_breakthrough_2
-			set_character_flag = attack_elder_breakthrough_3
-			set_character_flag = attack_elder_breakthrough_4
-			set_character_flag = attack_elder_breakthrough_5
-			set_character_flag = attack_elder_reckless
-		}
-	}
-	option = {
-		name = "EVTOPTB_POD_ATTACKELDER_PROGRESS_1" # Money, it's a crime
-		trigger = {
-			NOT = { has_character_flag = attack_elder_breakthrough_1 }
-			scaled_wealth = 2.0
-		}
-		scaled_wealth = -2.0
-		hidden_tooltip = {
-			set_character_flag = attack_elder_breakthrough_1
-		}
-		
-	}
-	option = {
-		name = "EVTOPTC_POD_ATTACKELDER_PROGRESS_1" # Steady as she blows
-		trigger = {
-			NOT = { has_character_flag = attack_elder_breakthrough_1 }
-		}
-	}
-	
-	option = {
-		name = "EVTOPTD_POD_ATTACKELDER_PROGRESS_1" # Vroom
-		trigger = {
-			has_character_flag = attack_elder_breakthrough_1
-		}
-	}
-}
-
-# Attack Elder Progress 2
-character_event = {
-	id = POD_vampire_kill_plots.202
-	desc = {
-		trigger = {
-			has_character_flag = attack_elder_breakthrough_2
-		}
-		text = EVTDESC_POD_ATTACKELDER_PROGRESS_2.1
-	}
-	desc = {
-		trigger = {
-			NOT = { has_character_flag = attack_elder_breakthrough_2 }
-		}
-		text = EVTDESC_POD_ATTACKELDER_PROGRESS_2.2
-	}
-	picture = GFX_evt_ghoul_nos_basement_conspiracy
-	border = GFX_event_normal_frame_intrigue
-	
-	is_triggered_only = yes
-	
-	trigger = {
-		is_alive = yes
-		NOT = { trait = torpor }
-		has_character_flag = is_aiming_at_an_elder
-		has_plot = plot_kill_elder
-	}
-	
-	immediate = {
-		random_list = {
-			24 = {
-				modifier = {
-					factor = 0.8
-					intrigue = 10
-				}
-				modifier = {
-					factor = 0.6
-					intrigue = 20
-				}
-				modifier = {
-					factor = 0.5
-					intrigue = 30
-				}
-			}
-			5 = {
-				set_character_flag = attack_elder_breakthrough_2
-			}
-		}
-	}
-	option = {
-		name = "EVTOPTA_POD_ATTACKELDER_PROGRESS_2" # Highway to hell
-		hidden_tooltip = {
-			set_character_flag = attack_elder_breakthrough_1
-			set_character_flag = attack_elder_breakthrough_2
-			set_character_flag = attack_elder_breakthrough_3
-			set_character_flag = attack_elder_breakthrough_4
-			set_character_flag = attack_elder_breakthrough_5
-			set_character_flag = attack_elder_reckless
-		}
-	}
-	option = {
-		name = "EVTOPTB_POD_ATTACKELDER_PROGRESS_2" # Money, it's a crime
-		trigger = {
-			NOT = { has_character_flag = attack_elder_breakthrough_2 }
-			scaled_wealth = 2.0
-		}
-		scaled_wealth = -2.0
-		hidden_tooltip = {
-			set_character_flag = attack_elder_breakthrough_2
-		}
-		
-	}
-	option = {
-		name = "EVTOPTC_POD_ATTACKELDER_PROGRESS_2" # Steady as she blows
-		trigger = {
-			NOT = { has_character_flag = attack_elder_breakthrough_2 }
-		}
-	}
-	
-	option = {
-		name = "EVTOPTD_POD_ATTACKELDER_PROGRESS_2" # Vroom
-		trigger = {
-			has_character_flag = attack_elder_breakthrough_2
-		}
-	}
-}
-
-# Attack Elder Progress 3
-character_event = {
-	id = POD_vampire_kill_plots.203
-	desc = {
-		trigger = {
-			has_character_flag = attack_elder_breakthrough_3
-		}
-		text = EVTDESC_POD_ATTACKELDER_PROGRESS_3.1
-	}
-	desc = {
-		trigger = {
-			NOT = { has_character_flag = attack_elder_breakthrough_3 }
-		}
-		text = EVTDESC_POD_ATTACKELDER_PROGRESS_3.2
-	}
-	picture = GFX_evt_ghoul_nos_basement_conspiracy
-	border = GFX_event_normal_frame_intrigue
-	
-	is_triggered_only = yes
-	
-	trigger = {
-		is_alive = yes
-		NOT = { trait = torpor }
-		has_character_flag = is_aiming_at_an_elder
-		has_plot = plot_kill_elder
-	}
-	
-	immediate = {
-		random_list = {
-			24 = {
-				modifier = {
-					factor = 0.8
-					intrigue = 10
-				}
-				modifier = {
-					factor = 0.6
-					intrigue = 20
-				}
-				modifier = {
-					factor = 0.5
-					intrigue = 30
-				}
-			}
-			5 = {
-				set_character_flag = attack_elder_breakthrough_3
-			}
-		}
-	}
-	option = {
-		name = "EVTOPTA_POD_ATTACKELDER_PROGRESS_3" # Highway to hell
-		hidden_tooltip = {
-			set_character_flag = attack_elder_breakthrough_1
-			set_character_flag = attack_elder_breakthrough_2
-			set_character_flag = attack_elder_breakthrough_3
-			set_character_flag = attack_elder_breakthrough_4
-			set_character_flag = attack_elder_breakthrough_5
-			set_character_flag = attack_elder_reckless
-		}
-	}
-	option = {
-		name = "EVTOPTB_POD_ATTACKELDER_PROGRESS_3" # Money, it's a crime
-		trigger = {
-			NOT = { has_character_flag = attack_elder_breakthrough_3 }
-			scaled_wealth = 2.0
-		}
-		scaled_wealth = -2.0
-		hidden_tooltip = {
-			set_character_flag = attack_elder_breakthrough_3
-		}
-		
-	}
-	option = {
-		name = "EVTOPTC_POD_ATTACKELDER_PROGRESS_3" # Steady as she blows
-		trigger = {
-			NOT = { has_character_flag = attack_elder_breakthrough_3 }
-		}
-	}
-	
-	option = {
-		name = "EVTOPTD_POD_ATTACKELDER_PROGRESS_3" # Vroom
-		trigger = {
-			has_character_flag = attack_elder_breakthrough_3
-		}
-	}
-}
-
-# Attack Elder Progress 4
-character_event = {
-	id = POD_vampire_kill_plots.204
-	desc = {
-		trigger = {
-			has_character_flag = attack_elder_breakthrough_4
-		}
-		text = EVTDESC_POD_ATTACKELDER_PROGRESS_4.1
-	}
-	desc = {
-		trigger = {
-			NOT = { has_character_flag = attack_elder_breakthrough_4 }
-		}
-		text = EVTDESC_POD_ATTACKELDER_PROGRESS_4.2
-	}
-	picture = GFX_evt_ghoul_nos_basement_conspiracy
-	border = GFX_event_normal_frame_intrigue
-	
-	is_triggered_only = yes
-	
-	trigger = {
-		is_alive = yes
-		NOT = { trait = torpor }
-		has_character_flag = is_aiming_at_an_elder
-		has_plot = plot_kill_elder
-	}
-	
-	immediate = {
-		random_list = {
-			24 = {
-				modifier = {
-					factor = 0.8
-					intrigue = 10
-				}
-				modifier = {
-					factor = 0.6
-					intrigue = 20
-				}
-				modifier = {
-					factor = 0.5
-					intrigue = 30
-				}
-			}
-			5 = {
-				set_character_flag = attack_elder_breakthrough_4
-			}
-		}
-	}
-	option = {
-		name = "EVTOPTA_POD_ATTACKELDER_PROGRESS_4" # Highway to hell
-		hidden_tooltip = {
-			set_character_flag = attack_elder_breakthrough_1
-			set_character_flag = attack_elder_breakthrough_2
-			set_character_flag = attack_elder_breakthrough_3
-			set_character_flag = attack_elder_breakthrough_4
-			set_character_flag = attack_elder_breakthrough_5
-			set_character_flag = attack_elder_reckless
-		}
-	}
-	option = {
-		name = "EVTOPTB_POD_ATTACKELDER_PROGRESS_4" # Money, it's a crime
-		trigger = {
-			NOT = { has_character_flag = attack_elder_breakthrough_4 }
-			scaled_wealth = 2.0
-		}
-		scaled_wealth = -2.0
-		hidden_tooltip = {
-			set_character_flag = attack_elder_breakthrough_4
-		}
-		
-	}
-	option = {
-		name = "EVTOPTC_POD_ATTACKELDER_PROGRESS_4" # Steady as she blows
-		trigger = {
-			NOT = { has_character_flag = attack_elder_breakthrough_4 }
-		}
-	}
-	
-	option = {
-		name = "EVTOPTD_POD_ATTACKELDER_PROGRESS_4" # Vroom
-		trigger = {
-			has_character_flag = attack_elder_breakthrough_4
-		}
-	}
-}
-
-# Attack Elder Progress 5
-character_event = {
-	id = POD_vampire_kill_plots.205
-	desc = {
-		trigger = {
-			has_character_flag = attack_elder_breakthrough_5
-		}
-		text = EVTDESC_POD_ATTACKELDER_PROGRESS_5.1
-	}
-	desc = {
-		trigger = {
-			NOT = { has_character_flag = attack_elder_breakthrough_5 }
-		}
-		text = EVTDESC_POD_ATTACKELDER_PROGRESS_5.2
-	}
-	picture = GFX_evt_ghoul_nos_basement_conspiracy
-	border = GFX_event_normal_frame_intrigue
-	
-	is_triggered_only = yes
-	
-	trigger = {
-		is_alive = yes
-		NOT = { trait = torpor }
-		has_character_flag = is_aiming_at_an_elder
-		has_plot = plot_kill_elder
-	}
-	
-	immediate = {
-		random_list = {
-			24 = {
-				modifier = {
-					factor = 0.8
-					intrigue = 10
-				}
-				modifier = {
-					factor = 0.6
-					intrigue = 20
-				}
-				modifier = {
-					factor = 0.5
-					intrigue = 30
-				}
-				modifier = {
-					factor = 0.3
-					intrigue = 40
-				}
-			}
-			5 = {
-				set_character_flag = attack_elder_breakthrough_5
-			}
-		}
-	}
-	option = {
-		name = "EVTOPTA_POD_ATTACKELDER_PROGRESS_5" # Highway to hell
-		hidden_tooltip = {
-			set_character_flag = attack_elder_breakthrough_1
-			set_character_flag = attack_elder_breakthrough_2
-			set_character_flag = attack_elder_breakthrough_3
-			set_character_flag = attack_elder_breakthrough_4
-			set_character_flag = attack_elder_breakthrough_5
-			set_character_flag = attack_elder_reckless
-		}
-	}
-	option = {
-		name = "EVTOPTB_POD_ATTACKELDER_PROGRESS_5" # Money, it's a crime
-		trigger = {
-			NOT = { has_character_flag = attack_elder_breakthrough_5 }
-			scaled_wealth = 2.0
-		}
-		scaled_wealth = -2.0
-		hidden_tooltip = {
-			set_character_flag = attack_elder_breakthrough_5
-		}
-		
-	}
-	option = {
-		name = "EVTOPTC_POD_ATTACKELDER_PROGRESS_5" # Steady as she blows
-		trigger = {
-			NOT = { has_character_flag = attack_elder_breakthrough_5 }
-		}
-	}
-	
-	option = {
-		name = "EVTOPTD_POD_ATTACKELDER_PROGRESS_5" # Vroom
-		trigger = {
-			has_character_flag = attack_elder_breakthrough_5
-		}
+		name = "EVTOPTA_POD_ATTACKIMPRISONSTATS3"
+		character_event = { id = POD_vampire_kill_imprison.100 }
 	}
 }
 

@@ -239,3 +239,54 @@ pod_cleanse_all_mortal_influence= {
 }
 pod_cleanse_secret_society = {
 }
+pod_player_elder_imprison_effect = {
+	FROM = {
+		if = {
+			limit = { 
+				ai = no
+				ROOT = { NOT = { trait = torpor } }
+			}
+			log = "[From.GetTitledName] is player, going to events"
+			ROOT = {
+				save_event_target_as = imprison_target
+			}
+			character_event = { id = POD_vampire_kill_imprison.1 }
+		}
+	}
+}
+pod_reset_kill_elder_flags = {
+	#log = "YOHOO: checking to clear kill elder flags"
+	if = {
+		limit = { has_character_flag = attack_elder_breakthrough_1 }
+		clr_character_flag = attack_elder_breakthrough_1
+	}
+	if = {
+		limit = { has_character_flag = attack_elder_breakthrough_2 }
+		clr_character_flag = attack_elder_breakthrough_2
+	}
+	if = {
+		limit = { has_character_flag = attack_elder_breakthrough_3 }
+		clr_character_flag = attack_elder_breakthrough_3
+	}
+	if = {
+		limit = { has_character_flag = attack_elder_breakthrough_4 }
+		clr_character_flag = attack_elder_breakthrough_4
+	}
+	if = {
+		limit = { has_character_flag = attack_elder_breakthrough_5 }
+		clr_character_flag = attack_elder_breakthrough_5
+	}
+	if = {
+		limit = { has_character_flag = attack_elder_reckless }
+		clr_character_flag = attack_elder_reckless
+	}
+	if = {
+		limit = { has_character_flag = is_aiming_at_an_elder }
+		clr_character_flag = is_aiming_at_an_elder
+	}
+}
+
+pod_set_kill_elder_flag = {
+	#log = "SETTING ELDER KILLING FLAG"
+	set_character_flag = is_aiming_at_an_elder
+}

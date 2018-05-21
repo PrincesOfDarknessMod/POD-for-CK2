@@ -41,7 +41,7 @@ character_event = {
 		plot_power_contribution = 
 		{
 			plotter = ROOT
-			power = 0.025
+			power = 0.020
 		}
 	}
 	
@@ -223,24 +223,31 @@ character_event = {
 		}
 		modifier = {
 			factor = 0.43
-			any_backed_character = {
-				has_plot = plot_kill_character
-				plot_power = 1.0
-			}
+			plot_power = 1.0
 		}
 		modifier = {
 			factor = 0.43
-			any_backed_character = {
-				has_plot = plot_kill_character
-				plot_power = 1.5
-			}
+			plot_power = 1.5
 		}
 		modifier = {
-			factor = 0.43
-			any_backed_character = {
-				has_plot = plot_kill_character
-				plot_power = 2.0
-			}
+			factor = 0.2
+			plot_power = 2.0
+		}
+		modifier = {
+			factor = 0.2
+			plot_power = 2.5
+		}
+		modifier = {
+			factor = 0.01
+			plot_power = 3.0
+		}
+		modifier = {
+			factor = 0.01
+			plot_power = 3.5
+		}
+		modifier = {
+			factor = 0.01
+			plot_power = 4.0
 		}
 		modifier = {
 			factor = 1.5
@@ -289,27 +296,43 @@ character_event = {
 			intrigue = 40
 		}
 		modifier = {
+			factor = 0.8
+			higher_tier_than = BARON
+		}
+		modifier = {
+			factor = 0.6
+			higher_tier_than = COUNT
+		}
+		modifier = {
+			factor = 0.4
+			higher_tier_than = DUKE
+		}
+		modifier = {
+			factor = 0.3
+			higher_tier_than = KING
+		}
+		modifier = {
 			factor = 1.5
 			plot_target_char = {
-				primary_title = { higher_tier_than = BARON }
+				higher_tier_than = BARON
 			}
 		}
 		modifier = {
 			factor = 3
 			plot_target_char = {
-				primary_title = { higher_tier_than = COUNT }
+				higher_tier_than = COUNT
 			}
 		}
 		modifier = {
 			factor = 6
 			plot_target_char = {
-				primary_title = { higher_tier_than = DUKE }
+				higher_tier_than = DUKE
 			}
 		}
 		modifier = {
 			factor = 10
 			plot_target_char = {
-				primary_title = { higher_tier_than = KING }
+				higher_tier_than = KING
 			}
 		}
 		modifier = {

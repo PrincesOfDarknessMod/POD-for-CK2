@@ -1106,7 +1106,7 @@ character_event = {
 				has_strong_generation = yes
 			}
 			random = {
-				chance = 50
+				chance = 33
 				prisoner = no
 				log = "STRONG PRISONER RELEASE: [This.GetTitledName] released from prison, clean up event"
 			}
@@ -1368,31 +1368,110 @@ character_event = {
 		if = {
 			limit = {
 				trait = vampire
-				OR = {
-					trait = obtenebration_5
-					trait = protean_5
-					trait = vicissitude_5
-					trait = obfuscate_5
-					has_powerful_generation = yes
-				}
+				is_powerful_vampire_escape = yes
 			}
 			log = "POWERFUL PRISONER RELEASE: [This.GetTitledName] released from prison, on prison event"
 			prisoner = no
+			pod_player_elder_imprison_effect = yes
+		}else_if = {
+			limit = {
+				trait = vampire
+				trait = vampgeneration6
+			}
+			random_list = {
+				5 = {
+					log = "STRONG 6gen PRISONER IMPRISONED: [This.GetTitledName] imprisoned, on prison event" 
+				}
+				10 = {
+					prisoner = no
+					log = "STRONG 6gen PRISONER RELEASE: [This.GetTitledName] released from prison, on prison event"
+					pod_player_elder_imprison_effect = yes
+				}
+			}
 		}else_if = {
 			limit = {
 				trait = vampire
 				has_strong_generation = yes
 			}
 			random_list = {
-				5 = {
-					log = "STRONG PRISONER IMPRISONED: [This.GetTitledName] imprisoned, on prison event" 
+				20 = {
+					log = "STRONG GEN PRISONER IMPRISONED: [This.GetTitledName] imprisoned, on prison event" 
 				}
 				5 = {
 					prisoner = no
-					log = "STRONG PRISONER RELEASE: [This.GetTitledName] released from prison, on prison event"
+					log = "STRONG GEN PRISONER RELEASE: [This.GetTitledName] released from prison, on prison event"
+					pod_player_elder_imprison_effect = yes
 				}
 			}
 		}
 		}
+	}
+}
+
+character_event = {
+    id = POD_court_controllers.300
+	
+    is_triggered_only = yes
+	hide_window = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				higher_tier_than = BARON
+			}
+			log = "Is count"
+		}
+		if = {
+			limit = {
+				higher_tier_than = COUNT
+			}
+			log = "Is duke"
+		}
+		if = {
+			limit = {
+				higher_tier_than = DUKE
+			}
+			log = "Is king"
+		}
+		if = {
+			limit = {
+				higher_tier_than = KING
+			}
+			log = "Is emperor"
+		}
+		if = {
+			limit = {
+				plot_power = 1.0
+			}
+			log = "Power is 1.0"
+		}
+		if = {
+			limit = {
+				plot_power = 2.0
+			}
+			log = "Power is 2.0"
+		}
+		if = {
+			limit = {
+				plot_power = 3.0
+			}
+			log = "Power is 3.0"
+		}
+		if = {
+			limit = {
+				plot_power = 4.0
+			}
+			log = "Power is 4.0"
+		}
+	}
+}
+character_event = {
+    id = POD_court_controllers.301
+	
+    is_triggered_only = yes
+	hide_window = yes
+	
+	immediate = {
+		log = "Prisoner escaped player"
 	}
 }
