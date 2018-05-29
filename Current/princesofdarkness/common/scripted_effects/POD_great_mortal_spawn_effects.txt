@@ -43,12 +43,14 @@ pod_spawn_great_person_effect = {
 		limit = {
 			any_player = {
 				NOT = { distance = { who = new_character value = 350 } }
+				trait = vampire
 			}
 		}
 		set_character_flag = PLAYER_FOUND_SIRE
 		random_player = {
 			limit = {
 				NOT = { distance = { who = new_character value = 350 } }
+				trait = vampire
 			}
 			character_event = { id = POD_great_childer_events.10 days = 1 random = 40 }
 		}

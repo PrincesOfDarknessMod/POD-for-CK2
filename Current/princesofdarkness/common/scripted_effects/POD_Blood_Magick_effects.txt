@@ -1,0 +1,476 @@
+pod_count_willpower = {
+	set_variable = { which = willpower_value value = 0 }
+	pod_count_personality_traits_willpower = yes
+	pod_count_learning_prowess_willpower = yes
+	pod_count_magickal_prowess_willpower = yes
+	pod_count_age_and_blood_willpower = yes
+}
+
+pod_clear_magick_flags = {
+	if = { limit = { has_character_flag = ritual_success } clr_character_flag = ritual_success }
+	if = { limit = { has_character_flag = ritual_failure } clr_character_flag = ritual_failure }
+	if = { limit = { has_character_flag = weak_success } clr_character_flag = weak_success }
+	if = { limit = { has_character_flag = average_success } clr_character_flag = average_success }
+	if = { limit = { has_character_flag = strong_success } clr_character_flag = strong_success }
+	if = { limit = { has_character_flag = superb_success } clr_character_flag = superb_success }
+}
+
+pod_give_ritual_flag = {
+	if = { 
+		limit = { has_character_flag = ritual_flag }
+		clr_character_flag = ritual_flag 
+	}
+	set_character_flag = ritual_flag
+}
+
+pod_easy_ritual_success_check = {
+	random_list = {
+		5 = {
+			modifier = {
+				factor = 2
+				check_variable = { which = magick_effect_level value = 0 }
+			}
+			modifier = {
+				factor = 1.5
+				check_variable = { which = magick_effect_level value = 2 }
+			}
+			modifier = {
+				factor = 1.5
+				check_variable = { which = magick_effect_level value = 4 }
+			}
+			modifier = {
+				factor = 1.5
+				check_variable = { which = magick_effect_level value = 6 }
+			}
+			modifier = {
+				factor = 1.5
+				check_variable = { which = magick_effect_level value = 8 }
+			}
+			modifier = {
+				factor = 1.5
+				check_variable = { which = magick_effect_level value = 10 }
+			}
+			modifier = {
+				factor = 1.5
+				check_variable = { which = magick_effect_level value = 12 }
+			}
+			set_character_flag = ritual_success
+		}
+		5 = {
+			modifier = {
+				factor = 2
+				NOT = { check_variable = { which = magick_effect_level value = 1 } }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { check_variable = { which = magick_effect_level value = -1 } }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { check_variable = { which = magick_effect_level value = -2 } }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { check_variable = { which = magick_effect_level value = -3 } }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { check_variable = { which = magick_effect_level value = -4 } }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { check_variable = { which = magick_effect_level value = -5 } }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { check_variable = { which = magick_effect_level value = -6 } }
+			}
+			set_character_flag = ritual_failure
+		}
+	}
+}
+
+pod_average_ritual_success_check = {
+	random_list = {
+		5 = {
+			modifier = {
+				factor = 2
+				check_variable = { which = magick_effect_level value = 0 }
+			}
+			modifier = {
+				factor = 1.5
+				check_variable = { which = magick_effect_level value = 2 }
+			}
+			modifier = {
+				factor = 1.5
+				check_variable = { which = magick_effect_level value = 4 }
+			}
+			modifier = {
+				factor = 1.5
+				check_variable = { which = magick_effect_level value = 6 }
+			}
+			modifier = {
+				factor = 1.5
+				check_variable = { which = magick_effect_level value = 8 }
+			}
+			modifier = {
+				factor = 1.5
+				check_variable = { which = magick_effect_level value = 10 }
+			}
+			modifier = {
+				factor = 1.5
+				check_variable = { which = magick_effect_level value = 12 }
+			}
+			set_character_flag = ritual_success
+		}
+		10 = {
+			modifier = {
+				factor = 2
+				NOT = { check_variable = { which = magick_effect_level value = 1 } }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { check_variable = { which = magick_effect_level value = -1 } }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { check_variable = { which = magick_effect_level value = -2 } }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { check_variable = { which = magick_effect_level value = -3 } }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { check_variable = { which = magick_effect_level value = -4 } }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { check_variable = { which = magick_effect_level value = -5 } }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { check_variable = { which = magick_effect_level value = -6 } }
+			}
+			set_character_flag = ritual_failure
+		}
+	}
+}
+
+pod_hard_ritual_success_check = {
+	random_list = {
+		5 = {
+			modifier = {
+				factor = 2
+				check_variable = { which = magick_effect_level value = 0 }
+			}
+			modifier = {
+				factor = 1.5
+				check_variable = { which = magick_effect_level value = 2 }
+			}
+			modifier = {
+				factor = 1.5
+				check_variable = { which = magick_effect_level value = 4 }
+			}
+			modifier = {
+				factor = 1.5
+				check_variable = { which = magick_effect_level value = 6 }
+			}
+			modifier = {
+				factor = 1.5
+				check_variable = { which = magick_effect_level value = 8 }
+			}
+			modifier = {
+				factor = 1.5
+				check_variable = { which = magick_effect_level value = 10 }
+			}
+			modifier = {
+				factor = 1.5
+				check_variable = { which = magick_effect_level value = 12 }
+			}
+			set_character_flag = ritual_success
+		}
+		20 = {
+			modifier = {
+				factor = 2
+				NOT = { check_variable = { which = magick_effect_level value = 1 } }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { check_variable = { which = magick_effect_level value = -1 } }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { check_variable = { which = magick_effect_level value = -2 } }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { check_variable = { which = magick_effect_level value = -3 } }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { check_variable = { which = magick_effect_level value = -4 } }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { check_variable = { which = magick_effect_level value = -5 } }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { check_variable = { which = magick_effect_level value = -6 } }
+			}
+			set_character_flag = ritual_failure
+		}
+	}
+}
+
+pod_how_successful_ritual = {
+	if = {
+		limit = {
+			has_character_flag = ritual_success
+		}
+		random_list = {
+			5 = {
+				modifier = {
+					factor = 2
+					check_variable = { which = magick_effect_level value = 1 }
+				}
+				set_character_flag = weak_success
+			}
+			5 = {
+				modifier = {
+					factor = 2
+					check_variable = { which = magick_effect_level value = 3 }
+				}
+				set_character_flag = average_success
+			}
+			5 = {
+				modifier = {
+					factor = 5
+					check_variable = { which = magick_effect_level value = 5 }
+				}
+				modifier = {
+					factor = 0
+					NOT = { check_variable = { which = magick_effect_level value = 0 } }
+				}
+				set_character_flag = strong_success
+			}
+			5 = {
+				modifier = {
+					factor = 6
+					check_variable = { which = magick_effect_level value = 7 }
+				}
+				modifier = {
+					factor = 0
+					NOT = { check_variable = { which = magick_effect_level value = 0 } }
+				}
+				set_character_flag = superb_success
+			}
+		}
+	}
+}
+
+pod_count_thaumaturgy_power = {
+	set_variable = { which = magick_power value = 0 }
+	if = {
+		limit = { trait = thaumaturgy_1 }
+		change_variable = { which = magick_power value = 1 }
+	}
+	if = {
+		limit = { trait = thaumaturgy_2 }
+		change_variable = { which = magick_power value = 1 }
+	}
+	if = {
+		limit = { trait = thaumaturgy_3 }
+		change_variable = { which = magick_power value = 1 }
+	}
+	if = {
+		limit = { trait = thaumaturgy_4 }
+		change_variable = { which = magick_power value = 1 }
+	}
+	if = {
+		limit = { trait = thaumaturgy_5 }
+		change_variable = { which = magick_power value = 1 }
+	}
+	pod_count_learning_prowess_casting = yes
+	pod_count_age_and_blood_casting = yes
+}
+
+pod_count_personality_traits_willpower = {
+	if = {
+		limit = { trait = patient }
+		change_variable = { which = willpower_value value = 1 }
+	}
+	if = {
+		limit = { trait = diligent }
+		change_variable = { which = willpower_value value = 1 }
+	}
+	if = {
+		limit = { trait = stubborn }
+		change_variable = { which = willpower_value value = 1 }
+	}
+	if = {
+		limit = { trait = proud }
+		change_variable = { which = willpower_value value = 1 }
+	}
+	if = {
+		limit = { trait = genius }
+		change_variable = { which = willpower_value value = 1 }
+	}
+	if = {
+		limit = { trait = quick }
+		change_variable = { which = willpower_value value = 1 }
+	}
+	if = {
+		limit = { trait = ambitious }
+		change_variable = { which = willpower_value value = 1 }
+	}
+	if = {
+		limit = { trait = zealous }
+		change_variable = { which = willpower_value value = 1 }
+	}
+}
+pod_count_magickal_prowess_willpower = {
+	if = {
+		limit = { trait = thaumaturgy_1 }
+		change_variable = { which = willpower_value value = 1 }
+	}
+	if = {
+		limit = { trait = thaumaturgy_2 }
+		change_variable = { which = willpower_value value = 1 }
+	}
+	if = {
+		limit = { trait = thaumaturgy_3 }
+		change_variable = { which = willpower_value value = 1 }
+	}
+	if = {
+		limit = { trait = thaumaturgy_4 }
+		change_variable = { which = willpower_value value = 1 }
+	}
+	if = {
+		limit = { trait = thaumaturgy_5 }
+		change_variable = { which = willpower_value value = 1 }
+	}
+}
+
+pod_count_learning_prowess_willpower = {
+	if = {
+		limit = { learning = 5 }
+		change_variable = { which = willpower_value value = 1 }
+	}
+	if = {
+		limit = { learning = 15 }
+		change_variable = { which = willpower_value value = 1 }
+	}
+	if = {
+		limit = { learning = 20 }
+		change_variable = { which = willpower_value value = 1 }
+	}
+	if = {
+		limit = { learning = 25 }
+		change_variable = { which = willpower_value value = 1 }
+	}
+	if = {
+		limit = { learning = 30 }
+		change_variable = { which = willpower_value value = 1 }
+	}
+	if = {
+		limit = { learning = 35 }
+		change_variable = { which = willpower_value value = 1 }
+	}
+	if = {
+		limit = { learning = 40 }
+		change_variable = { which = willpower_value value = 1 }
+	}
+}
+pod_count_learning_prowess_casting = {
+	if = {
+		limit = { learning = 5 }
+		change_variable = { which = magick_power value = 1 }
+	}
+	if = {
+		limit = { learning = 15 }
+		change_variable = { which = magick_power value = 1 }
+	}
+	if = {
+		limit = { learning = 20 }
+		change_variable = { which = magick_power value = 1 }
+	}
+	if = {
+		limit = { learning = 25 }
+		change_variable = { which = magick_power value = 1 }
+	}
+	if = {
+		limit = { learning = 30 }
+		change_variable = { which = magick_power value = 1 }
+	}
+	if = {
+		limit = { learning = 35 }
+		change_variable = { which = magick_power value = 1 }
+	}
+	if = {
+		limit = { learning = 40 }
+		change_variable = { which = magick_power value = 1 }
+	}
+}
+pod_count_age_and_blood_willpower = {
+	if = {
+		limit = { trait = ancilla }
+		change_variable = { which = willpower_value value = 1 }
+	}else_if = {
+		limit = { trait = elder }
+		change_variable = { which = willpower_value value = 2 }
+	}else_if = {
+		limit = { trait = ancient }
+		change_variable = { which = willpower_value value = 4 }
+	}else_if = {
+		limit = { trait = methuselah }
+		change_variable = { which = willpower_value value = 5 }
+	}else_if = {
+		limit = { trait = antediluvian }
+		change_variable = { which = willpower_value value = 7 }
+	}
+	if = {
+		limit = { has_powerful_generation = yes }
+		change_variable = { which = willpower_value value = 4 }
+	}else_if = {
+		limit = { has_strong_generation = yes }
+		change_variable = { which = willpower_value value = 2 }
+	}
+}
+pod_count_age_and_blood_casting = {
+	if = {
+		limit = { trait = ancilla }
+		change_variable = { which = magick_power value = 1 }
+	}else_if = {
+		limit = { trait = elder }
+		change_variable = { which = magick_power value = 2 }
+	}else_if = {
+		limit = { trait = ancient }
+		change_variable = { which = magick_power value = 3 }
+	}else_if = {
+		limit = { trait = methuselah }
+		change_variable = { which = magick_power value = 4 }
+	}else_if = {
+		limit = { trait = antediluvian }
+		change_variable = { which = magick_power value = 5 }
+	}
+	if = {
+		limit = { has_powerful_generation = yes }
+		change_variable = { which = magick_power value = 4 }
+	}else_if = {
+		limit = { has_strong_generation = yes }
+		change_variable = { which = magick_power value = 2 }
+	}
+}
+
+pod_player_target_ritual_effect = {
+	character_event = { id = POD_thaumaturgy_blood_magick.400 }
+}
+pod_player_target_ritual_clear_effect = {
+	if = { limit = { has_character_flag = bind_the_accusing_tongue_ritual } clr_character_flag = bind_the_accusing_tongue_ritual }
+	if = { limit = { has_character_flag = bureaucratic_condemnation_ritual } clr_character_flag = bureaucratic_condemnation_ritual }
+	if = { limit = { has_character_flag = scapegoat_ritual } clr_character_flag = scapegoat_ritual }
+	if = { limit = { has_character_flag = corrupt_body_ritual } clr_character_flag = corrupt_body_ritual }
+	if = { limit = { has_character_flag = acedia_ritual } clr_character_flag = acedia_ritual }
+}

@@ -1,0 +1,1194 @@
+decisions = {
+	learn_new_discipline_ooc_decision = {
+		ai = no
+		only_playable = yes
+		ai_check_interval = 300
+		
+		potential = {
+			trait = vampire
+			age = 16
+			NOT = { has_character_flag = discipline_training_enabled }
+		}
+		allow = {
+			scaled_wealth = 7
+			prestige = 1500
+			NOT = { trait = torpor }
+			NOR = {
+				has_character_flag = discipline_out_of_clan_learned
+				had_character_flag = { flag = discipline_out_of_clan_learned days = 18250 }
+			}
+		}
+		effect = {
+			set_character_flag = discipline_training_enabled
+		}
+	}
+	learn_new_discipline_ooc_off_decision = {
+		ai = no
+		only_playable = yes
+		ai_check_interval = 300
+		
+		potential = {
+			trait = vampire
+			age = 16
+			has_character_flag = discipline_training_enabled
+		}
+		allow = {
+			NOT = { trait = torpor }
+			NOR = {
+				has_character_flag = discipline_out_of_clan_learned
+				had_character_flag = { flag = discipline_out_of_clan_learned days = 18250 }
+			}
+		}
+		effect = {
+			clr_character_flag = discipline_training_enabled
+		}
+	}
+}
+targeted_decisions = {
+	learn_animalism_decision = {
+		ai = no
+		filter = all
+		ai_check_interval = 300
+		
+		from_potential = {
+			ai = no
+			discipline_training_enabled = yes
+			NOT = { trait = torpor }
+			NOT = { trait = incapable }
+			prisoner = no
+			has_animalism = no
+		}
+		
+		potential = {
+			trait = vampire
+			owes_favor_to = FROM
+			has_animalism = yes
+			NOT = { trait = antediluvian }
+			NOT = { trait = torpor }
+			is_within_diplo_range = FROM
+		}
+		allow = {
+			is_within_diplo_range = FROM
+			FROM = {
+				scaled_wealth = 7
+				prestige = 1500
+			}
+		}
+		
+		effect = {
+			ROOT = { 
+				wealth = 1000
+				reverse_remove_favor = FROM
+			}
+			FROM = {
+				if = { limit = { ai = no }
+					POD_vampire_blood_thirst_increase_effect = yes
+					scaled_wealth = -7
+					prestige = -1500
+				}
+			}
+			FROM = {
+				if = { limit =  { has_character_flag = discipline_out_of_clan_learned }
+					clr_character_flag = discipline_out_of_clan_learned
+				}
+				set_character_flag = discipline_out_of_clan_learned
+				add_trait = animalism_1
+				clr_character_flag = discipline_training_enabled
+			}
+			
+		}
+	}
+	learn_celerity_decision = {
+		ai = no
+		filter = all
+		ai_check_interval = 300
+		
+		from_potential = {
+			ai = no
+			discipline_training_enabled = yes
+			NOT = { trait = torpor }
+			NOT = { trait = incapable }
+			prisoner = no
+			has_celerity = no
+		}
+		
+		potential = {
+			trait = vampire
+			owes_favor_to = FROM
+			has_celerity = yes
+			NOT = { trait = antediluvian }
+			NOT = { trait = torpor }
+			is_within_diplo_range = FROM
+		}
+		allow = {
+			is_within_diplo_range = FROM
+			FROM = {
+				scaled_wealth = 7
+				prestige = 1500
+			}
+		}
+		
+		effect = {
+			ROOT = { 
+				wealth = 1000
+				reverse_remove_favor = FROM
+			}
+			FROM = {
+				if = { limit = { ai = no }
+					POD_vampire_blood_thirst_increase_effect = yes
+					scaled_wealth = -7
+					prestige = -1500
+				}
+			}
+			FROM = {
+				if = { limit =  { has_character_flag = discipline_out_of_clan_learned }
+					clr_character_flag = discipline_out_of_clan_learned
+				}
+				set_character_flag = discipline_out_of_clan_learned
+				add_trait = celerity_1
+				clr_character_flag = discipline_training_enabled
+			}
+		}
+	}
+	learn_resilience_decision = {
+		ai = no
+		filter = all
+		ai_check_interval = 300
+		
+		from_potential = {
+			ai = no
+			discipline_training_enabled = yes
+			NOT = { trait = torpor }
+			NOT = { trait = incapable }
+			prisoner = no
+			has_resilience = no
+		}
+		
+		potential = {
+			trait = vampire
+			owes_favor_to = FROM
+			has_resilience = yes
+			NOT = { trait = antediluvian }
+			NOT = { trait = torpor }
+			is_within_diplo_range = FROM
+		}
+		allow = {
+			is_within_diplo_range = FROM
+			FROM = {
+				scaled_wealth = 7
+				prestige = 1500
+			}
+		}
+		
+		effect = {
+			ROOT = { 
+				wealth = 1000
+				reverse_remove_favor = FROM
+			}
+			FROM = {
+				if = { limit = { ai = no }
+					POD_vampire_blood_thirst_increase_effect = yes
+					scaled_wealth = -7
+					prestige = -1500
+				}
+			}
+			FROM = {
+				if = { limit =  { has_character_flag = discipline_out_of_clan_learned }
+					clr_character_flag = discipline_out_of_clan_learned
+				}
+				set_character_flag = discipline_out_of_clan_learned
+				add_trait = resilience_1
+				clr_character_flag = discipline_training_enabled
+			}
+		}
+	}
+	learn_vigor_decision = {
+		ai = no
+		filter = all
+		ai_check_interval = 300
+		
+		from_potential = {
+			ai = no
+			discipline_training_enabled = yes
+			NOT = { trait = torpor }
+			NOT = { trait = incapable }
+			prisoner = no
+			has_vigor = no
+		}
+		
+		potential = {
+			trait = vampire
+			owes_favor_to = FROM
+			has_vigor = yes
+			NOT = { trait = antediluvian }
+			NOT = { trait = torpor }
+			is_within_diplo_range = FROM
+		}
+		allow = {
+			is_within_diplo_range = FROM
+			FROM = {
+				scaled_wealth = 7
+				prestige = 1500
+			}
+		}
+		
+		effect = {
+			ROOT = { 
+				wealth = 1000
+				reverse_remove_favor = FROM
+			}
+			FROM = {
+				if = { limit = { ai = no }
+					POD_vampire_blood_thirst_increase_effect = yes
+					scaled_wealth = -7
+					prestige = -1500
+				}
+			}
+			FROM = {
+				if = { limit =  { has_character_flag = discipline_out_of_clan_learned }
+					clr_character_flag = discipline_out_of_clan_learned
+				}
+				set_character_flag = discipline_out_of_clan_learned
+				add_trait = vigor_1
+				clr_character_flag = discipline_training_enabled
+			}
+		}
+	}
+	learn_protean_decision = {
+		ai = no
+		filter = all
+		ai_check_interval = 300
+		
+		from_potential = {
+			ai = no
+			discipline_training_enabled = yes
+			NOT = { trait = torpor }
+			NOT = { trait = incapable }
+			prisoner = no
+			has_protean = no
+		}
+		
+		potential = {
+			trait = vampire
+			owes_favor_to = FROM
+			has_protean = yes
+			NOT = { trait = antediluvian }
+			NOT = { trait = torpor }
+			is_within_diplo_range = FROM
+		}
+		allow = {
+			is_within_diplo_range = FROM
+			FROM = {
+				scaled_wealth = 7
+				prestige = 1500
+			}
+		}
+		
+		effect = {
+			ROOT = { 
+				wealth = 1000
+				reverse_remove_favor = FROM
+			}
+			FROM = {
+				if = { limit = { ai = no }
+					POD_vampire_blood_thirst_increase_effect = yes
+					scaled_wealth = -7
+					prestige = -1500
+				}
+			}
+			FROM = {
+				if = { limit =  { has_character_flag = discipline_out_of_clan_learned }
+					clr_character_flag = discipline_out_of_clan_learned
+				}
+				set_character_flag = discipline_out_of_clan_learned
+				add_trait = protean_1
+				clr_character_flag = discipline_training_enabled
+			}
+		}
+	}
+	learn_majesty_decision = {
+		ai = no
+		filter = all
+		ai_check_interval = 300
+		
+		from_potential = {
+			ai = no
+			discipline_training_enabled = yes
+			NOT = { trait = torpor }
+			NOT = { trait = incapable }
+			prisoner = no
+			has_majesty = no
+		}
+		
+		potential = {
+			trait = vampire
+			owes_favor_to = FROM
+			has_majesty = yes
+			NOT = { trait = antediluvian }
+			NOT = { trait = torpor }
+			is_within_diplo_range = FROM
+		}
+		allow = {
+			is_within_diplo_range = FROM
+			FROM = {
+				scaled_wealth = 7
+				prestige = 1500
+			}
+		}
+		
+		effect = {
+			ROOT = { 
+				wealth = 1000
+				reverse_remove_favor = FROM
+			}
+			FROM = {
+				if = { limit = { ai = no }
+					POD_vampire_blood_thirst_increase_effect = yes
+					scaled_wealth = -7
+					prestige = -1500
+				}
+			}
+			FROM = {
+				if = { limit =  { has_character_flag = discipline_out_of_clan_learned }
+					clr_character_flag = discipline_out_of_clan_learned
+				}
+				set_character_flag = discipline_out_of_clan_learned
+				add_trait = majesty_1
+				clr_character_flag = discipline_training_enabled
+			}
+		}
+	}
+	learn_dominate_decision = {
+		ai = no
+		filter = all
+		ai_check_interval = 300
+		
+		from_potential = {
+			ai = no
+			discipline_training_enabled = yes
+			NOT = { trait = torpor }
+			NOT = { trait = incapable }
+			prisoner = no
+			has_dominate = no
+		}
+		
+		potential = {
+			trait = vampire
+			owes_favor_to = FROM
+			has_dominate = yes
+			NOT = { trait = antediluvian }
+			NOT = { trait = torpor }
+			is_within_diplo_range = FROM
+		}
+		allow = {
+			is_within_diplo_range = FROM
+			FROM = {
+				scaled_wealth = 7
+				prestige = 1500
+			}
+		}
+		
+		effect = {
+			ROOT = { 
+				wealth = 1000
+				reverse_remove_favor = FROM
+			}
+			FROM = {
+				if = { limit = { ai = no }
+					POD_vampire_blood_thirst_increase_effect = yes
+					scaled_wealth = -7
+					prestige = -1500
+				}
+			}
+			FROM = {
+				if = { limit =  { has_character_flag = discipline_out_of_clan_learned }
+					clr_character_flag = discipline_out_of_clan_learned
+				}
+				set_character_flag = discipline_out_of_clan_learned
+				add_trait = dominate_1
+				clr_character_flag = discipline_training_enabled
+			}
+		}
+	}
+	learn_auspex_decision = {
+		ai = no
+		filter = all
+		ai_check_interval = 300
+		
+		from_potential = {
+			ai = no
+			discipline_training_enabled = yes
+			NOT = { trait = torpor }
+			NOT = { trait = incapable }
+			prisoner = no
+			has_auspex = no
+		}
+		
+		potential = {
+			trait = vampire
+			owes_favor_to = FROM
+			has_auspex = yes
+			NOT = { trait = antediluvian }
+			NOT = { trait = torpor }
+			is_within_diplo_range = FROM
+		}
+		allow = {
+			is_within_diplo_range = FROM
+			FROM = {
+				scaled_wealth = 7
+				prestige = 1500
+			}
+		}
+		
+		effect = {
+			ROOT = { 
+				wealth = 1000
+				reverse_remove_favor = FROM
+			}
+			FROM = {
+				if = { limit = { ai = no }
+					POD_vampire_blood_thirst_increase_effect = yes
+					scaled_wealth = -7
+					prestige = -1500
+				}
+			}
+			FROM = {
+				if = { limit =  { has_character_flag = discipline_out_of_clan_learned }
+					clr_character_flag = discipline_out_of_clan_learned
+				}
+				set_character_flag = discipline_out_of_clan_learned
+				add_trait = auspex_1
+				clr_character_flag = discipline_training_enabled
+			}
+		}
+	}
+	learn_dementation_decision = {
+		ai = no
+		filter = all
+		ai_check_interval = 300
+		
+		from_potential = {
+			ai = no
+			discipline_training_enabled = yes
+			NOT = { trait = torpor }
+			NOT = { trait = incapable }
+			prisoner = no
+			has_dementation = no
+		}
+		
+		potential = {
+			trait = vampire
+			owes_favor_to = FROM
+			has_dementation = yes
+			NOT = { trait = antediluvian }
+			NOT = { trait = torpor }
+			is_within_diplo_range = FROM
+		}
+		allow = {
+			is_within_diplo_range = FROM
+			FROM = {
+				scaled_wealth = 7
+				prestige = 1500
+			}
+		}
+		
+		effect = {
+			ROOT = { 
+				wealth = 1000
+				reverse_remove_favor = FROM
+			}
+			FROM = {
+				if = { limit = { ai = no }
+					POD_vampire_blood_thirst_increase_effect = yes
+					scaled_wealth = -7
+					prestige = -1500
+				}
+			}
+			FROM = {
+				if = { limit =  { has_character_flag = discipline_out_of_clan_learned }
+					clr_character_flag = discipline_out_of_clan_learned
+				}
+				set_character_flag = discipline_out_of_clan_learned
+				add_trait = dementation_1
+				add_trait = lunatic
+				clr_character_flag = discipline_training_enabled
+			}
+		}
+	}
+	learn_nightmare_decision = {
+		ai = no
+		filter = all
+		ai_check_interval = 300
+		
+		from_potential = {
+			ai = no
+			discipline_training_enabled = yes
+			NOT = { trait = torpor }
+			NOT = { trait = incapable }
+			prisoner = no
+			has_nightmare = no
+		}
+		
+		potential = {
+			trait = vampire
+			owes_favor_to = FROM
+			has_nightmare = yes
+			NOT = { trait = antediluvian }
+			NOT = { trait = torpor }
+			is_within_diplo_range = FROM
+		}
+		allow = {
+			is_within_diplo_range = FROM
+			FROM = {
+				scaled_wealth = 7
+				prestige = 1500
+			}
+		}
+		
+		effect = {
+			ROOT = { 
+				wealth = 1000
+				reverse_remove_favor = FROM
+			}
+			FROM = {
+				if = { limit = { ai = no }
+					POD_vampire_blood_thirst_increase_effect = yes
+					scaled_wealth = -7
+					prestige = -1500
+				}
+			}
+			FROM = {
+				if = { limit =  { has_character_flag = discipline_out_of_clan_learned }
+					clr_character_flag = discipline_out_of_clan_learned
+				}
+				set_character_flag = discipline_out_of_clan_learned
+				add_trait = nightmare_1
+				clr_character_flag = discipline_training_enabled
+			}
+		}
+	}
+	learn_thaumaturgy_decision = {
+		ai = no
+		filter = all
+		ai_check_interval = 300
+		
+		from_potential = {
+			ai = no
+			discipline_training_enabled = yes
+			NOT = { trait = torpor }
+			NOT = { trait = incapable }
+			prisoner = no
+			has_thaumaturgy = no
+		}
+		
+		potential = {
+			trait = vampire
+			owes_favor_to = FROM
+			has_thaumaturgy = yes
+			NOT = { trait = antediluvian }
+			NOT = { trait = torpor }
+			is_within_diplo_range = FROM
+		}
+		allow = {
+			is_within_diplo_range = FROM
+			FROM = {
+				scaled_wealth = 7
+				prestige = 1500
+			}
+		}
+		
+		effect = {
+			ROOT = { 
+				wealth = 1000
+				reverse_remove_favor = FROM
+			}
+			FROM = {
+				if = { limit = { ai = no }
+					POD_vampire_blood_thirst_increase_effect = yes
+					scaled_wealth = -7
+					prestige = -1500
+				}
+			}
+			FROM = {
+				if = { limit =  { has_character_flag = discipline_out_of_clan_learned }
+					clr_character_flag = discipline_out_of_clan_learned
+				}
+				set_character_flag = discipline_out_of_clan_learned
+				add_trait = thaumaturgy_1
+				clr_character_flag = discipline_training_enabled
+			}
+		}
+	}
+	learn_daimonion_decision = {
+		ai = no
+		filter = all
+		ai_check_interval = 300
+		
+		from_potential = {
+			ai = no
+			discipline_training_enabled = yes
+			NOT = { trait = torpor }
+			NOT = { trait = incapable }
+			prisoner = no
+			has_daimonion = no
+		}
+		
+		potential = {
+			trait = vampire
+			owes_favor_to = FROM
+			has_daimonion = yes
+			NOT = { trait = antediluvian }
+			NOT = { trait = torpor }
+			is_within_diplo_range = FROM
+		}
+		allow = {
+			is_within_diplo_range = FROM
+			FROM = {
+				scaled_wealth = 7
+				prestige = 1500
+			}
+		}
+		
+		effect = {
+			ROOT = { 
+				wealth = 1000
+				reverse_remove_favor = FROM
+			}
+			FROM = {
+				if = { limit = { ai = no }
+					POD_vampire_blood_thirst_increase_effect = yes
+					scaled_wealth = -7
+					prestige = -1500
+				}
+			}
+			FROM = {
+				if = { limit =  { has_character_flag = discipline_out_of_clan_learned }
+					clr_character_flag = discipline_out_of_clan_learned
+				}
+				set_character_flag = discipline_out_of_clan_learned
+				add_trait = daimoinon_1
+				clr_character_flag = discipline_training_enabled
+			}
+		}
+	}
+	learn_chimerstry_decision = {
+		ai = no
+		filter = all
+		ai_check_interval = 300
+		
+		from_potential = {
+			ai = no
+			discipline_training_enabled = yes
+			NOT = { trait = torpor }
+			NOT = { trait = incapable }
+			prisoner = no
+			has_chimerstry = no
+		}
+		
+		potential = {
+			trait = vampire
+			owes_favor_to = FROM
+			has_chimerstry = yes
+			NOT = { trait = antediluvian }
+			NOT = { trait = torpor }
+			is_within_diplo_range = FROM
+		}
+		allow = {
+			is_within_diplo_range = FROM
+			FROM = {
+				scaled_wealth = 7
+				prestige = 1500
+			}
+		}
+		
+		effect = {
+			ROOT = { 
+				wealth = 1000
+				reverse_remove_favor = FROM
+			}
+			FROM = {
+				if = { limit = { ai = no }
+					POD_vampire_blood_thirst_increase_effect = yes
+					scaled_wealth = -7
+					prestige = -1500
+				}
+			}
+			FROM = {
+				if = { limit =  { has_character_flag = discipline_out_of_clan_learned }
+					clr_character_flag = discipline_out_of_clan_learned
+				}
+				set_character_flag = discipline_out_of_clan_learned
+				add_trait = chimerstry_1
+				clr_character_flag = discipline_training_enabled
+			}
+		}
+	}
+	learn_necromancy_decision = {
+		ai = no
+		filter = all
+		ai_check_interval = 300
+		
+		from_potential = {
+			ai = no
+			discipline_training_enabled = yes
+			NOT = { trait = torpor }
+			NOT = { trait = incapable }
+			prisoner = no
+			has_necromancy = no
+		}
+		
+		potential = {
+			trait = vampire
+			owes_favor_to = FROM
+			has_necromancy = yes
+			NOT = { trait = antediluvian }
+			NOT = { trait = torpor }
+			is_within_diplo_range = FROM
+		}
+		allow = {
+			is_within_diplo_range = FROM
+			FROM = {
+				scaled_wealth = 7
+				prestige = 1500
+			}
+		}
+		
+		effect = {
+			ROOT = { 
+				wealth = 1000
+				reverse_remove_favor = FROM
+			}
+			FROM = {
+				if = { limit = { ai = no }
+					POD_vampire_blood_thirst_increase_effect = yes
+					scaled_wealth = -7
+					prestige = -1500
+				}
+			}
+			FROM = {
+				if = { limit =  { has_character_flag = discipline_out_of_clan_learned }
+					clr_character_flag = discipline_out_of_clan_learned
+				}
+				set_character_flag = discipline_out_of_clan_learned
+				add_trait = necromancy_1
+				clr_character_flag = discipline_training_enabled
+			}
+		}
+	}
+	learn_cruac_decision = {
+		ai = no
+		filter = all
+		ai_check_interval = 300
+		
+		from_potential = {
+			ai = no
+			discipline_training_enabled = yes
+			NOT = { trait = torpor }
+			NOT = { trait = incapable }
+			prisoner = no
+			has_cruac = no
+		}
+		
+		potential = {
+			trait = vampire
+			owes_favor_to = FROM
+			has_cruac = yes
+			NOT = { trait = antediluvian }
+			NOT = { trait = torpor }
+			is_within_diplo_range = FROM
+		}
+		allow = {
+			is_within_diplo_range = FROM
+			FROM = {
+				scaled_wealth = 7
+				prestige = 1500
+			}
+		}
+		
+		effect = {
+			ROOT = { 
+				wealth = 1000
+				reverse_remove_favor = FROM
+			}
+			FROM = {
+				if = { limit = { ai = no }
+					POD_vampire_blood_thirst_increase_effect = yes
+					scaled_wealth = -7
+					prestige = -1500
+				}
+			}
+			FROM = {
+				if = { limit =  { has_character_flag = discipline_out_of_clan_learned }
+					clr_character_flag = discipline_out_of_clan_learned
+				}
+				set_character_flag = discipline_out_of_clan_learned
+				add_trait = cruac_1
+				clr_character_flag = discipline_training_enabled
+			}
+		}
+	}
+	learn_mortis_decision = {
+		ai = no
+		filter = all
+		ai_check_interval = 300
+		
+		from_potential = {
+			ai = no
+			discipline_training_enabled = yes
+			NOT = { trait = torpor }
+			NOT = { trait = incapable }
+			prisoner = no
+			has_mortis = no
+		}
+		
+		potential = {
+			trait = vampire
+			owes_favor_to = FROM
+			has_mortis = yes
+			NOT = { trait = antediluvian }
+			NOT = { trait = torpor }
+			is_within_diplo_range = FROM
+		}
+		allow = {
+			is_within_diplo_range = FROM
+			FROM = {
+				scaled_wealth = 7
+				prestige = 1500
+			}
+		}
+		
+		effect = {
+			ROOT = { 
+				wealth = 1000
+				reverse_remove_favor = FROM
+			}
+			FROM = {
+				if = { limit = { ai = no }
+					POD_vampire_blood_thirst_increase_effect = yes
+					scaled_wealth = -7
+					prestige = -1500
+				}
+			}
+			FROM = {
+				if = { limit =  { has_character_flag = discipline_out_of_clan_learned }
+					clr_character_flag = discipline_out_of_clan_learned
+				}
+				set_character_flag = discipline_out_of_clan_learned
+				add_trait = mortis_1
+				clr_character_flag = discipline_training_enabled
+			}
+		}
+	}
+	learn_obeah_decision = {
+		ai = no
+		filter = all
+		ai_check_interval = 300
+		
+		from_potential = {
+			ai = no
+			discipline_training_enabled = yes
+			NOT = { trait = torpor }
+			NOT = { trait = incapable }
+			prisoner = no
+			has_obeah = no
+		}
+		
+		potential = {
+			trait = vampire
+			owes_favor_to = FROM
+			has_obeah = yes
+			NOT = { trait = antediluvian }
+			NOT = { trait = torpor }
+			is_within_diplo_range = FROM
+		}
+		allow = {
+			is_within_diplo_range = FROM
+			FROM = {
+				scaled_wealth = 7
+				prestige = 1500
+			}
+		}
+		
+		effect = {
+			ROOT = { 
+				wealth = 1000
+				reverse_remove_favor = FROM
+			}
+			FROM = {
+				if = { limit = { ai = no }
+					POD_vampire_blood_thirst_increase_effect = yes
+					scaled_wealth = -7
+					prestige = -1500
+				}
+			}
+			FROM = {
+				if = { limit =  { has_character_flag = discipline_out_of_clan_learned }
+					clr_character_flag = discipline_out_of_clan_learned
+				}
+				set_character_flag = discipline_out_of_clan_learned
+				add_trait = obeah_1
+				clr_character_flag = discipline_training_enabled
+			}
+		}
+	}
+	learn_obtenebration_decision = {
+		ai = no
+		filter = all
+		ai_check_interval = 300
+		
+		from_potential = {
+			ai = no
+			discipline_training_enabled = yes
+			NOT = { trait = torpor }
+			NOT = { trait = incapable }
+			prisoner = no
+			has_obtenebration = no
+		}
+		
+		potential = {
+			trait = vampire
+			owes_favor_to = FROM
+			has_obtenebration = yes
+			NOT = { trait = antediluvian }
+			NOT = { trait = torpor }
+			is_within_diplo_range = FROM
+		}
+		allow = {
+			is_within_diplo_range = FROM
+			FROM = {
+				scaled_wealth = 7
+				prestige = 1500
+			}
+		}
+		
+		effect = {
+			ROOT = { 
+				wealth = 1000
+				reverse_remove_favor = FROM
+			}
+			FROM = {
+				if = { limit = { ai = no }
+					POD_vampire_blood_thirst_increase_effect = yes
+					scaled_wealth = -7
+					prestige = -1500
+				}
+			}
+			FROM = {
+				if = { limit =  { has_character_flag = discipline_out_of_clan_learned }
+					clr_character_flag = discipline_out_of_clan_learned
+				}
+				set_character_flag = discipline_out_of_clan_learned
+				add_trait = obtenebration_1
+				clr_character_flag = discipline_training_enabled
+			}
+		}
+	}
+	learn_quietus_decision = {
+		ai = no
+		filter = all
+		ai_check_interval = 300
+		
+		from_potential = {
+			ai = no
+			discipline_training_enabled = yes
+			NOT = { trait = torpor }
+			NOT = { trait = incapable }
+			prisoner = no
+			has_quietus = no
+		}
+		
+		potential = {
+			trait = vampire
+			owes_favor_to = FROM
+			has_quietus = yes
+			NOT = { trait = antediluvian }
+			NOT = { trait = torpor }
+			is_within_diplo_range = FROM
+		}
+		allow = {
+			is_within_diplo_range = FROM
+			FROM = {
+				scaled_wealth = 7
+				prestige = 1500
+			}
+		}
+		
+		effect = {
+			ROOT = { 
+				wealth = 1000
+				reverse_remove_favor = FROM
+			}
+			FROM = {
+				if = { limit = { ai = no }
+					POD_vampire_blood_thirst_increase_effect = yes
+					scaled_wealth = -7
+					prestige = -1500
+				}
+			}
+			FROM = {
+				if = { limit =  { has_character_flag = discipline_out_of_clan_learned }
+					clr_character_flag = discipline_out_of_clan_learned
+				}
+				set_character_flag = discipline_out_of_clan_learned
+				add_trait = quietus_1
+				clr_character_flag = discipline_training_enabled
+			}
+		}
+	}
+	learn_serpentis_decision = {
+		ai = no
+		filter = all
+		ai_check_interval = 300
+		
+		from_potential = {
+			ai = no
+			discipline_training_enabled = yes
+			NOT = { trait = torpor }
+			NOT = { trait = incapable }
+			prisoner = no
+			has_serpentis = no
+		}
+		
+		potential = {
+			trait = vampire
+			owes_favor_to = FROM
+			has_serpentis = yes
+			NOT = { trait = antediluvian }
+			NOT = { trait = torpor }
+			is_within_diplo_range = FROM
+		}
+		allow = {
+			is_within_diplo_range = FROM
+			FROM = {
+				scaled_wealth = 7
+				prestige = 1500
+			}
+		}
+		
+		effect = {
+			ROOT = { 
+				wealth = 1000
+				reverse_remove_favor = FROM
+			}
+			FROM = {
+				if = { limit = { ai = no }
+					POD_vampire_blood_thirst_increase_effect = yes
+					scaled_wealth = -7
+					prestige = -1500
+				}
+			}
+			FROM = {
+				if = { limit =  { has_character_flag = discipline_out_of_clan_learned }
+					clr_character_flag = discipline_out_of_clan_learned
+				}
+				set_character_flag = discipline_out_of_clan_learned
+				add_trait = serpentis_1
+				clr_character_flag = discipline_training_enabled
+			}
+		}
+	}
+	learn_vicissitude_decision = {
+		ai = no
+		filter = all
+		ai_check_interval = 300
+		
+		from_potential = {
+			ai = no
+			discipline_training_enabled = yes
+			NOT = { trait = torpor }
+			NOT = { trait = incapable }
+			prisoner = no
+			has_vicissitude = no
+		}
+		
+		potential = {
+			trait = vampire
+			owes_favor_to = FROM
+			has_vicissitude = yes
+			NOT = { trait = antediluvian }
+			NOT = { trait = torpor }
+			is_within_diplo_range = FROM
+		}
+		allow = {
+			is_within_diplo_range = FROM
+			FROM = {
+				scaled_wealth = 7
+				prestige = 1500
+			}
+		}
+		
+		effect = {
+			ROOT = { 
+				wealth = 1000
+				reverse_remove_favor = FROM
+			}
+			FROM = {
+				if = { limit = { ai = no }
+					POD_vampire_blood_thirst_increase_effect = yes
+					scaled_wealth = -7
+					prestige = -1500
+				}
+			}
+			FROM = {
+				if = { limit =  { has_character_flag = discipline_out_of_clan_learned }
+					clr_character_flag = discipline_out_of_clan_learned
+				}
+				set_character_flag = discipline_out_of_clan_learned
+				add_trait = vicissitude_1
+				clr_character_flag = discipline_training_enabled
+			}
+		}
+	}
+	learn_obfuscate_decision = {
+		ai = no
+		filter = all
+		ai_check_interval = 300
+		
+		from_potential = {
+			ai = no
+			discipline_training_enabled = yes
+			NOT = { trait = torpor }
+			NOT = { trait = incapable }
+			prisoner = no
+			has_obfuscate = no
+		}
+		
+		potential = {
+			trait = vampire
+			owes_favor_to = FROM
+			has_obfuscate = yes
+			NOT = { trait = antediluvian }
+			NOT = { trait = torpor }
+			is_within_diplo_range = FROM
+		}
+		allow = {
+			is_within_diplo_range = FROM
+			FROM = {
+				scaled_wealth = 7
+				prestige = 1500
+			}
+		}
+		
+		effect = {
+			ROOT = { 
+				wealth = 1000
+				reverse_remove_favor = FROM
+			}
+			FROM = {
+				if = { limit = { ai = no }
+					POD_vampire_blood_thirst_increase_effect = yes
+					scaled_wealth = -7
+					prestige = -1500
+				}
+			}
+			FROM = {
+				if = { limit =  { has_character_flag = discipline_out_of_clan_learned }
+					clr_character_flag = discipline_out_of_clan_learned
+				}
+				set_character_flag = discipline_out_of_clan_learned
+				add_trait = obfuscate_1
+				clr_character_flag = discipline_training_enabled
+			}
+		}
+	}
+}

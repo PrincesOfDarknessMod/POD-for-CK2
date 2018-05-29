@@ -1,0 +1,642 @@
+namespace=POD_thaumaturgy_blood_magick
+##################################
+#	Thaumaturgy Blood Magick by AJ
+#
+#
+#
+#
+#
+##################################
+#check for target willpower, caster power
+character_event = {
+    id = POD_thaumaturgy_blood_magick.1
+	hide_window = yes
+    is_triggered_only = yes
+
+	
+	trigger = {
+		is_alive = yes
+	}
+	immediate = {
+		event_target:blood_magick_target = {
+			pod_count_willpower = yes
+		}
+		event_target:blood_magick_caster = {
+			pod_count_thaumaturgy_power = yes
+		}
+		pod_give_ritual_flag = yes
+		set_variable = { which = magick_power which = event_target:blood_magick_caster }
+		set_variable = { which = willpower_value which = event_target:blood_magick_target }
+		set_variable = { which = magick_effect_level which = magick_power }
+		subtract_variable = { which = magick_effect_level which = willpower_value }
+		
+		trigger_switch = {
+			on_trigger = has_character_flag
+			bind_the_accusing_tongue_ritual = {
+				clr_character_flag = bind_the_accusing_tongue_ritual
+				character_event = { id = POD_thaumaturgy_blood_magick.2 }
+			}
+			bureaucratic_condemnation_ritual = {
+				clr_character_flag = bureaucratic_condemnation_ritual
+				character_event = { id = POD_thaumaturgy_blood_magick.3 }
+			}
+			scapegoat_ritual = {
+				clr_character_flag = scapegoat_ritual
+				character_event = { id = POD_thaumaturgy_blood_magick.4 }
+			}
+			corrupt_body_ritual = {
+				clr_character_flag = corrupt_body_ritual
+				character_event = { id = POD_thaumaturgy_blood_magick.5 }
+			}
+			acedia_ritual = {
+				clr_character_flag = acedia_ritual
+				character_event = { id = POD_thaumaturgy_blood_magick.6 }
+			}
+		}
+	}
+}
+character_event = {
+    id = POD_thaumaturgy_blood_magick.2
+	desc = "EVTDESC_POD_THAUMATURGY_BLOOD_MAGICK_1"
+	picture = GFX_evt_vampire_chair_up_stairs
+    is_triggered_only = yes
+	
+	trigger = {
+		is_alive = yes
+	}
+	immediate = {
+		pod_easy_ritual_success_check = yes
+		pod_how_successful_ritual = yes
+	}
+	option = {
+		name = "EVTOPTA_POD_THAUMATURGY_BLOOD_MAGICK_1"
+		trigger = {
+			has_character_flag = ritual_success
+		}
+		event_target:blood_magick_target = {
+			reverse_add_favor = ROOT
+			opinion = { modifier = opinion_hatred who = ROOT years = 50 }
+			if = { limit = { ai = no }
+				set_character_flag = bind_the_accusing_tongue_ritual
+				pod_player_target_ritual_effect = yes
+			}
+		}
+		log = "[This.GetTitledName successfully used 'Bind the Accusing Tongue' power on [blood_magick_target.GetTitledName]"
+		hidden_tooltip = {
+		pod_clear_magick_flags = yes
+		}
+	}
+	option = {
+		name = "EVTOPTB_POD_THAUMATURGY_BLOOD_MAGICK_1"
+		trigger = {
+			has_character_flag = ritual_failure
+		}
+		log = "[This.GetTitledName failed to use 'Bind the Accusing Tongue' power on [blood_magick_target.GetTitledName]"
+		hidden_tooltip = {
+		pod_clear_magick_flags = yes
+		}
+	}
+}
+character_event = {
+    id = POD_thaumaturgy_blood_magick.3
+	desc = "EVTDESC_POD_THAUMATURGY_BLOOD_MAGICK_2"
+	picture = GFX_evt_vampire_chair_up_stairs
+    is_triggered_only = yes
+	
+	trigger = {
+		is_alive = yes
+	}
+	immediate = {
+		pod_easy_ritual_success_check = yes
+		pod_how_successful_ritual = yes
+	}
+	option = {
+		name = "EVTOPTA_POD_THAUMATURGY_BLOOD_MAGICK_2"
+		trigger = {
+			has_character_flag = ritual_success
+		}
+		trigger_switch = {
+			on_trigger = has_character_flag
+			weak_success = {
+				event_target:blood_magick_target = {
+					add_character_modifier = { name = average_bureaucratic_condemnation duration = 1825 }
+				}
+			}
+			average_success = {
+				event_target:blood_magick_target = {
+					add_character_modifier = { name = average_bureaucratic_condemnation duration = 3650 }
+				}
+			}
+			strong_success = {
+				event_target:blood_magick_target = {
+					add_character_modifier = { name = strong_bureaucratic_condemnation duration = 3650 }
+				}
+			}
+			superb_success = {
+				event_target:blood_magick_target = {
+					add_character_modifier = { name = superb_bureaucratic_condemnation duration = 3650 }
+				}
+			}
+		}
+		event_target:blood_magick_target = {
+			if = { limit = { ai = no }
+				set_character_flag = bureaucratic_condemnation_ritual
+				pod_player_target_ritual_effect = yes
+			}
+		}
+		log = "[This.GetTitledName] successfully used 'Bureaucratic condemnation' power on [blood_magick_target.GetTitledName]"
+		hidden_tooltip = {
+		pod_clear_magick_flags = yes
+		}
+	}
+	option = {
+		name = "EVTOPTB_POD_THAUMATURGY_BLOOD_MAGICK_2"
+		trigger = {
+			has_character_flag = ritual_failure
+		}
+		log = "[This.GetTitledName] failed to use 'Bureaucratic condemnation' power on [blood_magick_target.GetTitledName]"
+		hidden_tooltip = {
+		pod_clear_magick_flags = yes
+		}
+	}
+}
+character_event = {
+    id = POD_thaumaturgy_blood_magick.4
+	desc = "EVTDESC_POD_THAUMATURGY_BLOOD_MAGICK_3"
+	picture = GFX_evt_vampire_chair_up_stairs
+    is_triggered_only = yes
+	
+	trigger = {
+		is_alive = yes
+	}
+	immediate = {
+		pod_average_ritual_success_check = yes
+		pod_how_successful_ritual = yes
+	}
+	option = {
+		name = "EVTOPTA_POD_THAUMATURGY_BLOOD_MAGICK_3"
+		trigger = {
+			has_character_flag = ritual_success
+		}
+		trigger_switch = {
+			on_trigger = has_character_flag
+			weak_success = {
+				event_target:blood_magick_target = {
+					add_character_modifier = { name = average_scapegoat duration = 1825 }
+				}
+			}
+			average_success = {
+				event_target:blood_magick_target = {
+					add_character_modifier = { name = average_scapegoat duration = 3650 }
+				}
+			}
+			strong_success = {
+				event_target:blood_magick_target = {
+					add_character_modifier = { name = strong_scapegoat duration = 3650 }
+				}
+			}
+			superb_success = {
+				event_target:blood_magick_target = {
+					add_character_modifier = { name = superb_scapegoat duration = 5475 }
+				}
+			}
+		}
+		event_target:blood_magick_target = {
+			if = { limit = { ai = no }
+				set_character_flag = scapegoat_ritual
+				pod_player_target_ritual_effect = yes
+			}
+		}
+		log = "[This.GetTitledName] successfully used 'Scapegoat' power on [blood_magick_target.GetTitledName]"
+		hidden_tooltip = {
+		pod_clear_magick_flags = yes
+		}
+	}
+	option = {
+		name = "EVTOPTB_POD_THAUMATURGY_BLOOD_MAGICK_3"
+		trigger = {
+			has_character_flag = ritual_failure
+		}
+		log = "[This.GetTitledName] failed to use 'Scapegoat' power on [blood_magick_target.GetTitledName]"
+		hidden_tooltip = {
+		pod_clear_magick_flags = yes
+		}
+	}
+}
+character_event = {
+    id = POD_thaumaturgy_blood_magick.5
+	desc = "EVTDESC_POD_THAUMATURGY_BLOOD_MAGICK_4"
+	picture = GFX_evt_vampire_chair_up_stairs
+    is_triggered_only = yes
+	
+	trigger = {
+		is_alive = yes
+	}
+	immediate = {
+		pod_average_ritual_success_check = yes
+		pod_how_successful_ritual = yes
+	}
+	option = {
+		name = "EVTOPTA_POD_THAUMATURGY_BLOOD_MAGICK_4"
+		trigger = {
+			has_character_flag = ritual_success
+		}
+		
+		trigger_switch = {
+			on_trigger = has_character_flag
+			weak_success = {
+				event_target:blood_magick_target = {
+					add_character_modifier = { name = average_corrupt_body duration = 1825 }
+				}
+			}
+			average_success = {
+				event_target:blood_magick_target = {
+					add_character_modifier = { name = average_corrupt_body duration = 3650 }
+				}
+			}
+			strong_success = {
+				event_target:blood_magick_target = {
+					add_character_modifier = { name = strong_corrupt_body duration = 3650 }
+				}
+			}
+			superb_success = {
+				event_target:blood_magick_target = {
+					add_character_modifier = { name = superb_corrupt_body duration = 3650 }
+				}
+			}
+		}
+		event_target:blood_magick_target = {
+			if = { limit = { ai = no }
+				set_character_flag = corrupt_body_ritual
+				pod_player_target_ritual_effect = yes
+			}
+		}
+		log = "[This.GetTitledName] successfully used 'Corrupt Body' power on [blood_magick_target.GetTitledName]"
+		hidden_tooltip = {
+		pod_clear_magick_flags = yes
+		}
+	}
+	option = {
+		name = "EVTOPTB_POD_THAUMATURGY_BLOOD_MAGICK_4"
+		trigger = {
+			has_character_flag = ritual_failure
+		}
+		log = "[This.GetTitledName] failed to use 'Corrupt Body' power on [blood_magick_target.GetTitledName]"
+		hidden_tooltip = {
+		pod_clear_magick_flags = yes
+		}
+	}
+}
+character_event = {
+    id = POD_thaumaturgy_blood_magick.6
+	desc = "EVTDESC_POD_THAUMATURGY_BLOOD_MAGICK_5"
+	picture = GFX_evt_vampire_chair_up_stairs
+    is_triggered_only = yes
+	
+	trigger = {
+		is_alive = yes
+	}
+	immediate = {
+		pod_hard_ritual_success_check = yes
+		pod_how_successful_ritual = yes
+	}
+	option = {
+		name = "EVTOPTA_POD_THAUMATURGY_BLOOD_MAGICK_5"
+		trigger = {
+			has_character_flag = ritual_success
+		}
+		trigger_switch = {
+			on_trigger = has_character_flag
+			weak_success = {
+				event_target:blood_magick_target = {
+					add_character_modifier = { name = average_acedia duration = 1080 }
+				}
+			}
+			average_success = {
+				event_target:blood_magick_target = {
+					add_character_modifier = { name = average_acedia duration = 1825 }
+				}
+			}
+			strong_success = {
+				event_target:blood_magick_target = {
+					add_character_modifier = { name = strong_acedia duration = 3650 }
+				}
+			}
+			superb_success = {
+				event_target:blood_magick_target = {
+					add_character_modifier = { name = superb_acedia duration = 3650 }
+				}
+			}
+		}
+		event_target:blood_magick_target = {
+			if = { limit = { ai = no }
+				set_character_flag = acedia_ritual
+				pod_player_target_ritual_effect = yes
+			}
+		}
+		log = "[This.GetTitledName] successfully used 'Acedia' power on [blood_magick_target.GetTitledName]"
+		hidden_tooltip = {
+		pod_clear_magick_flags = yes
+		}
+	}
+	option = {
+		name = "EVTOPTB_POD_THAUMATURGY_BLOOD_MAGICK_5"
+		trigger = {
+			has_character_flag = ritual_failure
+		}
+		log = "[This.GetTitledName] failed to use 'Acedia' power on [blood_magick_target.GetTitledName]"
+		hidden_tooltip = {
+		pod_clear_magick_flags = yes
+		}
+	}
+}
+
+character_event = {
+    id = POD_thaumaturgy_blood_magick.100
+	hide_window = yes
+    is_triggered_only = yes
+
+	
+	trigger = {
+		is_alive = yes
+	}
+	immediate = {
+		pod_give_ritual_flag = yes
+		save_event_target_as = blood_magick_caster
+		event_target:blood_magick_caster = {
+			pod_count_thaumaturgy_power = yes
+		}
+		set_variable = { which = magick_power which = event_target:blood_magick_caster }
+		set_variable = { which = magick_effect_level which = magick_power }
+		
+		trigger_switch = {
+			on_trigger = has_character_flag
+			burning_blade_ritual = {
+				clr_character_flag = burning_blade_ritual
+				character_event = { id = POD_thaumaturgy_blood_magick.101 }
+			}
+			bone_of_lies_ritual = {
+				clr_character_flag = bone_of_lies_ritual
+				character_event = { id = POD_thaumaturgy_blood_magick.102 }
+			}
+			homunculus_ritual = {
+				clr_character_flag = homunculus_ritual
+				character_event = { id = POD_thaumaturgy_blood_magick.103 }
+			}
+			court_of_hallow_ritual = {
+				clr_character_flag = court_of_hallow_ritual
+				character_event = { id = POD_thaumaturgy_blood_magick.104 }
+			}
+		}
+	}
+}
+
+
+character_event = {
+    id = POD_thaumaturgy_blood_magick.101
+	desc = "EVTDESC_POD_THAUMATURGY_BLOOD_MAGICK_6"
+	picture = GFX_evt_vampire_chair_up_stairs
+    is_triggered_only = yes
+	
+	trigger = {
+		is_alive = yes
+	}
+	immediate = {
+		pod_easy_ritual_success_check = yes
+		pod_how_successful_ritual = yes
+	}
+	option = {
+		name = "EVTOPTA_POD_THAUMATURGY_BLOOD_MAGICK_6"
+		trigger = {
+			has_character_flag = ritual_success
+		}
+		
+		if = {
+			limit = {
+				has_character_modifier = burning_blade_modifier
+			}
+			remove_character_modifier = burning_blade_modifier
+		}
+		trigger_switch = {
+			on_trigger = has_character_flag
+			weak_success = {
+				add_character_modifier = { name = burning_blade_modifier duration = 1080 }
+			}
+			average_success = {
+				add_character_modifier = { name = burning_blade_modifier duration = 1825 }
+			}
+			strong_success = {
+				add_character_modifier = { name = burning_blade_modifier duration = 3650 }
+			}
+			superb_success = {
+				add_character_modifier = { name = burning_blade_modifier duration = 5475 }
+			}
+		}
+		
+		log = "[This.GetTitledName] successfully used 'Burning Blade' power."
+		hidden_tooltip = {
+		pod_clear_magick_flags = yes
+		}
+	}
+	option = {
+		name = "EVTOPTB_POD_THAUMATURGY_BLOOD_MAGICK_6"
+		trigger = {
+			has_character_flag = ritual_failure
+		}
+		log = "[This.GetTitledName] failed to use 'Burning Blade' power"
+		hidden_tooltip = {
+		pod_clear_magick_flags = yes
+		}
+	}
+}
+
+character_event = {
+    id = POD_thaumaturgy_blood_magick.102
+	desc = "EVTDESC_POD_THAUMATURGY_BLOOD_MAGICK_7"
+	picture = GFX_evt_vampire_chair_up_stairs
+    is_triggered_only = yes
+	
+	trigger = {
+		is_alive = yes
+	}
+	immediate = {
+		pod_average_ritual_success_check = yes
+		pod_how_successful_ritual = yes
+	}
+	option = {
+		name = "EVTOPTA_POD_THAUMATURGY_BLOOD_MAGICK_7"
+		trigger = {
+			has_character_flag = ritual_success
+		}
+		add_artifact = bone_of_lies_artifact
+		log = "[This.GetTitledName] successfully used 'Bone of Lies' power."
+		hidden_tooltip = {
+		pod_clear_magick_flags = yes
+		}
+	}
+	option = {
+		name = "EVTOPTB_POD_THAUMATURGY_BLOOD_MAGICK_7"
+		trigger = {
+			has_character_flag = ritual_failure
+		}
+		log = "[This.GetTitledName] failed to use 'Bone of Lies' power"
+		hidden_tooltip = {
+		pod_clear_magick_flags = yes
+		}
+	}
+}
+
+character_event = {
+    id = POD_thaumaturgy_blood_magick.103
+	desc = "EVTDESC_POD_THAUMATURGY_BLOOD_MAGICK_8"
+	picture = GFX_evt_vampire_chair_up_stairs
+    is_triggered_only = yes
+	
+	trigger = {
+		is_alive = yes
+	}
+	immediate = {
+		pod_hard_ritual_success_check = yes
+		pod_how_successful_ritual = yes
+	}
+	option = {
+		name = "EVTOPTA_POD_THAUMATURGY_BLOOD_MAGICK_8"
+		trigger = {
+			has_character_flag = ritual_success
+		}
+		if = {
+			limit = {
+				has_character_modifier = homunculus_modifier
+			}
+			remove_character_modifier = homunculus_modifier
+		}
+		add_character_modifier = { name = homunculus_modifier duration = -1 }
+		log = "[This.GetTitledName] successfully used 'Soul of the Homunculus' power."
+		hidden_tooltip = {
+		pod_clear_magick_flags = yes
+		}
+	}
+	option = {
+		name = "EVTOPTB_POD_THAUMATURGY_BLOOD_MAGICK_8"
+		trigger = {
+			has_character_flag = ritual_failure
+		}
+		log = "[This.GetTitledName] failed to use 'Soul of the Homunculus' power"
+		hidden_tooltip = {
+		pod_clear_magick_flags = yes
+		}
+	}
+}
+
+character_event = {
+    id = POD_thaumaturgy_blood_magick.104
+	desc = "EVTDESC_POD_THAUMATURGY_BLOOD_MAGICK_9"
+	picture = GFX_evt_vampire_chair_up_stairs
+    is_triggered_only = yes
+	
+	trigger = {
+		is_alive = yes
+	}
+	immediate = {
+		pod_hard_ritual_success_check = yes
+		pod_how_successful_ritual = yes
+	}
+	option = {
+		name = "EVTOPTA_POD_THAUMATURGY_BLOOD_MAGICK_9"
+		trigger = {
+			has_character_flag = ritual_success
+		}
+		
+		if = {
+			limit = {
+				has_character_modifier = court_of_hallow_modifier
+			}
+			remove_character_modifier = court_of_hallow_modifier
+		}
+
+		trigger_switch = {
+			on_trigger = has_character_flag
+			weak_success = {
+				add_character_modifier = { name = court_of_hallow_modifier duration = 1080 }
+			}
+			average_success = {
+				add_character_modifier = { name = court_of_hallow_modifier duration = 1825 }
+			}
+			strong_success = {
+				add_character_modifier = { name = court_of_hallow_modifier duration = 3650 }
+			}
+			superb_success = {
+				add_character_modifier = { name = court_of_hallow_modifier duration = 5475 }
+			}
+		}
+		log = "[This.GetTitledName] successfully used 'Court of Hallowed Truth' power."
+		hidden_tooltip = {
+		pod_clear_magick_flags = yes
+		}
+	}
+	option = {
+		name = "EVTOPTB_POD_THAUMATURGY_BLOOD_MAGICK_9"
+		trigger = {
+			has_character_flag = ritual_failure
+		}
+		log = "[This.GetTitledName] failed to use 'Court of Hallowed Truth' power"
+		hidden_tooltip = {
+		pod_clear_magick_flags = yes
+		}
+	}
+}
+#inform player a tremere has the hots for them
+character_event = {
+    id = POD_thaumaturgy_blood_magick.400
+	desc = {
+		trigger = {
+			has_character_flag = bind_the_accusing_tongue_ritual
+		}
+		text = EVTDESC_POD_THAUMATURGY_BLOOD_MAGICK_400.1
+	}
+	desc = {
+		trigger = {
+			has_character_flag = bureaucratic_condemnation_ritual
+		}
+		text = EVTDESC_POD_THAUMATURGY_BLOOD_MAGICK_400.2
+	}
+	desc = {
+		trigger = {
+			has_character_flag = scapegoat_ritual
+		}
+		text = EVTDESC_POD_THAUMATURGY_BLOOD_MAGICK_400.3
+	}
+	desc = {
+		trigger = {
+			has_character_flag = corrupt_body_ritual
+		}
+		text = EVTDESC_POD_THAUMATURGY_BLOOD_MAGICK_400.4
+	}
+	desc = {
+		trigger = {
+			has_character_flag = acedia_ritual
+		}
+		text = EVTDESC_POD_THAUMATURGY_BLOOD_MAGICK_400.5
+	}
+	picture = GFX_evt_vampire_chair_up_stairs
+    is_triggered_only = yes
+	
+	trigger = {
+		is_alive = yes
+		ai = no
+	}
+	immediate = {
+	}
+	option = {
+		name = "EVTOPTA_POD_THAUMATURGY_BLOOD_MAGICK_400"
+		hidden_tooltip = {
+			pod_player_target_ritual_clear_effect = yes
+		}
+	}
+	option = {
+		name = "EVTOPTB_POD_THAUMATURGY_BLOOD_MAGICK_400"
+		hidden_tooltip = {
+			pod_player_target_ritual_clear_effect = yes
+		}
+	}
+}

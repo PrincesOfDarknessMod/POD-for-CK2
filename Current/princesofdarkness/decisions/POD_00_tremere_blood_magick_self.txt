@@ -1,0 +1,136 @@
+decisions = {
+	burning_blade_ritual_decision = {
+		ai_check_interval = 60
+		potential = {
+			trait = vampire
+			age = 16
+			has_thaumaturgy_2 = yes
+			has_tremere_magick = yes
+		}
+		allow = {
+			NOT = { has_character_modifier = burning_blade_modifier }		
+			NOT = { trait = torpor }
+			can_do_easy_ritual = yes
+		}
+		effect = {
+			set_character_flag = ritual_flag
+			set_character_flag = burning_blade_ritual
+			if = { limit = { ai = no } POD_vampire_blood_thirst_increase_effect = yes }
+			character_event = { id = POD_thaumaturgy_blood_magick.100 }
+		}
+		ai_will_do = {
+			factor = 1 	
+			modifier = {
+				factor = 5
+				in_battle = yes
+			}			
+			modifier = {
+				factor = 5
+				in_siege = yes
+			}
+			modifier = {
+				factor = 5
+				trait = wroth
+			}	
+			modifier = {
+				factor = 0.1
+				trait = patient
+			}	
+			modifier = {
+				factor = 0
+				has_character_modifier = dire_blood_thirst
+			}
+			modifier = {
+				factor = 0.2
+				has_character_modifier = dreadful_blood_thirst
+			}
+		}
+	}
+	bone_of_lies_ritual_decision = {
+		ai_check_interval = 120
+		potential = {
+			trait = vampire
+			age = 16
+			has_thaumaturgy_3 = yes
+			has_tremere_magick = yes
+		}
+		allow = {
+			NOT = { trait = torpor }
+			can_do_easy_ritual = yes
+			NAND = {
+				ai = yes
+				has_artifact = bone_of_lies_artifact
+			}
+			OR = {
+				scaled_wealth = 2
+				ai = yes
+			}
+		}
+		effect = {
+			set_character_flag = ritual_flag
+			set_character_flag = bone_of_lies_ritual
+			if = { limit = { ai = no } 
+				POD_vampire_blood_thirst_increase_effect = yes
+				scaled_wealth = -2
+			}
+			character_event = { id = POD_thaumaturgy_blood_magick.100 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	homunculus_ritual_decision = {
+		ai_check_interval = 180
+		potential = {
+			trait = vampire
+			age = 16
+			has_thaumaturgy_4 = yes
+			has_tremere_magick = yes
+		}
+		allow = {
+			NOT = { has_character_modifier = homunculus_modifier }		
+			NOT = { trait = torpor }
+			can_do_easy_ritual = yes
+		}
+		effect = {
+			set_character_flag = ritual_flag
+			set_character_flag = homunculus_ritual
+			if = { limit = { ai = no } POD_vampire_blood_thirst_increase_effect = yes }
+			character_event = { id = POD_thaumaturgy_blood_magick.100 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	court_of_hallow_ritual_decision = {
+		ai_check_interval = 120
+		potential = {
+			is_landed = yes
+			trait = vampire
+			age = 16
+			has_thaumaturgy_5 = yes
+			has_tremere_magick = yes
+		}
+		allow = {
+			NOT = { has_character_modifier = court_of_hallow_modifier }		
+			NOT = { trait = torpor }
+			can_do_easy_ritual = yes
+			OR = {
+				scaled_wealth = 1
+				ai = yes
+			}
+		}
+		effect = {
+			set_character_flag = ritual_flag
+			set_character_flag = court_of_hallow_ritual
+			if = { limit = { ai = no } 
+				POD_vampire_blood_thirst_increase_effect = yes
+				scaled_wealth = -1
+			}
+			character_event = { id = POD_thaumaturgy_blood_magick.100 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

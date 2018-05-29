@@ -48,6 +48,7 @@ character_event = {
 			if = {
 				limit = {
 					is_vampire_masquerade = yes
+					any_liege = { NOT = { ai = no } }
 				}
 				set_character_flag = MASQUERADE_USURPED
 				random_realm_character = {
@@ -138,12 +139,8 @@ character_event = {
 				NOT = {
 					is_elder_vampire = yes
 				}
-				NOT = {
-					AND = {
-						trait = player_childe
-						NOT = { higher_tier_than = COUNT }
-					}
-				}
+				NOT = { trait = player_childe }
+				has_powerful_generation = no
 				OR = {
 					had_character_flag = {
 						flag = challenged_by_elder
@@ -521,6 +518,7 @@ character_event = {
 				}
 				is_landed = no
 				is_elder_vampire = yes
+				ai = no
 				#NOT = { distance = { who = ROOT value = 350 } }
 				#is_clean_usurper_vampire = yes
 			}
@@ -535,7 +533,7 @@ character_event = {
 				}
 				is_elder_vampire = yes
 				trait = canon_childe
-				
+				ai = no
 				#is_landed = no
 				#NOT = { distance = { who = ROOT value = 350 } }
 				#is_clean_usurper_vampire = yes
@@ -551,7 +549,7 @@ character_event = {
 				}
 				is_elder_vampire = yes
 				trait = canon
-				
+				ai = no
 				#is_landed = no
 				#NOT = { distance = { who = ROOT value = 350 } }
 				#is_clean_usurper_vampire = yes
@@ -564,6 +562,46 @@ character_event = {
 				has_powerful_generation = yes
 				is_elder_vampire = yes
 				is_landed = no
+				ai = no
+				#NOT = { distance = { who = ROOT value = 350 } }
+				#is_clean_usurper_vampire = yes
+			}
+			save_event_target_as = elder_challenger
+		}
+		random_realm_character = {
+			limit = {
+				NOT = { trait = torpor }
+				has_powerful_generation = yes
+				is_elder_vampire = yes
+				trait = canon_childe
+				ai = no
+				#NOT = { distance = { who = ROOT value = 350 } }
+				#is_clean_usurper_vampire = yes
+			}
+			save_event_target_as = elder_challenger
+		}
+		random_realm_character = {
+			limit = {
+				NOT = { trait = torpor }
+				has_powerful_generation = yes
+				is_elder_vampire = yes
+				trait = canon
+				ai = no
+				#is_landed = no
+				#NOT = { distance = { who = ROOT value = 350 } }
+				#is_clean_usurper_vampire = yes
+			}
+			save_event_target_as = elder_challenger
+		}
+		random_realm_character = {
+			limit = {
+				NOT = { trait = torpor }
+				NOT = { higher_tier_than = COUNT }
+				has_powerful_generation = yes
+				is_elder_vampire = yes
+				trait = canon
+				ai = no
+				#is_landed = no
 				#NOT = { distance = { who = ROOT value = 350 } }
 				#is_clean_usurper_vampire = yes
 			}
@@ -574,6 +612,7 @@ character_event = {
 				NOT = { trait = torpor }
 				is_elder_vampire = yes
 				is_landed = no
+				ai = no
 				OR = {
 					trait = canon
 					trait = canon_childe
@@ -592,44 +631,9 @@ character_event = {
 				NOT = { trait = torpor }
 				has_powerful_generation = yes
 				is_elder_vampire = yes
-				trait = canon_childe
-				#NOT = { distance = { who = ROOT value = 350 } }
-				#is_clean_usurper_vampire = yes
-			}
-			save_event_target_as = elder_challenger
-		}
-		random_realm_character = {
-			limit = {
-				NOT = { trait = torpor }
-				has_powerful_generation = yes
-				is_elder_vampire = yes
 				is_landed = no
 				trait = canon_childe
-				#NOT = { distance = { who = ROOT value = 350 } }
-				#is_clean_usurper_vampire = yes
-			}
-			save_event_target_as = elder_challenger
-		}
-		random_realm_character = {
-			limit = {
-				NOT = { trait = torpor }
-				has_powerful_generation = yes
-				is_elder_vampire = yes
-				trait = canon
-				#is_landed = no
-				#NOT = { distance = { who = ROOT value = 350 } }
-				#is_clean_usurper_vampire = yes
-			}
-			save_event_target_as = elder_challenger
-		}
-		random_realm_character = {
-			limit = {
-				NOT = { trait = torpor }
-				NOT = { higher_tier_than = COUNT }
-				has_powerful_generation = yes
-				is_elder_vampire = yes
-				trait = canon
-				#is_landed = no
+				ai = no
 				#NOT = { distance = { who = ROOT value = 350 } }
 				#is_clean_usurper_vampire = yes
 			}
@@ -642,6 +646,7 @@ character_event = {
 				is_elder_vampire = yes
 				trait = canon
 				is_landed = no
+				ai = no
 				#NOT = { distance = { who = ROOT value = 350 } }
 				#is_clean_usurper_vampire = yes
 			}
@@ -1006,9 +1011,78 @@ character_event = {
 			#remove_rival = event_target:rival_to_remove
 	}
 }
-#cleanup negative mental traits
+
 character_event = {
     id = POD_court_controllers.200
+	only_rulers = yes
+    is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+		trait = vampire
+	}
+	immediate = {
+		pod_convert_county_religion_to_ruler = yes
+		if = {
+			limit = { ai = yes }
+			character_event = { id = POD_court_controllers.202 }
+		}
+	}
+}
+#cleanup negative mental traits
+character_event = {
+    id = POD_court_controllers.201
+	only_rulers = yes
+    is_triggered_only = yes
+	hide_window = yes
+
+    immediate = {
+		ROOT = {
+		if = {
+			limit = {
+				trait = vampire
+				is_powerful_vampire_escape = yes
+			}
+			log = "POWERFUL PRISONER RELEASE: [This.GetTitledName] released from prison, on prison event"
+			prisoner = no
+			pod_player_elder_imprison_effect = yes
+		}else_if = {
+			limit = {
+				trait = vampire
+				trait = vampgeneration6
+			}
+			random_list = {
+				5 = {
+					log = "STRONG 6gen PRISONER IMPRISONED: [This.GetTitledName] imprisoned, on prison event" 
+				}
+				10 = {
+					prisoner = no
+					log = "STRONG 6gen PRISONER RELEASE: [This.GetTitledName] released from prison, on prison event"
+					pod_player_elder_imprison_effect = yes
+				}
+			}
+		}else_if = {
+			limit = {
+				trait = vampire
+				has_strong_generation = yes
+			}
+			random_list = {
+				20 = {
+					log = "STRONG GEN PRISONER IMPRISONED: [This.GetTitledName] imprisoned, on prison event" 
+				}
+				5 = {
+					prisoner = no
+					log = "STRONG GEN PRISONER RELEASE: [This.GetTitledName] released from prison, on prison event"
+					pod_player_elder_imprison_effect = yes
+				}
+			}
+		}
+		}
+	}
+}
+
+character_event = {
+    id = POD_court_controllers.202
 	only_rulers = yes
     is_triggered_only = yes
 	hide_window = yes
@@ -1353,57 +1427,6 @@ character_event = {
 				move_character = new_court
 				log = "MOVED LANDLESS ELDER: [This.GetTitledName] moved to [new_court.GetTitledName]'s court"
 			}
-		}
-	}
-}
-
-character_event = {
-    id = POD_court_controllers.201
-	only_rulers = yes
-    is_triggered_only = yes
-	hide_window = yes
-
-    immediate = {
-		ROOT = {
-		if = {
-			limit = {
-				trait = vampire
-				is_powerful_vampire_escape = yes
-			}
-			log = "POWERFUL PRISONER RELEASE: [This.GetTitledName] released from prison, on prison event"
-			prisoner = no
-			pod_player_elder_imprison_effect = yes
-		}else_if = {
-			limit = {
-				trait = vampire
-				trait = vampgeneration6
-			}
-			random_list = {
-				5 = {
-					log = "STRONG 6gen PRISONER IMPRISONED: [This.GetTitledName] imprisoned, on prison event" 
-				}
-				10 = {
-					prisoner = no
-					log = "STRONG 6gen PRISONER RELEASE: [This.GetTitledName] released from prison, on prison event"
-					pod_player_elder_imprison_effect = yes
-				}
-			}
-		}else_if = {
-			limit = {
-				trait = vampire
-				has_strong_generation = yes
-			}
-			random_list = {
-				20 = {
-					log = "STRONG GEN PRISONER IMPRISONED: [This.GetTitledName] imprisoned, on prison event" 
-				}
-				5 = {
-					prisoner = no
-					log = "STRONG GEN PRISONER RELEASE: [This.GetTitledName] released from prison, on prison event"
-					pod_player_elder_imprison_effect = yes
-				}
-			}
-		}
 		}
 	}
 }

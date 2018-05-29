@@ -1,0 +1,497 @@
+POD_diablerie_check_gain = {
+	random_list = {
+		10 = {
+			log = "[diablerizer.GetTitledName] has gained a new discipline via Diablerie"
+			pod_diablerie_gain_new_discipline = yes
+		}
+		90 = {
+			log = "[diablerizer.GetTitledName] failed to gain a new discipline via Diablerie"
+		}
+	}
+}
+pod_diablerie_gain_new_discipline = {
+	pod_identify_new_discipline = yes
+}
+
+pod_identify_new_discipline = {
+	set_variable = { which = count value = 25 }
+	while = {
+		limit = {
+			check_variable = {
+				which = count
+				value = 1
+			}
+		}
+		pod_add_new_diablerie_discipline = yes
+		subtract_variable = {
+			which = count
+			value = 1
+		}
+	}
+}
+
+pod_convert_county_religion_to_ruler = {
+	random_list = {
+		30 = {
+			random_demesne_province = {
+				limit = {
+					NOT = { religion = ROOT }
+				}
+				religion = ROOT
+				log = "Converted [This.GetName] to religion of [Root.GetTitledName]"
+			}
+		}
+		70 = {
+		}
+	}
+}
+
+pod_add_new_diablerie_discipline = {
+	random_list = {
+		5 = {
+			if = { 
+				limit = {
+					event_target:diablerizer = { has_animalism = no }
+				}
+				if = {
+					limit = {
+						event_target:diablerize_target = { has_animalism = yes }
+					}
+					event_target:diablerizer = { add_trait = animalism_1 }
+					subtract_variable = {
+						which = count
+						value = 25
+					}
+				}
+			}
+		}
+		5 = {
+			if = { 
+				limit = {
+					event_target:diablerizer = { has_celerity = no }
+				}
+				if = {
+					limit = {
+						event_target:diablerize_target = { has_celerity = yes }
+					}
+					event_target:diablerizer = { add_trait = celerity_1 }
+					subtract_variable = {
+						which = count
+						value = 25
+					}
+				}
+			}
+		}
+		5 = {
+			if = { 
+				limit = {
+					event_target:diablerizer = { has_resilience = no }
+				}
+				if = {
+					limit = {
+						event_target:diablerize_target = { has_resilience = yes }
+					}
+					event_target:diablerizer = { add_trait = resilience_1 }
+					subtract_variable = {
+						which = count
+						value = 25
+					}
+				}
+			}
+		}
+		5 = {
+			if = { 
+				limit = {
+					event_target:diablerizer = { has_vigor = no }
+				}
+				if = {
+					limit = {
+						event_target:diablerize_target = { has_vigor = yes }
+					}
+					event_target:diablerizer = { add_trait = vigor_1 }
+					subtract_variable = {
+						which = count
+						value = 25
+					}
+				}
+			}
+		}
+		5 = {
+			if = { 
+				limit = {
+					event_target:diablerizer = { has_celerity = no }
+				}
+				if = {
+					limit = {
+						event_target:diablerize_target = { has_celerity = yes }
+					}
+					event_target:diablerizer = { add_trait = celerity_1 }
+					subtract_variable = {
+						which = count
+						value = 25
+					}
+				}
+			}
+		}
+		5 = {
+			if = { 
+				limit = {
+					event_target:diablerizer = { has_protean = no }
+				}
+				if = {
+					limit = {
+						event_target:diablerize_target = { has_protean = yes }
+					}
+					event_target:diablerizer = { add_trait = protean_1 }
+					subtract_variable = {
+						which = count
+						value = 25
+					}
+				}
+			}
+		}
+		5 = {
+			if = { 
+				limit = {
+					event_target:diablerizer = { has_dominate = no }
+				}
+				if = {
+					limit = {
+						event_target:diablerize_target = { has_dominate = yes }
+					}
+					event_target:diablerizer = { add_trait = dominate_1 }
+					subtract_variable = {
+						which = count
+						value = 25
+					}
+				}
+			}
+		}
+		5 = {
+			if = { 
+				limit = {
+					event_target:diablerizer = { has_majesty = no }
+				}
+				if = {
+					limit = {
+						event_target:diablerize_target = { has_majesty = yes }
+					}
+					event_target:diablerizer = { add_trait = majesty_1 }
+					subtract_variable = {
+						which = count
+						value = 25
+					}
+				}
+			}
+		}
+		5 = {
+			if = { 
+				limit = {
+					event_target:diablerizer = { has_auspex = no }
+				}
+				if = {
+					limit = {
+						event_target:diablerize_target = { has_auspex = yes }
+					}
+					event_target:diablerizer = { add_trait = auspex_1 }
+					subtract_variable = {
+						which = count
+						value = 25
+					}
+				}
+			}
+		}
+		5 = {
+			if = { 
+				limit = {
+					event_target:diablerizer = { has_dementation = no }
+				}
+				if = {
+					limit = {
+						event_target:diablerize_target = { has_dementation = yes }
+					}
+					event_target:diablerizer = { 
+						add_trait = dementation_1
+						add_trait = lunatic
+					}
+					subtract_variable = {
+						which = count
+						value = 25
+					}
+				}
+			}
+		}
+		5 = {
+			if = { 
+				limit = {
+					event_target:diablerizer = { has_nightmare = no }
+				}
+				if = {
+					limit = {
+						event_target:diablerize_target = { has_nightmare = yes }
+					}
+					event_target:diablerizer = { add_trait = nightmare_1 }
+					subtract_variable = {
+						which = count
+						value = 25
+					}
+				}
+			}
+		}
+		5 = {
+			if = { 
+				limit = {
+					event_target:diablerizer = { has_celerity = no }
+				}
+				if = {
+					limit = {
+						event_target:diablerize_target = { has_celerity = yes }
+					}
+					event_target:diablerizer = { add_trait = celerity_1 }
+					subtract_variable = {
+						which = count
+						value = 25
+					}
+				}
+			}
+		}
+		5 = {
+			if = { 
+				limit = {
+					event_target:diablerizer = { has_thaumaturgy = no }
+				}
+				if = {
+					limit = {
+						event_target:diablerize_target = { has_thaumaturgy = yes }
+					}
+					event_target:diablerizer = { add_trait = thaumaturgy_1 }
+					subtract_variable = {
+						which = count
+						value = 25
+					}
+				}
+			}
+		}
+		5 = {
+			if = { 
+				limit = {
+					event_target:diablerizer = { has_daimonion = no }
+				}
+				if = {
+					limit = {
+						event_target:diablerize_target = { has_daimonion = yes }
+					}
+					event_target:diablerizer = { add_trait = daimoinon_1 }
+					subtract_variable = {
+						which = count
+						value = 25
+					}
+				}
+			}
+		}
+		5 = {
+			if = { 
+				limit = {
+					event_target:diablerizer = { has_chimerstry = no }
+				}
+				if = {
+					limit = {
+						event_target:diablerize_target = { has_chimerstry = yes }
+					}
+					event_target:diablerizer = { add_trait = chimerstry_1 }
+					subtract_variable = {
+						which = count
+						value = 25
+					}
+				}
+			}
+		}
+		5 = {
+			if = { 
+				limit = {
+					event_target:diablerizer = { has_necromancy = no }
+				}
+				if = {
+					limit = {
+						event_target:diablerize_target = { has_necromancy = yes }
+					}
+					event_target:diablerizer = { add_trait = necromancy_1 }
+					subtract_variable = {
+						which = count
+						value = 25
+					}
+				}
+			}
+		}
+		5 = {
+			if = { 
+				limit = {
+					event_target:diablerizer = { has_daimonion = no }
+				}
+				if = {
+					limit = {
+						event_target:diablerize_target = { has_daimonion = yes }
+					}
+					event_target:diablerizer = { add_trait = daimoinon_1 }
+					subtract_variable = {
+						which = count
+						value = 25
+					}
+				}
+			}
+		}
+		5 = {
+			if = { 
+				limit = {
+					event_target:diablerizer = { has_cruac = no }
+				}
+				if = {
+					limit = {
+						event_target:diablerize_target = { has_cruac = yes }
+					}
+					event_target:diablerizer = { add_trait = cruac_1 }
+					subtract_variable = {
+						which = count
+						value = 25
+					}
+				}
+			}
+		}
+		5 = {
+			if = { 
+				limit = {
+					event_target:diablerizer = { has_mortis = no }
+				}
+				if = {
+					limit = {
+						event_target:diablerize_target = { has_mortis = yes }
+					}
+					event_target:diablerizer = { add_trait = mortis_1 }
+					subtract_variable = {
+						which = count
+						value = 25
+					}
+				}
+			}
+		}
+		5 = {
+			if = { 
+				limit = {
+					event_target:diablerizer = { has_obeah = no }
+				}
+				if = {
+					limit = {
+						event_target:diablerize_target = { has_obeah = yes }
+					}
+					event_target:diablerizer = { add_trait = obeah_1 }
+					subtract_variable = {
+						which = count
+						value = 25
+					}
+				}
+			}
+		}
+		5 = {
+			if = { 
+				limit = {
+					event_target:diablerizer = { has_obtenebration = no }
+				}
+				if = {
+					limit = {
+						event_target:diablerize_target = { has_obtenebration = yes }
+					}
+					event_target:diablerizer = { add_trait = obtenebration_1 }
+					subtract_variable = {
+						which = count
+						value = 25
+					}
+				}
+			}
+		}
+		5 = {
+			if = { 
+				limit = {
+					event_target:diablerizer = { has_quietus = no }
+				}
+				if = {
+					limit = {
+						event_target:diablerize_target = { has_quietus = yes }
+					}
+					event_target:diablerizer = { add_trait = quietus_1 }
+					subtract_variable = {
+						which = count
+						value = 25
+					}
+				}
+			}
+		}
+		5 = {
+			if = { 
+				limit = {
+					event_target:diablerizer = { has_mortis = no }
+				}
+				if = {
+					limit = {
+						event_target:diablerize_target = { has_mortis = yes }
+					}
+					event_target:diablerizer = { add_trait = mortis_1 }
+					subtract_variable = {
+						which = count
+						value = 25
+					}
+				}
+			}
+		}
+		5 = {
+			if = { 
+				limit = {
+					event_target:diablerizer = { has_serpentis = no }
+				}
+				if = {
+					limit = {
+						event_target:diablerize_target = { has_serpentis = yes }
+					}
+					event_target:diablerizer = { add_trait = serpentis_1 }
+					subtract_variable = {
+						which = count
+						value = 25
+					}
+				}
+			}
+		}
+		5 = {
+			if = { 
+				limit = {
+					event_target:diablerizer = { has_vicissitude = no }
+				}
+				if = {
+					limit = {
+						event_target:diablerize_target = { has_vicissitude = yes }
+					}
+					event_target:diablerizer = { add_trait = vicissitude_1 }
+					subtract_variable = {
+						which = count
+						value = 25
+					}
+				}
+			}
+		}
+		5 = {
+			if = { 
+				limit = {
+					event_target:diablerizer = { has_obfuscate = no }
+				}
+				if = {
+					limit = {
+						event_target:diablerize_target = { has_obfuscate = yes }
+					}
+					event_target:diablerizer = { add_trait = obfuscate_1 }
+					subtract_variable = {
+						which = count
+						value = 25
+					}
+				}
+			}
+		}
+	}
+}

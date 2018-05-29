@@ -1,0 +1,281 @@
+
+targeted_decisions = {
+	bind_the_accusing_tongue_decision = {
+		ai_target_filter = realm
+		filter = realm
+		ai_check_interval = 120
+		
+		
+		from_potential = {
+			has_tremere_magick = yes
+			has_thaumaturgy = yes
+			NOT = { trait = torpor }
+			NOT = { trait = incapable }
+			prisoner = no
+			OR = {
+				wealth = 50
+				ai = yes
+			}
+			can_do_easy_ritual = yes
+		}
+		
+		potential = {
+			NOT = { trait = antediluvian }
+			NOT = { trait = torpor }
+			is_within_diplo_range = FROM
+		}
+		allow = {
+			is_within_diplo_range = FROM
+		}
+		
+		effect = {
+			ROOT = { save_event_target_as = blood_magick_target }
+			FROM = { save_event_target_as = blood_magick_caster }
+			FROM = {
+				if = { limit = { ai = no }
+					POD_vampire_blood_thirst_increase_effect = yes
+					wealth = -50
+				}
+			}
+			FROM = {
+				set_character_flag = ritual_flag
+				set_character_flag = bind_the_accusing_tongue_ritual
+				character_event = { id = POD_thaumaturgy_blood_magick.1 } 
+			}
+			
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				reverse_opinion = { who = FROM value = 50 }
+			}
+			modifier = {
+				factor = 0
+				owes_favor_to = FROM
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					is_landed = no
+					at_location = no
+				}
+			}
+		}
+	}
+	bureaucratic_condemnation_decision = {
+		ai_target_filter = realm
+		filter = realm
+		ai_check_interval = 120
+		
+		from_potential = {
+			has_tremere_magick = yes
+			has_thaumaturgy_2 = yes
+			NOT = { trait = torpor }
+			NOT = { trait = incapable }
+			prisoner = no
+			OR = {
+				wealth = 30
+				ai = yes
+			}
+			can_do_easy_ritual = yes
+		}
+		
+		potential = {
+			NOT = { trait = antediluvian }
+			NOT = { trait = torpor }
+			is_within_diplo_range = FROM
+		}
+		allow = {
+			is_within_diplo_range = FROM
+		}
+		
+		effect = {
+			ROOT = { save_event_target_as = blood_magick_target }
+			FROM = { save_event_target_as = blood_magick_caster }
+			FROM = {
+				if = { limit = { ai = no }
+					POD_vampire_blood_thirst_increase_effect = yes
+					wealth = -30
+				}
+			}
+			FROM = {
+				set_character_flag = ritual_flag
+				set_character_flag = bureaucratic_condemnation_ritual
+				character_event = { id = POD_thaumaturgy_blood_magick.1 } 
+			}
+			
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				reverse_opinion = { who = FROM value = 10 }
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					is_landed = no
+					NOT = { has_job_title = job_treasurer }
+				}
+			}
+		}
+	}
+	scapegoat_ritual_decision = {
+		ai_target_filter = rivals
+		filter = all
+		ai_check_interval = 120
+		
+		from_potential = {
+			has_tremere_magick = yes
+			has_thaumaturgy_2 = yes
+			NOT = { trait = torpor }
+			NOT = { trait = incapable }
+			prisoner = no
+			OR = {
+				wealth = 30
+				ai = yes
+			}
+			can_do_easy_ritual = yes
+		}
+		
+		potential = {
+			NOT = { trait = antediluvian }
+			NOT = { trait = torpor }
+			is_within_diplo_range = FROM
+		}
+		allow = {
+			is_within_diplo_range = FROM
+		}
+		
+		effect = {
+			ROOT = { save_event_target_as = blood_magick_target }
+			FROM = { save_event_target_as = blood_magick_caster }
+			FROM = {
+				if = { limit = { ai = no }
+					POD_vampire_blood_thirst_increase_effect = yes
+					wealth = -30
+				}
+			}
+			FROM = {
+				set_character_flag = ritual_flag
+				set_character_flag = scapegoat_ritual
+				character_event = { id = POD_thaumaturgy_blood_magick.1 } 
+			}
+			
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				reverse_opinion = { who = FROM value = 0 }
+			}
+			modifier = {
+				factor = 0
+				is_landed = no
+			}
+		}
+	}
+	corrupt_body_ritual_decision = {
+		ai_target_filter = rivals
+		filter = all
+		ai_check_interval = 120
+		
+		from_potential = {
+			has_tremere_magick = yes
+			has_thaumaturgy_4 = yes
+			NOT = { trait = torpor }
+			NOT = { trait = incapable }
+			prisoner = no
+			OR = {
+				scaled_wealth = 1
+				ai = yes
+			}
+			can_do_easy_ritual = yes
+		}
+		
+		potential = {
+			NOT = { trait = antediluvian }
+			NOT = { trait = torpor }
+			is_within_diplo_range = FROM
+		}
+		allow = {
+			is_within_diplo_range = FROM
+		}
+		
+		effect = {
+			ROOT = { save_event_target_as = blood_magick_target }
+			FROM = { save_event_target_as = blood_magick_caster }
+			FROM = {
+				if = { limit = { ai = no }
+					POD_vampire_blood_thirst_increase_effect = yes
+					scaled_wealth = -1
+				}
+			}
+			FROM = {
+				set_character_flag = ritual_flag
+				set_character_flag = corrupt_body_ritual
+				character_event = { id = POD_thaumaturgy_blood_magick.1 } 
+			}
+			
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				reverse_opinion = { who = FROM value = 0 }
+			}
+		}
+	}
+	acedia_ritual_decision = {
+		ai_target_filter = rivals
+		filter = all
+		ai_check_interval = 120
+		
+		from_potential = {
+			has_tremere_magick = yes
+			has_thaumaturgy_5 = yes
+			NOT = { trait = torpor }
+			NOT = { trait = incapable }
+			prisoner = no
+			OR = {
+				scaled_wealth = 1
+				ai = yes
+			}
+			can_do_easy_ritual = yes
+		}
+		
+		potential = {
+			NOT = { trait = antediluvian }
+			NOT = { trait = torpor }
+			is_within_diplo_range = FROM
+		}
+		allow = {
+			is_within_diplo_range = FROM
+		}
+		
+		effect = {
+			ROOT = { save_event_target_as = blood_magick_target }
+			FROM = { save_event_target_as = blood_magick_caster }
+			FROM = {
+				if = { limit = { ai = no }
+					POD_vampire_blood_thirst_increase_effect = yes
+					scaled_wealth = -1
+				}
+			}
+			FROM = {
+				set_character_flag = ritual_flag
+				set_character_flag = acedia_ritual
+				character_event = { id = POD_thaumaturgy_blood_magick.1 } 
+			}
+			
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				reverse_opinion = { who = FROM value = 0 }
+			}
+		}
+	}
+}

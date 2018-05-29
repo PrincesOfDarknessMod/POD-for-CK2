@@ -1,0 +1,100 @@
+has_thaumaturgy_2 = {
+	OR = {
+		trait = thaumaturgy_2
+		trait = thaumaturgy_3
+		trait = thaumaturgy_4
+		trait = thaumaturgy_5
+	}
+}
+
+has_thaumaturgy_3 = {
+	OR = {
+		trait = thaumaturgy_3
+		trait = thaumaturgy_4
+		trait = thaumaturgy_5
+	}
+}
+
+has_thaumaturgy_4 = {
+	OR = {
+		trait = thaumaturgy_4
+		trait = thaumaturgy_5
+	}
+}
+
+has_thaumaturgy_5 = {
+	trait = thaumaturgy_5
+}
+
+has_tremere_magick = {
+	trait = tremere
+}
+
+has_high_thaumaturgy = {
+	trait = thaumaturgy_5
+	OR = {
+		has_powerful_generation = yes
+		has_high_age_magick = yes
+	}
+}
+
+has_high_age_magick = {
+	OR = {
+		trait = ancient
+		trait = methuselah
+		trait = antediluvian
+	}
+}
+
+has_high_willpower_traits = {
+	OR = {
+		AND = {
+			trait = patient
+			trait = diligent
+			trait = stubborn
+		}
+		AND = {
+			trait = patient
+			trait = diligent
+			trait = proud
+		}
+	}
+}
+
+has_willpower_traits = {
+	OR = {
+		trait = patient
+		trait = diligent
+		trait = stubborn
+		trait = proud
+		trait = genius
+		trait = quick
+		trait = ambitious
+		trait = zealous
+		trait = shrewd
+		trait = cynical
+	}
+}
+
+can_do_easy_ritual = {
+	OR = {
+		NOT = { has_character_flag = ritual_flag }
+		had_character_flag = { flag = ritual_flag days = 50 }
+		ai = yes
+	}
+}
+can_do_hard_ritual = {
+	OR = {
+		NOT = { has_character_flag = ritual_flag }
+		had_character_flag = { flag = ritual_flag days = 1850 }
+		ai = yes
+	}
+}
+
+discipline_training_enabled = {
+	has_character_flag = discipline_training_enabled
+	NOR = {
+		has_character_flag = discipline_out_of_clan_learned
+		had_character_flag = { flag = discipline_out_of_clan_learned days = 18250 }
+	}
+}
