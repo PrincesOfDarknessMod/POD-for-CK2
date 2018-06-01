@@ -527,6 +527,24 @@ character_event = {
 					}
 				}
 				modifier = {
+					factor = 1.3
+					event_target:plot_attacker = {
+						combat_rating_diff = {
+							character = event_target:plot_target
+							value = 1
+						}
+					}
+				}
+				modifier = {
+					factor = 1.7
+					event_target:plot_attacker = {
+						combat_rating_diff = {
+							character = event_target:plot_target
+							value = 10
+						}
+					}
+				}
+				modifier = {
 					factor = 1.2
 					event_target:plot_attacker = {
 						trait = elder
@@ -548,6 +566,12 @@ character_event = {
 					factor = 1.5
 					event_target:plot_attacker = {
 						has_powerful_generation = yes
+					}
+				}
+				modifier =  {
+					factor = 3
+					event_target:plot_attacker = {
+						trait = vampgeneration3
 					}
 				}
 				modifier = {
@@ -572,6 +596,10 @@ character_event = {
 					factor = 0.5
 					has_powerful_generation = yes
 				}
+				modifier =  {
+					factor = 0.3
+					trait = vampgeneration3
+				}
 				modifier = {
 					factor = 0.8
 					has_strong_generation = yes
@@ -593,6 +621,20 @@ character_event = {
 					attribute_diff = {
 						character = event_target:plot_attacker
 						attribute = martial
+						value = 1
+					}
+				}
+				modifier = {
+					factor = 0.6
+					combat_rating_diff = {
+						character = event_target:plot_attacker
+						value = 10
+					}
+				}
+				modifier = {
+					factor = 0.8
+					combat_rating_diff = {
+						character = event_target:plot_attacker
 						value = 1
 					}
 				}

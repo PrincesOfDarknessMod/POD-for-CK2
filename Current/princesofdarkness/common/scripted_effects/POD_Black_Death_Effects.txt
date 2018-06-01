@@ -39,6 +39,7 @@ pod_check_for_black_death_outbreak = {
 			year > 1320
 			year < 1390
 			has_global_flag = POD_Gehenna_Black_Death_First
+			has_game_rule = { name = gehenna_black_death value = deadly }
 		}
 		random = {
 			chance = 1
@@ -73,9 +74,23 @@ pod_commence_black_death_effect = {
 	}
 }
 pod_start_black_death_province_effect = {
-	pod_check_province_effect = yes
-	pod_black_death_building_destroy_effect = yes
-	pod_bd_torpor_effect = yes
+	if = {
+		limit = {
+			OR = {
+				has_game_rule = { name = gehenna_black_death value = normal }
+				has_game_rule = { name = gehenna_black_death value = deadly }
+			}
+		}
+		pod_check_province_effect = yes
+		pod_black_death_building_destroy_effect = yes
+		pod_bd_torpor_effect = yes
+	}else_if = {
+		limit = {
+			has_game_rule = { name = gehenna_black_death value = weak }
+		}
+		pod_black_death_building_destroy_effect_weak = yes
+		pod_bd_torpor_effect_weak = yes
+	}
 }
 
 pod_black_death_building_destroy_effect = {
@@ -163,6 +178,30 @@ pod_bd_torpor_effect = {
 			}
 			pod_enter_torpor_effect = yes
 		}
+	}
+}
+
+pod_bd_torpor_effect_weak = {
+	any_province_character = {
+		limit = {
+			trait = vampire
+			NOT = { trait = torpor }
+			ai = yes
+		}
+		random = {
+			chance = 15
+			modifier = {
+				factor = 0.5
+				pod_black_death_protection = yes
+			}
+			pod_enter_torpor_effect = yes
+		}
+	}
+}
+pod_black_death_building_destroy_effect_weak = {
+	any_province_holding = {
+		destroy_random_building = yes
+		destroy_random_building = yes
 	}
 }
 
