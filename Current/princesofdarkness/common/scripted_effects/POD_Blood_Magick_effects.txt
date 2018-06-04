@@ -316,8 +316,10 @@ pod_count_personality_traits_willpower = {
 	if = {
 		limit = { trait = genius }
 		change_variable = { which = willpower_value value = 1 }
-	}
-	if = {
+	}else_if = {
+		limit = { trait = shrewd }
+		change_variable = { which = willpower_value value = 1 }
+	}else_if = {
 		limit = { trait = quick }
 		change_variable = { which = willpower_value value = 1 }
 	}
@@ -327,6 +329,10 @@ pod_count_personality_traits_willpower = {
 	}
 	if = {
 		limit = { trait = zealous }
+		change_variable = { which = willpower_value value = 1 }
+	}
+	if = {
+		limit = { trait = temperate }
 		change_variable = { which = willpower_value value = 1 }
 	}
 }

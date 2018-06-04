@@ -139,7 +139,11 @@ character_event = {
 				NOT = {
 					is_elder_vampire = yes
 				}
-				NOT = { trait = player_childe }
+				OR = {
+					NOT = { trait = player_childe }
+					NOT = { trait = canon_childe }
+				}
+				NOT = { higher_tier_than = COUNT }
 				has_powerful_generation = no
 				OR = {
 					had_character_flag = {

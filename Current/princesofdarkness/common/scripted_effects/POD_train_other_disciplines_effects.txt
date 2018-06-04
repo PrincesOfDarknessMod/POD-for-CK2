@@ -32,7 +32,14 @@ pod_identify_new_discipline = {
 
 pod_convert_county_religion_to_ruler = {
 	random_list = {
-		30 = {
+		40 = {
+			modifier = {
+				factor = 2
+				OR = {
+					trait = zealous
+					trait = diligent
+				}
+			}
 			random_demesne_province = {
 				limit = {
 					NOT = { religion = ROOT }
@@ -41,7 +48,7 @@ pod_convert_county_religion_to_ruler = {
 				log = "Converted [This.GetName] to religion of [Root.GetTitledName]"
 			}
 		}
-		70 = {
+		60 = {
 		}
 	}
 }
