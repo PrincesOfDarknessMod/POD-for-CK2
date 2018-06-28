@@ -20,19 +20,25 @@ character_event = {
 		NOT = { trait = changeling }
 		NOT = { trait = firstbornfae }
 		NOT = { trait = promethean }
-		NOT = { trait = geist }
+		NOT = { trait = wraith }
+		NOT = { trait = spectre }
 		NOT = { trait = demon }
 		NOT = { trait = revenant }
 		NOT = { trait = storyteller }
 		OR = {
 			has_global_flag = bookmark767
+			has_global_flag = bookmark1096
 			has_global_flag = bookmark1215
 			has_global_flag = bookmark1230
 			has_global_flag = bookmark1350
+			has_global_flag = bookmark1354
 			has_global_flag = bookmark1355
 			has_global_flag = bookmark1466
 			has_global_flag = bookmark1505
 			has_global_flag = bookmark1506
+			has_global_flag = bookmark1598
+			has_global_flag = bookmark1921
+			has_global_flag = bookmark2015
 		}
 		location = { 
 			OR = {
@@ -53,6 +59,8 @@ character_event = {
 				religion = laibon
 				religion_group = changeling_group
 				religion_group = seasons_courts_group
+				religion_group = stygian_group
+				religion_group = malfean_group
 			}
 		}
 	}
@@ -184,7 +192,8 @@ character_event = {
 					NOT = { trait = mummy }
 					NOT = { trait = changeling }
 					NOT = { trait = promethean }
-					NOT = { trait = geist }
+					NOT = { trait = wraith }
+					NOT = { trait = spectre }
 					NOT = { trait = demon }
 					NOT = { trait = firstbornfae }
 					NOT = { trait = revenant }				
@@ -222,40 +231,61 @@ character_event = {
 					NOT = { trait = changeling }
 					NOT = { trait = firstbornfae }
 					NOT = { trait = promethean }
-					NOT = { trait = geist }
+					NOT = { trait = wraith }
+					NOT = { trait = spectre }
 					NOT = { trait = demon }
 					NOT = { trait = revenant }
 				}	
-				random_list = {
-					80 = { 
-						# mortal
-						add_trait = mortal
-						character_event = { id = mortal_commoner.1 }	
-					}
-					5 = {
-						# vampire
-						add_trait = vampire
-						add_trait = wyrm_taint
-						
-						character_event = { id = CWOD_vampire_commoner.1 }
-					}
-					5 = {
-						# werewolf
-						add_trait = werewolf
-						character_event = { id = CWOD_werewolf_commoner.1 }
-					}
-					5 = {
-						# mage
-						add_trait = mage
-						character_event = { id = CWOD_mage_commoner.1 }
-					}
-					5 = {
-						# changeling
-						add_trait = changeling
-						character_event = { id = CWOD_changeling_commoner.1 }
-					}
-					
 
+				if = {
+					limit = {
+						OR = {
+							has_global_flag = bookmark1096
+							has_global_flag = bookmark1354
+							has_global_flag = bookmark1598
+							has_global_flag = bookmark1921
+						}				
+					}
+
+					add_trait = wraith
+					character_event = { id = CWOD_wraith_commoner.1 }
+				}
+
+				else = {
+					random_list = {
+						75 = { 
+							# mortal
+							add_trait = mortal
+							character_event = { id = mortal_commoner.1 }	
+						}
+						5 = {
+							# vampire
+							add_trait = vampire
+							add_trait = wyrm_taint
+							
+							character_event = { id = CWOD_vampire_commoner.1 }
+						}
+						5 = {
+							# werewolf
+							add_trait = werewolf
+							character_event = { id = CWOD_werewolf_commoner.1 }
+						}
+						5 = {
+							# mage
+							add_trait = mage
+							character_event = { id = CWOD_mage_commoner.1 }
+						}
+						5 = {
+							# wraith
+							add_trait = wraith
+							character_event = { id = CWOD_wraith_commoner.1 }
+						}							
+						5 = {
+							# changeling
+							add_trait = changeling
+							character_event = { id = CWOD_changeling_commoner.1 }
+						}				
+					}
 				}			
 			}	
 		}

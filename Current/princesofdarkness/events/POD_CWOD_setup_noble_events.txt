@@ -25,22 +25,29 @@ character_event = {
 		NOT = { trait = changeling }
 		NOT = { trait = firstbornfae }
 		NOT = { trait = promethean }
-		NOT = { trait = geist }
+		NOT = { trait = wraith }
+		NOT = { trait = spectre }
 		NOT = { trait = demon }
 		NOT = { trait = fledgling }
 		NOT = { trait = revenant }
 		NOT = { trait = storyteller }
+		NOT = { trait = mortal }
 		NOT = { trait = canon }
 		NOT = { has_character_flag = FLAG_POD_SETUP_NOBLE_FIRED }
 		OR = {
 			has_global_flag = bookmark767
+			has_global_flag = bookmark1096
 			has_global_flag = bookmark1215
 			has_global_flag = bookmark1230
 			has_global_flag = bookmark1350
+			has_global_flag = bookmark1354
 			has_global_flag = bookmark1355
 			has_global_flag = bookmark1466
 			has_global_flag = bookmark1505
 			has_global_flag = bookmark1506
+			has_global_flag = bookmark1598
+			has_global_flag = bookmark1921
+			has_global_flag = bookmark2015
 		}
 		capital_scope = {  
 			OR = { 
@@ -61,6 +68,8 @@ character_event = {
 				religion = laibon
 				religion_group = seasons_courts_group
 				religion_group = changeling_group
+				religion_group = stygian_group
+				religion_group = malfean_group
 			}
 		}
 	
@@ -227,16 +236,21 @@ character_event = {
 				NOT = { religion = revenant_setite }
 				NOT = { religion = revenant_mayaparisataya }
 				NOT = { religion = revenant_assamite }
-				NOT = { trait = storyteller }	
+				NOT = { trait = storyteller }
 				OR = {
 					has_global_flag = bookmark767
+					has_global_flag = bookmark1096
 					has_global_flag = bookmark1215
 					has_global_flag = bookmark1230
-					has_global_flag = bookmark1355
+					has_global_flag = bookmark1350
+					has_global_flag = bookmark1354
 					has_global_flag = bookmark1355
 					has_global_flag = bookmark1466
 					has_global_flag = bookmark1505
 					has_global_flag = bookmark1506
+					has_global_flag = bookmark1598
+					has_global_flag = bookmark1921
+					has_global_flag = bookmark2015
 				}					
 				OR = { 
 					religion_group = vampire_high_clans_group
@@ -265,19 +279,26 @@ character_event = {
 				NOT = { trait = firstbornfae }	
 				NOT = { trait = changeling }
 				NOT = { trait = promethean }
-				NOT = { trait = geist }
+				NOT = { trait = wraith }
+				NOT = { trait = spectre }
 				NOT = { trait = demon }
 				NOT = { trait = revenant }	
+				NOT = { trait = mortal }
 				is_adult = yes
 				OR = {
 					has_global_flag = bookmark767
+					has_global_flag = bookmark1096
 					has_global_flag = bookmark1215
 					has_global_flag = bookmark1230
 					has_global_flag = bookmark1350
+					has_global_flag = bookmark1354
 					has_global_flag = bookmark1355
 					has_global_flag = bookmark1466
 					has_global_flag = bookmark1505
 					has_global_flag = bookmark1506
+					has_global_flag = bookmark1598
+					has_global_flag = bookmark1921
+					has_global_flag = bookmark2015
 					}
 				OR = {
 					religion_group = garou_group
@@ -314,18 +335,25 @@ character_event = {
 				NOT = { trait = firstbornfae }	
 				NOT = { trait = changeling }	
 				NOT = { trait = promethean }
-				NOT = { trait = geist }
+				NOT = { trait = wraith }
+				NOT = { trait = spectre }
 				NOT = { trait = demon }
 				NOT = { trait = revenant }	
+				NOT = { trait = mortal }
 				OR = {
 					has_global_flag = bookmark767
+					has_global_flag = bookmark1096
 					has_global_flag = bookmark1215
 					has_global_flag = bookmark1230
 					has_global_flag = bookmark1350
+					has_global_flag = bookmark1354
 					has_global_flag = bookmark1355
 					has_global_flag = bookmark1466
 					has_global_flag = bookmark1505
 					has_global_flag = bookmark1506
+					has_global_flag = bookmark1598
+					has_global_flag = bookmark1921
+					has_global_flag = bookmark2015
 				}					
 				OR = {
 					religion_group = order_of_reason_group
@@ -356,9 +384,11 @@ character_event = {
 				NOT = { trait = firstbornfae }	
 				NOT = { trait = changeling }
 				NOT = { trait = promethean }
-				NOT = { trait = geist }
+				NOT = { trait = wraith }
+				NOT = { trait = spectre }
 				NOT = { trait = demon }
 				NOT = { trait = revenant }	
+				NOT = { trait = mortal }
 				religion_group = hunter_group
 			}
 			# make supe hunter ruler
@@ -387,9 +417,11 @@ character_event = {
 					NOT = { trait = firstbornfae}	
 					NOT = { trait = changeling }
 					NOT = { trait = promethean }
-					NOT = { trait = geist }
+					NOT = { trait = wraith }
+					NOT = { trait = spectre }
 					NOT = { trait = demon }
 					NOT = { trait = revenant }	
+					NOT = { trait = mortal }
 					OR = 
 					{
 						religion_group = changeling_group
@@ -421,9 +453,11 @@ character_event = {
 					NOT = { trait = firstbornfae }	
 					NOT = { trait = changeling }
 					NOT = { trait = promethean }
-					NOT = { trait = geist }
+					NOT = { trait = wraith }
+					NOT = { trait = spectre }
 					NOT = { trait = demon }
-					NOT = { trait = revenant }							
+					NOT = { trait = revenant }
+					NOT = { trait = mortal }							
 				religion_group = promethean_group
 			}
 			# make promethean ruler
@@ -452,9 +486,11 @@ character_event = {
 					NOT = { trait = firstbornfae }	
 					NOT = { trait = changeling }
 					NOT = { trait = promethean }
-					NOT = { trait = geist }
+					NOT = { trait = wraith }
+					NOT = { trait = spectre }
 					NOT = { trait = demon }
-					NOT = { trait = revenant }						
+					NOT = { trait = revenant }	
+					NOT = { trait = mortal }					
 				religion_group = mummy_group
 			}
 			# make mummy ruler
@@ -463,7 +499,7 @@ character_event = {
 			set_government_type = unaligned_government
 			character_event = { id = mummy_noble.1 }
 		}	
-# geist nobles						
+# wraith nobles						
 		if = {
 			limit = {
 				OR = {
@@ -483,16 +519,21 @@ character_event = {
 					NOT = { trait = firstbornfae }	
 					NOT = { trait = changeling }
 					NOT = { trait = promethean }
-					NOT = { trait = geist }
+					NOT = { trait = wraith }
+					NOT = { trait = spectre }
 					NOT = { trait = demon }
-					NOT = { trait = revenant }							
-				religion_group = geist_group
+					NOT = { trait = revenant }	
+					NOT = { trait = mortal }						
+				OR = {
+					religion_group = stygian_group
+					religion_group = malfean_group
+					}
 			}
 			# make geist ruler
-			add_trait = geist
+			add_trait = wraith
 			#give_supe_disease_immunity_effect = yes
 			set_government_type = unaligned_government
-			character_event = { id = geist_noble.1 }
+			character_event = { id = CWOD_wraith_noble.1 }
 		}	
 # demon nobles						
 		if = {
@@ -513,9 +554,11 @@ character_event = {
 					NOT = { trait = firstbornfae }	
 					NOT = { trait = changeling }
 					NOT = { trait = promethean }
-					NOT = { trait = geist }
+					NOT = { trait = wraith }
+					NOT = { trait = spectre }
 					NOT = { trait = demon }
-					NOT = { trait = revenant }							
+					NOT = { trait = revenant }
+					NOT = { trait = mortal }							
 				is_adult = yes
 				religion_group = demon_group
 			}
@@ -544,9 +587,11 @@ character_event = {
 					NOT = { trait = firstbornfae }	
 					NOT = { trait = changeling }
 					NOT = { trait = promethean }
-					NOT = { trait = geist }
+					NOT = { trait = wraith }
+					NOT = { trait = spectre }
 					NOT = { trait = demon }
-					NOT = { trait = revenant }								
+					NOT = { trait = revenant }
+					NOT = { trait = mortal }								
 				is_adult = yes
 				OR = { 				
 						religion = revenant_high_clans 
@@ -606,7 +651,8 @@ character_event = {
 						religion_group = changeling_group
 						religion_group = seasons_courts_group
 						religion_group = mummy_group
-						religion_group = geist_group
+						religion_group = stygian_group
+						religion_group = malfean_group
 						religion_group = demon_group
 						religion_group = innocent_group		
 					}
@@ -628,10 +674,12 @@ character_event = {
 				NOT = { trait = firstbornfae }	
 				NOT = { trait = changeling }
 				NOT = { trait = demon }
-				NOT = { trait = geist }
+				NOT = { trait = wraith }
+				NOT = { trait = spectre }
 				NOT = { trait = mummy }
 				NOT = { trait = revenant }
 				NOT = { trait = promethean }
+				NOT = { trait = mortal }
 				religion_group = innocent_group
 			}
 			# make mortal ruler

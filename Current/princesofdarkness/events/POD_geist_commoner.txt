@@ -1,6 +1,6 @@
-namespace = geist_commoner
+namespace = wraith_commoner
 character_event = {
-	id = geist_commoner.1
+	id = wraith_commoner.1
 	#desc = "POD_GEIST_COMMONER_DESC"
 	
 	hide_window = yes	
@@ -12,10 +12,16 @@ character_event = {
 			if = {
 					limit = {
 					age = 16
-					trait = geist 
+					trait = wraith
 					}	
-# make geist commoner
-					religion = geist
+# make wraith commoner
+					random_list = {
+						25 = { religion = stygian }
+						25 = { religion = fishers }
+						25 = { religion = renegade }
+						25 = { religion = renegade }
+					}
+
 				}	
 			}
 		}

@@ -1,0 +1,286 @@
+namespace = CWOD_wraith_noble
+character_event = {
+	id = CWOD_wraith_noble.1
+	is_triggered_only = yes
+	hide_window = yes
+	
+	immediate = {
+			if = {
+					limit = {
+					trait = wraith
+					}	
+# make wraith ruler
+					random_list = {
+						40 = { religion = stygian }
+						20 = { religion = fisherheretics }
+						20 = { religion = renegade }
+						20 = { 
+							modifier = {
+							factor = 0
+							ai = no
+							}
+							religion = malfean
+						 }
+					}
+					if = {
+						limit = {
+							culture_group = altaic
+							culture_group = arabic
+							culture_group = iranian
+							culture_group = eastafrican
+							culture_group = westafrican
+							culture_group = mesoamerican
+							culture_group = indoaryan_group
+							culture_group = dravidian_group
+							culture_group = tibetan_group
+							culture_group = chinese_group
+						}
+						set_graphical_culture = wraithmuslim
+					}
+					else = {
+						set_graphical_culture = wraithwestern
+					}
+
+					if = {
+						limit = {
+							religion = malfean
+						}
+						remove_trait = wraith
+						add_trait = spectre
+						add_trait = wyrm_taint
+					}
+
+						create_character = 
+						{
+							random_traits = yes
+							age = 30
+							culture = ROOT
+							religion = ROOT
+							dynasty = random
+						}
+						
+						new_character =
+						{
+							save_event_target_as = new_dynasty_character
+							ROOT = 
+							{ 
+								dynasty = event_target:new_dynasty_character
+							}							
+							clear_event_target = event_target:new_dynasty_character
+							death = "yes"
+						}	
+
+
+					if = {
+						limit = {
+							religion = stygian
+						}
+						random_list = {
+							25 = { add_trait = legion_skeletal }
+							20 = { add_trait = legion_grim }
+							20 = { add_trait = legion_iron }
+							10 = { add_trait = legion_emerald }
+							10 = { add_trait = legion_pentient }	
+							5 = { add_trait = legion_silent }
+							5 = { add_trait = legion_paupers }
+							5 = { add_trait = legion_fate }
+						}
+					}
+
+						#Arcanoi
+
+						random_list = {
+							5 = { add_trait = acranos_argos_3 } # Harbingers Working Guild
+							10 = { 
+								modifier = {
+									factor = 5
+									trait = legion_penitent
+								}
+							add_trait = arcanos_castigate_3 
+							} # Pardoners Great Guild
+							5 = { 
+								modifier = {
+									factor = 0
+									trait = legion_iron
+								}
+								add_trait = arcanos_embody_3 
+							} # Proctors Criminal Guild
+							5 = { add_trait = arcanos_fatalism_3 } # Oracles Working Guild
+							10 = { add_trait = arcanos_inhabit_3 } # Artificers Great Guild
+							5 = { add_trait = arcanos_keening_3 } # Chanteurs Working Guild
+							5 = { add_trait = arcanos_lifeweb_3 } # Monitors Criminal Guild
+							10 = { add_trait = arcanos_moliate_3 } # Masquers Great Guild
+							5 = { add_trait = arcanos_outrage_3 } # Spooks Criminal Guild
+							5 = { add_trait = arcanos_pandemonium_3 } # Haunters Criminal Guild
+							5 = { add_trait = arcanos_phantasm_3 } # Sandmen Working Guild
+							5 = { 
+								modifier = {
+									factor = 0.5
+									trait = legion_iron
+								}
+								add_trait = arcanos_puppetry_3 
+							} # Puppeteers Criminal Guild
+							10 = { add_trait = arcanos_usury_3 } # Usurers Great Guild
+							5 = { add_trait = arcanos_flux_3 } # Alchemists Forbidden Guild
+							5 = { add_trait = arcanos_intimation } # Soliciors Forbidden Guild
+							5 = { add_trait = arcanos_mnemosynis } # Mnemoi Forbidden Guild
+							#= { add_trait = arcanos_contaminate_3 } # Spectres
+							#= { add_trait = arcanos_hive_mind_3 } # Spectres
+							#= { add_trait = arcanos_larceny_3 } # Spectres
+							#= { add_trait = arcanos_shroud_rending_3 } # Spectres
+							#= { add_trait = arcanos_tempest_weaveing_3 } # Spectres
+							#= { add_trait = arcanos_corruption_3 } # Doomslayers
+							#= { add_trait = arcanos_maleficence_3 } # Doomslayers
+							#= { add_trait = arcanos_tempestos_3 } # Doomslayers
+							#= { add_trait = arcanos_fascinate_3 } # Risen
+							#= { add_trait = arcanos_serendipity_3 } # Risen
+							#= { add_trait = arcanos_behest_3 } # Great War
+							#= { add_trait = arcanos_connaissance_3 } # Les Invisibles
+							#= { add_trait = arcanos_dipslace_3 } # Great War
+							#= { add_trait = arcanos_kinesis_3 } # Great War
+							#= { add_trait = arcanos_leechcraft_3 } # Great War
+						}
+
+						random = {
+							chance = 15
+							modifier = {
+								factor = 0
+								trait = aracnos_argos_3
+							}
+							add_trait = arcanos_argos_1
+						}
+
+						random = {
+							chance = 15
+							modifier = {
+								factor = 0
+								trait = aracnos_castigate_3
+							}
+							modifier = {
+									factor = 5
+									trait = legion_penitent
+							}
+							add_trait = arcanos_castigate_1
+						}						
+
+						random = {
+							chance = 15
+							modifier = {
+								factor = 0
+								trait = aracnos_embody_3
+							}
+							modifier = {
+									factor = 0
+									trait = legion_iron
+							}
+							add_trait = arcanos_embody_1
+						}	
+
+						random = {
+							chance = 15
+							modifier = {
+								factor = 0
+								trait = aracnos_fatalism_3
+							}
+							add_trait = arcanos_fatalism_1
+						}	
+						random = {
+							chance = 15
+							modifier = {
+								factor = 0
+								trait = aracnos_inhabit_3
+							}
+							add_trait = arcanos_inhabit_1
+						}							
+						random = {
+							chance = 15
+							modifier = {
+								factor = 0
+								trait = aracnos_keening_3
+							}
+							add_trait = arcanos_keening_1
+						}	
+						random = {
+							chance = 15
+							modifier = {
+								factor = 0
+								trait = aracnos_lifeweb_3
+							}
+							add_trait = arcanos_lifeweb_1
+						}							
+						random = {
+							chance = 15
+							modifier = {
+								factor = 0
+								trait = aracnos_moliate_3
+							}
+							add_trait = arcanos_moliate_1
+						}	
+						random = {
+							chance = 15
+							modifier = {
+								factor = 0
+								trait = aracnos_outrage_3
+							}
+							add_trait = arcanos_outrage_1
+						}	
+						random = {
+							chance = 15
+							modifier = {
+								factor = 0
+								trait = aracnos_pandemonium_3
+							}
+							add_trait = arcanos_pandemonium_1
+						}	
+						random = {
+							chance = 15
+							modifier = {
+								factor = 0
+								trait = aracnos_phantasm_3
+							}
+							add_trait = arcanos_phantasm_1
+						}	
+						random = {
+							chance = 15
+							modifier = {
+								factor = 0
+								trait = aracnos_puppetry_3
+							}
+							add_trait = arcanos_puppetry_1
+						}	
+						random = {
+							chance = 15
+							modifier = {
+								factor = 0
+								trait = aracnos_usury_3
+							}
+							add_trait = arcanos_usury_1
+						}	
+						random = {
+							chance = 15
+							modifier = {
+								factor = 0
+								trait = aracnos_flux_3
+							}
+							add_trait = arcanos_flux_1
+						}	
+						random = {
+							chance = 15
+							modifier = {
+								factor = 0
+								trait = aracnos_intimation_3
+							}
+							add_trait = arcanos_intimation_1
+						}							
+						random = {
+							chance = 15
+							modifier = {
+								factor = 0
+								trait = aracnos_mnemosynis_3
+							}
+							add_trait = arcanos_mnemosynis_1
+						}							
+
+				}
+	}
+}

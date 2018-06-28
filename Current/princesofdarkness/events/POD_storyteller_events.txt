@@ -80,6 +80,7 @@ character_event = {
 				 trait = "bookmark1096"
 			}
 			set_global_flag = bookmark1096
+			set_global_flag = WTO_shadowlands
 		}	
 		if = { 
 			limit = {
@@ -146,7 +147,13 @@ character_event = {
 			}
 			set_global_flag = bookmark1350
 		}
-		
+		if = { 
+			limit = {
+				 trait = "bookmark1354"
+			}
+			set_global_flag = bookmark1354
+			set_global_flag = WTO_shadowlands
+		}		
 		if = { 
 			limit = {
 				 trait = "bookmark1355"
@@ -219,11 +226,31 @@ character_event = {
 		}	
 		if = { 
 			limit = {
+				 trait = "bookmark1598"
+			}
+			set_global_flag = bookmark1598
+			set_global_flag = WTO_shadowlands
+		}		
+		if = { 
+			limit = {
 				 trait = "bookmark1666"
 			}
 			set_global_flag = bookmark1666
-		}		
-	}
+		}	
+		if = { 
+			limit = {
+				trait = "bookmark1921"
+			}
+			set_global_flag = bookmark1921
+			set_global_flag = WTO_shadowlands
+		}
+		if = { 
+			limit = {
+				trait = "bookmark2015"
+			}
+			set_global_flag = bookmark2015
+
+		}	}
 }
 
 # Storyteller bookmark dead wood character clean up
@@ -236,6 +263,7 @@ character_event = {
 	is_triggered_only = yes
 	
 		trigger = {
+		ai = yes
 		is_alive = yes
 		is_save_game = no
 		NOT = { trait = storyteller } 
@@ -256,12 +284,16 @@ character_event = {
 		trait = bookmark1250 
 		trait = bookmark1325
 		trait = bookmark1350
+		trait = bookmark1354
 		trait = bookmark1355
 		trait = bookmark1466
 		trait = bookmark1505
 		trait = bookmark1506
 		trait = bookmark1533
-		trait = bookmark1666 			
+		trait = bookmark1598
+		trait = bookmark1666
+		trait = bookmark1921
+		trait = bookmark2015 			
 		}		
 		OR = {
 		has_global_flag = bookmark232 
@@ -280,12 +312,16 @@ character_event = {
 		has_global_flag = bookmark1250 
 		has_global_flag = bookmark1325 
 		has_global_flag = bookmark1350
+		has_global_flag = bookmark1354
 		has_global_flag = bookmark1355
 		has_global_flag = bookmark1466 
 		has_global_flag = bookmark1505 
 		has_global_flag = bookmark1506
 		has_global_flag = bookmark1533
-		has_global_flag = bookmark1666 	
+		has_global_flag = bookmark1598
+		has_global_flag = bookmark1666
+		has_global_flag = bookmark1921 	
+		has_global_flag = bookmark2015
 		}
 	}
 	
@@ -313,13 +349,17 @@ character_event = {
 									trait = bookmark1202 
 									trait = bookmark1230 
 									trait = bookmark1250 
-									trait = bookmark1325 
+									trait = bookmark1325
+									trait = bookmark2015 
 									trait = bookmark1355
 									trait = bookmark1466 
 									trait = bookmark1505
 									trait = bookmark1506
 									trait = bookmark1533
-									trait = bookmark1666 								
+									trait = bookmark1598
+									trait = bookmark1666 	
+									trait = bookmark1921
+									trait = bookmark2015							
 								}
 							}
 						remove_trait = bookmark232 
@@ -342,8 +382,11 @@ character_event = {
 						remove_trait = bookmark1466 
 						remove_trait = bookmark1505
 						remove_trait = bookmark1506
-						remove_trait = bookmark1533						
+						remove_trait = bookmark1533
+						remove_trait = bookmark1598						
 						remove_trait = bookmark1666 
+						remove_trait = bookmark1921
+						remote_trait = bookmark2015
 						death = "yes"	
 				}
 
@@ -850,6 +893,76 @@ character_event = {
 						 remove_trait = bookmark1215
 						 }				
 			}	
+		if = { 
+			limit = {
+						 has_global_flag = bookmark1921
+						 NOT = { trait = storyteller } 
+				}
+				
+				if = { limit = {
+								NOT = { trait = bookmark1921 }
+								NOT = { trait = storyteller } 
+								OR = {
+									trait = bookmark232 
+									trait = bookmark412 
+									trait = bookmark480 
+									trait = bookmark543 
+									# trait = bookmark757 
+									trait = bookmark767
+									trait = bookmark947 
+									trait = bookmark990 
+									trait = bookmark1096 
+									trait = bookmark1142 
+									trait = bookmark1202
+									trait = bookmark1215 
+									trait = bookmark1230 
+									trait = bookmark1250 
+									trait = bookmark1325 
+									trait = bookmark1355
+									trait = bookmark1466 
+									trait = bookmark1505
+									trait = bookmark1533
+									trait = bookmark1666 	
+									trait = bookmark1350
+									trait = bookmark1506
+									trait = bookmark1598
+									trait = bookmark2015
+								}
+							}
+						remove_trait = bookmark232 
+						remove_trait = bookmark412 
+						remove_trait = bookmark480 
+						remove_trait = bookmark543 
+						#remove_trait = bookmark757 
+						remove_trait = bookmark767
+						remove_trait = bookmark947 
+						remove_trait = bookmark990 
+						remove_trait = bookmark1096 
+						remove_trait = bookmark1142 
+						remove_trait = bookmark1202 
+						remove_trait = bookmark1215
+						remove_trait = bookmark1230 
+						remove_trait = bookmark1250 
+						remove_trait = bookmark1325 
+						remove_trait = bookmark1355
+						remove_trait = bookmark1466 
+						remove_trait = bookmark1505
+						remove_trait = bookmark1533						
+						remove_trait = bookmark1666 
+						remove_trait = bookmark1350
+						remove_trait = bookmark1506 	
+						remove_trait = bookmark1598
+						remove_trait = bookmark2015					
+						death = "yes"	
+				}
+
+				if = { limit = { 
+						trait = bookmark1921
+						NOT = { trait = storyteller } 
+						}
+						 remove_trait = bookmark1215
+						 }				
+			}				
 			
 	}
 	
@@ -5059,5 +5172,55 @@ province_event = {
 			narrative_event = { id = POD_narrative_events.1 }
 		}
 	}
+
+
+
 }
 
+
+character_event = {
+	# The Great War, Wraith the Oblivion
+	id = storyteller.25
+	hide_window = yes	
+	is_triggered_only = yes #from on_startup, given that it only needs firing at start, it is inefficient to put it as mtth
+	
+	only_rulers = yes
+	
+	trigger = {
+		year = 1921
+		is_save_game = no
+		NOT = { year = 1922 }
+		NOT = { has_global_flag = initial_setup_started }
+		has_global_flag = bookmark1921
+		#has_global_flag = WTO_shadowlands
+		any_province = {
+			NOR = { 				
+				#has_province_flag = POD_CWOD_province_supe_religion
+				religion_group = stygian_group
+				religion_group = malfean_group 
+			}	
+		}
+	}
+	
+	immediate = {
+		any_province = {
+			limit = { 
+				NOR = { 				
+					has_province_flag = POD_CWOD_province_supe_religion
+					religion_group = stygian_group
+					religion_group = malfean_group
+				}			
+			}
+			random_list = 
+			{
+				40 = { religion = stygian }
+				20 = { religion = fisherheretics }
+				20 = { religion = renegade }
+				20 = { religion = malfean }
+			}
+			set_province_flag = POD_CWOD_province_supe_religion							
+		}
+		
+	}
+	
+}

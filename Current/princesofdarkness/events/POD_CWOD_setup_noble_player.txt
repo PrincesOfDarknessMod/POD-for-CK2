@@ -16,16 +16,22 @@ character_event = {
 		NOT = { trait = firstbornfae }
 		NOT = { trait = changeling }
 		NOT = { trait = canon }
+		NOT = { trait = wraith }
 		NOT = { has_character_flag = FLAG_POD_SETUP_NOBLE_FIRED }
 		OR = {
 			has_global_flag = bookmark767
+			has_global_flag = bookmark1096
 			has_global_flag = bookmark1215
 			has_global_flag = bookmark1230
 			has_global_flag = bookmark1350
+			has_global_flag = bookmark1354
 			has_global_flag = bookmark1355
 			has_global_flag = bookmark1466
 			has_global_flag = bookmark1505
 			has_global_flag = bookmark1506
+			has_global_flag = bookmark1598
+			has_global_flag = bookmark1921
+			has_global_flag = bookmark2015
 		}
 	}
 		
@@ -135,13 +141,18 @@ character_event = {
 				NOT = { trait = storyteller }	
 				OR = {
 					has_global_flag = bookmark767
+					has_global_flag = bookmark1096
 					has_global_flag = bookmark1215
 					has_global_flag = bookmark1230
 					has_global_flag = bookmark1350
+					has_global_flag = bookmark1354
 					has_global_flag = bookmark1355
 					has_global_flag = bookmark1466
 					has_global_flag = bookmark1505
 					has_global_flag = bookmark1506
+					has_global_flag = bookmark1598
+					has_global_flag = bookmark1921
+					has_global_flag = bookmark2015
 				}					
 				OR = { 
 					religion_group = vampire_high_clans_group
@@ -168,16 +179,24 @@ character_event = {
 				NOT = { trait = vampire }
 				NOT = { trait = werewolf }
 				NOT = { trait = mage }
+				NOT = { trait = wraith }
+				NOT = { trait = changeling }
+				NOT = { trait = firstbornfae } 				
 				is_adult = yes
 				OR = {
 					has_global_flag = bookmark767
+					has_global_flag = bookmark1096
 					has_global_flag = bookmark1215
 					has_global_flag = bookmark1230
 					has_global_flag = bookmark1350
+					has_global_flag = bookmark1354
 					has_global_flag = bookmark1355
 					has_global_flag = bookmark1466
 					has_global_flag = bookmark1505
 					has_global_flag = bookmark1506
+					has_global_flag = bookmark1598
+					has_global_flag = bookmark1921
+					has_global_flag = bookmark2015
 					}
 				OR = {
 					religion_group = garou_group
@@ -201,8 +220,6 @@ character_event = {
 			limit = {
 				OR = {		
 					is_landed = yes
-					mercenary = yes
-					holy_order = yes
 					is_patrician = yes
 					num_of_duke_titles = 1
 				}
@@ -213,13 +230,18 @@ character_event = {
 				is_adult = yes
 				OR = {
 					has_global_flag = bookmark767
+					has_global_flag = bookmark1096
 					has_global_flag = bookmark1215
 					has_global_flag = bookmark1230
 					has_global_flag = bookmark1350
+					has_global_flag = bookmark1354
 					has_global_flag = bookmark1355
 					has_global_flag = bookmark1466
 					has_global_flag = bookmark1505
 					has_global_flag = bookmark1506
+					has_global_flag = bookmark1598
+					has_global_flag = bookmark1921
+					has_global_flag = bookmark2015
 				}					
 				OR = {
 					religion_group = order_of_reason_group
@@ -232,14 +254,55 @@ character_event = {
 			set_government_type = magicka_government
 			character_event = { id = CWOD_mage_noble.1 }
 		}	
+
+# wraith nobles				
+		if = {
+			limit = {
+				OR = {		
+					is_landed = yes
+					is_patrician = yes
+					num_of_duke_titles = 1
+				}
+				NOT = {	trait = POD_vampire_RD_immortal_fix }
+				NOT = { trait = vampire }
+				NOT = { trait = werewolf }
+				NOT = { trait = mage }	
+				NOT = { trait = wraith }
+				NOT = { trait = changeling }
+				NOT = { trait = firstbornfae } 			
+				is_adult = yes
+				OR = {
+					has_global_flag = bookmark767
+					has_global_flag = bookmark1096
+					has_global_flag = bookmark1215
+					has_global_flag = bookmark1230
+					has_global_flag = bookmark1350
+					has_global_flag = bookmark1354
+					has_global_flag = bookmark1355
+					has_global_flag = bookmark1466
+					has_global_flag = bookmark1505
+					has_global_flag = bookmark1506
+					has_global_flag = bookmark1598
+					has_global_flag = bookmark1921
+					has_global_flag = bookmark2015
+				}					
+				OR = {
+					religion_group = stygian_group
+					religion_group = malfean_group
+				}
+			}
+			# make mage ruler
+			add_trait = wraith
+			set_government_type = munaligned_government
+			character_event = { id = CWOD_wraith_noble.1 }
+		}	
+		
 		
 # Changeling nobles		
 		if = {
 			limit = {
 				OR = {		
 					is_landed = yes
-					mercenary = yes
-					holy_order = yes
 					is_patrician = yes
 					num_of_duke_titles = 1
 				}
@@ -247,18 +310,20 @@ character_event = {
 				NOT = { trait = vampire }
 				NOT = { trait = werewolf }
 				NOT = { trait = mage }		
+				NOT = { trait = wraith }
 				NOT = { trait = changeling }
 				NOT = { trait = firstbornfae }
 				is_adult = yes
 				OR = {
-					has_global_flag = bookmark767
-					has_global_flag = bookmark1215
-					has_global_flag = bookmark1230
 					has_global_flag = bookmark1350
+					has_global_flag = bookmark1354
 					has_global_flag = bookmark1355
 					has_global_flag = bookmark1466
 					has_global_flag = bookmark1505
 					has_global_flag = bookmark1506
+					has_global_flag = bookmark1598
+					has_global_flag = bookmark1921
+					has_global_flag = bookmark2015
 				}					
 				OR = {
 					religion_group = changeling_group
