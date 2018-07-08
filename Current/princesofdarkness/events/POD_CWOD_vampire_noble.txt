@@ -372,6 +372,7 @@ character_event = {
 						OR = { 
 							has_global_flag = bookmark1505 
 							has_global_flag = bookmark1506
+							has_global_flag = bookmark2015
 						} 
 					}
 					add_trait = lasombraantitribu
@@ -383,6 +384,7 @@ character_event = {
 		if = {
 				limit = {
 					OR = { 
+						has_global_flag = bookmark2015
 						has_global_flag = bookmark1505
 						has_global_flag = bookmark1506
 						has_global_flag = bookmark767
@@ -451,6 +453,7 @@ character_event = {
 										OR = { 
 												has_global_flag = bookmark1505
 												has_global_flag = bookmark1506
+												has_global_flag = bookmark2015
 												}
 											}
 									add_trait = lasombraantitribu									
@@ -474,6 +477,7 @@ character_event = {
 										OR = { 
 												has_global_flag = bookmark1505
 												has_global_flag = bookmark1506
+												has_global_flag = bookmark2015
 												}
 											}
 									add_trait = tzimisceantitribu									
@@ -553,6 +557,23 @@ character_event = {
 					limit = { religion = ventruecamarilla } 
 					add_trait = ventrue
 				}
+				
+				if = {
+					limit = { 
+							religion = masquerade_camarilla 
+							has_global_flag = bookmark2015
+						}
+					random_list = {
+						30 = { add_ trait = ventrue }
+						30 = { add_trait = toreador }
+						10 = { add_trait = nosferatu }
+						10 = { add_trait = malkavian }
+						10 = { add_trait = tremere }
+						5 = { add_trait = brujah }
+						5 = { add_trait = gangrel }
+					}				
+				}
+				
 				if = { 
 					limit = { religion = sabbat }
 					#log = "is sabbat"
@@ -582,7 +603,15 @@ character_event = {
 					}
 				}
 				if = {
-					limit = { religion = masquerade_camarilla }
+					limit = { 
+						religion = masquerade_camarilla 
+						has_global_flag = bookmark767
+						has_global_flag = boookmark1215
+						has_global_flag = bookmark1230
+						has_global_flag = bookmark1350
+						has_global_flag = bookmark1355 
+						has_global_flag = bookmark1466					
+					}
 					save_event_target_as = new_spawn_vamp
 					pod_camarilla_new_character_spawn = yes
 				}

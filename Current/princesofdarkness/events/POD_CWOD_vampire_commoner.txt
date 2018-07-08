@@ -203,6 +203,7 @@ character_event = {
 					}
 					
 					OR = { 
+						has_global_flag = bookmark2015
 						has_global_flag = bookmark1505
 						has_global_flag = bookmark1506
 						has_global_flag = bookmark767
@@ -348,6 +349,22 @@ character_event = {
 					limit = { religion = ventruecamarilla } 
 					add_trait = ventrue
 				}
+				
+				if = {
+					limit = { 
+							religion = masquerade_camarilla 
+							has_global_flag = bookmark2015
+						}
+					random_list = {
+						30 = { add_ trait = ventrue }
+						30 = { add_trait = toreador }
+						10 = { add_trait = nosferatu }
+						10 = { add_trait = malkavian }
+						10 = { add_trait = tremere }
+						5 = { add_trait = brujah }
+						5 = { add_trait = gangrel }
+					}				
+				}				
 				if = {
 					limit = { religion = sabbat }
 					random_list = {
@@ -376,6 +393,7 @@ character_event = {
 							has_global_flag = bookmark1350
 							has_global_flag = bookmark1355
 							has_global_flag = bookmark1466
+							has_global_flag = bookmark2015
 						}
 					}
 					random_list = {
@@ -1952,6 +1970,7 @@ character_event = {
 						OR = { 
 							has_global_flag = bookmark1505
 							has_global_flag = bookmark1506 
+							has_global_flag = bookmark2015
 						}
 						religion = giovanni
 					}
@@ -3196,12 +3215,21 @@ character_event = {
 				}
 			}	
 
+# 2015
+
+			if = { 
+				limit = { 
+					has_global_flag = bookmark2015										
+				} 		
+			
+				POD_CWOD_vampire_jyhad_diaries_commoner_clan_init_effect = yes
+			}
+			
 # get a new dynasty names
 
-			if = 
-			{ limit = { 
-			
-					ai = yes 				
+			if = { 
+			limit = { 
+				ai = yes 				
 			}
 						create_character = 
 						{

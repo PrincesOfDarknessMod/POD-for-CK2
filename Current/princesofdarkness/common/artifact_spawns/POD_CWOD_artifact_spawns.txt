@@ -17,6 +17,7 @@ Sword_of_Nul = {
 				trait = mage
 				}
 			is_landed = yes
+			is_adult = yes
 		}
 	}
 
@@ -45,6 +46,7 @@ Tablet_of_Destiny = {
 			value = 5
 			trait = vampire
 			is_landed = yes
+			is_adult = yes
 		}
 	}
 
@@ -73,6 +75,7 @@ The_Sargon_Fragment = {
 			value = 5
 			trait = vampire
 			is_landed = yes
+			is_adult = yes
 		}
 	}
 
@@ -101,6 +104,7 @@ Eye_of_Hazimel = {
 			value = 5
 			trait = vampire
 			is_landed = yes
+			is_adult = yes
 		}
 	}
 
@@ -125,6 +129,7 @@ Ankaran_Sarcophagus = {
 			value = 5
 			trait = vampire
 			is_landed = yes
+			is_adult = yes
 		}
 	}
 
@@ -151,6 +156,7 @@ Kristrbani = {
 				trait = vampire
 				}
 			is_landed = yes
+			is_adult = yes
 		}
 	}
 
@@ -177,6 +183,7 @@ Sword_of_Troile = {
 				trait = vampire
 				}
 			is_landed = yes
+			is_adult = yes
 		}
 	}
 
@@ -203,6 +210,7 @@ Euagetaematikon = {
 				trait = vampire
 				}
 			is_landed = yes
+			is_adult = yes
 		}
 	}
 
@@ -229,6 +237,7 @@ true_sword_of_troile = {
 				trait = vampire
 				}
 			is_landed = yes
+			is_adult = yes
 		}
 	}
 
@@ -255,6 +264,7 @@ crown_of_shaitan = {
 				trait = vampire
 				}
 			is_landed = yes
+			is_adult = yes
 		}
 	}
 
@@ -281,6 +291,7 @@ shard_black_throne = {
 				trait = vampire
 				}
 			is_landed = yes
+			is_adult = yes
 		}
 	}
 
@@ -307,6 +318,7 @@ the_sargon_codex = {
 				trait = vampire
 				}
 			is_landed = yes
+			is_adult = yes
 		}
 	}
 
@@ -333,6 +345,7 @@ sword_of_samiel = {
 				trait = vampire
 				}
 			is_landed = yes
+			is_adult = yes
 		}
 	}
 
@@ -359,6 +372,7 @@ clan_lasombra_chronicles = {
 				trait = vampire
 				}
 			is_landed = yes
+			is_adult = yes
 		}
 	}
 
@@ -385,6 +399,7 @@ bloodhorn = {
 				trait = vampire
 				}
 			is_landed = yes
+			is_adult = yes
 		}
 	}
 
@@ -411,6 +426,7 @@ scepter_of_enoch = {
 				trait = vampire
 				}
 			is_landed = yes
+			is_adult = yes
 		}
 	}
 
@@ -437,6 +453,7 @@ ainkurn = {
 				trait = vampire
 				}
 			is_landed = yes
+			is_adult = yes
 		}
 	}
 
@@ -464,6 +481,7 @@ Klaive_of_Yuri_Tvarivich = {
 			trait = werewolf
 			is_landed = yes
 			religion_group = garou_group
+			is_adult = yes
 		}
 	}
 
@@ -488,6 +506,7 @@ First_Klaive = {
 			value = 5
 			trait = werewolf
 			is_landed = yes
+			is_adult = yes
 			religion_group = garou_group
 		}
 	}
@@ -513,12 +532,15 @@ grand_klaives = {
 		additive_modifier = {
 			value = 50
 			is_landed = yes
+			is_adult = yes
 			trait = werewolf
 			religion_group = garou_group
 		}
 		additive_modifier = {
-			value = 50
+			value = 25
 			trait = werewolf
+			is_landed = no
+			is_adult = yes
 			religion_group = garou_group
 		}		
 	}
@@ -546,10 +568,13 @@ fang_daggers = {
 		additive_modifier = {
 			value = 50
 			is_landed = yes
+			is_adult = yes
 			trait = werewolf
 		}
 		additive_modifier = {
-			value = 50
+			value = 25
+			is_landed = no
+			is_adult = yes
 			trait = werewolf
 		}		
 	}
@@ -577,12 +602,15 @@ bane_klaives = {
 		additive_modifier = {
 			value = 50
 			is_landed = yes
+			is_adult = yes
 			trait = werewolf
 			religion_group = wyrm_group
 		}
 		additive_modifier = {
-			value = 50
+			value = 25
 			trait = werewolf
+			is_adult = yes
+			is_landed = no
 			religion_group = wyrm_group
 		}		
 	}
@@ -608,14 +636,17 @@ generic_klaives = {
 	weight = {
 		value = 0
 		additive_modifier = {
-			value = 50
+			value = 75
 			is_landed = yes
+			is_adult = yes
 			trait = werewolf
 			religion_group = garou_group
 		}
 		additive_modifier = {
 			value = 50
 			trait = werewolf
+			is_adult = yes
+			is_landed = no
 			religion_group = garou_group
 		}		
 	}
@@ -637,3 +668,1531 @@ generic_klaives = {
 	}
 }
 
+modern_vehicles = {
+	max_amount = 1000
+	spawn_date = 1908.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+	weight = {
+		value = 0
+		additive_modifier = {
+			value = 50
+			year = 1908
+			is_adult = yes
+			NOT = { trait = elder }
+			NOT = { trait = ancient }
+			NOT = { trait = methuselah }
+			NOT = { trait = torpor }
+		}	
+	}
+
+	artifacts = {
+		
+		Motorcycle = {
+			value = 23
+		}
+
+		Car = {
+			value = 45
+		}
+		
+		Police_Car = {
+			value = 1
+		}
+		
+		Truck = {
+			value = 20
+		}
+		
+		Sports_Car = {
+			value = 5
+		}
+	}
+}
+
+# Limos
+
+limos = {
+	max_amount = 50
+	spawn_date = 1930.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+	weight = {
+		value = 0
+		additive_modifier = {
+			value = 50
+			is_landed = yes
+			is_adult = yes
+			year = 1930	
+			NOT = { trait = torpor }
+		}
+	}
+
+	artifacts = {
+
+		Limo = {
+			value = 5
+		}
+		
+		Armored_Limo = {
+			value = 1
+		}
+	}
+}
+
+
+# Mounts
+
+
+normal_mounts = {
+	max_amount = 100
+	spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 10
+	}
+
+	weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 25
+			year = 100
+			is_adult = yes
+			NOT = { year = 1920 }
+			trait = vampire
+			NOT = { trait = torpor }
+			OR = {
+				trait = animalism_1
+				trait = animalism_2
+				trait = animalism_3
+				trait = animalism_4
+				trait = animalism_5
+			}
+		}
+		
+		additive_modifier = {
+			value = 50
+			year = 100
+			is_adult = yes
+			is_landed = no
+			NOT = { year = 1920 }
+			OR = {
+				trait = supehunter
+				trait = changeling
+				trait = firstbornfae
+				trait = mage
+				trait = revenant
+				trait = ghoul
+			}
+		}
+		
+		additive_modifier = {
+			value = 50
+			year = 100
+			is_adult = yes
+			NOT = { year = 1920 }
+			is_landed = yes
+			NOT = { trait = vampire }
+		}	
+	}
+
+	artifacts = {
+
+		Horse = {
+			value = 75
+		}
+		
+		Fine_Horse = {
+			value = 25
+		}
+	}
+}
+
+blood_mounts = {
+	max_amount = 50
+	spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+	weight = {
+		value = 0
+		
+		additive_modifier = {
+			value = 25
+			OR = {
+				trait = animalism_1
+				trait = animalism_2
+				trait = animalism_3
+				trait = animalism_4
+				trait = animalism_5
+			}
+			year = 100
+			trait = vampire
+			NOT = { trait = torpor }
+			is_adult = yes
+			NOT = { year = 1920 }
+		}
+		
+		additive_modifier = {
+			value = 10
+			OR = {
+				martial = 15
+				trait = cavalry_leader
+				trait = flat_terrain_leader
+			}
+			trait = vampire
+			is_adult = yes
+			year = 100
+			NOT = { year = 1920 }
+		}
+		
+		additive_modifier = {
+			value = 25
+			is_landed = yes
+			trait = vampire 
+			NOT = { trait = torpor }
+			year = 100
+			NOT = { year = 1920 }
+		}	
+	}
+
+	artifacts = {
+
+		Ghoul_Horse = {
+			value = 75
+		}
+		
+		Revenant_Horse = {
+			value = 25
+		}
+
+	}
+}
+
+magic_mounts = {
+	max_amount = 10
+	spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+	weight = {
+		value = 0
+	
+		additive_modifier = {
+			value = 25
+			trait = mage
+			is_adult = yes
+			NOT = { trait = vampire }
+			NOT = { trait = werewolf }
+			year = 100
+			NOT = { year = 1920 }
+		}
+		
+		additive_modifier = {
+			value = 25
+			trait = mage
+			is_adult = yes
+			NOT = { trait = vampire }
+			NOT = { trait = werewolf }
+			OR = {
+				trait = cavalry_leader
+				trait = flat_terrain_leader
+			}			
+			year = 100
+			NOT = { year = 1920 }
+		}		
+		
+	}
+
+	artifacts = {
+
+		Awakened_Horse = {
+			value = 95
+		}
+		
+		Daedalan_Wings = {
+			value = 5
+		}
+
+	}
+}
+
+antique_weapons = {
+	max_amount = 100
+	spawn_date = 1900.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+	weight = {
+		value = 0
+	
+		additive_modifier = {
+			value = 25
+			OR = {
+				trait = mage
+				trait = vampire 
+			}
+			#NOT = { religion_group = order_of_reason_group }
+			is_adult = yes
+			year = 1900
+		}
+		
+		additive_modifier = {
+			value = 25
+			trait = duelist
+			#NOT = { religion_group = order_of_reason_group }
+			is_adult = yes
+			year = 1900
+		}		
+		
+	}
+
+	artifacts = {
+
+		Antique_Sword = {
+			value = 40
+		}
+		
+		Antique_Axe = {
+			value = 5
+		}
+		
+		Antique_Bow= {
+			value = 5
+		}
+		
+		Antique_Lance = {
+			value = 20
+		}
+		
+		Antique_Mace = {
+			value = 20
+		}
+		
+		Antique_Handgun	= {
+			value = 10
+		}
+
+	}
+}
+
+mage_primers = {
+	max_amount = 100
+	spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+	weight = {
+		value = 0
+	
+		additive_modifier = {
+			value = 95
+			OR = {
+				trait = mage
+			}
+		}
+		
+		additive_modifier = {
+			value = 5
+			OR = {
+				trait = mortal
+			}
+		}		
+		
+	}
+	
+	artifacts = {
+
+		Kitab_al_Alcir = {
+			value = 5
+		}
+
+		Code_Of_Tremere =  {
+			value = 4
+		}		
+		
+		The_Eigh_Spook_Wheels = {
+			value = 4
+		}
+		
+		Corpus_Hermeticum = {
+			value = 5
+		}
+
+		The_Eight_Spoked_Wheel = {
+			value = 4
+		}
+
+		The_Hymn_of_the_One = {
+			value = 4
+		}
+
+		The_Hymn_of_Mithras = {
+			value = 4
+		}
+
+		Dreams_of_the_Spirits = {
+			value = 4
+		}
+
+		Tales_of_the_Wyck = {
+			value = 5
+		}
+
+		Mushaf_al_Isra = {
+			value = 4
+		}
+
+		Ars_Praeclarus = {
+			value = 4
+		}
+
+		Gospel_of_Gabriel = {
+			value = 5
+		}
+
+		Charts_of_Heaven = {
+			value = 5
+		}
+
+		On_Mapmaking = {
+			value = 4
+		}
+
+		The_Fortress = {
+			value = 4
+		}
+
+		Ars_Cupiditae = {
+			value = 4
+		}
+
+		Hippocratic_Corpus = {
+			value = 5
+		}
+
+		Ixions_Testimony = {
+			value = 4
+		}
+
+		Code_of_Sahaja = {
+			value = 4
+		}
+
+		Kabbalah = {
+			value = 4
+		}
+
+		Al_Asha = {
+			value = 4
+		}
+
+		Akashic_Record = {
+			value = 4
+		}
+
+		Khan_Tengri = {
+			value = 4
+		}
+
+		Omne_Datum_Optimum	 = {
+			value = 4
+		}
+	}	
+}
+
+modern_mage_primers = {
+	max_amount = 10
+	spawn_date = 1900.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+	weight = {
+		value = 0
+	
+		additive_modifier = {
+			value = 95
+			OR = {
+				trait = mage
+			}
+			OR = {
+				religion_group = order_of_reason_group 
+				#religion = virtual_adepts
+			}
+			year = 1900
+		}
+		
+		additive_modifier = {
+			value = 5
+			OR = {
+				trait = mortal
+			}
+			year = 1900
+		}		
+		
+	}
+	
+	artifacts = {
+	
+		Lovelace_Letters = {
+			value = 50
+		}
+
+		Computing_Machinery_And_Intelligence = {
+			value = 50
+		}	
+	}
+}
+
+blood_bags = {
+	max_amount = 100
+	spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+	weight = {
+		value = 0
+	
+		additive_modifier = {
+			value = 25
+			trait = vampire
+		}
+		
+		additive_modifier = {
+			value = 25
+			trait = ancilla
+		}		
+
+		additive_modifier = {
+			value = 50
+			trait = elder
+		}		
+		
+		additive_modifier = {
+			value = 60
+			trait = ancient
+		}		
+		
+		additive_modifier = {
+			value = 65
+			trait = methuselah
+		}		
+		
+	}
+
+	artifacts = {
+
+		Principle_Focus = {
+			value = 20
+		}
+
+		Corporeal_Reservoir = {
+			value = 20
+		}
+
+		Lupine_Blood = {
+			value = 20
+		}
+
+		Giant_Blood = {
+			value = 5
+		}	
+
+		Changeling_Blood = {
+			value = 15
+		}
+
+		Elder_Vitae = {
+			value = 20
+		}	
+	}
+}
+
+trippy_drugs = {
+	max_amount = 100
+	spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+	weight = {
+		value = 0
+	
+		additive_modifier = {
+			value = 30
+			trait = mage
+		}
+		additive_modifier = {
+			value = 10
+			trait = mortal
+		}	
+		additive_modifier = {
+			value = 25
+			trait = changeling
+		}		
+		additive_modifier = {
+			value = 20
+			trait = firstbornfae
+		}				
+		additive_modifier = {
+			value = 20
+			trait = werewolf
+		}				
+	}
+
+	artifacts = {
+		Prophetic_Drugs = {
+			value = 100
+		}
+	}
+}
+
+modern_med_kits = {
+	max_amount = 100
+	spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+	weight = {
+		value = 0
+	
+		additive_modifier = {
+			value = 50
+			trait = mage
+			year = 1900
+		}
+		
+		additive_modifier = {
+			value = 25
+			trait = mortal
+			year = 1900
+		}		
+	}
+
+	artifacts = {
+		Medical_Kit = {
+			value = 70
+		}
+		Awakened_Medicine = {
+			value = 10
+		}
+		Advanced_Awakened_Medicine = {
+			value = 5
+		}
+		Smart_Drink = {
+			value = 10
+		}
+		Liquid_Prana = {
+			value = 5
+		}
+		
+	}
+}
+
+tass_consumable = {
+	max_amount = 100
+	spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+	weight = {
+		value = 0
+	
+		additive_modifier = {
+			value = 75
+			trait = mage
+		}			
+	}
+
+	artifacts = {
+		Tass = {
+			value = 100
+		}
+	}
+}
+
+dross_consumable = {
+	max_amount = 100
+	spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+	weight = {
+		value = 0
+	
+		additive_modifier = {
+			value = 50
+			trait = changeling
+		}		
+		
+		additive_modifier = {
+			value = 75
+			trait = firstbornfae
+		}		
+		
+	}
+
+	artifacts = {
+		Dross = {
+			value = 100
+		}
+	}
+}
+
+djinn_consumable = {
+	max_amount = 10
+	spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+	weight = {
+		value = 0
+	
+		additive_modifier = {
+			value = 25
+			trait = mage
+		}		
+		
+		additive_modifier = {
+			value = 25
+			OR = {
+				religion = taftani
+				religion = ahl-i-batin
+				religion = dreamspeakers
+				religion = lions_of_zion
+				religion = khavadi
+				religion = nephandi
+				religion = spirit-talkers
+				religion = marauders
+				religion = cult_of_mercury
+				religion = order_of_hermes
+				religion = nif_ur_en_daah
+			}
+			trait = mage
+		}		
+		
+		additive_modifier = {
+			value = 25
+			OR = {
+				culture_group = arabic
+				culture_group = iranian
+			}
+			trait = mage
+		}		
+		
+	}
+
+	artifacts = {
+		Djinn_Bottle = {
+			value = 100
+		}
+	}
+}
+
+ritual_objects = {
+	max_amount = 10
+	spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+	weight = {
+		value = 0
+	
+		additive_modifier = {
+			value = 25
+			trait = mage
+		}		
+		
+	}
+
+	artifacts = {
+		Devil_Stick = {
+			value = 100
+		}
+	}
+}
+
+medieval_guns = {
+	max_amount = 100
+	spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+	weight = {
+		value = 0
+	
+		additive_modifier = {
+			value = 25
+			year = 1450
+			NOT = { year = 1850 }
+			NOT = { trait = elder }
+			NOT = { trait = ancient }
+			NOT = { trait = methuselah }
+			NOT = { trait = torpor }
+		}	
+
+		additive_modifier = {
+			value = 25
+			year = 1450
+			NOT = { year = 1850 }
+			OR = {	
+				religion_group = order_of_reason_group
+				religion = society_of_ether		
+				religion = orphan
+				religion = kitab_al-alacir	
+			}
+			trait = mage
+		}			
+		
+		additive_modifier = {
+			value = 25
+			year = 1450
+			NOT = { year = 1850 }
+			trait = supe_hunter
+		}					
+	}
+
+	artifacts = {
+		Early_Handgun = {
+			value = 60
+		}
+
+		Fine_Handgun = {
+			value = 30
+		}
+
+		Mastercraft_Handgun = {
+			value = 10
+		}
+	}
+}
+
+victorian_guns = {
+	max_amount = 500
+	spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+	weight = {
+		value = 0
+	
+		additive_modifier = {
+			value = 25
+			year = 1840
+			NOT = { trait = elder }
+			NOT = { trait = ancient }
+			NOT = { trait = methuselah }
+			NOT = { trait = torpor }
+		}	
+
+		additive_modifier = {
+			value = 25
+			year = 1840
+			OR = {	
+				religion_group = order_of_reason_group
+				religion = society_of_ether		
+				religion = orphan
+				religion = kitab_al-alacir	
+			}
+			trait = mage
+		}			
+		
+		additive_modifier = {
+			value = 25
+			year = 1840
+			trait = supe_hunter
+		}					
+	}
+
+	artifacts = {
+		Revolver = {
+			value = 30
+		}
+
+		Shotgun = {
+			value = 30
+		}
+		
+		Hunting_Rilfe = {
+			value = 30
+		}
+
+		Shotgun_RockSalt = {
+			value = 10
+		}
+	}
+}
+
+modern_guns = {
+	max_amount = 250
+	spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+	weight = {
+		value = 0
+	
+		additive_modifier = {
+			value = 25
+			year = 1900
+			NOT = { trait = elder }
+			NOT = { trait = ancient }
+			NOT = { trait = methuselah }
+			NOT = { trait = torpor }
+		}	
+
+		additive_modifier = {
+			value = 25
+			year = 1900
+			OR = {	
+				religion_group = order_of_reason_group
+				religion = society_of_ether		
+				religion = orphan
+				religion = kitab_al-alacir	
+			}
+			trait = mage
+		}			
+		
+		additive_modifier = {
+			value = 25
+			year = 1900
+			trait = supe_hunter
+		}					
+	}
+
+	artifacts = {
+		Semi_Automatic_Pistol = {
+			value = 65
+		}
+
+		SMG = {
+			value = 10
+		}
+		
+		Assault_Rifle = {
+			value = 10
+		}
+
+		LMG = {
+			value = 5
+		}
+		
+		Sniper_Rifle = {
+			value = 10
+		}
+	}
+}
+
+modern_technocracy_guns = {
+	max_amount = 50
+	spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+	weight = {
+		value = 0
+
+		additive_modifier = {
+			value = 25
+			year = 1900
+			religion_group = order_of_reason_group
+			trait = mage
+		}			
+				
+	}
+
+	artifacts = {
+		X_5_Revolver = {
+			value = 65
+		}
+
+		X_5_SemiAuto = {
+			value = 10
+		}
+		
+		AS_115_Assault_Rifle = {
+			value = 10
+		}
+	}
+}
+
+modern_melee_weapons = {
+	max_amount = 250
+	spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+	weight = {
+		value = 0
+
+		additive_modifier = {
+			value = 25
+			year = 1900
+			NOT = { trait = elder }
+			NOT = { trait = ancient }
+			NOT = { trait = methuselah }
+			NOT = { trait = torpor }			
+		}			
+				
+	}
+
+	artifacts = {
+		Wood_Baseball_Bat = {
+			value = 25
+		}
+
+		Metal_Baseball_Bat = {
+			value = 25
+		}
+		
+		Fire_Axe = {
+			value = 25
+		}
+		
+		Storebought_Katana = {
+			value = 25
+		}
+	}
+}
+
+katanas = {
+	max_amount = 50
+	spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+	weight = {
+		value = 0
+
+		additive_modifier = {
+			value = 25
+			year = 1450
+		}			
+				
+	}
+
+	artifacts = {
+		Imported_Katana = {
+			value = 90
+		}
+
+		Master_Katana  = {
+			value = 10
+		}
+		
+	}
+}
+
+plate_armor = {
+	max_amount = 100
+	spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+	weight = {
+		value = 0
+	
+		additive_modifier = {
+			value = 10
+			year = 1450
+			NOT = { year = 1700 }
+			NOT = { trait = torpor }
+		}	
+
+		additive_modifier = {
+			value = 15
+			year = 1450
+			NOT = { year = 1700 }
+			OR = {	
+				religion_group = order_of_reason_group
+				religion = society_of_ether		
+				religion = orphan
+				religion = kitab_al-alacir	
+			}
+			trait = mage
+		}			
+		
+		additive_modifier = {
+			value = 10
+			year = 1450
+			NOT = { year = 1700 }
+			trait = supe_hunter
+		}				
+
+		additive_modifier = {
+			value = 25
+			year = 1450
+			NOT = { year = 1700 }
+			trait = heavy_infantry_leader
+		}		
+
+		additive_modifier = {
+			value = 25
+			year = 1450
+			NOT = { year = 1700 }
+			trait = unyielding_leader
+		}	
+
+		additive_modifier = {
+			value = 10
+			year = 1450
+			NOT = { year = 1700 }
+			is_landed = yes
+		}			
+		
+		additive_modifier = {
+			value = 10
+			year = 1450
+			NOT = { year = 1700 }
+			OR = {
+				society_member_of = path_of_honorable_accord
+				society_member_of = via_regalis
+			}
+		}
+
+		additive_modifier = {
+			value = 50
+			year = 1450
+			NOT = { year = 1700 }
+			OR = {
+				society_member_of = order_black_cross
+				society_member_of = order_sable_rose
+				society_member_of = order_bitter_ashes
+				society_member_of = order_twilight
+			}
+		}		
+		
+	}
+
+	artifacts = {
+		Field_Plate_Armor = {
+			value = 100
+		}
+	}
+}
+
+
+modern_armor = {
+	max_amount = 250
+	spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+	weight = {
+		value = 0
+
+		additive_modifier = {
+			value = 10
+			year = 1975
+			NOT = { trait = elder }
+			NOT = { trait = ancient }
+			NOT = { trait = methuselah }
+			NOT = { trait = torpor }			
+		}			
+			
+		additive_modifier = {
+			value = 10
+			year = 1960
+			OR = {	
+				religion_group = order_of_reason_group
+				religion = society_of_ether		
+				religion = orphan
+				religion = kitab_al-alacir	
+			}
+			trait = mage
+		}			
+		
+		additive_modifier = {
+			value = 10
+			year = 1975
+			trait = supe_hunter
+		}	
+			
+	}
+
+	artifacts = {
+		Subtle_Armored_Suit = {
+			value = 45
+		}
+
+		Ballistic_Vest = {
+			value = 40
+		}
+		
+		Heavy_Ballistic_Vest = {
+			value = 10
+		}
+		
+		SWAT_Armor = {
+			value = 5
+		}
+	}
+}
+
+stake_bows = {
+	max_amount = 100
+	spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+	weight = {
+		value = 0
+
+		additive_modifier = {
+			value = 10
+			year = 1066
+			NOT = { trait = torpor }	
+			trait = vampire
+		}			
+			
+		additive_modifier = {
+			value = 10
+			year = 1066
+			OR = {	
+				religion_group = order_of_reason_group
+				religion = society_of_ether		
+				religion = orphan
+				religion = kitab_al-alacir	
+				religion = celestial_chorus
+			}
+			trait = mage
+		}			
+		
+		additive_modifier = {
+			value = 10
+			year = 1066
+			trait = supe_hunter
+		}	
+			
+	}
+
+	artifacts = {
+		Stake_Bow = {
+			value = 100
+		}
+	}	
+
+}
+
+stake_shotguns = {
+	max_amount = 50
+	spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+	weight = {
+		value = 0
+	
+		additive_modifier = {
+			value = 25
+			year = 1840
+			NOT = { trait = elder }
+			NOT = { trait = ancient }
+			NOT = { trait = methuselah }
+			NOT = { trait = torpor }
+		}	
+
+		additive_modifier = {
+			value = 25
+			year = 1840
+			OR = {	
+				religion_group = order_of_reason_group
+				religion = society_of_ether		
+				religion = orphan
+				religion = kitab_al-alacir	
+				religion = celestial_chorus
+			}
+			trait = mage
+		}			
+		
+		additive_modifier = {
+			value = 10
+			year = 1840
+			trait =supe_hunter
+		}					
+	}
+
+	artifacts = {
+
+		Stake_Shotgun = {
+			value = 100
+		}
+
+	}
+}
+
+etherite_arms = {
+	max_amount = 10
+	spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+	weight = {
+		value = 0
+	
+		additive_modifier = {
+			value = 10
+			year = 1900
+			OR = {
+				religion = society_of_ether		
+				religion = orphan
+				religion = kitab_al-alacir
+				religion = marauders
+			}
+			trait = mage
+		}	
+			
+	}
+
+	artifacts = {
+
+		Etherite_Death_Ray = {
+			value = 100
+		}
+
+	}
+}
+
+teleforce = {
+	max_amount = 1
+	spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+	weight = {
+		value = 0
+
+		additive_modifier = {
+			value = 10
+			year = 1900
+			OR = {
+				religion_group = order_of_reason_group
+				religion = society_of_ether		
+				religion = orphan
+				religion = kitab_al-alacir
+			}
+			trait = mage
+		}			
+		
+		additive_modifier = {
+			value = 5
+			year = 1900
+			trait = mage
+		}					
+	}
+
+	artifacts = {
+
+		Teleforce_Device = {
+			value = 100
+		}
+
+	}
+}
+
+justice_blades = {
+	max_amount = 10
+	spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+	weight = {
+		value = 0
+	
+		additive_modifier = {
+			value = 10
+			year = 1900
+			NOT = {
+				religion_group = order_of_reason
+				religion_group = daedalan 
+				religion = nephandi 
+				religion = marauder
+				religion = criminal
+				religion = the_mad 
+			}
+			trait = mage
+		}	
+
+		additive_modifier = {
+			value = 5
+			year = 1900
+			trait = supe_hunter
+			NOT = {
+				religion = criminal
+				religion = the_mad 
+			}			
+		}					
+	}
+
+	artifacts = {
+
+		Justice_Blades = {
+			value = 100
+		}
+
+	}
+}
+
+# WeaverTech
+
+gyrojet_arms = {
+	max_amount = 10
+	spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+	weight = {
+		value = 0
+	
+		additive_modifier = {
+			value = 10
+			year = 1900
+			OR = {
+				religion = society_of_ether		
+				religion = orphan
+				religion = kitab_al-alacir
+				religion = marauders
+			}
+			trait = mage
+		}	
+			
+	}
+
+	artifacts = {
+
+		Vanguard_Gyrojet_Pistol = {
+			value = 100
+		}
+
+	}
+}
+
+myrmadon_exoskeletons = {
+	max_amount = 10
+	spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+	weight = {
+		value = 0
+	
+		additive_modifier = {
+			value = 10
+			year = 1945
+			religion_group = order_of_reason_group
+			trait = mage
+		}	
+			
+	}
+
+	artifacts = {
+
+		Myrmadon_Exoskeleton_Suit = {
+			value = 90
+		}
+		
+		Primium_Myrmadon_Exoskeleton_Suit = {
+			value = 10
+		}		
+
+	}
+}
+
+raiden_units = {
+	max_amount = 9
+	spawn_date = 1946.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+	weight = {
+		value = 0
+
+		additive_modifier = {
+			value = 10
+			year = 1900
+			OR = {
+				religion_group = order_of_reason_group
+				religion = society_of_ether		
+				religion = orphan
+				religion = kitab_al-alacir
+			}
+			trait = mage
+		}			
+		
+		additive_modifier = {
+			value = 5
+			year = 1900
+			trait = mage
+		}					
+	}
+
+	artifacts = {
+
+		Raiden_Unit = {
+			value = 100
+		}
+
+	}
+}

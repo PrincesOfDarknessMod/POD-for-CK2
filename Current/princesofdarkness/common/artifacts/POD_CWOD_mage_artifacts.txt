@@ -1,0 +1,630 @@
+# Mage
+
+Daedalan_Wings = {
+	combat_rating = 1
+	command_modifier ={
+		speed = 3
+		pursue = 0.2
+		#light_infantry = 0.5
+		}
+	active = { 
+		"trait = mage" 
+	}
+	quality = 2
+	allowed_gift = { 
+		trait = "mage" 
+	}
+	indestructible = no
+	stacking = no
+	slot = steed
+	flags { steed magic }
+	picture = "GFX_Daedalan_Wings"
+	}
+
+##Consumables
+
+Prophetic_Drugs = {
+	#when consumed, causes scrying as per the alchemist society
+	quality = 1
+	flags = { consumable_mortal consumable_mage consumable_werewolf consumable_changeling }
+	picture = "GFX_Prophetic_Drugs"
+	indestructible = no
+	stacking = yes
+}
+
+Medical_Kit = {
+	#when consumed, grants a wounded character a "bandaged" trait that prevents infection
+	quality = 1
+	flags = { consumable_mortal consumable_mage }
+	picture = "GFX_Medical_Kit"
+	indestructible = no
+	stacking = yes
+}
+
+Awakened_Medicine = {
+	#When consumed, heals wounded and downgrades more serious conditions (severely wounded/maimed etc.) to wounded and applies "Bandaged"
+	quality = 2
+	flags = { consumable_mortal consumable_mage }
+	picture = "GFX_Awakened_Medicine"
+	indestructible = no
+	stacking = no
+}
+
+Advanced_Awakened_Medicine = {
+	#When consumed, heals all health traits except stressed/depressed
+	quality = 3
+	flags = { consumable_mortal consumable_mage }
+	picture = "GFX_Advanced_Awakened_Medicine"
+	indestructible = no
+	stacking = no
+}
+
+Tass = {
+	#When consumed, downgrades quintessence loss one step.
+	quality = 1
+	flags = { consumable_mage }
+	picture = "GFX_Tass"
+	indestructible = no
+	stacking = yes
+}
+
+Djinn_Bottle = {
+	#When consumed, summons an army of 30 Djinn (Spirits-of-war?)
+	quality = 3
+	flags = { consumable_mage }
+	allowed_gift = { 
+		trait = "mage" 
+	}
+	picture = "GFX_Djinn_Bottle"
+	indestructible = yes
+	stacking = no
+}
+
+Smart_Drink = { 
+	#Created by solifacti "Elixir of enlightenment"
+	#When consumed, grants the shrewd trait
+	quality = 3
+	flags = { consumable_mage consumable_mortal }
+	allowed_gift = { 
+		OR = { 
+			trait = "mage"
+			trait = "mortal"
+		}
+	}
+	picture = "GFX_Smart_Drink"
+	indestructible = no
+	stacking = no
+}
+
+Sacred_King_Blood = { 
+	#created by verbena rote of the same name 
+	#When consumed removes all health traits, if no health traits are present removes all genetic defects. If vampire also removes bloodthirst.
+	quality = 3
+	flags = { consumable_mage consumable_mortal consumable_vampire }
+	allowed_gift = { 
+		OR = { 
+			trait = "mage"
+			trait = "mortal "
+			trait = "vampire"
+		}
+	}
+	picture = "GFX_Sacred_king_Blood"
+	indestructible = no
+	stacking = no
+}
+
+Liquid_Prana = {
+ # Created by euthanatos "Gift of Prana"
+	#When consumed, heals wounded / severely wounded / infirm / diseases (including leperosy, if healing more than just wounded, comes with piety cost 
+	quality = 2
+	flags = { consumable_mage consumable_mortal }
+	allowed_gift = { 
+		OR = { 
+			trait = mage
+			trait = mortal 
+			}
+	}
+	picture = "GFX_Liquid_Prana"
+	indestructible = no
+	stacking = no
+}
+
+##Primers
+	#Used by various magical traditions to awaken mortals to magehood. Mortals have a 0.50+(2.5*learning))% chance to make the mortal into a mage, if they do not become one the first time, they get a hidden trait that causes them to never be able to become a mage via primer.
+
+Kitab_al_Alcir = {
+ #Sons of Ether/Electrodyne engineers/Voltarians 
+	quality = 1
+	flags = { primer consumable_mage consumable_mortal }
+	picture = "GFX_Kitab_al_Alcir"
+	indestructible = no
+	stacking = no
+	allowed_gift = { always = yes }
+}
+
+Corpus_Hermeticum = {
+ #Order of Hermes 
+	quality = 1
+	flags = { primer consumable_mage consumable_mortal }
+	picture = "GFX_Corpus_Hermeticum"
+	indestructible = no
+	stacking = no
+	allowed_gift = { always = yes }
+}
+
+Code_Of_Tremere = {
+ #House Tremere (Pre-vampire) 
+	quality = 1
+	flags = { primer consumable_mage consumable_mortal }
+	picture = "GFX_Code_Of_Tremere"
+	indestructible = no
+	stacking = no
+	allowed_gift = { always = yes }
+}
+
+The_Eight_Spoked_Wheel = {
+ #Euthanatos/Chakravanti
+	quality = 1
+	flags = { primer consumable_mage consumable_mortal }
+	picture = "GFX_The_Eight_Spoked_Wheel"
+	indestructible = no
+	stacking = no
+	allowed_gift = { always = yes }
+}
+
+The_Hymn_of_the_One = {
+ #Celestial-Chorus
+	quality = 1
+	flags = { primer consumable_mage consumable_mortal }
+	picture = "GFX_The_Hymn_of_the_One "
+	indestructible = no
+	stacking = no
+	allowed_gift = { always = yes }
+}
+
+The_Hymn_of_Mithras = { 
+#Pre-chorus Mithraic Singers
+	quality = 1
+	flags = { primer consumable_mage consumable_mortal }
+	picture = "GFX_The_Hymn_of_Mithras"
+	indestructible = no
+	stacking = no
+	allowed_gift = { always = yes }
+}
+
+Dreams_of_the_Spirits = {
+ #Dreamspeakers
+	quality = 1
+	flags = { primer consumable_mage consumable_mortal }
+	picture = "GFX_Dreams_of_the_Spirit"
+	indestructible = no
+	stacking = no
+	allowed_gift = { always = yes }
+}
+
+Tales_of_the_Wyck = {
+ #Verbena
+	quality = 1
+	flags = { primer consumable_mage consumable_mortal }
+	picture = "GFX_Tales_of_the_Wyck"
+	indestructible = no
+	stacking = no
+	allowed_gift = { always = yes }
+}
+
+Mushaf_al_Isra = {
+ #Al-i-Batin
+	quality = 1
+	flags = { primer consumable_mage consumable_mortal }
+	picture = "GFX_Mushaf_al_Isra"
+	indestructible = no
+	stacking = no
+	allowed_gift = { always = yes }
+}
+
+Ars_Praeclarus = {
+ #pre-technocracy artificers
+	quality = 1
+	flags = { primer consumable_mage consumable_mortal }
+	picture = "GFX_Ars_Praeclarus"
+	indestructible = no
+	stacking = no
+	allowed_gift = { always = yes }
+}
+
+Gospel_of_Gabriel = {
+ #Cabal-of-pure-thought/Ivory Tower
+	quality = 1
+	flags = { primer consumable_mage consumable_mortal }
+	picture = "GFX_Gospel_of_Gabriel"
+	indestructible = no
+	stacking = no
+	allowed_gift = { always = yes }
+}
+
+Charts_of_Heaven = {
+ #Celestial-Masters
+	quality = 1
+	flags = { primer consumable_mage consumable_mortal }
+	picture = "GFX_Charts_of_Heaven"
+	indestructible = no
+	stacking = no
+	allowed_gift = { always = yes }
+}
+
+On_Mapmaking = {
+ #Void-Seekers
+	quality = 1
+	flags = { primer consumable_mage consumable_mortal }
+	picture = "GFX_On_Mapmaking"
+	indestructible = no
+	stacking = no
+	allowed_gift = { always = yes }
+}
+
+The_Fortress = {
+ #Craftmasons
+	quality = 1
+	flags = { primer consumable_mage consumable_mortal }
+	picture = "GFX_The_Fortress"
+	indestructible = no
+	stacking = no
+	allowed_gift = { always = yes }
+}
+
+Ars_Cupiditae = {
+ #High Guild
+	quality = 1
+	flags = { primer consumable_mage consumable_mortal }
+	picture = "GFX_Ars_Cupiditae"
+	indestructible = no
+	stacking = no
+	allowed_gift = { always = yes }
+}
+
+Hippocratic_Corpus = {
+ #Cosian/Hippocratic circle
+	quality = 1
+	flags = { primer consumable_mage consumable_mortal }
+	picture = "GFX_Hippocratic_Corpus"
+	indestructible = no
+	stacking = no
+	allowed_gift = { always = yes }
+}
+
+Turba_Philosophorum = {
+ #Solifcati
+	quality = 1
+	flags = { primer consumable_mage consumable_mortal }
+	picture = "GFX_Turba_Philosophorum"
+	indestructible = no
+	stacking = no
+	allowed_gift = { always = yes }
+}
+
+Ixions_Testimony = {
+ #Ixion/Ksirafai/House-Jannisary
+	quality = 1
+	flags = { primer consumable_mage consumable_mortal }
+	picture = "GFX_Ixions_Testemony"
+	indestructible = no
+	stacking = no
+	allowed_gift = { always = yes }
+}
+
+Lovelace_Letters = {
+ #Difference-engineers pre-traditions
+	quality = 1
+	flags = { primer consumable_mage consumable_mortal }
+	picture = "GFX_Lovelace_Letters"
+	indestructible = no
+	stacking = no
+	allowed_gift = { always = yes }
+}
+
+Computing_Machinery_And_Intelligence = {
+ #Virtual-Adepts
+	quality = 1
+	flags = { primer consumable_mage consumable_mortal }
+	picture = "GFX_Computing_Machinery_And_Intelligence"
+	indestructible = no
+	stacking = no
+	allowed_gift = { always = yes }
+}
+
+Code_of_Sahaja = {
+ #seers of chronos/cult of ex
+	quality = 1
+	flags = { primer consumable_mage consumable_mortal }
+	picture = "GFX_Code_of_Sahaja"
+	indestructible = no
+	stacking = no
+	allowed_gift = { always = yes }
+}
+
+Kabbalah = {
+ #Lions of Zion (Note: If female becomes Bat-Binah)
+	quality = 1
+	flags = { primer consumable_mage consumable_mortal }
+	picture = "GFX_Kabbalah"
+	indestructible = no
+	stacking = no
+	allowed_gift = { always = yes }
+}
+
+Al_Asha = {
+ #Taftani
+	quality = 1
+	flags = { primer consumable_mage consumable_mortal }
+	picture = "GFX_Al_Asha"
+	indestructible = no
+	stacking = no
+	allowed_gift = { always = yes }
+}
+
+Corrupted_Primer = {
+ #Nephandi
+	quality = 1
+	flags = { primer consumable_mage consumable_mortal }
+	picture = "GFX_Corrupted_Primer"
+	indestructible = no
+	stacking = no
+	allowed_gift = { always = yes }
+}
+
+Akashic_Record = {
+ #Akashic
+	quality = 1
+	flags = { primer consumable_mage consumable_mortal }
+	picture = "GFX_Akashic_Record"
+	indestructible = no
+	stacking = no
+	allowed_gift = { always = yes }
+}
+
+Khan_Tengri = {
+ #Sons of Tengri
+	quality = 1
+	flags = { primer consumable_mage consumable_mortal }
+	picture = "GFX_Khan_Tengri"
+	indestructible = no
+	stacking = no
+	allowed_gift = { always = yes }
+}
+
+Omne_Datum_Optimum = {
+ #knights templar
+	quality = 1
+	flags = { primer consumable_mage consumable_mortal }
+	picture = "GFX_Omne_Datum_Optimum"
+	indestructible = no
+	stacking = no
+	allowed_gift = { always = yes }
+}
+
+##Ritual objects
+
+Devil_Stick = {
+	#created by necromancy/mortis ritual "Bastone Diabolico"
+	monthly_character_piety = -0.3
+	combat_rating = 2
+	learning = 2
+	martial = 2
+	quality = 2
+	allowed_gift = {
+		always = no
+	}
+	active = {
+		is_adult = yes
+	}
+	flags = { ritual magic weapon wood }
+	picture = "GFX_Devil_Stick"
+	indestructible = no
+	stacking = no
+	slot = weapon
+	}
+
+##Modern-Magical weapons
+
+X_5_Revolver = {
+	combat_rating = 3
+	quality = 1
+	plot_power_modifier = 0.05
+	active = {
+		is_adult = yes
+		NOT = {
+			trait = changeling }
+	}
+	flags = { modern gun combat_weapon technocracy }
+	picture = "GFX_X_5_Revolver"
+	slot = weapon
+}
+
+X_5_SemiAuto = {
+	combat_rating = 2
+	plot_power_modifier = 0.05
+	command_modifier = {
+		light_infantry = 0.1 }
+	quality = 1
+	active = {
+		is_adult = yes
+				NOT = {
+			trait = changeling }
+	}
+	flags = { modern gun combat_weapon technocracy }
+	picture = "GFX_X_5_SemiAuto"
+	slot = weapon
+}
+
+AS_115_Assault_Rifle = {
+	monthly_character_piety = -0.05
+	monthly_character_prestige = 0.05
+	combat_rating = 6
+	plot_power_modifier = 0.05
+	command_modifier = {
+		light_infantry = 0.2
+		pursue = 0.2
+		defence = 0.1
+		seige = 0.1 }
+	quality = 3
+	flags = { modern gun combat_weapon weavertech }
+	active = {
+		is_adult = yes
+		NOT = {
+			trait = changeling }
+		}
+	picture = "GFX_AS_115_Assault_Rifle"
+	slot = weapon
+}
+
+Vanguard_Gyrojet_Pistol = {
+	monthly_character_piety = -0.05
+	combat_rating = 6
+	command_modifier = {
+		heavy_infantry = 0.3 }
+	quality = 2
+	active = {
+		is_adult = yes
+		NOT = {
+			trait = changeling }
+		}
+	flags = { modern gun combat_weapon weavertech }
+	picture = "GFX_Vanguard_Gyrojet_Pistol"
+	slot = weapon
+}
+
+Etherite_Death_Ray = {
+	combat_rating = 6
+	command_modifier = {
+		light_infantry = 0.2
+		center = 0.2
+		defence = 0.1
+		seige = 0.1 
+		speed = -0.5
+	}
+	quality = 2
+	active = {
+		is_adult = yes
+		}
+	flags = { modern gun combat_weapon magic }
+	picture = "GFX_Etherite_Death_Ray"
+	slot = weapon
+}
+
+Myrmadon_Exoskeleton_Suit = {
+	monthly_character_piety = -0.2
+	combat_rating = 4
+	martial = 4
+	command_modifier = {
+		center = 0.2
+		melee = 0.2
+	}
+	active = {
+		is_adult = yes
+		NOT = {
+			trait = changeling }
+		}
+	quality = 3
+	flags = { modern armor technocracy weavertech }
+	picture = "GFX_Myrmadon_Exoskeleton_Suit"
+	slot = armor
+	}
+
+Primium_Myrmadon_Exoskeleton_Suit = {
+	monthly_character_piety = -0.5
+	combat_rating = 8
+	martial = 4
+	command_modifier = {
+		center = 0.2
+		melee = 0.2
+		heavy_infantry = 0.2
+		cavalry = 0.2
+	}
+	quality = 3
+	active = {
+		is_adult = yes
+		religion_group = order_of_reason
+		}
+	flags = { modern armor technocracy weavertech very_rare }
+	picture = "GFX_Primium_Myrmadon_Exoskeleton_Suit"
+	slot = armor
+	}
+
+Raiden_Unit = {
+#a small (less than 10) number of these should spawn in random locations post-1945. others can be earned by far-east mage off-map powers.
+#obtaining one grants the title "Bearer of Thunder"
+	montly_Character_piety = -0.2
+	combat_rating = 4
+	martial = 2
+	command_modifier = {
+		light_infantry = 0.3
+		light_infantry = 0.3
+		heavy_infantry = 0.3
+	}
+	active = {
+		is_adult = yes
+		NOT = {
+			trait = changeling }
+		}
+	quality = 3
+	flags =  { modern combat_weapon magic weavertech rare }
+	picture = "GFX_Raiden_Unit"
+	slot = weapon
+	}
+
+Teleforce_Device = {
+#One spawns in 0.900. Someone who owns one can by event-chain try to build another and gift it.
+	combat_rating = 4
+	martial = 2
+	command_modifier = {
+		light_infantry = 0.3
+		light_infantry = 0.3
+		heavy_infantry = 0.3
+	}
+	active = {
+		is_adult = yes
+		trait = mage
+	}
+	quality = 3
+	flags =  { modern combat_weapon magic very_rare }
+	picture = "GFX_Teleforce_Device"
+	slot = weapon
+	stacking = yes
+	allowed_gift = { always = yes }
+}	
+	
+
+##Spawnable Melee items##
+
+Justice_Blades = {
+	monthly_character_prestige = 0.75
+	martial = 3
+	stewardship = 3
+	combat_rating = 2
+	quality = 3
+	active = {
+		is_adult = yes
+			OR = {
+			trait = mage 
+			trait = mortal
+			}
+		NOT = {
+			religion_group = order_of_reason
+			religion_group = daedalan 
+			religion = nephandi 
+			religion = merauder
+			religion = criminal
+			religion = the_mad 
+			}
+		}
+	allowed_gift = { 
+		OR = { 
+			trait = mage
+			trait = mortal 
+		}
+	}
+	flags = { combat_weapon sword created }
+	stacking = no
+	picture = "GFX_scimitar_T3"
+	slot = weapon
+}

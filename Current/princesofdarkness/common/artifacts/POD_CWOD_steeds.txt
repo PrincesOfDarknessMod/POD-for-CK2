@@ -1,0 +1,106 @@
+# Steeds
+
+Horse = {
+	command_modifier = {
+		speed = 1
+		}
+	active = {
+		OR = {
+			#year < 0.920 
+			NOT = {
+				trait = vampire
+			}
+			trait = gangrel
+			trait = animalism_1
+			trait = animalism_2
+			trait = animalism_3
+			trait = animalism_4
+			trait = animalism_5
+		}
+	}
+	quality = 1
+	flags = { steed common }
+	picture = "GFX_Horse"
+	indestructible = no
+	stacking = no
+	slot = steed	
+}
+
+Fine_Horse = {
+	monthly_character_prestige = 0.01
+	command_modifier = {
+		speed = 1
+		}
+	active = {
+		OR = {
+			NOT = {
+				trait = vampire
+			}
+			trait = gangrel
+			trait = animalism_1
+			trait = animalism_2
+			trait = animalism_3
+			trait = animalism_4
+			trait = animalism_5
+		}
+	}
+	quality = 2
+	flags = { steed }
+	picture = "GFX_Fine_Horse"
+	indestructible = no
+	stacking = no
+	slot = steed	
+}
+
+Awakened_Horse = {
+	monthly_character_prestige = 0.05
+	combat_rating = 2
+	command_modifier = {
+		speed = 2
+		pursue = 0.1
+		retreat = 0.1
+	}
+	quality = 3
+	flags = { steed magic }
+	picture = "GFX_Awakened_Horse"
+	indestructible = no
+	stacking = no
+	slot = steed	
+}
+
+Revenant_Horse = {
+	monthly_character_prestige = 0.05
+	combat_rating = 2
+	command_modifier = {
+		speed = 2
+		pursue = 0.1
+		retreat = 0.1
+	}
+
+	quality = 3
+	flags = { steed ghoul }
+	picture = "GFX_Revenant_Horse"
+	indestructible = no
+	stacking = no
+	slot = steed
+}
+
+Ghoul_Horse = {
+	combat_rating = 2
+	command_modifier = {
+		speed = 2
+		pursue = 0.1
+		retreat = 0.1
+		}
+
+	active = { 
+		trait = "vampire" 
+	}
+	quality = 2
+	flags = { steed ghoul }
+	picture = "GFX_Ghoul_Horse"
+	indestructible = no
+	stacking = no
+	slot = steed
+}
+

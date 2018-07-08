@@ -2,7 +2,7 @@
 
 chimerical_blade = {
 	max_amount = 20
-	spawn_date = 9.9.9
+	spawn_date = -1.1.1
 	
 	spawn_chance = {
 		value = 100
@@ -16,8 +16,10 @@ chimerical_blade = {
 		value = 0
 		additive_modifier = {
 			value = 5
-			trait = changeling
-			is_landed = yes
+			OR = {
+				trait = changeling
+				trait = firstbornfae
+			}
 		}
 	}
 
@@ -30,7 +32,7 @@ chimerical_blade = {
 
 tome_of_cantrips = {
 	max_amount = 20
-	spawn_date = 9.9.9
+	spawn_date = -1.1.1
 	
 	spawn_chance = {
 		value = 100
@@ -44,8 +46,10 @@ tome_of_cantrips = {
 		value = 0
 		additive_modifier = {
 			value = 5
-			trait = changeling
-			is_landed = yes
+			OR = {
+				trait = changeling
+				trait = firstbornfae
+			}
 		}
 	}
 
@@ -56,3 +60,28 @@ tome_of_cantrips = {
 	}
 }
 
+chimerical_lightning_gun = {
+	max_amount = 5
+	spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+	}
+
+	weight = {
+		value = 0
+		additive_modifier = {
+			value = 5
+			OR = {
+				trait = changeling
+				trait = firstbornfae
+			}
+		}
+	}
+
+	artifacts = {
+		Chimerical_Lightning_Gun = {
+			value = 1
+		}
+	}
+}

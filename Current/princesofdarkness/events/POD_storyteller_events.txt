@@ -244,13 +244,16 @@ character_event = {
 			set_global_flag = bookmark1921
 			set_global_flag = WTO_shadowlands
 		}
+		
 		if = { 
 			limit = {
 				trait = "bookmark2015"
 			}
 			set_global_flag = bookmark2015
 
-		}	}
+		}	
+		
+	}
 }
 
 # Storyteller bookmark dead wood character clean up
@@ -359,7 +362,9 @@ character_event = {
 									trait = bookmark1598
 									trait = bookmark1666 	
 									trait = bookmark1921
-									trait = bookmark2015							
+									trait = bookmark2015
+									trait = bookmark1921
+									trait = bookmark2015									
 								}
 							}
 						remove_trait = bookmark232 
@@ -425,6 +430,8 @@ character_event = {
 									trait = bookmark1666
 									trait = bookmark1215
 									trait = bookmark1350
+									trait = bookmark1921
+									trait = bookmark2015									
 								}
 							}
 						remove_trait = bookmark232 
@@ -444,6 +451,8 @@ character_event = {
 						remove_trait = bookmark1666 
 						remove_trait = bookmark1215
 						remove_trait = bookmark1350 
+						remove_trait = bookmark1921
+						remote_trait = bookmark2015						
 						death = "yes"	
 				}
 				
@@ -480,7 +489,9 @@ character_event = {
 									trait = bookmark1505
 									trait = bookmark1666
 									trait = bookmark1215
-									trait = bookmark1350									
+									trait = bookmark1350
+									trait = bookmark1921
+									trait = bookmark2015									
 								}
 							}
 						remove_trait = bookmark232 
@@ -499,7 +510,9 @@ character_event = {
 						remove_trait = bookmark1505
 						remove_trait = bookmark1666 
 						remove_trait = bookmark1215
-						remove_trait = bookmark1350 						
+						remove_trait = bookmark1350 	
+						remove_trait = bookmark1921
+						remote_trait = bookmark2015							
 						death = "yes"	
 				}
 				
@@ -541,6 +554,8 @@ character_event = {
 									trait = bookmark1666
 									trait = bookmark1215
 									trait = bookmark1350
+									trait = bookmark1921
+									trait = bookmark2015									
 								}
 							}
 						remove_trait = bookmark232 
@@ -563,7 +578,9 @@ character_event = {
 						remove_trait = bookmark1533
 						remove_trait = bookmark1666 
 						remove_trait = bookmark1215
-						remove_trait = bookmark1350 						
+						remove_trait = bookmark1350
+						remove_trait = bookmark1921
+						remote_trait = bookmark2015	
 						death = "yes"	
 				}
 				
@@ -605,6 +622,8 @@ character_event = {
 									trait = bookmark1666
 									trait = bookmark1215
 									trait = bookmark1350
+									trait = bookmark1921
+									trait = bookmark2015									
 								}
 							}
 						remove_trait = bookmark232 
@@ -626,7 +645,9 @@ character_event = {
 						remove_trait = bookmark1533
 						remove_trait = bookmark1666 
 						remove_trait = bookmark1215
-						remove_trait = bookmark1350 						
+						remove_trait = bookmark1350 			
+						remove_trait = bookmark1921
+						remote_trait = bookmark2015	
 						death = "yes"	
 				}
 				
@@ -667,6 +688,8 @@ character_event = {
 									trait = bookmark1666 	
 									trait = bookmark1215
 									trait = bookmark1350
+									trait = bookmark1921
+									trait = bookmark2015									
 								}
 							}
 						remove_trait = bookmark232 
@@ -687,7 +710,9 @@ character_event = {
 						remove_trait = bookmark1506
 						remove_trait = bookmark1666 
 						remove_trait = bookmark1215
-						remove_trait = bookmark1350 						
+						remove_trait = bookmark1350 			
+						remove_trait = bookmark1921
+						remote_trait = bookmark2015	
 						death = "yes"	
 				}
 
@@ -730,6 +755,8 @@ character_event = {
 									trait = bookmark1666 	
 									trait = bookmark1215
 									trait = bookmark1350
+									trait = bookmark1921
+									trait = bookmark2015									
 								}
 							}
 						remove_trait = bookmark232 
@@ -752,7 +779,9 @@ character_event = {
 						remove_trait = bookmark1533						
 						remove_trait = bookmark1666 
 						remove_trait = bookmark1215
-						remove_trait = bookmark1350 						
+						remove_trait = bookmark1350 			
+						remove_trait = bookmark1921
+						remote_trait = bookmark2015	
 						death = "yes"	
 				}
 
@@ -795,6 +824,8 @@ character_event = {
 									trait = bookmark1666 	
 									trait = bookmark1215
 									trait = bookmark1506
+									trait = bookmark1921
+									trait = bookmark2015
 								}
 							}
 						remove_trait = bookmark232 
@@ -817,7 +848,9 @@ character_event = {
 						remove_trait = bookmark1533						
 						remove_trait = bookmark1666 
 						remove_trait = bookmark1215
-						remove_trait = bookmark1506 						
+						remove_trait = bookmark1506 
+						remove_trait = bookmark1921
+						remove_trait = bookmark2015
 						death = "yes"	
 				}
 
@@ -960,9 +993,81 @@ character_event = {
 						trait = bookmark1921
 						NOT = { trait = storyteller } 
 						}
-						 remove_trait = bookmark1215
+						 remove_trait = bookmark1921
+						 }				
+			}	
+
+		if = { 
+			limit = {
+						 has_global_flag = bookmark2015
+						 NOT = { trait = storyteller } 
+				}
+				
+				if = { limit = {
+								NOT = { trait = bookmark2015 }
+								NOT = { trait = storyteller } 
+								OR = {
+									trait = bookmark232 
+									trait = bookmark412 
+									trait = bookmark480 
+									trait = bookmark543 
+									# trait = bookmark757 
+									trait = bookmark767
+									trait = bookmark947 
+									trait = bookmark990 
+									trait = bookmark1096 
+									trait = bookmark1142 
+									trait = bookmark1202
+									trait = bookmark1215 
+									trait = bookmark1230 
+									trait = bookmark1250 
+									trait = bookmark1325 
+									trait = bookmark1355
+									trait = bookmark1466 
+									trait = bookmark1505
+									trait = bookmark1533
+									trait = bookmark1666 	
+									trait = bookmark1350
+									trait = bookmark1506
+									trait = bookmark1598
+									trait = bookmark1921
+								}
+							}
+						remove_trait = bookmark232 
+						remove_trait = bookmark412 
+						remove_trait = bookmark480 
+						remove_trait = bookmark543 
+						#remove_trait = bookmark757 
+						remove_trait = bookmark767
+						remove_trait = bookmark947 
+						remove_trait = bookmark990 
+						remove_trait = bookmark1096 
+						remove_trait = bookmark1142 
+						remove_trait = bookmark1202 
+						remove_trait = bookmark1215
+						remove_trait = bookmark1230 
+						remove_trait = bookmark1250 
+						remove_trait = bookmark1325 
+						remove_trait = bookmark1355
+						remove_trait = bookmark1466 
+						remove_trait = bookmark1505
+						remove_trait = bookmark1533						
+						remove_trait = bookmark1666 
+						remove_trait = bookmark1350
+						remove_trait = bookmark1506 	
+						remove_trait = bookmark1598
+						remove_trait = bookmark1921				
+						death = "yes"	
+				}
+
+				if = { limit = { 
+						trait = bookmark2015
+						NOT = { trait = storyteller } 
+						}
+						 remove_trait = bookmark2015
 						 }				
 			}				
+			
 			
 	}
 	
@@ -1913,7 +2018,8 @@ character_event = {
 				religion_group = mummy_group
 				religion_group = promethean_group
 				religion_group = demon_group
-				religion_group = geist_group
+				religion_group = stygian_group
+				religion_group = malfean_group
 				religion_group = changeling_group	
 				religion_group = seasons_courts_group
 			}
@@ -1962,7 +2068,8 @@ character_event = {
 				religion_group = mummy_group
 				religion_group = promethean_group
 				religion_group = demon_group
-				religion_group = geist_group
+				religion_group = stygian_group
+				religion_group = malfean_group
 				religion_group = changeling_group	
 				religion_group = seasons_courts_group
 				religion_group = hunter_group
@@ -1992,7 +2099,8 @@ character_event = {
 				religion_group = mummy_group
 				religion_group = promethean_group
 				religion_group = demon_group
-				religion_group = geist_group
+				religion_group = stygian_group
+				religion_group = malfean_group
 				religion_group = changeling_group	
 				religion_group = seasons_courts_group
 				religion_group = hunter_group
@@ -2674,7 +2782,8 @@ character_event = {
 				religion_group = mummy_group
 				religion_group = promethean_group
 				religion_group = demon_group
-				religion_group = geist_group
+				religion_group = stygian_group
+				religion_group = malfean_group
 				religion_group = changeling_group	
 				religion_group = seasons_courts_group
 			}
@@ -2704,7 +2813,8 @@ character_event = {
 				religion_group = mummy_group
 				religion_group = promethean_group
 				religion_group = demon_group
-				religion_group = geist_group
+				religion_group = stygian_group
+				religion_group = malfean_group
 				religion_group = changeling_group	
 				religion_group = seasons_courts_group
 			}			
@@ -3096,7 +3206,8 @@ character_event = {
 				religion_group = mummy_group
 				religion_group = promethean_group
 				religion_group = demon_group
-				religion_group = geist_group
+				religion_group = stygian_group
+				religion_group = malfean_group
 				religion_group = changeling_group	
 				religion_group = seasons_courts_group
 				religion_group = hunter_group
@@ -3127,7 +3238,8 @@ character_event = {
 				religion_group = mummy_group
 				religion_group = promethean_group
 				religion_group = demon_group
-				religion_group = geist_group
+				religion_group = stygian_group
+				religion_group = malfean_group
 				religion_group = changeling_group	
 				religion_group = seasons_courts_group
 				religion_group = hunter_group
@@ -3565,7 +3677,8 @@ character_event = {
 				religion_group = mummy_group
 				religion_group = promethean_group
 				religion_group = demon_group
-				religion_group = geist_group
+				religion_group = stygian_group
+				religion_group = malfean_group
 				religion_group = changeling_group	
 				religion_group = seasons_courts_group
 			}
@@ -3699,7 +3812,8 @@ character_event = {
 				religion_group = mummy_group
 				religion_group = promethean_group
 				religion_group = demon_group
-				religion_group = geist_group
+				religion_group = stygian_group
+				religion_group = malfean_group
 				religion_group = changeling_group
 				religion_group = seasons_courts_group
 				religion_group = hunter_group
@@ -3729,7 +3843,8 @@ character_event = {
 				religion_group = mummy_group
 				religion_group = promethean_group
 				religion_group = demon_group
-				religion_group = geist_group
+				religion_group = stygian_group
+				religion_group = malfean_group
 				religion_group = changeling_group
 				religion_group = seasons_courts_group
 				religion_group = hunter_group
@@ -4572,7 +4687,8 @@ character_event = {
 				religion_group = mummy_group
 				religion_group = promethean_group
 				religion_group = demon_group
-				religion_group = geist_group
+				religion_group = stygian_group
+				religion_group = malfean_group
 				religion_group = changeling_group	
 				religion_group = seasons_courts_group
 				religion_group = hunter_group
@@ -4605,7 +4721,8 @@ character_event = {
 					religion_group = mummy_group
 					religion_group = promethean_group
 					religion_group = demon_group
-					religion_group = geist_group
+					religion_group = stygian_group
+					religion_group = malfean_group
 					religion_group = changeling_group	
 					religion_group = seasons_courts_group
 					religion_group = hunter_group
@@ -4828,7 +4945,8 @@ character_event = {
 				religion_group = mummy_group
 				religion_group = promethean_group
 				religion_group = demon_group
-				religion_group = geist_group
+				religion_group = stygian_group
+				religion_group = malfean_group
 				religion_group = changeling_group	
 				religion_group = seasons_courts_group
 				religion_group = hunter_group
@@ -4859,7 +4977,8 @@ character_event = {
 				religion_group = mummy_group
 				religion_group = promethean_group
 				religion_group = demon_group
-				religion_group = geist_group
+				religion_group = stygian_group
+				religion_group = malfean_group
 				religion_group = changeling_group	
 				religion_group = seasons_courts_group
 				religion_group = hunter_group
@@ -4938,6 +5057,7 @@ character_event = {
 				OR = {
 					religion_group = baali_group
 					religion = setite
+					religion_group = talmahera_group
 				}
 			}
 			set_government_type = cult_government
@@ -5224,3 +5344,56 @@ character_event = {
 	}
 	
 }
+
+#2015 CE Jyhad Diaries
+character_event = {
+	id = storyteller.26	
+	hide_window = yes	
+	is_triggered_only = yes
+	only_playable = yes
+	
+	trigger = {
+		is_save_game = no	
+		OR = { 
+			has_global_flag = bookmark2015
+		}
+		
+		any_province = {	
+			NOT = {
+				OR = { 
+				religion_group = bloodlines_group
+				religion_group = talmahera_group
+				religion_group = ashirra_vampire_group
+				religion_group = vampire_low_clans_group
+				religion_group = baali_group
+				religion_group = masquerade_camarilla_group
+				religion_group = sabbat_group
+				religion_group = inconnu_group
+				religion_group = masquerade_independent_group
+				religion_group = garou_group
+				religion_group = wyrm_group 
+				religion_group = order_of_reason_group
+				religion_group = daedalan_group
+				religion_group = magical_traditions_group
+				religion = laibon
+				religion = orphan 
+				religion_group = mummy_group
+				religion_group = promethean_group
+				religion_group = demon_group
+				religion_group = stygian_group
+				religion_group = malfean_group
+				religion_group = changeling_group	
+				religion_group = seasons_courts_group
+				religion_group = hunter_group
+			}
+			}
+		}
+	}	
+
+	immediate = {
+				POD_CWOD_vampire_jyhad_diaries_province_init_effect = yes 
+			
+	}
+		
+}
+
