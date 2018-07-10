@@ -8,6 +8,7 @@ character_event = {
 			limit = {
 				age = 16
 				trait = vampire 
+				NOT = { trait = canon }
 			}	
 # make vampire commoner
 			add_trait = neonate
@@ -3219,10 +3220,11 @@ character_event = {
 
 			if = { 
 				limit = { 
-					has_global_flag = bookmark2015										
+					has_global_flag = bookmark2015	
+					NOT = { trait = canon }
 				} 		
 			
-				POD_CWOD_vampire_jyhad_diaries_commoner_clan_init_effect = yes
+				POD_CWOD_vampire_jyhad_diaries_clan_init_effect = yes
 			}
 			
 # get a new dynasty names

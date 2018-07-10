@@ -488,8 +488,19 @@
 		effect = { join_society = via_noctis }		
 		effect = { set_government_type = traditions_government }
 	}
-	1354.1.1 = {
-		death = yes
+	1506.1.1 = {
+		remove_trait = bookmark1230
+		add_trait = "bookmark1506"
+	}		
+
+	1999.1.1 = {
+		remove_trait = "bookmark1506"
+		add_trait = bookmark2015
+		religion = sabbat
+		}
+		
+	2200.1.1 = {
+		death = yes 
 		}		
 }
 
@@ -607,11 +618,25 @@
 		remove_trait = "bookmark1230"
 		add_trait = "bookmark1355"
 	}
-	1492.1.1 = { #fall of granada
-		death = yes
-	}
-}
+	1506.1.1 = {
+		remove_trait = bookmark1355
+		add_trait = "bookmark1506"
+		}
+		
+	1999.1.1 = {
+		remove_trait = "bookmark1506"
+		add_trait = bookmark2015
+		religion = talmahera
+		remove_trait = zealous
+		add_trait = cynical
+		effect = { set_secret_religion = autarkis }
+		}
+		
+	2200.1.1 = {
+		death = yes 
+		}	
 
+}
 
 505126 = {
 	name = "Silvester" #lord of shadows and ruler of madrid and master manipulator of iberia
@@ -2433,11 +2458,20 @@ name = "Hector Aguilera"
 		add_trait = "elder"
 		remove_trait = "bookmark1355"
 		add_trait = "bookmark1505"
+		remove_trait = "celerity_1"
+		remove_trait = "majesty_1"
+		remove_trait = "vigor_3"
+		add_trait = "celerity_5"
+		add_trait = "majesty_4"
+		add_trait = "vigor_4"
 	
 	}	
 	1999.1.1 = {
 		remove_trait = bookmark1505
 		add_trait = bookmark2015
+		religion = masquerade_camarilla
+		remove_trait = lasombra
+		add_trait = lasombraantitribu
 		}
 		
 	2200.1.1 = {
@@ -2512,8 +2546,8 @@ name = "Hector Aguilera"
 	trait = "wyrm_taint"	
 	trait = "lasombra"
 	trait = "elder"
-	trait = "vigor_1"
-	trait = "obtenebration_4"
+	trait = "vigor_4"
+	trait = "obtenebration_5"
 	trait = "auspex_1"
 	trait = "bloodpotency_6"
 	trait = "amateurish_plotter"
@@ -2551,6 +2585,7 @@ name = "Hector Aguilera"
 	1999.1.1 = {
 		remove_trait = "bookmark1505"
 		add_trait = bookmark2015
+		religion = masquerade_camarilla
 		}
 		
 	2200.1.1 = {
@@ -2570,7 +2605,7 @@ name = "Hector Aguilera"
 	trait = "lasombra"
 	trait = "elder"
 	trait = "vigor_1"
-	trait = "obtenebration_2"
+	trait = "obtenebration_5"
 	trait = "auspex_1"
 	trait = "bloodpotency_6"
 	trait = "flamboyant_schemer"
@@ -2607,6 +2642,7 @@ name = "Hector Aguilera"
 	1999.1.1 = {
 		remove_trait = "bookmark1505"
 		add_trait = bookmark2015
+		religion = masquerade_camarilla
 		}
 		
 	2200.1.1 = {
@@ -2632,6 +2668,7 @@ name = "Lucita de Aragon"  #herself
 	intrigue = 10	
 	female = yes
 	father = 505154 
+	effect = { set_graphical_culture = occitan }
 	dna="bcg0b0cbdb0"
 	properties="p00i0k000000000000"
 	
@@ -4575,3 +4612,181 @@ name = "Lucita de Aragon"  #herself
 		death = yes 
 		}	
 }	
+
+790719 = {
+# Sire of Demba
+	name = "Elias Bruylant"
+	culture = "dutch"
+	dynasty = 4600001
+	religion = "sabbat"
+	trait = "vampire"
+	immortal_age = 30
+	trait = "wyrm_taint"	
+	trait = "lasombra"
+	trait = "elder"
+	trait = "celerity_5"
+	trait = "obtenebration_5"
+	trait = "majesty_3"
+	trait = "bloodpotency_6"
+	trait = "skilled_tactician"
+	trait = "vampgeneration9"
+	trait = "canon" 
+	trait = "diligent"
+	trait = "deceitful"
+	trait = "zealous"
+	disallow_random_traits = yes
+	female = no
+	father = 790454
+	
+	1638.1.1 = {
+		birth = 1638.1.1 
+		}		
+		
+	1639.1.1 = {
+
+		effect = { set_government_type = milan_government }	
+	}	
+	
+	1999.1.1 = {
+		add_trait = bookmark2015
+		}
+		
+	2200.1.1 = {
+		death = yes 
+		}	
+}
+
+790720 = {
+# Lucita's templar
+	name = "Demba Makemba Adoula"
+	culture = "manden"
+	dynasty = 4600001
+	religion = "sabbat"
+	trait = "vampire"
+	immortal_age = 30
+	trait = "wyrm_taint"	
+	trait = "lasombra"
+	trait = "elder"
+	trait = "obfuscate_3"
+	trait = "obtenebration_5"
+	trait = "dominate_2"
+	trait = "bloodpotency_6"
+	trait = "mastermind_theologian"
+	trait = "vampgeneration10"
+	trait = "canon" 
+	trait = "diligent"
+	trait = "patient"
+	trait = "scholar"
+	disallow_random_traits = yes
+	female = yes
+	father = 790719
+	
+	1860.1.1 = {
+		birth = 1860.1.1 
+		}		
+		
+	1869.1.1 = {
+
+		effect = { set_government_type = milan_government }	
+	}	
+	
+	1999.1.1 = {
+		effect = { add_friend = 790178 }	
+		add_trait = bookmark2015
+		}
+		
+	2200.1.1 = {
+		death = yes 
+		}	
+}
+
+
+790721 = {
+# Archbishop of Madrid
+	name = "Cesario"
+	dynasty = 4600003
+	culture = "castillan"
+	religion = "sabbat"
+	trait = "canon" 
+	female = no
+	father = 505150
+	disallow_random_traits = yes
+	
+	1557.1.1 = {
+		birth = 1557.1.1
+		}	
+		
+	1558.1.1 = {
+	add_trait = "vampire"
+	immortal_age = 30
+	add_trait = "wyrm_taint"
+	add_trait = "lasombra"
+	add_trait = "elder"
+	add_trait = "obtenebration_5"
+	add_trait = "celerity_4"
+	add_trait = "vigor_3"
+	add_trait = "strong"
+	add_trait = "bloodpotency_6"
+	add_trait = "vampgeneration6"
+	add_trait = "skilled_tactician"
+	add_trait = "ambitious"
+	add_trait = "wroth"
+	add_trait = "deceitful"
+	}
+
+	
+	1559.1.1 = {
+		effect = { set_government_type = milan_government}
+		effect = { add_rival = 790179 }
+		add_claim = k_aragon
+		}
+		
+	1999.1.1 = {
+		add_trait = bookmark2015
+		}
+		
+	2200.1.1 = {
+		death = yes 
+		}	
+}
+
+790722 = {
+# Succesful antitribu
+	name = "Alfonso Lopez"
+	culture = "castillan"
+	dynasty = 4600008 
+	religion = "masquerade_camarilla"
+	trait = "vampire"
+	immortal_age = 30
+	trait = "wyrm_taint"	
+	trait = "lasombraantitribu"
+	trait = "elder"
+	trait = "vigor_4"
+	trait = "obtenebration_4"
+	trait = "auspex_5"
+	trait = "bloodpotency_6"
+	trait = "brilliant_strategist"
+	trait = "vampgeneration8"
+	trait = "canon" 
+	trait = "patient"
+	trait = "diligent"
+	trait = "strategist"
+	female = no
+	mother = 790174
+	disallow_random_traits = yes
+	
+	1570.1.1 = {
+		birth = 1570.1.1 
+		}		
+	1579.1.1 = {
+		effect = { set_government_type = traditions_government }
+	}			
+	1999.1.1 = {
+		add_trait = bookmark2015
+		add_claim = k_aragon
+		}
+		
+	2200.1.1 = {
+		death = yes 
+		}	
+}

@@ -1,6 +1,133 @@
 POD_CWOD_dynasty_effect = {
 
-			
+# random COA dynasty fix
+if = {
+	limit = {
+		OR = {
+			religion = inconnu
+			religion = talmahera
+			religion = ashirra
+			religion = setite
+			religion = autarkis
+			religion = giovanni
+			religion = laibon
+			religion = anarchs
+			religion = oradealeague
+			religion = code_of_goratrix
+			religion = code_of_carna
+			religion = brujahcamarilla
+			religion = gangrelcamarilla
+			religion = malkaviancamarilla
+			religion = nosferatucamarilla
+			religion = tremerecamarilla
+			religion = toreadorcamarilla
+			religion = ventruecamarilla
+		}
+		NOT = { trait = canon }
+		NOT = { trait = canon_childe }
+		NOT = { trait = player_childe }
+		ai = yes
+		}
+			create_character = {
+				random_traits = yes
+				age = 30
+				culture = ROOT
+				religion = ROOT
+				dynasty = random
+			}
+						
+			new_character = {
+				save_event_target_as = new_dynasty_character
+				ROOT = { 
+					dynasty = event_target:new_dynasty_character
+				}							
+				clear_event_target = event_target:new_dynasty_character
+				death = "yes"
+			}							
+	}
+
+if = {
+	limit = { 
+		OR = {
+			religion = masquerade_camarilla
+		}
+		NOT = { trait = canon }
+		NOT = { trait = canon_childe }
+		NOT = { trait = player_childe }
+		ai = yes
+		}
+		trigger_switch = {
+			on_trigger = trait
+			brujah = { religion = brujahcamarilla }
+			gangrel = { religion = gangrelcamarilla }
+			malkavian = { religion = malkaviancamarilla }
+			nosferatu = { religion = nosferatucamarilla }
+			toreador = { religion = toreadorcamarilla }
+			tremere = { religion = tremerecamarilla }
+			ventrue = { religion = ventruecamarilla }
+			assamite = { religion = assamite }
+			ravnos = { religion = mayaparisataya }
+			tzimisceantitribu = { religion = koldun }
+			lasombraantitribu = { religion = lasombra_high }
+			followerofset = { religion = setite }
+			giovanni = { religion = giovanni }
+		}
+			create_character = {
+				random_traits = yes
+				age = 30
+				culture = ROOT
+				religion = ROOT
+				dynasty = random
+			}
+						
+			new_character = {
+				save_event_target_as = new_dynasty_character
+				ROOT = { 
+					dynasty = event_target:new_dynasty_character
+				}							
+				clear_event_target = event_target:new_dynasty_character
+				death = "yes"
+			}	
+			religion = masquerade_camarilla
+	}		
+	
+if = { 
+	limit = {
+		religion = sabbat
+		NOT = { trait = canon }
+		NOT = { trait = canon_childe }
+		NOT = { trait = player_childe }
+		ai = yes
+		OR = {
+			trait = lasombra
+			trait = tzimisce
+			}
+		}
+		trigger_switch = {
+			on_trigger = trait
+			lasombra = { religion = lasombra_high }
+			tzimisce = { religion = koldun }
+		}
+		create_character = {
+				random_traits = yes
+				age = 30
+				culture = ROOT
+				religion = ROOT
+				dynasty = random
+			}
+						
+			new_character = {
+				save_event_target_as = new_dynasty_character
+				ROOT = { 
+					dynasty = event_target:new_dynasty_character
+				}							
+				clear_event_target = event_target:new_dynasty_character
+				death = "yes"
+			}	
+			religion = sabbat
+	}
+	
+	
 # Vampire Dynasty reassignement
 # giovanni vampire dynasty reassignment
 			if = {
@@ -72,8 +199,8 @@ POD_CWOD_dynasty_effect = {
 				}
 				dynasty = 2500013
 				random_list = {
-					10 = { set_character_flag = POD_vampire_independent_dynasty }
-					90 = {
+					40 = { set_character_flag = POD_vampire_independent_dynasty }
+					60 = {
 						if = { 
 							limit = { culture = italian }
 							random_list = {
@@ -178,10 +305,10 @@ POD_CWOD_dynasty_effect = {
 					NOT = { dynasty = 2000096 }
 				}
 				random_list = {
-					50 = {
+					75 = {
 						set_character_flag = POD_vampire_independent_dynasty	
 					}
-					50 = {	
+					25 = {	
 						if = { 	
 							limit = { culture = norwegian }
 							dynasty = 2000001	
@@ -608,10 +735,10 @@ POD_CWOD_dynasty_effect = {
 					#NOT = { dynasty = 3000096 }
 				}
 				random_list = {
-					50 = {
+					75 = {
 						set_character_flag = POD_vampire_independent_dynasty	
 					}
-					50 = {	
+					25 = {	
 						if = { 
 							limit = { culture = norwegian }
 							dynasty = 3000001
@@ -1022,8 +1149,8 @@ POD_CWOD_dynasty_effect = {
 					#NOT = { dynasty = 3500096 }
 				}
 				random_list = {
-					50 = { set_character_flag = POD_vampire_independent_dynasty	}
-					50 = {	
+					75 = { set_character_flag = POD_vampire_independent_dynasty	}
+					25 = {	
 						if = { 
 							limit = { culture = norwegian }
 							dynasty = 3500001
@@ -1431,8 +1558,8 @@ POD_CWOD_dynasty_effect = {
 					#NOT = { dynasty = 4000096 }
 				}
 				random_list = {
-					50 = { set_character_flag = POD_vampire_independent_dynasty	}
-					50 = {	
+					75 = { set_character_flag = POD_vampire_independent_dynasty	}
+					25 = {	
 						if = { 
 							limit = { culture = norwegian }
 							dynasty = 4000001
@@ -1855,8 +1982,8 @@ POD_CWOD_dynasty_effect = {
 					#NOT = { dynasty = 4250096 }
 				}
 				random_list = {
-					50 = { set_character_flag = POD_vampire_independent_dynasty	}
-					50 = {		
+					75 = { set_character_flag = POD_vampire_independent_dynasty	}
+					25 = {		
 						if = { 
 							limit = { culture = norwegian }
 							dynasty = 4250001
@@ -2272,8 +2399,8 @@ POD_CWOD_dynasty_effect = {
 					# NOT = { dynasty = 4500096 }
 				}
 				random_list = {
-					50 = { set_character_flag = POD_vampire_independent_dynasty	}
-					50 = {	
+					75 = { set_character_flag = POD_vampire_independent_dynasty	}
+					25 = {	
 						if = {
 							limit = { culture = norwegian }
 							dynasty = 4500001
@@ -2696,8 +2823,8 @@ POD_CWOD_dynasty_effect = {
 					#NOT = { dynasty = 4750096 }
 				}
 				random_list = {
-					50 = { set_character_flag = POD_vampire_independent_dynasty	}
-					50 = {		
+					75 = { set_character_flag = POD_vampire_independent_dynasty	}
+					25 = {		
 						if = { 
 							limit = { culture = norwegian }
 							dynasty = 4750001
@@ -3117,8 +3244,8 @@ POD_CWOD_dynasty_effect = {
 					#NOT = { dynasty = 5000096 }
 				}
 				random_list = {
-					50 = { set_character_flag = POD_vampire_independent_dynasty	}
-					50 = {					
+					75 = { set_character_flag = POD_vampire_independent_dynasty	}
+					25 = {					
 						if = { 	
 							limit = { culture = norwegian }
 							dynasty = 5000001
@@ -3547,8 +3674,8 @@ POD_CWOD_dynasty_effect = {
 					# NOT = { dynasty = 5500096 }
 				}
 				random_list = {
-					50 = { set_character_flag = POD_vampire_independent_dynasty	}
-					50 = {	
+					75 = { set_character_flag = POD_vampire_independent_dynasty	}
+					25 = {	
 						if = { 
 							limit = { culture = norwegian }
 							dynasty = 5500001
@@ -3967,8 +4094,8 @@ POD_CWOD_dynasty_effect = {
 					NOT = { is_patrician = yes }
 				}	
 				random_list = {
-					50 = { set_character_flag = POD_vampire_independent_dynasty	}
-					50 = {		
+					75 = { set_character_flag = POD_vampire_independent_dynasty	}
+					25 = {		
 						if = { 
 							limit = { culture = norwegian }
 							dynasty = 6000001
@@ -4391,8 +4518,8 @@ POD_CWOD_dynasty_effect = {
 					NOT = { is_patrician = yes }
 				}	
 				random_list = {
-					50 = { set_character_flag = POD_vampire_independent_dynasty	}
-					50 = {	
+					75 = { set_character_flag = POD_vampire_independent_dynasty	}
+					25 = {	
 						if = { 
 							limit = { culture = norwegian }
 							dynasty = 6500001
@@ -4779,8 +4906,8 @@ POD_CWOD_dynasty_effect = {
 					NOT = { is_patrician = yes }
 				}	
 				random_list = {
-					50 = { set_character_flag = POD_vampire_independent_dynasty	}
-					50 = {	
+					75 = { set_character_flag = POD_vampire_independent_dynasty	}
+					25 = {	
 						if = { 
 							limit = { culture = norwegian }
 							dynasty = 6750001

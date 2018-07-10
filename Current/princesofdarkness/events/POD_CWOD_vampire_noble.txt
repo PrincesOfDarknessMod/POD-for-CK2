@@ -23,7 +23,7 @@ character_event = {
 				NOT = { religion = revenant_setite }
 				NOT = { religion = revenant_mayaparisataya }
 				NOT = { religion = revenant_assamite }
-				NOT = { trait = storyteller }					
+				NOT = { trait = storyteller }
 			}
 			if = {
 				limit = {
@@ -33,7 +33,8 @@ character_event = {
 					}
 				}
 				religion = sabbat
-			}else_if = {
+			}
+			else_if = {
 				limit = {
 					has_global_flag = bookmark1230
 					location = {
@@ -384,7 +385,6 @@ character_event = {
 		if = {
 				limit = {
 					OR = { 
-						has_global_flag = bookmark2015
 						has_global_flag = bookmark1505
 						has_global_flag = bookmark1506
 						has_global_flag = bookmark767
@@ -392,7 +392,6 @@ character_event = {
 						has_global_flag = bookmark1230
 						has_global_flag = bookmark1466
 						has_global_flag = bookmark1350
-						has_global_flag = bookmark1355
 					}
 					NOT = { trait = assamite }
 					NOT = { trait = brujah }
@@ -421,72 +420,73 @@ character_event = {
 					NOT = { trait = toreadorantitribu }
 					NOT = { trait = tzimisceantitribu }
 					NOT = { trait = assamiteantitribu }
-					NOT = { trait = caitiff	}											
+					NOT = { trait = caitiff	}		
+					NOT = { trait = canon }
 				}
 				
 				if = {
 					limit = { religion = inconnu }
-					random_list = {
-						1 = { add_trait = salubri }
-						1 = { add_trait = followerofset }
-						1 = { add_trait = ravnos }
-						1 = { add_trait = cappadocian }
-						1 = { add_trait = toreador }
-						25 = { add_trait = gangrel }
-						20 = { add_trait = ventrue }
-						15 = { add_trait = malkavian }
-						15 = { remove_trait = fair
-					add_trait = nosferatu }
-						10 = { 
-							if = { limit = {
-										OR = { 
-												has_global_flag = bookmark767
-												has_global_flag = boookmark1215
-												has_global_flag = bookmark1230
-												has_global_flag = bookmark1350
-												has_global_flag = bookmark1355 
+						random_list = {
+							1 = { add_trait = salubri }
+							1 = { add_trait = followerofset }
+							1 = { add_trait = ravnos }
+							1 = { add_trait = cappadocian }
+							1 = { add_trait = toreador }
+							25 = { add_trait = gangrel }
+							20 = { add_trait = ventrue }
+							15 = { add_trait = malkavian }
+							15 = { remove_trait = fair
+									add_trait = nosferatu }
+							10 = { 
+								if = { limit = {
+											OR = { 
+													has_global_flag = bookmark767
+													has_global_flag = boookmark1215
+													has_global_flag = bookmark1230
+													has_global_flag = bookmark1350
+													has_global_flag = bookmark1355 
+													}
 												}
-											}
-									add_trait = lasombra									
-							}
-							if = { limit = {
-										OR = { 
-												has_global_flag = bookmark1505
-												has_global_flag = bookmark1506
-												has_global_flag = bookmark2015
+										add_trait = lasombra									
+								}
+								if = { limit = {
+											OR = { 
+													has_global_flag = bookmark1505
+													has_global_flag = bookmark1506
+													has_global_flag = bookmark2015
+													}
 												}
-											}
-									add_trait = lasombraantitribu									
-							}							
+										add_trait = lasombraantitribu									
+								}							
+								
 							
-						
+							}
+							10 = { 
+								if = { limit = {
+											OR = { 
+													has_global_flag = bookmark767
+													has_global_flag = boookmark1215
+													has_global_flag = bookmark1230
+													has_global_flag = bookmark1350
+													has_global_flag = bookmark1355 
+													}
+												}
+										add_trait = tzimisce									
+								}
+								if = { limit = {
+											OR = { 
+													has_global_flag = bookmark1505
+													has_global_flag = bookmark1506
+													has_global_flag = bookmark2015
+													}
+												}
+										add_trait = tzimisceantitribu									
+								}							
+								
+							
+							}						
+							
 						}
-						10 = { 
-							if = { limit = {
-										OR = { 
-												has_global_flag = bookmark767
-												has_global_flag = boookmark1215
-												has_global_flag = bookmark1230
-												has_global_flag = bookmark1350
-												has_global_flag = bookmark1355 
-												}
-											}
-									add_trait = tzimisce									
-							}
-							if = { limit = {
-										OR = { 
-												has_global_flag = bookmark1505
-												has_global_flag = bookmark1506
-												has_global_flag = bookmark2015
-												}
-											}
-									add_trait = tzimisceantitribu									
-							}							
-							
-						
-						}						
-						
-					}
 					
 					}
 				
@@ -561,7 +561,6 @@ character_event = {
 				if = {
 					limit = { 
 							religion = masquerade_camarilla 
-							has_global_flag = bookmark2015
 						}
 					random_list = {
 						30 = { add_ trait = ventrue }
@@ -748,7 +747,7 @@ character_event = {
 									20 = { add_trait = caitiff }
 									10 = { add_trait = malkavian }
 									10 = { remove_trait = fair
-					add_trait = nosferatu }
+									add_trait = nosferatu }
 									 5 = { add_trait = toreador }
 								}
 							}	
@@ -786,11 +785,19 @@ character_event = {
 								}
 						}										
 								
-				}
+					}
+
 										
 			}	
 			
 		}
+		if = {
+			limit = { 
+				has_global_flag = bookmark2015 
+				NOT = { trait = canon }
+			}
+			POD_CWOD_vampire_jyhad_diaries_clan_init_effect = yes			
+		}		
 		POD_CWOD_bookmark_DAV_init_effect = yes	
 		POD_CWOD_bookmark_masquerade_init_effect = yes
 		POD_CWOD_dynasty_effect = yes
