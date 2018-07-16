@@ -2668,9 +2668,9 @@ name = "Lucita de Aragon"  #herself
 	intrigue = 10	
 	female = yes
 	father = 505154 
-	effect = { set_graphical_culture = occitan }
-	dna="bcg0b0cbdb0"
-	properties="p00i0k000000000000"
+	effect = { set_graphical_culture = greek }
+	dna="bdff00aa0a0" 
+	properties="b00e0k000000000000"
 	
 	1170.1.1 = {
 		birth = 1170.1.1
@@ -3197,6 +3197,9 @@ name = "Lucita de Aragon"  #herself
 	intrigue = 10	
 	female = yes
 	father = 505154 
+	effect = { set_graphical_culture = persian }
+	dna="bdff00ca0a0" 
+	properties="bf0i0k000000000000"
 
 	1150.1.1 = {
 		birth = 1170.1.1
@@ -4600,8 +4603,6 @@ name = "Lucita de Aragon"  #herself
 	1506.1.1 = {
 		remove_trait = "bookmark1505"
 		add_trait = "bookmark1506"
-		religion = sabbat
-		effect = { set_secret_religion = talmahera }	
 	}	
 	1999.1.1 = {
 		remove_trait = "bookmark1506"
@@ -4790,3 +4791,83 @@ name = "Lucita de Aragon"  #herself
 		death = yes 
 		}	
 }
+
+
+790727 = {
+	name = "Catherine Esposito" #sire of sutphen
+	culture = "castillan"
+	religion = "sabbat"
+	trait = "martial_cleric"
+	trait = "zealous"
+	trait = "wroth"
+	trait = "greedy"
+	trait = "canon"
+	dynasty = "4600010"
+	female = yes
+	father = 505113
+	disallow_random_traits = yes
+	
+	1775.1.1 = {
+		birth = 1875.1.1
+		}
+	1795.1.1 = {
+		add_trait = "lasombra"
+		add_trait = "vampire"
+		immortal_age = 30
+		add_trait = "wyrm_taint"
+		religion = "lasombra_high"
+		add_trait = "vigor_1"
+		add_trait = "dominate_1"
+		add_trait = "obtenebration_1"
+		add_trait = "vampgeneration9"
+		add_trait = "bloodpotency_5"
+		add_trait = "ancilla"
+		}	
+	1875.1.1 = {
+			death = { death_reason = death_murder 
+		killer = 790728 }
+		}		
+}
+
+790728 = {
+	name = "Julius Sutphen" #sabbat zealot
+	culture = "nubian"
+	religion = "sabbat"
+	trait = "mastermind_theologian"
+	trait = "zealous"
+	trait = "wroth"
+	trait = "diabolist"
+	trait = "canon"
+	dynasty = "4600010"
+	female = no
+	mother = 790727
+	disallow_random_traits = yes
+	
+	1872.1.1 = {
+		birth = 1872.1.1
+		}
+	1895.1.1 = {
+		add_trait = "lasombra"
+		add_trait = "vampire"
+		immortal_age = 30
+		add_trait = "wyrm_taint"
+		religion = "lasombra_high"
+		add_trait = "vigor_5"
+		add_trait = "dominate_4"
+		add_trait = "obtenebration_3"
+		add_trait = "vampgeneration9"
+		add_trait = "bloodpotency_6"
+		add_trait = "elder"
+		}
+	1899.1.1 = {
+		effect = { set_government_type = milan_government }
+	}	
+	1999.1.1 = {
+		add_trait = bookmark2015
+		religion = sabbat
+		}	
+	2200.1.1 = {
+		death = yes 
+		}		
+}
+

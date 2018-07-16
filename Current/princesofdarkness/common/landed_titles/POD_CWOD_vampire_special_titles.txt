@@ -136,7 +136,7 @@ e_love = {
 			NOT = { trait = werewolf }
 			prestige = 1000
 			piety = 1000	
-			realm_size = 50				
+			realm_size = 100				
 		}
 		gain_effect = {
 		}
@@ -247,7 +247,7 @@ e_inconnu = {
 
 # Independents
 
-e_oradealeague= {
+e_oradealeague = {
 		color = { 128 128 0 }
 		capital = 533 # Oradea, Nagyvarad, Bihor, Transylvannia, Hungary;
 		culture = romanian
@@ -361,7 +361,9 @@ e_ravnos = {
 	}
 
 e_setite = {
-		color = { 0 0 0 }
+		capital = 794
+		#color = { 0 0 0 }
+		color = { 154 154 52 }
 		culture = egyptian_arabic
 		caliphate = yes		
 		dynasty_title_names = no
@@ -384,6 +386,31 @@ e_setite = {
 		}
 	}
 
+	
+e_talmahera = {
+		#color = { 47  79  79 }
+		capital = 817
+		color = { 0 0 0 }
+		culture = levantine_arabic		
+		caliphate = yes			
+		controls_religion = talmahera		
+		short_name = yes
+		dynasty_title_names = no
+		dignity = 100		
+		title = "Del'Roh"
+		title_female = "Del'Roh"			
+		allow = {
+			religion = talmahera
+			trait = vampire
+			NOT = { trait = werewolf }
+			prestige = 500
+			piety = 500
+			realm_size = 100			
+		}
+		gain_effect = {
+		}
+	}	
+	
 #Vykos buffer state between Rustovitch and Jurgen 
 	
 k_obertus = {
@@ -473,6 +500,7 @@ k_losttribe = {
 #Crusaders States
 	
 k_olives = {
+		capital = 774
 		color = { 180 180 180 }
 		culture = levantine_arabic
 		dynasty_title_names = no	
@@ -481,7 +509,13 @@ k_olives = {
 		title = "Protector"
 		title_female = "Protector"	
 		allow = {
-			always = no
+			religion = salubri_high
+			trait = salubri
+			trait = vampire
+			NOT = { trait = werewolf }
+			prestige = 500
+			piety = 500
+			realm_size = 20		
 		}
 		gain_effect = {
 		}
@@ -518,6 +552,7 @@ k_seeofnod = {
 #Kemintiri's merry band
 	
 k_anathema = {
+		capital = 343
 		color = { 80 00 80 }
 		culture = egyptian_arabic
 		dynasty_title_names = no	
@@ -595,6 +630,37 @@ e_baali = {
 		title_female = "Shaitan"	
 		allow = {
 			always = no
+		}
+		gain_effect = {
+		}
+	}
+	
+k_crowsong = {
+		capital = 774
+		color = { 75  0 130 }
+		culture = persian
+		short_name = yes
+		dynasty_title_names = no
+		dignity = 150
+		title = "Seraph"
+		title_female = "Seraph"			
+		allow = {
+		always = no
+		}
+		gain_effect = {
+		}
+	}
+	
+k_first_column = {
+		color = { 0 0 102 }
+		culture = english
+		title = "Dominion"
+		title_female = "Domina"		
+		dynasty_title_names = no
+		short_name = yes
+		dignity = 200
+		allow = {
+			always = no	
 		}
 		gain_effect = {
 		}
@@ -871,30 +937,7 @@ e_ventruecamarilla= {
 		}
 	}
 
-# Unified Camarilla Empire	
-e_masquerade_camarilla {
-		color = { 76 0 153 }
-		capital = 253 # Württemberg	Swabia	Germany
-		culture = german
-		title = "Councilor"
-		title_female = "Councilor"		
-		caliphate = yes			
-		dynasty_title_names = no
-		controls_religion = masquerade_camarilla		
-		short_name = yes
-		dignity = 100
-		allow = {
-			religion = masquerade_camarilla
-			trait = vampire
-			NOT = { trait = werewolf }
-			prestige = 500
-			piety = 500
-			realm_size = 1000
-			has_global_flag = bookmark2015
-		}
-		gain_effect = {
-		}
-	}
+
 
 e_sabbat = {
 		color = { 0 0 102 }
