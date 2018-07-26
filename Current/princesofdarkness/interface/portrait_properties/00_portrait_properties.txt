@@ -719,6 +719,14 @@
 			OR = {
 				trait = peasant_leader
 				trait = heresiarch
+				religion = anarchs
+				religion = furores
+				religion = einherjar
+				religion = gangrellow
+				trait = gangrel 
+				religion = bone_gnawers
+				trait = caitiff
+				trait = gangrelantitribu
 			}
 			NOT = { is_offmap_tag_including_dead = offmap_china }
 		}
@@ -740,6 +748,14 @@
 			OR = {
 				trait = peasant_leader
 				trait = heresiarch
+				religion = anarchs
+				religion = furores
+				religion = einherjar
+				religion = gangrellow
+				trait = gangrel 
+				religion = bone_gnawers
+				trait = caitiff
+				trait = gangrelantitribu				
 			}
 			NOT = { is_offmap_tag_including_dead = offmap_china }
 		}
@@ -761,7 +777,15 @@
 			OR = {
 				trait = peasant_leader
 				trait = heresiarch
-			}
+				religion = anarchs
+				religion = furores
+				religion = einherjar
+				religion = gangrellow
+				trait = gangrel 
+				religion = bone_gnawers
+				trait = caitiff
+				trait = gangrelantitribu				
+			}		
 			NOT = { is_offmap_tag_including_dead = offmap_china }
 		}
 		modifier = {
@@ -792,7 +816,20 @@
 			NOT = { spouse = { real_tier = duke } }
 			NOT = { spouse = { real_tier = count } }
 			NOT = { spouse = { real_tier = baron } }
-			NOT = { has_minor_title = title_prince }
+			NOT = { has_minor_title = title_prince }		
+		}
+		
+		modifier = {
+			factor = 1
+			OR = {
+				has_minor_title = title_brujah_primogen
+				has_minor_title = title_cappadocian_primogen
+				has_minor_title = title_lasombra_primogen
+				has_minor_title = title_ventrue_primogen
+				has_minor_title = title_ventrue_whip
+				has_minor_title = title_tremere_primogen
+				has_minor_title = title_tremere_whip
+			}
 		}
 	}
 	
@@ -805,6 +842,7 @@
 				trait = heresiarch
 			}
 		}
+				
 		modifier = {
 			factor = 0
 			NOT = { real_tier = duke }
@@ -826,6 +864,37 @@
 				trait = heresiarch
 			}
 		}
+		
+		modifier = {
+			factor = 0
+			OR = {
+				trait = peasant_leader
+				trait = heresiarch
+				religion = anarchs
+				religion = furores
+				religion = einherjar
+				religion = gangrellow
+				trait = gangrel 
+				religion = bone_gnawers
+				trait = caitiff
+				trait = gangrelantitribu				
+			}		
+			NOT = { is_offmap_tag_including_dead = offmap_china }
+		}
+		
+		modifier = {
+			factor = 1
+			trait = ventrue 
+		}
+		
+		modifier = {
+			factor = 1
+			OR = {
+			has_education_stewardship_trigger = yes
+			has_lifestyle_stewardship_trigger = yes
+			}
+		}
+		
 		modifier = {
 			factor = 0
 			NOT = { real_tier = duke }
@@ -918,6 +987,13 @@
 				NOT = { intrigue = 10 }
 			}
 		}
+		modifier = {
+			factor = 1
+			OR = {
+			has_education_intrigue_trigger = yes
+			has_lifestyle_intrigue_trigger = yes
+			}
+		}		
 	}
 	
 	# Martial
@@ -927,7 +1003,9 @@
 			factor = 0
 			NOT = { trait = shieldmaiden }
 			NOT = { has_job_title  = job_marshal }
-			NOT = { martial = 12 }
+			NOT = { has_lifestyle_martial_trigger = yes }
+			NOT = { has_education_martial_trigger =  yes}
+			NOT = { martial = 20 }
 			NOT = {
 				primary_title = {
 					OR = {
@@ -938,14 +1016,11 @@
 					}
 				}
 			}
+
 		}
 		modifier = {
 			factor = 0
 			OR = {
-				AND = {
-					is_female = yes
-					NOT = { trait = shieldmaiden }
-				}
 				real_tier = king
 				real_tier = emperor
 				AND = {
@@ -980,10 +1055,23 @@
 			factor = 0.99
 			chinese_martial_modifier_trigger = yes
 		}
+		
+		modifier = {
+			factor = 0.001
+			OR = {
+				trait = ventrue
+				trait = tremere
+				trait = toreador
+				trait = tzimisce
+				trait = lasombra
+			}
+		}
+		
 		modifier = {
 			factor = 100 # This ensures that the reverse order check stays matched
 			has_portrait_property = { layer = 5 index = 10 }
 		}
+		
 	}
 	
 	# Ragged prison clothes
@@ -992,6 +1080,14 @@
 		modifier = {
 			factor = 0
 			prisoner = no
+		}
+		
+		modifier = {
+			factor = 0.1
+			OR = {
+			trait = seducer
+			trait = seductress
+			}
 		}
 	}
 	
@@ -1153,11 +1249,55 @@
 			is_feudal = no
 			NOT = { is_offmap_tag_including_dead = offmap_china }
 		}
+
+		modifier = {
+			factor = 0
+			
+		}
+		
 		modifier = {
 			factor = 0
 			OR = {
 				trait = peasant_leader
 				trait = heresiarch
+			 	trait = assamite 
+			 	trait = brujah 
+			 	trait = cappadocian 
+			 	trait = giovanni 
+			 	trait = followerofset 
+			 	trait = gangrel 
+			 	trait = lasombra 
+			 	trait = malkavian 
+			 	trait = nosferatu 
+			 	trait = ravnos 
+			 	trait = toreador 
+			 	trait = nosferatu 
+			 	trait = tzimisce 
+			 	trait = tremere 
+			 	trait = salubri 
+			 	trait = baali 	
+			 	trait = gangrelantitribu 
+			 	trait = brujahantitribu 
+			 	trait = nosferatuantitribu 
+			 	trait = malkavianantitribu 
+			 	trait = ventrueantitribu 
+			 	trait = lasombraantitribu 
+			 	trait = ravnosantitribu 
+			 	trait = toreadorantitribu 
+			 	trait = tremereantitribu 
+			 	trait = tzimisceantitribu 
+			 	trait = assamiteantitribu 
+			 	trait = caitiff		
+			 	trait = canon 
+			 	trait = nagaraja 
+			 	trait = true_brujah 
+				religion = red_talons
+				religion = bone_gnawers
+				religion = stargazers
+				religion = black_spiral_dancers
+				religion = get_of_fenris
+				religion = silent_striders
+				religion = black_furies				
 			}
 			NOT = { is_offmap_tag_including_dead = offmap_china }
 		}
@@ -1185,9 +1325,51 @@
 		}
 		modifier = {
 			factor = 0
+			year = 1900
+		}		
+		modifier = {
+			factor = 0
 			OR = {
 				trait = peasant_leader
 				trait = heresiarch
+			 	trait = assamite 
+			 	trait = brujah 
+			 	trait = cappadocian 
+			 	trait = giovanni 
+			 	trait = followerofset 
+			 	trait = gangrel 
+			 	trait = lasombra 
+			 	trait = malkavian 
+			 	trait = nosferatu 
+			 	trait = ravnos 
+			 	trait = toreador 
+			 	trait = nosferatu 
+			 	trait = tzimisce 
+			 	trait = tremere 
+			 	trait = salubri 
+			 	trait = baali 	
+			 	trait = gangrelantitribu 
+			 	trait = brujahantitribu 
+			 	trait = nosferatuantitribu 
+			 	trait = malkavianantitribu 
+			 	trait = ventrueantitribu 
+			 	trait = lasombraantitribu 
+			 	trait = ravnosantitribu 
+			 	trait = toreadorantitribu 
+			 	trait = tremereantitribu 
+			 	trait = tzimisceantitribu 
+			 	trait = assamiteantitribu 
+			 	trait = caitiff		
+			 	trait = canon 
+			 	trait = nagaraja 
+			 	trait = true_brujah 
+				religion = red_talons
+				religion = bone_gnawers
+				religion = stargazers
+				religion = black_spiral_dancers
+				religion = get_of_fenris
+				religion = silent_striders
+				religion = black_furies				
 			}
 		}
 	}
@@ -1209,8 +1391,50 @@
 			OR = {
 				trait = peasant_leader
 				trait = heresiarch
+			 	trait = assamite 
+			 	trait = brujah 
+			 	trait = cappadocian 
+			 	trait = giovanni 
+			 	trait = followerofset 
+			 	trait = gangrel 
+			 	trait = lasombra 
+			 	trait = malkavian 
+			 	trait = nosferatu 
+			 	trait = ravnos 
+			 	trait = toreador 
+			 	trait = nosferatu 
+			 	trait = tzimisce 
+			 	trait = tremere 
+			 	trait = salubri 
+			 	trait = baali 	
+			 	trait = gangrelantitribu 
+			 	trait = brujahantitribu 
+			 	trait = nosferatuantitribu 
+			 	trait = malkavianantitribu 
+			 	trait = ventrueantitribu 
+			 	trait = lasombraantitribu 
+			 	trait = ravnosantitribu 
+			 	trait = toreadorantitribu 
+			 	trait = tremereantitribu 
+			 	trait = tzimisceantitribu 
+			 	trait = assamiteantitribu 
+			 	trait = caitiff		
+			 	trait = canon 
+			 	trait = nagaraja 
+			 	trait = true_brujah 
+				religion = red_talons
+				religion = bone_gnawers
+				religion = stargazers
+				religion = black_spiral_dancers
+				religion = get_of_fenris
+				religion = silent_striders
+				religion = black_furies				
 			}
 		}
+		modifier = {
+			factor = 0
+			year = 1900
+		}		
 	}
 
 	# Royal crown/turban 3
@@ -1232,9 +1456,51 @@
 			OR = {
 				trait = peasant_leader
 				trait = heresiarch
+			 	trait = assamite 
+			 	trait = brujah 
+			 	trait = cappadocian 
+			 	trait = giovanni 
+			 	trait = followerofset 
+			 	trait = gangrel 
+			 	trait = lasombra 
+			 	trait = malkavian 
+			 	trait = nosferatu 
+			 	trait = ravnos 
+			 	trait = toreador 
+			 	trait = nosferatu 
+			 	trait = tzimisce 
+			 	trait = tremere 
+			 	trait = salubri 
+			 	trait = baali 	
+			 	trait = gangrelantitribu 
+			 	trait = brujahantitribu 
+			 	trait = nosferatuantitribu 
+			 	trait = malkavianantitribu 
+			 	trait = ventrueantitribu 
+			 	trait = lasombraantitribu 
+			 	trait = ravnosantitribu 
+			 	trait = toreadorantitribu 
+			 	trait = tremereantitribu 
+			 	trait = tzimisceantitribu 
+			 	trait = assamiteantitribu 
+			 	trait = caitiff		
+			 	trait = canon 
+			 	trait = nagaraja 
+			 	trait = true_brujah 
+				religion = red_talons
+				religion = bone_gnawers
+				religion = stargazers
+				religion = black_spiral_dancers
+				religion = get_of_fenris
+				religion = silent_striders
+				religion = black_furies				
 			}
 			NOT = { song_dynasty_futou_trigger = yes }
 		}
+		modifier = {
+			factor = 0
+			year = 1900
+		}		
 		modifier = {
 			factor = 100
 			song_dynasty_futou_trigger = yes
@@ -1262,6 +1528,12 @@
 			NOT = { spouse = { real_tier = king } }
 			NOT = { spouse = { real_tier = duke } }
 		}
+		
+		modifier = {
+			factor = 0
+			year = 1900
+		}
+		
 		modifier = {
 			factor = 0
 			is_feudal = yes
@@ -1272,6 +1544,44 @@
 			OR = {
 				trait = peasant_leader
 				trait = heresiarch
+			 	trait = assamite 
+			 	trait = brujah 
+			 	trait = cappadocian 
+			 	trait = giovanni 
+			 	trait = followerofset 
+			 	trait = gangrel 
+			 	trait = lasombra 
+			 	trait = malkavian 
+			 	trait = nosferatu 
+			 	trait = ravnos 
+			 	trait = toreador 
+			 	trait = nosferatu 
+			 	trait = tzimisce 
+			 	trait = tremere 
+			 	trait = salubri 
+			 	trait = baali 	
+			 	trait = gangrelantitribu 
+			 	trait = brujahantitribu 
+			 	trait = nosferatuantitribu 
+			 	trait = malkavianantitribu 
+			 	trait = ventrueantitribu 
+			 	trait = lasombraantitribu 
+			 	trait = ravnosantitribu 
+			 	trait = toreadorantitribu 
+			 	trait = tremereantitribu 
+			 	trait = tzimisceantitribu 
+			 	trait = assamiteantitribu 
+			 	trait = caitiff		
+			 	trait = canon 
+			 	trait = nagaraja 
+			 	trait = true_brujah 
+				religion = red_talons
+				religion = bone_gnawers
+				religion = stargazers
+				religion = black_spiral_dancers
+				religion = get_of_fenris
+				religion = silent_striders
+				religion = black_furies				
 			}
 		}
 	}
@@ -1292,6 +1602,12 @@
 				spouse = { real_tier = duke }
 			}
 		}
+		
+		modifier = {
+			factor = 0
+			year = 1900
+		}
+		
 		modifier = {
 			factor = 10
 			is_ruler = yes
@@ -1307,6 +1623,10 @@
 			factor = 0
 			NOT = { trait = peasant_leader }
 			NOT = { trait = heresiarch }
+		modifier = {
+			factor = 0
+			year = 1900
+		}			
 			OR = {
 				is_or_was_offmap_power_ruler = yes
 				is_ruler = yes
@@ -1335,6 +1655,10 @@
 				spouse = { real_tier = duke }
 			}
 		}
+		modifier = {
+			factor = 0
+			year = 1900
+		}		
 	}
 	
 	# Common headgear 4 - hood
@@ -1353,6 +1677,10 @@
 				spouse = { real_tier = duke }
 			}
 		}
+		modifier = {
+			factor = 0
+			year = 1900
+		}		
 	}
 
 	# Shady headgear
@@ -1381,6 +1709,10 @@
 				NOT = { intrigue = 10 }
 			}
 		}
+		modifier = {
+			factor = 0
+			year = 1900
+		}		
 	}
 
 	# Martial headgear
@@ -1390,6 +1722,10 @@
 			factor = 0
 			NOT = { has_portrait_property = { layer = 3 index = 10 } }
 		}
+		modifier = {
+			factor = 0
+			year = 1900
+		}		
 	}
 
 	# Blank
