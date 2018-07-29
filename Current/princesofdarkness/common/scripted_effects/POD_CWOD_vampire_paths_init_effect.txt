@@ -10,236 +10,227 @@ if = {
 			is_in_society = no
 			NOT = { trait = canon }
 			NOT = { true_religion = inconnu }
-				}
+			NOT = { trait = vampgeneration1 }
+			NOT = { trait = vampgeneration2 }
+			NOT = { trait = vampgeneration3 }			
+		}
 				
 		random_list = {
-				75 = {
-
-
-		if = { 
-				limit = { 
-							trait = lasombra 
-							religion = sabbat 
-							is_in_society = no
-				}
-				random_list = {
-						40 = { join_society = path_of_night }
-						30 = { join_society = path_of_power_and_the_inner_voice }	
-						5 = { join_society = path_of_caine }	
-						5 = { join_society = path_of_honorable_accord }
-						5 = { join_society = path_of_evil_revelations }
-						10 = { join_society = path_of_cathari }
-						
-						}
+		
+		75 = {
+			if = { 
+					limit = { 
+								trait = lasombra 
+								religion = sabbat 
+								is_in_society = no
+					}
+					random_list = {
+							40 = { join_society = path_of_night }
+							30 = { join_society = path_of_power_and_the_inner_voice }	
+							5 = { join_society = path_of_caine }	
+							5 = { join_society = path_of_honorable_accord }
+							5 = { join_society = path_of_evil_revelations }
+							10 = { join_society = path_of_cathari }
+					}
 				}	
 
-		if = { 
-				limit = { 
-							trait = tzimisce 
-							religion = sabbat 
-							is_in_society = no
-				}
-				random_list = {
-						40 = { join_society = path_of_metamorphosis }
-						20 = { join_society = path_of_death_and_the_soul }
-						10 = { join_society = path_of_power_and_the_inner_voice }	
-						10 = { join_society = path_of_honorable_accord }	
-						5 = { join_society = path_of_evil_revelations }	
-						5 = { join_society = path_of_cathari }
-						}
-				}				
-						
-		if = { 
-				limit = { 
-							religion = sabbat
-							trait = ventrueantitribu 
-							is_in_society = no
-				}
-				random_list = {
-						50 = { join_society = path_of_honorable_accord }
-						30 = { join_society = path_of_power_and_the_inner_voice }	
-						10 = { join_society = path_of_redemption }
-						}
-				}	
+			if = { 
+					limit = { 
+								trait = tzimisce 
+								religion = sabbat 
+								is_in_society = no
+					}
+					random_list = {
+							40 = { join_society = path_of_metamorphosis }
+							20 = { join_society = path_of_death_and_the_soul }
+							10 = { join_society = path_of_power_and_the_inner_voice }	
+							10 = { join_society = path_of_honorable_accord }	
+							5 = { join_society = path_of_evil_revelations }	
+							5 = { join_society = path_of_cathari }
+					}
+			}				
+							
+			if = { 
+					limit = { 
+								religion = sabbat
+								trait = ventrueantitribu 
+								is_in_society = no
+					}
+					random_list = {
+							50 = { join_society = path_of_honorable_accord }
+							30 = { join_society = path_of_power_and_the_inner_voice }	
+							10 = { join_society = path_of_redemption }
+					}
+			}	
 
-		if = {
-				limit = {
-							religion = sabbat
-							OR = {
-									trait = gangrelantitribu
-									trait = nosferatuantitribu
-									trait = caitiff
-									}
-							is_in_society = no		
-						}
-				random_list = {
+			if = {
+					limit = {
+						religion = sabbat
+						OR = {
+								trait = gangrelantitribu
+								trait = nosferatuantitribu
+								trait = caitiff
+							}
+						is_in_society = no		
+					}
+					random_list = {
 						40 = { join_society = path_of_beast }	
 						10 = { join_society = path_of_caine }	
 						10 = { join_society = path_of_honorable_accord }
 						5 = { join_society = path_of_power_and_the_inner_voice }	
+					}
 				}
-			}
-				
-		if = {
-				limit = {
-							religion = sabbat
-							trait = assamiteantitribu
-							is_in_society = no		
-						}
-				random_list = {
+					
+			if = {
+					limit = {
+						religion = sabbat
+						trait = assamiteantitribu
+						is_in_society = no		
+					}
+					random_list = {
 						65 = { join_society = path_of_caine }	
 						5 = { join_society = path_of_power_and_the_inner_voice }	
-						5 = { join_society = path_of_death_and_the_soul }
-						
-				}	
-			}
+						5 = { join_society = path_of_death_and_the_soul }		
+					}	
+				}
 
-		if = {
-				limit = {
-				
-							religion = sabbat
-							OR = {
-									trait = brujahantitribu
-									trait = ravnosantitribu
-									}
-							is_in_society = no		
+			if = {
+					limit = {
+						religion = sabbat
+						OR = {
+							trait = brujahantitribu
+							trait = ravnosantitribu
 						}
-				random_list = {
-						15 = { join_society = path_of_beast }	
-						35 = { join_society = path_of_cathari }
-						15 = { join_society = path_of_power_and_the_inner_voice }	
-						5 = { join_society = path_of_evil_revelations }
-				}				
-						
-			}
+						is_in_society = no		
+					}
+					random_list = {
+							15 = { join_society = path_of_beast }	
+							35 = { join_society = path_of_cathari }
+							15 = { join_society = path_of_power_and_the_inner_voice }	
+							5 = { join_society = path_of_evil_revelations }
+					}					
+				}
 
-		if = {
-				limit = {
-				
-							religion = sabbat
-							trait = toreadorantitribu
-							is_in_society = no		
-						}
-				random_list = {
-						35 = { join_society = path_of_cathari }
-						15 = { join_society = path_of_death_and_the_soul }
-						15 = { join_society = path_of_metamorphosis }
-						5 = { join_society = path_of_caine }	
-						5 = { join_society = path_of_evil_revelations }
-				}				
-						
-			}			
-			
-		
-		if = {
-				limit = {
-							religion = sabbat
-							OR = {
-							trait = tremereantitribu
-							trait = malkavianantitribu
+			if = {
+					limit = {
+					
+								religion = sabbat
+								trait = toreadorantitribu
+								is_in_society = no		
 							}
-							is_in_society = no		
-						}
-				random_list = {
-						20 = { join_society = path_of_death_and_the_soul }
-						15 = { join_society = path_of_caine }	
-						15 = { join_society = path_of_honorable_accord }
-						10 = { join_society = path_of_power_and_the_inner_voice }	
-						5 = { join_society = path_of_evil_revelations }
-						20 = { join_society = path_of_cathari }
-				}				
-						
-			}						
-	
-
-		if = { 
-				limit = {  
-							is_in_society = no						
-							NOT = { religion = sabbat }
-							OR = {
-									culture = english
-									culture = irish
-									culture = scottish
-									culture = breton
+					random_list = {
+							35 = { join_society = path_of_cathari }
+							15 = { join_society = path_of_death_and_the_soul }
+							15 = { join_society = path_of_metamorphosis }
+							5 = { join_society = path_of_caine }	
+							5 = { join_society = path_of_evil_revelations }
+					}				
+							
+				}			
+				
+			if = {
+					limit = {
+								religion = sabbat
+								OR = {
+								trait = tremereantitribu
+								trait = malkavianantitribu
 								}
-						}
-				random_list = {
-						50 = { join_society = cult_of_mithras }
-						}
-				}	
-		
-		if = { 
-				limit = { 
-							religion = ashirra 
-							is_in_society = no
-				}		
-				random_list = {
-						25 = { join_society = tariq_el-umma }
-						10 = { join_society = tariq_el-sama }
-						10 = { join_society = tariq_el-harb }
-						5 = { join_society = tariq_el-shaitan }
-						5 = { join_society = tariq_el-bedouin }
-						5 = { join_society = path_of_lilith }
-				}
-		}
-
-				
-		if = { 
-				limit = { religion = giovanni
-							trait = giovanni
-							learning = 10
-							is_in_society = no						
-				}
-				random_list = {
-						65 = { join_society = path_of_bones }
-						}
-				}
-
-
-
-
-		if = { 
-				limit = { 
-							is_in_society = no
-							religion = tremerecamarilla
-							trait = tremere
-							learning = 10									
+								is_in_society = no		
 							}
-				random_list = {
-						75 = { join_society = code_of_tremere }
-						5 = { join_society = path_of_evil_revelations } 
-						}
-				}	
-				
-		if = { 
-				limit = { 
-						  religion = setite
-						  trait = followerofset
-						  intrigue = 15
-						  NOT = { trait = neonate }
-						  is_in_society = no									  
-						  }
-						  
-						  
-				random_list = {
-						25 = { join_society = path_of_typhon }
-						}
-				}				
-				
-				
-		if = { 
-				limit = { 
-				religion = baali
-				intrigue = 10
-				is_in_society = no						
-				}
-				random_list = {
-						60 = { join_society = path_of_the_hive }
-						}
-				}
+					random_list = {
+							20 = { join_society = path_of_death_and_the_soul }
+							15 = { join_society = path_of_caine }	
+							15 = { join_society = path_of_honorable_accord }
+							10 = { join_society = path_of_power_and_the_inner_voice }	
+							5 = { join_society = path_of_evil_revelations }
+							20 = { join_society = path_of_cathari }
+					}				
+							
+				}						
+		
+			if = { 
+					limit = {  
+								is_in_society = no						
+								NOT = { religion = sabbat }
+								OR = {
+										culture = english
+										culture = irish
+										culture = scottish
+										culture = breton
+									}
+							}
+					random_list = {
+							50 = { join_society = cult_of_mithras }
+							}
+					}	
+			
+			if = { 
+					limit = { 
+								religion = ashirra 
+								is_in_society = no
+					}		
+					random_list = {
+							25 = { join_society = tariq_el-umma }
+							10 = { join_society = tariq_el-sama }
+							10 = { join_society = tariq_el-harb }
+							5 = { join_society = tariq_el-shaitan }
+							5 = { join_society = tariq_el-bedouin }
+							5 = { join_society = path_of_lilith }
+					}
+			}
+		
+			if = { 
+					limit = { religion = giovanni
+								trait = giovanni
+								learning = 10
+								is_in_society = no						
+					}
+					random_list = {
+							65 = { join_society = path_of_bones }
+							}
+			}
 
-				
-		if = { 
+			if = { 
+				limit = { 
+					is_in_society = no
+					religion = tremerecamarilla
+					trait = tremere
+					learning = 10									
+					}
+					random_list = {
+							75 = { join_society = code_of_tremere }
+							5 = { join_society = path_of_evil_revelations } 
+							}
+			}	
+					
+			if = { 
+				limit = { 
+					religion = setite
+					trait = followerofset
+					intrigue = 12
+					diplomacy = 12
+					NOT = { trait = neonate }
+					is_in_society = no									  
+				}		  
+				random_list = {
+					25 = { join_society = path_of_typhon }
+				}
+			}				
+					
+					
+			if = { 
+					limit = { 
+					religion = baali
+					intrigue = 10
+					is_in_society = no						
+					}
+					random_list = {
+							60 = { join_society = path_of_the_hive }
+							}
+			}
+
+					
+			if = { 
 				limit = { 
 					trait = gangrel
 					religion = noiad 
@@ -247,94 +238,109 @@ if = {
 				}
 				random_list = {
 						25 = { join_society = path_of_the_beast }
-						}
-				}						
+				}
+			}						
 
-		if = { 
+			if = { 
 				limit = { 
-				trait = tzimisceantitribu
-				religion = oradealeague
-				learning = 10
-				is_in_society = no				
+					trait = tzimisceantitribu
+					religion = oradealeague
+					learning = 10
+					is_in_society = no				
 				}
 				random_list = {
-						50 = { join_society = path_of_metamorphosis }
-						}
-				}	
-				
-		if = { 
-				limit = { 
-					trait = ravnos
-					religion = mayaparisataya
-					intrigue = 10
-					is_in_society = no
+					50 = { join_society = path_of_metamorphosis }
 				}
-				random_list = {
-						25 = { join_society = path_of_paradox }
-						}
-				}			
-	
-		if = { 
-				limit = { 	trait = assamite
-							religion = assamite 
-							is_in_society = no						
-				}
-				random_list = {
-						50 = { join_society = path_of_blood }
-						5 = { join_society = tariq_el-umma }
-						5 = { join_society = tariq_el-sama }
-						5 = { join_society = tariq_el-harb }
-						5 = { join_society = tariq_el-shaitan }
-						5 = { join_society = tariq_el-bedouin }
-						5 = { join_society = path_of_lilith }						
-						}
-				}		
-			
-		if = { limit = { religion = anarchs 
+			}	
+					
+			if = { 
+					limit = { 
+						trait = ravnos
+						religion = mayaparisataya
+						intrigue = 10
 						is_in_society = no
-						}
-				random_list = {
-						50 = { join_society = path_of_humanity }	
-			}		
-			}
-				
-		if = { limit = { religion = gangrelcamarilla
-						 is_in_society = no
-						}
-				random_list = {
-						20 = { join_society = path_of_the_beast }	
-						}
-			}				
-				
-
-				
-		if = {
-				limit = {	
-							is_in_society = no
-							NOT = { religion = ashirra }
-							NOT = { religion = sabbat }
-							NOT = { religion = oradealeague }
-							NOT = { religion = mayaparisataya }
-							NOT = { religion = assamite }
-							NOT = { religion = setite }
-							NOT = { religion = giovanni }
-						}
-						
-				random_list = {
-						50 = { join_society = path_of_humanity }
-						5 = { join_society = path_of_cathari }	
-						5 = { join_society = path_of_beast }						
-						5 = { join_society = path_of_evil_revelations }
-						5 = { join_society = path_of_lilith }	
-						5 = { join_society = redemption }
 					}
+					random_list = {
+							25 = { join_society = path_of_paradox }
+							}
+					}			
 		
+			if = { 
+					limit = { 	trait = assamite
+								religion = assamite 
+								is_in_society = no						
+					}
+					random_list = {
+							50 = { join_society = path_of_blood }
+							5 = { join_society = tariq_el-umma }
+							5 = { join_society = tariq_el-sama }
+							5 = { join_society = tariq_el-harb }
+							5 = { join_society = tariq_el-shaitan }
+							5 = { join_society = tariq_el-bedouin }
+							5 = { join_society = path_of_lilith }						
+							}
+					}		
+				
+			if = { 
+				limit = { 
+					religion = anarchs 
+					is_in_society = no
+					}
+				
+				random_list = {
+							10 = { join_society = path_of_humanity }	
+					}		
 				}
-										
-						
+					
+			if = { limit = { religion = gangrelcamarilla
+							 is_in_society = no
+							}
+					random_list = {
+							20 = { join_society = path_of_the_beast }	
+							}
+				}				
+					
+			if = {
+					limit = {	
+								is_in_society = no
+								NOT = { religion = ashirra }
+								NOT = { religion = sabbat }
+								NOT = { religion = oradealeague }
+								NOT = { religion = mayaparisataya }
+								NOT = { religion = assamite }
+								NOT = { religion = setite }
+								NOT = { religion = giovanni }
+								NOT = { religion = talmahera }
+							}
 							
-			}					 
+					random_list = {
+							10 = { join_society = path_of_humanity }
+							5 = { join_society = path_of_cathari }	
+							5 = { join_society = path_of_beast }						
+							5 = { join_society = path_of_evil_revelations }
+							5 = { join_society = path_of_lilith }	
+							5 = { join_society = redemption }
+						}
+			}
+					
+			}
+			
 			} 
 		}
 	}
-	
+POD_CWOD_vampire_paths_grand_master_init_effect = {
+   if = {
+       limit = {
+		   is_landed = yes
+           is_in_society = yes
+           NOT = {
+               society = {
+                   any_society_member = {
+                       is_society_grandmaster = yes
+                   }
+               }
+           }
+       }
+       set_society_grandmaster = yes
+   }
+}	

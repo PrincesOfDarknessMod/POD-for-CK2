@@ -739,6 +739,11 @@
 			NOT = { has_minor_title = title_prince }
 			NOT = { is_offmap_tag_including_dead = offmap_china }
 		}
+		
+		modifier = {
+			factor = 5
+			trait = toreador
+		}		
 	}
 	
 	1 = { # Royal clothes 2
@@ -767,6 +772,15 @@
 			NOT = { spouse = { real_tier = emperor } }
 			NOT = { has_minor_title = title_prince }
 			NOT = { is_offmap_tag_including_dead = offmap_china }
+		}
+		
+		modifier = {
+			factor = 10
+			OR = {
+				trait = ventrue
+				trait = giovanni
+				trait = tremere
+			}
 		}
 	}
 	
@@ -819,18 +833,6 @@
 			NOT = { has_minor_title = title_prince }		
 		}
 		
-		modifier = {
-			factor = 1
-			OR = {
-				has_minor_title = title_brujah_primogen
-				has_minor_title = title_cappadocian_primogen
-				has_minor_title = title_lasombra_primogen
-				has_minor_title = title_ventrue_primogen
-				has_minor_title = title_ventrue_whip
-				has_minor_title = title_tremere_primogen
-				has_minor_title = title_tremere_whip
-			}
-		}
 	}
 	
 	4 = { # Noble clothes 2
@@ -881,6 +883,32 @@
 			}		
 			NOT = { is_offmap_tag_including_dead = offmap_china }
 		}
+
+		modifier = {
+			factor = 10
+			OR = {
+				trait = ventrue
+				trait = giovanni
+				trait = tremere
+			}
+		}
+		
+		modifier = {
+			factor = 10
+			religion_group = masquerade_camarilla_group
+			OR = {
+				has_minor_title = title_brujah_primogen
+				has_minor_title = title_giovanni_primogen
+				has_minor_title = nosferatu_primogen
+				has_minor_title = malkavian_primogen
+				has_minor_title = title_cappadocian_primogen
+				has_minor_title = title_lasombra_primogen
+				has_minor_title = title_ventrue_primogen
+				has_minor_title = title_ventrue_whip
+				has_minor_title = title_tremere_primogen
+				has_minor_title = title_tremere_whip
+			}
+		}		
 		
 		modifier = {
 			factor = 1
@@ -928,6 +956,20 @@
 			is_theocracy = yes
 			religion_group = pagan_group
 		}
+		
+		modifier = {
+			factor = 10
+			OR = {
+				religion = anarchs
+				religion = furores
+				religion = einherjar
+				religion = gangrellow
+				trait = gangrel 
+				religion = bone_gnawers
+				trait = caitiff
+				trait = gangrelantitribu
+			}	
+		}
 	}
 	7 = { # Modest clothes 2
 		factor = 1
@@ -944,6 +986,19 @@
 				spouse = { real_tier = duke }
 			}
 		}
+		modifier = {
+			factor = 10
+			OR = {
+				religion = anarchs
+				religion = furores
+				religion = einherjar
+				religion = gangrellow
+				trait = gangrel 
+				religion = bone_gnawers
+				trait = caitiff
+				trait = gangrelantitribu
+			}	
+		}		
 	}
 	
 	8 = { # Modest clothes 3
@@ -961,6 +1016,19 @@
 				spouse = { real_tier = duke }
 			}
 		}
+		modifier = {
+			factor = 10
+			OR = {
+				religion = anarchs
+				religion = furores
+				religion = einherjar
+				religion = gangrellow
+				trait = gangrel 
+				religion = bone_gnawers
+				trait = caitiff
+				trait = gangrelantitribu
+			}	
+		}		
 	}
 	9 = { # Shady clothes
 		factor = 3
@@ -984,15 +1052,28 @@
 			NOT = { has_job_title = job_spymaster }
 			OR = {
 				real_tier = duke
-				NOT = { intrigue = 10 }
+				NOT = { intrigue = 15 }
 			}
 		}
 		modifier = {
 			factor = 1
 			OR = {
-			has_education_intrigue_trigger = yes
-			has_lifestyle_intrigue_trigger = yes
+				has_education_intrigue_trigger = yes
+				has_lifestyle_intrigue_trigger = yes
 			}
+		}	
+		modifier = {
+			factor = 10
+			OR = {
+				religion = anarchs
+				religion = furores
+				religion = einherjar
+				religion = gangrellow
+				trait = gangrel 
+				religion = bone_gnawers
+				trait = caitiff
+				trait = gangrelantitribu
+			}	
 		}		
 	}
 	
@@ -1080,14 +1161,6 @@
 		modifier = {
 			factor = 0
 			prisoner = no
-		}
-		
-		modifier = {
-			factor = 0.1
-			OR = {
-			trait = seducer
-			trait = seductress
-			}
 		}
 	}
 	
@@ -1940,14 +2013,23 @@
 			factor = 0
 			trait = blinded
 		}
+		modifier = {
+			factor = 0
+			trait = spectre
+		}
 	}
 	
 	1 =  {
 		factor = 100
 		modifier = {
 			factor = 0
-			NOT = {
-				trait = blinded
+			OR = {
+				NOT = {
+					trait = blinded
+				}
+				NOT = {
+					trait = spectre
+				}
 			}
 		}
 	}
@@ -2399,6 +2481,8 @@
 		}
 	}
 }
+
+
 
 # p13 eyepatch for one_eyed
 13 = {
