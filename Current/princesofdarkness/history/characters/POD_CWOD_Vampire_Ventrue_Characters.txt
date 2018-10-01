@@ -207,13 +207,8 @@
 	1506.1.1 = {
 		remove_trait = "bookmark1505"
 		add_trait = "bookmark1506"
-	}	
-	1999.1.1 = {
-		remove_trait = "bookmark1506"
-		add_trait = bookmark2015
-		}
-		
-	2200.1.1 = {
+	}		
+	1990.1.1 = {
 		death = yes 
 		}		
 }
@@ -894,6 +889,7 @@
 	1999.1.1 = {
 		remove_trait = "bookmark1506"
 		add_trait = bookmark2015
+		religion = masquerade_camarilla
 		}
 		
 	2200.1.1 = {
@@ -1497,7 +1493,7 @@
 		}
 
 	1204.4.12 = {
-		effect = { secret_religion = inconnu }
+		effect = { set_secret_religion = inconnu }
 		add_trait = "in_hiding"
 		effect = { join_society = secret_religious_cult }
 		}
@@ -1661,15 +1657,31 @@
 				remove_trait = "ancilla"
 				add_trait = "elder"
 			   }
-				
+		
 	1229.1.1 = {
 		add_trait = "bookmark1230"
 		effect = { set_government_type = traditions_government }
+		religion = ventruecamarilla
 		}
+		
+	1354.1.1 = {
+		remove_trait = "bookmark1230"
+		add_trait = "bookmark1355"
+	}	
+	
+	1499.1.1 = {
+		remove_trait = "bookmark1355"
+		add_trait = "bookmark1505"
+	}	
+	1506.1.1 = {
+		remove_trait = "bookmark1505"
+		add_trait = "bookmark1506"
+	}	
 				
 	1999.1.1 = {
-		remove_trait = bookmark1230
+		remove_trait = bookmark1506
 		add_trait = bookmark2015
+		religion = masquerade_camarilla
 		}
 		
 	2200.1.1 = {
@@ -3032,10 +3044,13 @@
 	1506.1.1 = {
 		remove_trait = "bookmark1505"
 		add_trait = "bookmark1506"
+		religion = ventruecamarilla
+		add_trait = auspex_4
 	}	
 	1999.1.1 = {
 		remove_trait = "bookmark1506"
 		add_trait = bookmark2015
+		religion = masquerade_camarilla
 		}
 		
 	2200.1.1 = {
@@ -3094,12 +3109,8 @@
 		remove_trait = "bookmark1505"
 		add_trait = "bookmark1506"
 	}	
-	1999.1.1 = {
-		remove_trait = "bookmark1506"
-		add_trait = bookmark2015
-		}
 		
-	2200.1.1 = {
+	1998.1.1 = {
 		death = yes 
 		}		
 }
@@ -3155,10 +3166,12 @@
 	1506.1.1 = {
 		remove_trait = "bookmark1505"
 		add_trait = "bookmark1506"
+		religion = ventruecamarilla
 	}	
 	1999.1.1 = {
 		remove_trait = "bookmark1506"
 		add_trait = bookmark2015
+		religion = masquerade_camarilla
 		}
 		
 	2200.1.1 = {
@@ -3207,6 +3220,9 @@
 		remove_trait = "bookmark1355"
 		add_trait = "bookmark1505"	
 		religion = "ventruecamarilla"
+		remove_trait = ancilla
+		add_trait = elder
+		add_trait = celerity_5
 		}
 	1506.1.1 = {
 		remove_trait = "bookmark1505"
@@ -3215,6 +3231,7 @@
 	1999.1.1 = {
 		remove_trait = "bookmark1506"
 		add_trait = bookmark2015
+		religion = masquerade_camarilla
 		}
 		
 	2200.1.1 = {
@@ -3272,6 +3289,7 @@
 	1999.1.1 = {
 		remove_trait = "bookmark1506"
 		add_trait = bookmark2015
+		religion = masquerade_camarilla
 		}
 		
 	2200.1.1 = {
@@ -3327,10 +3345,15 @@
 	1506.1.1 = {
 		remove_trait = "bookmark1505"
 		add_trait = "bookmark1506"
+		remove_trait = ancilla
+		add_trait = elder
+		add_trait = dominate_5
 	}		
 	1999.1.1 = {
 		remove_trait = "bookmark1506"
 		add_trait = bookmark2015
+		religion = masquerade_camarilla
+		add_claim = d_flanders
 		}
 		
 	2200.1.1 = {
@@ -3565,6 +3588,8 @@
 	1999.1.1 = {
 		remove_trait = "bookmark1506"
 		add_trait = bookmark2015
+		add_trait = auspex_4
+		religion = masquerade_camarilla
 		}
 		
 	2200.1.1 = {
@@ -3623,6 +3648,7 @@
 	1999.1.1 = {
 		remove_trait = "bookmark1506"
 		add_trait = bookmark2015
+		religion = masquerade_camarilla
 		}
 		
 	2200.1.1 = {
@@ -3682,6 +3708,8 @@
 	1999.1.1 = {
 		remove_trait = "bookmark1506"
 		add_trait = bookmark2015
+		religion = masquerade_camarilla
+		add_trait = majesty_4
 		}
 		
 	2200.1.1 = {
@@ -3803,6 +3831,8 @@
 	1999.1.1 = {
 		remove_trait = "bookmark1506"
 		add_trait = bookmark2015
+		religion = masquerade_camarilla
+		trait = depressed
 		}
 		
 	2200.1.1 = {
@@ -5875,7 +5905,7 @@ immortal_age = 30
 	1999.1.1 = {
 	remove_trait = bookmark1506
 		add_trait = bookmark2015
-		effect =  { secret_religion = baali }
+		effect = { set_secret_religion = baali }
 		}
 		
 	2200.1.1 = {
@@ -6323,6 +6353,413 @@ immortal_age = 30
 	1999.1.1 = {
 		add_trait = bookmark2015
 		add_claim = c_byzantion
+		}
+		
+	2200.1.1 = {
+		death = yes 
+		}	
+}
+
+790743 = {
+# Hungary modern prince
+	name = "Laszlo Martonyi"
+	dynasty = "6000056"
+	culture = "hungarian"
+	religion = "ventruecamarilla"
+	trait = "grey_eminence"
+	trait = "ambitious"
+	trait = "just"
+	trait = "diligent"
+	trait = "canon" 
+	trait = vampire 
+	immortal_age = 30
+	trait = wyrm_taint
+	trait = "ventrue"
+	trait = "elder"
+	trait = "majesty_4"
+	trait = "dominate_1"
+	trait = "resilience_5"
+	trait = "bloodpotency_6"
+	trait = "vampgeneration8"
+	female = no
+	father = 790243
+	disallow_random_traits = yes
+	
+	1615.1.1 = {
+		birth = 1615.1.1
+		}
+	1619.1.1 = {
+		effect = { set_government_type = traditions_government }
+	}		
+		
+	1999.1.1 = {
+		add_trait = bookmark2015
+		religion = masquerade_camarilla
+		}
+		
+	2200.1.1 = {
+		death = yes 
+		}	
+}
+
+790746 = {
+	
+	name = "Evgeniya Bezuevaia" # Prince of Victorian St Petersbourg
+	father = 790018
+	dynasty = "6751000"
+	culture = "russian"
+	religion = "ventrue_high"
+		trait = "ventrue"
+		trait = "vampgeneration8"
+		trait = "bloodpotency_3"
+		trait = "dominate_2"	
+		trait = "majesty_3"	
+		trait = "resilience_3"
+		trait = "naive_appeaser"
+		trait = "proud"
+		trait = "cruel"
+		trait = "paranoid"
+		trait = "canon"
+	disallow_random_traits = yes
+	female = yes
+	
+	1075.1.1 = {
+		birth = 1075.1.1
+		}
+		
+	1079.1.1 = {
+		add_trait = vampire 
+		immortal_age = 30
+		add_trait = "wyrm_taint"
+		add_trait = "neonate"
+				}
+	
+	1094.1.1 = {
+				remove_trait = "neonate"
+				add_trait = "ancilla"
+				}
+				
+	1204.4.1 = {
+				remove_trait = "ancilla"
+				add_trait = "elder"
+			   }
+				
+	1229.1.1 = {
+		add_trait = "bookmark1230"
+		effect = { set_government_type = traditions_government }
+		religion = ventruecamarilla
+		}
+				
+	1354.1.1 = {
+		remove_trait = "bookmark1230"
+		add_trait = "bookmark1355"
+	}	
+	
+	1499.1.1 = {
+		remove_trait = "bookmark1355"
+		add_trait = "bookmark1505"
+	}	
+	1506.1.1 = {
+		remove_trait = "bookmark1505"
+		add_trait = "bookmark1506"
+	}				
+	1999.1.1 = {
+		remove_trait = bookmark1506
+		add_trait = bookmark2015
+		religion = masquerade_camarilla
+		add_claim = d_novgorod
+		}
+		
+	2200.1.1 = {
+		death = yes 
+		}	
+	}
+	
+790750 = {
+# Prince of St Peterburg until 1917
+	name = "Anya Dyomin"
+	culture = "russian"
+	dynasty = 6000123
+	religion = "ventruecamarilla"
+	trait = "vampire"
+	immortal_age = 30
+	trait = "wyrm_taint"	
+	trait = "ventrue"
+	trait = "elder"
+	trait = "dominate_5"
+	trait = "majesty_3"
+	trait = "resilience_2"
+	trait = "bloodpotency_6"
+	trait = "amateurish_plotter"
+	trait = "vampgeneration7"
+	trait = "canon" 
+	trait = "ambitious"
+	trait = "wroth"
+	trait = "cruel"
+	disallow_random_traits = yes
+	female = yes
+	father = 790420
+	
+	1388.1.1 = {
+		birth = 1388.1.1 
+		}		
+	
+	1389.1.1 = {
+		effect = { set_government_type = traditions_government }
+	}			
+	
+	1499.1.1 = {
+		add_trait = "bookmark1505"
+	}	
+	1506.1.1 = {
+		remove_trait = "bookmark1505"
+		add_trait = "bookmark1506"
+	
+	}		
+	1917.1.1 = {
+		death = yes 
+		}	
+}
+
+790751 = {
+# Prince of St Peterburg 
+	name = "Nikolai"
+	culture = "russian"
+	dynasty = 6000123
+	religion = "ventruecamarilla"
+	trait = "vampire"
+	immortal_age = 30
+	trait = "wyrm_taint"	
+	trait = "ventrue"
+	trait = "elder"
+	trait = "dominate_3"
+	trait = "majesty_3"
+	trait = "resilience_2"
+	trait = "bloodpotency_6"
+	trait = "charismatic_negotiator"
+	trait = "vampgeneration8"
+	trait = "canon" 
+	trait = "patient"
+	trait = "content"
+	trait = "shy"
+	disallow_random_traits = yes
+	female = no
+	mother = 790750
+	
+	1765.1.1 = {
+		birth = 1765.1.1 
+		}		
+	
+	1789.1.1 = {
+		effect = { set_government_type = traditions_government }
+	}			
+	1999.1.1 = {
+		add_trait = bookmark2015
+		religion = masquerade_camarilla
+		}
+		
+	2200.1.1 = {
+		death = yes 
+		}		
+
+}
+
+790764 = {
+# Modern Prince of Norway
+	name = "Rosenkrantz the Younger"
+	culture = "german"
+	dynasty = 6000119
+	religion = "ventrue_high"
+	trait = "vampire"
+	immortal_age = 30
+	trait = "wyrm_taint"	
+	trait = "ventrue"
+	trait = "elder"
+	trait = "dominate_5"
+	trait = "majesty_4"
+	trait = "resilience_3"
+	trait = "bloodpotency_6"
+	trait = "charismatic_negotiator"
+	trait = "vampgeneration7"
+	trait = "canon" 
+	female = no
+	father = 790267
+	
+	1527.1.1 = {
+		birth = 1527.1.1 
+		}
+	
+	
+	1529.1.1 = {
+		effect = { set_government_type = traditions_government }
+	}			
+	
+		
+	1536.1.1 = {
+		religion = "ventruecamarilla"
+	
+	}	
+	1999.1.1 = {
+		add_trait = bookmark2015
+		religion = masquerade_camarilla
+		}
+		
+	2200.1.1 = {
+		death = yes 
+		}		
+}
+
+790765 = {
+# Copenhagen
+	name = "Arminta Jorgensdatter"
+	culture = "danish"
+	dynasty = 6000119
+	religion = "ventruecamarilla"
+	trait = "vampire"
+	immortal_age = 30
+	trait = "wyrm_taint"	
+	trait = "ventrue"
+	trait = "elder"
+	trait = "majesty_5"
+	trait = "dominate_5"
+	trait = "resilience_3"
+	trait = "bloodpotency_6"
+	trait = "intricate_webweaver"
+	trait = "vampgeneration8"
+	trait = "canon" 
+	female = yes
+	trait = "paranoid"
+	trait = "arbitrary"
+	disallow_random_traits = yes
+	father = 790268
+	
+	1650.1.1 = {
+		birth = 1650.1.1 
+		}
+	
+	
+	1659.1.1 = {
+		effect = { set_government_type = traditions_government }
+	}			
+
+	1999.1.1 = {
+		add_trait = bookmark2015
+		religion = masquerade_camarilla
+		}
+		
+	2200.1.1 = {
+		death = yes 
+		}		
+}
+
+790773 = {
+# Dusseldorf TMR
+	name = "Claudia Schoenecht"
+	culture = "german"
+	dynasty = "6000122"
+	religion = "ventrue_high"
+	trait = "ventrue"
+	trait = "elder"
+	trait = "vigor_5"
+	trait = "majesty_5"
+	trait = "dominate_4"
+	trait = "bloodpotency_6"
+	trait = "intricate_webweaver"
+	trait = "deceitful"
+	trait = "diligent"
+	trait = "vampgeneration7"
+	trait = vampire 
+	immortal_age = 30
+	trait = wyrm_taint
+	trait = "canon" 
+	disallow_random_traits = yes
+	female = yes
+	father = 790256
+	
+	1006.1.1 = {
+		birth = 1006.1.1 
+		}
+	1229.1.1 = {
+		effect = { set_government_type = traditions_government }
+		add_trait = "bookmark1230"
+		effect = { set_secret_religion = talmahera}
+		effect = { add_friend = 790774 }
+	}		
+	1354.1.1 = {
+		remove_trait = "bookmark1230"
+		add_trait = "bookmark1355"
+	}	
+	
+	1499.1.1 = {
+		remove_trait = "bookmark1355"
+		add_trait = "bookmark1505"	
+		religion = "ventruecamarilla"
+		}
+	1506.1.1 = {
+		remove_trait = "bookmark1505"
+		add_trait = "bookmark1506"
+	}		
+	1999.1.1 = {
+		remove_trait = "bookmark1506"
+		add_trait = bookmark2015
+		religion = masquerade_camarilla
+		}
+		
+	2200.1.1 = {
+		death = yes 
+		}	
+}
+
+790774 = {
+# Essen TMR
+	name = "Karl Weissmont"
+	culture = "german"
+	dynasty = "6000122"
+	religion = "ventrue_high"
+	trait = "ventrue"
+	trait = "elder"
+	trait = "vigor_5"
+	trait = "majesty_2"
+	trait = "dominate_4"
+	trait = "bloodpotency_6"
+	trait = "intricate_webweaver"
+	trait = "deceitful"
+	trait = "diligent"
+	trait = "vampgeneration7"
+	trait = vampire 
+	immortal_age = 30
+	trait = wyrm_taint
+	trait = "canon" 
+	disallow_random_traits = yes
+	female = no
+	father = 790256
+	
+	1100.1.1 = {
+		birth = 1100.1.1 
+		}
+	1229.1.1 = {
+		effect = { set_government_type = traditions_government }
+		add_trait = "bookmark1230"
+		effect = { set_secret_religion = talmahera }
+	}		
+	1354.1.1 = {
+		remove_trait = "bookmark1230"
+		add_trait = "bookmark1355"
+	}	
+	
+	1499.1.1 = {
+		remove_trait = "bookmark1355"
+		add_trait = "bookmark1505"	
+		religion = "ventruecamarilla"
+		}
+	1506.1.1 = {
+		remove_trait = "bookmark1505"
+		add_trait = "bookmark1506"
+	}		
+	1999.1.1 = {
+		remove_trait = "bookmark1506"
+		add_trait = bookmark2015
+		religion = masquerade_camarilla
 		}
 		
 	2200.1.1 = {

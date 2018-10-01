@@ -544,6 +544,33 @@ k_seeofnod = {
 		}
 	}
 	
+# Stoneman's utopia
+
+k_covenant = {
+		color = { 180 180 180 }
+		capital = 127 # Strasbourg
+		culture = frankish
+		caliphate = no			
+		short_name = yes
+		dynasty_title_names = no
+		dignity = 100
+		title = "Host"
+		title_female = "Host"			
+		allow = {
+			religion = bloodlines_covenant
+			trait = vampire
+			NOT = { trait = werewolf }
+			prestige = 500
+			piety = 500
+			realm_size = 45		
+			OR = {
+					has_global_flag = bookmark2015
+					}	
+		}
+		gain_effect = {
+		}
+	}
+	
 #Kemintiri's merry band
 	
 k_anathema = {
@@ -961,11 +988,32 @@ e_ventruecamarilla= {
 		}
 	}
 
-
+e_inner_circle = {
+		color = { 76 0 153 }
+		capital = 253 # Württemberg	Swabia	Germany
+		culture = german
+		title = "Councilor"
+		title_female = "Councilor"		
+		caliphate = no		
+		dynasty_title_names = no		
+		short_name = yes
+		dignity = 200
+		allow = {
+			religion = masquerade_camarilla
+			trait = vampire
+			NOT = { trait = werewolf }
+			prestige = 500
+			piety = 500
+			realm_size = 50	
+			has_global_flag = bookmark2015
+		}
+		gain_effect = {
+		}
+	}
 
 e_sabbat = {
 		color = { 0 0 102 }
-		capital = 197 # Madrid, Toledo, Anadalusia,	Hispania
+		capital = 197 # Madrid, Toledo, Andalusia,	Hispania
 		culture = castillan 
 		title = "Regent"
 		title_female = "Regent"		

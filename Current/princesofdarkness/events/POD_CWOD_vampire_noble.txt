@@ -382,11 +382,21 @@ character_event = {
 		}
 		
 # Clan Setup
+
+		if = {
+			limit = {
+				OR = {
+					has_global_flag = bookmark1505
+					has_global_flag = bookmark1506
+				}
+				
+			}
+			POD_CWOD_bookmark_masquerade_clan_init_effect = yes	
+		}
+
 		if = {
 				limit = {
 					OR = { 
-						has_global_flag = bookmark1505
-						has_global_flag = bookmark1506
 						has_global_flag = bookmark767
 						has_global_flag = bookmark1215
 						has_global_flag = bookmark1230

@@ -398,7 +398,6 @@
 	trait = "wroth"
 	trait = "strong"
 	trait = "robust"
-	trait = "temperate"
 	disallow_random_traits = yes
 	father = 790344
 	
@@ -459,6 +458,8 @@
 	1999.1.1 = {
 		remove_trait = "bookmark1506"
 		add_trait = bookmark2015
+		remove_trait = wight
+		religion = autarkis
 		}
 		
 	2200.1.1 = {
@@ -607,7 +608,10 @@
 	
 	}	
 	1512.1.1 = {
-		death = yes
+		death = {
+			death_reason = death_murder
+			killer = 790458
+			}
 		}	
 }
 
@@ -1166,11 +1170,13 @@ add_trait = "bookmark1506"
 	1506.1.1 = {
 		remove_trait = "bookmark1505"
 		add_trait = "bookmark1506"
-	
+		add_trait = torpor
 	}	
 	1999.1.1 = {
 		remove_trait = "bookmark1506"
 		add_trait = bookmark2015
+		remove_trait = torpor
+		add_trait = vigor_5
 		}
 		
 	2200.1.1 = {
@@ -2671,35 +2677,35 @@ add_trait = "bookmark1506"
 # Berlin
 	name = "Danielle Diron"
 	culture = "frankish"
-	dynasty = "3000107"
+	dynasty = 3000110
 	religion = "anarchs"
 	trait = "vampire"
 	immortal_age = 30
 	trait = "wyrm_taint"	
 	trait = "gangrel"
-	trait = "ancilla"
+	trait = "elder"
 	trait = "vigor_1"
 	trait = "protean_4"
 	trait = "auspex_2"
 	trait = "bloodpotency_6"
 	trait = "skilled_tactician"
-	trait = "vampgeneration9"
+	trait = "vampgeneration7"
 	trait = "canon" 
 	female = yes
 	trait = "temperate"
 	trait = "patient"
 	trait = "zealous"
 	disallow_random_traits = yes
-	father = 790652
+	father = 790723
 	
-	1990.1.1 = {
-		birth = 1990.1.1 
+	1789.1.1 = {
+		birth = 1789.1.1 
 		}	
 	1992.1.1 = {
 		effect = { set_government_type = free_state_government}
 	}			
 	1999.1.1 = {
-
+		add_claim = k_pomerania
 		add_trait = bookmark2015
 		}
 		
@@ -2908,6 +2914,180 @@ add_trait = "bookmark1506"
 		remove_trait = bookmark1506
 		add_trait = bookmark2015
 		effect = {add_friend = 790458 }
+		}
+		
+	2200.1.1 = {
+		death = yes 
+		}	
+}
+
+790744 = {
+# Gangrel pack leader
+	name = "Morrow"
+	culture = "hungarian"
+	dynasty = "3000107"
+	religion = "gangrellow"
+	trait = "vampire"
+	immortal_age = 20
+	trait = "wyrm_taint"	
+	trait = "gangrel"
+	trait = "elder"
+	trait = "celerity_5"
+	trait = "animalism_5"
+	trait = "protean_5"
+	trait = "bloodpotency_6"
+	trait = "skilled_tactician"
+	trait = "vampgeneration7"
+	trait = "canon" 
+	female = yes
+	trait = "strong"
+	trait = "wroth"
+	trait = "proud"
+	trait = "brave"
+	trait = "duelist"
+	disallow_random_traits = yes
+	father = 790107
+	give_nickname = nick_the_wise
+	
+	887.1.1 = {
+		birth = 887.1.1 
+		}
+	989.1.1 = {
+		add_trait = "bookmark990"
+		}		
+	
+	1229.1.1 = {
+		effect = { set_government_type = free_state_government }
+		effect = { join_society = "via_bestiae" }
+		remove_trait = "bookmark990"
+		add_trait = "bookmark1230"
+	}			
+	1354.1.1 = {
+		remove_trait = "bookmark1230"
+		add_trait = "bookmark1355"
+	}	
+	
+	1499.1.1 = {
+		remove_trait = "bookmark1355"
+		add_trait = "bookmark1505"
+	}	
+	1506.1.1 = {
+		remove_trait = "bookmark1505"
+		add_trait = "bookmark1506"
+		religion = autarkis
+	}	
+	1999.1.1 = {
+		remove_trait = bookmark1506
+		add_trait = bookmark2015
+		add_claim = k_hungary
+		}
+		
+	2200.1.1 = {
+		death = yes 
+		}	
+}
+
+790761 = {
+# Prince of Helsinki
+	name = "Tuomo-Markus Sampsa"
+	culture = "finnish"
+	dynasty = 3000104 
+	religion = "gangrelcamarilla"
+	trait = "vampire"
+	immortal_age = 30
+	trait = "wyrm_taint"	
+	trait = "gangrel"
+	trait = "elder"
+	trait = "celerity_2"
+	trait = "animalism_3"
+	trait = "protean_2"
+	trait = "bloodpotency_6"
+	trait = "charismatic_negotiator"
+	trait = "vampgeneration10"
+	trait = "canon" 
+	trait = "patient"
+	trait = "just"
+	female = no
+	father = 790349
+	disallow_random_traits = yes
+	
+	1350.1.1 = {
+		birth = 1350.1.1 
+		}
+	1359.1.1 = {
+		effect = { set_government_type = traditions_government}
+	}				
+	1499.1.1 = {
+		add_trait = "bookmark1505"
+	}	
+	1506.1.1 = {
+		remove_trait = "bookmark1505"
+		add_trait = "bookmark1506"
+	
+	}	
+	1999.1.1 = {
+		remove_trait = "bookmark1506"
+		add_trait = bookmark2015
+		religion = masquerade_camarilla
+		}
+		
+	2200.1.1 = {
+		death = yes 
+		}	
+}
+
+790763 = {
+# Victorian Valkyrie
+	name = "Siv"
+	culture = "norse"
+	dynasty = 3000104
+	religion = "einherjar"
+	trait = "vampire"
+	immortal_age = 20
+	trait = "wyrm_taint"	
+	trait = "gangrel"
+	trait = "elder"
+	trait = "celerity_2"
+	trait = "animalism_5"
+	trait = "protean_5"
+	trait = "bloodpotency_6"
+	trait = "tough_soldier"
+	trait = "vampgeneration7"
+	trait = "canon" 
+	female = yes
+	mother = 790270
+	martial = 9
+	trait = "strong"
+	trait = "proud"
+	trait = "brave"
+	trait = "gregarious"
+	trait = "zealous"
+	disallow_random_traits = yes
+
+	
+	1300.1.1 = {
+		birth = 1300.1.1 
+		}	
+	
+	1329.1.1 = {
+		effect = { set_government_type = free_state_government }
+		effect = { join_society = "via_einherjar" }
+	}				
+	1354.1.1 = {
+		add_trait = "bookmark1355"
+	}	
+	
+	1499.1.1 = {
+		remove_trait = "bookmark1355"
+		add_trait = "bookmark1505"
+	}	
+	1506.1.1 = {
+		remove_trait = "bookmark1505"
+		add_trait = "bookmark1506"
+	}	
+	1999.1.1 = {
+		remove_trait = "bookmark1506"
+		add_trait = bookmark2015
 		}
 		
 	2200.1.1 = {

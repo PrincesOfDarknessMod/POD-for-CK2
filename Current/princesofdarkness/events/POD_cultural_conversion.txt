@@ -1,0 +1,1171 @@
+
+###########################################
+#     									  #
+# POD culture conversion events   		  #
+#                                         #
+###########################################
+
+namespace = POD_cultural_conversion
+
+# Renaissance
+province_event = {
+	id = POD_cultural_conversion.1
+	desc = EVTDESC_POD_cultural_conversion_1
+	picture = GFX_evt_ghoul_tag_team
+
+	trigger = {
+		year = 1450  #1360 
+		NOT = { year = 1650 } #1370
+		OR = { 
+			culture = english
+			culture = irish
+			culture = scottish
+			culture = welsh
+			culture = breton
+			culture = frankish
+			culture = occitan
+			culture = german
+			culture = italian
+			culture = russian
+			culture = mordvin
+			culture = polish
+			culture = castillan
+			culture = basque
+			culture = catalan
+			culture = portuguese
+			culture = greek
+			culture = swedish
+			culture = norwegian
+			culture = finnish
+			culture = bohemian
+			culture = serbian
+			culture = croatian
+			culture = dutch
+			culture = pommeranian
+			culture = lithuanian
+			culture = estonian
+			culture = lettigallish
+			culture = danish
+			culture = romanian
+			culture = bulgarian
+			culture = ashkenazi  
+			culture = hungarian
+			culture = ugricbaltic
+			culture = norse
+		}
+	}
+
+	option = {
+		name = EVTOPTA_POD_cultural_conversion_1
+		
+		if = { 
+			limit = { 
+				region = custom_albania
+			} 
+			culture = rennalbanian	
+		}
+		
+		if = {
+			limit = {
+				region = custom_slovakia
+			}
+			culture = rennslovak
+		}
+		
+		if = {
+			limit = {
+				region = custom_slovenia
+				}
+			culture = rennslovenian
+		}
+		
+		if = {
+			limit = {
+				region = custom_bosnia
+			}
+			culture = rennbosnian
+		}
+		
+		if = {
+			limit = {
+				region = custom_macedonia
+			}
+			culture = rennmacedonian
+		}		
+		
+		trigger_switch = {
+			on_trigger = culture
+			english = { culture = rennenglish }
+			irish = { culture = rennirish }
+			scottish = { culture = rennscottish }
+			welsh = { culture = rennwelsh }
+			breton = { culture = rennbreton }
+			frankish = { culture = rennfrankish }
+			occitan = { culture = rennoccitan }
+			german = { culture = renngerman }
+			italian = { culture = rennitalian }
+			russian = { culture = rennrussian }
+			mordvin = { culture = rennmordvin }
+			polish = { culture = rennpolish }
+			castillan = { culture = renncastillan }
+			basque = { culture = rennbasque }
+			catalan = { culture = renncatalan }
+			portuguese = { culture = rennportuguese }
+			greek = { culture = renngreek }
+			swedish = { culture = rennswedish }
+			norwegian = { culture = rennnorwegian }
+			finnish = { culture = rennfinnish }
+			bohemian = { culture = rennbohemian }
+			serbian = { culture = rennserbian }
+			croatian = { culture = renncroatian }
+			dutch = { culture = renndutch }
+			pommeranian = { culture = rennpommeranian }
+			lithuanian = { culture = rennlithuanian }
+			estonian = { culture = rennestonian }
+			lettigallish = { culture = rennlettigallish }
+			danish = { culture = renndanish }
+			romanian = { culture = rennromanian }
+			bulgarian = { culture = rennbulgarian }
+			ashkenazi = { culture = rennashkenazi } 
+			hungarian = { culture = rennhungarian }
+			slovak = { culture = rennslovak }
+			macedonian = { culture = rennmacedonian }
+			slovenian = { culture = rennslovenian }
+			ugricbaltic = { culture = rennugricbaltic }
+			belarusian = { culture = rennbelarusian }
+			ukrainian = { culture = rennukrainian }
+			norse = { culture = rennnorse }
+		}
+	}		
+		
+}
+
+
+# Colonial
+province_event = {
+	id = POD_cultural_conversion.2
+	desc = EVTDESC_POD_cultural_conversion_2
+	picture = GFX_evt_vampire_or_ghoul_generic_spookiness
+
+	trigger = {
+		year = 1650 # 1370
+		NOT = { year = 1850 } #1380
+		OR = { 
+			culture = english
+			culture = irish
+			culture = scottish
+			culture = welsh
+			culture = breton
+			culture = frankish
+			culture = occitan
+			culture = german
+			culture = italian
+			culture = russian
+			culture = mordvin
+			culture = polish
+			culture = castillan
+			culture = basque
+			culture = catalan
+			culture = portuguese
+			culture = greek
+			culture = swedish
+			culture = norwegian
+			culture = finnish
+			culture = bohemian
+			culture = serbian
+			culture = croatian
+			culture = dutch
+			culture = pommeranian
+			culture = lithuanian
+			culture = estonian
+			culture = lettigallish
+			culture = danish
+			culture = romanian
+			culture = bulgarian
+			culture = ashkenazi  
+			culture = hungarian
+			culture = ugricbaltic
+			culture = norse
+			culture = rennenglish
+			culture = rennirish
+			culture = rennscottish
+			culture = rennwelsh
+			culture = rennbreton
+			culture = rennfrankish
+			culture = rennoccitan
+			culture = renngerman
+			culture = rennitalian
+			culture = rennrussian
+			culture = rennmordvin
+			culture = rennpolish
+			culture = renncastillan
+			culture = rennbasque
+			culture = renncatalan
+			culture = rennportuguese
+			culture = renngreek
+			culture = rennswedish
+			culture = rennnorwegian
+			culture = rennfinnish
+			culture = rennbohemian
+			culture = rennserbian
+			culture = renncroatian
+			culture = renndutch
+			culture = rennpommeranian
+			culture = rennlithuanian
+			culture = rennestonian
+			culture = rennlettigallish
+			culture = renndanish
+			culture = rennromanian
+			culture = rennbulgarian
+			culture = rennashkenazi  
+			culture = rennhungarian
+			culture = rennslovak
+			culture = rennmacedonian
+			culture = rennslovenian
+			culture = rennugricbaltic
+			culture = rennbelarusian
+			culture = rennukrainian
+			culture = rennnorse	
+			culture = rennalbanian
+			culture = rennslovak
+			culture = rennslovenian
+			culture = rennmacedonian
+			culture = rennbosnian
+		}
+	}
+
+	option = {
+		name = EVTOPTA_POD_cultural_conversion_2
+		
+		if = { 
+			limit = { 
+				region = custom_albania
+			} 
+			culture = colonialalbanian	
+		}
+		
+		if = {
+			limit = {
+				region = custom_slovakia
+			}
+			culture = colonialslovak
+		}
+		
+		if = {
+			limit = {
+				region = custom_slovenia
+				}
+			culture = colonialslovenian
+		}
+		
+		if = {
+			limit = {
+				region = custom_bosnia
+			}
+			culture = colonialbosnian
+		}
+		
+		if = {
+			limit = {
+				region = custom_macedonia
+			}
+			culture = colonialmacedonian
+		}		
+		
+		trigger_switch = {
+			on_trigger = culture
+			english = { culture = colonialenglish }
+			irish = { culture = colonialirish }
+			scottish = { culture = colonialscottish }
+			welsh = { culture = colonialwelsh }
+			breton = { culture = colonialbreton }
+			frankish = { culture = colonialfrankish }
+			occitan = { culture = colonialoccitan }
+			german = { culture = colonialgerman }
+			italian = { culture = colonialitalian }
+			russian = { culture = colonialrussian }
+			mordvin = { culture = colonialmordvin }
+			polish = { culture = colonialpolish }
+			castillan = { culture = colonialcastillan }
+			basque = { culture = colonialbasque }
+			catalan = { culture = colonialcatalan }
+			portuguese = { culture = colonialportuguese }
+			greek = { culture = colonialgreek }
+			swedish = { culture = colonialswedish }
+			norwegian = { culture = colonialnorwegian }
+			finnish = { culture = colonialfinnish }
+			bohemian = { culture = colonialbohemian }
+			serbian = { culture = colonialserbian }
+			croatian = { culture = colonialcroatian }
+			dutch = { culture = colonialdutch }
+			pommeranian = { culture = colonialpommeranian }
+			lithuanian = { culture = coloniallithuanian }
+			estonian = { culture = colonialestonian }
+			lettigallish = { culture = coloniallettigallish }
+			danish = { culture = colonialdanish }
+			romanian = { culture = colonialromanian }
+			bulgarian = { culture = colonialbulgarian }
+			ashkenazi = { culture = colonialashkenazi } 
+			hungarian = { culture = colonialhungarian }
+			ugricbaltic = { culture = colonialugricbaltic }
+			norse = { culture = colonialnorse }
+			rennenglish = { culture = colonialenglish }
+			rennirish = { culture = colonialirish }
+			rennscottish = { culture = colonialscottish }
+			rennwelsh = { culture = colonialwelsh }
+			rennbreton = { culture = colonialbreton }
+			rennfrankish = { culture = colonialfrankish }
+			rennoccitan = { culture = colonialoccitan }
+			renngerman = { culture = colonialgerman }
+			rennitalian = { culture = colonialitalian }
+			rennrussian = { culture = colonialrussian }
+			rennmordvin = { culture = colonialmordvin }
+			rennpolish = { culture = colonialpolish }
+			renncastillan = { culture = colonialcastillan }
+			rennbasque = { culture = colonialbasque }
+			renncatalan = { culture = colonialcatalan }
+			rennportuguese = { culture = colonialportuguese }
+			renngreek = { culture = colonialgreek }
+			rennswedish = { culture = colonialswedish }
+			rennnorwegian = { culture = colonialnorwegian }
+			rennfinnish = { culture = colonialfinnish }
+			rennbohemian = { culture = colonialbohemian }
+			rennserbian = { culture = colonialserbian }
+			renncroatian = { culture = colonialcroatian }
+			renndutch = { culture = colonialdutch }
+			rennpommeranian = { culture = colonialpommeranian }
+			rennlithuanian = { culture = coloniallithuanian }
+			rennestonian = { culture = colonialestonian }
+			rennlettigallish = { culture = coloniallettigallish }
+			renndanish = { culture = colonialdanish }
+			rennromanian = { culture = colonialromanian }
+			rennbulgarian = { culture = colonialbulgarian }
+			rennashkenazi = { culture = colonialashkenazi } 
+			rennhungarian = { culture = colonialhungarian }
+			rennugricbaltic = { culture = colonialugricbaltic }
+			rennnorse = { culture = colonialnorse }
+			rennalbanian = { culture = colonialalbanian }
+			rennslovak = { culture = colonialslovak }
+			rennslovenian = { culture = colonialslovenian }
+			rennbosnian = { culture = colonialbosnian }
+			rennmacedonian = { culture = colonialmacedonian }
+		}		
+		
+	}
+}	
+
+# Industrial
+province_event = {
+	id = POD_cultural_conversion.3
+	desc = EVTDESC_POD_cultural_conversion_3
+	picture = GFX_evt_vampire_manor_i
+
+	trigger = {
+		year = 1860 #1380
+		NOT = { year = 1900 } #1390
+		OR = { 
+			culture = english
+			culture = irish
+			culture = scottish
+			culture = welsh
+			culture = breton
+			culture = frankish
+			culture = occitan
+			culture = german
+			culture = italian
+			culture = russian
+			culture = polish
+			culture = castillan
+			culture = basque
+			culture = catalan
+			culture = portuguese
+			culture = greek
+			culture = swedish
+			culture = norwegian
+			culture = finnish
+			culture = bohemian
+			culture = serbian
+			culture = croatian
+			culture = dutch
+			culture = pommeranian
+			culture = lithuanian
+			culture = estonian
+			culture = lettigallish
+			culture = danish
+			culture = romanian
+			culture = bulgarian
+			culture = ashkenazi  
+			culture = hungarian
+			culture = ugricbaltic
+			culture = norse
+			culture = rennenglish
+			culture = rennirish
+			culture = rennscottish
+			culture = rennwelsh
+			culture = rennbreton
+			culture = rennfrankish
+			culture = rennoccitan
+			culture = renngerman
+			culture = rennitalian
+			culture = rennrussian
+			culture = rennpolish
+			culture = renncastillan
+			culture = rennbasque
+			culture = renncatalan
+			culture = rennportuguese
+			culture = renngreek
+			culture = rennswedish
+			culture = rennnorwegian
+			culture = rennfinnish
+			culture = rennbohemian
+			culture = rennserbian
+			culture = renncroatian
+			culture = renndutch
+			culture = rennpommeranian
+			culture = rennlithuanian
+			culture = rennestonian
+			culture = rennlettigallish
+			culture = renndanish
+			culture = rennromanian
+			culture = rennbulgarian
+			culture = rennashkenazi  
+			culture = rennhungarian
+			culture = rennugricbaltic
+			culture = rennnorse	
+			culture = rennalbanian
+			culture = rennslovak
+			culture = rennslovenian
+			culture = rennmacedonian
+			culture = rennbosnian
+			culture = colonialenglish
+			culture = colonialirish
+			culture = colonialscottish
+			culture = colonialwelsh
+			culture = colonialbreton
+			culture = colonialfrankish
+			culture = colonialoccitan
+			culture = colonialgerman
+			culture = colonialitalian
+			culture = colonialrussian
+			culture = colonialpolish
+			culture = colonialcastillan
+			culture = colonialbasque
+			culture = colonialcatalan
+			culture = colonialportuguese
+			culture = colonialgreek
+			culture = colonialswedish
+			culture = colonialnorwegian
+			culture = colonialfinnish
+			culture = colonialbohemian
+			culture = colonialserbian
+			culture = colonialcroatian
+			culture = colonialdutch
+			culture = colonialpommeranian
+			culture = coloniallithuanian
+			culture = colonialestonian
+			culture = coloniallettigallish
+			culture = colonialdanish
+			culture = colonialromanian
+			culture = colonialbulgarian
+			culture = colonialashkenazi  
+			culture = colonialhungarian
+			culture = colonialugricbaltic
+			culture = colonialnorse	
+			culture = colonialalbanian
+			culture = colonialslovak
+			culture = colonialslovenian
+			culture = colonialmacedonian
+			culture = colonialbosnian			
+		}
+	}
+
+	option = {
+		name = EVTOPTA_POD_cultural_conversion_3
+		
+		if = { 
+			limit = { 
+				region = custom_albania
+			} 
+			culture = industrialalbanian	
+		}
+		
+		if = {
+			limit = {
+				region = custom_slovakia
+			}
+			culture = industrialslovak
+		}
+		
+		if = {
+			limit = {
+				region = custom_slovenia
+				}
+			culture = industrialslovenian
+		}
+		
+		if = {
+			limit = {
+				region = custom_bosnia
+			}
+			culture = industrialbosnian
+		}
+		
+		if = {
+			limit = {
+				region = custom_macedonia
+			}
+			culture = industrialmacedonian
+		}
+		
+		trigger_switch = {
+		on_trigger = culture
+		english = { culture = industrialenglish }
+		irish = { culture = industrialirish }
+		scottish = { culture = industrialscottish }
+		welsh = { culture = industrialwelsh }
+		breton = { culture = industrialbreton }
+		frankish = { culture = industrialfrankish }
+		occitan = { culture = industrialoccitan }
+		german = { culture = industrialgerman }
+		italian = { culture = industrialitalian }
+		russian = { culture = industrialrussian }
+		polish = { culture = industrialpolish }
+		castillan = { culture = industrialcastillan }
+		basque = { culture = industrialbasque }
+		catalan = { culture = industrialcatalan }
+		portuguese = { culture = industrialportuguese }
+		greek = { culture = industrialgreek }
+		swedish = { culture = industrialswedish }
+		norwegian = { culture = industrialnorwegian }
+		finnish = { culture = industrialfinnish }
+		bohemian = { culture = industrialbohemian }
+		serbian = { culture = industrialserbian }
+		croatian = { culture = industrialcroatian }
+		dutch = { culture = industrialdutch }
+		pommeranian = { culture = industrialpommeranian }
+		lithuanian = { culture = industriallithuanian }
+		estonian = { culture = industrialestonian }
+		lettigallish = { culture = industriallettigallish }
+		danish = { culture = industrialdanish }
+		romanian = { culture = industrialromanian }
+		bulgarian = { culture = industrialbulgarian }
+		ashkenazi = { culture = industrialashkenazi } 
+		hungarian = { culture = industrialhungarian }
+		slovak = { culture = industrialslovak }
+		macedonian = { culture = industrialmacedonian }
+		slovenian = { culture = industrialslovenian }
+		ugricbaltic = { culture = industrialugricbaltic }
+		norse = { culture = industrialnorse }
+		rennenglish = { culture = industrialenglish }
+		rennirish = { culture = industrialirish }
+		rennscottish = { culture = industrialscottish }
+		rennwelsh = { culture = industrialwelsh }
+		rennbreton = { culture = industrialbreton }
+		rennfrankish = { culture = industrialfrankish }
+		rennoccitan = { culture = industrialoccitan }
+		renngerman = { culture = industrialgerman }
+		rennitalian = { culture = industrialitalian }
+		rennrussian = { culture = industrialrussian }
+		rennpolish = { culture = industrialpolish }
+		renncastillan = { culture = industrialcastillan }
+		rennbasque = { culture = industrialbasque }
+		renncatalan = { culture = industrialcatalan }
+		rennportuguese = { culture = industrialportuguese }
+		renngreek = { culture = industrialgreek }
+		rennswedish = { culture = industrialswedish }
+		rennnorwegian = { culture = industrialnorwegian }
+		rennfinnish = { culture = industrialfinnish }
+		rennbohemian = { culture = industrialbohemian }
+		rennserbian = { culture = industrialserbian }
+		renncroatian = { culture = industrialcroatian }
+		renndutch = { culture = industrialdutch }
+		rennpommeranian = { culture = industrialpommeranian }
+		rennlithuanian = { culture = industriallithuanian }
+		rennestonian = { culture = industrialestonian }
+		rennlettigallish = { culture = industriallettigallish }
+		renndanish = { culture = industrialdanish }
+		rennromanian = { culture = industrialromanian }
+		rennbulgarian = { culture = industrialbulgarian }
+		rennashkenazi = { culture = industrialashkenazi } 
+		rennhungarian = { culture = industrialhungarian }
+		rennugricbaltic = { culture = industrialugricbaltic }
+		rennnorse = { culture = industrialnorse }
+		rennalbanian = { culture = industrialalbanian }
+		rennslovak = { culture = industrialslovak }
+		rennslovenian = { culture = industrialslovenian }
+		rennbosnian = { culture = industrialbosnian }
+		rennmacedonian = { culture = industrialmacedonian }		
+		colonialenglish = { culture = industrialenglish }
+		colonialirish = { culture = industrialirish }
+		colonialscottish = { culture = industrialscottish }
+		colonialwelsh = { culture = industrialwelsh }
+		colonialbreton = { culture = industrialbreton }
+		colonialfrankish = { culture = industrialfrankish }
+		colonialoccitan = { culture = industrialoccitan }
+		colonialgerman = { culture = industrialgerman }
+		colonialitalian = { culture = industrialitalian }
+		colonialrussian = { culture = industrialrussian }
+		colonialpolish = { culture = industrialpolish }
+		colonialcastillan = { culture = industrialcastillan }
+		colonialbasque = { culture = industrialbasque }
+		colonialcatalan = { culture = industrialcatalan }
+		colonialportuguese = { culture = industrialportuguese }
+		colonialgreek = { culture = industrialgreek }
+		colonialswedish = { culture = industrialswedish }
+		colonialnorwegian = { culture = industrialnorwegian }
+		colonialfinnish = { culture = industrialfinnish }
+		colonialbohemian = { culture = industrialbohemian }
+		colonialserbian = { culture = industrialserbian }
+		colonialcroatian = { culture = industrialcroatian }
+		colonialdutch = { culture = industrialdutch }
+		colonialpommeranian = { culture = industrialpommeranian }
+		coloniallithuanian = { culture = industriallithuanian }
+		colonialestonian = { culture = industrialestonian }
+		coloniallettigallish = { culture = industriallettigallish }
+		colonialdanish = { culture = industrialdanish }
+		colonialromanian = { culture = industrialromanian }
+		colonialbulgarian = { culture = industrialbulgarian }
+		colonialashkenazi = { culture = industrialashkenazi } 
+		colonialhungarian = { culture = industrialhungarian }
+		colonialugricbaltic = { culture = industrialugricbaltic }
+		colonialnorse = { culture = industrialnorse }	
+		colonialalbanian = { culture = industrialalbanian }
+		colonialslovak = { culture = industrialslovak }
+		colonialslovenian = { culture = industrialslovenian }
+		colonialbosnian = { culture = industrialbosnian }
+		colonialmacedonian = { culture = industrialmacedonian }		
+		}			
+	}
+}	
+
+# Modern
+province_event = {
+	id = POD_cultural_conversion.4
+	desc = EVTDESC_POD_cultural_conversion_4
+	picture = GFX_evt_vampire_moody_landscape
+
+	trigger = {
+		year = 1900 #1390
+		NOT = { year = 1950 } 
+		OR= { 
+			culture = maghreb_arabic
+			culture = bedouin_arabic
+			culture = levantine_arabic
+			culture = egyptian_arabic
+			culture = andalusian_arabic
+			culture = turkish
+			culture = persian
+			culture = kurdish
+			culture = ethiopian
+			cutlure = somali
+			culture = nubian
+			culture = manden
+			culture = lappish
+			culture = georgian
+			culture = alan
+			culture = samoyed
+			culture = bolghar
+			culture = afghan
+			culture = mongol
+			culture = baloch
+			culture = komi
+			culture = khanty
+			culture = kirghiz
+			culture = uyghur
+			culture = bodpa
+			culture = tangut
+			culture = assamese
+			culture = oriya
+			culture = telugu
+			culture = tamil
+			culture = kannada
+			culture = marathi
+			culture = hindustani
+			culture = rajput
+			culture = gujurati
+			culture = sindhi
+			culture = panjabi
+			culture = sinhala
+			culture = bengali
+			culture = sephardi
+			culture = assyrian
+			culture = armenian
+			culture = english
+			culture = irish
+			culture = scottish
+			culture = welsh
+			culture = breton
+			culture = frankish
+			culture = occitan
+			culture = german
+			culture = italian
+			culture = russian
+			culture = polish
+			culture = castillan
+			culture = basque
+			culture = catalan
+			culture = portuguese
+			culture = greek
+			culture = swedish
+			culture = norwegian
+			culture = finnish
+			culture = bohemian
+			culture = serbian
+			culture = croatian
+			culture = dutch
+			culture = pommeranian
+			culture = lithuanian
+			culture = estonian
+			culture = lettigallish
+			culture = danish
+			culture = romanian
+			culture = bulgarian
+			culture = ashkenazi  
+			culture = hungarian
+			culture = ugricbaltic
+			culture = norse
+			culture = rennenglish
+			culture = rennirish
+			culture = rennscottish
+			culture = rennwelsh
+			culture = rennbreton
+			culture = rennfrankish
+			culture = rennoccitan
+			culture = renngerman
+			culture = rennitalian
+			culture = rennrussian
+			culture = rennpolish
+			culture = renncastillan
+			culture = rennbasque
+			culture = renncatalan
+			culture = rennportuguese
+			culture = renngreek
+			culture = rennswedish
+			culture = rennnorwegian
+			culture = rennfinnish
+			culture = rennbohemian
+			culture = rennserbian
+			culture = renncroatian
+			culture = renndutch
+			culture = rennpommeranian
+			culture = rennlithuanian
+			culture = rennestonian
+			culture = rennlettigallish
+			culture = renndanish
+			culture = rennromanian
+			culture = rennbulgarian
+			culture = rennashkenazi  
+			culture = rennhungarian
+			culture = rennslovak
+			culture = rennmacedonian
+			culture = rennslovenian
+			culture = rennugricbaltic
+			culture = rennnorse	
+			culture = colonialenglish
+			culture = colonialirish
+			culture = colonialscottish
+			culture = colonialwelsh
+			culture = colonialbreton
+			culture = colonialfrankish
+			culture = colonialoccitan
+			culture = colonialgerman
+			culture = colonialitalian
+			culture = colonialrussian
+			culture = colonialpolish
+			culture = colonialcastillan
+			culture = colonialbasque
+			culture = colonialcatalan
+			culture = colonialportuguese
+			culture = colonialgreek
+			culture = colonialswedish
+			culture = colonialnorwegian
+			culture = colonialfinnish
+			culture = colonialbohemian
+			culture = colonialserbian
+			culture = colonialcroatian
+			culture = colonialdutch
+			culture = colonialpommeranian
+			culture = coloniallithuanian
+			culture = colonialestonian
+			culture = coloniallettigallish
+			culture = colonialdanish
+			culture = colonialromanian
+			culture = colonialbulgarian
+			culture = colonialashkenazi  
+			culture = colonialhungarian
+			culture = colonialalbanian
+			culture = colonialslovak
+			culture = colonialmacedonian
+			culture = colonialslovenian
+			culture = colonialbosnian
+			culture = colonialugricbaltic
+			culture = colonialnorse		
+			culture = industrialenglish
+			culture = industrialirish
+			culture = industrialscottish
+			culture = industrialwelsh
+			culture = industrialbreton
+			culture = industrialfrankish
+			culture = industrialoccitan
+			culture = industrialgerman
+			culture = industrialitalian
+			culture = industrialrussian
+			culture = industrialmordvin
+			culture = industrialpolish
+			culture = industrialcastillan
+			culture = industrialbasque
+			culture = industrialcatalan
+			culture = industrialportuguese
+			culture = industrialgreek
+			culture = industrialswedish
+			culture = industrialnorwegian
+			culture = industrialfinnish
+			culture = industrialbohemian
+			culture = industrialserbian
+			culture = industrialcroatian
+			culture = industrialdutch
+			culture = industrialpommeranian
+			culture = industriallithuanian
+			culture = industrialestonian
+			culture = industriallettigallish
+			culture = industrialdanish
+			culture = industrialromanian
+			culture = industrialbulgarian
+			culture = industrialashkenazi  
+			culture = industrialhungarian
+			culture = industrialslovak
+			culture = industrialmacedonian
+			culture = industrialslovenian
+			culture = industrialalbanian
+			culture = industrialbosnian
+			culture = industrialugricbaltic
+			culture = industrialnorse				
+		}
+	}
+
+	option = {
+		name = EVTOPTA_POD_cultural_conversion_4
+		
+		if = { 
+			limit = { 
+				region = custom_albania
+			} 
+			culture = modernalbanian	
+		}
+		
+		if = {
+			limit = {
+				region = custom_slovakia
+			}
+			culture = modernslovak
+		}
+		
+		if = {
+			limit = {
+				region = custom_slovenia
+				}
+			culture = modernslovenian
+		}
+		
+		if = {
+			limit = {
+				region = custom_bosnia
+			}
+			culture = modernbosnian
+		}
+		
+		if = {
+			limit = {
+				region = custom_macedonia
+			}
+			culture = modernmacedonian
+		}
+
+		if = {
+			limit = {
+				region = custom_belarussia
+			}
+			culture = modernbelarusian
+		}
+		
+		if = {
+			limit = {
+				region = custom_ukraine
+			}
+			culture = modernukrainian
+		}		
+		
+		if = {
+			limit = {
+				region = custom_modernaremenia
+			}
+			culture = modernarmenian
+		}			
+		
+		if = {
+			limit = {
+				region = custom_moderngreaterturkey
+			}
+			culture =  modernturkish
+		}
+		
+		if = { 
+			limit = {
+				region = custom_moderngreateravar
+			}
+			culture = modernalan
+		}
+		
+		if = {
+			limit = {
+				region = custom_moderngreaterbohemia	
+			}
+			culture = modern_bohemian
+		}
+
+		
+		if = {
+			limit = {
+				region = custom_moderngreaterrussia
+			}
+			culture = modernrussian
+		}
+		
+		if = {
+			limit = {
+				region = custom_moderngreaterpoland	
+			}	
+			culture = modernpolish
+		}
+		
+		if = {
+			limit = {
+				region = custom_moderngreatergermany
+			}
+			culture = moderngerman
+		}
+		
+		trigger_switch = {
+		on_trigger = culture
+		english = { culture = modernenglish }
+		irish = { culture = modernirish }
+		scottish = { culture = modernscottish }
+		welsh = { culture = modernwelsh }
+		breton = { culture = modernbreton }
+		frankish = { culture = modernfrankish }
+		occitan = { culture = modernoccitan }
+		german = { culture = moderngerman }
+		italian = { culture = modernitalian }
+		russian = { culture = modernrussian }
+		mordvin = { culture = modernmordvin }
+		polish = { culture = modernpolish }
+		castillan = { culture = moderncastillan }
+		basque = { culture = modernbasque }
+		catalan = { culture = moderncatalan }
+		portuguese = { culture = modernportuguese }
+		greek = { culture = moderngreek }
+		swedish = { culture = modernswedish }
+		norwegian = { culture = modernnorwegian }
+		finnish = { culture = modernfinnish }
+		bohemian = { culture = modernbohemian }
+		serbian = { culture = modernserbian }
+		croatian = { culture = moderncroatian }
+		dutch = { culture = moderndutch }
+		pommeranian = { culture = modernpommeranian }
+		lithuanian = { culture = modernlithuanian }
+		estonian = { culture = modernestonian }
+		lettigallish = { culture = modernlettigallish }
+		danish = { culture = moderndanish }
+		romanian = { culture = modernromanian }
+		bulgarian = { culture = modernbulgarian }
+		ashkenazi = { culture = modernashkenazi } 
+		hungarian = { culture = modernhungarian }
+		ugricbaltic = { culture = modernugricbaltic }
+		norse = { culture = modernnorse }
+		maghreb_arabic = { culture = modernmaghreb_arabic }
+		bedouin_arabic = { culture = modernbedouin_arabic }
+		levantine_arabic = { culture = modernlevantine_arabic }
+		egyptian_arabic = { culture = modernegyptian_arabic }
+		andalusian_arabic = { culture = modernandalusian_arabic }
+		turkish = { culture = modernturkish }
+		persian = { culture = modernpersian }
+		kurdish = { culture = modernkurdish }
+		ethiopian = { culture = modernethiopian }
+		somali = { culture = modernsomali }
+		nubian = { culture = modernnubian }
+		manden = { culture = modernmanden }
+		lappish = { culture = modernlappish }
+		georgian = { culture = moderngeorgian }
+		alan = { culture = modernalan }
+		nenets = { culture = modernnenets }
+		bolghar = { culture = modernbolghar }
+		afghan = { culture = modernafghan }
+		mongol = { culture = modernmongol }
+		baloch = { culture = modernbaloch }
+		samoyed = { culture = modernsamoyed }
+		komi = { culture = modernkomi }
+		khanty = { culture = modernkhanty }
+		kirghiz = { culture = modernkirghiz }
+		uyghur = { culture = modernuyghur }
+		bodpa = { culture = modernbodpa }
+		tangut = { culture = moderntangut }
+		assamese = { culture = modernassamese }
+		oriya  = { culture = modernoriya }
+		telugu = { culture = moderntelugu }
+		tamil = { culture = moderntamil }
+		kannada = { culture = modernkannada }
+		marathi  = { culture = modernmarathi }
+		hindustani = { culture = modernhindustani }
+ 		rajput = { culture = modernrajput }
+		gujurati = { culture = moderngujurati }
+		sindhi = { culture = modernsindhi }
+		panjabi = { culture = modernpanjabi }
+		sinhala = { culture = modernsinhala }
+		bengali = { culture = modernbengali }
+		sephardi = { culture = modernsephardi }
+		assyrian = { culture = modernassyrian }
+		armenian  = { culture = modernarmenian }	
+		rennenglish = { culture = modernenglish }
+		rennirish = { culture = modernirish }
+		rennscottish = { culture = modernscottish }
+		rennwelsh = { culture = modernwelsh }
+		rennbreton = { culture = modernbreton }
+		rennfrankish = { culture = modernfrankish }
+		rennoccitan = { culture = modernoccitan }
+		renngerman = { culture = moderngerman }
+		rennitalian = { culture = modernitalian }
+		rennrussian = { culture = modernrussian }
+		rennmordvin = { culture = modernmordvin }
+		rennpolish = { culture = modernpolish }
+		renncastillan = { culture = moderncastillan }
+		rennbasque = { culture = modernbasque }
+		renncatalan = { culture = moderncatalan }
+		rennportuguese = { culture = modernportuguese }
+		renngreek = { culture = moderngreek }
+		rennswedish = { culture = modernswedish }
+		rennnorwegian = { culture = modernnorwegian }
+		rennfinnish = { culture = modernfinnish }
+		rennbohemian = { culture = modernbohemian }
+		rennserbian = { culture = modernserbian }
+		renncroatian = { culture = moderncroatian }
+		renndutch = { culture = moderndutch }
+		rennpommeranian = { culture = modernpommeranian }
+		rennlithuanian = { culture = modernlithuanian }
+		rennestonian = { culture = modernestonian }
+		rennlettigallish = { culture = modernlettigallish }
+		renndanish = { culture = moderndanish }
+		rennromanian = { culture = modernromanian }
+		rennbulgarian = { culture = modernbulgarian }
+		rennashkenazi = { culture = modernashkenazi } 
+		rennhungarian = { culture = modernhungarian }
+		rennslovak = { culture = modernslovak }
+		rennmacedonian = { culture = modernmacedonian }
+		rennslovenian = { culture = modernslovenian }
+		rennalbanian = { culture = modernalbanian }
+		rennbosnian = { culture = moderbosnian }
+		rennugricbaltic = { culture = modernugricbaltic }
+		rennnorse = { culture = modernnorse }
+		colonialenglish = { culture = modernenglish }
+		colonialirish = { culture = modernirish }
+		colonialscottish = { culture = modernscottish }
+		colonialwelsh = { culture = modernwelsh }
+		colonialbreton = { culture = modernbreton }
+		colonialfrankish = { culture = modernfrankish }
+		colonialoccitan = { culture = modernoccitan }
+		colonialgerman = { culture = moderngerman }
+		colonialitalian = { culture = modernitalian }
+		colonialrussian = { culture = modernrussian }
+		colonialmordvin = { culture = modernmordvin }
+		colonialpolish = { culture = modernpolish }
+		colonialcastillan = { culture = moderncastillan }
+		colonialbasque = { culture = modernbasque }
+		colonialcatalan = { culture = moderncatalan }
+		colonialportuguese = { culture = modernportuguese }
+		colonialgreek = { culture = moderngreek }
+		colonialswedish = { culture = modernswedish }
+		colonialnorwegian = { culture = modernnorwegian }
+		colonialfinnish = { culture = modernfinnish }
+		colonialbohemian = { culture = modernbohemian }
+		colonialserbian = { culture = modernserbian }
+		colonialcroatian = { culture = moderncroatian }
+		colonialdutch = { culture = moderndutch }
+		colonialpommeranian = { culture = modernpommeranian }
+		coloniallithuanian = { culture = modernlithuanian }
+		colonialestonian = { culture = modernestonian }
+		coloniallettigallish = { culture = modernlettigallish }
+		colonialdanish = { culture = moderndanish }
+		colonialromanian = { culture = modernromanian }
+		colonialbulgarian = { culture = modernbulgarian }
+		colonialashkenazi = { culture = modernashkenazi } 
+		colonialhungarian = { culture = modernhungarian }
+		colonialslovak = { culture = modernslovak }
+		colonialmacedonian = { culture = modernmacedonian }
+		colonialslovenian = { culture = modernslovenian }
+		colonialalbanian = { culture = modernalbanian }
+		colonialbosnian = { culture = modernbosnian }
+		colonialugricbaltic = { culture = modernugricbaltic }
+		colonialnorse = { culture = modernnorse }	
+		industrialenglish = { culture = modernenglish }
+		industrialirish = { culture = modernirish }
+		industrialscottish = { culture = modernscottish }
+		industrialwelsh = { culture = modernwelsh }
+		industrialbreton = { culture = modernbreton }
+		industrialfrankish = { culture = modernfrankish }
+		industrialoccitan = { culture = modernoccitan }
+		industrialgerman = { culture = moderngerman }
+		industrialitalian = { culture = modernitalian }
+		industrialrussian = { culture = modernrussian }
+		industrialmordvin = { culture = modernmordvin }
+		industrialpolish = { culture = modernpolish }
+		industrialcastillan = { culture = moderncastillan }
+		industrialbasque = { culture = modernbasque }
+		industrialcatalan = { culture = moderncatalan }
+		industrialportuguese = { culture = modernportuguese }
+		industrialgreek = { culture = moderngreek }
+		industrialswedish = { culture = modernswedish }
+		industrialnorwegian = { culture = modernnorwegian }
+		industrialfinnish = { culture = modernfinnish }
+		industrialbohemian = { culture = modernbohemian }
+		industrialserbian = { culture = modernserbian }
+		industrialcroatian = { culture = moderncroatian }
+		industrialdutch = { culture = moderndutch }
+		industrialpommeranian = { culture = modernpommeranian }
+		industriallithuanian = { culture = modernlithuanian }
+		industrialestonian = { culture = modernestonian }
+		industriallettigallish = { culture = modernlettigallish }
+		industrialdanish = { culture = moderndanish }
+		industrialromanian = { culture = modernromanian }
+		industrialbulgarian = { culture = modernbulgarian }
+		industrialashkenazi = { culture = modernashkenazi } 
+		industrialhungarian = { culture = modernhungarian }
+		industrialslovak = { culture = modernslovak }
+		industrialmacedonian = { culture = modernmacedonian }
+		industrialslovenian = { culture = modernslovenian }
+		industrialugricbaltic = { culture = modernugricbaltic }
+		industrialalbanian = { culture = modernalbanian }
+		industrialbosnian = { culture = modernbosnian }
+		industrialnorse = { culture = modernnorse }			
+		}		
+	}
+}	
+
+# Modern
+province_event = {
+	id = POD_cultural_conversion.5
+	desc = EVTDESC_POD_cultural_conversion_5
+	picture = GFX_evt_vampire_moody_landscape
+
+	trigger = {
+		year = 1950 #1395
+		NOT = { year = 1960 } #1400
+		region = custom_israel
+	}
+
+	option = {
+		name = EVTOPTA_POD_cultural_conversion_5	
+		if = { 
+			limit = { region = custom_israel }
+			culture = modernashkenazi
+			}
+	}
+}
