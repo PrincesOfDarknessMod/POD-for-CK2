@@ -1,0 +1,5085 @@
+namespace = VAMPSTARS
+
+##########################################
+# Spawn of modernish vampires in 1230 bookmark, Tepes
+##########################################
+
+# Vlad Tepes
+character_event = {
+	id = VAMPSTARS.1
+	desc = EVTDESCVAMP_STARS_1
+	
+	picture = GFX_evt_beheading
+	border = GFX_event_normal_frame_war
+	
+	only_playable = yes
+	has_global_flag = bookmark1230
+	
+	trigger = {
+				year = 1500
+				NOT = { year = 1550 }
+			
+		
+		higher_tier_than = count
+		
+		NOT = { has_global_flag = tepes_spawned }
+		
+		OR = {
+			515 = { 
+				owner = {
+					same_realm = ROOT
+				}
+			}
+			514 = { 
+				owner = {
+					same_realm = ROOT
+				}
+			}
+			516 = { 
+				owner = {
+					same_realm = ROOT
+				}
+			}
+			513 = { 
+				owner = {
+					same_realm = ROOT
+				}
+			}
+			511 = { 
+				owner = {
+					same_realm = ROOT
+				}
+			}
+			517 = { 
+				owner = {
+					same_realm = ROOT
+				}
+			}			
+		}
+	}	
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	immediate = {
+		create_character = {
+			random_traits = no
+			name = "Vlad Tepes"
+			dynasty = 5500113
+			religion = autarkis
+			culture = ROOT
+			female = no
+			age = 30
+			attributes = {
+				martial = 12
+				diplomacy = 5
+				stewardship = 12
+				intrigue = 12
+				learning = 6
+			}
+			health = 6
+			fertility = 0.8
+			trait = "neonate"
+			trait = "tzimisce"
+			trait = "animalism_5"
+			trait = "dominate_5"	
+			trait = "vicissitude_5"
+			trait = "bloodpotency_6"
+			trait = "vampgeneration5"
+			trait = "elusive_shadow"
+			trait = "ambitious"
+			trait = "fair"
+			trait = "impaler"
+			trait = "genius"
+			trait = "brave"
+			trait = "diligent"
+			trait = vampire
+			immortal_age = 30
+			trait = "wyrm_taint"	
+			has_nickname = nick_dracula
+			race = german
+			dna="agibd0g0ae0" 
+			properties="0n0idk000000000000"
+		}
+		
+		new_character = {
+			set_character_flag = tepes_himself
+			character_event = {
+				id = VAMPSTARS.2
+				days = 30
+				random = 30
+			}
+		}
+	}
+	
+	option = { # A most capable young man
+		name = EVTOPTAVAMP_STARS_1
+		
+		set_global_flag = tepes_spawned
+		set_global_flag = tepes_spawned_by_event
+		
+		tooltip = {
+		create_character = {
+			random_traits = no
+			name = "Vlad Tepes"
+			dynasty = 5500113
+			religion = autarkis
+			culture = ROOT
+			female = no
+			age = 30
+			attributes = {
+				martial = 12
+				diplomacy = 5
+				stewardship = 12
+				intrigue = 12
+				learning = 6
+			}
+			health = 6
+			fertility = 0.8
+			trait = "neonate"
+			trait = "tzimisce"
+			trait = "animalism_5"
+			trait = "dominate_5"	
+			trait = "vicissitude_5"
+			trait = "bloodpotency_6"
+			trait = "vampgeneration5"
+			trait = "elusive_shadow"
+			trait = "ambitious"
+			trait = "fair"
+			trait = "impaler"
+			trait = "genius"
+			trait = "brave"
+			trait = "diligent"
+			trait = vampire
+			immortal_age = 30
+			trait = "wyrm_taint"	
+			has_nickname = nick_dracula
+			race = german
+			dna="agibd0g0ae0" 
+			properties="0n0idk000000000000"
+		}
+		}
+	}
+}
+
+# Tepes and his men consider starting an adventure
+character_event = {
+	id = VAMPSTARS.2
+	desc = EVTDESCVAMP_STARS_2
+	
+	picture = GFX_evt_battle
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	prisoner = no
+	only_capable = yes
+	
+	trigger = {
+		is_alive = yes
+		NOT = { trait = torpor }
+		NOT = { trait = eunuch }
+		NOT = { trait = infirm }
+		lower_tier_than = king
+		
+		OR = {
+			515 = { 
+				owner = {
+					NOT = { same_realm = ROOT }
+				}
+			}
+			499 = { 
+				owner = {
+					NOT = { same_realm = ROOT }
+				}
+			}
+			496 = { 
+				owner = {
+					NOT = { same_realm = ROOT }
+				}
+			}
+			445 = { 
+				owner = {
+					NOT = { same_realm = ROOT }
+				}
+			}			
+		}
+	}
+	
+	option = { 
+		name = EVTOPTAVAMP_STARS_2
+		trigger = {
+			515 = { # Transylvania
+				owner = {
+					NOT = { same_realm = ROOT }
+				}
+			}
+		}
+		
+		ai_chance = {
+			factor = 10
+		}
+		
+		515 = {
+			province_event = {
+				id = VAMPSTARS.3
+				days = 2
+			}
+		}
+	}
+	option = { 
+		name = EVTOPTBVAMP_STARS_2
+		trigger = {
+			499 = { # Bulgaria
+				owner = {
+					NOT = { same_realm = ROOT }
+				}
+			}
+		}
+		
+		ai_chance = {
+			factor = 1000
+		}
+		
+		499 = {
+			province_event = {
+				id = VAMPSTARS.3
+				days = 2
+			}
+		}
+	}
+	option = { 
+		name = EVTOPTCVAMP_STARS_2
+		trigger = {
+			496 = { # Constantinople
+				owner = {
+					NOT = { same_realm = ROOT }
+				}
+			}
+		}
+		
+		ai_chance = {
+			factor = 100
+		}
+		
+		496 = {
+			province_event = {
+				id = VAMPSTARS.3
+				days = 2
+			}
+		}
+	}
+	option = { 
+		name = EVTOPTDVAMP_STARS_2
+		trigger = {
+			445 = { # Praha
+				owner = {
+					NOT = { same_realm = ROOT }
+				}
+			}
+		}
+		
+		ai_chance = {
+			factor = 1000
+		}
+		
+		445 = {
+			province_event = {
+				id = VAMPSTARS.3
+				days = 2
+			}
+		}
+	}
+}
+
+# Ping the target province
+province_event = {
+	id = VAMPSTARS.3
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				FROM = {
+					is_ruler = yes
+				}
+			}
+			FROM = {
+				character_event = {
+					id = VAMPSTARS.5
+				}
+			}
+		}
+		if = {
+			limit = {
+				FROM = {
+					is_ruler = no
+				}
+			}
+			FROM = {
+				character_event = {
+					id = VAMPSTARS.4
+				}
+			}
+		}
+	}
+}
+
+# The landless Tepes and his men start an adventure
+character_event = {
+	id = VAMPSTARS.4
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	prisoner = no
+	only_capable = yes
+	
+	trigger = {
+		is_alive = yes
+		NOT = { trait = torpor }
+		NOT = { trait = eunuch }
+		NOT = { trait = infirm }
+		lower_tier_than = king
+	}
+	
+	immediate = {
+		wealth = 500
+		
+		any_liege = {
+			character_event = {
+				id = VAMPSTARS.6
+				days = 1
+			}
+		}
+		
+		liege = {
+			capital_scope = {
+				FROM = {
+					owner = {
+						top_liege = {
+							ROOT = {
+								set_defacto_liege = ROOT
+								create_title = {
+									tier = DUKE
+									landless = yes
+									temporary = yes
+									culture = ROOT
+									name = "CLAIMANT_ADVENTURE"
+									holder = ROOT
+								}
+								
+								set_character_flag = vamp_duchy_adventurer
+							
+								spawn_unit = {
+									province = PREVPREVPREVPREV
+									home = PREVPREVPREVPREV
+									owner = THIS
+									#leader = THIS
+									match_character = PREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREVPREVPREVPREV
+									home = PREVPREVPREVPREV
+									owner = THIS
+									match_character = PREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREVPREVPREVPREV
+									home = PREVPREVPREVPREV
+									owner = THIS
+									match_character = PREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREVPREVPREVPREV
+									home = PREVPREVPREVPREV
+									owner = THIS
+									match_character = PREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREVPREVPREVPREV
+									home = PREVPREVPREVPREV
+									owner = THIS
+									match_character = PREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREVPREVPREVPREV
+									home = PREVPREVPREVPREV
+									owner = THIS
+									match_character = PREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								war = {
+									target = PREV
+									casus_belli = vamp_duchy_adventure
+									thirdparty_title = PREVPREVPREV
+									tier = DUKE
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		# Create some characters
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = no
+			age = 28
+			attributes = {
+				martial = 12
+			}
+			trait = brilliant_strategist
+			trait = "neonate"
+			trait = "tzimisce"
+			trait = "animalism_1"
+			trait = "dominate_1"	
+			trait = "vicissitude_2"
+			trait = "bloodpotency_6"
+			trait = "vampgeneration9"
+			trait = "brave"
+			trait = "diligent"
+			trait = vampire
+			immortal_age = 20
+			trait = "wyrm_taint"	
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 24
+			attributes = {
+				martial = 12
+			}
+			trait = brilliant_strategist
+			trait = "neonate"
+			trait = "tzimisce"
+			trait = "animalism_1"
+			trait = "dominate_1"	
+			trait = "vicissitude_3"
+			trait = "bloodpotency_6"
+			trait = "vampgeneration10"
+			trait = "brave"
+			trait = "diligent"
+			trait = vampire
+			immortal_age = 20
+			trait = "wyrm_taint"
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = no
+			age = 23
+			attributes = {
+				martial = 12
+			}
+			trait = brilliant_strategist
+			trait = "neonate"
+			trait = "tzimisce"
+			trait = "animalism_1"
+			trait = "dominate_2"	
+			trait = "vicissitude_2"
+			trait = "bloodpotency_6"
+			trait = "vampgeneration8"
+			trait = "brave"
+			trait = "diligent"
+			trait = vampire
+			immortal_age = 30
+			trait = "wyrm_taint"
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 30
+			attributes = {
+				martial = 12
+			}
+			trait = brilliant_strategist
+			trait = "neonate"
+			trait = "tzimisce"
+			trait = "animalism_1"
+			trait = "dominate_1"	
+			trait = "vicissitude_1"
+			trait = "bloodpotency_6"
+			trait = "vampgeneration11"
+			trait = "brave"
+			trait = "diligent"
+			trait = vampire
+			immortal_age = 30
+			trait = "wyrm_taint"
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = no
+			age = 30
+			attributes = {
+				martial = 12
+			}
+			trait = brilliant_strategist
+			trait = "neonate"
+			trait = "tzimisce"
+			trait = "animalism_1"
+			trait = "dominate_1"	
+			trait = "vicissitude_1"
+			trait = "bloodpotency_6"
+			trait = "vampgeneration9"
+			trait = "brave"
+			trait = "diligent"
+			trait = vampire
+			immortal_age = 30
+			trait = "wyrm_taint"
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 16
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 17
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 18
+		}
+		
+		log = "VAMPSTARS.4: Dracula starts his first war (landless)!"
+	}
+}
+
+# The landed Tepes and his men start an adventure
+character_event = {
+	id = VAMPSTARS.5
+	desc = EVTDESCVAMP_STARS_5
+	
+	picture = GFX_evt_mongols
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	prisoner = no
+	only_capable = yes
+	
+	trigger = {
+		is_alive = yes
+		NOT = { trait = torpor }
+		NOT = { trait = eunuch }
+		NOT = { trait = infirm }
+		lower_tier_than = king
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				tier = BARON
+			}
+			abdicate = yes
+			character_event = { id = VAMPSTARS.4 }
+			break = yes
+		}
+		wealth = 500
+		
+		any_liege = {
+			character_event = {
+				id = VAMPSTARS.6
+				days = 1
+			}
+		}
+		
+		FROM = {
+			owner = {
+				top_liege = {
+					ROOT = {
+						capital_scope = {
+							ROOT = {
+								set_character_flag = vamp_duchy_adventurer
+								spawn_unit = {
+									province = PREV
+									home = PREV
+									owner = THIS
+									#leader = THIS
+									match_character = PREVPREVPREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREV
+									home = PREV
+									owner = THIS
+									match_character = PREVPREVPREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREV
+									home = PREV
+									owner = THIS
+									match_character = PREVPREVPREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREV
+									home = PREV
+									owner = THIS
+									match_character = PREVPREVPREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREV
+									home = PREV
+									owner = THIS
+									match_character = PREVPREVPREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREV
+									home = PREV
+									owner = THIS
+									match_character = PREVPREVPREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+							}
+						}
+						
+						war = {
+							target = PREV
+							casus_belli = vamp_duchy_adventure
+							thirdparty_title = PREVPREVPREV
+							tier = DUKE
+						}
+					}
+				}
+			}
+		}
+		
+		# Create some characters
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = no
+			age = 28
+			attributes = {
+				martial = 12
+			}
+			trait = brilliant_strategist
+			trait = "neonate"
+			trait = "tzimisce"
+			trait = "animalism_1"
+			trait = "dominate_1"	
+			trait = "vicissitude_2"
+			trait = "bloodpotency_6"
+			trait = "vampgeneration9"
+			trait = "brave"
+			trait = "diligent"
+			trait = vampire
+			immortal_age = 20
+			trait = "wyrm_taint"	
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 24
+			attributes = {
+				martial = 12
+			}
+			trait = brilliant_strategist
+			trait = "neonate"
+			trait = "tzimisce"
+			trait = "animalism_1"
+			trait = "dominate_1"	
+			trait = "vicissitude_3"
+			trait = "bloodpotency_6"
+			trait = "vampgeneration10"
+			trait = "brave"
+			trait = "diligent"
+			trait = vampire
+			immortal_age = 20
+			trait = "wyrm_taint"
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = no
+			age = 23
+			attributes = {
+				martial = 12
+			}
+			trait = brilliant_strategist
+			trait = "neonate"
+			trait = "tzimisce"
+			trait = "animalism_1"
+			trait = "dominate_2"	
+			trait = "vicissitude_2"
+			trait = "bloodpotency_6"
+			trait = "vampgeneration8"
+			trait = "brave"
+			trait = "diligent"
+			trait = vampire
+			immortal_age = 30
+			trait = "wyrm_taint"
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 30
+			attributes = {
+				martial = 12
+			}
+			trait = brilliant_strategist
+			trait = "neonate"
+			trait = "tzimisce"
+			trait = "animalism_1"
+			trait = "dominate_1"	
+			trait = "vicissitude_1"
+			trait = "bloodpotency_6"
+			trait = "vampgeneration11"
+			trait = "brave"
+			trait = "diligent"
+			trait = vampire
+			immortal_age = 30
+			trait = "wyrm_taint"
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = no
+			age = 30
+			attributes = {
+				martial = 12
+			}
+			trait = brilliant_strategist
+			trait = "neonate"
+			trait = "tzimisce"
+			trait = "animalism_1"
+			trait = "dominate_1"	
+			trait = "vicissitude_1"
+			trait = "bloodpotency_6"
+			trait = "vampgeneration9"
+			trait = "brave"
+			trait = "diligent"
+			trait = vampire
+			immortal_age = 30
+			trait = "wyrm_taint"
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 16
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 17
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 18
+		}
+		
+		log = "VAMPSTARS.5: Dracula starts his first war (landed)!"
+	}
+	
+	option = {
+		name = EVTOPTAVAMP_STARS_5
+	}
+}
+
+# Notify Tepes's old liege
+character_event = {
+	id = VAMPSTARS.6
+	desc = EVTDESCVAMP_STARS_6
+	picture = GFX_evt_mongols
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		FROM = { is_ruler = yes } # The DoW worked and the adventurer has a temporary title
+	}
+	
+	option = {
+		name = EVTOPTAVAMP_STARS_6
+	}
+}
+
+# Tepes is successful!
+# Fired from the vamp_duchy_adventure CB
+narrative_event = {
+	id = VAMPSTARS.7
+	title = EVTNAMEVAMP_STARS_7
+	desc = EVTDESCVAMP_STARS_7
+	picture = GFX_evt_mongols
+	border = GFX_event_narrative_frame_war
+	
+	is_triggered_only = yes
+	
+	major = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				OR = {
+					independent = yes
+					liege = {
+						ai = yes
+					}
+				}
+			}
+			set_defacto_liege = ROOT
+		}
+		
+		prestige = 1000
+		
+		if = {
+			limit = {
+				uses_decadence = yes
+			}
+			decadence = -25
+		}
+		
+		capital_scope = {
+			religion = ROOT
+			culture = ROOT
+			
+			ROOT = {
+				spawn_unit = {
+					province = PREV
+					home = PREV
+					owner = THIS
+					troops = {
+						light_cavalry = { 2750 2750 }
+						mass_tzimiscec = { 50 50 }
+						mass_ghoulc = { 150 150 }
+					}
+				}
+				spawn_unit = {
+					province = PREV
+					home = PREV
+					owner = THIS
+					troops = {
+						light_cavalry = { 2750 2750 }
+						mass_tzimiscec = { 50 50 }
+						mass_ghoulc = { 150 150 }
+					}
+				}
+				spawn_unit = {
+					province = PREV
+					home = PREV
+					owner = THIS
+					troops = {
+						light_cavalry = { 2750 2750 }
+						mass_tzimiscec = { 50 50 }
+						mass_ghoulc = { 150 150 }
+					}
+				}
+				
+				random = {
+					chance = 50
+					spawn_unit = {
+						province = PREV
+						home = PREV
+						owner = THIS
+					troops = {
+						light_cavalry = { 2750 2750 }
+						mass_tzimiscec = { 50 50 }
+						mass_ghoulc = { 150 150 }
+					}
+				}
+				}
+				random = {
+					chance = 50
+						spawn_unit = {
+					province = PREV
+					home = PREV
+					owner = THIS
+					troops = {
+						light_cavalry = { 2750 2750 }
+						mass_tzimiscec = { 50 50 }
+						mass_ghoulc = { 150 150 }
+					}
+				}
+				}
+
+			}
+		}
+		
+		random_realm_province = {
+			limit = {
+				OR = {
+					NOT = { culture = ROOT }
+					NOT = { religion = ROOT }
+				}
+			}
+			religion = ROOT
+			culture = ROOT
+		}
+		
+		log = "VAMPSTARS.7: Tepes wins his first war!"
+	}
+	
+	option = {
+		name = EVTOPTAVAMP_STARS_7
+		trigger = {
+			has_character_flag = tepes_himself
+		}
+	}
+	option = {
+		name = EVTOPTBVAMP_STARS_7
+		trigger = {
+			NOT = { has_character_flag = tepes_himself }
+		}
+	}
+}
+
+
+
+##########################################
+# Spawn of modernish vampires in 1230 bookmark, Giangaleazzo
+##########################################
+
+# Giangaleazzo
+character_event = {
+	id = VAMPSTARS.8
+	desc = EVTDESCVAMP_STARS_8
+	
+	picture = GFX_evt_family_feud_republic
+	border = GFX_event_normal_frame_war
+	
+	only_playable = yes
+	has_global_flag = bookmark1230
+	
+	trigger = {
+				year = 1450
+				NOT = { year = 1500 }
+			
+		
+		higher_tier_than = count
+		
+		NOT = { has_global_flag = giangaleazzo_spawned }
+		
+		OR = {
+			321 = { 
+				owner = {
+					same_realm = ROOT
+				}
+			}
+			235 = { 
+				owner = {
+					same_realm = ROOT
+				}
+			}
+			356 = { 
+				owner = {
+					same_realm = ROOT
+				}
+			}
+			233 = { 
+				owner = {
+					same_realm = ROOT
+				}
+			}
+			230 = { 
+				owner = {
+					same_realm = ROOT
+				}
+			}
+			322 = { 
+				owner = {
+					same_realm = ROOT
+				}
+			}			
+		}
+	}	
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	immediate = {
+		create_character = {
+			random_traits = no
+			name = "Giangaleazzo"
+			dynasty = 4600014
+			religion = ROOT
+			culture = italian
+			female = no
+			age = 30
+			attributes = {
+				martial = 5
+				diplomacy = 10
+				stewardship = 12
+				intrigue = 15
+				learning = 6
+			}
+			health = 6
+			fertility = 0.8
+			trait = "neonate"
+		trait = "vampire"
+		immortal_age = 30
+		trait = "wyrm_taint"	
+		trait = "lasombra"
+		trait = "majesty_4"
+		trait = "obtenebration_4"
+		trait = "vigor_1"
+		trait = "bloodpotency_6"
+		trait = "elusive_shadow"
+		trait = "vampgeneration7"
+		trait = "canon" 
+		trait = "ambitious"
+		trait = "deceitful"
+		trait = "cynical"
+		}
+		
+		new_character = {
+			set_character_flag = giangaleazzo_himself
+			character_event = {
+				id = VAMPSTARS.9
+				days = 30
+				random = 30
+			}
+		}
+	}
+	
+	option = { # A most capable young man
+		name = EVTOPTAVAMP_STARS_8
+		
+		set_global_flag = giangaleazzo_spawned
+		set_global_flag = giangaleazzo_spawned_by_event
+		
+		tooltip = {
+		create_character = {
+			random_traits = no
+			name = "Giangaleazzo"
+			dynasty = 4600014
+			religion = ROOT
+			culture = italian
+			female = no
+			age = 30
+			attributes = {
+				martial = 5
+				diplomacy = 10
+				stewardship = 12
+				intrigue = 15
+				learning = 6
+			}
+			health = 6
+			fertility = 0.8
+			trait = "neonate"
+		trait = "vampire"
+		immortal_age = 30
+		trait = "wyrm_taint"	
+		trait = "lasombra"
+		trait = "majesty_4"
+		trait = "obtenebration_4"
+		trait = "vigor_1"
+		trait = "bloodpotency_6"
+		trait = "elusive_shadow"
+		trait = "vampgeneration7"
+		trait = "canon" 
+		trait = "ambitious"
+		trait = "deceitful"
+		trait = "cynical"
+		}
+		}
+	}
+}
+
+# Giangaleazzo and his men consider starting an adventure
+character_event = {
+	id = VAMPSTARS.9
+	desc = EVTDESCVAMP_STARS_9
+	
+	picture = GFX_evt_family_feud_republic
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	prisoner = no
+	only_capable = yes
+	
+	trigger = {
+		is_alive = yes
+		NOT = { trait = torpor }
+		NOT = { trait = eunuch }
+		NOT = { trait = infirm }
+		lower_tier_than = king
+		
+		OR = {
+			235 = { 
+				owner = {
+					NOT = { same_realm = ROOT }
+				}
+			}
+			233 = { 
+				owner = {
+					NOT = { same_realm = ROOT }
+				}
+			}
+			356 = { 
+				owner = {
+					NOT = { same_realm = ROOT }
+				}
+			}
+			333 = { 
+				owner = {
+					NOT = { same_realm = ROOT }
+				}
+			}			
+		}
+	}
+	
+	option = { 
+		name = EVTOPTAVAMP_STARS_9
+		trigger = {
+			235 = { # Milan
+				owner = {
+					NOT = { same_realm = ROOT }
+				}
+			}
+		}
+		
+		ai_chance = {
+			factor = 10
+		}
+		
+		235 = {
+			province_event = {
+				id = VAMPSTARS.10
+				days = 2
+			}
+		}
+	}
+	option = { 
+		name = EVTOPTBVAMP_STARS_9
+		trigger = {
+			233 = { # Genoa
+				owner = {
+					NOT = { same_realm = ROOT }
+				}
+			}
+		}
+		
+		ai_chance = {
+			factor = 1000
+		}
+		
+		233 = {
+			province_event = {
+				id = VAMPSTARS.10
+				days = 2
+			}
+		}
+	}
+	option = { 
+		name = EVTOPTCVAMP_STARS_9
+		trigger = {
+			356 = { # Venezia
+				owner = {
+					NOT = { same_realm = ROOT }
+				}
+			}
+		}
+		
+		ai_chance = {
+			factor = 100
+		}
+		
+		356 = {
+			province_event = {
+				id = VAMPSTARS.10
+				days = 2
+			}
+		}
+	}
+	option = { 
+		name = EVTOPTDVAMP_STARS_9
+		trigger = {
+			333 = { # Rome
+				owner = {
+					NOT = { same_realm = ROOT }
+				}
+			}
+		}
+		
+		ai_chance = {
+			factor = 1000
+		}
+		
+		333 = {
+			province_event = {
+				id = VAMPSTARS.10
+				days = 2
+			}
+		}
+	}
+}
+
+# Ping the target province
+province_event = {
+	id = VAMPSTARS.10
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				FROM = {
+					is_ruler = yes
+				}
+			}
+			FROM = {
+				character_event = {
+					id = VAMPSTARS.12
+				}
+			}
+		}
+		if = {
+			limit = {
+				FROM = {
+					is_ruler = no
+				}
+			}
+			FROM = {
+				character_event = {
+					id = VAMPSTARS.11
+				}
+			}
+		}
+	}
+}
+
+# The landless Giangaleazzo and his men start an adventure
+character_event = {
+	id = VAMPSTARS.11
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	prisoner = no
+	only_capable = yes
+	
+	trigger = {
+		is_alive = yes
+		NOT = { trait = torpor }
+		NOT = { trait = eunuch }
+		NOT = { trait = infirm }
+		lower_tier_than = king
+	}
+	
+	immediate = {
+		wealth = 500
+		
+		any_liege = {
+			character_event = {
+				id = VAMPSTARS.13
+				days = 1
+			}
+		}
+		
+		liege = {
+			capital_scope = {
+				FROM = {
+					owner = {
+						top_liege = {
+							ROOT = {
+								set_defacto_liege = ROOT
+								create_title = {
+									tier = DUKE
+									landless = yes
+									temporary = yes
+									culture = ROOT
+									name = "CLAIMANT_ADVENTURE"
+									holder = ROOT
+								}
+								
+								set_character_flag = vamp_duchy_adventurer
+							
+								spawn_unit = {
+									province = PREVPREVPREVPREV
+									home = PREVPREVPREVPREV
+									owner = THIS
+									#leader = THIS
+									match_character = PREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREVPREVPREVPREV
+									home = PREVPREVPREVPREV
+									owner = THIS
+									match_character = PREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREVPREVPREVPREV
+									home = PREVPREVPREVPREV
+									owner = THIS
+									match_character = PREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREVPREVPREVPREV
+									home = PREVPREVPREVPREV
+									owner = THIS
+									match_character = PREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREVPREVPREVPREV
+									home = PREVPREVPREVPREV
+									owner = THIS
+									match_character = PREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREVPREVPREVPREV
+									home = PREVPREVPREVPREV
+									owner = THIS
+									match_character = PREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								war = {
+									target = PREV
+									casus_belli = vamp_duchy_adventure
+									thirdparty_title = PREVPREVPREV
+									tier = DUKE
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		# Create some characters
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = no
+			age = 28
+			attributes = {
+				martial = 12
+			}
+			trait = brilliant_strategist
+			trait = "neonate"
+			trait = "lasombra"
+			trait = "majesty_1"
+			trait = "dominate_1"	
+			trait = "obtenebration_3"
+			trait = "bloodpotency_6"
+			trait = "vampgeneration9"
+			trait = "brave"
+			trait = "diligent"
+			trait = vampire
+			immortal_age = 20
+			trait = "wyrm_taint"	
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 24
+			attributes = {
+				martial = 12
+			}
+			trait = brilliant_strategist
+			trait = "neonate"
+			trait = "lasombra"
+			trait = "majesty_1"
+			trait = "dominate_2"	
+			trait = "obtenebration_3"
+			trait = "bloodpotency_6"
+			trait = "vampgeneration10"
+			trait = "brave"
+			trait = "diligent"
+			trait = vampire
+			immortal_age = 20
+			trait = "wyrm_taint"
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = no
+			age = 23
+			attributes = {
+				martial = 12
+			}
+			trait = brilliant_strategist
+			trait = "neonate"
+			trait = "lasombra"
+			trait = "majesty_1"
+			trait = "vigor_1"	
+			trait = "obtenebration_3"
+			trait = "bloodpotency_6"
+			trait = "vampgeneration8"
+			trait = "brave"
+			trait = "diligent"
+			trait = vampire
+			immortal_age = 30
+			trait = "wyrm_taint"
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 30
+			attributes = {
+				martial = 12
+			}
+			trait = brilliant_strategist
+			trait = "neonate"
+			trait = "lasombra"
+			trait = "majesty_1"
+			trait = "vigor_1"	
+			trait = "obtenebration_3"
+			trait = "bloodpotency_6"
+			trait = "vampgeneration11"
+			trait = "brave"
+			trait = "diligent"
+			trait = vampire
+			immortal_age = 30
+			trait = "wyrm_taint"
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = no
+			age = 30
+			attributes = {
+				martial = 12
+			}
+			trait = brilliant_strategist
+			trait = "neonate"
+			trait = "lasombra"
+			trait = "majesty_1"
+			trait = "auspex_3"	
+			trait = "obtenebration_3"
+			trait = "bloodpotency_6"
+			trait = "vampgeneration9"
+			trait = "brave"
+			trait = "diligent"
+			trait = vampire
+			immortal_age = 30
+			trait = "wyrm_taint"
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 16
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 17
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 18
+		}
+		
+		log = "VAMPSTARS.11: Giangaleazzo starts his first war (landless)!"
+	}
+}
+
+# The landed Giangaleazzo and his men start an adventure
+character_event = {
+	id = VAMPSTARS.12
+	desc = EVTDESCVAMP_STARS_12
+	
+	picture = GFX_evt_family_feud_republic
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	prisoner = no
+	only_capable = yes
+	
+	trigger = {
+		is_alive = yes
+		NOT = { trait = torpor }
+		NOT = { trait = eunuch }
+		NOT = { trait = infirm }
+		lower_tier_than = king
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				tier = BARON
+			}
+			abdicate = yes
+			character_event = { id = VAMPSTARS.11 }
+			break = yes
+		}
+		wealth = 500
+		
+		any_liege = {
+			character_event = {
+				id = VAMPSTARS.13
+				days = 1
+			}
+		}
+		
+		FROM = {
+			owner = {
+				top_liege = {
+					ROOT = {
+						capital_scope = {
+							ROOT = {
+								set_character_flag = vamp_duchy_adventurer
+								spawn_unit = {
+									province = PREV
+									home = PREV
+									owner = THIS
+									#leader = THIS
+									match_character = PREVPREVPREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREV
+									home = PREV
+									owner = THIS
+									match_character = PREVPREVPREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREV
+									home = PREV
+									owner = THIS
+									match_character = PREVPREVPREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREV
+									home = PREV
+									owner = THIS
+									match_character = PREVPREVPREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREV
+									home = PREV
+									owner = THIS
+									match_character = PREVPREVPREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREV
+									home = PREV
+									owner = THIS
+									match_character = PREVPREVPREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+							}
+						}
+						
+						war = {
+							target = PREV
+							casus_belli = vamp_duchy_adventure
+							thirdparty_title = PREVPREVPREV
+							tier = DUKE
+						}
+					}
+				}
+			}
+		}
+		
+		# Create some characters
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = no
+			age = 28
+			attributes = {
+				martial = 12
+			}
+			trait = brilliant_strategist
+			trait = "neonate"
+			trait = "lasombra"
+			trait = "majesty_1"
+			trait = "dominate_1"	
+			trait = "obtenebration_3"
+			trait = "bloodpotency_6"
+			trait = "vampgeneration9"
+			trait = "brave"
+			trait = "diligent"
+			trait = vampire
+			immortal_age = 20
+			trait = "wyrm_taint"	
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 24
+			attributes = {
+				martial = 12
+			}
+			trait = brilliant_strategist
+			trait = "neonate"
+			trait = "lasombra"
+			trait = "majesty_1"
+			trait = "dominate_2"	
+			trait = "obtenebration_3"
+			trait = "bloodpotency_6"
+			trait = "vampgeneration10"
+			trait = "brave"
+			trait = "diligent"
+			trait = vampire
+			immortal_age = 20
+			trait = "wyrm_taint"
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = no
+			age = 23
+			attributes = {
+				martial = 12
+			}
+			trait = brilliant_strategist
+			trait = "neonate"
+			trait = "lasombra"
+			trait = "majesty_1"
+			trait = "vigor_1"	
+			trait = "obtenebration_3"
+			trait = "bloodpotency_6"
+			trait = "vampgeneration8"
+			trait = "brave"
+			trait = "diligent"
+			trait = vampire
+			immortal_age = 30
+			trait = "wyrm_taint"
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 30
+			attributes = {
+				martial = 12
+			}
+			trait = brilliant_strategist
+			trait = "neonate"
+			trait = "lasombra"
+			trait = "majesty_1"
+			trait = "vigor_1"	
+			trait = "obtenebration_3"
+			trait = "bloodpotency_6"
+			trait = "vampgeneration11"
+			trait = "brave"
+			trait = "diligent"
+			trait = vampire
+			immortal_age = 30
+			trait = "wyrm_taint"
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = no
+			age = 30
+			attributes = {
+				martial = 12
+			}
+			trait = brilliant_strategist
+			trait = "neonate"
+			trait = "lasombra"
+			trait = "majesty_1"
+			trait = "auspex_3"	
+			trait = "obtenebration_3"
+			trait = "bloodpotency_6"
+			trait = "vampgeneration9"
+			trait = "brave"
+			trait = "diligent"
+			trait = vampire
+			immortal_age = 30
+			trait = "wyrm_taint"
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 16
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 17
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 18
+		}
+		
+		log = "VAMPSTARS.12: Giangaleazzo starts his first war (landed)!"
+	}
+	
+	option = {
+		name = EVTOPTAVAMP_STARS_12
+	}
+}
+
+# Notify Giangaleazzo's old liege
+character_event = {
+	id = VAMPSTARS.13
+	desc = EVTDESCVAMP_STARS_13
+	picture = GFX_evt_family_feud_republic
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		FROM = { is_ruler = yes } # The DoW worked and the adventurer has a temporary title
+	}
+	
+	option = {
+		name = EVTOPTAVAMP_STARS_13
+	}
+}
+
+# Giangaleazzo is successful!
+# Fired from the vamp_duchy_adventure CB
+narrative_event = {
+	id = VAMPSTARS.14
+	title = EVTNAMEVAMP_STARS_14
+	desc = EVTDESCVAMP_STARS_14
+	picture = GFX_evt_family_feud_republic
+	border = GFX_event_narrative_frame_war
+	
+	is_triggered_only = yes
+	
+	major = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				OR = {
+					independent = yes
+					liege = {
+						ai = yes
+					}
+				}
+			}
+			set_defacto_liege = ROOT
+		}
+		
+		prestige = 1000
+		
+		if = {
+			limit = {
+				uses_decadence = yes
+			}
+			decadence = -25
+		}
+		
+		capital_scope = {
+			religion = ROOT
+			culture = ROOT
+			
+			ROOT = {
+				spawn_unit = {
+					province = PREV
+					home = PREV
+					owner = THIS
+					troops = {
+						light_cavalry = { 2750 2750 }
+						mass_lasombrac = { 50 50 }
+						mass_ghoulc = { 150 150 }
+					}
+				}
+				spawn_unit = {
+					province = PREV
+					home = PREV
+					owner = THIS
+					troops = {
+						light_cavalry = { 2750 2750 }
+						mass_lasombrac = { 50 50 }
+						mass_ghoulc = { 150 150 }
+					}
+				}
+				spawn_unit = {
+					province = PREV
+					home = PREV
+					owner = THIS
+					troops = {
+						light_cavalry = { 2750 2750 }
+						mass_lasombrac = { 50 50 }
+						mass_ghoulc = { 150 150 }
+					}
+				}
+				
+				random = {
+					chance = 50
+					spawn_unit = {
+						province = PREV
+						home = PREV
+						owner = THIS
+					troops = {
+						light_cavalry = { 2750 2750 }
+						mass_lasombrac = { 50 50 }
+						mass_ghoulc = { 150 150 }
+					}
+				}
+				}
+				random = {
+					chance = 50
+						spawn_unit = {
+					province = PREV
+					home = PREV
+					owner = THIS
+					troops = {
+						light_cavalry = { 2750 2750 }
+						mass_lasombrac = { 50 50 }
+						mass_ghoulc = { 150 150 }
+					}
+				}
+				}
+
+			}
+		}
+		
+		random_realm_province = {
+			limit = {
+				OR = {
+					NOT = { culture = ROOT }
+					NOT = { religion = ROOT }
+				}
+			}
+			religion = ROOT
+			culture = ROOT
+		}
+		
+		log = "VAMPSTARS.14: Giangaleazzo wins his first war!"
+	}
+	
+	option = {
+		name = EVTOPTAVAMP_STARS_14
+		trigger = {
+			has_character_flag = giangaleazzo_himself
+		}
+	}
+	option = {
+		name = EVTOPTBVAMP_STARS_14
+		trigger = {
+			NOT = { has_character_flag = giangaleazzo_himself }
+		}
+	}
+}
+
+
+
+##########################################
+# Spawn of modernish vampires in 1230 bookmark, MacNeil
+##########################################
+
+# MacNeil
+character_event = {
+	id = VAMPSTARS.15
+	desc = EVTDESCVAMP_STARS_15
+	
+	picture = GFX_evt_large_army
+	border = GFX_event_normal_frame_war
+	
+	only_playable = yes
+	has_global_flag = bookmark1230
+	
+	trigger = {
+				year = 1660
+				NOT = { year = 1700 }
+			
+		
+		higher_tier_than = count
+		
+		NOT = { has_global_flag = macneil_spawned }
+		
+		OR = {
+			40 = { 
+				owner = {
+					same_realm = ROOT
+				}
+			}
+			41 = { 
+				owner = {
+					same_realm = ROOT
+				}
+			}
+			48 = { 
+				owner = {
+					same_realm = ROOT
+				}
+			}
+			52 = { 
+				owner = {
+					same_realm = ROOT
+				}
+			}
+			50 = { 
+				owner = {
+					same_realm = ROOT
+				}
+			}
+			57 = { 
+				owner = {
+					same_realm = ROOT
+				}
+			}			
+		}
+	}	
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	immediate = {
+		create_character = {
+			random_traits = no
+			name = "Jeremy"
+			dynasty = 3500114 
+			religion = anarchs
+			culture = scottish
+			female = no
+			age = 30
+			attributes = {
+				martial = 15
+				diplomacy = 10
+				stewardship = 10
+				intrigue = 2
+				learning = 6
+			}
+			health = 6
+			fertility = 0.8
+			trait = "neonate"
+		trait = "vampire"
+		immortal_age = 30
+	trait = "brujah"
+	trait = "celerity_3"
+	trait = "vigor_5"
+	trait = "majesty_3"	
+	trait = "bloodpotency_6"
+	trait = "vampgeneration8"
+	trait = "brilliant_strategist"
+	trait = "zealous"
+	trait = "patient"
+	trait = "kind"
+	trait = "just"
+	trait = "diligent"
+	trait = "content"
+	trait = "brave"
+	has_nickname = nick_the_eternal_rebel
+	race = norman
+	dna="bhgea0e00d0"
+	properties="gb0i0k000000000000"
+		}
+		
+		new_character = {
+			set_character_flag = macneil_himself
+			character_event = {
+				id = VAMPSTARS.16
+				days = 30
+				random = 30
+			}
+		}
+	}
+	
+	option = { # A most capable young man
+		name = EVTOPTAVAMP_STARS_15
+		
+		set_global_flag = macneil_spawned
+		set_global_flag = macneil_spawned_by_event
+		
+		tooltip = {
+		create_character = {
+			random_traits = no
+			name = "Jeremy"
+			dynasty = 3500114 
+			religion = anarchs
+			culture = scottish
+			female = no
+			age = 30
+			attributes = {
+				martial = 15
+				diplomacy = 10
+				stewardship = 10
+				intrigue = 2
+				learning = 6
+			}
+			health = 6
+			fertility = 0.8
+			trait = "neonate"
+		trait = "vampire"
+		immortal_age = 30
+	trait = "brujah"
+	trait = "celerity_3"
+	trait = "vigor_5"
+	trait = "majesty_3"	
+	trait = "bloodpotency_6"
+	trait = "vampgeneration8"
+	trait = "brilliant_strategist"
+	trait = "zealous"
+	trait = "patient"
+	trait = "kind"
+	trait = "just"
+	trait = "diligent"
+	trait = "content"
+	trait = "brave"
+	race = norman
+	dna="bhgea0e00d0"
+	properties="gb0i0k000000000000"
+	has_nickname = nick_the_eternal_rebel
+		}
+		}
+	}
+}
+
+# MacNeil and his men consider starting an adventure
+character_event = {
+	id = VAMPSTARS.16
+	desc = EVTDESCVAMP_STARS_16
+	
+	picture = GFX_evt_large_army
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	prisoner = no
+	only_capable = yes
+	
+	trigger = {
+		is_alive = yes
+		NOT = { trait = torpor }
+		NOT = { trait = eunuch }
+		NOT = { trait = infirm }
+		lower_tier_than = king
+		
+		OR = {
+			46 = { 
+				owner = {
+					NOT = { same_realm = ROOT }
+				}
+			}
+			57 = { 
+				owner = {
+					NOT = { same_realm = ROOT }
+				}
+			}
+			65 = { 
+				owner = {
+					NOT = { same_realm = ROOT }
+				}
+			}
+			32 = { 
+				owner = {
+					NOT = { same_realm = ROOT }
+				}
+			}			
+		}
+	}
+	
+	option = { 
+		name = EVTOPTAVAMP_STARS_16
+		trigger = {
+			46 = { # Edinburgh
+				owner = {
+					NOT = { same_realm = ROOT }
+				}
+			}
+		}
+		
+		ai_chance = {
+			factor = 10
+		}
+		
+		46 = {
+			province_event = {
+				id = VAMPSTARS.17
+				days = 2
+			}
+		}
+	}
+	option = { 
+		name = EVTOPTBVAMP_STARS_16
+		trigger = {
+			57 = { # York
+				owner = {
+					NOT = { same_realm = ROOT }
+				}
+			}
+		}
+		
+		ai_chance = {
+			factor = 1000
+		}
+		
+		57 = {
+			province_event = {
+				id = VAMPSTARS.17
+				days = 2
+			}
+		}
+	}
+	option = { 
+		name = EVTOPTCVAMP_STARS_16
+		trigger = {
+			65 = { # Cardiff
+				owner = {
+					NOT = { same_realm = ROOT }
+				}
+			}
+		}
+		
+		ai_chance = {
+			factor = 100
+		}
+		
+		65 = {
+			province_event = {
+				id = VAMPSTARS.17
+				days = 2
+			}
+		}
+	}
+	option = { 
+		name = EVTOPTDVAMP_STARS_16
+		trigger = {
+			32 = { # London
+				owner = {
+					NOT = { same_realm = ROOT }
+				}
+			}
+		}
+		
+		ai_chance = {
+			factor = 100
+		}
+		
+		32 = {
+			province_event = {
+				id = VAMPSTARS.17
+				days = 2
+			}
+		}
+	}
+}
+
+# Ping the target province
+province_event = {
+	id = VAMPSTARS.17
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				FROM = {
+					is_ruler = yes
+				}
+			}
+			FROM = {
+				character_event = {
+					id = VAMPSTARS.19
+				}
+			}
+		}
+		if = {
+			limit = {
+				FROM = {
+					is_ruler = no
+				}
+			}
+			FROM = {
+				character_event = {
+					id = VAMPSTARS.18
+				}
+			}
+		}
+	}
+}
+
+# The landless MacNeil and his men start an adventure
+character_event = {
+	id = VAMPSTARS.18
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	prisoner = no
+	only_capable = yes
+	
+	trigger = {
+		is_alive = yes
+		NOT = { trait = torpor }
+		NOT = { trait = eunuch }
+		NOT = { trait = infirm }
+		lower_tier_than = king
+	}
+	
+	immediate = {
+		wealth = 500
+		
+		any_liege = {
+			character_event = {
+				id = VAMPSTARS.20
+				days = 1
+			}
+		}
+		
+		liege = {
+			capital_scope = {
+				FROM = {
+					owner = {
+						top_liege = {
+							ROOT = {
+								set_defacto_liege = ROOT
+								create_title = {
+									tier = DUKE
+									landless = yes
+									temporary = yes
+									culture = ROOT
+									name = "CLAIMANT_ADVENTURE"
+									holder = ROOT
+								}
+								
+								set_character_flag = vamp_duchy_adventurer
+							
+								spawn_unit = {
+									province = PREVPREVPREVPREV
+									home = PREVPREVPREVPREV
+									owner = THIS
+									#leader = THIS
+									match_character = PREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREVPREVPREVPREV
+									home = PREVPREVPREVPREV
+									owner = THIS
+									match_character = PREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREVPREVPREVPREV
+									home = PREVPREVPREVPREV
+									owner = THIS
+									match_character = PREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREVPREVPREVPREV
+									home = PREVPREVPREVPREV
+									owner = THIS
+									match_character = PREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREVPREVPREVPREV
+									home = PREVPREVPREVPREV
+									owner = THIS
+									match_character = PREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREVPREVPREVPREV
+									home = PREVPREVPREVPREV
+									owner = THIS
+									match_character = PREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								war = {
+									target = PREV
+									casus_belli = vamp_duchy_adventure
+									thirdparty_title = PREVPREVPREV
+									tier = DUKE
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		# Create some characters
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = no
+			age = 28
+			attributes = {
+				martial = 12
+			}
+			trait = brilliant_strategist
+			trait = "neonate"
+			trait = "brujah"
+			trait = "majesty_1"
+			trait = "vigor_1"	
+			trait = "celerity_3"
+			trait = "bloodpotency_6"
+			trait = "vampgeneration9"
+			trait = "brave"
+			trait = "diligent"
+			trait = vampire
+			immortal_age = 20
+			trait = "wyrm_taint"	
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 24
+			attributes = {
+				martial = 12
+			}
+			trait = brilliant_strategist
+			trait = "neonate"
+				trait = "brujah"
+			trait = "majesty_1"
+			trait = "vigor_2"	
+			trait = "celerity_3"
+			trait = "bloodpotency_6"
+			trait = "vampgeneration10"
+			trait = "brave"
+			trait = "diligent"
+			trait = vampire
+			immortal_age = 20
+			trait = "wyrm_taint"
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = no
+			age = 23
+			attributes = {
+				martial = 12
+			}
+			trait = brilliant_strategist
+			trait = "neonate"
+			trait = "brujah"
+			trait = "majesty_2"
+			trait = "vigor_1"	
+			trait = "celerity_3"
+			trait = "bloodpotency_6"
+			trait = "vampgeneration8"
+			trait = "brave"
+			trait = "diligent"
+			trait = vampire
+			immortal_age = 30
+			trait = "wyrm_taint"
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 30
+			attributes = {
+				martial = 12
+			}
+			trait = brilliant_strategist
+			trait = "neonate"
+			trait = "brujah"
+			trait = "majesty_1"
+			trait = "vigor_1"	
+			trait = "celerity_2"
+			trait = "bloodpotency_6"
+			trait = "vampgeneration11"
+			trait = "brave"
+			trait = "diligent"
+			trait = vampire
+			immortal_age = 30
+			trait = "wyrm_taint"
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = no
+			age = 30
+			attributes = {
+				martial = 12
+			}
+			trait = brilliant_strategist
+			trait = "neonate"
+			trait = "brujah"
+			trait = "majesty_1"
+			trait = "vigor_4"	
+			trait = "celerity_1"
+			trait = "bloodpotency_6"
+			trait = "vampgeneration9"
+			trait = "brave"
+			trait = "diligent"
+			trait = vampire
+			immortal_age = 30
+			trait = "wyrm_taint"
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 16
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 17
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 18
+		}
+		
+		log = "VAMPSTARS.18: MacNeil starts his first war (landless)!"
+	}
+}
+
+# The landed MacNeil and his men start an adventure
+character_event = {
+	id = VAMPSTARS.19
+	desc = EVTDESCVAMP_STARS_19
+	
+	picture = GFX_evt_large_army
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	prisoner = no
+	only_capable = yes
+	
+	trigger = {
+		is_alive = yes
+		NOT = { trait = torpor }
+		NOT = { trait = eunuch }
+		NOT = { trait = infirm }
+		lower_tier_than = king
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				tier = BARON
+			}
+			abdicate = yes
+			character_event = { id = VAMPSTARS.18 }
+			break = yes
+		}
+		wealth = 500
+		
+		any_liege = {
+			character_event = {
+				id = VAMPSTARS.20
+				days = 1
+			}
+		}
+		
+		FROM = {
+			owner = {
+				top_liege = {
+					ROOT = {
+						capital_scope = {
+							ROOT = {
+								set_character_flag = vamp_duchy_adventurer
+								spawn_unit = {
+									province = PREV
+									home = PREV
+									owner = THIS
+									#leader = THIS
+									match_character = PREVPREVPREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREV
+									home = PREV
+									owner = THIS
+									match_character = PREVPREVPREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREV
+									home = PREV
+									owner = THIS
+									match_character = PREVPREVPREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREV
+									home = PREV
+									owner = THIS
+									match_character = PREVPREVPREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREV
+									home = PREV
+									owner = THIS
+									match_character = PREVPREVPREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREV
+									home = PREV
+									owner = THIS
+									match_character = PREVPREVPREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+							}
+						}
+						
+						war = {
+							target = PREV
+							casus_belli = vamp_duchy_adventure
+							thirdparty_title = PREVPREVPREV
+							tier = DUKE
+						}
+					}
+				}
+			}
+		}
+		
+		# Create some characters
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = no
+			age = 28
+			attributes = {
+				martial = 12
+			}
+			trait = brilliant_strategist
+			trait = "neonate"
+			trait = "brujah"
+			trait = "majesty_1"
+			trait = "vigor_1"	
+			trait = "celerity_3"
+			trait = "bloodpotency_6"
+			trait = "vampgeneration9"
+			trait = "brave"
+			trait = "diligent"
+			trait = vampire
+			immortal_age = 20
+			trait = "wyrm_taint"	
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 24
+			attributes = {
+				martial = 12
+			}
+			trait = brilliant_strategist
+			trait = "neonate"
+				trait = "brujah"
+			trait = "majesty_1"
+			trait = "vigor_2"	
+			trait = "celerity_3"
+			trait = "bloodpotency_6"
+			trait = "vampgeneration10"
+			trait = "brave"
+			trait = "diligent"
+			trait = vampire
+			immortal_age = 20
+			trait = "wyrm_taint"
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = no
+			age = 23
+			attributes = {
+				martial = 12
+			}
+			trait = brilliant_strategist
+			trait = "neonate"
+			trait = "brujah"
+			trait = "majesty_2"
+			trait = "vigor_1"	
+			trait = "celerity_3"
+			trait = "bloodpotency_6"
+			trait = "vampgeneration8"
+			trait = "brave"
+			trait = "diligent"
+			trait = vampire
+			immortal_age = 30
+			trait = "wyrm_taint"
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 30
+			attributes = {
+				martial = 12
+			}
+			trait = brilliant_strategist
+			trait = "neonate"
+			trait = "brujah"
+			trait = "majesty_1"
+			trait = "vigor_1"	
+			trait = "celerity_2"
+			trait = "bloodpotency_6"
+			trait = "vampgeneration11"
+			trait = "brave"
+			trait = "diligent"
+			trait = vampire
+			immortal_age = 30
+			trait = "wyrm_taint"
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = no
+			age = 30
+			attributes = {
+				martial = 12
+			}
+			trait = brilliant_strategist
+			trait = "neonate"
+			trait = "brujah"
+			trait = "majesty_1"
+			trait = "vigor_4"	
+			trait = "celerity_1"
+			trait = "bloodpotency_6"
+			trait = "vampgeneration9"
+			trait = "brave"
+			trait = "diligent"
+			trait = vampire
+			immortal_age = 30
+			trait = "wyrm_taint"
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 16
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 17
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 18
+		}
+		
+		log = "VAMPSTARS.19: MacNeil starts his first war (landed)!"
+	}
+	
+	option = {
+		name = EVTOPTAVAMP_STARS_19
+	}
+}
+
+# Notify MacNeil's old liege
+character_event = {
+	id = VAMPSTARS.20
+	desc = EVTDESCVAMP_STARS_20
+	picture = GFX_evt_large_army
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		FROM = { is_ruler = yes } # The DoW worked and the adventurer has a temporary title
+	}
+	
+	option = {
+		name = EVTOPTAVAMP_STARS_20
+	}
+}
+
+# MacNeil is successful!
+# Fired from the vamp_duchy_adventure CB
+narrative_event = {
+	id = VAMPSTARS.21
+	title = EVTNAMEVAMP_STARS_21
+	desc = EVTDESCVAMP_STARS_21
+	picture = GFX_evt_large_army
+	border = GFX_event_narrative_frame_war
+	
+	is_triggered_only = yes
+	
+	major = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				OR = {
+					independent = yes
+					liege = {
+						ai = yes
+					}
+				}
+			}
+			set_defacto_liege = ROOT
+		}
+		
+		prestige = 1000
+		
+		if = {
+			limit = {
+				uses_decadence = yes
+			}
+			decadence = -25
+		}
+		
+		capital_scope = {
+			religion = ROOT
+			culture = ROOT
+			
+			ROOT = {
+				spawn_unit = {
+					province = PREV
+					home = PREV
+					owner = THIS
+					troops = {
+						light_cavalry = { 2750 2750 }
+						mass_brujahc = { 50 50 }
+						mass_ghoulc = { 150 150 }
+					}
+				}
+				spawn_unit = {
+					province = PREV
+					home = PREV
+					owner = THIS
+					troops = {
+						light_cavalry = { 2750 2750 }
+						mass_brujahc = { 50 50 }
+						mass_ghoulc = { 150 150 }
+					}
+				}
+				spawn_unit = {
+					province = PREV
+					home = PREV
+					owner = THIS
+					troops = {
+						light_cavalry = { 2750 2750 }
+						mass_brujahc = { 50 50 }
+						mass_ghoulc = { 150 150 }
+					}
+				}
+				
+				random = {
+					chance = 50
+					spawn_unit = {
+						province = PREV
+						home = PREV
+						owner = THIS
+					troops = {
+						light_cavalry = { 2750 2750 }
+						mass_brujahc = { 50 50 }
+						mass_ghoulc = { 150 150 }
+					}
+				}
+				}
+				random = {
+					chance = 50
+						spawn_unit = {
+					province = PREV
+					home = PREV
+					owner = THIS
+					troops = {
+						light_cavalry = { 2750 2750 }
+						mass_brujahc = { 50 50 }
+						mass_ghoulc = { 150 150 }
+					}
+				}
+				}
+
+			}
+		}
+		
+		random_realm_province = {
+			limit = {
+				OR = {
+					NOT = { culture = ROOT }
+					NOT = { religion = ROOT }
+				}
+			}
+			religion = ROOT
+			culture = ROOT
+		}
+		
+		log = "VAMPSTARS.21: MacNeil wins his first war!"
+	}
+	
+	option = {
+		name = EVTOPTAVAMP_STARS_21
+		trigger = {
+			has_character_flag = macneil_himself
+		}
+	}
+	option = {
+		name = EVTOPTBVAMP_STARS_21
+		trigger = {
+			NOT = { has_character_flag = macneil_himself }
+		}
+	}
+}
+
+##########################################
+# Spawn of modernish vampires in 1230 bookmark, Morel
+##########################################
+
+# Morel
+character_event = {
+	id = VAMPSTARS.22
+	desc = EVTDESCVAMP_STARS_22
+	
+	picture = GFX_evt_riots_byzantine
+	border = GFX_event_normal_frame_war
+	
+	only_playable = yes
+	has_global_flag = bookmark1230
+	
+	trigger = {
+				year = 1789
+				NOT = { year = 1805 }
+			
+		
+		higher_tier_than = count
+		
+		NOT = { has_global_flag = morel_spawned }
+		
+		OR = {
+			221 = { 
+				owner = {
+					same_realm = ROOT
+				}
+			}
+			112 = { 
+				owner = {
+					same_realm = ROOT
+				}
+			}
+			113 = { 
+				owner = {
+					same_realm = ROOT
+				}
+			}
+			114 = { 
+				owner = {
+					same_realm = ROOT
+				}
+			}
+			136 = { 
+				owner = {
+					same_realm = ROOT
+				}
+			}
+			146 = { 
+				owner = {
+					same_realm = ROOT
+				}
+			}			
+		}
+	}	
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	immediate = {
+		create_character = {
+			random_traits = no
+			name = "Laurette"
+			dynasty = 2000108
+			religion = anarchs
+			culture = colonialoccitan
+			female = yes
+			age = 20
+			attributes = {
+				martial = 5
+				diplomacy = 15
+				stewardship = 15
+				intrigue = 10
+				learning = 10
+			}
+			health = 6
+			fertility = 0.8
+			trait = "neonate"
+		trait = "vampire"
+		immortal_age = 20
+	trait = "toreador"
+	trait = "celerity_1"
+	trait = "majesty_2"
+	trait = "auspex_1"
+	trait = "bloodpotency_6"
+	trait = "vampgeneration8"
+	trait = "grey_eminence"
+	trait = "canon" 
+	trait = "kind"
+	trait = "charitable"
+	trait = "gregarious"
+	trait = "fair"
+	trait = wyrm_taint
+	  dna="cdihb0idaa0"
+		}
+		
+		new_character = {
+			set_character_flag = morel_himself
+			character_event = {
+				id = VAMPSTARS.23
+				days = 30
+				random = 30
+			}
+		}
+	}
+	
+	option = { # A most capable young woman
+		name = EVTOPTAVAMP_STARS_22
+		
+		set_global_flag = morel_spawned
+		set_global_flag = morel_spawned_by_event
+		
+		tooltip = {
+		create_character = {
+			random_traits = no
+			name = "Laurette"
+			dynasty = 2000108
+			religion = anarchs
+			culture = colonialoccitan
+			female = yes
+			age = 20
+			attributes = {
+				martial = 5
+				diplomacy = 15
+				stewardship = 15
+				intrigue = 10
+				learning = 10
+			}
+			health = 6
+			fertility = 0.8
+			trait = "neonate"
+		trait = "vampire"
+		immortal_age = 20
+	trait = "toreador"
+	trait = "celerity_1"
+	trait = "majesty_2"
+	trait = "auspex_1"
+	trait = "bloodpotency_6"
+	trait = "vampgeneration8"
+	trait = "grey_eminence"
+	trait = "canon" 
+	trait = "kind"
+	trait = "charitable"
+	trait = "gregarious"
+	trait = "fair"
+	trait = wyrm_taint
+	  dna="cdihb0idaa0"
+		}
+		}
+	}
+}
+
+# Morel and her men consider starting an adventure
+character_event = {
+	id = VAMPSTARS.23
+	desc = EVTDESCVAMP_STARS_23
+	
+	picture = GFX_evt_riots_byzantine
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	prisoner = no
+	only_capable = yes
+	
+	trigger = {
+		is_alive = yes
+		NOT = { trait = torpor }
+		NOT = { trait = eunuch }
+		NOT = { trait = infirm }
+		lower_tier_than = king
+		
+		OR = {
+			112 = { 
+				owner = {
+					NOT = { same_realm = ROOT }
+				}
+			}
+			221 = { 
+				owner = {
+					NOT = { same_realm = ROOT }
+				}
+			}
+			114 = { 
+				owner = {
+					NOT = { same_realm = ROOT }
+				}
+			}
+			100 = { 
+				owner = {
+					NOT = { same_realm = ROOT }
+				}
+			}			
+		}
+	}
+	
+	option = { 
+		name = EVTOPTAVAMP_STARS_23
+		trigger = {
+			112 = { # Paris
+				owner = {
+					NOT = { same_realm = ROOT }
+				}
+			}
+		}
+		
+		ai_chance = {
+			factor = 10
+		}
+		
+		112 = {
+			province_event = {
+				id = VAMPSTARS.24
+				days = 2
+			}
+		}
+	}
+	option = { 
+		name = EVTOPTBVAMP_STARS_23
+		trigger = {
+			221 = { # Provence
+				owner = {
+					NOT = { same_realm = ROOT }
+				}
+			}
+		}
+		
+		ai_chance = {
+			factor = 100
+		}
+		
+		221 = {
+			province_event = {
+				id = VAMPSTARS.24
+				days = 2
+			}
+		}
+	}
+	option = { 
+		name = EVTOPTCVAMP_STARS_23
+		trigger = {
+			114 = { # Reims
+				owner = {
+					NOT = { same_realm = ROOT }
+				}
+			}
+		}
+		
+		ai_chance = {
+			factor = 1000
+		}
+		
+		114 = {
+			province_event = {
+				id = VAMPSTARS.24
+				days = 2
+			}
+		}
+	}
+	option = { 
+		name = EVTOPTDVAMP_STARS_23
+		trigger = {
+			100 = { # Normandy
+				owner = {
+					NOT = { same_realm = ROOT }
+				}
+			}
+		}
+		
+		ai_chance = {
+			factor = 1000
+		}
+		
+		100 = {
+			province_event = {
+				id = VAMPSTARS.24
+				days = 2
+			}
+		}
+	}
+}
+
+# Ping the target province
+province_event = {
+	id = VAMPSTARS.24
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				FROM = {
+					is_ruler = yes
+				}
+			}
+			FROM = {
+				character_event = {
+					id = VAMPSTARS.26
+				}
+			}
+		}
+		if = {
+			limit = {
+				FROM = {
+					is_ruler = no
+				}
+			}
+			FROM = {
+				character_event = {
+					id = VAMPSTARS.25
+				}
+			}
+		}
+	}
+}
+
+# The landless Morel and her men start an adventure
+character_event = {
+	id = VAMPSTARS.25
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	prisoner = no
+	only_capable = yes
+	
+	trigger = {
+		is_alive = yes
+		NOT = { trait = torpor }
+		NOT = { trait = eunuch }
+		NOT = { trait = infirm }
+		lower_tier_than = king
+	}
+	
+	immediate = {
+		wealth = 500
+		
+		any_liege = {
+			character_event = {
+				id = VAMPSTARS.27
+				days = 1
+			}
+		}
+		
+		liege = {
+			capital_scope = {
+				FROM = {
+					owner = {
+						top_liege = {
+							ROOT = {
+								set_defacto_liege = ROOT
+								create_title = {
+									tier = DUKE
+									landless = yes
+									temporary = yes
+									culture = ROOT
+									name = "CLAIMANT_ADVENTURE"
+									holder = ROOT
+								}
+								
+								set_character_flag = vamp_duchy_adventurer
+							
+								spawn_unit = {
+									province = PREVPREVPREVPREV
+									home = PREVPREVPREVPREV
+									owner = THIS
+									#leader = THIS
+									match_character = PREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREVPREVPREVPREV
+									home = PREVPREVPREVPREV
+									owner = THIS
+									match_character = PREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREVPREVPREVPREV
+									home = PREVPREVPREVPREV
+									owner = THIS
+									match_character = PREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREVPREVPREVPREV
+									home = PREVPREVPREVPREV
+									owner = THIS
+									match_character = PREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREVPREVPREVPREV
+									home = PREVPREVPREVPREV
+									owner = THIS
+									match_character = PREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREVPREVPREVPREV
+									home = PREVPREVPREVPREV
+									owner = THIS
+									match_character = PREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								war = {
+									target = PREV
+									casus_belli = vamp_duchy_adventure
+									thirdparty_title = PREVPREVPREV
+									tier = DUKE
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		# Create some characters
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = no
+			age = 28
+			attributes = {
+				martial = 12
+			}
+			trait = brilliant_strategist
+			trait = "neonate"
+			trait = "toreador"
+			trait = "majesty_2"
+			trait = "auspex_1"	
+			trait = "celerity_3"
+			trait = "bloodpotency_6"
+			trait = "vampgeneration9"
+			trait = "brave"
+			trait = "diligent"
+			trait = vampire
+			immortal_age = 20
+			trait = "wyrm_taint"	
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 24
+			attributes = {
+				martial = 12
+			}
+			trait = brilliant_strategist
+			trait = "neonate"
+			trait = "toreador"
+			trait = "majesty_2"
+			trait = "auspex_1"	
+			trait = "celerity_4"
+			trait = "bloodpotency_6"
+			trait = "vampgeneration10"
+			trait = "brave"
+			trait = "diligent"
+			trait = vampire
+			immortal_age = 20
+			trait = "wyrm_taint"
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = no
+			age = 23
+			attributes = {
+				martial = 12
+			}
+			trait = brilliant_strategist
+			trait = "neonate"
+			trait = "toreador"
+			trait = "majesty_2"
+			trait = "auspex_1"	
+			trait = "celerity_1"
+			trait = "bloodpotency_6"
+			trait = "vampgeneration8"
+			trait = "brave"
+			trait = "diligent"
+			trait = vampire
+			immortal_age = 30
+			trait = "wyrm_taint"
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 30
+			attributes = {
+				martial = 12
+			}
+			trait = brilliant_strategist
+			trait = "neonate"
+			trait = "toreador"
+			trait = "majesty_1"
+			trait = "auspex_3"	
+			trait = "celerity_1"
+			trait = "bloodpotency_6"
+			trait = "vampgeneration11"
+			trait = "brave"
+			trait = "diligent"
+			trait = vampire
+			immortal_age = 30
+			trait = "wyrm_taint"
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = no
+			age = 30
+			attributes = {
+				martial = 12
+			}
+			trait = brilliant_strategist
+			trait = "neonate"
+			trait = "toreador"
+			trait = "majesty_1"
+			trait = "auspex_2"	
+			trait = "celerity_3"
+			trait = "bloodpotency_6"
+			trait = "vampgeneration9"
+			trait = "brave"
+			trait = "diligent"
+			trait = vampire
+			immortal_age = 30
+			trait = "wyrm_taint"
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 16
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 17
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 18
+		}
+		
+		log = "VAMPSTARS.25: Morel starts her first war (landless)!"
+	}
+}
+
+# The landed Morel and her men start an adventure
+character_event = {
+	id = VAMPSTARS.26
+	desc = EVTDESCVAMP_STARS_26
+	
+	picture = GFX_evt_riots_byzantine
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	prisoner = no
+	only_capable = yes
+	
+	trigger = {
+		is_alive = yes
+		NOT = { trait = torpor }
+		NOT = { trait = eunuch }
+		NOT = { trait = infirm }
+		lower_tier_than = king
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				tier = BARON
+			}
+			abdicate = yes
+			character_event = { id = VAMPSTARS.25 }
+			break = yes
+		}
+		wealth = 500
+		
+		any_liege = {
+			character_event = {
+				id = VAMPSTARS.27
+				days = 1
+			}
+		}
+		
+		FROM = {
+			owner = {
+				top_liege = {
+					ROOT = {
+						capital_scope = {
+							ROOT = {
+								set_character_flag = vamp_duchy_adventurer
+								spawn_unit = {
+									province = PREV
+									home = PREV
+									owner = THIS
+									#leader = THIS
+									match_character = PREVPREVPREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREV
+									home = PREV
+									owner = THIS
+									match_character = PREVPREVPREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREV
+									home = PREV
+									owner = THIS
+									match_character = PREVPREVPREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREV
+									home = PREV
+									owner = THIS
+									match_character = PREVPREVPREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREV
+									home = PREV
+									owner = THIS
+									match_character = PREVPREVPREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREV
+									home = PREV
+									owner = THIS
+									match_character = PREVPREVPREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+							}
+						}
+						
+						war = {
+							target = PREV
+							casus_belli = vamp_duchy_adventure
+							thirdparty_title = PREVPREVPREV
+							tier = DUKE
+						}
+					}
+				}
+			}
+		}
+		
+		# Create some characters
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = no
+			age = 28
+			attributes = {
+				martial = 12
+			}
+			trait = brilliant_strategist
+			trait = "neonate"
+			trait = "toreador"
+			trait = "majesty_2"
+			trait = "auspex_1"	
+			trait = "celerity_3"
+			trait = "bloodpotency_6"
+			trait = "vampgeneration9"
+			trait = "brave"
+			trait = "diligent"
+			trait = vampire
+			immortal_age = 20
+			trait = "wyrm_taint"	
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 24
+			attributes = {
+				martial = 12
+			}
+			trait = brilliant_strategist
+			trait = "neonate"
+			trait = "toreador"
+			trait = "majesty_2"
+			trait = "auspex_1"	
+			trait = "celerity_4"
+			trait = "bloodpotency_6"
+			trait = "vampgeneration10"
+			trait = "brave"
+			trait = "diligent"
+			trait = vampire
+			immortal_age = 20
+			trait = "wyrm_taint"
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = no
+			age = 23
+			attributes = {
+				martial = 12
+			}
+			trait = brilliant_strategist
+			trait = "neonate"
+			trait = "toreador"
+			trait = "majesty_2"
+			trait = "auspex_1"	
+			trait = "celerity_1"
+			trait = "bloodpotency_6"
+			trait = "vampgeneration8"
+			trait = "brave"
+			trait = "diligent"
+			trait = vampire
+			immortal_age = 30
+			trait = "wyrm_taint"
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 30
+			attributes = {
+				martial = 12
+			}
+			trait = brilliant_strategist
+			trait = "neonate"
+			trait = "toreador"
+			trait = "majesty_1"
+			trait = "auspex_3"	
+			trait = "celerity_1"
+			trait = "bloodpotency_6"
+			trait = "vampgeneration11"
+			trait = "brave"
+			trait = "diligent"
+			trait = vampire
+			immortal_age = 30
+			trait = "wyrm_taint"
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = no
+			age = 30
+			attributes = {
+				martial = 12
+			}
+			trait = brilliant_strategist
+			trait = "neonate"
+			trait = "toreador"
+			trait = "majesty_1"
+			trait = "auspex_2"	
+			trait = "celerity_3"
+			trait = "bloodpotency_6"
+			trait = "vampgeneration9"
+			trait = "brave"
+			trait = "diligent"
+			trait = vampire
+			immortal_age = 30
+			trait = "wyrm_taint"
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 16
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 17
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 18
+		}
+		
+		log = "VAMPSTARS.26: Morel starts her first war (landed)!"
+	}
+	
+	option = {
+		name = EVTOPTAVAMP_STARS_26
+	}
+}
+
+# Notify Morel's old liege
+character_event = {
+	id = VAMPSTARS.27
+	desc = EVTDESCVAMP_STARS_27
+	picture = GFX_evt_riots_byzantine
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		FROM = { is_ruler = yes } # The DoW worked and the adventurer has a temporary title
+	}
+	
+	option = {
+		name = EVTOPTAVAMP_STARS_27
+	}
+}
+
+# Morel is successful!
+# Fired from the vamp_duchy_adventure CB
+narrative_event = {
+	id = VAMPSTARS.28
+	title = EVTNAMEVAMP_STARS_28
+	desc = EVTDESCVAMP_STARS_28
+	picture = GFX_evt_riots_byzantine
+	border = GFX_event_narrative_frame_war
+	
+	is_triggered_only = yes
+	
+	major = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				OR = {
+					independent = yes
+					liege = {
+						ai = yes
+					}
+				}
+			}
+			set_defacto_liege = ROOT
+		}
+		
+		prestige = 1000
+		
+		if = {
+			limit = {
+				uses_decadence = yes
+			}
+			decadence = -25
+		}
+		
+		capital_scope = {
+			religion = ROOT
+			culture = ROOT
+			
+			ROOT = {
+				spawn_unit = {
+					province = PREV
+					home = PREV
+					owner = THIS
+					troops = {
+						light_cavalry = { 2750 2750 }
+						mass_toreadorc = { 50 50 }
+						mass_ghoulc = { 150 150 }
+					}
+				}
+				spawn_unit = {
+					province = PREV
+					home = PREV
+					owner = THIS
+					troops = {
+						light_cavalry = { 2750 2750 }
+						mass_toreadorc = { 50 50 }
+						mass_ghoulc = { 150 150 }
+					}
+				}
+				spawn_unit = {
+					province = PREV
+					home = PREV
+					owner = THIS
+					troops = {
+						light_cavalry = { 2750 2750 }
+						mass_toreadorc = { 50 50 }
+						mass_ghoulc = { 150 150 }
+					}
+				}
+				
+				random = {
+					chance = 50
+					spawn_unit = {
+						province = PREV
+						home = PREV
+						owner = THIS
+					troops = {
+						light_cavalry = { 2750 2750 }
+						mass_toreadorc = { 50 50 }
+						mass_ghoulc = { 150 150 }
+					}
+				}
+				}
+				random = {
+					chance = 50
+						spawn_unit = {
+					province = PREV
+					home = PREV
+					owner = THIS
+					troops = {
+						light_cavalry = { 2750 2750 }
+						mass_toreadorc = { 50 50 }
+						mass_ghoulc = { 150 150 }
+					}
+				}
+				}
+
+			}
+		}
+		
+		random_realm_province = {
+			limit = {
+				OR = {
+					NOT = { culture = ROOT }
+					NOT = { religion = ROOT }
+				}
+			}
+			religion = ROOT
+			culture = ROOT
+		}
+		
+		log = "VAMPSTARS.28: Morel wins her first war!"
+	}
+	
+	option = {
+		name = EVTOPTAVAMP_STARS_28
+		trigger = {
+			has_character_flag = morel_himself
+		}
+	}
+	option = {
+		name = EVTOPTBVAMP_STARS_28
+		trigger = {
+			NOT = { has_character_flag = morel_himself }
+		}
+	}
+}
+
+##########################################
+# Spawn of modernish vampires in 1230 bookmark, Jan
+##########################################
+
+# Pieterzoon
+character_event = {
+	id = VAMPSTARS.29
+	desc = EVTDESCVAMP_STARS_29
+	
+	picture = GFX_evt_courtiers_talking
+	border = GFX_event_normal_frame_war
+	
+	only_playable = yes
+	has_global_flag = bookmark1230
+	
+	trigger = {
+				year = 1723
+				NOT = { year = 1750 }
+			
+		
+		higher_tier_than = count
+		
+		NOT = { has_global_flag = jan_spawned }
+		
+		OR = {
+			79 = { 
+				owner = {
+					same_realm = ROOT
+				}
+			}
+			120 = { 
+				owner = {
+					same_realm = ROOT
+				}
+			}
+			78 = { 
+				owner = {
+					same_realm = ROOT
+				}
+			}
+			115 = { 
+				owner = {
+					same_realm = ROOT
+				}
+			}
+			89 = { 
+				owner = {
+					same_realm = ROOT
+				}
+			}
+			86 = { 
+				owner = {
+					same_realm = ROOT
+				}
+			}			
+		}
+	}	
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	immediate = {
+		create_character = {
+			random_traits = no
+			name = "Jan"
+			dynasty = 6000132
+			religion = masquerade_camarilla
+			culture = colonialdutch
+			female = no
+			age = 20
+			attributes = {
+				martial = 5
+				diplomacy = 20
+				stewardship = 15
+				intrigue = 15
+				learning = 5
+			}
+			health = 6
+			fertility = 0.8
+			trait = "neonate"
+	trait = "vampire"
+	immortal_age = 30
+	trait = "wyrm_taint"	
+	trait = "ventrue"
+	trait = "dominate_4"
+	trait = "majesty_4"
+	trait = "resilience_1"
+	trait = "bloodpotency_6"
+	trait = "grey_eminence"
+	trait = "vampgeneration7"
+	trait = "canon" 
+	trait = "ambitious"
+	trait = "diligent"
+	trait = "zealous"
+	race = norman
+	dna="cfgfd0hahd0" 
+		}
+		
+		new_character = {
+			set_character_flag = jan_himself
+			character_event = {
+				id = VAMPSTARS.30
+				days = 30
+				random = 30
+			}
+		}
+	}
+	
+	option = { # A most capable young man
+		name = EVTOPTAVAMP_STARS_29
+		
+		set_global_flag = jan_spawned
+		set_global_flag = jan_spawned_by_event
+		
+		tooltip = {
+		create_character = {
+			random_traits = no
+			name = "Jan"
+			dynasty = 6000132
+			religion = masquerade_camarilla
+			culture = colonialdutch
+			female = no
+			age = 20
+			attributes = {
+				martial = 5
+				diplomacy = 20
+				stewardship = 15
+				intrigue = 15
+				learning = 5
+			}
+			health = 6
+			fertility = 0.8
+			trait = "neonate"
+	trait = "vampire"
+	immortal_age = 30
+	trait = "wyrm_taint"	
+	trait = "ventrue"
+	trait = "dominate_4"
+	trait = "majesty_4"
+	trait = "resilience_1"
+	trait = "bloodpotency_6"
+	trait = "grey_eminence"
+	trait = "vampgeneration7"
+	trait = "canon" 
+	trait = "ambitious"
+	trait = "diligent"
+	trait = "zealous"
+	race = norman
+	dna="cfgfd0hahd0" 
+		}
+		}
+	}
+}
+
+# Jan and his men consider starting an adventure
+character_event = {
+	id = VAMPSTARS.30
+	desc = EVTDESCVAMP_STARS_30
+	
+	picture = GFX_evt_courtiers_talking
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	prisoner = no
+	only_capable = yes
+	
+	trigger = {
+		is_alive = yes
+		NOT = { trait = torpor }
+		NOT = { trait = eunuch }
+		NOT = { trait = infirm }
+		lower_tier_than = king
+		
+		OR = {
+			79 = { 
+				owner = {
+					NOT = { same_realm = ROOT }
+					NOT = { religion_group = masquerade_camarilla_group }
+				}
+			}
+			118 = { 
+				owner = {
+					NOT = { same_realm = ROOT }
+					NOT = { religion_group = masquerade_camarilla_group }
+				}
+			}
+			119 = { 
+				owner = {
+					NOT = { same_realm = ROOT }
+					NOT = { religion_group = masquerade_camarilla_group }
+				}
+			}
+			848 = { 
+				owner = {
+					NOT = { same_realm = ROOT }
+					NOT = { religion_group = masquerade_camarilla_group }
+				}
+			}			
+		}
+	}
+	
+	option = { 
+		name = EVTOPTAVAMP_STARS_30
+		trigger = {
+			79 = { # Amsterdam
+				owner = {
+					NOT = { same_realm = ROOT }
+					NOT = { religion_group = masquerade_camarilla_group }
+				}
+			}
+		}
+		
+		ai_chance = {
+			factor = 10
+		}
+		
+		79 = {
+			province_event = {
+				id = VAMPSTARS.31
+				days = 2
+			}
+		}
+	}
+	option = { 
+		name = EVTOPTBVAMP_STARS_30
+		trigger = {
+			118 = { # Luxembourg
+				owner = {
+					NOT = { same_realm = ROOT }
+					NOT = { religion_group = masquerade_camarilla_group }
+				}
+			}
+		}
+		
+		ai_chance = {
+			factor = 100
+		}
+		
+		118 = {
+			province_event = {
+				id = VAMPSTARS.31
+				days = 2
+			}
+		}
+	}
+	option = { 
+		name = EVTOPTCVAMP_STARS_30
+		trigger = {
+			119 = { # Koln
+				owner = {
+					NOT = { same_realm = ROOT }
+					NOT = { religion_group = masquerade_camarilla_group }
+				}
+			}
+		}
+		
+		ai_chance = {
+			factor = 1000
+		}
+		
+		119 = {
+			province_event = {
+				id = VAMPSTARS.31
+				days = 2
+			}
+		}
+	}
+	option = { 
+		name = EVTOPTDVAMP_STARS_30
+		trigger = {
+			848 = { # Hamburg
+				owner = {
+					NOT = { same_realm = ROOT }
+					NOT = { religion_group = masquerade_camarilla_group }
+				}
+			}
+		}
+		
+		ai_chance = {
+			factor = 1000
+		}
+		
+		848 = {
+			province_event = {
+				id = VAMPSTARS.31
+				days = 2
+			}
+		}
+	}
+}
+
+# Ping the target province
+province_event = {
+	id = VAMPSTARS.31
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				FROM = {
+					is_ruler = yes
+				}
+			}
+			FROM = {
+				character_event = {
+					id = VAMPSTARS.33
+				}
+			}
+		}
+		if = {
+			limit = {
+				FROM = {
+					is_ruler = no
+				}
+			}
+			FROM = {
+				character_event = {
+					id = VAMPSTARS.32
+				}
+			}
+		}
+	}
+}
+
+# The landless Jan and his men start an adventure
+character_event = {
+	id = VAMPSTARS.32
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	prisoner = no
+	only_capable = yes
+	
+	trigger = {
+		is_alive = yes
+		NOT = { trait = torpor }
+		NOT = { trait = eunuch }
+		NOT = { trait = infirm }
+		lower_tier_than = king
+	}
+	
+	immediate = {
+		wealth = 500
+		
+		any_liege = {
+			character_event = {
+				id = VAMPSTARS.34
+				days = 1
+			}
+		}
+		
+		liege = {
+			capital_scope = {
+				FROM = {
+					owner = {
+						top_liege = {
+							ROOT = {
+								set_defacto_liege = ROOT
+								create_title = {
+									tier = DUKE
+									landless = yes
+									temporary = yes
+									culture = ROOT
+									name = "CLAIMANT_ADVENTURE"
+									holder = ROOT
+								}
+								
+								set_character_flag = vamp_duchy_adventurer
+							
+								spawn_unit = {
+									province = PREVPREVPREVPREV
+									home = PREVPREVPREVPREV
+									owner = THIS
+									#leader = THIS
+									match_character = PREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREVPREVPREVPREV
+									home = PREVPREVPREVPREV
+									owner = THIS
+									match_character = PREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREVPREVPREVPREV
+									home = PREVPREVPREVPREV
+									owner = THIS
+									match_character = PREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREVPREVPREVPREV
+									home = PREVPREVPREVPREV
+									owner = THIS
+									match_character = PREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREVPREVPREVPREV
+									home = PREVPREVPREVPREV
+									owner = THIS
+									match_character = PREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREVPREVPREVPREV
+									home = PREVPREVPREVPREV
+									owner = THIS
+									match_character = PREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								war = {
+									target = PREV
+									casus_belli = vamp_duchy_adventure
+									thirdparty_title = PREVPREVPREV
+									tier = DUKE
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		# Create some characters
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = no
+			age = 28
+			attributes = {
+				martial = 12
+			}
+			trait = brilliant_strategist
+			trait = "neonate"
+			trait = "ventrue"
+			trait = "majesty_2"
+			trait = "dominate_1"	
+			trait = "resilience_4"
+			trait = "bloodpotency_6"
+			trait = "vampgeneration9"
+			trait = "brave"
+			trait = "diligent"
+			trait = vampire
+			immortal_age = 20
+			trait = "wyrm_taint"	
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 24
+			attributes = {
+				martial = 12
+			}
+			trait = brilliant_strategist
+			trait = "neonate"
+			trait = "ventrue"
+			trait = "majesty_2"
+			trait = "dominate_1"	
+			trait = "resilience_3"
+			trait = "bloodpotency_6"
+			trait = "vampgeneration10"
+			trait = "brave"
+			trait = "diligent"
+			trait = vampire
+			immortal_age = 20
+			trait = "wyrm_taint"
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = no
+			age = 23
+			attributes = {
+				martial = 12
+			}
+			trait = brilliant_strategist
+			trait = "neonate"
+			trait = "ventrue"
+			trait = "majesty_2"
+			trait = "dominate_3"	
+			trait = "resilience_4"
+			trait = "bloodpotency_6"
+			trait = "vampgeneration8"
+			trait = "brave"
+			trait = "diligent"
+			trait = vampire
+			immortal_age = 30
+			trait = "wyrm_taint"
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 30
+			attributes = {
+				martial = 12
+			}
+			trait = brilliant_strategist
+			trait = "neonate"
+			trait = "ventrue"
+			trait = "majesty_2"
+			trait = "dominate_1"	
+			trait = "resilience_1"
+			trait = "bloodpotency_6"
+			trait = "vampgeneration11"
+			trait = "brave"
+			trait = "diligent"
+			trait = vampire
+			immortal_age = 30
+			trait = "wyrm_taint"
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = no
+			age = 30
+			attributes = {
+				martial = 12
+			}
+			trait = brilliant_strategist
+			trait = "neonate"
+			trait = "ventrue"
+			trait = "majesty_3"
+			trait = "dominate_1"	
+			trait = "resilience_2"
+			trait = "bloodpotency_6"
+			trait = "vampgeneration9"
+			trait = "brave"
+			trait = "diligent"
+			trait = vampire
+			immortal_age = 30
+			trait = "wyrm_taint"
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 16
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 17
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 18
+		}
+		
+		log = "VAMPSTARS.32: Pieterzoon starts his first war (landless)!"
+	}
+}
+
+# The landed Jan and his men start an adventure
+character_event = {
+	id = VAMPSTARS.33
+	desc = EVTDESCVAMP_STARS_33
+	
+	picture = GFX_evt_courtiers_talking
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	prisoner = no
+	only_capable = yes
+	
+	trigger = {
+		is_alive = yes
+		NOT = { trait = torpor }
+		NOT = { trait = eunuch }
+		NOT = { trait = infirm }
+		lower_tier_than = king
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				tier = BARON
+			}
+			abdicate = yes
+			character_event = { id = VAMPSTARS.32 }
+			break = yes
+		}
+		wealth = 500
+		
+		any_liege = {
+			character_event = {
+				id = VAMPSTARS.34
+				days = 1
+			}
+		}
+		
+		FROM = {
+			owner = {
+				top_liege = {
+					ROOT = {
+						capital_scope = {
+							ROOT = {
+								set_character_flag = vamp_duchy_adventurer
+								spawn_unit = {
+									province = PREV
+									home = PREV
+									owner = THIS
+									#leader = THIS
+									match_character = PREVPREVPREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREV
+									home = PREV
+									owner = THIS
+									match_character = PREVPREVPREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREV
+									home = PREV
+									owner = THIS
+									match_character = PREVPREVPREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREV
+									home = PREV
+									owner = THIS
+									match_character = PREVPREVPREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREV
+									home = PREV
+									owner = THIS
+									match_character = PREVPREVPREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+								spawn_unit = {
+									province = PREV
+									home = PREV
+									owner = THIS
+									match_character = PREVPREVPREV
+									match_mult = 0.33
+									match_min = 500
+									match_max = 10000
+									attrition = 0.25
+								}
+							}
+						}
+						
+						war = {
+							target = PREV
+							casus_belli = vamp_duchy_adventure
+							thirdparty_title = PREVPREVPREV
+							tier = DUKE
+						}
+					}
+				}
+			}
+		}
+		
+		# Create some characters
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = no
+			age = 28
+			attributes = {
+				martial = 12
+			}
+			trait = brilliant_strategist
+			trait = "neonate"
+			trait = "ventrue"
+			trait = "majesty_2"
+			trait = "dominate_1"	
+			trait = "resilience_4"
+			trait = "bloodpotency_6"
+			trait = "vampgeneration9"
+			trait = "brave"
+			trait = "diligent"
+			trait = vampire
+			immortal_age = 20
+			trait = "wyrm_taint"	
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 24
+			attributes = {
+				martial = 12
+			}
+			trait = brilliant_strategist
+			trait = "neonate"
+			trait = "ventrue"
+			trait = "majesty_2"
+			trait = "dominate_1"	
+			trait = "resilience_3"
+			trait = "bloodpotency_6"
+			trait = "vampgeneration10"
+			trait = "brave"
+			trait = "diligent"
+			trait = vampire
+			immortal_age = 20
+			trait = "wyrm_taint"
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = no
+			age = 23
+			attributes = {
+				martial = 12
+			}
+			trait = brilliant_strategist
+			trait = "neonate"
+			trait = "ventrue"
+			trait = "majesty_2"
+			trait = "dominate_3"	
+			trait = "resilience_4"
+			trait = "bloodpotency_6"
+			trait = "vampgeneration8"
+			trait = "brave"
+			trait = "diligent"
+			trait = vampire
+			immortal_age = 30
+			trait = "wyrm_taint"
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 30
+			attributes = {
+				martial = 12
+			}
+			trait = brilliant_strategist
+			trait = "neonate"
+			trait = "ventrue"
+			trait = "majesty_2"
+			trait = "dominate_1"	
+			trait = "resilience_1"
+			trait = "bloodpotency_6"
+			trait = "vampgeneration11"
+			trait = "brave"
+			trait = "diligent"
+			trait = vampire
+			immortal_age = 30
+			trait = "wyrm_taint"
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = no
+			age = 30
+			attributes = {
+				martial = 12
+			}
+			trait = brilliant_strategist
+			trait = "neonate"
+			trait = "ventrue"
+			trait = "majesty_3"
+			trait = "dominate_1"	
+			trait = "resilience_2"
+			trait = "bloodpotency_6"
+			trait = "vampgeneration9"
+			trait = "brave"
+			trait = "diligent"
+			trait = vampire
+			immortal_age = 30
+			trait = "wyrm_taint"
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 16
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 17
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 18
+		}
+		
+		log = "VAMPSTARS.33: Pieterzoon starts his first war (landed)!"
+	}
+	
+	option = {
+		name = EVTOPTAVAMP_STARS_33
+	}
+}
+
+# Notify Jan's old liege
+character_event = {
+	id = VAMPSTARS.34
+	desc = EVTDESCVAMP_STARS_34
+	picture = GFX_evt_courtiers_talking
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		FROM = { is_ruler = yes } # The DoW worked and the adventurer has a temporary title
+	}
+	
+	option = {
+		name = EVTOPTAVAMP_STARS_34
+	}
+}
+
+# Jan is successful!
+# Fired from the vamp_duchy_adventure CB
+narrative_event = {
+	id = VAMPSTARS.35
+	title = EVTNAMEVAMP_STARS_35
+	desc = EVTDESCVAMP_STARS_35
+	picture = GFX_evt_courtiers_talking
+	border = GFX_event_narrative_frame_war
+	
+	is_triggered_only = yes
+	
+	major = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				OR = {
+					independent = yes
+					liege = {
+						ai = yes
+					}
+				}
+			}
+			set_defacto_liege = ROOT
+		}
+		
+		prestige = 1000
+		
+		if = {
+			limit = {
+				uses_decadence = yes
+			}
+			decadence = -25
+		}
+		
+		capital_scope = {
+			religion = ROOT
+			culture = ROOT
+			
+			ROOT = {
+				spawn_unit = {
+					province = PREV
+					home = PREV
+					owner = THIS
+					troops = {
+						light_cavalry = { 2750 2750 }
+						mass_ventruec = { 50 50 }
+						mass_ghoulc = { 150 150 }
+					}
+				}
+				spawn_unit = {
+					province = PREV
+					home = PREV
+					owner = THIS
+					troops = {
+						light_cavalry = { 2750 2750 }
+						mass_ventruec = { 50 50 }
+						mass_ghoulc = { 150 150 }
+					}
+				}
+				spawn_unit = {
+					province = PREV
+					home = PREV
+					owner = THIS
+					troops = {
+						light_cavalry = { 2750 2750 }
+						mass_ventruec = { 50 50 }
+						mass_ghoulc = { 150 150 }
+					}
+				}
+				
+				random = {
+					chance = 50
+					spawn_unit = {
+						province = PREV
+						home = PREV
+						owner = THIS
+					troops = {
+						light_cavalry = { 2750 2750 }
+						mass_ventruec = { 50 50 }
+						mass_ghoulc = { 150 150 }
+					}
+				}
+				}
+				random = {
+					chance = 50
+						spawn_unit = {
+					province = PREV
+					home = PREV
+					owner = THIS
+					troops = {
+						light_cavalry = { 2750 2750 }
+						mass_ventruec = { 50 50 }
+						mass_ghoulc = { 150 150 }
+					}
+				}
+				}
+
+			}
+		}
+		
+		random_realm_province = {
+			limit = {
+				OR = {
+					NOT = { culture = ROOT }
+					NOT = { religion = ROOT }
+				}
+			}
+			religion = ROOT
+			culture = ROOT
+		}
+		
+		log = "VAMPSTARS.35: Jan wins his first war!"
+	}
+	
+	option = {
+		name = EVTOPTAVAMP_STARS_35
+		trigger = {
+			has_character_flag = jan_himself
+		}
+	}
+	option = {
+		name = EVTOPTBVAMP_STARS_35
+		trigger = {
+			NOT = { has_character_flag = jan_himself }
+		}
+	}
+}

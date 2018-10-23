@@ -1,0 +1,754 @@
+
+###########################################
+#     									  #
+# POD CWOD PENTEX Advertisements 		  #
+#                                         #
+###########################################
+
+namespace = POD_CWOD_PENTEX_advertisments
+
+character_event = {
+	id = POD_CWOD_PENTEX_advertisments.1
+	hide_window = yes	
+	ai = no
+	is_triggered_only = yes	
+	only_playable = yes
+	
+	trigger = {
+		wealth = 50
+		year = 1950
+	}
+
+	immediate = {
+		random_list = {
+				5 = { character_event = { id = POD_CWOD_PENTEX_advertisments.3 days = 1 } }
+				5 = { character_event = { id = POD_CWOD_PENTEX_advertisments.3 days = 35 } }
+				5 = { character_event = { id = POD_CWOD_PENTEX_advertisments.3 days = 70 } }
+				5 = { character_event = { id = POD_CWOD_PENTEX_advertisments.3 days = 95 } }
+				5 = { character_event = { id = POD_CWOD_PENTEX_advertisments.3 days = 123 } }
+				5 = { character_event = { id = POD_CWOD_PENTEX_advertisments.3 days = 151 } }
+				5 = { character_event = { id = POD_CWOD_PENTEX_advertisments.3 days = 192 } }
+				5 = { character_event = { id = POD_CWOD_PENTEX_advertisments.3 days = 214 } }
+				5 = { character_event = { id = POD_CWOD_PENTEX_advertisments.3 days = 240 } }
+				5 = { character_event = { id = POD_CWOD_PENTEX_advertisments.3 days = 330 } }
+		}
+	}
+}
+
+
+character_event = {
+	id = POD_CWOD_PENTEX_advertisments.2
+	hide_window = yes	
+	ai = yes
+	is_triggered_only = yes	
+	only_playable = yes
+
+	
+	trigger = {
+		wealth = 10
+		year = 1950
+	}
+
+	immediate = {
+	
+		random_list = {
+				25 = { character_event = { id = POD_CWOD_PENTEX_advertisments.3 days = 1 } }	
+		}
+	}	
+}
+
+
+character_event = {
+	id = POD_CWOD_PENTEX_advertisments.3
+	hide_window = yes	
+	is_triggered_only = yes	
+	
+	trigger = {
+		wealth = 50
+		year = 1950
+	}
+
+	immediate = {
+		random_list = {
+				10 = { character_event = { id = POD_CWOD_PENTEX_advertisments.4 } }
+				10 = { character_event = { id = POD_CWOD_PENTEX_advertisments.5 } }
+				10 = { character_event = { id = POD_CWOD_PENTEX_advertisments.6 } }
+				10 = { character_event = { id = POD_CWOD_PENTEX_advertisments.7 } }
+				10 = { character_event = { id = POD_CWOD_PENTEX_advertisments.8 } }
+				10 = { character_event = { id = POD_CWOD_PENTEX_advertisments.9 } }
+				5 = { character_event = { id = POD_CWOD_PENTEX_advertisments.10 } }
+				10 = { character_event = { id = POD_CWOD_PENTEX_advertisments.11 } }
+				10 = { character_event = { id = POD_CWOD_PENTEX_advertisments.12 } }
+				5 = { character_event = { id = POD_CWOD_PENTEX_advertisments.13 } }
+				10 = { character_event = { id = POD_CWOD_PENTEX_advertisments.14 } }
+		}
+	}
+}
+
+character_event = {
+	id = POD_CWOD_PENTEX_advertisments.4
+	desc = EVTDESC_POD_CWOD_PENTEX_ADVERTISEMENTS_4
+	picture = GFX_evt_pentex_sale
+	border = GFX_event_normal_frame_economy
+	is_triggered_only = yes	
+	
+	trigger = {
+		wealth = 5
+		year = 1950
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_CWOD_PENTEX_ADVERTISEMENTS_4" 
+		trigger = {
+			wealth = 5
+		}
+		wealth = -5
+		add_artifact = Wood_Baseball_Bat
+	}	
+	
+	option = {
+		name = "EVTOPTB_POD_CWOD_PENTEX_ADVERTISEMENTS_4" 
+		trigger = {
+			wealth = 10
+		}
+		wealth = -10
+		add_artifact = Metal_Baseball_Bat
+	}	
+
+	option = {
+		name = "EVTOPTC_POD_CWOD_PENTEX_ADVERTISEMENTS_4" 
+		trigger = {
+			wealth = 25
+		}
+		add_artifact = Fire_Axe 
+		wealth = -25 
+	}	
+
+	option = {
+		name = "EVTOPTD_POD_CWOD_PENTEX_ADVERTISEMENTS_4" 
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 5
+				wealth < 10
+			}
+			modifier = {
+				factor = 5
+				trait = greedy
+			}
+		}		
+	}		
+}
+
+character_event = {
+	id = POD_CWOD_PENTEX_advertisments.5
+	desc = EVTDESC_POD_CWOD_PENTEX_ADVERTISEMENTS_5
+	picture = GFX_evt_pentex_sale
+	border = GFX_event_normal_frame_economy
+	is_triggered_only = yes	
+	
+	trigger = {
+		wealth = 50
+		year = 1950
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_CWOD_PENTEX_ADVERTISEMENTS_5" 
+		trigger = {
+			wealth = 50
+		}
+		wealth = -50
+		add_artifact = Revolver
+	}	
+	
+	option = {
+		name = "EVTOPTB_POD_CWOD_PENTEX_ADVERTISEMENTS_5" 
+		trigger = {
+			wealth = 100
+		}
+		wealth = -100
+		add_artifact = Revolver_2
+	}	
+
+	option = {
+		name = "EVTOPTC_POD_CWOD_PENTEX_ADVERTISEMENTS_5" 
+		trigger = {
+			wealth = 125
+		}
+		add_artifact = Semi_Automatic_Pistol
+		wealth = -125 
+	}	
+
+	option = {
+		name = "EVTOPTD_POD_CWOD_PENTEX_ADVERTISEMENTS_5" 
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 5
+				wealth < 100
+			}
+			modifier = {
+				factor = 5
+				trait = greedy
+			}
+		}		
+	}		
+}
+
+character_event = {
+	id = POD_CWOD_PENTEX_advertisments.6
+	desc = EVTDESC_POD_CWOD_PENTEX_ADVERTISEMENTS_6
+	picture = GFX_evt_pentex_sale
+	border = GFX_event_normal_frame_economy
+	is_triggered_only = yes	
+	
+	trigger = {
+		wealth = 50
+		year = 1950
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_CWOD_PENTEX_ADVERTISEMENTS_6" 
+		trigger = {
+			wealth = 100
+		}
+		wealth = -100
+		add_artifact = Hunting_Rifle
+	}	
+	
+	option = {
+		name = "EVTOPTB_POD_CWOD_PENTEX_ADVERTISEMENTS_6" 
+		trigger = {
+			wealth = 150
+		}
+		wealth = -150
+		add_artifact = Shotgun
+	}	
+
+	option = {
+		name = "EVTOPTC_POD_CWOD_PENTEX_ADVERTISEMENTS_6" 
+		trigger = {
+			wealth = 200
+		}
+		add_artifact = Stake_Shotgun
+		wealth = -200 
+	}	
+
+	option = {
+		name = "EVTOPTD_POD_CWOD_PENTEX_ADVERTISEMENTS_6" 
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 5
+				wealth < 100
+			}
+			modifier = {
+				factor = 5
+				trait = greedy
+			}
+		}		
+	}		
+}
+
+
+character_event = {
+	id = POD_CWOD_PENTEX_advertisments.7
+	desc = EVTDESC_POD_CWOD_PENTEX_ADVERTISEMENTS_7
+	picture = GFX_evt_pentex_sale
+	border = GFX_event_normal_frame_economy
+	is_triggered_only = yes	
+	
+	trigger = {
+		wealth = 300
+		year = 1950
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_CWOD_PENTEX_ADVERTISEMENTS_7" 
+		trigger = {
+			wealth = 300
+		}
+		wealth = -300
+		add_artifact = SMG_2
+	}	
+	
+	option = {
+		name = "EVTOPTB_POD_CWOD_PENTEX_ADVERTISEMENTS_7" 
+		trigger = {
+			wealth = 400
+		}
+		wealth = -400
+		add_artifact = SMG
+	}	
+
+	option = {
+		name = "EVTOPTC_POD_CWOD_PENTEX_ADVERTISEMENTS_7" 
+		trigger = {
+			wealth = 500
+		}
+		add_artifact = Assault_Rifle
+		wealth = -500 
+	}	
+
+	option = {
+		name = "EVTOPTD_POD_CWOD_PENTEX_ADVERTISEMENTS_7" 
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 5
+				wealth < 500
+			}
+			modifier = {
+				factor = 5
+				trait = greedy
+			}
+		}		
+	}		
+}
+
+character_event = {
+	id = POD_CWOD_PENTEX_advertisments.8
+	desc = EVTDESC_POD_CWOD_PENTEX_ADVERTISEMENTS_8
+	picture = GFX_evt_pentex_sale
+	border = GFX_event_normal_frame_economy
+	is_triggered_only = yes	
+	
+	trigger = {
+		wealth = 1000
+		year = 1950
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_CWOD_PENTEX_ADVERTISEMENTS_8" 
+		trigger = {
+			wealth = 1000
+		}
+		wealth = -1000
+		add_artifact = LMG
+	}	
+	
+	option = {
+		name = "EVTOPTB_POD_CWOD_PENTEX_ADVERTISEMENTS_8" 
+		trigger = {
+			wealth = 1250
+		}
+		wealth = -1250
+		add_artifact = Sniper_Rifle
+	}	
+
+	option = {
+		name = "EVTOPTC_POD_CWOD_PENTEX_ADVERTISEMENTS_8" 
+		trigger = {
+			wealth = 1500
+		}
+		add_artifact = Assault_Shotgun
+		wealth = -1500 
+	}	
+
+	option = {
+		name = "EVTOPTD_POD_CWOD_PENTEX_ADVERTISEMENTS_8" 
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 5
+				wealth < 1500
+			}
+			modifier = {
+				factor = 5
+				trait = greedy
+			}
+		}		
+	}		
+}
+
+character_event = {
+	id = POD_CWOD_PENTEX_advertisments.9
+	desc = EVTDESC_POD_CWOD_PENTEX_ADVERTISEMENTS_9
+	picture = GFX_evt_pentex_sale
+	border = GFX_event_normal_frame_economy
+	is_triggered_only = yes	
+	
+	trigger = {
+		wealth = 1000
+		year = 1950
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_CWOD_PENTEX_ADVERTISEMENTS_9" 
+		trigger = {
+			wealth = 20000
+			NOT = { trait = "sworn_to_gaia" }
+		}
+		wealth = -20000
+		add_artifact = Sports_Car
+	}	
+	
+	option = {
+		name = "EVTOPTB_POD_CWOD_PENTEX_ADVERTISEMENTS_9" 
+		trigger = {
+			wealth = 15000
+		}
+		wealth = -15000
+		add_artifact = Police_Car
+	}	
+
+	option = {
+		name = "EVTOPTC_POD_CWOD_PENTEX_ADVERTISEMENTS_9" 
+		trigger = {
+			wealth = 10000
+		}
+		add_artifact = Sturdy_Car
+		wealth = -10000
+	}	
+
+	option = {
+		name = "EVTOPTD_POD_CWOD_PENTEX_ADVERTISEMENTS_9" 
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 5
+				wealth < 20000
+			}
+			modifier = {
+				factor = 5
+				trait = greedy
+			}
+		}		
+	}		
+}
+
+character_event = {
+	id = POD_CWOD_PENTEX_advertisments.10
+	desc = EVTDESC_POD_CWOD_PENTEX_ADVERTISEMENTS_10
+	picture = GFX_evt_pentex_sale
+	border = GFX_event_normal_frame_economy
+	is_triggered_only = yes	
+	
+	trigger = {
+		wealth = 30000
+		year = 1950
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_CWOD_PENTEX_ADVERTISEMENTS_10" 
+		trigger = {
+			wealth = 30000
+		}
+		wealth = -30000
+		add_artifact = Limo
+	}	
+	
+	option = {
+		name = "EVTOPTB_POD_CWOD_PENTEX_ADVERTISEMENTS_10" 
+		trigger = {
+			wealth = 40000
+		}
+		wealth = -40000
+		add_artifact = Armored_Limo
+	}	
+
+	option = {
+		name = "EVTOPTC_POD_CWOD_PENTEX_ADVERTISEMENTS_10" 
+		trigger = {
+			wealth = 50000
+			OR = { 
+				religion_group = "order_of_reason_group"
+				religion_group = "daedalan_group"
+			}
+		}
+		add_artifact = Spectre_Limo
+		wealth = -50000
+	}	
+
+	option = {
+		name = "EVTOPTD_POD_CWOD_PENTEX_ADVERTISEMENTS_10" 
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 5
+				wealth < 50000
+			}
+			modifier = {
+				factor = 5
+				trait = greedy
+			}
+		}		
+	}		
+}
+
+character_event = {
+	id = POD_CWOD_PENTEX_advertisments.11
+	desc = EVTDESC_POD_CWOD_PENTEX_ADVERTISEMENTS_11
+	picture = GFX_evt_pentex_sale
+	border = GFX_event_normal_frame_economy
+	is_triggered_only = yes	
+	
+	trigger = {
+		wealth = 2500
+		year = 1950
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_CWOD_PENTEX_ADVERTISEMENTS_11" 
+		trigger = {
+			wealth = 4000
+			NOT = { trait = "sworn_to_gaia" }
+		}
+		wealth = -4000
+		add_artifact = Motorcycle_1
+	}	
+	
+	option = {
+		name = "EVTOPTB_POD_CWOD_PENTEX_ADVERTISEMENTS_11" 
+		trigger = {
+			wealth = 2500
+			NOT = { trait = "sworn_to_gaia" }
+			NOT = { religion_group = "order_of_reason_group" }
+			NOT = { religion_group = "daedalan_group" }
+		}
+		wealth = -2500
+		add_artifact = Motorcycle_2
+	}	
+
+	option = {
+		name = "EVTOPTC_POD_CWOD_PENTEX_ADVERTISEMENTS_11" 
+		trigger = {
+			wealth = 3000
+		}
+		add_artifact = Motorcycle_3
+		wealth = -3000
+	}	
+
+	option = {
+		name = "EVTOPTD_POD_CWOD_PENTEX_ADVERTISEMENTS_11" 
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 5
+				wealth < 4000
+			}
+			modifier = {
+				factor = 5
+				trait = greedy
+			}
+		}		
+	}		
+}
+
+character_event = {
+	id = POD_CWOD_PENTEX_advertisments.12
+	desc = EVTDESC_POD_CWOD_PENTEX_ADVERTISEMENTS_12
+	picture = GFX_evt_pentex_sale
+	border = GFX_event_normal_frame_economy
+	is_triggered_only = yes	
+	
+	trigger = {
+		wealth = 4000
+		year = 1950
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_CWOD_PENTEX_ADVERTISEMENTS_12" 
+		trigger = {
+			wealth = 10000
+			NOT = { trait = "sworn_to_gaia" }
+		}
+		wealth = -2000
+		add_artifact = GoodMotorcycle_1
+	}	
+	
+	option = {
+		name = "EVTOPTB_POD_CWOD_PENTEX_ADVERTISEMENTS_12" 
+		trigger = {
+			wealth = 5000
+		}
+		wealth = -5000
+		add_artifact = GoodMotorcycle_2
+	}	
+
+	option = {
+		name = "EVTOPTC_POD_CWOD_PENTEX_ADVERTISEMENTS_12" 
+		trigger = {
+			wealth = 4000
+		}
+		add_artifact = GoodMotorcycle_3
+		wealth = -4000
+	}	
+
+	option = {
+		name = "EVTOPTD_POD_CWOD_PENTEX_ADVERTISEMENTS_12" 
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 5
+				wealth < 10000
+			}
+			modifier = {
+				factor = 5
+				trait = greedy
+			}
+		}		
+	}		
+}
+
+character_event = {
+	id = POD_CWOD_PENTEX_advertisments.13
+	desc = EVTDESC_POD_CWOD_PENTEX_ADVERTISEMENTS_13
+	picture = GFX_evt_pentex_sale
+	border = GFX_event_normal_frame_economy
+	is_triggered_only = yes	
+	
+	trigger = {
+		wealth = 500
+		year = 1950
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_CWOD_PENTEX_ADVERTISEMENTS_13" 
+		trigger = {
+			wealth = 12000
+			NOT = { religion_group = "order_of_reason_group" }
+			NOT = { religion_group = "daedalan_group" }
+		}
+		wealth = -12000
+		add_artifact = BestMotorcycle_1
+	}	
+	
+	option = {
+		name = "EVTOPTB_POD_CWOD_PENTEX_ADVERTISEMENTS_13" 
+		trigger = {
+			wealth = 15000
+		}
+		wealth = -15000
+		add_artifact = BestMotorcycle_2
+	}	
+
+	option = {
+		name = "EVTOPTC_POD_CWOD_PENTEX_ADVERTISEMENTS_13" 
+		trigger = {
+			wealth = 500
+		}
+		add_artifact = Horse
+		wealth = -500
+	}	
+
+	option = {
+		name = "EVTOPTD_POD_CWOD_PENTEX_ADVERTISEMENTS_13" 
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 5
+				wealth < 15000
+			}
+			modifier = {
+				factor = 5
+				trait = greedy
+			}
+		}		
+	}		
+}
+
+character_event = {
+	id = POD_CWOD_PENTEX_advertisments.14
+	desc = EVTDESC_POD_CWOD_PENTEX_ADVERTISEMENTS_14
+	picture = GFX_evt_pentex_sale
+	border = GFX_event_normal_frame_economy
+	is_triggered_only = yes	
+	
+	trigger = {
+		wealth = 5000
+		year = 1950
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_CWOD_PENTEX_ADVERTISEMENTS_14" 
+		trigger = {
+			wealth = 12000
+			NOT = { trait = "sworn_to_gaia" }
+			NOT = { religion_group = "order_of_reason_group" }
+			NOT = { religion_group = "daedalan_group" }
+		}
+		wealth = -12000
+		add_artifact = Truck
+	}	
+	
+	option = {
+		name = "EVTOPTB_POD_CWOD_PENTEX_ADVERTISEMENTS_14" 
+		trigger = {
+			NOT = { trait = "sworn_to_gaia" }
+			NOT = { religion_group = "order_of_reason_group" }
+			NOT = { religion_group = "daedalan_group" }
+			wealth = 7000
+		}
+		wealth = -7000
+		add_artifact = Car_2
+	}	
+
+	option = {
+		name = "EVTOPTC_POD_CWOD_PENTEX_ADVERTISEMENTS_14" 
+		trigger = {
+			wealth = 5000
+		}
+		add_artifact = Car
+		wealth = -5000
+	}	
+
+	option = {
+		name = "EVTOPTD_POD_CWOD_PENTEX_ADVERTISEMENTS_14" 
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 5
+				wealth < 12000
+			}
+			modifier = {
+				factor = 5
+				trait = greedy
+			}
+		}		
+	}		
+}
