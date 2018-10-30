@@ -163,6 +163,10 @@
 				is_theocracy = no
 			}
 		}
+		modifier = {
+			factor = 0
+			NOT = { religion = einherjar }
+		}		
 	}
 	
 	10 = { # Desert
@@ -1104,6 +1108,7 @@
 			OR = {
 				real_tier = king
 				real_tier = emperor
+				NOT = { religion = einherjar }
 				AND = {
 					real_tier = duke
 					any_demesne_title = {
@@ -1145,6 +1150,11 @@
 				trait = toreador
 				trait = tzimisce
 				trait = lasombra
+				trait = cappadocian
+				trait = giovanni
+				trait = nosferatu
+				trait = malkavian 
+				trait = ravnos 
 			}
 		}
 		
@@ -1339,11 +1349,9 @@
 			 	trait = giovanni 
 			 	trait = followerofset 
 			 	trait = gangrel 
-			 	trait = lasombra 
 			 	trait = malkavian 
 			 	trait = nosferatu 
 			 	trait = ravnos 
-			 	trait = toreador 
 			 	trait = nosferatu 
 			 	trait = tzimisce 
 			 	trait = tremere 
@@ -1354,14 +1362,12 @@
 			 	trait = nosferatuantitribu 
 			 	trait = malkavianantitribu 
 			 	trait = ventrueantitribu 
-			 	trait = lasombraantitribu 
 			 	trait = ravnosantitribu 
 			 	trait = toreadorantitribu 
 			 	trait = tremereantitribu 
 			 	trait = tzimisceantitribu 
 			 	trait = assamiteantitribu 
-			 	trait = caitiff		
-			 	trait = canon 
+			 	trait = caitiff	
 			 	trait = nagaraja 
 			 	trait = true_brujah 
 				religion = red_talons
@@ -1411,11 +1417,9 @@
 			 	trait = giovanni 
 			 	trait = followerofset 
 			 	trait = gangrel 
-			 	trait = lasombra 
 			 	trait = malkavian 
 			 	trait = nosferatu 
 			 	trait = ravnos 
-			 	trait = toreador 
 			 	trait = nosferatu 
 			 	trait = tzimisce 
 			 	trait = tremere 
@@ -1426,14 +1430,12 @@
 			 	trait = nosferatuantitribu 
 			 	trait = malkavianantitribu 
 			 	trait = ventrueantitribu 
-			 	trait = lasombraantitribu 
 			 	trait = ravnosantitribu 
 			 	trait = toreadorantitribu 
 			 	trait = tremereantitribu 
 			 	trait = tzimisceantitribu 
 			 	trait = assamiteantitribu 
 			 	trait = caitiff		
-			 	trait = canon 
 			 	trait = nagaraja 
 			 	trait = true_brujah 
 				religion = red_talons
@@ -1470,11 +1472,9 @@
 			 	trait = giovanni 
 			 	trait = followerofset 
 			 	trait = gangrel 
-			 	trait = lasombra 
 			 	trait = malkavian 
 			 	trait = nosferatu 
 			 	trait = ravnos 
-			 	trait = toreador 
 			 	trait = nosferatu 
 			 	trait = tzimisce 
 			 	trait = tremere 
@@ -1485,14 +1485,12 @@
 			 	trait = nosferatuantitribu 
 			 	trait = malkavianantitribu 
 			 	trait = ventrueantitribu 
-			 	trait = lasombraantitribu 
 			 	trait = ravnosantitribu 
 			 	trait = toreadorantitribu 
 			 	trait = tremereantitribu 
 			 	trait = tzimisceantitribu 
 			 	trait = assamiteantitribu 
 			 	trait = caitiff		
-			 	trait = canon 
 			 	trait = nagaraja 
 			 	trait = true_brujah 
 				religion = red_talons
@@ -1535,11 +1533,9 @@
 			 	trait = giovanni 
 			 	trait = followerofset 
 			 	trait = gangrel 
-			 	trait = lasombra 
 			 	trait = malkavian 
 			 	trait = nosferatu 
 			 	trait = ravnos 
-			 	trait = toreador 
 			 	trait = nosferatu 
 			 	trait = tzimisce 
 			 	trait = tremere 
@@ -1550,14 +1546,12 @@
 			 	trait = nosferatuantitribu 
 			 	trait = malkavianantitribu 
 			 	trait = ventrueantitribu 
-			 	trait = lasombraantitribu 
 			 	trait = ravnosantitribu 
 			 	trait = toreadorantitribu 
 			 	trait = tremereantitribu 
 			 	trait = tzimisceantitribu 
 			 	trait = assamiteantitribu 
 			 	trait = caitiff		
-			 	trait = canon 
 			 	trait = nagaraja 
 			 	trait = true_brujah 
 				religion = red_talons
@@ -1623,11 +1617,9 @@
 			 	trait = giovanni 
 			 	trait = followerofset 
 			 	trait = gangrel 
-			 	trait = lasombra 
 			 	trait = malkavian 
 			 	trait = nosferatu 
 			 	trait = ravnos 
-			 	trait = toreador 
 			 	trait = nosferatu 
 			 	trait = tzimisce 
 			 	trait = tremere 
@@ -1638,14 +1630,12 @@
 			 	trait = nosferatuantitribu 
 			 	trait = malkavianantitribu 
 			 	trait = ventrueantitribu 
-			 	trait = lasombraantitribu 
 			 	trait = ravnosantitribu 
 			 	trait = toreadorantitribu 
 			 	trait = tremereantitribu 
 			 	trait = tzimisceantitribu 
 			 	trait = assamiteantitribu 
 			 	trait = caitiff		
-			 	trait = canon 
 			 	trait = nagaraja 
 			 	trait = true_brujah 
 				religion = red_talons
@@ -1696,10 +1686,6 @@
 			factor = 0
 			NOT = { trait = peasant_leader }
 			NOT = { trait = heresiarch }
-		modifier = {
-			factor = 0
-			year = 1900
-		}			
 			OR = {
 				is_or_was_offmap_power_ruler = yes
 				is_ruler = yes
@@ -1707,7 +1693,11 @@
 				spouse = { real_tier = emperor }
 				spouse = { real_tier = king }
 				spouse = { real_tier = duke }
-			}
+			}			
+		}
+		modifier = {
+			factor = 0
+			year = 1900		
 		}
 	}
 
@@ -2017,22 +2007,7 @@
 			factor = 0
 			trait = spectre
 		}
-		modifier = {
-			factor = 0
-			trait = obtenebration_1
-		}		
-		modifier = {
-			factor = 0
-			trait = obtenebration_2
-		}		
-		modifier = {
-			factor = 0
-			trait = obtenebration_3
-		}		
-		modifier = {
-			factor = 0
-			trait = obtenebration_4
-		}		
+		
 		modifier = {
 			factor = 0
 			trait = obtenebration_5
@@ -2049,18 +2024,6 @@
 				}
 				NOT = {
 					trait = spectre
-				}
-				NOT = {
-					trait = obtenebration_1
-				}
-				NOT = {
-					trait = obtenebration_2
-				}	
-				NOT = {
-					trait = obtenebration_3
-				}	
-				NOT = {
-					trait = obtenebration_4
 				}				
 				NOT = {
 					trait = obtenebration_5

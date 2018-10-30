@@ -1,0 +1,736 @@
+society_decisions = {
+
+#Virtue : humanity
+	virtue_humanity = {
+		
+		potential = {
+			OR = {
+				society_member_of = via_humanitatis
+				society_member_of = derech_lilit
+				society_member_of = tariq_el-umma
+				}
+			society_rank >= 2
+			NOT = { trait = gregarious }
+		}
+
+		allow = {
+			NOT = {
+				trait = gregarious
+			}
+		}
+
+		effect = {
+			tooltip = {
+				add_trait = gregarious
+				piety = 250
+			}
+			character_event = {
+				id = POD_SOC.1
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+#Artifact : humanity
+	artifact_humanity = {
+		
+		potential = {
+			OR = { 
+			society_member_of = via_humanitatis
+			society_member_of = tariq_el-umma
+			}
+			society_rank >= 4
+			NOT = { has_artifact = pact_of_athens }
+		}
+
+		allow = {
+			NOT = {
+				has_artifact = pact_of_athens
+			}
+		}
+
+		effect = {
+			custom_tooltip= { text = artifact_society_tooltip }
+			character_event = {
+				id = POD_SOC.2
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+#Virtue : stewardship
+	virtue_stewardship = {
+		
+		potential = {
+			OR = {
+				society_member_of = via_regalis
+				society_member_of = tariq_el-harb
+				}
+			society_rank >= 2
+			NOT = { trait = diligent }
+		}
+
+		allow = {
+			NOT = {
+				trait = diligent
+			}
+		}
+
+		effect = {
+			tooltip = {
+				add_trait = diligent
+				piety = 250
+			}
+			character_event = {
+				id = POD_SOC.3
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+#Artifact : regalis
+	artifact_regalis = {
+		
+		potential = {
+			OR = { 
+			society_member_of = tariq_el-harb
+			society_member_of = via_regalis
+			}
+			society_rank >= 4
+			NOT = { has_artifact = crown_of_veddhartha }
+		}
+
+		allow = {
+			NOT = {
+				has_artifact = crown_of_veddhartha
+			}
+		}
+
+		effect = {
+			custom_tooltip= { text = artifact_society_tooltip }
+			character_event = {
+				id = POD_SOC.4
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+#Virtue : zeal
+	virtue_zeal = {
+		
+		potential = {
+			OR = {
+				society_member_of = via_caeli
+				society_member_of = tariq_el-sama
+				}
+			society_rank >= 2
+			NOT = { trait = zealous }
+		}
+
+		allow = {
+			NOT = {
+				trait = zealous
+			}
+		}
+
+		effect = {
+			tooltip = {
+				add_trait = zealous
+				piety = 250
+			}
+			character_event = {
+				id = POD_SOC.5
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+#Artifact : caelis
+	artifact_caelis = {
+		
+		potential = {
+			OR = {
+			society_member_of = via_caeli
+			society_member_of = tariq_el-sama
+			}
+			society_rank >= 4
+			NOT = { has_artifact = gospel_of_laodice }
+		}
+
+		allow = {
+			NOT = {
+				has_artifact = gospel_of_laodice
+			}
+		}
+
+		effect = {
+			custom_tooltip= { text = artifact_society_tooltip }
+			character_event = {
+				id = POD_SOC.6
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+#Virtue : brave
+	virtue_brave = {
+		
+		potential = {
+			OR = {
+				society_member_of = via_bestiae
+				society_member_of = via_einherjar
+				society_member_of = via_yasaq
+				society_member_of = tariq_el-bedouin
+				}
+			society_rank >= 2
+			NOT = { trait = brave }
+		}
+
+		allow = {
+			NOT = {
+				trait = brave
+			}
+		}
+
+		effect = {
+			tooltip = {
+				add_trait = brave
+				piety = 250
+			}
+			character_event = {
+				id = POD_SOC.7
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+#Artifact : bestiae
+	artifact_bestiae = {
+		
+		potential = {
+		OR = {
+			society_member_of = via_bestiae
+			society_member_of = tariq_el-bedouin
+			}
+			society_rank >= 4
+			NOT = { has_artifact = warhammer_of_sumer }
+		}
+
+		allow = {
+			NOT = {
+				has_artifact = warhammer_of_sumer
+			}
+		}
+
+		effect = {
+			custom_tooltip= { text = artifact_society_tooltip }
+			character_event = {
+				id = POD_SOC.8
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}	
+	
+	
+#Virtue : fair
+	virtue_fair = {
+		
+		potential = {
+			OR = {
+				society_member_of = via_peccati
+				}
+			society_rank >= 2
+			NOT = { trait = fair }
+		}
+
+		allow = {
+			NOT = {
+				trait = fair
+			}
+		}
+
+		effect = {
+			tooltip = {
+				add_trait = fair
+				piety = 250
+			}
+			character_event = {
+				id = POD_SOC.9
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+#Artifact : peccati
+	artifact_peccati = {
+		
+		potential = {
+
+			society_member_of = via_peccati
+			society_rank >= 4
+			NOT = { has_artifact = hunger_and_satisfaction }
+		}
+
+		allow = {
+			NOT = {
+				has_artifact = hunger_and_satisfaction
+			}
+		}
+
+		effect = {
+			custom_tooltip= { text = artifact_society_tooltip }
+			character_event = {
+				id = POD_SOC.10
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}		
+	
+#Virtue : scholar
+	virtue_scholar = {
+		
+		potential = {
+			OR = {
+				society_member_of = via_ossium
+				society_member_of = via_mutationis
+				society_member_of = code_of_tremere
+				}
+			society_rank >= 2
+			NOT = { trait = scholar }
+		}
+
+		allow = {
+			NOT = {
+				trait = scholar
+			}
+		}
+
+		effect = {
+			tooltip = {
+				add_trait = scholar
+				piety = 250
+			}
+			character_event = {
+				id = POD_SOC.11
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+#Artifact : ossium
+	artifact_ossium = {
+		
+		potential = {
+
+			society_member_of = via_ossium
+			society_rank >= 4
+			NOT = { has_artifact = mysterious_bone }
+		}
+
+		allow = {
+			NOT = {
+				has_artifact = mysterious_bone
+			}
+		}
+
+		effect = {
+			custom_tooltip= { text = artifact_society_tooltip }
+			character_event = {
+				id = POD_SOC.12
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}	
+	
+#Virtue : schemer
+	virtue_schemer = {
+		
+		potential = {
+			OR = {
+				society_member_of = via_noctis
+				society_member_of = via_hyron
+				society_member_of = via_sanguinus
+				society_member_of = via_paradoxi
+				society_member_of = tariq_el-shaitan
+				}
+			society_rank >= 2
+			NOT = { trait = schemer }
+		}
+
+		allow = {
+			NOT = {
+				trait = schemer
+			}
+		}
+
+		effect = {
+			tooltip = {
+				add_trait = schemer
+				piety = 250
+			}
+			character_event = {
+				id = POD_SOC.13
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+#Artifact : noctis
+	artifact_noctis = {
+		
+		potential = {
+
+			society_member_of = via_noctis
+			society_rank >= 4
+			NOT = { has_artifact = night_mantle }
+		}
+
+		allow = {
+			NOT = {
+				has_artifact = night_mantle
+			}
+		}
+
+		effect = {
+			custom_tooltip= { text = artifact_society_tooltip }
+			character_event = {
+				id = POD_SOC.14
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}	
+	
+
+
+#Artifact : hyron
+	artifact_hyron = {
+		
+		potential = {
+			OR = {
+			society_member_of = via_hyron
+			society_member_of = tariq_el-shaitan 
+			}
+			society_rank >= 4
+			NOT = { has_artifact = abelene_heresy }
+		}
+
+		allow = {
+			NOT = {
+				has_artifact = abelene_heresy
+			}
+		}
+
+		effect = {
+			custom_tooltip= { text = artifact_society_tooltip }
+			character_event = {
+				id = POD_SOC.15
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}	
+	
+#Artifact : einherjar
+	artifact_einherjar = {
+		
+		potential = {
+
+			society_member_of = via_einherjar
+			society_rank >= 4
+			NOT = { has_artifact = axe_of_ivar }
+		}
+
+		allow = {
+			NOT = {
+				has_artifact = axe_of_ivar
+			}
+		}
+
+		effect = {
+			custom_tooltip= { text = artifact_society_tooltip }
+			character_event = {
+				id = POD_SOC.16
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}	
+
+#Artifact : yasaq
+	artifact_yasaq = {
+		
+		potential = {
+
+			society_member_of = via_yasaq
+			society_rank >= 4
+			NOT = { has_artifact = teachings_of_itugen }
+		}
+
+		allow = {
+			NOT = {
+				has_artifact = teachings_of_itugen
+			}
+		}
+
+		effect = {
+			custom_tooltip= { text = artifact_society_tooltip }
+			character_event = {
+				id = POD_SOC.17
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}		
+	
+#Artifact : sanguinus
+	artifact_sanguinus = {
+		
+		potential = {
+
+			society_member_of = via_sanguinus
+			society_rank >= 4
+			NOT = { has_artifact = parthian_bow }
+		}
+
+		allow = {
+			NOT = {
+				has_artifact = parthian_bow
+			}
+		}
+
+		effect = {
+			custom_tooltip= { text = artifact_society_tooltip }
+			character_event = {
+				id = POD_SOC.18
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}	
+	
+#Artifact : paradox
+	artifact_paradox = {
+		
+		potential = {
+
+			society_member_of = via_paradoxi
+			society_rank >= 4
+			NOT = { has_artifact = karavalanisha_vrana }
+		}
+
+		allow = {
+			NOT = {
+				has_artifact = karavalanisha_vrana
+			}
+		}
+
+		effect = {
+			custom_tooltip= { text = artifact_society_tooltip }
+			character_event = {
+				id = POD_SOC.19
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}		
+
+#Virtue : seducer
+	virtue_seducer = {
+		
+		potential = {
+			OR = {
+				society_member_of = via_serpentis
+				}
+			society_rank >= 2
+			NOT = { trait = seducer }
+		}
+
+		allow = {
+			NOT = {
+				trait = seducer
+			}
+		}
+
+		effect = {
+			tooltip = {
+				add_trait = seducer
+				piety = 250
+			}
+			character_event = {
+				id = POD_SOC.20
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+#Artifact : serpentis
+	artifact_serpentis = {
+		
+		potential = {
+
+			society_member_of = via_serpentis
+			society_rank >= 4
+			NOT = { has_artifact = serpent_eye }
+		}
+
+		allow = {
+			NOT = {
+				has_artifact = serpent_eye
+			}
+		}
+
+		effect = {
+			custom_tooltip= { text = artifact_society_tooltip }
+			character_event = {
+				id = POD_SOC.21
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}		
+
+#Artifact : metamorphosis
+	artifact_metamorphosis = {
+		
+		potential = {
+
+			society_member_of = via_mutationis
+			society_rank >= 4
+			NOT = { has_artifact = mind_bulwark }
+		}
+
+		allow = {
+			NOT = {
+				has_artifact = mind_bulwark
+			}
+		}
+
+		effect = {
+			custom_tooltip= { text = artifact_society_tooltip }
+			character_event = {
+				id = POD_SOC.22
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}		
+	
+#Artifact : tremere
+	artifact_tremere = {
+		
+		potential = {
+
+			society_member_of = code_of_tremere
+			society_rank >= 4
+			NOT = { has_artifact = scroll_of_stgermain }
+		}
+
+		allow = {
+			NOT = {
+				has_artifact = scroll_of_stgermain
+			}
+		}
+
+		effect = {
+			custom_tooltip= { text = artifact_society_tooltip }
+			character_event = {
+				id = POD_SOC.23
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}	
+	
+#Artifact : lilit
+	artifact_lilit = {
+		
+		potential = {
+
+			society_member_of = derech_lilit
+			society_rank >= 4
+			NOT = { has_artifact = crown_of_the_mother}
+		}
+
+		allow = {
+			NOT = {
+				has_artifact = crown_of_the_mother
+			}
+		}
+
+		effect = {
+			custom_tooltip= { text = artifact_society_tooltip }
+			character_event = {
+				id = POD_SOC.24
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}	
+	
+	
+}
+

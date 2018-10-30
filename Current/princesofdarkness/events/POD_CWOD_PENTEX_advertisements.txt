@@ -50,9 +50,10 @@ character_event = {
 	}
 
 	immediate = {
-	
-		random_list = {
-				25 = { character_event = { id = POD_CWOD_PENTEX_advertisments.3 days = 1 } }	
+
+		random = {
+			chance = 10
+			character_event = { id = POD_CWOD_PENTEX_advertisments.3 days = 1 } 	
 		}
 	}	
 }
@@ -77,10 +78,13 @@ character_event = {
 				10 = { character_event = { id = POD_CWOD_PENTEX_advertisments.8 } }
 				10 = { character_event = { id = POD_CWOD_PENTEX_advertisments.9 } }
 				5 = { character_event = { id = POD_CWOD_PENTEX_advertisments.10 } }
-				10 = { character_event = { id = POD_CWOD_PENTEX_advertisments.11 } }
-				10 = { character_event = { id = POD_CWOD_PENTEX_advertisments.12 } }
+				5 = { character_event = { id = POD_CWOD_PENTEX_advertisments.11 } }
+				5 = { character_event = { id = POD_CWOD_PENTEX_advertisments.12 } }
 				5 = { character_event = { id = POD_CWOD_PENTEX_advertisments.13 } }
-				10 = { character_event = { id = POD_CWOD_PENTEX_advertisments.14 } }
+				5 = { character_event = { id = POD_CWOD_PENTEX_advertisments.14 } }
+				5 = { character_event = { id = POD_CWOD_PENTEX_advertisments.16 } }
+				5 = { character_event = { id = POD_CWOD_PENTEX_advertisments.17 } }
+				5 = { character_event = { id = POD_CWOD_PENTEX_advertisments.18 } }
 		}
 	}
 }
@@ -744,6 +748,273 @@ character_event = {
 			modifier = {
 				factor = 5
 				wealth < 12000
+			}
+			modifier = {
+				factor = 5
+				trait = greedy
+			}
+		}		
+	}		
+}
+character_event = {
+	id = POD_CWOD_PENTEX_advertisments.15
+	desc = EVTDESC_POD_CWOD_PENTEX_ADVERTISEMENTS_15
+	picture = GFX_evt_pentex_sale
+	border = GFX_event_normal_frame_economy
+	is_triggered_only = yes	
+	
+	trigger = {
+		wealth = 950
+		year = 1950
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_CWOD_PENTEX_ADVERTISEMENTS_15" 
+		trigger = {
+			wealth = 75000
+		}
+		wealth = -75000
+		#add_artifact = Private_Jet
+	}	
+	
+	option = {
+		name = "EVTOPTB_POD_CWOD_PENTEX_ADVERTISEMENTS_15" 
+		trigger = {
+			wealth = 950
+		}
+		wealth = -950
+		#add_artifact = Private_Helicopter
+	}	
+
+	option = {
+		name = "EVTOPTC_POD_CWOD_PENTEX_ADVERTISEMENTS_15" 
+		trigger = {
+			wealth = 2000
+		}
+		#add_artifact = Private_Submarine
+		wealth = -2000
+	}	
+
+	option = {
+		name = "EVTOPTD_POD_CWOD_PENTEX_ADVERTISEMENTS_15" 
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 5
+				wealth < 950
+			}
+			modifier = {
+				factor = 5
+				trait = greedy
+			}
+		}		
+	}		
+}
+character_event = {
+	id = POD_CWOD_PENTEX_advertisments.16
+	desc = EVTDESC_POD_CWOD_PENTEX_ADVERTISEMENTS_16
+	picture = GFX_evt_pentex_sale
+	border = GFX_event_normal_frame_economy
+	is_triggered_only = yes	
+	
+	trigger = {
+		wealth = 30
+		year = 1950
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_CWOD_PENTEX_ADVERTISEMENTS_16" 
+		trigger = {
+			wealth = 50
+		}
+		wealth = -50
+		add_artifact = Subtle_Armored_Suit
+	}	
+	
+	option = {
+		name = "EVTOPTB_POD_CWOD_PENTEX_ADVERTISEMENTS_16" 
+		trigger = {
+			wealth = 30
+		}
+		wealth = -30
+		add_artifact = Ballistic_Vest
+	}	
+
+
+	option = {
+		name = "EVTOPTD_POD_CWOD_PENTEX_ADVERTISEMENTS_16" 
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 5
+				wealth < 50
+			}
+			modifier = {
+				factor = 5
+				trait = greedy
+			}
+		}		
+	}		
+}
+character_event = {
+	id = POD_CWOD_PENTEX_advertisments.16
+	desc = EVTDESC_POD_CWOD_PENTEX_ADVERTISEMENTS_16
+	picture = GFX_evt_pentex_sale
+	border = GFX_event_normal_frame_economy
+	is_triggered_only = yes	
+	
+	trigger = {
+		wealth = 30
+		year = 1950
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_CWOD_PENTEX_ADVERTISEMENTS_16" 
+		trigger = {
+			wealth = 50
+		}
+		wealth = -50
+		add_artifact = Subtle_Armored_Suit
+	}	
+	
+	option = {
+		name = "EVTOPTB_POD_CWOD_PENTEX_ADVERTISEMENTS_16" 
+		trigger = {
+			wealth = 30
+		}
+		wealth = -30
+		add_artifact = Ballistic_Vest
+	}	
+
+
+	option = {
+		name = "EVTOPTD_POD_CWOD_PENTEX_ADVERTISEMENTS_16" 
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 5
+				wealth < 50
+			}
+			modifier = {
+				factor = 5
+				trait = greedy
+			}
+		}		
+	}		
+}
+character_event = {
+	id = POD_CWOD_PENTEX_advertisments.17
+	desc = EVTDESC_POD_CWOD_PENTEX_ADVERTISEMENTS_17
+	picture = GFX_evt_pentex_sale
+	border = GFX_event_normal_frame_economy
+	is_triggered_only = yes	
+	
+	trigger = {
+		wealth = 75
+		year = 1950
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_CWOD_PENTEX_ADVERTISEMENTS_17" 
+		trigger = {
+			wealth = 75
+		}
+		wealth = -75
+		add_artifact = Heavy_Ballistic_Vest
+	}	
+	
+	option = {
+		name = "EVTOPTB_POD_CWOD_PENTEX_ADVERTISEMENTS_17" 
+		trigger = {
+			wealth = 100
+		}
+		wealth = 100
+		add_artifact = SWAT_Armor
+	}	
+
+
+	option = {
+		name = "EVTOPTD_POD_CWOD_PENTEX_ADVERTISEMENTS_17" 
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 5
+				wealth < 75
+			}
+			modifier = {
+				factor = 5
+				trait = greedy
+			}
+		}		
+	}		
+}
+
+character_event = {
+	id = POD_CWOD_PENTEX_advertisments.18
+	desc = EVTDESC_POD_CWOD_PENTEX_ADVERTISEMENTS_18
+	picture = GFX_evt_pentex_sale
+	border = GFX_event_normal_frame_economy
+	is_triggered_only = yes	
+	
+	trigger = {
+		wealth = 10
+		year = 1950
+	}
+
+	immediate = {
+
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_CWOD_PENTEX_ADVERTISEMENTS_18" 
+		trigger = {
+			wealth = 10
+		}
+		wealth = -10
+		add_artifact = Storebought_Katana
+	}	
+	
+	option = {
+		name = "EVTOPTB_POD_CWOD_PENTEX_ADVERTISEMENTS_18" 
+		trigger = {
+			wealth = 50
+		}
+		wealth = 50
+		add_artifact = Imported_Katana
+	}	
+
+	option = {
+		name = "EVTOPTC_POD_CWOD_PENTEX_ADVERTISEMENTS_18" 
+		trigger = {
+			wealth = 250
+		}
+		wealth = 250
+		add_artifact = Master_Katana
+	}
+	
+	option = {
+		name = "EVTOPTD_POD_CWOD_PENTEX_ADVERTISEMENTS_18" 
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 10
+				wealth < 75
 			}
 			modifier = {
 				factor = 5

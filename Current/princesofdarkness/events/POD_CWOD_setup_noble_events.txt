@@ -108,24 +108,24 @@ character_event = {
 					culture = kannada 
 				}
 			}
-			if = {
-				limit = {
-					primary_title = { holding_type = temple	}
-				}
-				add_trait = brahmin
-			}	
-			if = {
-				limit = {
-					OR = {
-						primary_title = { holding_type = city }
-						is_patrician = yes	
-					}											 
-				}											
-				add_trait = vaishya
-			}	
-			else = { 									
-				add_trait = kshatriya
-			}	
+			#if = {
+			#	limit = {
+			#		ROOT = { holding_type = temple	}
+			#	}
+			#	add_trait = brahmin
+			#}	
+			#if = {
+			#	limit = {
+			#		OR = {
+			#			ROOT = { holding_type = city }
+			#			is_patrician = yes	
+			#		}											 
+			#	}											
+			#	add_trait = vaishya
+			#}	
+			#else = { 									
+			#	add_trait = kshatriya
+			#}	
 		}	
 
 # get a new dynasty names

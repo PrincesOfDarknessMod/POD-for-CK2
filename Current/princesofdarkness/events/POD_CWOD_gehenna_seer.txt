@@ -1,0 +1,1024 @@
+
+###########################################
+#     									  #
+# 		POD CWOD Gehenna Seer	 		  #
+#                                         #
+###########################################
+
+namespace = POD_CWOD_gehenna_seer
+
+character_event = {
+	id = POD_CWOD_gehenna_seer.1
+	hide_window = yes	
+	ai = no
+	is_triggered_only = yes
+	only_playable = yes	
+	
+	trigger = {
+		trait = vampire
+	}	
+
+	immediate = {
+		random_list = {
+			5 = { character_event = { id = POD_CWOD_gehenna_seer.2 days = 6 } }
+			5 = { character_event = { id = POD_CWOD_gehenna_seer.2 days = 40 } }
+			5 = { character_event = { id = POD_CWOD_gehenna_seer.2 days = 75 } }
+			5 = { character_event = { id = POD_CWOD_gehenna_seer.2 days = 100 } }
+			5 = { character_event = { id = POD_CWOD_gehenna_seer.2 days = 127 } }
+			5 = { character_event = { id = POD_CWOD_gehenna_seer.2 days = 158 } }
+			5 = { character_event = { id = POD_CWOD_gehenna_seer.2 days = 199 } }
+			5 = { character_event = { id = POD_CWOD_gehenna_seer.2 days = 219 } }
+			5 = { character_event = { id = POD_CWOD_gehenna_seer.2 days = 245 } }
+			5 = { character_event = { id = POD_CWOD_gehenna_seer.2 days = 335 } }
+		}
+	}
+}
+
+character_event = {
+	id = POD_CWOD_gehenna_seer.2
+	hide_window = yes	
+	ai = no
+	is_triggered_only = yes	
+	only_playable = yes
+
+	trigger = {
+		trait = vampire
+	}		
+	
+	immediate = {
+	
+		#if = {	
+		#	limit = {
+		#		OR = {
+		#			trait = malkavian
+		#			trait = malkavianantitribu
+		#			trait = dementation_1
+		#			trait = dementation_2
+		#			trait = dementation_3
+		#			trait = dementation_4
+		#			trait = dementation_5
+		#		}
+		#	}
+		#	if = {
+		#		limit = {
+		#			NOT = { has_character_flag = gehenna_seer }
+		#		}
+		#		set_character_flag = gehenna_seer
+		#	}
+		#	save_event_target_as = gehenna_seer
+		#}
+		#elseif = {
+		#	any_courtier = {
+		#		limit = { 
+		#			has_character_flag = gehenna_seer 
+		#			trait = vampire
+		#			}
+		#	}
+		#	random_courtier = {
+		#		limit = { 
+		#			has_character_flag = gehenna_seer 
+		#			trait = vampire
+		#			}
+		#		save_event_target_as = gehenna_seer	
+		#	}
+		#}
+		#else = {
+			random_list = {
+				50 = {
+					create_character = {
+						random_traits = yes
+						dynasty = culture
+						female = no
+						age = 115
+						immortal_age = 30
+						trait = mystic
+						trait = vampire
+						religion = autarkis
+					}				
+				}
+				50 = {
+					create_character = {
+						random_traits = yes
+						religion = autarkis
+						dynasty = culture
+						female = yes
+						age = 110
+						immortal_age = 25
+						trait = vampire
+					}				
+				}		
+			}
+			
+			new_character = {		
+				random_list = {
+					50 = { 
+						add_trait = malkavian
+						random_list = {
+							50 = { add_trait = lunatic }
+							25 = { add_trait = depressed }
+							25 = { add_trait = paranoid }
+						}
+					}
+					10 = { add_trait = caitiff }
+					10 = { add_trait = tzimisce }
+					10 = { add_trait = cappadocian }
+					5 = { add_trait = salubri }
+					10 = { add_trait = toreador }
+					5 = { add_trait = tremere }
+				}
+				
+				if = { limit = { trait = slow } 
+					remove_trait = slow
+				}
+				if = { limit = { trait = imbecile } 
+					remove_trait = imbecile
+				}						
+				if = { limit = { trait = inbred } 
+					remove_trait = inbred
+				}	
+				add_trait = wyrm_taint
+				add_trait = bloodpotency_2
+				add_trait = vampgeneration9
+				add_trait = ancilla			
+				POD_CWOD_dynasty_effect = yes
+				POD_CWOD_vampire_governments_init_effect = yes
+				POD_CWOD_vampire_disciplines_init_effect = yes	
+				if = { 
+					limit = { 
+						trait = auspex_2 
+					}
+					remove_trait = auspex_2
+					add_trait = auspex_5 
+				}				
+				POD_CWOD_vampire_roads_init_effect = yes
+				POD_CWOD_vampire_paths_init_effect = yes
+				POD_CWOD_vampire_secret_religion_init_effect = yes
+				POD_CWOD_vampire_sabbat_secret_religion_init_effect = yes
+				POD_CWOD_vampire_roads_grand_master_init_effect = yes			
+				set_character_flag = gehenna_seer
+				save_event_target_as = gehenna_seer
+				
+			}
+		#}
+		
+		event_target:gehenna_seer = {
+			random_list = {
+				5 = { set_character_flag = gehenna_prophecy_a }
+				5 = { set_character_flag = gehenna_prophecy_b }
+				5 = { set_character_flag = gehenna_prophecy_c }
+				5 = { set_character_flag = gehenna_prophecy_d }
+				5 = { set_character_flag = gehenna_prophecy_e }
+				5 = { set_character_flag = gehenna_prophecy_f }	
+				5 = { set_character_flag = gehenna_prophecy_g }
+				5 = { set_character_flag = gehenna_prophecy_h }	
+				5 = { set_character_flag = gehenna_prophecy_i }
+				5 = { set_character_flag = gehenna_prophecy_j }
+				5 = { set_character_flag = gehenna_prophecy_k }
+				5 = { set_character_flag = gehenna_prophecy_l }
+				5 = { set_character_flag = gehenna_prophecy_m }
+				5 = { set_character_flag = gehenna_prophecy_n }
+				5 = { set_character_flag = gehenna_prophecy_o }
+				5 = { set_character_flag = gehenna_prophecy_p }
+				5 = { set_character_flag = gehenna_prophecy_q }
+				5 = { set_character_flag = gehenna_prophecy_r }
+				5 = { set_character_flag = gehenna_prophecy_s }
+				5 = { set_character_flag = gehenna_prophecy_t }
+			}
+		}
+	}		
+	after = {
+		character_event = { id = POD_CWOD_gehenna_seer.3 days = 10 }
+	}
+}
+
+narrative_event = {
+	id = POD_CWOD_gehenna_seer.3
+	title = EVTNAME_POD_CWOD_gehenna_seer_3
+    desc = {
+		text = EVTDESC_POD_CWOD_gehenna_seer_3_A
+		trigger = {
+			 event_target:gehenna_seer = { has_character_flag = gehenna_prophecy_a } 
+		}
+	}	
+	
+    desc = {
+		text = EVTDESC_POD_CWOD_gehenna_seer_3_B
+		trigger = {
+			 event_target:gehenna_seer = { has_character_flag = gehenna_prophecy_b } 
+		}
+	}	
+
+    desc = {
+		text = EVTDESC_POD_CWOD_gehenna_seer_3_C
+		trigger = {
+			 event_target:gehenna_seer = { has_character_flag = gehenna_prophecy_c } 
+		}
+	}		
+	
+	desc = {
+		text = EVTDESC_POD_CWOD_gehenna_seer_3_D
+		trigger = {
+			 event_target:gehenna_seer = { has_character_flag = gehenna_prophecy_d } 
+		}
+	}	
+	
+	desc = {
+		text = EVTDESC_POD_CWOD_gehenna_seer_3_E
+		trigger = {
+			 event_target:gehenna_seer = { has_character_flag = gehenna_prophecy_e } 
+		}
+	}	
+	
+	desc = {
+		text = EVTDESC_POD_CWOD_gehenna_seer_3_F
+		trigger = {
+			 event_target:gehenna_seer = { has_character_flag = gehenna_prophecy_f } 
+		}
+	}		
+
+	desc = {
+		text = EVTDESC_POD_CWOD_gehenna_seer_3_G
+		trigger = {
+			 event_target:gehenna_seer = { has_character_flag = gehenna_prophecy_g } 
+		}
+	}	
+	
+	desc = {
+		text = EVTDESC_POD_CWOD_gehenna_seer_3_H
+		trigger = {
+			 event_target:gehenna_seer = { has_character_flag = gehenna_prophecy_h } 
+		}
+	}	
+	
+	desc = {
+		text = EVTDESC_POD_CWOD_gehenna_seer_3_I
+		trigger = {
+			 event_target:gehenna_seer = { has_character_flag = gehenna_prophecy_i } 
+		}
+	}
+	
+	desc = {
+		text = EVTDESC_POD_CWOD_gehenna_seer_3_J
+		trigger = {
+			 event_target:gehenna_seer = { has_character_flag = gehenna_prophecy_j } 
+		}
+	}	 
+
+	desc = {
+		text = EVTDESC_POD_CWOD_gehenna_seer_3_K
+		trigger = {
+			 event_target:gehenna_seer = { has_character_flag = gehenna_prophecy_k } 
+		}
+	}	 
+
+	desc = {
+		text = EVTDESC_POD_CWOD_gehenna_seer_3_L
+		trigger = {
+			 event_target:gehenna_seer = { has_character_flag = gehenna_prophecy_l } 
+		}
+	}	
+	
+	desc = {
+		text = EVTDESC_POD_CWOD_gehenna_seer_3_M
+		trigger = {
+			 event_target:gehenna_seer = { has_character_flag = gehenna_prophecy_m } 
+		}
+	}		
+	
+	desc = {
+		text = EVTDESC_POD_CWOD_gehenna_seer_3_N
+		trigger = {
+			 event_target:gehenna_seer = { has_character_flag = gehenna_prophecy_n } 
+		}
+	}	
+
+	desc = {
+		text = EVTDESC_POD_CWOD_gehenna_seer_3_O
+		trigger = {
+			 event_target:gehenna_seer = { has_character_flag = gehenna_prophecy_o } 
+		}
+	}
+	
+	desc = {
+		text = EVTDESC_POD_CWOD_gehenna_seer_3_P
+		trigger = {
+			 event_target:gehenna_seer = { has_character_flag = gehenna_prophecy_p } 
+		}
+	}	
+	
+	desc = {
+		text = EVTDESC_POD_CWOD_gehenna_seer_3_Q
+		trigger = {
+			 event_target:gehenna_seer = { has_character_flag = gehenna_prophecy_q } 
+		}
+	}
+
+	desc = {
+		text = EVTDESC_POD_CWOD_gehenna_seer_3_R
+		trigger = {
+			 event_target:gehenna_seer = { has_character_flag = gehenna_prophecy_r } 
+		}
+	}	
+	
+	desc = {
+		text = EVTDESC_POD_CWOD_gehenna_seer_3_S
+		trigger = {
+			 event_target:gehenna_seer = { has_character_flag = gehenna_prophecy_s } 
+		}
+	}		
+	
+	desc = {
+		text = EVTDESC_POD_CWOD_gehenna_seer_3_T
+		trigger = {
+			 event_target:gehenna_seer = { has_character_flag = gehenna_prophecy_t } 
+		}
+	}		
+	
+	picture = GFX_evt_vampire_mental
+	border = GFX_event_narrative_frame_religion
+	ai = no
+	is_triggered_only = yes	
+	only_playable = yes
+	
+	trigger = {
+		trait = vampire
+		
+	}		
+	
+	immediate = {
+	}
+
+	# Accept the Prophecy
+	option = {
+		name = "EVTOPTA_POD_CWOD_gehenna_seer_3" 
+		trigger = {
+			event_target:gehenna_seer = { has_character_flag = gehenna_prophecy_a } 
+		}
+		hidden_tooltip = { event_target:gehenna_seer = { clr_character_flag = gehenna_prophecy_a } }
+		piety = 10
+		if = {
+			limit = {
+				NOT = { trait = wroth }
+				NOT = { trait = kind }
+				}
+			random = {
+				chance = 10
+				add_trait = wroth
+			}	
+		}		
+		if = {
+			limit = {
+				NOT = { trait = zealous }
+				NOT = { trait = cynical }
+				}
+			random = {
+				chance = 25
+				add_trait = zealous
+			}	
+		}		
+		add_character_modifier = {
+			name = gehenna_prophecy_a_modifier
+			duration = 365
+		}			
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_CWOD_gehenna_seer_3" 
+		trigger = {
+			event_target:gehenna_seer = { has_character_flag = gehenna_prophecy_b } 
+		}
+		hidden_tooltip = { event_target:gehenna_seer = { clr_character_flag = gehenna_prophecy_b } }
+		piety = 10
+		if = {
+			limit = {
+				NOT = { trait = paranoid }
+				NOT = { trait = trusting }
+				}
+			random = {
+				chance = 10
+				add_trait = paranoid
+			}	
+		}			
+		if = {
+			limit = {
+				NOT = { trait = zealous }
+				NOT = { trait = cynical }
+				}
+			random = {
+				chance = 25
+				add_trait = zealous
+			}	
+		}		
+		add_character_modifier = {
+			name = gehenna_prophecy_b_modifier
+			duration = 365
+		}	
+	}	
+		
+	option = {
+		name = "EVTOPTA_POD_CWOD_gehenna_seer_3" 
+		trigger = {
+			event_target:gehenna_seer = { has_character_flag = gehenna_prophecy_c } 
+		}
+		hidden_tooltip = { event_target:gehenna_seer = { clr_character_flag = gehenna_prophecy_c } }
+		piety = 10
+		if = {
+			limit = {
+				NOT = { trait = greedy }
+				NOT = { trait = charitable }
+				}
+			random = {
+				chance = 10
+				add_trait = greedy
+			}	
+		}		
+		if = {
+			limit = {
+				NOT = { trait = zealous }
+				NOT = { trait = cynical }
+				}
+			random = {
+				chance = 25
+				add_trait = zealous
+			}	
+		}		
+		add_character_modifier = {
+			name = gehenna_prophecy_c_modifier
+			duration = 365
+		}	
+	}
+
+	option = {
+		name = "EVTOPTA_POD_CWOD_gehenna_seer_3" 
+		trigger = {
+			event_target:gehenna_seer = { has_character_flag = gehenna_prophecy_d } 
+		}
+		hidden_tooltip = { event_target:gehenna_seer = { clr_character_flag = gehenna_prophecy_d } }
+		piety = 10
+		if = {
+			limit = {
+				NOT = { trait = gregarious }
+				NOT = { trait = shy }
+				}
+			random = {
+				chance = 10
+				add_trait = gregarious
+			}	
+		}			
+		if = {
+			limit = {
+				NOT = { trait = zealous }
+				NOT = { trait = cynical }
+				}
+			random = {
+				chance = 25
+				add_trait = zealous
+			}	
+		}		
+		add_character_modifier = {
+			name = gehanna_prophecy_d_modifier
+			duration = 365
+		}			
+	}	
+
+		option = {
+		name = "EVTOPTA_POD_CWOD_gehenna_seer_3" 
+		trigger = {
+			event_target:gehenna_seer = { has_character_flag = gehenna_prophecy_e } 
+		}
+		hidden_tooltip = { event_target:gehenna_seer = { clr_character_flag = gehenna_prophecy_e } }
+		piety = 100	
+		if = {
+			limit = {
+				NOT = { trait = zealous }
+				NOT = { trait = cynical }
+				}
+			random = {
+				chance = 25
+				add_trait = zealous
+			}	
+		}		
+		add_character_modifier = {
+			name = gehanna_prophecy_e_modifier
+			duration = 365
+		}			
+	}	
+
+		option = {
+		name = "EVTOPTA_POD_CWOD_gehenna_seer_3" 
+		trigger = {
+			event_target:gehenna_seer = { has_character_flag = gehenna_prophecy_f } 
+		}
+		hidden_tooltip = { event_target:gehenna_seer = { clr_character_flag = gehenna_prophecy_f } }
+		piety = 100	
+		if = {
+			limit = {
+				NOT = { trait = kind }
+				NOT = { trait = cruel }
+				}
+			random = {
+				chance = 10
+				add_trait = kind
+			}	
+		}		
+		if = {
+			limit = {
+				NOT = { trait = zealous }
+				NOT = { trait = cynical }
+				}
+			random = {
+				chance = 25
+				add_trait = zealous
+			}	
+		}		
+		add_character_modifier = {
+			name = gehanna_prophecy_f_modifier
+			duration = 365
+		}			
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_CWOD_gehenna_seer_3" 
+		trigger = {
+			event_target:gehenna_seer = { has_character_flag = gehenna_prophecy_g } 
+		}
+		hidden_tooltip = { event_target:gehenna_seer = { clr_character_flag = gehenna_prophecy_g } }
+		piety = 10
+		if = {
+			limit = {
+				NOT = { trait = wroth }
+				NOT = { trait = kind }
+				}
+			random = {
+				chance = 10
+				add_trait = wroth
+			}	
+		}		
+		if = {
+			limit = {
+				NOT = { trait = zealous }
+				NOT = { trait = cynical }
+				}
+			random = {
+				chance = 25
+				add_trait = zealous
+			}	
+		}		
+		add_character_modifier = {
+			name = gehenna_prophecy_g_modifier
+			duration = 365
+		}			
+	}	
+	
+	option = {
+		name = "EVTOPTA_POD_CWOD_gehenna_seer_3" 
+		trigger = {
+			event_target:gehenna_seer = { has_character_flag = gehenna_prophecy_h } 
+		}
+		hidden_tooltip = { event_target:gehenna_seer = { clr_character_flag = gehenna_prophecy_h } }
+		piety = 10
+		if = {
+			limit = {
+				NOT = { trait = wroth }
+				NOT = { trait = kind }
+				}
+			random = {
+				chance = 10
+				add_trait = wroth
+			}	
+		}		
+		if = {
+			limit = {
+				NOT = { trait = zealous }
+				NOT = { trait = cynical }
+				}
+			random = {
+				chance = 25
+				add_trait = zealous
+			}	
+		}		
+		add_character_modifier = {
+			name = gehenna_prophecy_h_modifier
+			duration = 365
+		}			
+	}	
+	
+	option = {
+		name = "EVTOPTA_POD_CWOD_gehenna_seer_3" 
+		trigger = {
+			event_target:gehenna_seer = { has_character_flag = gehenna_prophecy_i } 
+		}
+		hidden_tooltip = { event_target:gehenna_seer = { clr_character_flag = gehenna_prophecy_i } }
+		piety = 10
+		if = {
+			limit = {
+				NOT = { trait = paranoid }
+				NOT = { trait = trusting }
+				}
+			random = {
+				chance = 10
+				add_trait = paranoid
+			}	
+		}			
+		if = {
+			limit = {
+				NOT = { trait = zealous }
+				NOT = { trait = cynical }
+				}
+			random = {
+				chance = 25
+				add_trait = zealous
+			}	
+		}		
+		add_character_modifier = {
+			name = gehenna_prophecy_i_modifier
+			duration = 365
+		}	
+	}		
+	
+	option = {
+		name = "EVTOPTA_POD_CWOD_gehenna_seer_3" 
+		trigger = {
+			event_target:gehenna_seer = { has_character_flag = gehenna_prophecy_j } 
+		}
+		hidden_tooltip = { event_target:gehenna_seer = { clr_character_flag = gehenna_prophecy_j } }
+		piety = 10
+		if = {
+			limit = {
+				NOT = { trait = paranoid }
+				NOT = { trait = trusting }
+				}
+			random = {
+				chance = 10
+				add_trait = paranoid
+			}	
+		}			
+		if = {
+			limit = {
+				NOT = { trait = zealous }
+				NOT = { trait = cynical }
+				}
+			random = {
+				chance = 25
+				add_trait = zealous
+			}	
+		}		
+		add_character_modifier = {
+			name = gehenna_prophecy_j_modifier
+			duration = 365
+		}	
+	}			
+	
+	option = {
+		name = "EVTOPTA_POD_CWOD_gehenna_seer_3" 
+		trigger = {
+			event_target:gehenna_seer = { has_character_flag = gehenna_prophecy_k } 
+		}
+		hidden_tooltip = { event_target:gehenna_seer = { clr_character_flag = gehenna_prophecy_k } }
+		piety = 10
+		if = {
+			limit = {
+				NOT = { trait = greedy }
+				NOT = { trait = charitable }
+				}
+			random = {
+				chance = 10
+				add_trait = greedy
+			}	
+		}		
+		if = {
+			limit = {
+				NOT = { trait = zealous }
+				NOT = { trait = cynical }
+				}
+			random = {
+				chance = 25
+				add_trait = zealous
+			}	
+		}		
+		add_character_modifier = {
+			name = gehenna_prophecy_k_modifier
+			duration = 365
+		}	
+	}	
+	
+		option = {
+		name = "EVTOPTA_POD_CWOD_gehenna_seer_3" 
+		trigger = {
+			event_target:gehenna_seer = { has_character_flag = gehenna_prophecy_l } 
+		}
+		hidden_tooltip = { event_target:gehenna_seer = { clr_character_flag = gehenna_prophecy_l } }
+		piety = 100	
+		if = {
+			limit = {
+				NOT = { trait = zealous }
+				NOT = { trait = cynical }
+				}
+			random = {
+				chance = 25
+				add_trait = zealous
+			}	
+		}		
+		add_character_modifier = {
+			name = gehanna_prophecy_l_modifier
+			duration = 365
+		}			
+	}	
+
+	option = {
+		name = "EVTOPTA_POD_CWOD_gehenna_seer_3" 
+		trigger = {
+			event_target:gehenna_seer = { has_character_flag = gehenna_prophecy_m } 
+		}
+		hidden_tooltip = { event_target:gehenna_seer = { clr_character_flag = gehenna_prophecy_m } }
+		piety = 10
+		if = {
+			limit = {
+				NOT = { trait = greedy }
+				NOT = { trait = charitable }
+				}
+			random = {
+				chance = 10
+				add_trait = greedy
+			}	
+		}		
+		if = {
+			limit = {
+				NOT = { trait = zealous }
+				NOT = { trait = cynical }
+				}
+			random = {
+				chance = 25
+				add_trait = zealous
+			}	
+		}		
+		add_character_modifier = {
+			name = gehenna_prophecy_m_modifier
+			duration = 365
+		}	
+	}	
+	
+	option = {
+		name = "EVTOPTA_POD_CWOD_gehenna_seer_3" 
+		trigger = {
+			event_target:gehenna_seer = { has_character_flag = gehenna_prophecy_n } 
+		}
+		hidden_tooltip = { event_target:gehenna_seer = { clr_character_flag = gehenna_prophecy_n } }
+		piety = 10
+		if = {
+			limit = {
+				NOT = { trait = proud }
+				NOT = { trait = humble }
+				}
+			random = {
+				chance = 10
+				add_trait = proud
+			}	
+		}		
+		if = {
+			limit = {
+				NOT = { trait = zealous }
+				NOT = { trait = cynical }
+				}
+			random = {
+				chance = 25
+				add_trait = zealous
+			}	
+		}		
+		add_character_modifier = {
+			name = gehenna_prophecy_n_modifier
+			duration = 365
+		}	
+	}		
+	
+	option = {
+		name = "EVTOPTA_POD_CWOD_gehenna_seer_3" 
+		trigger = {
+			event_target:gehenna_seer = { has_character_flag = gehenna_prophecy_o } 
+		}
+		hidden_tooltip = { event_target:gehenna_seer = { clr_character_flag = gehenna_prophecy_o } }
+		piety = 10
+		if = {
+			limit = {
+				NOT = { trait = paranoid }
+				NOT = { trait = trusting }
+				}
+			random = {
+				chance = 10
+				add_trait = paranoid
+			}	
+		}			
+		if = {
+			limit = {
+				NOT = { trait = zealous }
+				NOT = { trait = cynical }
+				}
+			random = {
+				chance = 25
+				add_trait = zealous
+			}	
+		}		
+		add_character_modifier = {
+			name = gehenna_prophecy_o_modifier
+			duration = 365
+		}	
+	}	
+	
+	option = {
+		name = "EVTOPTA_POD_CWOD_gehenna_seer_3" 
+		trigger = {
+			event_target:gehenna_seer = { has_character_flag = gehenna_prophecy_p } 
+		}
+		hidden_tooltip = { event_target:gehenna_seer = { clr_character_flag = gehenna_prophecy_p } }
+		piety = 10
+		if = {
+			limit = {
+				NOT = { trait = greedy }
+				NOT = { trait = charitable }
+				}
+			random = {
+				chance = 10
+				add_trait = greedy
+			}	
+		}		
+		if = {
+			limit = {
+				NOT = { trait = zealous }
+				NOT = { trait = cynical }
+				}
+			random = {
+				chance = 25
+				add_trait = zealous
+			}	
+		}		
+		add_character_modifier = {
+			name = gehenna_prophecy_p_modifier
+			duration = 365
+		}	
+	}	
+	
+	option = {
+		name = "EVTOPTA_POD_CWOD_gehenna_seer_3" 
+		trigger = {
+			event_target:gehenna_seer = { has_character_flag = gehenna_prophecy_q } 
+		}
+		hidden_tooltip = { event_target:gehenna_seer = { clr_character_flag = gehenna_prophecy_q } }
+		piety = 10
+		if = {
+			limit = {
+				NOT = { trait = wroth }
+				NOT = { trait = kind }
+				}
+			random = {
+				chance = 10
+				add_trait = wroth
+			}	
+		}		
+		if = {
+			limit = {
+				NOT = { trait = zealous }
+				NOT = { trait = cynical }
+				}
+			random = {
+				chance = 25
+				add_trait = zealous
+			}	
+		}		
+		add_character_modifier = {
+			name = gehenna_prophecy_q_modifier
+			duration = 365
+		}			
+	}	
+	
+	option = {
+		name = "EVTOPTA_POD_CWOD_gehenna_seer_3" 
+		trigger = {
+			event_target:gehenna_seer = { has_character_flag = gehenna_prophecy_r } 
+		}
+		hidden_tooltip = { event_target:gehenna_seer = { clr_character_flag = gehenna_prophecy_r } }
+		piety = 10
+		if = {
+			limit = {
+				NOT = { trait = greedy }
+				NOT = { trait = charitable }
+				}
+			random = {
+				chance = 10
+				add_trait = greedy
+			}	
+		}		
+		if = {
+			limit = {
+				NOT = { trait = zealous }
+				NOT = { trait = cynical }
+				}
+			random = {
+				chance = 25
+				add_trait = zealous
+			}	
+		}		
+		add_character_modifier = {
+			name = gehenna_prophecy_r_modifier
+			duration = 365
+		}	
+	}		
+	
+	option = {
+		name = "EVTOPTA_POD_CWOD_gehenna_seer_3" 
+		trigger = {
+			event_target:gehenna_seer = { has_character_flag = gehenna_prophecy_s } 
+		}
+		hidden_tooltip = { event_target:gehenna_seer = { clr_character_flag = gehenna_prophecy_s } }
+		piety = 10
+		if = {
+			limit = {
+				NOT = { trait = wroth }
+				NOT = { trait = kind }
+				}
+			random = {
+				chance = 10
+				add_trait = wroth
+			}	
+		}		
+		if = {
+			limit = {
+				NOT = { trait = zealous }
+				NOT = { trait = cynical }
+				}
+			random = {
+				chance = 25
+				add_trait = zealous
+			}	
+		}		
+		add_character_modifier = {
+			name = gehenna_prophecy_s_modifier
+			duration = 365
+		}			
+	}	
+	
+		option = {
+		name = "EVTOPTA_POD_CWOD_gehenna_seer_3" 
+		trigger = {
+			event_target:gehenna_seer = { has_character_flag = gehenna_prophecy_t } 
+		}
+		hidden_tooltip = { event_target:gehenna_seer = { clr_character_flag = gehenna_prophecy_t } }
+		piety = 100	
+		if = {
+			limit = {
+				NOT = { trait = zealous }
+				NOT = { trait = cynical }
+				}
+			random = {
+				chance = 25
+				add_trait = zealous
+			}	
+		}		
+		add_character_modifier = {
+			name = gehanna_prophecy_t_modifier
+			duration = 365
+		}			
+	}		
+	
+	# Reject the Prophecy
+	option = {
+		name = "EVTOPTB_POD_CWOD_gehenna_seer_3" 
+		prestige = 10 
+		if = {
+			limit = {
+				NOT = { trait = cynical }
+				NOT = { trait = zealous }
+				}
+			random = {
+				chance = 25
+				add_trait = cynical
+			}	
+		}
+		event_target:gehenna_seer = {
+			trigger_switch = {
+				on_trigger = has_character_flag
+				gehenna_prophecy_a = { clr_character_flag = gehenna_prophecy_a }
+				gehenna_prophecy_b = { clr_character_flag = gehenna_prophecy_b }
+				gehenna_prophecy_c = { clr_character_flag = gehenna_prophecy_c }
+				gehenna_prophecy_d = { clr_character_flag = gehenna_prophecy_d }
+				gehenna_prophecy_e = { clr_character_flag = gehenna_prophecy_e }
+				gehenna_prophecy_f = { clr_character_flag = gehenna_prophecy_f }
+				gehenna_prophecy_g = { clr_character_flag = gehenna_prophecy_g }
+				gehenna_prophecy_h = { clr_character_flag = gehenna_prophecy_h }
+				gehenna_prophecy_i = { clr_character_flag = gehenna_prophecy_i }
+				gehenna_prophecy_j = { clr_character_flag = gehenna_prophecy_j }
+				gehenna_prophecy_k = { clr_character_flag = gehenna_prophecy_k }
+				gehenna_prophecy_l = { clr_character_flag = gehenna_prophecy_l }	
+				gehenna_prophecy_m = { clr_character_flag = gehenna_prophecy_m }
+				gehenna_prophecy_n = { clr_character_flag = gehenna_prophecy_n }
+				gehenna_prophecy_o = { clr_character_flag = gehenna_prophecy_o }
+				gehenna_prophecy_p = { clr_character_flag = gehenna_prophecy_p }
+				gehenna_prophecy_q = { clr_character_flag = gehenna_prophecy_q }
+				gehenna_prophecy_r = { clr_character_flag = gehenna_prophecy_r }
+				gehenna_prophecy_s = { clr_character_flag = gehenna_prophecy_s }
+			}
+		}
+	}	
+		
+}
+
+

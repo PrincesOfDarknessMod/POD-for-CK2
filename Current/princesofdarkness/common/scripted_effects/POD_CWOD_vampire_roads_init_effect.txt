@@ -18,7 +18,10 @@ POD_CWOD_vampire_roads_init_effect = {
 		random = {
 			chance = 75
 			if = { 
-				limit = { true_religion = ashirra }		
+				limit = { 
+					true_religion = ashirra
+					is_in_society = no
+				}		
 				random_list = {
 					25 = { join_society = tariq_el-umma }
 					10 = { join_society = tariq_el-sama }
@@ -38,12 +41,14 @@ POD_CWOD_vampire_roads_init_effect = {
 				limit = {
 					martial = 7
 					combat_rating = 7
+					is_in_society = no
 				}	
 				if = {
 					limit = { 
 						true_religion = ventrue_high
 						trait = ventrue
 						culture = german
+						is_in_society = no
 						OR = {
 							trait = neonate
 							trait = ancilla 
@@ -57,6 +62,7 @@ POD_CWOD_vampire_roads_init_effect = {
 					limit = { 
 						true_religion = toreador_high
 						trait = toreador
+						is_in_society = no
 						OR = {
 							culture = german
 							culture = scottish
@@ -78,7 +84,8 @@ POD_CWOD_vampire_roads_init_effect = {
 				if = {
 					limit = { 
 						trait = nosferatu
-						true_religion = nosferatulow							
+						true_religion = nosferatulow
+						is_in_society = no						
 					}
 					random_list = {
 						20 = { 
@@ -97,7 +104,8 @@ POD_CWOD_vampire_roads_init_effect = {
 						NOT = { true_religion = mayaparisataya }
 						NOT = { true_religion = assamite }
 						NOT = { true_religion = setite }
-						NOT = { trait = diabolist }					
+						NOT = { trait = diabolist }			
+						is_in_society = no
 					}
 					random_list = {
 						1 = { join_society = order_bitter_ashes }
@@ -111,6 +119,7 @@ POD_CWOD_vampire_roads_init_effect = {
 					limit = {
 						culture = italian
 						learning = 7 
+						is_in_society = no
 					}
 					random_list = {
 						25 = { 
@@ -120,7 +129,10 @@ POD_CWOD_vampire_roads_init_effect = {
 					}
 				}
 				if = {
-					limit = { diplomacy = 5 }
+					limit = { 
+						diplomacy = 5
+						is_in_society = no	
+					}
 					random_list = {
 						25 = { 
 							set_secret_religion = cainite 
@@ -128,17 +140,23 @@ POD_CWOD_vampire_roads_init_effect = {
 						}
 					}
 				}
-				else = { 
-					random_list = {
-						25 = { join_society = via_noctis }
-						5 = { join_society = via_regalis }
-						15 = { join_society = via_caeli }
+				else = {
+					if = {
+						limit = {
+							is_in_society = no
+						}
+						random_list = {
+							25 = { join_society = via_noctis }
+							5 = { join_society = via_regalis }
+							15 = { join_society = via_caeli }
+						}
 					}
 				}
 			}	
 			if = { 
 				limit = { 
 					true_religion = cappadocian_high
+					is_in_society = no
 				}
 				random_list = {
 					25 = { join_society = via_ossium }
@@ -146,10 +164,14 @@ POD_CWOD_vampire_roads_init_effect = {
 				}
 			}
 			if = { 
-				limit = { true_religion = ventrue_high }
+				limit = { 
+					true_religion = ventrue_high
+					is_in_society = no					
+				}
 				if = {
 					limit = {
 						culture = german
+						is_in_society = no
 						diplomacy = 5
 					}
 					random_list = {
@@ -157,7 +179,10 @@ POD_CWOD_vampire_roads_init_effect = {
 					}
 				}		
 				if = { 
-					limit = { true_religion = ventrue_high }
+					limit = { 
+					true_religion = ventrue_high
+					is_in_society = no
+					}
 					random_list = {
 						25 = { join_society = via_regalis }
 					}
@@ -169,16 +194,21 @@ POD_CWOD_vampire_roads_init_effect = {
 						true_religion = tremerelow
 						trait = tremere
 					}
+					is_in_society = no
 				}
 				random_list = {
 					50 = { join_society = code_of_tremere }
 				}
 			}	
 			if = { 
-				limit = { true_religion = baali }
+				limit = { 
+					is_in_society = no
+					true_religion = baali 
+				}
 				if = { 
 					limit = { 
 						NOT = { religion = baali }
+						is_in_society = no
 						secret_religion = baali 
 					}
 					random_list = {
@@ -186,61 +216,93 @@ POD_CWOD_vampire_roads_init_effect = {
 					}
 				}
 				else = {
-					random_list = {
-						75 = { join_society = via_hyron }
+					if = {
+						limit = {
+							is_in_society = no
+						}				
+						random_list = {
+							75 = { join_society = via_hyron }
+						}
 					}
 				}
 			}
 			if = { 
-				limit = { true_religion = anda }
+				limit = { 
+					is_in_society = no
+					true_religion = anda 
+				}
 				random_list = {
 					50 = { join_society = via_yasaq }
 				}
 			}	
 			if = { 
-				limit = { true_religion = einherjar }
+				limit = { 
+					is_in_society = no
+					true_religion = einherjar 
+				}
 				random_list = {
 					50 = { join_society = via_einherjar }
 				}
 			}		
 			if = { 
-				limit = { true_religion = noiad }
+				limit = { 
+					is_in_society = no
+					true_religion = noiad 
+				}
 				random_list = {
 					25 = { join_society = via_bestiae }
 				}
 			}		
 			if = { 
-				limit = { true_religion = koldun }
+				limit = { 
+					true_religion = koldun
+					is_in_society = no
+				}
 				random_list = {
 					50 = { join_society = via_mutationis }
 				}
 			}	
 			if = { 
-				limit = { true_religion = mayaparisataya }
+				limit = { 
+					is_in_society = no
+					true_religion = mayaparisataya 
+				}
 				random_list = {
 					50 = { join_society = via_paradoxi }
 				}
 			}		
 			if = { 
-				limit = { true_religion = assamite }
+				limit = { 
+					is_in_society = no
+					true_religion = assamite 
+				}
 				random_list = {
 					50 = { join_society = via_sanguinus }
 				}
 			}	
 			if = { 
-				limit = { true_religion = setite }
+				limit = { 
+					is_in_society = no
+					true_religion = setite 
+				}
 				random_list = {
 					50 = { join_society = via_serpentis }
 				}
 			}		
 			if = { 
-				limit = { true_religion = vampire_promethean }
+				limit = { 
+					is_in_society = no
+					true_religion = vampire_promethean 
+				}
 				random_list = {
 					25 = { join_society = via_humanitatis }		
 				}		
 			}	
 			if = { 
-				limit = { true_religion_group = vampire_low_clans }
+				limit = { 
+					is_in_society = no
+					true_religion_group = vampire_low_clans 
+				}
 				random_list = {
 					20 = { join_society = via_bestiae }		
 				}
