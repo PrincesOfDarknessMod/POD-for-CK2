@@ -817,6 +817,12 @@ character_event = {
 	prisoner = no
 	
 	trigger = {
+		NOT = { 
+			has_game_rule = {
+					name = culture_conversion 
+					value = by_era
+			}
+		}	
 		has_job_action = action_settle_tribe
 		NOT = { has_character_modifier = in_seclusion }
 		location = {

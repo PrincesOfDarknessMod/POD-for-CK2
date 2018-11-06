@@ -7,15 +7,113 @@
 
 namespace = POD_cultural_conversion
 
-# Renaissance
-province_event = {
+
+# era changer
+
+character_event = {
 	id = POD_cultural_conversion.1
+	hide_window = yes	
 	is_triggered_only = yes
-	hide_window = yes
 
 	trigger = {
-		year = 1450 #1360
-		NOT = { year = 1650 } #1370
+		trait = storyteller
+	}
+
+	immediate = {
+	
+		if = {
+			limit = { 
+				NOT = { has_global_flag = era_ancient }
+				NOT = { has_global_flag = era_medieval }
+				NOT = { has_global_flag = era_renaissance }
+				NOT = { has_global_flag = era_imperial }
+				NOT = { has_global_flag = era_industrial }
+				NOT = { has_global_flag = era_modern }			
+			}	
+			set_global_flag = era_medieval
+		}
+			
+
+		if = {
+			limit = { 
+				year = 1450
+				NOT = { year = 1650 }
+				NOT = { has_global_flag = era_ancient }
+				has_global_flag = era_medieval
+				NOT = { has_global_flag = era_renaissance }
+				NOT = { has_global_flag = era_imperial }
+				NOT = { has_global_flag = era_industrial }
+				NOT = { has_global_flag = era_modern }			
+			}
+			set_global_flag = era_renaissance	
+			clr_global_flag = era_medieval
+		}
+		
+		if = {
+			limit = { 
+				year = 1650
+				NOT = { year = 1850 } 
+				has_global_flag = era_renaissance
+				NOT = { has_global_flag = era_ancient }
+				NOT = { has_global_flag = era_medieval }
+				NOT = { has_global_flag = era_imperial }
+				NOT = { has_global_flag = era_industrial }
+				NOT = { has_global_flag = era_modern }			
+			}
+			set_global_flag = era_imperial
+			clr_global_flag = era_renaissance			
+		}		
+		
+		if = {
+			limit = { 
+				year = 1850
+				NOT = { year = 1900 }
+				has_global_flag = era_imperial
+				NOT = { has_global_flag = era_ancient }
+				NOT = { has_global_flag = era_medieval }
+				NOT = { has_global_flag = era_renaissance }
+				NOT = { has_global_flag = era_industrial }
+				NOT = { has_global_flag = era_modern }			
+			}
+			set_global_flag = era_industrial
+			clr_global_flag = era_imperial
+		}	
+
+		if = {
+			limit = { 
+				year = 1900
+				NOT = { year = 2077 }
+				has_global_flag = era_industrial
+				NOT = { has_global_flag = era_ancient }
+				NOT = { has_global_flag = era_medieval }
+				NOT = { has_global_flag = era_renaissance }
+				NOT = { has_global_flag = era_imperial }
+				NOT = { has_global_flag = era_modern }			
+			}
+			set_global_flag = era_modern
+			clr_global_flag = era_industrial
+		}			
+	
+	}
+}
+
+# era_renaissance
+
+province_event = {
+	id = POD_cultural_conversion.2
+	desc = EVTDESC_POD_cultural_conversion_2
+	picture = GFX_evt_ghoul_tag_team	
+	
+	trigger = {
+		NOT = { has_global_flag = era_ancient }
+		NOT = { has_global_flag = era_medieval }	
+		has_global_flag = era_renaissance 
+		NOT = { has_global_flag = era_imperial }
+		NOT = { has_global_flag = era_industrial }
+		NOT = { has_global_flag = era_modern }
+		year = 1450
+		NOT = { year = 1650 } 
+
 		OR = { 
 			culture = english
 			culture = irish
@@ -52,45 +150,72 @@ province_event = {
 			culture = hungarian
 			culture = ugricbaltic
 			culture = norse
-		}
+		}		
 	}
 
-	immediate = {
-		if = { 
-			limit = { 
-				region = custom_albania
-			} 
-			culture = rennalbanian	
-		}
-		
-		if = {
-			limit = {
-				region = custom_slovakia
-			}
-			culture = rennslovak
-		}
-		
-		if = {
-			limit = {
-				region = custom_slovenia
+	mean_time_to_happen = {
+		months = 1
+		modifier = {
+			factor = 0.3
+			OR = {
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots
 				}
-			culture = rennslovenian
-		}
-		
-		if = {
-			limit = {
-				region = custom_bosnia
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots_and_slower_normal
+				}
 			}
-			culture = rennbosnian
 		}
+	}
+	
+	option = {
+		name = EVTOPTA_POD_cultural_conversion_2
+		trigger = { region = custom_albania }
+		culture = rennalbanian	
+	}
+	
+	option = {
+		name = EVTOPTB_POD_cultural_conversion_2
+		trigger = { region = custom_bohemia }
+		culture = rennbohemian
+	}	
 		
-		if = {
-			limit = {
-				region = custom_macedonia
-			}
-			culture = rennmacedonian
-		}		
+	option = {
+		name = EVTOPTC_POD_cultural_conversion_2
+		trigger = { region = custom_slovakia }
+		culture = rennslovak
+	}
 		
+	option = {
+		name = EVTOPTD_POD_cultural_conversion_2
+		trigger = { region = custom_slovenia }
+		culture = rennslovenian
+	}	
+			
+	option = {
+		name = EVTOPTE_POD_cultural_conversion_2
+		trigger = { region = custom_bosnia }
+		culture = rennbosnian
+	}		
+
+	option = {
+		name = EVTOPTF_POD_cultural_conversion_2
+		trigger = { region = custom_macedonia}
+		culture = rennmacedonian
+	}		
+
+	option = {
+		name = EVTOPTG_POD_cultural_conversion_2
+		trigger = { 
+			NOT = { region = custom_albania }
+			NOT = { region = custom_slovakia }
+			NOT = { region = custom_bohemia }
+			NOT = { region = custom_slovenia }
+			NOT = { region = custom_bosnia }
+			NOT = { region = custom_macedonia }
+		}	
 		trigger_switch = {
 			on_trigger = culture
 			english = { culture = rennenglish }
@@ -127,22 +252,29 @@ province_event = {
 			hungarian = { culture = rennhungarian }
 			macedonian = { culture = rennmacedonian }
 			ugricbaltic = { culture = rennugricbaltic }
-			norse = { culture = rennswedish }
+			norse = { culture = rennswedish }		
 		}
-			
-	}	
+
+	}
 }
 
 
-# Colonial
+# Colonial / Imperial
 province_event = {
-	id = POD_cultural_conversion.2
-	is_triggered_only = yes
-	hide_window = yes
-
+	id = POD_cultural_conversion.3
+	desc = EVTDESC_POD_cultural_conversion_3
+	picture = GFX_evt_ghoul_dies_defending	
+	
 	trigger = {
-		year = 1650 # 1370 
-		NOT = { year = 1850 } #1380
+		year = 1650 
+		NOT = { year = 1850 } 
+		NOT = { has_global_flag = era_ancient }
+		NOT = { has_global_flag = era_medieval }	
+		NOT = { has_global_flag = era_renaissance }
+		has_global_flag = era_imperial
+		NOT = { has_global_flag = era_industrial }
+		NOT = { has_global_flag = era_modern }
+		
 		OR = { 
 			culture = english
 			culture = irish
@@ -221,45 +353,71 @@ province_event = {
 		}
 	}
 
-	immediate = {
-		
-		if = { 
-			limit = { 
-				region = custom_albania
-			} 
-			culture = colonialalbanian	
-		}
-		
-		if = {
-			limit = {
-				region = custom_slovakia
-			}
-			culture = colonialslovak
-		}
-		
-		if = {
-			limit = {
-				region = custom_slovenia
+	mean_time_to_happen = {
+		months = 1
+		modifier = {
+			factor = 0.3
+			OR = {
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots
 				}
-			culture = colonialslovenian
-		}
-		
-		if = {
-			limit = {
-				region = custom_bosnia
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots_and_slower_normal
+				}
 			}
-			culture = colonialbosnian
 		}
+	}
+	
+	option = {
+		name = EVTOPTA_POD_cultural_conversion_3
+		trigger = { region = custom_albania }
+		culture = colonialalbanian
+	}	
 		
-		if = {
-			limit = {
-				region = custom_macedonia
-			}
-			culture = colonialmacedonian
-		}		
+	option = {
+		name = EVTOPTB_POD_cultural_conversion_3
+		trigger = { region = custom_bohemia }
+		culture = colonialbohemian
+	}			
 		
+	option = {
+		name = EVTOPTC_POD_cultural_conversion_3
+		trigger = { region = custom_slovakia }
+		culture = colonialslovak
+	}	
+			
+	option = {
+		name = EVTOPTD_POD_cultural_conversion_3
+		trigger = { region = custom_slovenia }
+		culture = colonialslovenian
+	}	
+	
+	option = {
+		name = EVTOPTE_POD_cultural_conversion_3
+		trigger = { region = custom_bosnia }
+		culture = colonialmacedonian
+	}		
+
+	option = {
+		name = EVTOPTF_POD_cultural_conversion_3
+		trigger = { region = custom_macedonia }
+		culture = colonialmacedonian
+	}		
+
+	option = {
+		name = EVTOPTG_POD_cultural_conversion_3
+		trigger = { 
+			NOT = { region = custom_albania }
+			NOT = { region = custom_slovakia }
+			NOT = { region = custom_bohemia }
+			NOT = { region = custom_slovenia }
+			NOT = { region = custom_bosnia }
+			NOT = { region = custom_macedonia }
+		}	
 		trigger_switch = {
-			on_trigger = culture
+		on_trigger = culture	
 			english = { culture = colonialenglish }
 			irish = { culture = colonialirish }
 			scottish = { culture = colonialscottish }
@@ -331,20 +489,25 @@ province_event = {
 			rennslovenian = { culture = colonialslovenian }
 			rennbosnian = { culture = colonialbosnian }
 			rennmacedonian = { culture = colonialmacedonian }
-		}		
-		
-	}
+			}
+		}
 }	
 
 # Industrial
 province_event = {
-	id = POD_cultural_conversion.3
-	is_triggered_only = yes
-	hide_window = yes
-
+	id = POD_cultural_conversion.4
+	desc = EVTDESC_POD_cultural_conversion_4
+	picture = GFX_evt_moor_arches
+	
 	trigger = {
-		year = 1860 #1380 
-		NOT = { year = 1900 } #1390
+		NOT = { has_global_flag = era_ancient }
+		NOT = { has_global_flag = era_medieval }	
+		NOT = { has_global_flag = era_renaissance }
+		NOT = { has_global_flag = era_imperial }
+		has_global_flag = era_industrial 
+		NOT = { has_global_flag = era_modern }
+		year = 1850 
+		NOT = { year = 1900 } 
 		OR = { 
 			culture = english
 			culture = irish
@@ -457,43 +620,90 @@ province_event = {
 		}
 	}
 
-	immediate = {
-		
-		if = { 
-			limit = { 
-				region = custom_albania
-			} 
-			culture = industrialalbanian	
-		}
-		
-		if = {
-			limit = {
-				region = custom_slovakia
-			}
-			culture = industrialslovak
-		}
-		
-		if = {
-			limit = {
-				region = custom_slovenia
+	mean_time_to_happen = {
+		months = 1
+		modifier = {
+			factor = 0.3
+			OR = {
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots
 				}
-			culture = industrialslovenian
-		}
-		
-		if = {
-			limit = {
-				region = custom_bosnia
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots_and_slower_normal
+				}
 			}
-			culture = industrialbosnian
 		}
+	}
+	
+	option = {
+		name = EVTOPTA_POD_cultural_conversion_4
+		trigger = { region = custom_albania }
+		culture = industrialalbanian
+	}	
+	
+	option = {
+		name = EVTOPTB_POD_cultural_conversion_4
+		trigger = { region = custom_slovakia }
+		culture = industrialslovak
+	}	
 		
-		if = {
-			limit = {
-				region = custom_macedonia
-			}
-			culture = industrialmacedonian
-		}
+	option = {
+		name = EVTOPTC_POD_cultural_conversion_4
+		trigger = { region = custom_slovenia }
+		culture = industrialslovenian
+	}			
 		
+	option = {
+		name = EVTOPTD_POD_cultural_conversion_4
+		trigger = { region = custom_bosnia }
+		culture = modernbosnian
+	}	
+	
+	option = {
+		name = EVTOPTE_POD_cultural_conversion_4
+		trigger = { region = custom_macedonia }
+		culture =industrialmacedonian
+	}			
+
+	
+	option = {
+		name = EVTOPTF_POD_cultural_conversion_4
+		trigger = { region = custom_moderngreaterbohemia }
+		culture = industrialbohemian
+	}
+
+	option = {
+		name = EVTOPTG_POD_cultural_conversion_4
+		trigger = { region = custom_moderngreaterpoland }
+		culture = industrialpolish
+	}		
+
+	option = {
+		name = EVTOPTH_POD_cultural_conversion_4
+		trigger = { region = custom_moderngreatergermany }
+		culture = industrialgerman
+	}		
+
+	option = {
+		name = EVTOPTI_POD_cultural_conversion_4
+		trigger = { 
+			NOT = { region = custom_albania }
+			NOT = { region = custom_slovakia }
+			NOT = { region = custom_slovenia }
+			NOT = { region = custom_bosnia }
+			NOT = { region = custom_macedonia }
+			NOT = { region = custom_belarussia }
+			NOT = { region = custom_ukraine }
+			NOT = { region = custom_modernaremenia }
+			NOT = { region = custom_moderngreaterturkey }
+			NOT = { region = custom_moderngreateravar }
+			NOT = { region = custom_moderngreaterbohemia }
+			NOT = { region = custom_moderngreaterrussia }
+			NOT = { region = custom_moderngreaterpoland }
+			NOT = {	region = custom_moderngreatergermany }
+		}	
 		trigger_switch = {
 		on_trigger = culture
 		english = { culture = industrialenglish }
@@ -604,20 +814,26 @@ province_event = {
 		colonialslovenian = { culture = industrialslovenian }
 		colonialbosnian = { culture = industrialbosnian }
 		colonialmacedonian = { culture = industrialmacedonian }		
-		}			
+		}		
 	}
 }	
 
 # Modern
 province_event = {
-	id = POD_cultural_conversion.4
-	is_triggered_only = yes
-	hide_window = yes
-
+	id = POD_cultural_conversion.5
+	desc = EVTDESC_POD_cultural_conversion_5
+	picture = GFX_evt_vampire_moody_landscape	
+	
 	trigger = {
-		year = 1900 #1390
+		NOT = { has_global_flag = era_ancient }
+		NOT = { has_global_flag = era_medieval }	
+		NOT = { has_global_flag = era_renaissance }
+		NOT = { has_global_flag = era_imperial }
+		NOT = { has_global_flag = era_industrial }
+		has_global_flag = era_modern 
+		year = 1900 
 		NOT = { year = 1950 } 
-		OR= { 
+		OR = { 
 			culture = maghreb_arabic
 			culture = bedouin_arabic
 			culture = levantine_arabic
@@ -806,106 +1022,132 @@ province_event = {
 			culture = industrialugricbaltic	
 		}
 	}
-
-	immediate = {
-		
-		if = { 
-			limit = { 
-				region = custom_albania
-			} 
-			culture = modernalbanian	
-		}
-		
-		if = {
-			limit = {
-				region = custom_slovakia
-			}
-			culture = modernslovak
-		}
-		
-		if = {
-			limit = {
-				region = custom_slovenia
+	
+	mean_time_to_happen = {
+		months = 1
+		modifier = {
+			factor = 0.3
+			OR = {
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots
 				}
-			culture = modernslovenian
-		}
-		
-		if = {
-			limit = {
-				region = custom_bosnia
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots_and_slower_normal
+				}
 			}
-			culture = modernbosnian
 		}
+	}	
+	
+	option = {
+		name = EVTOPTA_POD_cultural_conversion_5
+		trigger = { region = custom_albania }
+		culture = modernalbanian
+	}	
+	
+	option = {
+		name = EVTOPTB_POD_cultural_conversion_5
+		trigger = { region = custom_slovakia }
+		culture = modernslovak
+	}	
 		
-		if = {
-			limit = {
-				region = custom_macedonia
-			}
-			culture = modernmacedonian
-		}
+	option = {
+		name = EVTOPTC_POD_cultural_conversion_5
+		trigger = { region = custom_slovenia }
+		culture = modernslovenian
+	}			
+		
+	option = {
+		name = EVTOPTD_POD_cultural_conversion_5
+		trigger = { region = custom_bosnia }
+		culture = modernbosnian
+	}	
+	
+	option = {
+		name = EVTOPTE_POD_cultural_conversion_5
+		trigger = { region = custom_macedonia }
+		culture = modernmacedonian
+	}	
+	
+	option = {
+		name = EVTOPTF_POD_cultural_conversion_5
+		trigger = { region = custom_modernaremenia }
+		culture = modernarmenian
+	}	
+	
+	option = {
+		name = EVTOPTG_POD_cultural_conversion_5
+		trigger = { region = custom_moderngreateravar }
+		culture = modernalan
+	}		
+			
+	option = {
+		name = EVTOPTH_POD_cultural_conversion_5
+		trigger = { region = custom_moderngreaterturkey }
+		culture = modernturkish
+	}			
+	
+	option = {
+		name = EVTOPTI_POD_cultural_conversion_5
+		trigger = { region = custom_moderngreaterbohemia }
+		culture = modernbohemian
+	}
 
-		if = {
-			limit = {
-				region = custom_belarussia
-			}
-			culture = modernbelarusian
-		}
-		
-		if = {
-			limit = {
-				region = custom_ukraine
-			}
-			culture = modernukrainian
-		}		
-		
-		if = {
-			limit = {
-				region = custom_modernaremenia
-			}
-			culture = modernarmenian
-		}			
-		
-		if = {
-			limit = {
-				region = custom_moderngreaterturkey
-			}
-			culture =  modernturkish
-		}
-		
-		if = { 
-			limit = {
-				region = custom_moderngreateravar
-			}
-			culture = modernalan
-		}
-		
-		if = {
-			limit = {
-				region = custom_moderngreaterbohemia	
-			}
-			culture = modern_bohemian
-		}
+	option = {
+		name = EVTOPTJ_POD_cultural_conversion_5
+		trigger = { region = custom_belarussia }
+		culture = modernbelarusian
+	}	
+	
+	option = {
+		name = EVTOPTK_POD_cultural_conversion_5
+		trigger = { region = custom_ukraine }
+		culture = modernukrainian
+	}
+	
+	option = {
+		name = EVTOPTL_POD_cultural_conversion_5
+		trigger = { region = custom_moderngreaterrussia }
+		culture = modernrussian
+	}
 
+	option = {
+		name = EVTOPTM_POD_cultural_conversion_5
+		trigger = { region = custom_moderngreaterpoland }
+		culture = modernpolish
+	}		
+
+	option = {
+		name = EVTOPTN_POD_cultural_conversion_5
+		trigger = { region = custom_moderngreatergermany }
+		culture = moderngerman
+	}	
 		
-		if = {
-			limit = {
-				region = custom_moderngreaterrussia
-			}
-			culture = modernrussian
-		}
-		
-		if = {
-			limit = {
-				region = custom_moderngreaterpoland	
-			}	
-			culture = modernpolish
-		}
-		
-		if = {
-			limit = {
-				region = custom_moderngreatergermany
-			}
-			culture = moderngerman
+	option = {
+		name = EVTOPTO_POD_cultural_conversion_5
+		trigger = { region = custom_moderngreateravar }
+		culture = modernalan
+	}	
+	option = {
+		name = EVTOPTP_POD_cultural_conversion_5
+		trigger = { 
+			NOT = { region = custom_albania }
+			NOT = { region = custom_slovakia }
+			NOT = { region = custom_slovenia }
+			NOT = { region = custom_bosnia }
+			NOT = { region = custom_macedonia }
+			NOT = { region = custom_belarussia }
+			NOT = { region = custom_ukraine }
+			NOT = { region = custom_modernaremenia }
+			NOT = { region = custom_moderngreaterturkey }
+			NOT = { region = custom_moderngreateravar }
+			NOT = { region = custom_moderngreaterbohemia }
+			NOT = { region = custom_moderngreaterrussia }
+			NOT = { region = custom_moderngreaterpoland }
+			NOT = {	region = custom_moderngreatergermany }
+			NOT = {	region = custom_moderngreateravar }
+			
 		}
 		
 		trigger_switch = {
@@ -960,7 +1202,6 @@ province_event = {
 		lappish = { culture = modernlappish }
 		georgian = { culture = moderngeorgian }
 		alan = { culture = modernalan }
-		nenets = { culture = modernnenets }
 		bolghar = { culture = modernbolghar }
 		afghan = { culture = modernafghan }
 		mongol = { culture = modernmongol }
@@ -1024,7 +1265,7 @@ province_event = {
 		rennmacedonian = { culture = modernmacedonian }
 		rennslovenian = { culture = modernslovenian }
 		rennalbanian = { culture = modernalbanian }
-		rennbosnian = { culture = moderbosnian }
+		rennbosnian = { culture = modernbosnian }
 		rennugricbaltic = { culture = modernugricbaltic }
 		colonialenglish = { culture = modernenglish }
 		colonialirish = { culture = modernirish }
@@ -1102,26 +1343,55 @@ province_event = {
 		industrialugricbaltic = { culture = modernugricbaltic }
 		industrialalbanian = { culture = modernalbanian }
 		industrialbosnian = { culture = modernbosnian }
-		}		
-	}
+		}
+	}		
+		
 }	
 
-# Modern
+# Modern Israel is formed
 province_event = {
-	id = POD_cultural_conversion.5
+	id = POD_cultural_conversion.6
+	desc = EVTDESC_POD_cultural_conversion_6
+	picture = GFX_evt_vampire_manor_i
 	is_triggered_only = yes
-	hide_window = yes
-
+	
 	trigger = {
-		year = 1950 #1395
-		NOT = { year = 1960 } #1400
+		NOT = { has_global_flag = era_ancient }
+		NOT = { has_global_flag = era_medieval }	
+		NOT = { has_global_flag = era_renaissance }
+		NOT = { has_global_flag = era_imperial }
+		NOT = { has_global_flag = era_industrial }
+		has_global_flag = era_modern 	
+		year = 1950 
+		NOT = { year = 1970 } 
 		region = custom_israel
+		NOT = { culture = modernashkenazi }
+		OR = { 
+			culture = levantine_arabic
+			culture = modernlevantine_arabic
+		}
 	}
-
-	immediate = {	
-		if = { 
-			limit = { region = custom_israel }
-			culture = modernashkenazi
+	
+	mean_time_to_happen = {
+		months = 1
+		modifier = {
+			factor = 0.3
+			OR = {
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots
+				}
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots_and_slower_normal
+				}
 			}
+		}
+	}	
+
+	option = {
+		name = EVTOPTA_POD_cultural_conversion_6
+		culture = modernashkenazi
 	}
+	
 }
