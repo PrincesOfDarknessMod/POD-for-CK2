@@ -1,6 +1,9 @@
 POD_CWOD_vampire_jyhad_diaries_province_init_effect = {
+
 	any_province = {
 		limit = { 
+			has_global_flag = bookmark2015
+			NOT = { has_province_flag = POD_CWOD_province_supe_religion	}
 			NOT = {
 				OR = { 
 					religion_group = bloodlines_group
@@ -31,7 +34,7 @@ POD_CWOD_vampire_jyhad_diaries_province_init_effect = {
 			}
 		}
 
-
+		
 			if = { 
 					limit = { 
 							region = world_europe
@@ -633,6 +636,8 @@ POD_CWOD_vampire_jyhad_diaries_province_init_effect = {
 				}
 			}	
 
+			
+			
 # Venice
 			if = { 
 				limit = { 
@@ -644,6 +649,23 @@ POD_CWOD_vampire_jyhad_diaries_province_init_effect = {
 				religion = giovanni
 			}	
 
+# Inconnu Switzerland
+
+			if = { 
+				limit = { 
+					OR = {
+						de_jure_liege = d_upper_burgundy
+						de_jure_liege = d_savoie
+					}
+				}
+				random_list = {																										
+					85 = { religion = inconnu }
+					5 = { religion = masquerade_camarilla }
+					5 = { religion = anarchs }
+					5 = { religion = autarkis }
+				}
+			}			
+			
 # Mecca and Medina
 
 			if  = {
@@ -664,6 +686,7 @@ POD_CWOD_vampire_jyhad_diaries_clan_init_effect = {
 
 	if = { 
 		limit = {
+			has_global_flag = bookmark2015
 			NOT = { trait = assamite }
 			NOT = { trait = brujah }
 			NOT = { trait = cappadocian }

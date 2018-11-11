@@ -28,17 +28,18 @@ if = {
 		NOT = { trait = player_childe }
 		ai = yes
 		}
+		save_event_target_as = old_dynasty_character
 			create_character = {
 				random_traits = yes
 				age = 30
-				culture = ROOT
-				religion = ROOT
+				culture = event_target:old_dynasty_character
+				religion = event_target:old_dynasty_character
 				dynasty = actually_culture
 			}
 						
 			new_character = {
 				save_event_target_as = new_dynasty_character
-				ROOT = { 
+				event_target:old_dynasty_character = { 
 					dynasty = event_target:new_dynasty_character
 				}							
 				clear_event_target = event_target:new_dynasty_character
@@ -256,7 +257,8 @@ if = {
 					has_global_flag = bookmark1230
 					has_global_flag = bookmark1466
 					has_global_flag = bookmark1350
-					has_global_flag = bookmark1355	
+					has_global_flag = bookmark1355
+					has_global_flag = bookmark2015
 					}
 					NOT = { trait = ancient }
 					NOT = { trait = methuselah }

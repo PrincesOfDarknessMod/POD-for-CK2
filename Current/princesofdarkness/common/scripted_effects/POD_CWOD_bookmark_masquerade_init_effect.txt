@@ -2,19 +2,13 @@ POD_CWOD_bookmark_masquerade_init_effect = {
 
 # 1505-1506 Sabbat vs. Camarilla
 
-	any_province = {
-		limit = { 
-			OR = { 
-					has_global_flag = bookmark1505
-					has_global_flag = bookmark1506 
-			}
-					NOT = { has_CWOD_clan_trigger = yes }		
-			NOT = {
-				OR = { 
-					religion_group = bloodlines_group
-					religion_group = talmahera_group
-					religion_group = ashirra_vampire_group
+		any_province = {
+			limit = { 
+				NOR = { 				
+					has_province_flag = POD_CWOD_province_supe_religion
+					religion_group = vampire_high_clans_group
 					religion_group = vampire_low_clans_group
+					religion_group = ashirra_vampire_group
 					religion_group = baali_group
 					religion_group = masquerade_camarilla_group
 					religion_group = sabbat_group
@@ -26,20 +20,19 @@ POD_CWOD_bookmark_masquerade_init_effect = {
 					religion_group = daedalan_group
 					religion_group = magical_traditions_group
 					religion = laibon
-					religion = orphan 
+					religion = orphan 				
 					religion_group = mummy_group
 					religion_group = promethean_group
 					religion_group = demon_group
 					religion_group = stygian_group
 					religion_group = malfean_group
-					religion_group = changeling_group
+					religion_group = changeling_group	
 					religion_group = seasons_courts_group
 					religion_group = hunter_group
-				}
+				}			
 			}
-		}
-
-
+		
+			
 			if = { 
 					limit = { 
 							region = world_europe
@@ -49,7 +42,7 @@ POD_CWOD_bookmark_masquerade_init_effect = {
 						30 = { religion = sabbat }
 						10 = { religion = silver_fangs }
 						10 = { religion = anarchs }
-						 5 = { religion = inconnu }
+						5 = { religion = inconnu }
 					}
 				}		
 				
@@ -195,9 +188,9 @@ POD_CWOD_bookmark_masquerade_init_effect = {
 						region = world_middle_east
 					} 
 					random_list = {				
-						40 = { religion = ashirra }
-						25 = { religion = assamite }
-						25 = { religion = setite }
+						50 = { religion = ashirra }
+						20 = { religion = assamite }
+						20 = { religion = setite }
 						10 = { religion = silent_striders }
 					}
 				}		
@@ -213,6 +206,19 @@ POD_CWOD_bookmark_masquerade_init_effect = {
 						5 = { religion = silent_striders }
 						15 = { religion = shadow_lords }
 						5 = { religion = inconnu }
+					}
+				}	
+
+			if = { 
+				limit = { 
+						region = world_persia
+					} 
+					random_list = {				
+						20 = { religion = ashirra }
+						40 = { religion = assamite }
+						20 = { religion = setite }
+						10 = { religion = silent_striders }
+						10 = { religion = autarkis }	
 					}
 				}				
 				
@@ -234,10 +240,11 @@ POD_CWOD_bookmark_masquerade_init_effect = {
 					} 
 					random_list = {				
 						20 = { religion = ashirra }
-						50 = { religion = laibon }
+						40 = { religion = laibon }
 						20 = { religion = setite }
 						10 = { religion = silent_striders }
 						10 = { religion = anarchs }
+						10 = { religion = autarkis }
 					}
 			}	
 
@@ -595,6 +602,66 @@ POD_CWOD_bookmark_masquerade_init_effect = {
 					50 = { religion = masquerade_camarilla }		
 				}
 			}	
+
+# Sicily		
+			if = { 
+				limit = { 
+					OR = {
+						de_jure_liege = d_sicily
+						de_jure_liege = d_calabria
+						}
+				}
+				random_list = {																										
+					20 = { religion = sabbat }
+					50 = { religion = masquerade_camarilla }
+					10 = { religion = anarchs }
+					10 = { religion = autarkis }
+					10 = { religion = giovanni }
+				}
+			}
+
+# Inconnu Switzerland
+
+			if = { 
+				limit = { 
+					OR = {
+						de_jure_liege = d_upper_burgundy
+						de_jure_liege = d_savoie
+						de_jure_liege = d_dauphine
+					}
+				}
+				random_list = {																										
+					85 = { religion = inconnu }
+					5 = { religion = masquerade_camarilla }
+					5 = { religion = anarchs }
+					5 = { religion = autarkis }
+				}
+			}
+# Greater Venice
+			if = { 
+				limit = { 
+					OR = {
+						de_jure_liege = d_venice
+						de_jure_liege = d_carinthia
+						de_jure_liege = d_ferrara
+						}
+				}
+				religion = giovanni
+			}
+			
+# Mecca and Medina
+
+			if  = {
+				limit = {
+					de_jure_liege = d_medina
+				}
+				religion = ashirra
+			}
+			
+		set_province_flag = POD_CWOD_province_supe_religion
+	}
+	
+			set_province_flag = POD_CWOD_province_supe_religion	
 		}
 	}
 	

@@ -13,6 +13,7 @@ character_event = {
 	}
 
 	immediate = {
+		set_global_flag =  princesofdarkness_mod_running
 		character_event = { id = storyteller.2 days = 1 } #allows the other initialisation events to take effect, and precludes them afterwards.
 		character_event = { id = storyteller.13 days = 10} #allows the other initialisation events to take effect, and precludes them afterwards.
 		c_ile_de_france = {
@@ -30,7 +31,7 @@ character_event = {
 			}
 			set_global_flag = bookmark232
 			set_global_flag = era_ancient
-		}	
+		}
 		if = { 
 			limit = {
 				 trait = "bookmark412"
@@ -64,15 +65,7 @@ character_event = {
 				 trait = "bookmark767"
 			}
 			set_global_flag = bookmark767
-		#	narrative_event = { id = storyteller.5 } # All counts
-		#	any_title = {
-		#		limit = { tier = count }
-		#		location = {
-		#			province_event = {
-		#				id = storyteller.9
-		#			}
-		#		}
-		#	}
+			set_global_flag = era_medieval
 		}	
 		if = { 
 			limit = {
@@ -94,14 +87,7 @@ character_event = {
 				 trait = "bookmark1142"
 			}
 			set_global_flag = bookmark1142
-		#	any_title = {
-		#		limit = { tier = count }
-		#		location = {
-		#			province_event = {
-		#				id = storyteller.3
-		#			}
-		#		}
-		#	}
+
 		}		
 		if = { 
 			limit = {
@@ -123,7 +109,7 @@ character_event = {
 				 trait = "bookmark1230"
 			}
 			set_global_flag = bookmark1230
-			set_global_flag = era_medieval
+			set_global_flag = era_medieval 
 			any_player = {
 				narrative_event = { id = POD_narrative_events.6 days = 720 }
 			}
@@ -133,15 +119,7 @@ character_event = {
 				 trait = "bookmark1250"
 			}
 			set_global_flag = bookmark1250
-		#	narrative_event = { id = storyteller.5 } # All counts
-		#	any_title = {
-		#		limit = { tier = count }
-		#		location = {
-		#			province_event = {
-		#				id = storyteller.4
-		#			}
-		#		}
-		#	}
+
 		}				
 		
 		if = { 
@@ -173,15 +151,6 @@ character_event = {
 			}
 			set_global_flag = bookmark1355
 			set_global_flag = era_medieval
-		#	narrative_event = { id = storyteller.5 } # All counts
-		#	any_title = {
-		#		limit = { tier = count }
-		#		location = {
-		#			province_event = {
-		#				id = storyteller.7
-		#			}
-		#		}
-		#	}
 		}		
 		if = { 
 			limit = {
@@ -189,15 +158,6 @@ character_event = {
 			}
 			set_global_flag = bookmark1466
 			set_global_flag = era_renaissance
-		#	narrative_event = { id = storyteller.5 } # All counts
-		#	any_title = {
-		#		limit = { tier = count }
-		#		location = {
-		#			province_event = {
-		#				id = storyteller.10
-		#			}
-		#		}
-		#	}
 		}
 		
 		if = { 
@@ -214,16 +174,6 @@ character_event = {
 			}
 			set_global_flag = bookmark1506
 			set_global_flag = era_renaissance
-			
-		#	narrative_event = { id = storyteller.5 } # All counts
-		#	any_title = {
-		#		limit = { tier = count }
-		#		location = {
-		#			province_event = {
-		#				id = storyteller.6
-		#			}
-		#		}
-		#	}
 		}	
 		
 		if = { 
@@ -231,15 +181,7 @@ character_event = {
 				 trait = "bookmark1533"
 			}
 			set_global_flag = bookmark1533
-		#	narrative_event = { id = storyteller.5 } # All counts
-		#	any_title = {
-		#		limit = { tier = count }
-		#		location = {
-		#			province_event = {
-		#				id = storyteller.11
-		#			}
-		#		}
-		#	}
+			set_global_flag = era_renaissance
 		}	
 		if = { 
 			limit = {
@@ -2002,58 +1944,6 @@ narrative_event = {
 		}
 	}
 }	
-
-#1505/1506 CE Convention of Thorns / Shattered Sects (VTM/CWOD) Shattered World
-character_event = {
-	id = storyteller.6	
-	hide_window = yes	
-	is_triggered_only = yes
-	only_playable = yes
-	
-	trigger = {
-		is_save_game = no	
-		OR = { 
-			has_global_flag = bookmark1505
-			has_global_flag = bookmark1506 
-		}
-		
-		
-		any_province = {	
-			NOT = {
-				OR = { 
-				religion_group = ashirra_vampire_group
-				religion_group = vampire_low_clans_group
-				religion_group = baali_group
-				religion_group = masquerade_camarilla_group
-				religion_group = sabbat_group
-				religion_group = inconnu_group
-				religion_group = masquerade_independent_group
-				religion_group = garou_group
-				religion_group = wyrm_group 
-				religion_group = order_of_reason_group
-				religion_group = daedalan_group
-				religion_group = magical_traditions_group
-				religion = laibon
-				religion = orphan 
-				religion_group = mummy_group
-				religion_group = promethean_group
-				religion_group = demon_group
-				religion_group = stygian_group
-				religion_group = malfean_group
-				religion_group = changeling_group	
-				religion_group = seasons_courts_group
-			}
-			}
-		}
-	}	
-
-
-	immediate = {
-				POD_CWOD_vampire_sabbat_province_init_effect = yes 
-			
-	}
-		
-}
 
 
 #1355 After the Black Death (DAV/VTM/CWOD) Shattered World
@@ -5377,6 +5267,7 @@ character_event = {
 		OR = { 
 			has_global_flag = bookmark2015
 		}
+		NOT = { has_province_flag = POD_CWOD_province_supe_religion	}
 		
 		any_province = {	
 			NOT = {
@@ -5421,3 +5312,87 @@ character_event = {
 		
 }
 
+
+#1505/1506 CE Convention of Thorns / Shattered Sects (VTM/CWOD) Shattered World
+
+character_event = {
+	id = storyteller.6	
+	hide_window = yes	
+	is_triggered_only = yes
+	only_playable = yes
+	
+	trigger = {
+		is_save_game = no	
+		OR = { 
+			has_global_flag = bookmark1505
+			has_global_flag = bookmark1506
+		}
+		NOT = { has_province_flag = POD_CWOD_province_supe_religion	}
+		
+		any_province = {	
+			NOT = {
+				OR = { 
+				religion_group = bloodlines_group
+				religion_group = talmahera_group
+				religion_group = ashirra_vampire_group
+				religion_group = vampire_low_clans_group
+				religion_group = baali_group
+				religion_group = masquerade_camarilla_group
+				religion_group = sabbat_group
+				religion_group = inconnu_group
+				religion_group = masquerade_independent_group
+				religion_group = garou_group
+				religion_group = wyrm_group 
+				religion_group = order_of_reason_group
+				religion_group = daedalan_group
+				religion_group = magical_traditions_group
+				religion = laibon
+				religion = orphan 
+				religion_group = mummy_group
+				religion_group = promethean_group
+				religion_group = demon_group
+				religion_group = stygian_group
+				religion_group = malfean_group
+				religion_group = changeling_group	
+				religion_group = seasons_courts_group
+				religion_group = hunter_group
+			}
+			}
+		}
+	}	
+
+	immediate = {
+		any_province = {
+			limit = { 
+				NOR = { 				
+					has_province_flag = POD_CWOD_province_supe_religion
+					religion_group = vampire_high_clans_group
+					religion_group = vampire_low_clans_group
+					religion_group = ashirra_vampire_group
+					religion_group = baali_group
+					religion_group = masquerade_camarilla_group
+					religion_group = sabbat_group
+					religion_group = inconnu_group
+					religion_group = masquerade_independent_group
+					religion_group = garou_group
+					religion_group = wyrm_group 
+					religion_group = order_of_reason_group
+					religion_group = daedalan_group
+					religion_group = magical_traditions_group
+					religion = laibon
+					religion = orphan 				
+					religion_group = mummy_group
+					religion_group = promethean_group
+					religion_group = demon_group
+					religion_group = stygian_group
+					religion_group = malfean_group
+					religion_group = changeling_group	
+					religion_group = seasons_courts_group
+					religion_group = hunter_group
+				}			
+			}
+			POD_CWOD_bookmark_masquerade_init_effect = yes 
+		}
+	}
+		
+}

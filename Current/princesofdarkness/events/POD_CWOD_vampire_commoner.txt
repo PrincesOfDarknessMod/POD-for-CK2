@@ -181,12 +181,13 @@ character_event = {
 											}
 									add_trait = tzimisce									
 							}
-							if = { limit = {
+							if = { 
+								limit = {
 										OR = { 
 												has_global_flag = bookmark1505
 												has_global_flag = bookmark1506
-												}
-											}
+										}
+									}
 									add_trait = tzimisceantitribu									
 							}							
 							
@@ -353,13 +354,15 @@ character_event = {
 				
 				if = {
 					limit = { 
-							religion = masquerade_camarilla 
-							has_global_flag = bookmark2015
+							religion = masquerade_camarilla							
 						}
 					random_list = {
 						30 = { add_trait = ventrue }
 						30 = { add_trait = toreador }
-						10 = { add_trait = nosferatu }
+						10 = { add_trait = nosferatu
+								set_graphical_culture = nosferatu
+								remove_trait = fair
+						}
 						10 = { add_trait = malkavian }
 						10 = { add_trait = tremere }
 						5 = { add_trait = brujah }
@@ -445,10 +448,6 @@ character_event = {
 				if = { 
 					limit = { 
 						religion = ashirra 
-						OR = { 
-							has_global_flag = bookmark1505
-							has_global_flag = bookmark1506 
-						}
 					}
 					random_list = {
 						14 = { 
@@ -775,7 +774,8 @@ character_event = {
 					limit = {
 						OR = { 
 							has_global_flag = bookmark1505
-							has_global_flag = bookmark1506 
+							has_global_flag = bookmark1506
+							has_global_flag = bookmark2015
 						}
 					}
 					add_trait = lasombraantitribu
