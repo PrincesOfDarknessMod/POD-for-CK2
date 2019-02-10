@@ -192,6 +192,16 @@ action_settle_tribe = {
 			character = FROM
 		}
 		NOT = { culture = FROM }
+		OR = {
+			NOT = { 
+				has_game_rule = {
+					name = culture_conversion
+					value = restricted
+				}
+			}
+			any_neighbor_province = { culture = FROM } 
+			any_neighbor_province = { port = yes } 
+		}
 	}
 	
 	events = { 925 20206 }
@@ -379,7 +389,11 @@ action_sabotage_province = {
 		is_within_diplo_range = FROM
 	}
 	
-	events = { MNM.70020 933 POD_vampire_plots.7 }
+	events = { 
+		MNM.70020 
+		933 
+		POD_vampire_plots.7 
+		}
 }
 
 # Marshal
@@ -511,7 +525,7 @@ action_inquisition = {
 		num_of_settlements = 1
 		NAND = {
 			FROM = { job_spiritual = { has_character_modifier = spiritual_refused_pagans } }  # See Event ZE.5040
-			owner = { religion_group = pagan_group }
+			owner = { AND = { religion_group = pagan_group NOT = { religion = FROM } } }
 		}
 		OR = {
 			proselytize_convert_independent_trigger = yes

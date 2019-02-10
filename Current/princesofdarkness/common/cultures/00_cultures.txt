@@ -6,12 +6,20 @@
 # Culture modifiers: modifier (applies to provinces), character_modifier, and settlement modifiers.
 # The ID of the modifier can be defined here (E.G., modifier = modifier_name or character_modifier = modifier_name), while the effect of it must be defined in static_modifiers.txt, and the localisation in localisation. For the settlement modifiers you don't need to (and can't) define the ID; it defaults to culture name + settlement type. E.G., norse_temple
 
+# nomadic_in_alt_start = yes - Will be Nomadic if the "Tribal & Nomadic" option is taken in the alt-start generation
+																									
 north_germanic = {
 	graphical_cultures = { westerngfx }
-	
+	alternate_start = { NOT = { has_alternate_start_parameter = { key = special_culture value = animal_world } } }
+
 	norse = {
 		graphical_cultures = { norsegfx }
-		
+		alternate_start = {
+			OR = {
+				year < 1000 
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}
 		color = { 0.3 0.55 0.8 }
 		
 		# Þ 222 þ 254 Ð 208 ð 240 æ
@@ -59,7 +67,12 @@ north_germanic = {
 
 	swedish = {
 		graphical_cultures = { norsegfx }
-		
+		alternate_start = {
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}
 		color = { 0.25 0.5 0.75 }
 		
 		male_names = {
@@ -102,7 +115,12 @@ north_germanic = {
 	
 	norwegian = {
 		graphical_cultures = { norsegfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}
 		color = { 0.2 0.45 0.65 }
 		
 		male_names = {
@@ -134,7 +152,12 @@ north_germanic = {
 	
 	danish = {
 		graphical_cultures = { norsegfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.15 0.4 0.55 }
 		
 		male_names = {
@@ -175,7 +198,12 @@ north_germanic = {
 	
 	modernnorse = {
 		graphical_cultures = { modernnorsegfx modernwesterngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.3 0.55 0.8 }
 		
 		# Þ 222 þ 254 Ð 208 ð 240 æ
@@ -223,7 +251,12 @@ north_germanic = {
 	
 	modernswedish = {
 		graphical_cultures = { modernnorsegfx modernwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.25 0.5 0.75 }
 		
 		male_names = {
@@ -265,7 +298,12 @@ north_germanic = {
 	}
 	modernnorwegian = {
 		graphical_cultures = { modernnorsegfx modernwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.2 0.45 0.65 }
 		
 		male_names = {
@@ -296,7 +334,12 @@ north_germanic = {
 	}
 	moderndanish = {
 		graphical_cultures = { modernnorsegfx modernwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.15 0.4 0.55 }
 		
 		male_names = {
@@ -337,7 +380,12 @@ north_germanic = {
 	
 	rennswedish = {
 		graphical_cultures = { rennnorsegfx rennwesterngfx norsegfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1450
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.25 0.5 0.75 }
 		
 		male_names = {
@@ -380,7 +428,12 @@ north_germanic = {
 	
 	rennnorwegian = {
 		graphical_cultures = { rennnorsegfx rennwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1450
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.2 0.45 0.65 }
 		
 		male_names = {
@@ -411,7 +464,12 @@ north_germanic = {
 	}
 	renndanish = {
 		graphical_cultures = { rennnorsegfx rennwesterngfx norsegfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1450
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.15 0.4 0.55 }
 		
 		male_names = {
@@ -452,7 +510,12 @@ north_germanic = {
 	
 	colonialswedish = {
 		graphical_cultures = { colonialnorsegfx colonialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1650
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.25 0.5 0.75 }
 		
 		male_names = {
@@ -495,7 +558,12 @@ north_germanic = {
 	
 	colonialnorwegian = {
 		graphical_cultures = { colonialnorsegfx colonialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1650
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.2 0.45 0.65 }
 		
 		male_names = {
@@ -526,7 +594,12 @@ north_germanic = {
 	}
 	colonialdanish = {
 		graphical_cultures = { colonialnorsegfx colonialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1650
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.15 0.4 0.55 }
 		
 		male_names = {
@@ -567,7 +640,12 @@ north_germanic = {
 	
 	industrialswedish = {
 		graphical_cultures = { industrialnorsegfx industrialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1850
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.25 0.5 0.75 }
 		
 		male_names = {
@@ -610,7 +688,12 @@ north_germanic = {
 	
 	industrialnorwegian = {
 		graphical_cultures = { industrialnorsegfx industrialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1850
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.2 0.45 0.65 }
 		
 		male_names = {
@@ -641,7 +724,12 @@ north_germanic = {
 	}
 	industrialdanish = {
 		graphical_cultures = { industrialnorsegfx industrialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1850
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.15 0.4 0.55 }
 		
 		male_names = {
@@ -682,11 +770,17 @@ north_germanic = {
 }
 
 central_germanic = {
+	alternate_start = { NOT = { has_alternate_start_parameter = { key = special_culture value = animal_world } } }
 	graphical_cultures = { germangfx }
 
 	moderngerman = {
 		graphical_cultures = { moderngermangfx modernwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.5 0.5 0.5 }
 
 		male_names = {
@@ -733,7 +827,12 @@ central_germanic = {
 	
 	renngerman = {
 		graphical_cultures = { renngermangfx rennwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1450
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.5 0.5 0.5 }
 
 		male_names = {
@@ -780,7 +879,12 @@ central_germanic = {
 	
 	industrialgerman = {
 		graphical_cultures = { industrialgermangfx industrialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1850
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.5 0.5 0.5 }
 
 		male_names = {
@@ -827,7 +931,12 @@ central_germanic = {
 	
 	colonialgerman = {
 		graphical_cultures = { colonialgermangfx colonialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1650
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.5 0.5 0.5 }
 
 		male_names = {
@@ -874,7 +983,12 @@ central_germanic = {
 	
 	german = {
 		graphical_cultures = { germangfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.5 0.5 0.5 }
 
 		male_names = {
@@ -920,7 +1034,12 @@ central_germanic = {
 	}
 	lombard = {
 		graphical_cultures = { germangfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}
 		color = { 0.6 0.6 0.8 }
 
 		male_names = {
@@ -965,7 +1084,12 @@ central_germanic = {
 	}
 	old_frankish = {
 		graphical_cultures = { frankishgfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}
 		color = { 0.3 0.3 0.5 }
 
 		male_names = {
@@ -1013,7 +1137,12 @@ central_germanic = {
 	}
 	suebi = {
 		graphical_cultures = { germangfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}
 		color = { 0.7 0.7 0.7 }
 
 		male_names = {
@@ -1059,11 +1188,17 @@ central_germanic = {
 }
 
 west_germanic = {
+	alternate_start = { NOT = { has_alternate_start_parameter = { key = special_culture value = animal_world } } }
 	graphical_cultures = { westerngfx }
 
 	modernenglish = {
 		graphical_cultures = { modernenglishgfx modernwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.8 0.2 0.2 }
 		
 		# Does not exist in 1066 - is the result of cultural amalgamation between Saxon and Norman through events
@@ -1093,7 +1228,12 @@ west_germanic = {
 	
 	rennenglish = {
 		graphical_cultures = { rennenglishgfx rennwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1450
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.8 0.2 0.2 }
 		
 		# Does not exist in 1066 - is the result of cultural amalgamation between Saxon and Norman through events
@@ -1123,7 +1263,12 @@ west_germanic = {
 
 	colonialenglish = {
 		graphical_cultures = { colonialenglishgfx colonialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1650
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.8 0.2 0.2 }
 		
 		# Does not exist in 1066 - is the result of cultural amalgamation between Saxon and Norman through events
@@ -1153,7 +1298,12 @@ west_germanic = {
 
 	industrialenglish = {
 		graphical_cultures = { industrialenglishgfx industrialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1850
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.8 0.2 0.2 }
 		
 		# Does not exist in 1066 - is the result of cultural amalgamation between Saxon and Norman through events
@@ -1183,7 +1333,12 @@ west_germanic = {
 	
 	english = {
 		graphical_cultures = { englishgfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.8 0.2 0.2 }
 		
 		# Does not exist in 1066 - is the result of cultural amalgamation between Saxon and Norman through events
@@ -1212,6 +1367,12 @@ west_germanic = {
 	}
 	saxon = {
 		graphical_cultures = { saxongfx westerngfx }
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}												   
 		
 		color = { 0.8 0.3 0.3 }
 		
@@ -1263,6 +1424,12 @@ west_germanic = {
 	}
 	old_saxon = {
 		graphical_cultures = { saxongfx westerngfx }
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}												   
 		
 		color = { 0.5 0.1 0.1 }
 		
@@ -1313,6 +1480,12 @@ west_germanic = {
 	}
 	frisian = {
 		graphical_cultures = { saxongfx westerngfx }
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}					 
 		
 		color = { 0.7 0.3 0.0 }
 		
@@ -1363,6 +1536,12 @@ west_germanic = {
 		graphical_cultures = { germangfx westerngfx }
 		
 		color = { 0.96 0.39 0.08 }
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}					 
 		
 		male_names = {
 			Adriaen Albrecht_Albert Alwin Ambroos Antoon Arnold_Arnold Arnulf_Arnulf Balderik Barend Barnaerd_Bernard Bartolomeus_Bartolomeus
@@ -1405,7 +1584,12 @@ west_germanic = {
 	
 	moderndutch = {
 		graphical_cultures = { moderngermangfx modernwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.96 0.39 0.08 }
 		
 		male_names = {
@@ -1449,7 +1633,12 @@ west_germanic = {
 	
 	renndutch = {
 		graphical_cultures = { renngermangfx rennwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1350
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.96 0.39 0.08 }
 		
 		male_names = {
@@ -1493,7 +1682,12 @@ west_germanic = {
 
 	colonialdutch = {
 		graphical_cultures = { colonialgermangfx colonialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1650
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.96 0.39 0.08 }
 		
 		male_names = {
@@ -1537,7 +1731,12 @@ west_germanic = {
 
 	industrialdutch = {
 		graphical_cultures = { industrialgermangfx industrialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1850
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.96 0.39 0.08 }
 		
 		male_names = {
@@ -1582,7 +1781,8 @@ west_germanic = {
 
 latin = {
 	graphical_cultures = { westerngfx }
-
+	alternate_start = { NOT = { has_alternate_start_parameter = { key = special_culture value = animal_world } } }
+	
 	frankish = {
 		graphical_cultures = { frankishgfx westerngfx }
 		
@@ -1626,7 +1826,12 @@ latin = {
 	
 	norman = {
 		graphical_cultures = { normangfx westerngfx }
-
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}
 		color = { 0.8 0.7 0.1 }
 		
 		male_names = {
@@ -1668,7 +1873,12 @@ latin = {
 
 	modernfrankish = {
 		graphical_cultures = { modernfrankishgfx modernwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.8 0.8 0.2 }
 		male_names = {
 			Édouard_Edward Érrard Étienne_Stephen Adalbert_Albert Adémar_Adémar Adrien_Adrian Aimery_Aymeric Alain_Alan Aldebert_Albert Aldéric Alphonse_Alphonse Amaury_Amalric
@@ -1709,7 +1919,12 @@ latin = {
 	
 	rennfrankish = {
 		graphical_cultures = {  rennfrankishgfx rennwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1450
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.8 0.8 0.2 }
 		male_names = {
 			Édouard_Edward Érrard Étienne_Stephen Adalbert_Albert Adémar_Adémar Adrien_Adrian Aimery_Aymeric Alain_Alan Aldebert_Albert Aldéric Alphonse_Alphonse Amaury_Amalric
@@ -1750,7 +1965,12 @@ latin = {
 	
 	colonialfrankish = {
 		graphical_cultures = {  colonialfrankishgfx colonialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1650
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.8 0.8 0.2 }
 		male_names = {
 			Édouard_Edward Érrard Étienne_Stephen Adalbert_Albert Adémar_Adémar Adrien_Adrian Aimery_Aymeric Alain_Alan Aldebert_Albert Aldéric Alphonse_Alphonse Amaury_Amalric
@@ -1791,7 +2011,12 @@ latin = {
 	
 	industrialfrankish = {
 		graphical_cultures = {  industrialfrankishgfx industrialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1850
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.8 0.8 0.2 }
 		male_names = {
 			Édouard_Edward Érrard Étienne_Stephen Adalbert_Albert Adémar_Adémar Adrien_Adrian Aimery_Aymeric Alain_Alan Aldebert_Albert Aldéric Alphonse_Alphonse Amaury_Amalric
@@ -1832,7 +2057,12 @@ latin = {
 	
 	modernnorman = {
 		graphical_cultures = { modernnormangfx modernwesterngfx westerngfx }
-
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}
 		color = { 0.8 0.7 0.1 }
 		
 		male_names = {
@@ -1874,7 +2104,12 @@ latin = {
 	
 	rennnorman = {
 		graphical_cultures = { rennnormangfx rennwesterngfx westerngfx }
-
+		alternate_start = { 
+			OR = {
+				year >= 1350
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}
 		color = { 0.8 0.7 0.1 }
 		
 		male_names = {
@@ -1916,7 +2151,12 @@ latin = {
 
 	colonialnorman = {
 		graphical_cultures = { colonialnormangfx colonialwesterngfx westerngfx }
-
+		alternate_start = { 
+			OR = {
+				year >= 1650
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}
 		color = { 0.8 0.7 0.1 }
 		
 		male_names = {
@@ -1958,7 +2198,12 @@ latin = {
 
 	industrialnorman = {
 		graphical_cultures = { industrialnormangfx industrialwesterngfx westerngfx }
-
+		alternate_start = { 
+			OR = {
+				year >= 1850
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}
 		color = { 0.8 0.7 0.1 }
 		
 		male_names = {
@@ -1999,7 +2244,12 @@ latin = {
 		
 	italian = {
 		graphical_cultures = { italiangfx southerngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.95 0.95 0.75 }
 
 		male_names = {
@@ -2048,7 +2298,12 @@ latin = {
 	
 	modernitalian = {
 		graphical_cultures = { modernitaliangfx modernwesterngfx italiangfx southerngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.95 0.95 0.75 }
 
 		male_names = {
@@ -2097,7 +2352,12 @@ latin = {
 	
 	rennitalian = {
 		graphical_cultures = { rennitaliangfx rennnwesterngfx italiangfx southerngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1350
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.95 0.95 0.75 }
 
 		male_names = {
@@ -2147,7 +2407,12 @@ latin = {
 	
 	colonialitalian = {
 		graphical_cultures = { colonialitaliangfx colonialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1650
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.95 0.95 0.75 }
 
 		male_names = {
@@ -2197,7 +2462,12 @@ latin = {
 	
 	industrialitalian = {
 		graphical_cultures = { industrialitaliangfx industrialwesterngfx italiangfx southerngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1850
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.95 0.95 0.75 }
 
 		male_names = {
@@ -2248,7 +2518,12 @@ latin = {
 	
 	occitan = {
 		graphical_cultures = { occitangfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.9 0.9 0.4 }
 
 		male_names = { 
@@ -2288,7 +2563,12 @@ latin = {
 	
 	modernoccitan = {
 		graphical_cultures = { modernoccitangfx modernwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.9 0.9 0.4 }
 
 		male_names = { 
@@ -2328,7 +2608,12 @@ latin = {
 	
 	rennoccitan = {
 		graphical_cultures = { rennoccitangfx rennwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1450
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.9 0.9 0.4 }
 
 		male_names = { 
@@ -2368,7 +2653,12 @@ latin = {
 
 	colonialoccitan = {
 		graphical_cultures = { colonialoccitangfx colonialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1650
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.9 0.9 0.4 }
 
 		male_names = { 
@@ -2408,7 +2698,12 @@ latin = {
 	
 	industrialoccitan = {
 		graphical_cultures = { indusrialoccitangfx industrialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1850
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.9 0.9 0.4 }
 
 		male_names = { 
@@ -2448,7 +2743,12 @@ latin = {
 	
 	roman = {
 		graphical_cultures = { southerngfx occitangfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.8 0.7 0.2 }
 		
 		used_for_random = no
@@ -2489,10 +2789,84 @@ latin = {
 
 		modifier = default_culture_modifier
 	}
+	dalmatian = {
+		graphical_cultures = { dalmatiangfx italiangfx southerngfx westerngfx }
+
+		color = { 0.8 0.8 0.2 }
+
+		used_for_random = no
+
+		male_names = {
+			Andre_Andrew Andreas_Andrew Bisti Blaxius Calenda Clime Comes
+			Domagna_Dominik Gaucoli Gauzoli Gervasius Giuco Give
+			Jugno_Junius Juliano_Julius Junius_Junius Laurenzo_Laurence Leonardus_Leonard Loncho Lucarus_Luke
+			Mare_Marcus Marco_Marcus Maroe_Marinus Marinus_Marinus Matheus_Matthew Michael_Michael Nale_Cornelius Nichiforus_Nikephoros Nicola_Nicholas
+			Pascalis_Pascal Pasqualis_Pascal Petragna_Peter Petrus_Peter Piero_Peter Perue_Peter Rassinus Rusco
+			Stane_Stanislav Thoma_Thomas Tuone_Antonius Vallius Vita
+		}
+		female_names = {
+			Ana_Anna Anna_Anna Antolina_Antonia Anussa Babalio Bodacia Catarena_Catherine Caterina_Catherine Clara_Clara Drase Dea Descia Deia Deussa Elena_Helene Giva
+			Jachussa Jacobica Jelussa Laurica Lene_Helene
+			Magdalena_Magdalena Margerita_Margaret Maria_Maria Mauressa Micha Mira Nicoletta Nixa
+			Rade Rado Regina_Regina Rossa_Rosa Schimosa Thome Vele
+		}
+		from_dynasty_prefix = "di"
+
+		disinherit_from_blinding = yes
+
+		modifier = default_culture_modifier
+	}
+	outremer = { 
+		graphical_cultures = { outremergfx andalusiangfx southerngfx muslimgfx } #TO_DO:Flavio Replace with mixed gfx.
+		alternate_start = {
+			has_alternate_start_parameter = { key = culture value = full_random }
+		}
+		
+		color = { 0.52 0.61 0.15 }
+		
+		used_for_random = no
+		
+		male_names = {
+			Édouard_Edward Érrard Étienne_Stephen Adalbert_Albert Adémar_Adémar Adrien_Adrian Aimery_Aymeric Alain_Alan Aldebert_Albert Aldéric Alphonse_Alphonse Amaury_Amalric
+			Amédée Ancel André_Andrew Angelbert Antoine_Antonius Archambaud_Archibald Arnaud_Arnold Arnault_Arnold Arnoul_Arnulf Aubry Aymar Barthélémi_Bartolomeus
+			Baudouin_Baldwin Benoît_Benedict Bérenger_Berengar Bernard_Bernard Bertrand_Bertrand Bohemond Boson_Boson Bouchard_Bouchard Centule_Centule Charles_Charles
+			Clotaire_Lothair Ebbon Enguerrand Eudes_Otto Eustache_Eustace Evrard Foulques_Folke François_Francis Frédéric_Frederick Géraud_Gerald Gargamel Gaucher Gaucelin_Joscelin
+			Gauthier_Walter Geoffroy_Godfrey Géraud_Gerard Gelduin Gilbert_Gilbert Gilles_Egidius Godefroy_Godfrey Guichard Guiges Guilhem_William Guillaume_William
+			Guy_Guy Hélie Hamelin Henri_Henry Herbert_Herbert Hildebert Hugues_Hugh Humbert_Humbert Jacques_Jacob Jaufré_Godfrey Jaspert Jean_John Josselin_Joscelin
+			Jourdain_Jordan Julien_Julian Léon Léonard Lothaire_Lothair Louis_Louis Loup_Lupo Manassès_Manasseh Mathieu_Matthew Maurice_Maurice Nicolas_Nicholas Ogier Onfroy Orson_Ursus Othon_Otto
+			Payen_Pagan Philippe_Philip Pierre_Peter Raimbaut Raoul_Ralph Raymond_Raymond Raynaud_Reinhold Renaud_Reinhold Richard_Richard Robert_Robert Robin Roger_Roger
+			Rorgon Rorgues Roubaud Savary Sigismond_Sigmund Simon_Simon Thibault_Theobald Thiébaut_Theobald Thierry_Thierry Thomas_Thomas Valeran Yves
+		}
+		female_names = {
+			Éléonore_Eleanor Élodie Étiennette Adèle_Adela Adalmode_Almodis Adelaide_Adelaide Adelinde_Adelinde Agathe_Agatha Agnès_Agnes Aléarde Alice_Alice Aliénor_Eleanor
+			Alix_Alice Almodis_Almodis Amelie_Amelia Anne_Anna Antoinette Arsinde_Arsenda Aude Aurengarde Béatrice_Beatrice Béatrix_Beatrice Belleassez Benoîte_Benedicta Bérengère
+			Berthe_Bertha Blanche_Blanche Bonne_Bonne Bourgogne Bourguigne Cécile_Cecilia Cathèrine_Catherine Charlotte Constance_Constance Denise_Denise Douce_Douce Echive Eglantine
+			Elisabeth_Elizabeth Emma_Emma Ermengarde_Ermengarde Ermessinde_Ermesinda Esclarmonde_Esclarmunda Euphrosine_Euphrosyne Eustachie Eve_Eva Gerberge_Gerberga
+			Gisèle_Gisela Guillaumette_Williamette Héloise_Eloise Helvis Hodierne Ide_Ida Ida_Ida Ildégarde_Hildegard Isabeau_Elizabeth Isabelle_Elizabeth Jeanne_Joan Judith_Judith
+			Julienne_Juliana Mafalda Mahaut_Matilda Margot Marguerite_Margaret Marie_Maria Marthe_Martha Mascarose_Mascarosa Mathilde_Matilda Mélisande_Melisende
+			Mélisende_Melisende Mélusine Péronelle_Peronella Pernelle_Peronella Perinne Pernette Plaisance_Plaisance Raymonde Sarrazine Solène Sophie_Sophia
+			Stéphanie_Stephania Sybille_Sibylla Tiburge_Tiburge Valence_Yolanda Yolande_Yolanda 
+		}
+		from_dynasty_prefix = "de "
+		grammar_transform = french
+
+		modifier = default_culture_modifier
+
+		# Chance of male children being named after their paternal or maternal grandfather, or their father. Sum must not exceed 100.
+		pat_grf_name_chance = 60
+		mat_grf_name_chance = 10
+		father_name_chance = 10
+		
+		# Chance of female children being named after their paternal or maternal grandmother, or their mother. Sum must not exceed 100.
+		pat_grm_name_chance = 10
+		mat_grm_name_chance = 60
+		mother_name_chance = 10
+	}		
 }
 
 iberian = {
 	graphical_cultures = { occitangfx westerngfx }
+	alternate_start = { NOT = { has_alternate_start_parameter = { key = special_culture value = animal_world } } }
 
 	basque = {
 		graphical_cultures = { occitangfx westerngfx }
@@ -2532,7 +2906,12 @@ iberian = {
 	}
 	castillan = {
 		graphical_cultures = { southerngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.95 0.82 0.09 }
 
 		male_names = {
@@ -2564,7 +2943,12 @@ iberian = {
 	}
 	catalan = {
 		graphical_cultures = { southerngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.85 0.75 0.08 }
 
 		male_names = {
@@ -2625,7 +3009,12 @@ iberian = {
 	
 	modernbasque = {
 		graphical_cultures = { modernoccitangfx modernwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.55 0.42 0.04 }
 
 		male_names = {
@@ -2662,7 +3051,12 @@ iberian = {
 	
 	rennbasque = {
 		graphical_cultures = { rennoccitangfx rennwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1450
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.55 0.42 0.04 }
 
 		male_names = {
@@ -2699,7 +3093,12 @@ iberian = {
 	
 	colonialbasque = {
 		graphical_cultures = { colonialoccitangfx colonialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1650
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.55 0.42 0.04 }
 
 		male_names = {
@@ -2736,7 +3135,12 @@ iberian = {
 	
 	industrialbasque = {
 		graphical_cultures = { industrialoccitangfx industrialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1850
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.55 0.42 0.04 }
 
 		male_names = {
@@ -2773,7 +3177,12 @@ iberian = {
 	
 	moderncastillan = {
 		graphical_cultures = { modernsoutherngfx modernwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.95 0.82 0.09 }
 
 		male_names = {
@@ -2806,7 +3215,12 @@ iberian = {
 	
 	renncastillan = {
 		graphical_cultures = { rennsoutherngfx rennwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1450
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.95 0.82 0.09 }
 
 		male_names = {
@@ -2839,7 +3253,12 @@ iberian = {
 	
 	colonialcastillan = {
 		graphical_cultures = { colonialsoutherngfx colonialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1650
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.95 0.82 0.09 }
 
 		male_names = {
@@ -2872,7 +3291,12 @@ iberian = {
 	
 	industrialcastillan = {
 		graphical_cultures = { industrialsoutherngfx industrialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1850
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.95 0.82 0.09 }
 
 		male_names = {
@@ -2905,7 +3329,12 @@ iberian = {
 	
 	moderncatalan = {
 		graphical_cultures = { modernsoutherngfx modernwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.85 0.75 0.08 }
 
 		male_names = {
@@ -2935,7 +3364,12 @@ iberian = {
 	
 	renncatalan = {
 		graphical_cultures = { rennsoutherngfx rennwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.85 0.75 0.08 }
 
 		male_names = {
@@ -2965,7 +3399,12 @@ iberian = {
 	
 	colonialcatalan = {
 		graphical_cultures = { colonialsoutherngfx colonialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1650
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.85 0.75 0.08 }
 
 		male_names = {
@@ -2995,7 +3434,12 @@ iberian = {
 	
 	industrialcatalan = {
 		graphical_cultures = { industrialsoutherngfx industrialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1850
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.85 0.75 0.08 }
 
 		male_names = {
@@ -3026,7 +3470,12 @@ iberian = {
 	
 	modernportuguese = {
 		graphical_cultures = { modernsoutherngfx modernwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.75 0.67 0.07 }
 
 		male_names = {
@@ -3058,7 +3507,12 @@ iberian = {
 	
 	rennportuguese = {
 		graphical_cultures = { rennsoutherngfx rennwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1350
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.75 0.67 0.07 }
 
 		male_names = {
@@ -3090,7 +3544,12 @@ iberian = {
 
 	colonialportuguese = {
 		graphical_cultures = { colonialsoutherngfx colonialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1650
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.75 0.67 0.07 }
 
 		male_names = {
@@ -3122,7 +3581,12 @@ iberian = {
 	
 	industrialportuguese = {
 		graphical_cultures = { industrialsoutherngfx industrialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1850
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.75 0.67 0.07 }
 
 		male_names = {
@@ -3154,7 +3618,12 @@ iberian = {
 	
 	visigothic = {
 		graphical_cultures = { southerngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.55 0.55 0.15 }
 
 		male_names = {
@@ -3194,10 +3663,35 @@ iberian = {
 
 byzantine = {
 	graphical_cultures =  { easterngfx westerngfx }
+	alternate_start = { NOT = { has_alternate_start_parameter = { key = special_culture value = animal_world } } }
 
+	arberian = {
+		graphical_cultures = { byzantinegfx }
+		
+		color = { 0.7 0.2 0.9 }
+
+		male_names = {
+			Adnan Afrim Agim Agon Alban Alek Aleksander_Alexander Andrea_Andrew Ardian Ardit Arianit Armend Bajram Bashkim Behar Besian Besnik Blerim Bua Burim Dardan Depa Dhimitër Dimitri Dritan Dëfrim Edon Endrit Engjëll Fatmir Fisnik Flamur Gjergj Gjin Gjon Gojko Grigor_Gregory Gulam Jakub_Jacob Jetmir Jeton Koja Kostandin_Constantine Kreshnik Kushtrim Leka Lekë Leotrim Leutrim Liridon Lulëzim Moisi Muriq Muzaka Pal Perparim Pjetër_Peter Progon Pëllumb Skender Tanush Teodor Valon Veli Visar Vladan Ylli Zameer Zamyr
+		}
+		female_names = {
+			Afërdita Arjeta Blerina Blerta Blerte Bolja Bora Bosa Boxia Boša Boža Dardana Diellza Edona Era Fatmire Flutura Jehona Lindita Liridona Lule Luljeta Mirjeta Pranvera Shpresa Shqipe Teuta Tirana Vera Yllka
+		}		
+		
+		from_dynasty_prefix = "e "
+
+		disinherit_from_blinding = yes
+		
+		modifier = default_culture_modifier
+	}
+	
 	armenian = {
 		graphical_cultures = { byzantinegfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.5 0.2 0.5 }
 
 		male_names = {
@@ -3219,7 +3713,12 @@ byzantine = {
 	}
 	greek = {
 		graphical_cultures = { byzantinegfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.8 0.3 0.8 }
 
 		male_names = {
@@ -3259,7 +3758,12 @@ byzantine = {
 	}
 	alan = {
 		graphical_cultures = { easternslavicgfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.7 0.5 0.7 }
 
 		male_names = {
@@ -3284,7 +3788,12 @@ byzantine = {
 	}
 	georgian = {
 		graphical_cultures = { byzantinegfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.6 0.3 0.8 }
 
 		male_names = {
@@ -3312,7 +3821,12 @@ byzantine = {
 	assyrian = {
 		graphical_cultures = { persiangfx westerngfx }
 		secondary_event_pictures = bedouin_arabic
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.4 0.3 0.6 }
 
 		male_names = {
@@ -3339,10 +3853,76 @@ byzantine = {
 
 		modifier = default_culture_modifier
 	}
+
+	coptic = { #copto-egyptian
+		graphical_cultures = { byzantinegfx }
+		
+		color = { 0.6 0.4 0.6 }
+
+		male_names = {
+			Aaron_Aaron Abanoub Abderahman_Abderrahman Abianos_Abijah Abisalom Ablarion Abraam_Abraham Agathon_Agathos Agathonikos_Agathonikos Agathos_Agathos
+			Ahmod Aiai Aha Akhom Amon Amakhte An Andronicus Androus_Andrew Anthinos_Anthimos Apanoub Apahour Apamon Apas Aretee Arsenios_Arsenios Ashraf_Ashraf
+			Athanasios_Athanasius Beet Bertouet Biktor_Victor Binyamin_Benjamin Bishoi_Bishara Bolis_Paul Boutros_Peter Cosmas_Cosmos Damianos_Damian Danyal_Daniel
+			Da’oud_David Ennikeran Erhu Ezra_Ezra Farag Gerges Ghabri_Gabriel Guirguis_George Habil_Abel Hanouf Hanri_Henry Hany Haroun_Aaron Hesdy Ilyas_Elijah Ishaaq_Isaac
+			Jerjer_Gregory Jinti Jori Keloj Krystafer_Christopher Kyrillos_Cyril Lot_Lothar Macari_Macarius Marcos_Marcus Mareten Matta_Matthew Mei Mikail_Michael
+			Mikhael_Michael Milad_Milad Mina_Menas Musa_Moses Nakat Nahdi Nishde Nai Naui Nishti Nofr Noub Ounouf Ourot Ouini Ounisht Pajro Pakat Pakhom Pamin
+			Panous Papnouti Pashnona Pasnadi Patape Payom Philotheos Pijimi Pijoul Pikhit Pimen Pimoue Pimoui Pishai Pisha-eneh Pishoui Psote Rami Rashad Rashi
+			Roufail_Rafael Ruweis Shenouda Shenouti Shosi Sim'an_Simon Sok Tadros_Theodore Taio Tawadros_Theodore Touma_Thomas Yakovos_Jacob Yared_Jared
+			Yoannis_John Yousab_Joseph Zacharias_Zachary Zaia_Isaiah
+		}
+		female_names = {
+			Afaf Amunet Asmin Demiana Elpis_Hope Eratee Ese Ester_Esther Fana Hana_Anna Hawwa_Eve Heit Hoeite Ilizabith_Elizabeth Kasrin_Catherine Khnau Khreere Kristina_Christine
+			Lelou Mariam_Maria Marta_Martha Maysoon_Maysoon Meriam_Mary Nefret Paisi Pernoufe Piama Piamun Potamina Raune Ro'oune Sai'ou Samia_Samira Sawsan Shouree Shoushou
+			Sofia_Sofia Stoi Takla Talida_Taliba Taloushem Tanouti Ta'ou Tawaret Uradaa Virina_Veronica
+		}
+		
+		from_dynasty_prefix = "en "
+		
+		male_patronym = "psen"
+        female_patronym = "tsen"
+        prefix = yes
+
+		modifier = default_culture_modifier
+	}
+
+	crimean_gothic = {
+		graphical_cultures = { crimeangfx byzantinegfx }
+		
+		color = { 0.8 0.4 0.8}
+
+		male_names = {
+			Achila Adrianos_Adrian Alaricos_Alaric Alexandros_Alexander Alexios_Alexis Amalaric Andreas_Andrew Andronikos_Andronicus Antonios_Antonius Arsenios Athanasios_Athanasius Athanaricos Ataulphus 
+			Bartholomaios_Bartolomeus Bosporios Chindasuinto Chintila Christopher_Christopher Damianos_Damian Daniel_Daniel David_David Evaric_Eric Ervigius Ergica
+			Eugenios_Eugene Eustathios_Eustace Frederic_Frederick Gabriel_Gabriel Georgios_George Gregoras_Gregory Gregorios_Gregory Hektorios_Hector Helias_Elijah Herakleios_Heracles 
+			Iakobos_Jacob Ignatios_Ignatius Innokentios_Innocent Ioannes_John Ioannikios Iordanes_Jordan Ioseph_Joseph Isaakios_Isaac Isaias_Isaiah Isidoros_Isidoros Ioulianos_Julian Ioustinianos_Justinian Ioustinos_Justin
+			Kallinikos Kallistos_Callistus Kyriakos_Cyriacus Kyrillos_Cyril Laurentios_Laurence Leon_Leo Leovigild Liuva Loukas_Luke Markos_Marcus Michael_Michael Nikolaos_Nicholas
+			Pavlos_Paul Petros_Peter Philippos_Philip Radagaisus Raphail_Raphael Roderic_Roderick Samuel_Samuel Saurus Sebastianos_Sebastian Sigericos Sisebutus Sisenando Stephanos_Stephen
+			Symeon_Simon Suintila Symmachos_Symmachus Theocharistos Theodoric_Theodore Theodosios_Theodosios Theodat_Theodat Theudis Thomas_Thomas Thorismod Tiberius_Tiberius 
+			Timotheos_Timothy Valerios_Valerius Witteric Witiges Zacharias_Zachary
+		}
+		female_names = {
+			Adriane_Adriana Agathe_Agatha Agne_Agnes Aikaterine_Catherine Alexandra_Alexandra Alexeia_Alexia Anastasia_Anastasia Anna_Anna Antonia_Antonia Cixila
+			Dorothea_Dorothy Eirene_Irene Eudokia_Eudocia Ermenberga Eudoxia_Eudocia Eugenia_Eugenia Euphemia_Euphemia Euphrosyne_Euphrosyne
+			Georgia_Georgia Goiswinthia Helene_Helen Ioanna_Joan Ioulia_Julia Iouliana_Juliana Ioustina_Justina Konstantia_Constantia Konstantine_Constantina Kyriake_Kyriake Liuvigoto
+			Margarita_Margaret Maria_Maria Markia_Marcia Martha_Martha Melissa_Melisende Pavlina_Paulina Petronia_Petronia Philippa_Philippa Pulcheria_Pulcheria Recciberga Riccilo Sergia_Sergia Sibylla_Sibylla
+			Sophia_Sophia Stephania_Stephania Theodora_Theodora Theodosia_Theodosia Valeria_Valeria Viviana_Viviana
+		}
+
+		from_dynasty_prefix = "of "
+
+		modifier = default_culture_modifier
+
+		disinherit_from_blinding = yes
+	}
 	
 	modernarmenian = {
 		graphical_cultures = { modernbyzantinegfx modernwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.5 0.2 0.5 }
 
 		male_names = {
@@ -3365,7 +3945,12 @@ byzantine = {
 	
 	rennarmenian = {
 		graphical_cultures = { rennbyzantinegfx rennwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1350
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.5 0.2 0.5 }
 
 		male_names = {
@@ -3388,7 +3973,12 @@ byzantine = {
 	
 	colonialarmenian = {
 		graphical_cultures = { colonialbyzantinegfx colonialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1650
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.5 0.2 0.5 }
 
 		male_names = {
@@ -3411,7 +4001,12 @@ byzantine = {
 	
 	industrialarmenian = {
 		graphical_cultures = { industrialbyzantinegfx industrialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1850
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.5 0.2 0.5 }
 
 		male_names = {
@@ -3434,7 +4029,12 @@ byzantine = {
 	
 	moderngreek = {
 		graphical_cultures = { modernbyzantinegfx modernwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.8 0.3 0.8 }
 
 		male_names = {
@@ -3475,7 +4075,12 @@ byzantine = {
 	
 	renngreek = {
 		graphical_cultures = { rennbyzantinegfx rennwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1350
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.8 0.3 0.8 }
 
 		male_names = {
@@ -3517,7 +4122,12 @@ byzantine = {
 
 	colonialgreek = {
 		graphical_cultures = { colonialbyzantinegfx colonialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1650
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.8 0.3 0.8 }
 
 		male_names = {
@@ -3558,7 +4168,12 @@ byzantine = {
 	
 	industrialgreek = {
 		graphical_cultures = { industrialbyzantinegfx industrialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1850
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.8 0.3 0.8 }
 
 		male_names = {
@@ -3599,7 +4214,12 @@ byzantine = {
 	
 	modernalan = {
 		graphical_cultures = { moderneasternslavicgfx modernwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.7 0.5 0.7 }
 
 		male_names = {
@@ -3625,7 +4245,12 @@ byzantine = {
 	
 	rennalan = {
 		graphical_cultures = { renneasternslavicgfx rennwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1350
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.7 0.5 0.7 }
 
 		male_names = {
@@ -3651,7 +4276,12 @@ byzantine = {
 
 	colonialalan = {
 		graphical_cultures = { colonialeasternslavicgfx colonialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1650
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.7 0.5 0.7 }
 
 		male_names = {
@@ -3677,7 +4307,12 @@ byzantine = {
 	
 	industrialalan = {
 		graphical_cultures = { industrialeasternslavicgfx industrialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1850
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.7 0.5 0.7 }
 
 		male_names = {
@@ -3703,7 +4338,12 @@ byzantine = {
 	
 	moderngeorgian = {
 		graphical_cultures = { modernbyzantinegfx modernwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.6 0.3 0.8 }
 
 		male_names = {
@@ -3730,7 +4370,12 @@ byzantine = {
 	
 	renngeorgian = {
 		graphical_cultures = { rennbyzantinegfx rennwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1350
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.6 0.3 0.8 }
 
 		male_names = {
@@ -3757,7 +4402,12 @@ byzantine = {
 
 	colonialgeorgian = {
 		graphical_cultures = { colonialbyzantinegfx colonialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1650
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.6 0.3 0.8 }
 
 		male_names = {
@@ -3784,7 +4434,12 @@ byzantine = {
 	
 	industrialgeorgian = {
 		graphical_cultures = { industrialbyzantinegfx industrialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.6 0.3 0.8 }
 
 		male_names = {
@@ -3812,7 +4467,12 @@ byzantine = {
 	modernassyrian = {
 		graphical_cultures = { modernpersiangfx modernwesterngfx westerngfx }
 		secondary_event_pictures = bedouin_arabic
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.4 0.3 0.6 }
 
 		male_names = {
@@ -3844,6 +4504,7 @@ byzantine = {
 
 celtic = {
 	graphical_cultures = { westerngfx }
+	alternate_start = { NOT = { has_alternate_start_parameter = { key = special_culture value = animal_world } } }
 
 	irish = {
 		graphical_cultures = { celticgfx westerngfx }
@@ -3907,7 +4568,12 @@ celtic = {
 	}
 	scottish = {
 		graphical_cultures = { celticgfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.3 0.7 0.7 }
 
 		male_names = {
@@ -3952,7 +4618,12 @@ celtic = {
 	
 	modernirish = {
 		graphical_cultures = { moderncelticgfx modernwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.3 0.8 0.8 }
 
 		male_names = {
@@ -4013,7 +4684,12 @@ celtic = {
 	
 	rennirish = {
 		graphical_cultures = { renncelticgfx rennwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1350
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.3 0.8 0.8 }
 
 		male_names = {
@@ -4074,7 +4750,12 @@ celtic = {
 	
 	colonialirish = {
 		graphical_cultures = { colonialcelticgfx colonialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1650
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.3 0.8 0.8 }
 
 		male_names = {
@@ -4135,7 +4816,12 @@ celtic = {
 	
 	industrialirish = {
 		graphical_cultures = { industrialcelticgfx industrialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1850
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.3 0.8 0.8 }
 
 		male_names = {
@@ -4196,7 +4882,12 @@ celtic = {
 	
 	modernscottish = {
 		graphical_cultures = { moderncelticgfx modernwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.3 0.7 0.7 }
 
 		male_names = {
@@ -4241,7 +4932,12 @@ celtic = {
 	
 	rennscottish = {
 		graphical_cultures = { renncelticgfx rennwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1350
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.3 0.7 0.7 }
 
 		male_names = {
@@ -4286,7 +4982,12 @@ celtic = {
 	
 	colonialscottish = {
 		graphical_cultures = { colonialcelticgfx colonialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1650
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.3 0.7 0.7 }
 
 		male_names = {
@@ -4331,7 +5032,12 @@ celtic = {
 
 	industrialscottish = {
 		graphical_cultures = { industrialcelticgfx industrialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1850
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.3 0.7 0.7 }
 
 		male_names = {
@@ -4376,7 +5082,12 @@ celtic = {
 	
 	pictish = {
 		graphical_cultures = { celticgfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.2 0.6 0.6 }
 
 		male_names = {
@@ -4413,7 +5124,12 @@ celtic = {
 	}
 	welsh = {
 		graphical_cultures = { celticgfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.3 0.8 0.6 }
 
 		male_names = {
@@ -4477,7 +5193,12 @@ celtic = {
 	
 	modernwelsh = {
 		graphical_cultures = { moderncelticgfx modernwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.3 0.8 0.6 }
 
 		male_names = {
@@ -4541,7 +5262,12 @@ celtic = {
 	
 	rennwelsh = {
 		graphical_cultures = { renncelticgfx rennwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1350
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.3 0.8 0.6 }
 
 		male_names = {
@@ -4605,7 +5331,12 @@ celtic = {
 
 	colonialwelsh = {
 		graphical_cultures = { colonialcelticgfx colonialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1650
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.3 0.8 0.6 }
 
 		male_names = {
@@ -4669,7 +5400,12 @@ celtic = {
 	
 	industrialwelsh = {
 		graphical_cultures = { industrialcelticgfx industrialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1850
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.3 0.8 0.6 }
 
 		male_names = {
@@ -4733,7 +5469,12 @@ celtic = {
 	
 	breton = {
 		graphical_cultures = { celticgfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.3 0.5 0.4 }
 		
 		male_names = {
@@ -4812,7 +5553,12 @@ celtic = {
 
 	modernbreton = {
 		graphical_cultures = { celticgfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.3 0.5 0.4 }
 		
 		male_names = {
@@ -4891,7 +5637,12 @@ celtic = {
 
 	industrialbreton = {
 		graphical_cultures = { industrialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1850
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.3 0.5 0.4 }
 		
 		male_names = {
@@ -4970,7 +5721,12 @@ celtic = {
 
 	colonialbreton = {
 		graphical_cultures = { colonialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1650
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.3 0.5 0.4 }
 		
 		male_names = {
@@ -5049,7 +5805,12 @@ celtic = {
 
 	rennbreton = {
 		graphical_cultures = { rennwesterngfx celticgfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1350
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.3 0.5 0.4 }
 		
 		male_names = {
@@ -5129,7 +5890,8 @@ celtic = {
 
 finno_ugric = {
 	graphical_cultures = { easterngfx westerngfx }
-
+	alternate_start = { NOT = { has_alternate_start_parameter = { key = special_culture value = animal_world } } }
+	
 	finnish = {
 		graphical_cultures = { ugricgfx westerngfx }
 		
@@ -5153,7 +5915,12 @@ finno_ugric = {
 	}
 	lappish	 = {
 		graphical_cultures = { ugricgfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.4 0.75 0.85 }
 
 		male_names = {
@@ -5171,7 +5938,12 @@ finno_ugric = {
 	}
 	ugricbaltic = {
 		graphical_cultures = { ugricgfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.3 0.7 0.7 }
 
 		male_names = {
@@ -5198,7 +5970,12 @@ finno_ugric = {
 	}
 	komi = {
 		graphical_cultures = { ugricgfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.5 0.75 0.25 }
 
 		male_names = {
@@ -5222,7 +5999,12 @@ finno_ugric = {
 	
 	khanty = {
 		graphical_cultures = { ugricgfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.4 0.65 0.20 }
 
 		male_names = {
@@ -5246,7 +6028,12 @@ finno_ugric = {
 	
 	samoyed = { # AKA Nenets
 		graphical_cultures = { ugricgfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.3 0.75 0.75 }
 
 		male_names = {
@@ -5262,7 +6049,12 @@ finno_ugric = {
 	}
 	mordvin = {
 		graphical_cultures = { ugricgfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.3 0.7 0.7 }
 
 		male_names = {
@@ -5283,10 +6075,37 @@ finno_ugric = {
 
 		modifier = default_culture_modifier
 	}
-	
+	meshchera = {
+		graphical_cultures = { ugricgfx }
+		
+		color = { 0.3 0.5 0.5 }
+
+		male_names = {
+			Andyamo Chichayka Chumbulat Dergun Deryab Dobrinya Erziya Inzhay Kezhapa Kezhay Kezhedey Kezhevat Kichay Kubrat Malyaka Malyy Meltsayka Mordvinko Moksha
+			Nalka Nuyaksha Nuyanza Nuyat Ovtay Pakstyan Paksyay Paksyut Parush Pivtsay Pokshayka Putyayka Setyamka Shindyay Shoksha Syrka Tikshayka
+			Tyueykezhut Uchva Varaka Vechkas Velmayka Virdyan Viryas Viryay Atyamas Azyren Chipaz Kardaz Kinyak Koshel Murunza Naruchad Nishkepaz Orunza Puresh Purysho 
+			Saksa Shkay Surt Tul Tunya Tutyra Tylmache Tylze Tyushten Tyushtya Uzhara Varmanpaz
+		}
+		female_names = {
+			Anava Ashava Asrava Azra-Va Chechama Chenksa Cherava Chichayka Chindyapa Chindyayka Chinzhay Chitska Elyuva Inyava Kanyava Kanyuva
+			Kirdyava Kunava Kunyavka Litava Liyava Mazava Megurka Mel'shay Nezayka Nulzyava Nuyanza Nyal'ka Nyayka Olota Ordava Oshama Parava Pekshayka
+			Pemka Pokshava Poshayka Potekay Potyava Putyayka Ravzhava Ruzava Sanal'ka Sangasa Sernyava Serzhay Setyamka Seyamka Shonzhava
+			Shukshtoroyka Sinyava Siyamka Slyugan'ka Sochava Styaka Syryava Tatka Tekay Tetyava Tikshayka Toyaksha Tundava Tundya Unzhutka Upurga
+			Utyayka Valdava Vergava Vezhav Vidyava Virtyava Yalgava Litova Mastorava Noroava
+		}
+		from_dynasty_prefix = "of "
+		founder_named_dynasties = yes
+
+		modifier = default_culture_modifier
+	}	
 	modernfinnish = {
 		graphical_cultures = { modernugricgfx modernwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.1 0.6 0.6 }
 
 		male_names = {
@@ -5308,7 +6127,12 @@ finno_ugric = {
 	
 	rennfinnish = {
 		graphical_cultures = { rennugricgfx rennnwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1350
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.1 0.6 0.6 }
 
 		male_names = {
@@ -5330,7 +6154,12 @@ finno_ugric = {
 	
 	colonialfinnish = {
 		graphical_cultures = { colonialugricgfx colonialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1650
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.1 0.6 0.6 }
 
 		male_names = {
@@ -5352,7 +6181,12 @@ finno_ugric = {
 	
 	industrialfinnish = {
 		graphical_cultures = { industrialugricgfx industrialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1850
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.1 0.6 0.6 }
 
 		male_names = {
@@ -5374,7 +6208,12 @@ finno_ugric = {
 	
 	modernlappish	 = {
 		graphical_cultures = { modernugricgfx modernwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.4 0.75 0.85 }
 
 		male_names = {
@@ -5392,7 +6231,12 @@ finno_ugric = {
 	}
 	modernugricbaltic = {
 		graphical_cultures = { modernugricgfx modernwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}			
 		color = { 0.3 0.7 0.7 }
 
 		male_names = {
@@ -5420,7 +6264,12 @@ finno_ugric = {
 	
 	rennugricbaltic = {
 		graphical_cultures = { rennugricgfx rennwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1350
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.3 0.7 0.7 }
 
 		male_names = {
@@ -5448,7 +6297,12 @@ finno_ugric = {
 	
 	colonialugricbaltic = {
 		graphical_cultures = { colonialugricgfx colonialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1650
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.3 0.7 0.7 }
 
 		male_names = {
@@ -5476,7 +6330,12 @@ finno_ugric = {
 	
 	industrialugricbaltic = {
 		graphical_cultures = { industrialugricgfx industrialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1850
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.3 0.7 0.7 }
 
 		male_names = {
@@ -5504,7 +6363,12 @@ finno_ugric = {
 	
 	modernkomi = {
 		graphical_cultures = { modernugricgfx modernwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.5 0.75 0.25 }
 
 		male_names = {
@@ -5528,7 +6392,12 @@ finno_ugric = {
 	
 	modernkhanty = {
 		graphical_cultures = { modernugricgfx modernwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.4 0.65 0.20 }
 
 		male_names = {
@@ -5552,7 +6421,12 @@ finno_ugric = {
 	
 	modernsamoyed = { # AKA Nenets
 		graphical_cultures = { modernugricgfx modernwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.3 0.75 0.75 }
 
 		male_names = {
@@ -5569,7 +6443,12 @@ finno_ugric = {
 	
 	modernmordvin = {
 		graphical_cultures = { modernugricgfx modernwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.3 0.7 0.7 }
 
 		male_names = {
@@ -5593,7 +6472,12 @@ finno_ugric = {
 	
 	rennmordvin = {
 		graphical_cultures = { rennugricgfx rennwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1350
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.3 0.7 0.7 }
 
 		male_names = {
@@ -5617,7 +6501,12 @@ finno_ugric = {
 
 	colonialmordvin = {
 		graphical_cultures = { colonialugricgfx colonialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1650
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.3 0.7 0.7 }
 
 		male_names = {
@@ -5641,7 +6530,12 @@ finno_ugric = {
 
 	industrialmordvin = {
 		graphical_cultures = { industrialugricgfx industrialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1850
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.3 0.7 0.7 }
 
 		male_names = {
@@ -5666,10 +6560,16 @@ finno_ugric = {
 
 baltic = {
 	graphical_cultures = { easterngfx westerngfx }
-
+	alternate_start = { NOT = { has_alternate_start_parameter = { key = special_culture value = animal_world } } }
+		
 	lettigallish = {
 		graphical_cultures = { ugricgfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.5 0.5 0.1 }
 
 		male_names = {
@@ -5689,7 +6589,12 @@ baltic = {
 	}
 	lithuanian = {
 		graphical_cultures = { ugricgfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.56 0.55 0.2 }
 
 		male_names = {
@@ -5709,7 +6614,12 @@ baltic = {
 	}
 	modernprussian = {
 		graphical_cultures = { modernugricgfx modernwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.56 0.55 0.4 }
 
 		male_names = {
@@ -5727,7 +6637,12 @@ baltic = {
 	
 	prussian = {
 		graphical_cultures = { westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.56 0.55 0.4 }
 
 		male_names = {
@@ -5746,7 +6661,12 @@ baltic = {
 	
 	rennprussian = {
 		graphical_cultures = { rennugricgfx rennwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1350
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.56 0.55 0.4 }
 
 		male_names = {
@@ -5764,7 +6684,12 @@ baltic = {
 	
 	colonialprussian = {
 		graphical_cultures = { colonialugricgfx colonialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1650
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.56 0.55 0.4 }
 
 		male_names = {
@@ -5782,7 +6707,12 @@ baltic = {
 	
 	industrialprussian = {
 		graphical_cultures = { industrialugricgfx industrialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1850
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.56 0.55 0.4 }
 
 		male_names = {
@@ -5800,7 +6730,12 @@ baltic = {
 	
 	modernlettigallish = {
 		graphical_cultures = { modernugricgfx industrialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.5 0.5 0.1 }
 
 		male_names = {
@@ -5821,7 +6756,12 @@ baltic = {
 	
 	rennlettigallish = {
 		graphical_cultures = { renrnugricgfx rennwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1350
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.5 0.5 0.1 }
 
 		male_names = {
@@ -5842,7 +6782,12 @@ baltic = {
 	
 	coloniallettigallish = {
 		graphical_cultures = { colonialugricgfx colonialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1650
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.5 0.5 0.1 }
 
 		male_names = {
@@ -5863,7 +6808,12 @@ baltic = {
 	
 	industriallettigallish = {
 		graphical_cultures = { industrialugricgfx industrialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1850
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.5 0.5 0.1 }
 
 		male_names = {
@@ -5884,7 +6834,12 @@ baltic = {
 	
 	modernlithuanian = {
 		graphical_cultures = { modernugricgfx modernwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.56 0.55 0.2 }
 
 		male_names = {
@@ -5905,7 +6860,12 @@ baltic = {
 	
 	rennlithuanian = {
 		graphical_cultures = { rennugricgfx rennwesterngfx  westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1350
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.56 0.55 0.2 }
 
 		male_names = {
@@ -5926,7 +6886,12 @@ baltic = {
 	
 	coloniallithuanian = {
 		graphical_cultures = { colonialugricgfx colonialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1650
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.56 0.55 0.2 }
 
 		male_names = {
@@ -5947,7 +6912,12 @@ baltic = {
 	
 	industriallithuanian = {
 		graphical_cultures = { industrialugricgfx industrialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1850
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.56 0.55 0.2 }
 
 		male_names = {
@@ -5970,9 +6940,16 @@ baltic = {
 
 altaic = {
 	graphical_cultures = { turkishgfx mongolgfx muslimgfx westerngfx }
+	alternate_start = { NOT = { has_alternate_start_parameter = { key = special_culture value = animal_world } } }
 
 	turkish = { # Oghuz Turkish
 		graphical_cultures = { turkishgfx }
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		secondary_event_pictures = bedouin_arabic
 		
 		color = { 0.85 0.55 0.15 }
@@ -6002,6 +6979,12 @@ altaic = {
 	}
 	pecheneg = { # Oghuz Turkish
 		graphical_cultures = { turkishgfx westerngfx }
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		secondary_event_pictures = bedouin_arabic
 		
 		color = { 0.85 0.79 0.25 }
@@ -6024,6 +7007,12 @@ altaic = {
 	}
 	cuman = { # Kipchak Turkish
 		graphical_cultures = { cumangfx turkishgfx westerngfx }
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		secondary_event_pictures = bedouin_arabic
 		
 		color = { 0.75 0.60 0.20 }
@@ -6047,6 +7036,12 @@ altaic = {
 	
 	khazar = { # Oghur Turkish
 		graphical_cultures = { turkishgfx westerngfx }
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		secondary_event_pictures = bedouin_arabic
 		
 		color = { 0.7 0.45 0.1 }
@@ -6071,6 +7066,12 @@ altaic = {
 	
 	bolghar = { # Oghur Turkish
 		graphical_cultures = { turkishgfx westerngfx }
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		secondary_event_pictures = bedouin_arabic
 		
 		color = { 0.7 0.65 0.15 }
@@ -6099,6 +7100,12 @@ altaic = {
 	
 	avar = { # Oghur Turkish
 		graphical_cultures = { turkishgfx easterngfx westerngfx }
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		secondary_event_pictures = bedouin_arabic
 
 		color = { 0.7 0.7 0.3 }
@@ -6127,6 +7134,12 @@ altaic = {
 	
 	karluk = {
 		graphical_cultures = { cumangfx turkishgfx westerngfx }
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		secondary_event_pictures = bedouin_arabic
 		
 		color = { 0.65 0.50 0.15 }
@@ -6151,6 +7164,12 @@ altaic = {
 	
 	kirghiz = {
 		graphical_cultures = { cumangfx turkishgfx westerngfx }
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		secondary_event_pictures = bedouin_arabic
 		
 		color = { 0.85 0.72 0.30 }
@@ -6179,6 +7198,12 @@ altaic = {
 	}
 	uyghur = {
 		graphical_cultures = { cumangfx turkishgfx westerngfx }
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		secondary_event_pictures = bedouin_arabic
 		
 		color = { 0.85 0.75 0.50 }
@@ -6203,6 +7228,12 @@ altaic = {
 
 	mongol = {
 		graphical_cultures = { mongolgfx muslimgfx westerngfx }
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		secondary_event_pictures = bedouin_arabic
 		
 		horde = yes
@@ -6231,6 +7262,12 @@ altaic = {
 	
 	khitan = {
 		graphical_cultures = { chinesegfx mongolgfx muslimgfx westerngfx }
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		secondary_event_pictures = bedouin_arabic
 		
 		dynasty_name_first = yes
@@ -6260,6 +7297,12 @@ altaic = {
 
 	jurchen = {
 		graphical_cultures = { chinesegfx mongolgfx muslimgfx westerngfx }
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		secondary_event_pictures = bedouin_arabic
 		
 		dynasty_name_first = yes
@@ -6289,6 +7332,12 @@ altaic = {
 	
 	modernturkish = { # Oghuz Turkish
 		graphical_cultures = { modernturkishgfx modernwesterngfx westerngfx }
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		secondary_event_pictures = bedouin_arabic
 		
 		color = { 0.85 0.55 0.15 }
@@ -6318,6 +7367,12 @@ altaic = {
 	}
 	modernpecheneg = { # Oghuz Turkish
 		graphical_cultures = { modernturkishgfx modernwesterngfx westerngfx }
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		secondary_event_pictures = bedouin_arabic
 		
 		color = { 0.85 0.79 0.25 }
@@ -6340,6 +7395,12 @@ altaic = {
 	}
 	moderncuman = { # Kipchak Turkish
 		graphical_cultures = { moderncumangfx modernturkishgfx modernwesterngfx westerngfx }
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		secondary_event_pictures = bedouin_arabic
 		
 		color = { 0.75 0.60 0.20 }
@@ -6363,6 +7424,12 @@ altaic = {
 	
 	modernkhazar = { # Oghur Turkish
 		graphical_cultures = { modernturkishgfx modernwesterngfx westerngfx }
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		secondary_event_pictures = bedouin_arabic
 		
 		color = { 0.7 0.45 0.1 }
@@ -6387,6 +7454,12 @@ altaic = {
 	
 	modernbolghar = { # Oghur Turkish
 		graphical_cultures = { modernturkishgfx modernwesterngfx westerngfx }
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		secondary_event_pictures = bedouin_arabic
 		
 		color = { 0.7 0.65 0.15 }
@@ -6416,6 +7489,12 @@ altaic = {
 	
 	modernkarluk = {
 		graphical_cultures = { moderncumangfx modernturkishgfx modernwesterngfx westerngfx }
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		secondary_event_pictures = bedouin_arabic
 		
 		color = { 0.65 0.50 0.15 }
@@ -6440,6 +7519,12 @@ altaic = {
 	
 	modernkirghiz = {
 		graphical_cultures = { moderncumangfx modernturkishgfx modernwesterngfx westerngfx }
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		secondary_event_pictures = bedouin_arabic
 		
 		color = { 0.85 0.72 0.30 }
@@ -6468,6 +7553,12 @@ altaic = {
 	}
 	modernuyghur = {
 		graphical_cultures = { moderncumangfx modernturkishgfx modernwesterngfx westerngfx }
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		secondary_event_pictures = bedouin_arabic
 		
 		color = { 0.85 0.75 0.50 }
@@ -6492,6 +7583,12 @@ altaic = {
 
 	modernmongol = {
 		graphical_cultures = { modernmongolgfx modernmuslimgfx modernwesterngfx westerngfx }
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		secondary_event_pictures = bedouin_arabic
 		
 		horde = yes
@@ -6520,6 +7617,12 @@ altaic = {
 	
 	modernkhitan = {
 		graphical_cultures = { modernchinesegfx modernmongolgfx modernmuslimgfx modernwesterngfx westerngfx }
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		secondary_event_pictures = bedouin_arabic
 		
 		dynasty_name_first = yes
@@ -6549,6 +7652,12 @@ altaic = {
 
 	modernjurchen = {
 		graphical_cultures = { modernchinesegfx modernmongolgfx modernmuslimgfx modernwesterngfx westerngfx }
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		secondary_event_pictures = bedouin_arabic
 		
 		dynasty_name_first = yes
@@ -6579,10 +7688,16 @@ altaic = {
 
 arabic = {
 	graphical_cultures = { muslimgfx westerngfx}
-	
+	alternate_start = { NOT = { has_alternate_start_parameter = { key = special_culture value = animal_world } } }
+
 	bedouin_arabic = { 
 		graphical_cultures = { arabicgfx muslimgfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.1 0.75 0.1 }
 
 		male_names = {
@@ -6609,7 +7724,12 @@ arabic = {
 	}
 	maghreb_arabic = { # Berber
 		graphical_cultures = { arabicgfx muslimgfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.2 0.9 0.2 }
 
 		male_names = {
@@ -6666,7 +7786,12 @@ arabic = {
 	}
 	levantine_arabic = {
 		graphical_cultures = { arabicgfx muslimgfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.3 0.95 0.3 }
 
 		male_names = {
@@ -6693,7 +7818,12 @@ arabic = {
 	}
 	egyptian_arabic = {
 		graphical_cultures = { arabicgfx muslimgfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.1 0.6 0.1 }
 
 		male_names = {
@@ -6725,7 +7855,12 @@ arabic = {
 	}
 	andalusian_arabic = {
 		graphical_cultures = { andalusiangfx westerngfx } #westerngfx
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.4 0.6 0.1 }
 
 		male_names = {
@@ -6761,7 +7896,12 @@ arabic = {
 	
 	modernbedouin_arabic = { 
 		graphical_cultures = { modernarabicgfx modernmuslimgfx modernwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.1 0.75 0.1 }
 
 		male_names = {
@@ -6788,7 +7928,12 @@ arabic = {
 	}
 	modernmaghreb_arabic = { # Berber
 		graphical_cultures = { modernarabicgfx modernmuslimgfx modernwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.2 0.9 0.2 }
 
 		male_names = {
@@ -6845,7 +7990,12 @@ arabic = {
 	}
 	modernlevantine_arabic = {
 		graphical_cultures = { modernarabicgfx modernmuslimgfx modernwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.3 0.95 0.3 }
 
 		male_names = {
@@ -6872,7 +8022,12 @@ arabic = {
 	}
 	modernegyptian_arabic = {
 		graphical_cultures = { modernarabicgfx modernmuslimgfx modernwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.1 0.6 0.1 }
 
 		male_names = {
@@ -6904,7 +8059,12 @@ arabic = {
 	}
 	modernandalusian_arabic = {
 		graphical_cultures = { modernandalusiangfx modernwesterngfx westerngfx } #westerngfx
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.4 0.6 0.1 }
 
 		male_names = {
@@ -6941,10 +8101,16 @@ arabic = {
 
 east_slavic = {
 	graphical_cultures = { easterngfx westerngfx }
+	alternate_start = { NOT = { has_alternate_start_parameter = { key = special_culture value = animal_world } } }
 
 	russian = {
 		graphical_cultures = { easternslavicgfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.2 0.4 0.1 }
 
 		male_names = {
@@ -6982,7 +8148,12 @@ east_slavic = {
 	
 	modernrussian = {
 		graphical_cultures = { moderneasternslavicgfx modernwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.2 0.4 0.1 }
 
 		male_names = {
@@ -7020,7 +8191,12 @@ east_slavic = {
 	
 	rennrussian = {
 		graphical_cultures = { renneasternslavicgfx rennwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1350
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.2 0.4 0.1 }
 
 		male_names = {
@@ -7058,7 +8234,12 @@ east_slavic = {
 	
 	colonialrussian = {
 		graphical_cultures = { colonialeasternslavicgfx colonialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1650
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.2 0.4 0.1 }
 
 		male_names = {
@@ -7096,7 +8277,12 @@ east_slavic = {
 	
 	industrialrussian = {
 		graphical_cultures = { industrialeasternslavicgfx industrialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1850
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.2 0.4 0.1 }
 
 		male_names = {
@@ -7134,7 +8320,12 @@ east_slavic = {
 	
 	modernukrainian = {
 		graphical_cultures = { moderneasternslavicgfx modernwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.2 0.4 0.6 }
 
 		male_names = {
@@ -7173,7 +8364,12 @@ east_slavic = {
 	
 	modernbelarusian = {
 		graphical_cultures = { moderneasternslavicgfx modernwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.4 0.6 0.4 }
 
 		male_names = {
@@ -7208,7 +8404,12 @@ east_slavic = {
 	
 	ilmenian = {
 		graphical_cultures = { easternslavicgfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.45 0.6 0.2 }
 
 		male_names = {
@@ -7242,7 +8443,12 @@ east_slavic = {
 	}
 	severian = {
 		graphical_cultures = { easternslavicgfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.5 0.8 0.3 }
 
 		male_names = {
@@ -7276,7 +8482,12 @@ east_slavic = {
 	}
 	volhynian = {
 		graphical_cultures = { easternslavicgfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.65 0.8 0.3 }
 
 		male_names = {
@@ -7312,10 +8523,16 @@ east_slavic = {
 
 west_slavic = {
 	graphical_cultures = { easterngfx westerngfx }
+	alternate_start = { NOT = { has_alternate_start_parameter = { key = special_culture value = animal_world } } }
 
 	pommeranian = {
 		graphical_cultures = { westernslavicgfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.4 0.6 0.4 }
 
 		male_names = {
@@ -7340,7 +8557,12 @@ west_slavic = {
 	}
 	bohemian = {
 		graphical_cultures = { westernslavicgfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.4 0.6 0.5 }
 		
 		male_names = {
@@ -7363,7 +8585,12 @@ west_slavic = {
 	}
 	polish = {
 		graphical_cultures = { westernslavicgfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.4 0.6 0.55 }
 
 		male_names = {
@@ -7402,7 +8629,12 @@ west_slavic = {
 	
 	modernpommeranian = {
 		graphical_cultures = { modernwesternslavicgfx modernwesterngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.4 0.6 0.4 }
 
 		male_names = {
@@ -7429,7 +8661,12 @@ west_slavic = {
 	
 	rennpommeranian = {
 		graphical_cultures = { rennwesternslavicgfx rennwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1350
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.4 0.6 0.4 }
 
 		male_names = {
@@ -7456,7 +8693,12 @@ west_slavic = {
 		
 	colonialpommeranian = {
 		graphical_cultures = { colonialwesternslavicgfx colonialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1650
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.4 0.6 0.4 }
 
 		male_names = {
@@ -7483,7 +8725,12 @@ west_slavic = {
 	
 	industrialpommeranian = {
 		graphical_cultures = { industrialwesternslavicgfx industrialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1850
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.4 0.6 0.4 }
 
 		male_names = {
@@ -7509,7 +8756,12 @@ west_slavic = {
 	
 	modernbohemian = {
 		graphical_cultures = { modernwesternslavicgfx modernwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.4 0.6 0.5 }
 		
 		male_names = {
@@ -7533,7 +8785,12 @@ west_slavic = {
 
 	rennbohemian = {
 		graphical_cultures = { rennwesternslavicgfx rennwesterngfxwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1350
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.4 0.6 0.5 }
 		
 		male_names = {
@@ -7558,7 +8815,12 @@ west_slavic = {
 	
 	colonialbohemian = {
 		graphical_cultures = { colonialwesternslavicgfx colonialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1650
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.4 0.6 0.5 }
 		
 		male_names = {
@@ -7583,7 +8845,12 @@ west_slavic = {
 	
 	industrialbohemian = {
 		graphical_cultures = { industrialwesternslavicgfx industrialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1850
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.4 0.6 0.5 }
 		
 		male_names = {
@@ -7607,7 +8874,12 @@ west_slavic = {
 	
 	modernslovak = {
 		graphical_cultures = { modernwesternslavicgfx modernwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.4 0.5 0.7 }
 		
 		male_names = {
@@ -7632,7 +8904,12 @@ west_slavic = {
 	
 	rennslovak = {
 		graphical_cultures = { rennwesternslavicgfx rennwesterngfxwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1350
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.4 0.5 0.7 }
 		
 		male_names = {
@@ -7657,7 +8934,12 @@ west_slavic = {
 	
 	colonialslovak = {
 		graphical_cultures = { colonialwesternslavicgfx colonialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1650
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.4 0.5 0.7 }
 		
 		male_names = {
@@ -7682,7 +8964,12 @@ west_slavic = {
 	
 	industrialslovak = {
 		graphical_cultures = { industrialwesternslavicgfx industrialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1850
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.4 0.5 0.7 }
 		
 		male_names = {
@@ -7706,7 +8993,12 @@ west_slavic = {
 	
 	modernpolish = {
 		graphical_cultures = { modernwesternslavicgfx modernwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.4 0.6 0.55 }
 
 		male_names = {
@@ -7745,7 +9037,12 @@ west_slavic = {
 	
 	rennpolish = {
 		graphical_cultures = { rennwesternslavicgfx rennwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1350
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.4 0.6 0.55 }
 
 		male_names = {
@@ -7784,7 +9081,12 @@ west_slavic = {
 
 	colonialpolish = {
 		graphical_cultures = { colonialwesternslavicgfx colonialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1650
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.4 0.6 0.55 }
 
 		male_names = {
@@ -7823,7 +9125,12 @@ west_slavic = {
 
 	industrialpolish = {
 		graphical_cultures = { industrialwesternslavicgfx industrialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1850
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.4 0.6 0.55 }
 
 		male_names = {
@@ -7864,10 +9171,16 @@ west_slavic = {
 
 south_slavic = {
 	graphical_cultures = { easterngfx westerngfx }
+	alternate_start = { NOT = { has_alternate_start_parameter = { key = special_culture value = animal_world } } }
 
 	croatian = {
 		graphical_cultures = { westernslavicgfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.4 0.2 0.2 }
 
 		male_names = {
@@ -7899,7 +9212,12 @@ south_slavic = {
 	
 	serbian = {
 		graphical_cultures = { westernslavicgfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.5 0.3 0.3 }
 
 		male_names = {
@@ -7923,7 +9241,12 @@ south_slavic = {
 	}
 	romanian = {
 		graphical_cultures = { westernslavicgfx westerngfx }
-
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}
 		color = { 0.6 0.4 0.4 }
 
 		male_names = {
@@ -7961,7 +9284,12 @@ south_slavic = {
 	}
 	bulgarian = {
 		graphical_cultures = { westernslavicgfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.7 0.5 0.5 }
 
 		male_names = {
@@ -7987,7 +9315,12 @@ south_slavic = {
 
 	moderncroatian = {
 		graphical_cultures = { modernwesternslavicgfx modernwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.4 0.2 0.2 }
 
 		male_names = {
@@ -8019,7 +9352,12 @@ south_slavic = {
 	
 	renncroatian = {
 		graphical_cultures = { rennwesternslavicgfx rennwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1350
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.4 0.2 0.2 }
 
 		male_names = {
@@ -8051,7 +9389,12 @@ south_slavic = {
 	
 	colonialcroatian = {
 		graphical_cultures = { colonialwesternslavicgfx colonialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1650
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.4 0.2 0.2 }
 
 		male_names = {
@@ -8083,7 +9426,12 @@ south_slavic = {
 	
 	industrialcroatian = {
 		graphical_cultures = { industrialwesternslavicgfx industrialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1850
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.4 0.2 0.2 }
 
 		male_names = {
@@ -8115,7 +9463,12 @@ south_slavic = {
 	
 	modernserbian = {
 		graphical_cultures = { modernwesternslavicgfx modernwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.5 0.3 0.3 }
 
 		male_names = {
@@ -8141,7 +9494,12 @@ south_slavic = {
 	
 	rennserbian = {
 		graphical_cultures = { rennwesternslavicgfx rennwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1350
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.5 0.3 0.3 }
 
 		male_names = {
@@ -8167,7 +9525,12 @@ south_slavic = {
 	
 	colonialserbian = {
 		graphical_cultures = { colonialwesternslavicgfx colonialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1650
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.5 0.3 0.3 }
 
 		male_names = {
@@ -8193,7 +9556,12 @@ south_slavic = {
 	
 	industrialserbian = {
 		graphical_cultures = { industrialwesternslavicgfx industrialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1850
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.5 0.3 0.3 }
 
 		male_names = {
@@ -8218,7 +9586,12 @@ south_slavic = {
 	
 	modernromanian = {
 		graphical_cultures = { modernwesternslavicgfx modernwesterngfx westerngfx }
-
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}
 		color = { 0.6 0.4 0.4 }
 
 		male_names = {
@@ -8257,7 +9630,12 @@ south_slavic = {
 	
 	rennromanian = {
 		graphical_cultures = { rennwesternslavicgfx rennwesterngfx westerngfx }
-
+		alternate_start = { 
+			OR = {
+				year >= 1350
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}
 		color = { 0.6 0.4 0.4 }
 
 		male_names = {
@@ -8296,7 +9674,12 @@ south_slavic = {
 
 	colonialromanian = {
 		graphical_cultures = { colonialwesternslavicgfx colonialwesterngfx westerngfx }
-
+		alternate_start = { 
+			OR = {
+				year >= 1650
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}
 		color = { 0.6 0.4 0.4 }
 
 		male_names = {
@@ -8335,7 +9718,12 @@ south_slavic = {
 
 	industrialromanian = {
 		graphical_cultures = { industrialwesternslavicgfx industrialwesterngfx westerngfx }
-
+		alternate_start = { 
+			OR = {
+				year >= 1850
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}
 		color = { 0.6 0.4 0.4 }
 
 		male_names = {
@@ -8374,7 +9762,12 @@ south_slavic = {
 	
 	modernbulgarian = {
 		graphical_cultures = { modernwesternslavicgfx modernwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.7 0.5 0.5 }
 
 		male_names = {
@@ -8399,7 +9792,12 @@ south_slavic = {
 
 	rennbulgarian = {
 		graphical_cultures = { rennwesternslavicgfx rennwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1350
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.7 0.5 0.5 }
 
 		male_names = {
@@ -8424,7 +9822,12 @@ south_slavic = {
 	
 	colonialbulgarian = {
 		graphical_cultures = { colonialwesternslavicgfx colonialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1650
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.7 0.5 0.5 }
 
 		male_names = {
@@ -8449,7 +9852,12 @@ south_slavic = {
 
 	industrialbulgarian = {
 		graphical_cultures = { industrialwesternslavicgfx industrialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1850
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.7 0.5 0.5 }
 
 		male_names = {
@@ -8474,7 +9882,12 @@ south_slavic = {
 	
 	modernbosnian = {
 		graphical_cultures = { modernwesternslavicgfx modernwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.6 0.4 0.4 }
 
 		male_names = {
@@ -8506,7 +9919,12 @@ south_slavic = {
 
 	industrialbosnian = {
 		graphical_cultures = { industrialwesternslavicgfx industrialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.6 0.4 0.4 }
 
 		male_names = {
@@ -8538,7 +9956,12 @@ south_slavic = {
 	
 	colonialbosnian = {
 		graphical_cultures = { colonialwesternslavicgfx colonialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1650
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.6 0.4 0.4 }
 
 		male_names = {
@@ -8570,7 +9993,12 @@ south_slavic = {
 	
 	rennbosnian = {
 		graphical_cultures = { rennwesternslavicgfx rennwesterngfx westernslavicgfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1350
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.6 0.4 0.4 }
 
 		male_names = {
@@ -8602,7 +10030,12 @@ south_slavic = {
 	
 	bosnian = {
 		graphical_cultures = { westernslavicgfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.6 0.4 0.4 }
 
 		male_names = {
@@ -8634,7 +10067,12 @@ south_slavic = {
 	
 	modernslovenian = {
 		graphical_cultures = { modernwesternslavicgfx modernwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.3 0.1 0.1 }
 
 		male_names = {
@@ -8666,7 +10104,12 @@ south_slavic = {
 
 	rennslovenian = {
 		graphical_cultures = { rennwesternslavicgfx rennwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1350
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.3 0.1 0.1 }
 
 		male_names = {
@@ -8698,7 +10141,12 @@ south_slavic = {
 	
 	colonialslovenian = {
 		graphical_cultures = { colonialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1650
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.3 0.1 0.1 }
 
 		male_names = {
@@ -8730,7 +10178,12 @@ south_slavic = {
 	
 	industrialslovenian = {
 		graphical_cultures = { industrialwesternslavicgfx industrialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1850
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.3 0.1 0.1 }
 
 		male_names = {
@@ -8762,7 +10215,12 @@ south_slavic = {
 	
 	modernmacedonian = {
 		graphical_cultures = { modernwesternslavicgfx modernwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.5 0.3 0.3 }
 
 		male_names = {
@@ -8788,7 +10246,12 @@ south_slavic = {
 	
 	industrialmacedonian = {
 		graphical_cultures = { industrialwesternslavicgfx industrialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.5 0.3 0.3 }
 
 		male_names = {
@@ -8812,7 +10275,12 @@ south_slavic = {
 	}
 	colonialmacedonian = {
 		graphical_cultures = { colonialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1650
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.5 0.3 0.3 }
 
 		male_names = {
@@ -8838,7 +10306,12 @@ south_slavic = {
 
 	rennmacedonian = {
 		graphical_cultures = { rennwesternslavicgfx rennwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1350
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.5 0.3 0.3 }
 
 		male_names = {
@@ -8864,7 +10337,12 @@ south_slavic = {
 
 	macedonian = {
 		graphical_cultures = { westernslavicgfx westerngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.5 0.3 0.3 }
 
 		male_names = {
@@ -8890,7 +10368,12 @@ south_slavic = {
 	
 	modernalbanian = {
 		graphical_cultures = { modernwesternslavicgfx modernwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.8 0.4 0.3 }
 
 		male_names = {
@@ -8915,7 +10398,12 @@ south_slavic = {
 	
 	industrialalbanian = {
 		graphical_cultures = { industrialwesternslavicgfx industrialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1850
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.8 0.4 0.3 }
 
 		male_names = {
@@ -8940,7 +10428,12 @@ south_slavic = {
 
 	colonialalbanian = {
 		graphical_cultures = { colonialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1650
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.8 0.4 0.3 }
 
 		male_names = {
@@ -8965,7 +10458,12 @@ south_slavic = {
 
 	rennalbanian = {
 		graphical_cultures = { rennwesternslavicgfx rennwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1350
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.8 0.4 0.3 }
 
 		male_names = {
@@ -8990,7 +10488,12 @@ south_slavic = {
 
 	albanian = {
 		graphical_cultures = { westernslavicgfx westerngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.8 0.4 0.3 }
 
 		male_names = {
@@ -9013,14 +10516,43 @@ south_slavic = {
 		modifier = default_culture_modifier
 	}		
 	
-}
 
+	carantanian = {
+		graphical_cultures = { serbsouthslavicgfx }
+
+		color = { 0.5 0.3 0.5 }
+
+		male_names = {
+			Bedoslav Beli Benebod Benko Bislav Blagosod Boleslav Bodigoj Bogomir Bogumil_Bogomil Bojnoslav Borigoj Borižit Borut Branimir Braslav Budigoj Budin Cestilo Cestimir Crné Crnel Crni Crnig Dalimir Danimir Debeligoj Dober Dobrislav Dobrej Dobren Dobrodej Dorogoj Dobromisl Dobroneg Dobrost Dobrovlast Dobrožit Domagoj Domažil Domomir Domomisl Dragomir Dragoslav Dragovit Glavac Glušo Gnevaš Godemir Godemisl Gojen Gojimir Gojislav Golodrag Golomir Golotek Gorazd Gostibil Gostidrag Grd Hoten Hotimir Hrast Inko Izbor Jaroslav Jelen Junik Lastigoj Lastimir Lastnik Ljuban Ljubiš Ljubodrag Ljuboneg Ljubotin Ljubšin Ljutic Ljutomir Manidrag Maraš Medved Mil Milaš Milej Milo Misl Minigoj Mirigoj Miromisl Miroslav Mistibor Mistislav Nacek Naciživ Nadovid Namdrag Našemisl Nebomir Negoj Negomir Nenadej Nepokor Neško Nežir Nico Omisl Petanko Pitalo Pomik Predoslav Premil Premisl Pribibor Pribigoj Pribislav Prisnec Prisnoslav Prodan Radek Radogej Radenko Radigoj Radin Radoh Radoš Radul Radušic Sebeteh Sebibor Sebidrag Sebigoj Sebimir Semiko Skrben Slav Slavko Slavuš Sojdrag Sprejmir Stagoj Stamer Stane Stanislav Stano Stansgoj Stanon Stislav Stojan Stojce Stojdrag Stojgoj Stojmir Stradoslav Stranimir Stregomil Sujce Svegoj Sveljub Svemir Svetec Svetin Svetodrag Svetogoj Svetomir Svetoslav Scenedrag Tihodrag Tihomir Tihožit Trdac Trdogoj Trdomir Trdoslav Trebec Trebegoj Trebeš Trebibor Trebibrat Trebil Trebin Trebimir Trebišin Trebivit Trebnik Trebušnež Uncat Unislav Val Valnik Vecegoj Vecevoj Veligoj Velikne Vencegoj Venko Vilan Vitin Vitomir Vitomisl Vitogoj Vitošlav Višegoj Višemir Vladimir Vlado Voinomir Volkoj Volkun Zababerad Zadrag Zdebor Zdedrag Zdegoj Zdemir Zdeslav Zdestan Zememišl Zemeteh Zemiboned Zemidrug Zemignev Zemin Zloslav Zverce Zvergoj Zverko Železen Židislav Žilec Žitigoj Žitomir Žitomisl Žitovit Žizemir
+			Blaško Bogdan Bogoslav Božidar Božo Bojan Boril Boris Boroj Boško Branko Budislav Cvetni Cvetašin Cvetin Cvetoš Dejan Doberko Dobrilo Dobrovoj Dobroslav Dragaš Dragobrat Dražilo Dušan Godomir Gojko Gradimir Hraber Ivko Izeslav Jezerko Kazimir_Casimir Karan Kocelj Krilan Ljuben Ljubenko Liubivoj Ljubinko Ljubomir Ljuboslav Maleš Miladin Milan Milanko Milen Milenko Milevoj Milin Milinko Milislav Milovan Milorad Miloš Milun Miluš Milutin Miljen Miljko Milobrat Milodrag Mirko Mirodar Mišljen Mladen Negoš Nedeljko Ninko Nino Novko Obren Prerad Pribic Radan Radivoj Radinko Radislav Radic Radmil Radovan Radoj Radojko Radomir Radosim Radoslav Rajko Ratko Rebom Savo Slavoljub Sokol Srecan Srecko Stanko Stojadin Stojko Svetopolk_Svatopluk Šišman Šumijak Tašo Tihomil Uroš Valhun Vasoj Veselin Vecerin Vetko Vid Vidojko Vitko Vitor Vladoslav Vlatko Vojdrag Vojtek Volkašin Vratislav Zlatko Zlatoslav Zlatoust
+		}
+
+		female_names = {
+			Bega Bela Belica Beliša Bitinja Blagica Bogumila Boželisa Branka Bratina Bratrica Budislava Crna Dobrava Dobrica Dobrilka Dobrinja Dobrota Dobrožica Dobrožižna Dobruška Dolgodelka Domnega Dražica Godeslava Gojica Gosta Gostinja Gostiša Govica Jaronega Jaroslava Jelena Ladana Laduta Lastuša Lazica Lepa Ljuba Ljubiha Ljubonega Ljubonja Ljubota Ljuta Ljutica Mala Manidraga Miljena Mislena Mirica Mirna Miroslava Nedeljka Negota Odola Pacemira Predobra Pribila Pribina Pribislava Prisnoba Prisnota Radonja Semika Slava Slavka Slovenka Sobemisla Stanila Stanislava Stislava Stojana Stojina Straha Stranka Svetoslava Tešina Težkona Tihica Tihomira Tihonja Tonislava Topa Trebenja Trebica Trebina Ubislava Vevera Vidina Vilana Volcina Volkinja Volkonja Volkota Vranica Zemidraga Zenislava Zla Zlativenca Zleslava Zverica Zverinja Zverka Židana Živina
+			Bistra Bogdana Boža Bojana Bosiljka Brajna Cveta Cvetana Cudna Danica Daša Deva Dejana Divna Dobrana Dobrija Draga Dragica Golobica Gorislava Gradislava Granislava Grozda Grozdana Grobiša Ivka Jagoda Janja Jasna Jela Jelenka Kazimira Kalina Kosana Košuta Krilana Lilijana Ljubica Ljubomira Ljuboslava Maleša Malina Malinka Mila Milena Milislava Milica Milojka Milunka Miluša Milja Miljana Miljka Mira Mirca Mirjana Mica Mišljena Morava Neda Nišava Novica Ogrinja Pavica Prodana Rada Radana Radojka Rajka Sava Slavica Smiljana Stana Stanimir Stanka Stojna Tankosa Tankosava Tonka Vesela Vida Vidojka Vidoslava Volkoslava Volcica Zlatkoka Zorana Zorka Zvezdana Živkoka
+		}
+
+		from_dynasty_prefix = "od "
+		
+		male_patronym = "ic"
+		prefix = no
+
+		modifier = default_culture_modifier
+	}
+}
+	
 magyar = {
 	graphical_cultures = { easterngfx westerngfx }
+	alternate_start = { NOT = { has_alternate_start_parameter = { key = special_culture value = animal_world } } }
 
 	hungarian = {
 		graphical_cultures = { westernslavicgfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.5 0.6 0.3 }
 
 		male_names = {
@@ -9049,10 +10581,14 @@ magyar = {
 		modifier = default_culture_modifier
 	}
 	
-	
 	modernhungarian = {
 		graphical_cultures = { modernwesternslavicgfx modernwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.5 0.6 0.3 }
 
 		male_names = {
@@ -9083,7 +10619,12 @@ magyar = {
 	
 	rennhungarian = {
 		graphical_cultures = { rennwesternslavicgfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1350
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.5 0.6 0.3 }
 
 		male_names = {
@@ -9114,7 +10655,12 @@ magyar = {
 
 	colonialhungarian = {
 		graphical_cultures = { colonialwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1650
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.5 0.6 0.3 }
 
 		male_names = {
@@ -9145,7 +10691,12 @@ magyar = {
 	
 	industrialhungarian = {
 		graphical_cultures = { industrialwesternslavicgfx modernwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1850
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.5 0.6 0.3 }
 
 		male_names = {
@@ -9178,11 +10729,17 @@ magyar = {
 
 iranian = {
 	graphical_cultures = { muslimgfx westerngfx }
+	alternate_start = { NOT = { has_alternate_start_parameter = { key = special_culture value = animal_world } } }
 
 	persian = {
 		graphical_cultures = { persiangfx westerngfx }
 		secondary_event_pictures = bedouin_arabic
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.8 0.8 0.4 }
 
 		male_names = {
@@ -9214,7 +10771,12 @@ iranian = {
 	modernpersian = {
 		graphical_cultures = { modernpersiangfx modernwesterngfx westerngfx }
 		secondary_event_pictures = bedouin_arabic
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.8 0.8 0.4 }
 
 		male_names = {
@@ -9246,7 +10808,12 @@ iranian = {
 	sogdian = {
 		graphical_cultures = { persiangfx westerngfx }
 		secondary_event_pictures = bedouin_arabic
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.43 0.32 0.32 }
 		
 		male_names = {
@@ -9289,7 +10856,12 @@ iranian = {
 	tocharian = {
 		graphical_cultures = { persiangfx westerngfx }
 		secondary_event_pictures = bedouin_arabic
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.75 0.45 0.95  }
 		
 		male_names = {
@@ -9318,7 +10890,12 @@ iranian = {
 	modernsogdian = {
 		graphical_cultures = { modernpersiangfxwesterngfx }
 		secondary_event_pictures = bedouin_arabic
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.43 0.32 0.32 }
 		
 		male_names = {
@@ -9361,7 +10938,12 @@ iranian = {
 	moderntocharian = {
 		graphical_cultures = { modernpersiangfx westerngfx }
 		secondary_event_pictures = bedouin_arabic
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.75 0.45 0.95  }
 		
 		male_names = {
@@ -9390,7 +10972,12 @@ iranian = {
 	kurdish = {
 		graphical_cultures = { persiangfx westerngfx } #arabicgfx
 		secondary_event_pictures = bedouin_arabic
-
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}
 		color = { 0.3 0.35 0.1 }
 
 		male_names = {
@@ -9433,7 +11020,12 @@ iranian = {
 	afghan = { # a.k.a. Pashtun
 		graphical_cultures = { persiangfx westerngfx } #arabicgfx
 		secondary_event_pictures = bedouin_arabic
-
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}
 		color = { 0.6 0.6 0.1 }
 
 		male_names = {
@@ -9464,7 +11056,12 @@ iranian = {
 	baloch = {
 		graphical_cultures = { persiangfx westerngfx } #arabicgfx
 		secondary_event_pictures = bedouin_arabic
-
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}
 		color = { 0.4 0.4 0.05 }
 
 		male_names = {
@@ -9496,7 +11093,12 @@ iranian = {
 	modernkurdish = {
 		graphical_cultures = { modernpersiangfx modernwesterngfx westerngfx } #arabicgfx
 		secondary_event_pictures = bedouin_arabic
-
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}
 		color = { 0.3 0.35 0.1 }
 
 		male_names = {
@@ -9539,7 +11141,12 @@ iranian = {
 	modernafghan = { # a.k.a. Pashtun
 		graphical_cultures = { modernpersiangfx modernwesterngfx westerngfx } #arabicgfx
 		secondary_event_pictures = bedouin_arabic
-
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}
 		color = { 0.6 0.6 0.1 }
 
 		male_names = {
@@ -9570,7 +11177,12 @@ iranian = {
 	modernbaloch = {
 		graphical_cultures = { modernpersiangfx modernwesterngfx westerngfx } #arabicgfx
 		secondary_event_pictures = bedouin_arabic
-
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}
 		color = { 0.4 0.4 0.05 }
 
 		male_names = {
@@ -9601,7 +11213,12 @@ iranian = {
 	saka = {
         graphical_cultures = { persiangfx westerngfx } #arabicgfx
 		secondary_event_pictures = bedouin_arabic
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
         color = { 0.4 0.2 0.75  }
         
         male_names = {
@@ -9628,7 +11245,12 @@ iranian = {
 	modernsaka = {
         graphical_cultures = { modernpersiangfx westerngfx } #arabicgfx
 		secondary_event_pictures = bedouin_arabic
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
         color = { 0.4 0.2 0.75  }
         
         male_names = {
@@ -9655,9 +11277,16 @@ iranian = {
 
 east_african = {
 	graphical_cultures = { muslimgfx westerngfx }
-
+	alternate_start = { NOT = { has_alternate_start_parameter = { key = special_culture value = animal_world } } }
+	
 	ethiopian = {
 		graphical_cultures = { africangfx westafricangfx westerngfx }
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		secondary_event_pictures = bedouin_arabic
 		
 		color = { 0.4 0.4 0.3 }
@@ -9681,7 +11310,12 @@ east_african = {
 	somali = {
 		graphical_cultures = { africangfx westafricangfx westerngfx }
 		secondary_event_pictures = bedouin_arabic
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.2 0.2 0.1 }
 
 		male_names = {
@@ -9707,7 +11341,12 @@ east_african = {
 	nubian = {
 		graphical_cultures = { africangfx westafricangfx westerngfx }
 		secondary_event_pictures = bedouin_arabic
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.6 0.6 0.5 }
 
 		male_names = {
@@ -9731,12 +11370,34 @@ east_african = {
 
 		modifier = default_culture_modifier
 	}
-	
+	daju = {
+		graphical_cultures = { africangfx westafricangfx }
+		secondary_event_pictures = bedouin_arabic
+		
+		color = { 0.95 0.9 0.65 }
+		
+		male_names = {
+			Adam Ahmed_Ahmad Anqarib Asil Bakhit Ber Bogirg Bokdoru Bolad Born Bug Chang Chaski Dahab Dong Ede Ett Ferne Gaguwe Galan Gelgel Gon Habib Hajar Hassaballah Ibedou Ibrahim_Abraham Ishaq_Isaac Issa Izzo Jal Jamne Kalge Kamalgi Karim Kasefroge Kosom Koydin Kukne Kur Lanhjin Magjin Maland Malaz Mbakin Meayge Meewge Moussa Moustafa_Mustafa Murtin Omar Pen Pid Risha Rong Salih Shendi Shuaeib Wadanh Youssouf_Joseph Yug
+		}
+		female_names = {
+			Amm Awdinh Bakhita Ber Bis Bor Buk Chaski Emsire Gaguwe Gosgod Hamam Jamne Kakaw Kimzir Kubuy Kugurg Kulk Lanhjin Maj Mariam Musin Ngid Okk Pid Raqiq Ur Usk Wadanh
+		}
+		
+		founder_named_dynasties = yes
+		dukes_called_kings = yes
+		
+		allow_looting = yes
+	}	
 
 	modernethiopian = {
 		graphical_cultures = { modernafricangfx modernwestafricangfx modernwesterngfx westerngfx }
 		secondary_event_pictures = bedouin_arabic
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.4 0.4 0.3 }
 
 		male_names = {
@@ -9758,7 +11419,12 @@ east_african = {
 	modernsomali = {
 		graphical_cultures = { modernafricangfx modernwestafricangfx modernwesterngfx westerngfx }
 		secondary_event_pictures = bedouin_arabic
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.2 0.2 0.1 }
 
 		male_names = {
@@ -9784,7 +11450,12 @@ east_african = {
 	modernnubian = {
 		graphical_cultures = { modernafricangfx modernwestafricangfx modernwesterngfx westerngfx }
 		secondary_event_pictures = bedouin_arabic
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.6 0.6 0.5 }
 
 		male_names = {
@@ -9810,13 +11481,66 @@ east_african = {
 	}	
 }
 
+central_african = {
+	alternate_start = { NOT = { has_alternate_start_parameter = { key = special_culture value = animal_world } } }
+	graphical_cultures = { muslimgfx }
+	
+	kanuri = {
+		graphical_cultures = { westafricangfx africangfx }
+		secondary_event_pictures = bedouin_arabic
+		
+		color = { 0.8 0.45 0.75 }
+		
+		male_names = {
+			Abbas Abdallah Abdul Abdulraham Abubakar Adam_Adam Ahmed Airimi Alhaji Ali Alooma Amin Amr Arku Arsu Baba Baram Bikorom Biri Bukar Bulu Buyuma Dabbalemi Dala Daoud_David Dugu Dunama Fune Gaji Gajideni Galrima Gana Garbai Gazali Gazi Ghana Hume Hummay Ibrahim_Abraham Idris Kaday Kanemi Kashim Katakarmabe Katur Kiyari Kura Kuri Kuwaana Madu Mahmoud Mamane Modu Mohammed_Mohammed Mufioma Murama Musa Mustafa Nikale Osman Said Salmama Sanda Sani Sef Selma Shettima Shu Suleyman_Solomon Tandja Umar Waziri Yahya_John Yaqub_Jacob Yusuf_Joseph Zannah
+		}
+		female_names = {
+			Aisha Aissa Aliyah Amina Aziza Bakhita Cinta Daniyah Dikwa Fatima_Fatima Halima Jalila Kaltum Karima Khadija Khalila Kili Layla Malika Mariam_Maria Mina Nadia Rashida Shadia Shakira Sukda Tebunnu Wahida Ya Yasmin
+		}
+	}
+	
+	hausa = {
+		graphical_cultures = { westafricangfx africangfx }
+		secondary_event_pictures = bedouin_arabic
+		
+		color = { 0.9 0.55 0.8 }
+		
+		male_names = {
+			Abasama Abbas Abdul Abdulkareem Abdulraham Abu Abubakar Adam_Adam Adamu Ado Ahmed Ahmedu Ali Aliyu Aminu Amir Ashakuka Atuma Bagunda Bako Balarabe Barau Barbushe Bashar Bashir Bawa Bawo Bayajidda Bayero Bello Bilal Biram Burema Burja Cikkoku Dadi Dakauta Dallatu Danasabe Danjuma Danladi Danlami Daoud_David Daren Dauda Daura Faisal Faizu Faruk Faruq Fuad Gaddo Gambo Gani Gijimasu Gobir Gowon Gugwa Habib Hadi Hafiz Hammada Hamzah Hassan Hussain Hussein Ibrahim Ibrahim_Abraham Idris Imam Isa Ishaku Ishaq_Isaac Ismaila Jalil Jamal Jatau Jibril Kabe Kado Kamil Kanajeji Kandala Kano Karbagari Kareem Katsina Khalifah Kisoki Korau Kukuna Kumbari Mahdi Mahmoud Mahmud Malam Mansur Mohammed_Mohammed Muhsin Musa Mustafa Nabil Nafata Naguji Nasir Nawata Nazaki Nohir Nomau Rahid Rano Rashidi Rumfa Said Salim Sambo Shahada Sharef Shashere Shekarau Sidi Soyaki Suleyman_Solomon Tahir Tanimu Tanko Tsamiya Tsaraki Uban Umar Umaru Usman Warisi Yahya_John Yaji Yakubu Yakufu Yamusa Yaqub_Jacob Yero Yohance Yohanna Yunfa Yunusa Yusa Yusuf Yusuf_Joseph Zaki Zaria
+		}
+		female_names = {
+			Adia Aisha Aissa Aliyah Amina Aminah Aminatu Arria Arziki Asabe Asmau Atikah Auta Aziza Baba Bagwariya Bakhita Bakwa Balaraba Batatume Daniyah Danuwa Daura Daurama Faidah Faiqah Faizah Faraa Farih Fatima_Fatima Fatimah Gamata Gerda Gimbya Gino_Gino Gizirgizir Habibah Hadejia Hafsah Halima Halimah Hamata Hamidah Hanna Hassana Hazika Hussaina Ijaba Iman Ina Innagari Jalila Jamata Jamilah Jummai Kaka Karima Khadija Khadijah Khalila Khamees Khamisa Kili Kubra Kurfuru Ladi Lami Lantana Laraba Larai Latifah Layla Lina Lisha Lubabah Magajiya Magaram Magira Maimuna Malika Mansurah Mariam_Maria Marka Maryam Mina Nabilah Nadia Nafisah Naimah Rabiah Rahmah Rashida Rashidah Ruqayyah Safiyah Sakinah Salimah Samirah Sandamata Shadia Shakira Shata Shawata Shukriyah Sumayyah Talatu Turunku Wahida Walzama Yakumo Yanbamu Yasmin Yukuna Zahrah Zainab Zakiyyah Zama Zaytun Zubaydah
+		}
+	}
+	
+	zaghawa = {
+		graphical_cultures = { westafricangfx africangfx }
+		secondary_event_pictures = bedouin_arabic
+		
+		color = { 0.9 0.35 0.85 }
+		
+		male_names = {
+			Abakar Abba Abbas Abdul Abdulraham Adam_Adam Ahmed Ali At-Tayeb Brahim_Abraham Daoud_David Deli Dolo Gilding Goukouni Hishi Ibrahim_Abraham Idris Ingir Issa Kasu Kosu Ku Kuti Mahmoud Minni Mohammed_Mohammed Musa Oki Okiramaj Omer Osman Shartay Siddick Sora Suleyman_Solomon Tijani Timan Toholjo Tor Torfu Tugule Udure Yahya_John Yaqub_Jacob Yusuf_Joseph
+		}
+		female_names = {
+			Aisha Aliyah Bado Bakhita Bi Eya Fatima Gir Hadurah Halima Hinda Ija Kadiga Khalila Layla Makka Malika Mariam_Maria Mounah Ning Ogai Rashida Shadia Shakira Sumah Sumiah Tele Ter Wahida Yasmin
+		}
+	}
+}
+
 west_african = {
 	graphical_cultures = { muslimgfx }
+	alternate_start = { NOT = { has_alternate_start_parameter = { key = special_culture value = animal_world } } }
 	
 	manden = {
 		graphical_cultures = { westafricangfx africangfx westerngfx }
 		secondary_event_pictures = bedouin_arabic
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.45 0.45 0.2 }
 
 		male_names = {
@@ -9842,7 +11566,12 @@ west_african = {
 	modernmanden = {
 		graphical_cultures = { modernwestafricangfx modernafricangfx modernwesterngfx westerngfx }
 		secondary_event_pictures = bedouin_arabic
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.45 0.45 0.2 }
 
 		male_names = {
@@ -9863,14 +11592,80 @@ west_african = {
 		founder_named_dynasties = yes
 
 		modifier = default_culture_modifier
+	}
+
+	soninke = {
+		graphical_cultures = { westafricangfx africangfx }
+		secondary_event_pictures = bedouin_arabic
+		
+		color = { 0.35 0.35 0.2 }
+		
+		male_names = {
+			Abubakar Akoi Alayaman 
+			Bérété Bathily Bomou Bilali Bunama Badä Bamari Bannu Birama Bisi Biyu 
+			Cissi Diobé Dabo Diakhaba Diawara Daffi Doucouri Dankaran Demba Daoud_David Diara
+			Fissourou Fadiga Fädazu Fuluku Gane Gao Ishaq_Isaac
+			Kaba Kabayo Kalabi Kanafa Kambine Kassa Kaya Kayna Kinkin Kukuray Kusoy
+			Marega M'Bali Maghan Majan Mamadi Mamoudou Mari-Djata Musa_Moses 
+			Niakhaté Nintasanay	Wague Wali Wati
+			Reidja Sy Sylla Sakho Soukhouna Sima Soumaré Sakoura Salman Sandaki Soumaba Soumaoro Soundiata Sulayman 
+			Tandian Tunka Tunka-Menin Tabouri Tounkara Touri Tandi Takoi Tib  
+			Yansané Yatabéri Yama Yasiboy
+			Zakoi Zenku
+		}
+		female_names = {
+			Adja Alima Amita Aoua Aminata Aichata Aissata
+			Barakissa Bintou Deye Djeneba Djenly Djire
+			Fadima Fatim Fatoumata Halima Hawa
+			Ina Kondolon Kadi Kilia Kolonkan 
+			Lorane Mariam Namandjé 
+			Nafissa Namiss Nana
+			Sané Sogolon Safiatou Salimata Sidibé Siya Tekhaye
+			Youma Zeinab
+		}
+	}
+	songhay = {
+		color = { 0.5 0.35 0.10 }
+		
+		graphical_cultures = { westafricangfx africangfx }
+		secondary_event_pictures = bedouin_arabic
+		
+		male_names = {
+			Abi Abu Adamu_Adam Ahmad Al-Hajj Alayaman Ali Alkamiisa Ammar Ankabi Ar Arabi Aranda
+			Baba Babba Bada Baki Bakr Bani Bano Baru Bassarou Bay Ber Binta Birma Bisi Biya Biyay Biyo Bonkana Borgo Boumi Bukar Buyunbu
+			Daara Dala Dankataya Dao Daouda_David Dari Dawud_David Dum Dunku Duru
+			Fadazaw Falaku Far Fari-Mondzo Fay Fi Fodi
+			Hanga Hargani Harun Hassan Hin Huseini
+			Ibrahim_Abraham Igoumou Ikoi Ishaq_Isaac Is’mail Ize Jim
+			Kaasei Kanafa Kanbu Karaway Karay Karbachi Kayna Keina Kibu’u Kima Kimi Kinba Kinkin Kiray Kisha Kodama Koi Koize Kolon Komi Koy Ku Kukiya Kukura Kuli Kulun Kumay Kun Kur Kusoy Kusur
+			Laraba Maammarou Mahmud Malla Mar Mar-Chindin Mayroumfa Missi Morobani Moussa Muhammed Musa
+			Nari Nuh Nunta Ouankoy
+			Samsou Samsou-Beri Sanay Shams Shinyunbu Silman Sorko-ije Sulayman Sunni
+			Takoi Tib Tomo Uthman Wunka Yama Yaqub_Jacob Yasiboy Yuma Zakoi Zalil Zunku
+		}
+		
+		female_names = {
+			Adama Aisha Alkamiisa Amina Aminah Azzah 
+			Bilqis Chindi Daara Dangey
+			Fanta Fatima_Fatima Fatimah Fitila
+			Gando Geyka Hassana Hawa Huseina Kouton
+			Lambu Layla Mecca Medina Nuru Tarifa Teko Zaynab
+		}
 	}	
 }
 
 mesoamerican = {
 	graphical_cultures = { mesoamericangfx muslimgfx westerngfx }
-
+	alternate_start = { NOT = { has_alternate_start_parameter = { key = special_culture value = animal_world } } }
+	
 	nahuatl = {
 		graphical_cultures = { mesoamericangfx westerngfx }
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 1.0 0.5 0.0 }
 		
 		horde = yes
@@ -9912,10 +11707,16 @@ mesoamerican = {
 
 israelite = {
 	graphical_cultures = { easterngfx westerngfx }
-
+	alternate_start = { NOT = { has_alternate_start_parameter = { key = special_culture value = animal_world } } }
+	
 	ashkenazi = {
 		graphical_cultures = { byzantinegfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.6 0.3 0.6 }
 
 		male_names = {
@@ -9939,7 +11740,12 @@ israelite = {
 	}
 	sephardi = {
 		graphical_cultures = { byzantinegfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.7 0.2 0.7 }
 
 		male_names = {
@@ -9964,7 +11770,12 @@ israelite = {
 	
 	modernashkenazi = {
 		graphical_cultures = { modernbyzantinegfx modernwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.6 0.3 0.6 }
 
 		male_names = {
@@ -9988,7 +11799,12 @@ israelite = {
 	}
 	modernsephardi = {
 		graphical_cultures = { modernbyzantinegfx modernwesterngfx westerngfx }
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.7 0.2 0.7 }
 
 		male_names = {
@@ -10014,11 +11830,17 @@ israelite = {
 
 indo_aryan_group = {
 	graphical_cultures = { indiangfx muslimgfx westerngfx }
+	alternate_start = { NOT = { has_alternate_start_parameter = { key = special_culture value = animal_world } } }
 	
 	bengali = { # Indo-Aryan
 		graphical_cultures = { indiangfx muslimgfx westerngfx }
 		secondary_event_pictures = bedouin_arabic
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.45 0.0 0.0 }
 	
 		male_names = {
@@ -10067,7 +11889,12 @@ indo_aryan_group = {
 	oriya = { # Indo-Aryan
 		graphical_cultures = { indiangfx muslimgfx westerngfx }
 		secondary_event_pictures = bedouin_arabic
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.8 0.4 0.0 }
 	
 		male_names = {
@@ -10105,7 +11932,12 @@ indo_aryan_group = {
 	assamese = { # Indo-Aryan
 		graphical_cultures = { indiangfx muslimgfx westerngfx }
 		secondary_event_pictures = bedouin_arabic
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.6 0.3 0.0 }
 	
 		male_names = {
@@ -10132,7 +11964,12 @@ indo_aryan_group = {
 	hindustani = { # Indo-Aryan
 		graphical_cultures = { indiangfx muslimgfx westerngfx }
 		secondary_event_pictures = bedouin_arabic
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.9 0.1 0.0 }
 	
 		male_names = {
@@ -10184,7 +12021,12 @@ indo_aryan_group = {
 	gujurati = { # Indo-Aryan
 		graphical_cultures = { indiangfx muslimgfx westerngfx }
 		secondary_event_pictures = bedouin_arabic
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.4 0.2 0.2 }
 	
 		male_names = {
@@ -10236,7 +12078,12 @@ indo_aryan_group = {
 	panjabi = { # Indo-Aryan
 		graphical_cultures = { indiangfx muslimgfx westerngfx }
 		secondary_event_pictures = bedouin_arabic
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.8 0.3 0.2 }
 	
 		male_names = {
@@ -10263,7 +12110,12 @@ indo_aryan_group = {
 	rajput = { # Indo-Aryan
 		graphical_cultures = { indiangfx muslimgfx westerngfx }
 		secondary_event_pictures = bedouin_arabic
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.6 0.0 0.0 }
 	
 		male_names = {
@@ -10334,7 +12186,12 @@ indo_aryan_group = {
 	sindhi = { # Indo-Aryan
 		graphical_cultures = { indiangfx muslimgfx westerngfx }
 		secondary_event_pictures = bedouin_arabic
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 1.0 0.2 0.0 }
 	
 		male_names = {
@@ -10362,7 +12219,12 @@ indo_aryan_group = {
 	marathi = { # Indo-Aryan
 		graphical_cultures = { indiangfx muslimgfx westerngfx }
 		secondary_event_pictures = bedouin_arabic
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.8 0.2 0.0 }
 	
 		male_names = {
@@ -10408,7 +12270,12 @@ indo_aryan_group = {
 	sinhala = { # Indo-Aryans who arrived in Sri Lanka ca 600BC
 		graphical_cultures = { indiangfx muslimgfx westerngfx }
 		secondary_event_pictures = bedouin_arabic
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 1.0 0.3 0.3 }
 		
 		male_names = {
@@ -10450,7 +12317,12 @@ indo_aryan_group = {
 	nepali = {
 		graphical_cultures = { bodpagfx indiangfx southindiangfx muslimgfx westerngfx }
 		secondary_event_pictures = bedouin_arabic
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.65 0.25 0.1  }
 		
 		male_names = {
@@ -10482,7 +12354,12 @@ indo_aryan_group = {
 	modernbengali = { # Indo-Aryan
 		graphical_cultures = { modernindiangfx modernmuslimgfx modernwesterngfx westerngfx }
 		secondary_event_pictures = bedouin_arabic
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.45 0.0 0.0 }
 	
 		male_names = {
@@ -10531,7 +12408,12 @@ indo_aryan_group = {
 	modernoriya = { # Indo-Aryan
 		graphical_cultures = { modernindiangfx modernmuslimgfx modernwesterngfx westerngfx }
 		secondary_event_pictures = bedouin_arabic
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.8 0.4 0.0 }
 	
 		male_names = {
@@ -10569,7 +12451,12 @@ indo_aryan_group = {
 	modernassamese = { # Indo-Aryan
 		graphical_cultures = { modernindiangfx modernmuslimgfx modernwesterngfx westerngfx }
 		secondary_event_pictures = bedouin_arabic
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.6 0.3 0.0 }
 	
 		male_names = {
@@ -10596,7 +12483,12 @@ indo_aryan_group = {
 	modernhindustani = { # Indo-Aryan
 		graphical_cultures = { modernindiangfx modernmuslimgfx modernwesterngfx westerngfx }
 		secondary_event_pictures = bedouin_arabic
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.9 0.1 0.0 }
 	
 		male_names = {
@@ -10648,7 +12540,12 @@ indo_aryan_group = {
 	moderngujurati = { # Indo-Aryan
 		graphical_cultures = { modernindiangfx modernmuslimgfx modernwesterngfx westerngfx }
 		secondary_event_pictures = bedouin_arabic
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.4 0.2 0.2 }
 	
 		male_names = {
@@ -10700,7 +12597,12 @@ indo_aryan_group = {
 	modernpanjabi = { # Indo-Aryan
 		graphical_cultures = { modernindiangfx modernmuslimgfx modernwesterngfx westerngfx }
 		secondary_event_pictures = bedouin_arabic
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.8 0.3 0.2 }
 	
 		male_names = {
@@ -10727,7 +12629,12 @@ indo_aryan_group = {
 	modernrajput = { # Indo-Aryan
 		graphical_cultures = { modernindiangfx modernmuslimgfx modernwesterngfx westerngfx }
 		secondary_event_pictures = bedouin_arabic
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.6 0.0 0.0 }
 	
 		male_names = {
@@ -10798,7 +12705,12 @@ indo_aryan_group = {
 	modernsindhi = { # Indo-Aryan
 		graphical_cultures = { modernindiangfx modernmuslimgfx modernwesterngfx westerngfx }
 		secondary_event_pictures = bedouin_arabic
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 1.0 0.2 0.0 }
 	
 		male_names = {
@@ -10826,7 +12738,12 @@ indo_aryan_group = {
 	modernmarathi = { # Indo-Aryan
 		graphical_cultures = { modernindiangfx modernmuslimgfx modernwesterngfx westerngfx }
 		secondary_event_pictures = bedouin_arabic
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.8 0.2 0.0 }
 	
 		male_names = {
@@ -10872,7 +12789,12 @@ indo_aryan_group = {
 	modernsinhala = { # Indo-Aryans who arrived in Sri Lanka ca 600BC
 		graphical_cultures = { modernindiangfx modernmuslimgfx modernwesterngfx westerngfx }
 		secondary_event_pictures = bedouin_arabic
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 1.0 0.3 0.3 }
 		
 		male_names = {
@@ -10914,7 +12836,12 @@ indo_aryan_group = {
 	modernnepali = {
 		graphical_cultures = { modernbodpagfx modernindiangfx modernsouthindiangfx modernmuslimgfx modernwesterngfx westerngfx }
 		secondary_event_pictures = bedouin_arabic
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.65 0.25 0.1  }
 		
 		male_names = {
@@ -10945,11 +12872,17 @@ indo_aryan_group = {
 
 dravidian_group = {
 	graphical_cultures = { southindiangfx indiangfx muslimgfx westerngfx }
-
+	alternate_start = { NOT = { has_alternate_start_parameter = { key = special_culture value = animal_world } } }
+	
 	tamil = { # Dravidian - Southern India except Sri Lanka
 		graphical_cultures = { southindiangfx indiangfx muslimgfx }
 		secondary_event_pictures = bengali
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 1.0 0.7 0.2 }
 		
 		male_names = {
@@ -11004,7 +12937,12 @@ dravidian_group = {
 	telugu = { # Dravidian
 		graphical_cultures = { southindiangfx indiangfx muslimgfx westerngfx }
 		secondary_event_pictures = bengali
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.8 0.8 0.0 }
 		male_names = {
 			Allada Allayavema Amma Ammaraja Anavema Anavota Ayyapayya Baladitya Ballaladeva Beta Bhima Bhandanaditya Chennappa 
@@ -11040,7 +12978,12 @@ dravidian_group = {
 	kannada = { # Dravidian
 		graphical_cultures = { southindiangfx indiangfx muslimgfx westerngfx }
 		secondary_event_pictures = bengali
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.8 0.6 0.0 }
 		male_names = {
 			Achugi Adikavi Ahavamalla Amoghavarsha Anekonda Asaga Avinita Ayanna Bhuvikrama Bijjama Bukka Butuga 
@@ -11084,7 +13027,12 @@ dravidian_group = {
 	moderntamil = { # Dravidian - Southern India except Sri Lanka
 		graphical_cultures = { modernsouthindiangfx modernindiangfx modernmuslimgfx modernwesterngfx westerngfx }
 		secondary_event_pictures = bengali
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 1.0 0.7 0.2 }
 		
 		male_names = {
@@ -11139,7 +13087,12 @@ dravidian_group = {
 	moderntelugu = { # Dravidian
 		graphical_cultures = { modernsouthindiangfx modernindiangfx modernmuslimgfx modernwesterngfx westerngfx }
 		secondary_event_pictures = bengali
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.8 0.8 0.0 }
 		male_names = {
 			Allada Allayavema Amma Ammaraja Anavema Anavota Ayyapayya Baladitya Ballaladeva Beta Bhima Bhandanaditya Chennappa 
@@ -11175,7 +13128,12 @@ dravidian_group = {
 	modernkannada = { # Dravidian
 		graphical_cultures = { modernsouthindiangfx modernindiangfx modernmuslimgfx modernwesterngfx westerngfx }
 		secondary_event_pictures = bengali
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.8 0.6 0.0 }
 		male_names = {
 			Achugi Adikavi Ahavamalla Amoghavarsha Anekonda Asaga Avinita Ayanna Bhuvikrama Bijjama Bukka Butuga 
@@ -11219,11 +13177,17 @@ dravidian_group = {
 
 tibetan_group = {
 	graphical_cultures = { bodpagfx mongolgfx indiangfx muslimgfx westerngfx }
+	alternate_start = { NOT = { has_alternate_start_parameter = { key = special_culture value = animal_world } } }
 	
 	bodpa = { # Tibetan
 		graphical_cultures = { bodpagfx mongolgfx indiangfx muslimgfx westerngfx }
 		secondary_event_pictures = bedouin_arabic
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 1.0 0.2 0.0  }
 
 		dynasty_name_first = yes
@@ -11276,7 +13240,12 @@ tibetan_group = {
 	tangut = {
 		graphical_cultures = { bodpagfx mongolgfx indiangfx muslimgfx westerngfx }
 		secondary_event_pictures = bedouin_arabic
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		dynasty_name_first = yes
 		
 		color = { 0.8 0.3 0.0  }
@@ -11335,7 +13304,12 @@ tibetan_group = {
 	zhangzhung = { # Zhangzhung
 		graphical_cultures = { bodpagfx mongolgfx indiangfx muslimgfx westerngfx }
 		secondary_event_pictures = bedouin_arabic
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 1.0 0.4 0.0  }
 
 		dynasty_name_first = yes
@@ -11381,7 +13355,12 @@ tibetan_group = {
 	sumpa = { # Sumpa
 		graphical_cultures = { bodpagfx mongolgfx indiangfx muslimgfx westerngfx }
 		secondary_event_pictures = bedouin_arabic
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.8 0.2 0.1  }
 
 		dynasty_name_first = yes
@@ -11420,7 +13399,12 @@ tibetan_group = {
 	modernzhangzhung = { # Zhangzhung
 		graphical_cultures = { modernbodpagfx modernmongolgfx modernindiangfx modernmuslimgfx modernwesterngfx westerngfx }
 		secondary_event_pictures = bedouin_arabic
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 1.0 0.4 0.0  }
 
 		dynasty_name_first = yes
@@ -11466,7 +13450,12 @@ tibetan_group = {
 	modernsumpa = { # Sumpa
 		graphical_cultures = { modernbodpagfx modernmongolgfx modernindiangfx modernmuslimgfx modernwesterngfx westerngfx }
 		secondary_event_pictures = bedouin_arabic
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 0.8 0.2 0.1  }
 
 		dynasty_name_first = yes
@@ -11504,7 +13493,12 @@ tibetan_group = {
 	modernbodpa = { # Tibetan
 		graphical_cultures = { modernbodpagfx modernmongolgfx modernindiangfx modernmuslimgfx modernwesterngfx westerngfx }
 		secondary_event_pictures = bedouin_arabic
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		color = { 1.0 0.2 0.0  }
 
 		dynasty_name_first = yes
@@ -11557,7 +13551,12 @@ tibetan_group = {
 	moderntangut = {
 		graphical_cultures = { modernbodpagfx modernmongolgfx modernindiangfx modernmuslimgfx modernwesterngfx westerngfx }
 		secondary_event_pictures = bedouin_arabic
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		dynasty_name_first = yes
 		
 		color = { 0.8 0.3 0.0  }
@@ -11616,10 +13615,17 @@ tibetan_group = {
 
 chinese_group = {
 	graphical_cultures = { chinesegfx mongolgfx indiangfx muslimgfx westerngfx }
+	alternate_start = { NOT = { has_alternate_start_parameter = { key = special_culture value = animal_world } } }
+	
 	han = {
 		graphical_cultures = { chinesegfx mongolgfx indiangfx muslimgfx westerngfx }
 		secondary_event_pictures = bedouin_arabic
-		
+		alternate_start = { 
+			OR = {
+				year >= 1000
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		dynasty_name_first = yes
 		
 		color = { 211 44 44 }
@@ -11641,7 +13647,12 @@ chinese_group = {
 	modernhan = {
 		graphical_cultures = { modernchinesegfx modernmongolgfx modernindiangfx modernmuslimgfx modernwesterngfx westerngfx }
 		secondary_event_pictures = bedouin_arabic
-		
+		alternate_start = { 
+			OR = {
+				year >= 1900
+				has_alternate_start_parameter = { key = culture value = full_random }
+			}
+		}		
 		dynasty_name_first = yes
 		
 		color = { 211 44 44 }

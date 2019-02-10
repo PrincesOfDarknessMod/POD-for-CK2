@@ -19,16 +19,23 @@ feudal_governments = {
 			tribal_government
 		}
 		potential = {
-			NAND = {
-				controls_religion = yes
-				NOT = { religion_group = muslim }
-				NOT = { religion = norse_pagan_reformed }
+			OR = {
+				controls_religion = no
+				religion_group = muslim
+				has_religion_feature = religion_temporal_head
+				AND = {
+					religion = norse_pagan_reformed
+					has_religion_features = no # Old saves, and campaigns without HF, need the Fylkirate to continue working
+				}
 			}
 			NOT = {	religion_group = muslim	}
+			NOT = { is_government_potential = roman_imperial_government }
+			NOT = { is_government_potential = order_government }
 			NAND = { 
 				culture_group = tibetan_group
 				OR = {
 					religion = bon
+					religion = bon_reformed
 					religion = buddhist
 				}
 				higher_tier_than = BARON
@@ -58,7 +65,7 @@ feudal_governments = {
 			tribal_government
 		}
 		capital_move_delay = 600
-		
+  
 	}
 	
 	muslim_government = {
@@ -85,13 +92,19 @@ feudal_governments = {
 		}
 		frame_suffix = "_iqta"
 		potential = {
-			always = no
-			NAND = {
-				controls_religion = yes
-				NOT = { religion_group = muslim }
-				NOT = { religion = norse_pagan_reformed }
+			OR = {
+		   
+				controls_religion = no
+				religion_group = muslim
+				has_religion_feature = religion_temporal_head
+				AND = {
+					religion = norse_pagan_reformed
+					has_religion_features = no # Old saves, and campaigns without HF, need the Fylkirate to continue working
+				}
 			}
 			religion_group = muslim
+			NOT = { is_government_potential = roman_imperial_government }
+			NOT = { is_government_potential = order_government }
 			NAND = { 
 				tier = EMPEROR
 				primary_title = { has_title_flag = pretender_chinese_empire }
@@ -149,17 +162,24 @@ feudal_governments = {
 		}
 		frame_suffix = "_theocraticfeudal"
 		potential = {
-			always = no
-			NAND = {
-				controls_religion = yes
-				NOT = { religion_group = muslim }
-				NOT = { religion = norse_pagan_reformed }
+			OR = {
+		   
+				controls_religion = no
+				religion_group = muslim
+				has_religion_feature = religion_temporal_head
+				AND = {
+					religion = norse_pagan_reformed
+					has_religion_features = no # Old saves, and campaigns without HF, need the Fylkirate to continue working
+				}
 			}
 			NOT = {	religion_group = muslim	}
+			NOT = { is_government_potential = roman_imperial_government }
+			NOT = { is_government_potential = order_government }
 			AND = { 
 				culture_group = tibetan_group
 				OR = {
 					religion = bon
+					religion = bon_reformed
 					religion = buddhist
 				}
 				higher_tier_than = BARON
@@ -216,7 +236,7 @@ feudal_governments = {
 		}
 		frame_suffix = "_chineseimperial"
 		potential = {
-			always = no
+			  
 			tier = EMPEROR
 			primary_title = { has_title_flag = pretender_chinese_empire }
 			OR = {
@@ -248,6 +268,7 @@ feudal_governments = {
 		vassal_government_opinion_penalties = no
 		can_grant_kingdoms_and_empires_to_other_government_group = yes
 		free_retract_vassalage = yes
+		marriage_ignore_religion = yes
 		
 		vassal_limit = 10
 		
@@ -256,6 +277,151 @@ feudal_governments = {
 		}
 	}
 
+
+	order_government = {
+		preferred_holdings = { CASTLE }
+		allowed_holdings = {
+			CASTLE
+			TRIBAL
+			FORT
+			HOSPITAL
+		}
+		accepts_liege_governments = {
+			feudal_government
+			muslim_government
+			theocracy_government
+			theocratic_feudal_government
+			chinese_imperial_government
+		}
+		free_revoke_on_governments = {
+			order_government
+		}
+		free_revoke_on_tiers = {
+			BARON
+		}
+
+		forced_contract = {
+			order_government
+		}
+
+		frame_suffix = "_order"
+		title_prefix = "order_"
+
+		potential = {
+			OR = {
+				holy_order = yes
+				AND = {
+					any_liege = {
+						holy_order = yes
+						religion = ROOT
+					}
+					ai = yes
+					NAND = { 
+						is_government_potential = merchant_republic_government 
+						OR = {
+							tier = DUKE
+							is_patrician = yes
+						}
+						any_demesne_province = {
+							any_province_holding = {
+								OR = {
+									AND = {
+										tier = BARON
+										holding_type = family_palace
+									}
+									AND = {
+										NOT = {
+											tier = BARON
+										}
+										holding_type = city
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		color = { 169 169 169 }
+
+		have_gender_laws = no
+		can_create_kingdoms = no
+		can_create_empires = no
+		can_imprison_without_reason = no
+		can_revoke_without_reason = no
+		dukes_called_kings = yes
+		barons_need_dynasty = yes
+		can_usurp_kingdoms_and_empires = no
+		can_grant_kingdoms_and_empires_to_other_government = no
+		can_be_granted_kingdoms_and_empires_by_other_government = no
+		can_inherit = no
+		free_retract_vassalage = yes
+	}
+	roman_imperial_government = {
+		preferred_holdings = { CASTLE CITY }
+		allowed_holdings = {
+			CASTLE
+			CITY
+			FORT
+			HOSPITAL
+		}
+		allowed_holdings_culture = { # Will not get the wrong government type penalty for tribes of the same culture
+			TRIBAL
+		}
+		accepts_liege_governments = { # Gets the wrong religion modifier instead
+			feudal_government
+			republic_government
+			merchant_republic_government
+		}
+		free_revoke_on_governments_religion = { # Tribal vassals of other religions can have their titles revoked for free
+			tribal_government
+		}
+		frame_suffix = "_romanimperial"
+		potential = {
+			OR = { 
+				AND = { 
+					is_save_game = no
+					has_game_started = no
+					primary_title = { 
+						OR = { 
+							title = e_byzantium
+							title = e_roman_empire
+						}
+					}
+				}
+				AND = { 
+					primary_title = { 
+						OR = { 
+							title = e_byzantium
+							title = e_roman_empire
+						}
+						has_law = succ_byzantine_elective
+					}
+				}
+			}
+			is_patrician = no
+		}
+		
+		color = { 143 12 125 }
+
+		barons_need_dynasty = yes
+
+		can_build_tribal = no
+		
+		ignore_in_vassal_limit_calculation = {
+			tribal_government
+		}
+		capital_move_delay = 2000
+		
+		can_usurp_kingdoms_and_empires = no
+		can_imprison_without_reason = no
+		can_create_empires = no
+		vassal_government_opinion_penalties = no
+		can_grant_kingdoms_and_empires_to_other_government_group = yes
+		can_be_granted_kingdoms_and_empires_by_other_government = no
+		free_retract_vassalage = yes
+	}
 
 	traditions_government = {
 		preferred_holdings = { CITY CASTLE }

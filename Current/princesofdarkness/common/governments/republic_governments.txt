@@ -22,13 +22,16 @@ republic_governments = {
 		frame_suffix = "_merchantrepublic"
 		title_prefix = "city_"
 		potential = {
-			always = no
-			NAND = {
-				controls_religion = yes
-				NOT = { religion_group = muslim }
-				NOT = { religion = norse_pagan_reformed }
+			OR = {
+				controls_religion = no
+				religion_group = muslim
+				has_religion_feature = religion_temporal_head
+				AND = {
+					religion = norse_pagan_reformed
+					has_religion_features = no # Old saves, and campaigns without HF, need the Fylkirate to continue working
+				}
 			}
-			is_female = no
+			#is_female = no
 			OR = {
 				AND = {
 					is_patrician = yes
@@ -78,6 +81,7 @@ republic_governments = {
 		have_gender_laws = no
 		can_grant_kingdoms_and_empires_to_other_government = yes
 		allows_matrilineal_marriage = no
+		uses_bride_price = yes
 
 		can_build_tribal = no
 		
@@ -87,7 +91,6 @@ republic_governments = {
 	}
 	
 	republic_government = {
-	
 		preferred_holdings = { CITY }
 		allowed_holdings = { 
 			CITY
@@ -107,13 +110,12 @@ republic_governments = {
 		frame_suffix = "_republic"
 		title_prefix = "city_"
 		potential = {
-			always = no
 			NAND = {
 				controls_religion = yes
 				NOT = { religion_group = muslim }
-				NOT = { religion = norse_pagan_reformed }
 			}
 			NOT = { is_government_potential = merchant_republic_government }
+			holy_order = no
 		}
 		
 		color = { 209 125 130 }
@@ -155,7 +157,6 @@ republic_governments = {
 		}
 		frame_suffix = "_confucian"
 		potential = {
-			always = no
 			is_offmap_tag = offmap_china
 		}
 		
