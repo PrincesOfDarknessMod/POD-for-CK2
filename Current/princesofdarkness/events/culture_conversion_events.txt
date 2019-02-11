@@ -55,7 +55,9 @@ province_event = {
 						culture = norman
 					}
 				}
-				NOT = {	has_global_flag = norse_culture_flipping }
+				NOT = {
+					has_global_flag = norse_culture_flipping
+				}
 			}
 		}
 	}
@@ -178,6 +180,48 @@ province_event = {
 					value = faster_melting_pots_and_slower_normal
 				}
 			}
+		}
+		modifier = {
+			factor = 0.25
+			OR = {
+				culture = zhangzhung
+				culture = sumpa
+			}
+			owner = {
+				culture = bodpa
+				OR = {
+					any_owned_bloodline = {
+						has_bloodline_flag = bloodline_songtsen_gampo
+					}
+					top_liege = {
+						any_owned_bloodline = {
+							has_bloodline_flag = bloodline_songtsen_gampo
+						}
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.6
+			owner = {
+		    	any_owned_bloodline = {
+    				has_bloodline_flag = cultural_saintly_bloodline
+    				founder = {
+    					culture = PREVPREV
+    				}
+    			}
+			}
+		}
+		modifier = { #Roman Renaissance.
+			factor = 0.5
+			has_global_flag = flag_started_roman_renaissance
+			liege = { culture = roman }
+			location = { county = { culture_group = latin } }
+		}
+		modifier = { #Greek culture is more impervious to Romanization.
+			factor = 2
+			liege = { culture = roman }
+			location = { county = { culture = greek } }
 		}
 	}
 
@@ -402,9 +446,52 @@ province_event = {
 					value = faster_melting_pots_and_slower_normal
 				}
 			}
+			}
+		}
+		modifier = {
+			factor = 0.25
+			OR = {
+				culture = zhangzhung
+				culture = sumpa
+			}
+			owner = {
+				culture = bodpa
+				OR = {
+					any_owned_bloodline = {
+						has_bloodline_flag = bloodline_songtsen_gampo
+					}
+					top_liege = {
+						any_owned_bloodline = {
+							has_bloodline_flag = bloodline_songtsen_gampo
+						}
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.6
+			owner = {
+		    	any_owned_bloodline = {
+    				has_bloodline_flag = cultural_saintly_bloodline
+    				founder = {
+    					culture = PREVPREV
+    				}
+    			}
+			}
+		}
+		modifier = { #Roman Renaissance.
+			factor = 0.5
+			has_global_flag = flag_started_roman_renaissance
+			liege = { culture = roman }
+			location = { county = { culture_group = latin } }
+		}
+		modifier = { #Greek culture is more impervious to Romanization.
+			factor = 2
+			liege = { culture = roman }
+			location = { county = { culture = greek } }
 		}
 	}
-
+	
 	option = {
 		name = "EVTOPTA55001"
 		owner = {
@@ -437,6 +524,7 @@ character_event = {
 	culture = norman
 	
 	trigger = {
+		should_evolve_cultures_trigger = yes
 		year = 1100
 		any_demesne_province = {
 			region = custom_england
@@ -519,6 +607,7 @@ character_event = {
 	culture = english
 	
 	trigger = {
+		should_evolve_cultures_trigger = yes
 		year = 1100
 		any_demesne_province = {
 			region = custom_england
@@ -577,6 +666,7 @@ character_event = {
 	culture = english
 
 	trigger = {
+		should_evolve_cultures_trigger = yes
 		year = 1100
 		top_liege = {
 			primary_title = {
@@ -638,6 +728,7 @@ character_event = {
 	culture = english
 
 	trigger = {
+		should_evolve_cultures_trigger = yes
 		year = 1100
 		independent = no
 		top_liege = {

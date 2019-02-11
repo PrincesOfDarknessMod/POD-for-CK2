@@ -534,6 +534,7 @@ add_trait_silently_content_effect = {
 		add_trait = content
 	}
 }
+
 add_trait_silently_deceitful_effect = {
 	if = {
 		limit = { 
@@ -854,6 +855,7 @@ remove_trait_depressed_effect = {
 		hidden_tooltip = { character_event = { id = 38314 } }
 	}
 }
+
 remove_trait_diligent_effect = {
 	if = {
 		limit = { trait = diligent }
@@ -2233,10 +2235,9 @@ add_cancer_symptom_effect = {
 					modifier = {
 						factor = 0
 						has_supe_disease_immunity_trigger = yes
-					}			
+					}
 			character_event = { id = RIP.5002 }
 		}
-
 		10 = {
 			modifier = {
 				factor = 0
@@ -2261,66 +2262,49 @@ increase_depopulation_effect = {
 				modifier = {
 					factor = 1.5
 					AND = {
-			 
 						any_province_holding = {
 							OR = {
 								holding_type = nomad
 								holding_type = tribal
-		 
 							}
-									   
 						}
 						NOT = { num_of_settlements = 3 }
 					}
 				}
 				modifier = {
 					factor = 1.2
-				 
 					hospital_level = 1
-	  
 				}
 				modifier = {
 					factor = 1.2
-				 
 					hospital_level = 2
-	  
 				}
 				modifier = {
 					factor = 1.2
-				 
 					hospital_level = 3
-	  
 				}
 				modifier = {
 					factor = 1.2
-				 
 					hospital_level = 4
-	  
 				}
 				modifier = {
 					factor = 1.2
-				 
 					hospital_level = 5
-	  
 				}
 				modifier = {
 					factor = 1.2
-				 
 					hospital_level = 6
-	  
 				}
 			}
 			60 = {
 				modifier = {
 					factor = 0
-				 
 					any_province_holding = {
 						NOR = {
 							holding_type = city
 							holding_type = temple
 							holding_type = castle
 							holding_type = tribal
-		
 						}
 					}
 				}
@@ -2343,66 +2327,49 @@ increase_depopulation_effect = {
 				modifier = {
 					factor = 4
 					AND = {
-			 
 						any_province_holding = {
 							OR = {
 								holding_type = nomad
 								holding_type = tribal
-		 
 							}
-									   
 						}
 						NOT = { num_of_settlements = 3 }
 					}
 				}
 				modifier = {
 					factor = 1.4
-				 
 						hospital_level = 1
-	  
 				}
 				modifier = {
 					factor = 1.4
-				 
 						hospital_level = 2
-	  
 				}
 				modifier = {
 					factor = 1.4
-				 
 						hospital_level = 3
-	  
 				}
 				modifier = {
 					factor = 1.4
-				 
 						hospital_level = 4
-	  
 				}
 				modifier = {
 					factor = 1.4
-				 
 						hospital_level = 5
-	  
 				}
 				modifier = {
 					factor = 1.4
-				 
 						hospital_level = 6
-	  
 				}
 			}
 			80 = {
 				modifier = {
 					factor = 0
-				 
 					any_province_holding = {
 						NOR = {
 							holding_type = city
 							holding_type = temple
 							holding_type = castle
 							holding_type = tribal
-		
 						}
 					}
 				}
@@ -2430,66 +2397,49 @@ increase_depopulation_effect = {
 				modifier = {
 					factor = 15
 					AND = {
-			 
 						any_province_holding = {
 							OR = {
 								holding_type = nomad
 								holding_type = tribal
-		 
 							}
-									   
 						}
 						NOT = { num_of_settlements = 3 }
 					}
 				}
 				modifier = {
 					factor = 1.5
-				 
 					hospital_level = 1
-	  
 				}
 				modifier = {
 					factor = 1.5
-				 
 					hospital_level = 2
-	  
 				}
 				modifier = {
 					factor = 1.5
-				 
 						hospital_level = 3
-	  
 				}
 				modifier = {
 					factor = 1.5
-				 
 						hospital_level = 4
-	  
 				}
 				modifier = {
 					factor = 1.5
-				 
 						hospital_level = 5
-	  
 				}
 				modifier = {
 					factor = 1.5
-				 
 						hospital_level = 6
-	  
 				}
 			}
 			95 = {
 				modifier = {
 					factor = 0
-				 
 					any_province_holding = {
 						NOR = {
 							holding_type = city
 							holding_type = temple
 							holding_type = castle
 							holding_type = tribal
-		
 						}
 					}
 				}
@@ -2591,6 +2541,7 @@ jailor_mutilate_effect = {
 			hidden_tooltip = { character_event = { id = 38257 } } # Notify craven
 		}
 	}
+	
 
 	add_trait = severely_injured
 	hidden_tooltip = {
@@ -3106,7 +3057,6 @@ resolve_severely_injured_effect = {
 		}
 	}
 }
-
 
 #For when you "only" become really injured, but still want the risk of infection...
 add_severely_injured_effect = {
@@ -4577,7 +4527,6 @@ major_soul_corruption_effect = {
 				#		NOT = { health = 3 }
 				#		has_character_modifier = corrupting_magic_minor
 				#		has_character_modifier = corrupting_magic_major
-	  
 				#	}
 				#}
 				character_event = { id = MNM.7057 days = 32 random = 5 }
@@ -4617,6 +4566,7 @@ major_soul_corruption_effect = {
 			chance = 2
 			set_character_flag = has_it_coming
 			character_event = { id = MNM.7854 days = 30 random = 50 } #Demon hunters come after you...
+		}
 	}
 }
 
@@ -4797,7 +4747,6 @@ minor_soul_corruption_effect = {
 		}
 	}
 }
-
 
 add_society_currency_trivial_effect = {
 	if = {
@@ -5162,6 +5111,13 @@ remove_random_negative_congenital_effect = {
 		}
 		10 = {
 			modifier = {
+				NOT = { trait = giant }
+				factor = 0
+			}
+			remove_trait = giant
+		}
+		10 = {
+			modifier = {
 				NOT = { trait = slow }
 				factor = 0
 			}
@@ -5242,7 +5198,8 @@ remove_all_negative_congenital_traits_effect = {
 	}
 }
 
-join_from_devil_worshiper_society = {
+
+join_from_devil_worshiper_society_effect = {
 	FROM = {
 		if = {
 			limit = {
@@ -5299,9 +5256,9 @@ join_from_devil_worshiper_society = {
 			ROOT = {
 				join_society = the_vodouns
 			}
-		}	}
+		}
+	}
 }
-
 
 remove_demonic_blessing_effect = {
 	if = { limit = { has_character_modifier = blessing_of_azazel }
@@ -5320,6 +5277,7 @@ remove_demonic_blessing_effect = {
 		remove_character_modifier = blessing_of_vetis
 	}
 }
+
 add_prolong_life_effect = {
 	if = {
 		limit = {
@@ -5374,7 +5332,7 @@ add_prolong_life_effect = {
 	}
 }
 
-join_prev_devil_worshiper_society = {
+join_prev_devil_worshiper_society_effect = {
 	if = {
 		limit = { PREV = { society_member_of = the_satanists } }
 		join_society = the_satanists
@@ -5650,13 +5608,8 @@ monastic_order_purity_effect = {
 		random = {
 			chance = 20
 			modifier = {
-
-
-
-
 				factor = 1.3
 				society_rank == 2
-
 			}
 			modifier = {
 				factor = 1.5
@@ -5665,14 +5618,6 @@ monastic_order_purity_effect = {
 			modifier = {
 				factor = 1.7
 				society_rank == 4
-
-
-
-
-
-
-
-
 			}
 			modifier = {
 				factor = 1.1
@@ -5840,8 +5785,6 @@ random_accident_death_effect = {
 		}
 	}
 }
-
-
 
 spawn_peasant_army_effect = {
 	if = {
@@ -8447,7 +8390,6 @@ spawn_heretic_reinforcements_effect = {
 	}
 }
 
-
 spawn_nationalist_army_effect = {
 	create_character = {
 		random_traits = yes
@@ -8594,7 +8536,6 @@ spawn_nationalist_reinforcements_effect = {
 		}
 	}
 }
-
 
 spawn_religious_army_effect = {
 	if = {
@@ -9480,7 +9421,6 @@ spawn_religious_reinforcements_effect = {
 	}
 }
 
-
 add_ascetic_trait_effect = {
 	if = {
 		limit = { is_female = yes }
@@ -9704,7 +9644,6 @@ add_secret_religion_trait_trigger_is_religion_or_old_religion_flag_clear_flag_af
 							has_character_flag = character_was_zun_pagan
 							has_character_flag = character_was_aztec
 							has_character_flag = character_was_aztec_reformed
-
     					}
     				}
     				religion = catholic
@@ -9775,7 +9714,6 @@ add_secret_religion_trait_trigger_is_religion_or_old_religion_flag_clear_flag_af
 							has_character_flag = character_was_zun_pagan
 							has_character_flag = character_was_aztec
 							has_character_flag = character_was_aztec_reformed
-					
     					}
     				}
     				religion = cathar
@@ -9846,7 +9784,6 @@ add_secret_religion_trait_trigger_is_religion_or_old_religion_flag_clear_flag_af
 							has_character_flag = character_was_zun_pagan
 							has_character_flag = character_was_aztec
 							has_character_flag = character_was_aztec_reformed
-					
     					}
     				}
     				religion = fraticelli
@@ -9917,7 +9854,6 @@ add_secret_religion_trait_trigger_is_religion_or_old_religion_flag_clear_flag_af
 							has_character_flag = character_was_zun_pagan
 							has_character_flag = character_was_aztec
 							has_character_flag = character_was_aztec_reformed
-					
     					}
     				}
     				religion = waldensian
@@ -9988,7 +9924,6 @@ add_secret_religion_trait_trigger_is_religion_or_old_religion_flag_clear_flag_af
 							has_character_flag = character_was_zun_pagan
 							has_character_flag = character_was_aztec
 							has_character_flag = character_was_aztec_reformed
-
     					}
     				}
     				religion = lollard
@@ -10059,7 +9994,6 @@ add_secret_religion_trait_trigger_is_religion_or_old_religion_flag_clear_flag_af
 							has_character_flag = character_was_zun_pagan
 							has_character_flag = character_was_aztec
 							has_character_flag = character_was_aztec_reformed
-	
     					}
     				}
     				religion = orthodox
@@ -10130,7 +10064,6 @@ add_secret_religion_trait_trigger_is_religion_or_old_religion_flag_clear_flag_af
 							has_character_flag = character_was_zun_pagan
 							has_character_flag = character_was_aztec
 							has_character_flag = character_was_aztec_reformed
-	
     					}
     				}
     				religion = miaphysite
@@ -10250,8 +10183,6 @@ add_secret_religion_trait_trigger_is_religion_or_old_religion_flag_clear_flag_af
 							has_character_flag = character_was_silent_striders
 							has_character_flag = character_was_bone_gnawers
 							has_character_flag = character_was_black_spiral_dancers
-		
-    					}
     				}
     				religion = monophysite
     			}
@@ -10371,7 +10302,6 @@ add_secret_religion_trait_trigger_is_religion_or_old_religion_flag_clear_flag_af
 							has_character_flag = character_was_bone_gnawers
 							has_character_flag = character_was_black_spiral_dancers
 	
-    					}
     				}
     				religion = bogomilist
     			}
@@ -10491,7 +10421,6 @@ add_secret_religion_trait_trigger_is_religion_or_old_religion_flag_clear_flag_af
 							has_character_flag = character_was_bone_gnawers
 							has_character_flag = character_was_black_spiral_dancers
 	
-    					}
     				}
     				religion = monothelite
     			}
@@ -10611,7 +10540,6 @@ add_secret_religion_trait_trigger_is_religion_or_old_religion_flag_clear_flag_af
 							has_character_flag = character_was_bone_gnawers
 							has_character_flag = character_was_black_spiral_dancers
 
-    					}
     				}
     				religion = iconoclast
     			}
@@ -10731,7 +10659,6 @@ add_secret_religion_trait_trigger_is_religion_or_old_religion_flag_clear_flag_af
 							has_character_flag = character_was_bone_gnawers
 							has_character_flag = character_was_black_spiral_dancers
 
-    					}
     				}
     				religion = paulician
     			}
@@ -10852,7 +10779,6 @@ add_secret_religion_trait_trigger_is_religion_or_old_religion_flag_clear_flag_af
 							has_character_flag = character_was_black_spiral_dancers
 
 	
-    					}
     				}
     				religion = nestorian
     			}
@@ -10972,7 +10898,6 @@ add_secret_religion_trait_trigger_is_religion_or_old_religion_flag_clear_flag_af
 							has_character_flag = character_was_bone_gnawers
 							has_character_flag = character_was_black_spiral_dancers
 	
-    					}
     				}
     				religion = messalian
     			}
@@ -11092,7 +11017,6 @@ add_secret_religion_trait_trigger_is_religion_or_old_religion_flag_clear_flag_af
 							has_character_flag = character_was_bone_gnawers
 							has_character_flag = character_was_black_spiral_dancers
 	
-    					}
     				}
     				religion = sunni
     			}
@@ -11203,7 +11127,6 @@ add_secret_religion_trait_trigger_is_religion_or_old_religion_flag_clear_flag_af
 							has_character_flag = character_was_bone_gnawers
 							has_character_flag = character_was_black_spiral_dancers
 
-    					}
     				}
     				religion = zikri
     			}
@@ -11314,7 +11237,6 @@ add_secret_religion_trait_trigger_is_religion_or_old_religion_flag_clear_flag_af
 							has_character_flag = character_was_bone_gnawers
 							has_character_flag = character_was_black_spiral_dancers
 	
-    					}
     				}
     				religion = yazidi
     			}
@@ -11425,7 +11347,6 @@ add_secret_religion_trait_trigger_is_religion_or_old_religion_flag_clear_flag_af
 							has_character_flag = character_was_bone_gnawers
 							has_character_flag = character_was_black_spiral_dancers
 
-    					}
     				}
     				religion = ibadi
     			}
@@ -11536,7 +11457,6 @@ add_secret_religion_trait_trigger_is_religion_or_old_religion_flag_clear_flag_af
 							has_character_flag = character_was_bone_gnawers
 							has_character_flag = character_was_black_spiral_dancers
 	
-    					}
     				}
     				religion = kharijite
     			}
@@ -11647,7 +11567,6 @@ add_secret_religion_trait_trigger_is_religion_or_old_religion_flag_clear_flag_af
 							has_character_flag = character_was_bone_gnawers
 							has_character_flag = character_was_black_spiral_dancers
 
-    					}
     				}
     				religion = shiite
     			}
@@ -11758,7 +11677,6 @@ add_secret_religion_trait_trigger_is_religion_or_old_religion_flag_clear_flag_af
 							has_character_flag = character_was_bone_gnawers
 							has_character_flag = character_was_black_spiral_dancers
 
-    					}
     				}
     				religion = druze
     			}
@@ -11869,7 +11787,6 @@ add_secret_religion_trait_trigger_is_religion_or_old_religion_flag_clear_flag_af
 							has_character_flag = character_was_bone_gnawers
 							has_character_flag = character_was_black_spiral_dancers
 	
-    					}
     				}
     				religion = hurufi
     			}
@@ -11980,7 +11897,6 @@ add_secret_religion_trait_trigger_is_religion_or_old_religion_flag_clear_flag_af
 							has_character_flag = character_was_bone_gnawers
 							has_character_flag = character_was_black_spiral_dancers
 	
-    					}
     				}
     				religion = jewish
     			}
@@ -12092,7 +12008,6 @@ add_secret_religion_trait_trigger_is_religion_or_old_religion_flag_clear_flag_af
 							has_character_flag = character_was_black_spiral_dancers
 
 
-    					}
     				}
     				religion = karaite
     			}
@@ -12203,7 +12118,6 @@ add_secret_religion_trait_trigger_is_religion_or_old_religion_flag_clear_flag_af
 							has_character_flag = character_was_bone_gnawers
 							has_character_flag = character_was_black_spiral_dancers
 
-    					}
     				}
     				religion = samaritan
     			}
@@ -12314,7 +12228,6 @@ add_secret_religion_trait_trigger_is_religion_or_old_religion_flag_clear_flag_af
 							has_character_flag = character_was_bone_gnawers
 							has_character_flag = character_was_black_spiral_dancers
 
-    					}
     				}
     				religion = zoroastrian
     			}
@@ -12425,7 +12338,6 @@ add_secret_religion_trait_trigger_is_religion_or_old_religion_flag_clear_flag_af
 							has_character_flag = character_was_bone_gnawers
 							has_character_flag = character_was_black_spiral_dancers
 	
-    					}
     				}
     				religion = mazdaki
     			}
@@ -12536,7 +12448,6 @@ add_secret_religion_trait_trigger_is_religion_or_old_religion_flag_clear_flag_af
 							has_character_flag = character_was_bone_gnawers
 							has_character_flag = character_was_black_spiral_dancers
 
-    					}
     				}
     				religion = manichean
     			}
@@ -13071,7 +12982,6 @@ add_secret_religion_trait_trigger_is_religion_or_old_religion_flag_clear_flag_af
 							has_character_flag = character_was_bone_gnawers
 							has_character_flag = character_was_black_spiral_dancers
 	
-    					}
     				}
     				religion = hindu
     			}
@@ -13182,7 +13092,6 @@ add_secret_religion_trait_trigger_is_religion_or_old_religion_flag_clear_flag_af
 							has_character_flag = character_was_bone_gnawers
 							has_character_flag = character_was_black_spiral_dancers
 
-    					}
     				}
     				religion = buddhist
     			}
@@ -13293,7 +13202,6 @@ add_secret_religion_trait_trigger_is_religion_or_old_religion_flag_clear_flag_af
 							has_character_flag = character_was_bone_gnawers
 							has_character_flag = character_was_black_spiral_dancers
 
-    					}
     				}
     				religion = jain
     			}
@@ -13404,7 +13312,6 @@ add_secret_religion_trait_trigger_is_religion_or_old_religion_flag_clear_flag_af
 							has_character_flag = character_was_bone_gnawers
 							has_character_flag = character_was_black_spiral_dancers
 	
-    					}
     				}
     				religion = norse_pagan_reformed
     			}
@@ -13515,7 +13422,6 @@ add_secret_religion_trait_trigger_is_religion_or_old_religion_flag_clear_flag_af
 							has_character_flag = character_was_bone_gnawers
 							has_character_flag = character_was_black_spiral_dancers
 	
-    					}
     				}
     				religion = slavic_pagan_reformed
     			}
@@ -13626,7 +13532,6 @@ add_secret_religion_trait_trigger_is_religion_or_old_religion_flag_clear_flag_af
 							has_character_flag = character_was_bone_gnawers
 							has_character_flag = character_was_black_spiral_dancers
 
-    					}
     				}
     				religion = tengri_pagan_reformed
     			}
@@ -13737,7 +13642,6 @@ add_secret_religion_trait_trigger_is_religion_or_old_religion_flag_clear_flag_af
 							has_character_flag = character_was_bone_gnawers
 							has_character_flag = character_was_black_spiral_dancers
 	
-    					}
     				}
     				religion = baltic_pagan_reformed
     			}
@@ -13848,7 +13752,6 @@ add_secret_religion_trait_trigger_is_religion_or_old_religion_flag_clear_flag_af
 							has_character_flag = character_was_bone_gnawers
 							has_character_flag = character_was_black_spiral_dancers
 
-    					}
     				}
     				religion = finnish_pagan_reformed
     			}
@@ -13959,7 +13862,6 @@ add_secret_religion_trait_trigger_is_religion_or_old_religion_flag_clear_flag_af
 							has_character_flag = character_was_bone_gnawers
 							has_character_flag = character_was_black_spiral_dancers
 
-    					}
     				}
     				religion = west_african_pagan_reformed
     			}
@@ -14070,7 +13972,6 @@ add_secret_religion_trait_trigger_is_religion_or_old_religion_flag_clear_flag_af
 							has_character_flag = character_was_bone_gnawers
 							has_character_flag = character_was_black_spiral_dancers
 
-    					}
     				}
     				religion = zun_pagan_reformed
     			}
@@ -14181,7 +14082,6 @@ add_secret_religion_trait_trigger_is_religion_or_old_religion_flag_clear_flag_af
 							has_character_flag = character_was_bone_gnawers
 							has_character_flag = character_was_black_spiral_dancers
 
-    					}
     				}
     				religion = norse_pagan
     			}
@@ -14292,7 +14192,6 @@ add_secret_religion_trait_trigger_is_religion_or_old_religion_flag_clear_flag_af
 							has_character_flag = character_was_bone_gnawers
 							has_character_flag = character_was_black_spiral_dancers
 
-    					}
     				}
     				religion = slavic_pagan
     			}
@@ -14404,7 +14303,6 @@ add_secret_religion_trait_trigger_is_religion_or_old_religion_flag_clear_flag_af
 							has_character_flag = character_was_black_spiral_dancers
 
 	
-    					}
     				}
     				religion = tengri_pagan
     			}
@@ -14514,8 +14412,7 @@ add_secret_religion_trait_trigger_is_religion_or_old_religion_flag_clear_flag_af
 							has_character_flag = character_was_silent_striders
 							has_character_flag = character_was_bone_gnawers
 							has_character_flag = character_was_black_spiral_dancers
-								
-						}
+							
     				}
     				religion = baltic_pagan
     			}
@@ -14626,7 +14523,6 @@ add_secret_religion_trait_trigger_is_religion_or_old_religion_flag_clear_flag_af
 							has_character_flag = character_was_bone_gnawers
 							has_character_flag = character_was_black_spiral_dancers
 
-    					}
     				}
     				religion = finnish_pagan
     			}
@@ -14737,7 +14633,6 @@ add_secret_religion_trait_trigger_is_religion_or_old_religion_flag_clear_flag_af
 							has_character_flag = character_was_bone_gnawers
 							has_character_flag = character_was_black_spiral_dancers
 
-    					}
     				}
     				religion = west_african_pagan
     			}
@@ -14848,7 +14743,6 @@ add_secret_religion_trait_trigger_is_religion_or_old_religion_flag_clear_flag_af
 							has_character_flag = character_was_bone_gnawers
 							has_character_flag = character_was_black_spiral_dancers
 	
-    					}
     				}
     				religion = zun_pagan
     			}
@@ -16886,7 +16780,6 @@ remove_astronomical_insight_modifier_effect = {
 add_Aries_sign_trait_effect = {
 	random_list = {
 		10 = {
-
 			trigger = { 
 				OR = { 
 					NOT = { has_dlc = "Holy Fury" } 
@@ -17641,6 +17534,7 @@ flip_secret_religious_community_provinces = {
 					remove_province_modifier = secret_hellenic_pagan_reformed_community
 				}
 			}
+		}
 		secret_religious_society_taoist = { 
 			ROOT = {
 				any_demesne_province = {
@@ -18070,7 +17964,6 @@ flip_secret_religious_community_provinces = {
 
 		
 		
-	}
 }
 
 clean_up_after_leaving_society_effect = {
@@ -18159,6 +18052,7 @@ clean_up_after_leaving_society_effect = {
 			clr_character_flag = monastic_artifact_elaborate_danda
 			clr_character_flag = monastic_artifact_sariraka_actual_body_part
 			clr_character_flag = monastic_artifact_sarira
+		}
 		clr_character_flag = suggestion_A_flag
 		clr_character_flag = suggestion_B_flag
 		clr_character_flag = 3264_deceitful_flag
@@ -20137,7 +20031,6 @@ calculate_health_level_of_all_ingredients_effect = {
 }
 
 
-
 #Raiding adventurer war declaration effect
 raiding_adventurer_war_declaration_effect = {
 	custom_tooltip = { text = raiding_adventurer_war_declaration_tooltip }
@@ -21406,7 +21299,8 @@ add_kinslayer_trait_effect = {
 			OR = {
 				NOT = { has_dlc = "Holy Fury" }
 				is_tribal = no
-			}		
+			}
+		}
 		add_trait = familial_kinslayer
 		hidden_effect = {
 			character_event = {
@@ -21427,7 +21321,8 @@ add_kinslayer_trait_effect = {
 			OR = {
 				NOT = { has_dlc = "Holy Fury" }
 				is_tribal = no
-			}		
+			}
+		}
 		add_trait = dynastic_kinslayer
 		hidden_effect = {
 			character_event = {
@@ -21465,8 +21360,8 @@ add_kinslayer_trait_effect = {
 				id = 38287 #Notify Kinslayer
 			}
 		}
-	}	
-	else = {	 
+	}
+	else = {
 	}
 	clear_event_target = kinslayer_target
 }
@@ -27169,6 +27064,8 @@ remove_opinions_with_prison_reason_effect = {
 	remove_opinion = { modifier = opinion_outlawed_society who = PREV }
 	remove_opinion = { modifier = opinion_accused_apostate who = PREV }
 }
+
+
 
 randomize_ABC_desc_flag_effect = {
 	# Actually, this is not needed, but won't remove for fear of breaking something.
