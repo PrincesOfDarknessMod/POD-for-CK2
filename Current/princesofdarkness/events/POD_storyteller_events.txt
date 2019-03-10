@@ -5313,6 +5313,30 @@ character_event = {
 }
 
 
+
+#duel balance
+character_event = {
+	id = storyteller.27
+	hide_window = yes	
+	is_triggered_only = yes
+	
+	
+	trigger = {
+		NOT = { trait = duelbalance }	
+	}	
+
+	immediate = {
+		if = {
+			limit = {
+				NOT = { 
+					trait = duelbalance 
+				}
+			}
+			add_trait = duelbalance
+		}
+	}
+}
+
 #1505/1506 CE Convention of Thorns / Shattered Sects (VTM/CWOD) Shattered World
 
 character_event = {
