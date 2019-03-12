@@ -2337,14 +2337,16 @@ via_hyron = {
 
 via_einherjar = {
 	primary_attribute = martial
-	is_secret = no
-	devil_worshipper = no
-	opinion_to_other_members = +1
-	opinion_to_pretenders = -20			#Pretenders is the opinion you have of people perceived/discovered to be in your society.
-	opinion_to_perceived_members = -20 	#Perceived is the opinion you have of people perceived/discovered to be of a society you're not part of
-	opinion_per_rank_above = +1
-	sound = assassins_interface
-	society_ranks_gfx = generic_ranks
+	opinion_to_other_members = +10
+	opinion_per_rank_above = +5
+	sound = warrior_lodge_ambient_01
+	society_ranks_gfx = warriors_ranks
+	society_influence = no
+	
+	non_interference = {
+		always = yes
+	}
+
 	
 	active = {
 		OR = {
@@ -2367,15 +2369,38 @@ via_einherjar = {
 			}
 		}
 		has_via_einherjar_prerequisites = yes
+		is_adult = yes
 		custom_tooltip = {
-			text = did_not_betray_society
-			NOT = { has_character_flag = betrayed_via_einherjar }
+			text = has_not_angered_society_tt
+			hidden_trigger = { NOT = { has_character_modifier = warrior_lodge_failed_joining_cd } }
+		}
+		NOT = { has_character_modifier = warrior_lodge_failed_joining_cd }
+		hidden_trigger = {
+			NOT = { has_character_flag = society_join_block }
+		}
+		trigger_if = {
+			limit = { prisoner = yes }
+			prisoner = no
+		}
+		OR = {
+			religion_openly_norse_or_reformed_trigger = yes
+			AND = {
+				custom_tooltip = {
+					text = society_has_at_least_10_members_tt
+					FROM = { num_of_society_members >= 10 }
+				}
+				has_tribal_or_nomadic_government_trigger = yes
+				custom_tooltip = {
+					text = special_join_warrior_lodge_trigger_tt
+					special_join_warrior_lodge_trigger = yes
+				}
+				NOT = { trait = zealous }
+			}
 		}		
 	}
 
 	show_society = {
 		trait = vampire
-		religion = einherjar
 	}
 
 	potential = {
@@ -2383,53 +2408,74 @@ via_einherjar = {
 		religion = einherjar
 	}
 
-	society_rank = {
+
+	society_rank = { #"Fledling"
 		level = 1
-		limit = 200
-		startup_limit = 0
+		limit = 50 
+		startup_limit = 10
 		modifier = {
-			combat_rating = 1
+			monthly_character_prestige = 0.25
 		}
-		decisions = {
+		powers = {
+			warrior_lodge_duel #Passive Power: Unlocks Duel
+			warrior_lodge_shieldmaiden #Passive Power: Unlocks Shieldmaidens
+			warrior_lodge_survivor #Passive Power: Survivor
+			warrior_lodge_lifetime_of_war #Passive Power: A Lifetime of War			
+			warrior_lodge_norse_go_berserk #Power: Go Berserk
 		}
 	}
 	
-	society_rank = {
+	society_rank = { #"Warrior"
 		level = 2
-		limit = 50
-		startup_limit = 0
-		modifier = { 
-			combat_rating = 2 # bonus to dueling
-		}
-		decisions = {
-		virtue_brave
+		limit = 20
+		startup_limit = 6
+		modifier = {
+			monthly_character_prestige = 0.5
+			combat_rating = 5
+			martial = 1
+		}		
+		powers = {
+			warrior_lodge_reaver #Passive Power: Reaver
+			warrior_lodge_warrior_training #Power: Warrior Training
+			warrior_lodge_summon_commander #Power: Summon Commander
 		}
 	}
 	
-	society_rank = {
+	society_rank = { #"Veteran"
 		level = 3
-		limit = 25 
-		startup_limit = 0
+		limit = 10 
+		startup_limit = 4
 		modifier = {
-			combat_rating = 3 # bonus to dueling (left over)
+			monthly_character_prestige = 0.75
+			combat_rating = 10
+			martial = 2
 		}
-		decisions = {
+		powers = {
+			warrior_lodge_inspire_warriors #Power: Inspire Warriors
+			warrior_lodge_war_sacrifice #Power: War Sacrifice
 		}
 	}
 
-	society_rank = {
+	society_rank = { #"Hero"
 		level = 4
-		limit = 5
-		startup_limit = 0
-		modifier = {
-			combat_rating = 4 # bonus to dueling (left over)
+		limit = 4
+		startup_limit = 3
+		modifier = { 
+			monthly_character_prestige = 1
+			combat_rating = 15
+			martial = 3
 		}
-		decisions = {
-		artifact_einherjar
+		powers = {
+			warrior_lodge_indomitable #Passive Power: Indomitable
+			warrior_lodge_call_to_glory #Power: Call to Glory
+			warrior_lodge_choose_military_aspect #Power: Choose Military Aspect
 		}
-		 
 	}
 
+	plots = {
+	
+	}
+	
 	monthly_currency_gain = {
 		name = currency_name_via_einherjar
     
@@ -2467,15 +2513,85 @@ via_einherjar = {
 			trait = brave
 			value = 1
 		}	
+
+		has_trait = {
+			trait = viking
+			value = 1
+		}
+		has_trait = {
+			trait = pirate
+			value = 1
+		}
+		has_trait = {
+			trait = ravager
+			value = 2
+		}
+		has_trait = {
+			trait = seaking
+			value = 3
+		}
+		has_trait = {
+			trait = sea_queen
+			value = 3
+		}
+		has_trait = {
+			trait = shieldmaiden
+			value = 1
+		}
+		has_trait = {
+			trait = berserker
+			value = 1
+		}
+		has_trait = {
+			trait = varangian
+			value = 1
+		}
+		has_trait = {
+			trait = valhalla_bound
+			value = 1
+		}
 	
 		society_rank = {
 			rank = 4
 			value = 10
 		}
+		#NEGATIVE modifiers
+		has_trait = {
+			trait = craven
+			value = -3
+		}
+		has_trait = {
+			trait = weak
+			value = -2
+		}
+		has_trait = {
+			trait = feeble
+			value = -1
+		}
+		has_trait = {
+			trait = slothful
+			value = -1
+		}
+		has_trait = {
+			trait = content
+			value = -1
+		}
+		has_trait = {
+			trait = dwarf
+			value = -1
+		}
+		has_trait = {
+			trait = clubfooted
+			value = -1
+		}
+		has_trait = {
+			trait = hunchback
+			value = -1
+		}		
 	}
 
-	member_score_per_attribute = 1
-	member_score_per_rank = 10
+	member_score_per_attribute = 3
+	member_score_per_rank = 100
 
 	member_score = {
 		value = 10
@@ -2534,7 +2650,76 @@ via_einherjar = {
 		modifier = {
 			trait = brave
 			factor = 1.1
-		}				
+		}	
+		modifier = {
+			trait = viking
+			factor = 1.1
+		}
+		modifier = {
+			trait = pirate
+			factor = 1.1
+		}
+		modifier = {
+			trait = ravager
+			factor = 1.1
+		}
+		modifier = {
+			trait = seaking
+			factor = 1.1
+		}
+		modifier = {
+			trait = sea_queen
+			factor = 1.1
+		}
+		modifier = {
+			trait = shieldmaiden
+			factor = 1.1
+		}
+		modifier = {
+			trait = berserker
+			factor = 1.1
+		}
+		modifier = {
+			trait = varangian
+			factor = 1.1
+		}
+		modifier = {
+			trait = valhalla_bound
+			factor = 1.1
+		}
+		#NEGATIVE modifiers
+		modifier = {
+			trait = craven
+			factor = 0.8
+		}
+		modifier = {
+			trait = weak
+			factor = 0.8
+		}
+		modifier = {
+			trait = feeble
+			factor = 0.8
+		}
+		modifier = {
+			trait = slothful
+			factor = 0.9
+		}
+		modifier = {
+			trait = content
+			factor = 0.9
+		}
+		modifier = {
+			trait = dwarf
+			factor = 0.8
+		}
+		modifier = {
+			trait = clubfooted
+			factor = 0.8
+		}
+		modifier = {
+			trait = hunchback
+			factor = 0.8
+		}		
 		
 	}
 	
@@ -2543,7 +2728,8 @@ via_einherjar = {
 			ai = yes
 	    	controls_religion = no
 			trait = vampire
-			combat_rating = 7
+			combat_rating = 10
+			martial = 5
 			is_in_society = no
 			religion = einherjar	
 			OR = {
