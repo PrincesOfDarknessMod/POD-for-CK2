@@ -1,25 +1,25 @@
 # Mage
 
-#Daedalan_Wings = {
-#	combat_rating = 1
-#	command_modifier ={
-#		speed = 3
-#		pursue = 0.2
-#		light_infantry = 0.5
-#		}
-#	active = { 
-#		"trait = mage" 
-#	}
-#	quality = 2
-#	allowed_gift = { 
-#		trait = "mage" 
-#	}
-#	indestructible = no
-#	stacking = no
-#	slot = steed
-#	flags { steed magic }
-#	picture = "GFX_Daedalan_Wings"
-#	}
+Daedalan_Wings = {
+	combat_rating = 5
+	command_modifier ={
+		speed = 3
+		pursue = 0.2
+		light_infantry = 0.5
+		}
+	active = { 
+		"trait = mage" 
+	}
+	quality = 2
+	allowed_gift = { 
+		trait = "mage" 
+	}
+	indestructible = no
+	stacking = no
+	slot = steed
+	flags { steed magic }
+	picture = "GFX_Daedalan_Wings"
+	}
 
 ##Consumables
 
@@ -407,7 +407,7 @@ Omne_Datum_Optimum = {
 Devil_Stick = {
 	#created by necromancy/mortis ritual "Bastone Diabolico"
 	monthly_character_piety = -0.3
-	combat_rating = 2
+	combat_rating = 15
 	learning = 2
 	martial = 2
 	quality = 2
@@ -427,7 +427,7 @@ Devil_Stick = {
 ##Modern-Magical weapons
 
 X_5_Revolver = {
-	combat_rating = 3
+	combat_rating = 20
 	quality = 1
 	plot_power_modifier = 0.05
 	active = {
@@ -441,7 +441,7 @@ X_5_Revolver = {
 }
 
 X_5_SemiAuto = {
-	combat_rating = 2
+	combat_rating = 15
 	plot_power_modifier = 0.05
 	command_modifier = {
 		light_infantry = 0.1 }
@@ -459,7 +459,7 @@ X_5_SemiAuto = {
 AS_115_Assault_Rifle = {
 	monthly_character_piety = -0.05
 	monthly_character_prestige = 0.05
-	combat_rating = 6
+	combat_rating = 30
 	plot_power_modifier = 0.05
 	command_modifier = {
 		light_infantry = 0.2
@@ -479,7 +479,7 @@ AS_115_Assault_Rifle = {
 
 Vanguard_Gyrojet_Pistol = {
 	monthly_character_piety = -0.05
-	combat_rating = 6
+	combat_rating = 30
 	command_modifier = {
 		heavy_infantry = 0.3 }
 	quality = 2
@@ -494,7 +494,7 @@ Vanguard_Gyrojet_Pistol = {
 }
 
 Etherite_Death_Ray = {
-	combat_rating = 6
+	combat_rating = 30
 	command_modifier = {
 		light_infantry = 0.2
 		center = 0.2
@@ -513,8 +513,8 @@ Etherite_Death_Ray = {
 
 Myrmadon_Exoskeleton_Suit = {
 	monthly_character_piety = -0.2
-	combat_rating = 4
-	martial = 4
+	combat_rating = 20
+	martial = 2
 	command_modifier = {
 		center = 0.1
 		heavy_infantry = 0.2
@@ -527,13 +527,13 @@ Myrmadon_Exoskeleton_Suit = {
 	quality = 3
 	flags = { modern armor technocracy weavertech }
 	picture = "GFX_Myrmadon_Exoskeleton_Suit"
-	slot = torso
+	slot = armor
 	}
 
 Primium_Myrmadon_Exoskeleton_Suit = {
 	monthly_character_piety = -0.5
-	combat_rating = 8
-	martial = 4
+	combat_rating = 40
+	martial = 2
 	command_modifier = {
 		center = 0.2
 		heavy_infantry = 0.2
@@ -544,9 +544,9 @@ Primium_Myrmadon_Exoskeleton_Suit = {
 		is_adult = yes
 		religion_group = order_of_reason_group
 		}
-	flags = { modern armor technocracy weavertech very_rare }
+	flags = { modern armor technocracy weavertech very_rare primeium }
 	picture = "GFX_Primium_Myrmadon_Exoskeleton_Suit"
-	slot = torso
+	slot = armor
 	}
 
 Raiden_Unit = {
@@ -554,8 +554,7 @@ Raiden_Unit = {
 #obtaining one grants the title "Bearer of Thunder"
 
 	monthly_character_piety = -0.2
-	combat_rating = 4
-	martial = 2
+	combat_rating = 25
 	command_modifier = {
 		light_infantry = 0.3
 		light_infantry = 0.3
@@ -574,8 +573,8 @@ Raiden_Unit = {
 
 Teleforce_Device = {
 #One spawns in 0.900. Someone who owns one can by event-chain try to build another and gift it.
-	combat_rating = 4
-	martial = 2
+	combat_rating = 25
+	learning = 2
 	command_modifier = {
 		light_infantry = 0.3
 		light_infantry = 0.3
@@ -598,15 +597,15 @@ Teleforce_Device = {
 
 Justice_Blades = {
 	monthly_character_prestige = 0.75
-	martial = 3
+	martial = 2
 	stewardship = 3
-	combat_rating = 2
+	combat_rating = 10
 	quality = 3
 	active = {
 		is_adult = yes
 			OR = {
 			trait = mage 
-			trait = mortal
+			trait = hunter
 			}
 		NOT = {
 			religion_group = order_of_reason_group
@@ -620,7 +619,7 @@ Justice_Blades = {
 	allowed_gift = { 
 		OR = { 
 			trait = mage
-			trait = mortal 
+			trait = hunter
 		}
 	}
 	flags = { combat_weapon sword created }
