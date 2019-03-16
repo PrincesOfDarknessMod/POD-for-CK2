@@ -72,7 +72,7 @@
 		}
 		
 	2200.1.1 = {
-		death = yes 
+		death = "2200.1.1"
 		}		
 }
 
@@ -148,7 +148,7 @@
 		}
 		
 	2200.1.1 = {
-		death = yes 
+		death = "2200.1.1" 
 		}		
 }
 	
@@ -216,7 +216,7 @@
 		add_trait = "bookmark1506"
 	}		
 	1990.1.1 = {
-		death = yes 
+		death = "1990.1.1" 
 		}		
 }
 
@@ -297,8 +297,15 @@
 		add_trait = "bookmark1506"
 	}		
 	1945.1.1 = {
-		death = yes 
-		}			
+		add_trait = "torpor"
+		}		
+		
+	1996.1.1 = {
+		death = {
+			death_reason = death_execution_diablerie
+			killer = 790525
+			}
+		}
 }
 
 
@@ -357,7 +364,10 @@
 	}		
 
 	1232.1.1 = {
-		death = yes
+		death = {
+			death_reason = death_execution_diablerie
+			killer = 790105
+			}
 		}
 }
 
@@ -412,7 +422,8 @@
 	}				
 
 	1271.1.1 = {
-		death = yes
+			death_reason = death_execution
+			killer = 505050
 	}		
 }
 
@@ -493,7 +504,7 @@
 		}
 		
 	2200.1.1 = {
-		death = yes 
+		death = "2200.1.1"
 		}		
 }
 
@@ -573,7 +584,7 @@
 		}
 		
 	2200.1.1 = {
-		death = yes 
+		death = "2200.1.1"
 		}		
 }
 
@@ -633,7 +644,10 @@
 		effect = { join_society = via_regalis }
 	}				
 	1312.1.1 = {
-		death = yes
+		death = {
+			death_reason = death_execution_diablerie
+			killer = 505111
+			}
 		}		
 }
 
@@ -697,7 +711,7 @@
 		add_trait = "bookmark1506"
 	}	
 	1997.1.1 = {
-		death = yes
+		death_reason = death_drank_poison
 		}		
 }
 
@@ -766,7 +780,7 @@
 		add_trait = "bookmark1506"
 	}	
 	1944.1.1 = {
-		death = yes
+		death = "1944.1.1"
 		}		
 }
 
@@ -816,7 +830,7 @@
 		add_trait = "bookmark1355"
 	}	
 	1492.1.1 = {
-		death = yes
+		death = "1492.1.1"
 		}
 }
 
@@ -914,8 +928,11 @@
 		religion = masquerade_camarilla
 		}
 		
-	2200.1.1 = {
-		death = yes 
+	2012.1.1 = {
+		death = {
+			death_reason = death_murder
+			killer = 790607
+			}
 		}		
 }
 
@@ -1004,7 +1021,7 @@
 		}
 		
 	2200.1.1 = {
-		death = yes 
+		death = "2200.1.1"
 		}	
 	
 }
@@ -1148,8 +1165,7 @@
 		add_trait = "torpor"
 		}
 	1406.1.1 = {
-		remove_trait = "bookmark1355"
-		death = yes
+		death = death_murder_unknown
 		}	
 }
 
@@ -1186,20 +1202,23 @@
 	290.1.1 = {
 		birth = 290.1.1
 		}
+		
 	325.1.1 = {
 		add_trait = vampire 
 		immortal_age = 30 
 		add_trait = "wyrm_taint"
 		culture = "greek"
-				}	
+	}	
 		
 	796.1.1 = {
 		give_nickname = nick_the_lord_of_the_night
-		}
+	}
+	
 	1204.4.12 = {
-		death = {death_reason = death_rabble
-				}
+		death = {
+			death_reason = death_rabble
 		}
+	}
 	
 }
 
@@ -1318,7 +1337,7 @@
 		}
 		
 	2200.1.1 = {
-		death = yes 
+		death = "2200.1.1" 
 		}					
 				
 		
@@ -1383,7 +1402,7 @@
 		}
 		
 	2200.1.1 = {
-		death = yes 
+		death = "2200.1.1"
 		}	
 }		
 		
@@ -1470,7 +1489,7 @@
 		}
 		
 	2200.1.1 = {
-		death = yes 
+		death = "2200.1.1" 
 		}					
 				
 		
@@ -1542,7 +1561,7 @@
 		}
 		
 	2200.1.1 = {
-		death = yes 
+		death = "2200.1.1"
 		}	
 }
 	
@@ -1595,9 +1614,9 @@
 		}
 		
 	2200.1.1 = {
-		death = yes 
+		death = "2200.1.1"
 		}	
-	}
+}
 	
 790017 = {
 
@@ -1639,9 +1658,12 @@
 				}
 				
 	1185.1.1 = {
-		death = { death_reason = death_execution killer = 790001 }
+		death = { 
+			death_reason = death_execution 
+			killer = 790001 
 		}
 	}
+}
 	
 	
 790018 = {
@@ -1695,7 +1717,6 @@
 	1229.1.1 = {
 		add_trait = "bookmark1230"
 		effect = { set_government_type = traditions_government }
-		religion = masquerade_camarilla
 		}
 		
 	1354.1.1 = {
@@ -1710,6 +1731,7 @@
 	1506.1.1 = {
 		remove_trait = "bookmark1505"
 		add_trait = "bookmark1506"
+		religion = masquerade_camarilla
 	}	
 				
 	1999.1.1 = {
@@ -1719,9 +1741,9 @@
 		}
 		
 	2200.1.1 = {
-		death = yes 
+		death = "2200.1.1" 
 		}	
-	}
+}
 	
 
 710203 = {
@@ -1799,7 +1821,7 @@
 		}
 		
 	2200.1.1 = {
-		death = yes 
+		death = "2200.1.1"
 		}	
 }	
 
@@ -1874,7 +1896,7 @@
 		}
 		
 	2200.1.1 = {
-		death = yes 
+		death = "2200.1.1"
 		}	
 }
 
@@ -1935,7 +1957,7 @@
 		}
 		
 	2200.1.1 = {
-		death = yes 
+		death = "2200.1.1" 
 		}		
 }
 
@@ -1987,7 +2009,7 @@
 		}
 		
 	2200.1.1 = {
-		death = yes 
+		death = "2200.1.1" 
 		}		
 }
 

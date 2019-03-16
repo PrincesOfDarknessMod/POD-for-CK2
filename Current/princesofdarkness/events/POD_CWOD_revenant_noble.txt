@@ -179,10 +179,14 @@ character_event = {
 					}
 				}	
 				dynasty = 8000014
-				create_bloodline = {
-					type = premyslid
-					has_dlc = "Holy Fury"
-				}
+				if = {
+					limit = {
+						has_dlc = "Holy Fury"
+					}
+					create_bloodline = {
+						type = premyslid
+					}		
+				}				
 				add_trait = vigor_1
 				add_trait = dominate_1
 				add_trait = auspex_1

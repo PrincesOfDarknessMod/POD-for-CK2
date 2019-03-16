@@ -29,6 +29,7 @@ monastic_order_benedictine = {
 			}
 		}
 		age = 16
+		has_POD_race_trigger = no
 		OR = {
 			religion = catholic
 			AND = {
@@ -324,6 +325,7 @@ monastic_order_benedictine = {
 				holy_order = yes
 			}
 			NOT = { trait = cynical }
+			has_POD_race_trigger = no
 			NOT = { trait = excommunicated }
 			has_secret_religion_trait_trigger = no
 			OR = {
@@ -370,6 +372,7 @@ monastic_order_dominican = {
 			}
 		}
 		age = 16
+		has_POD_race_trigger = no
 		religion = catholic
 		NOT = { trait = excommunicated }
 		custom_tooltip = {
@@ -633,6 +636,7 @@ monastic_order_dominican = {
 			NOT = { trait = cynical }
 			NOT = { trait = excommunicated }
 			has_secret_religion_trait_trigger = no
+			has_POD_race_trigger = no
 			OR = {
 				trait = zealous
 				trait = scholar
@@ -677,6 +681,7 @@ monastic_order_orthodox = {
 			}
 		}
 		age = 16
+		has_POD_race_trigger = no
 		OR = {
 			religion = orthodox
 			AND = {
@@ -974,6 +979,7 @@ monastic_order_orthodox = {
 			NOT = { trait = cynical }
 			NOT = { trait = excommunicated }
 			has_secret_religion_trait_trigger = no
+			has_POD_race_trigger = no
 			OR = {
 				trait = zealous
 				trait = scholar
@@ -1017,6 +1023,7 @@ monastic_order_nestorian = {
 			}
 		}
 		age = 16
+		has_POD_race_trigger = no
 		OR = {
 			religion = nestorian
 			AND = {
@@ -1299,6 +1306,7 @@ monastic_order_nestorian = {
 			NOT = { trait = cynical }
 			NOT = { trait = excommunicated }
 			has_secret_religion_trait_trigger = no
+			has_POD_race_trigger = no
 			OR = {
 				trait = zealous
 				trait = scholar
@@ -1331,8 +1339,7 @@ monastic_order_monophysite = {
 	indestructible = yes
 	
 	can_join_society = {
-		hidden_trigger = {
-		has_POD_race_trigger = no				   
+		hidden_trigger = {				   
 			NAND = {
 				ai = yes
 				is_society_rank_full = { 
@@ -1342,6 +1349,7 @@ monastic_order_monophysite = {
 			}
 		}
 		age = 16
+		has_POD_race_trigger = no
 		OR = {
 			religion = miaphysite
 			AND = {
@@ -1552,6 +1560,7 @@ monastic_order_monophysite = {
 			NOT = { trait = cynical }
 			NOT = { trait = excommunicated }
 			has_secret_religion_trait_trigger = no
+			has_POD_race_trigger = no
 			OR = {
 				trait = zealous
 				trait = scholar
@@ -1584,8 +1593,7 @@ monastic_order_hindu = {
 	indestructible = yes
 
 	can_join_society = {
-		hidden_trigger = {
-		has_POD_race_trigger = no			   
+		hidden_trigger = {		   
 			NAND = {
 				ai = yes
 				is_society_rank_full = { 
@@ -1595,6 +1603,7 @@ monastic_order_hindu = {
 			}
 		}
 		age = 16
+		has_POD_race_trigger = no
 		religion = hindu
 		custom_tooltip = {
 			text = did_not_betray_society
@@ -1813,6 +1822,7 @@ monastic_order_hindu = {
 			}
 			NOT = { trait = cynical }
 			has_secret_religion_trait_trigger = no
+			has_POD_race_trigger = no
 			OR = {
 				trait = zealous
 				trait = scholar
@@ -1845,7 +1855,6 @@ monastic_order_buddhist = {
 
 	can_join_society = {
 		hidden_trigger = {
-		has_POD_race_trigger = no
 			NAND = {
 				ai = yes
 				is_society_rank_full = { 
@@ -1855,6 +1864,7 @@ monastic_order_buddhist = {
 			}
 		}
 		age = 16
+		has_POD_race_trigger = no
 		religion = buddhist
 		custom_tooltip = {
 			text = did_not_betray_society
@@ -2073,6 +2083,7 @@ monastic_order_buddhist = {
 			}
 			NOT = { trait = cynical }
 			has_secret_religion_trait_trigger = no
+			has_POD_race_trigger = no
 			OR = {
 				trait = zealous
 				trait = scholar
@@ -2104,8 +2115,7 @@ monastic_order_jain = {
 	indestructible = yes
 	
 	can_join_society = {
-		hidden_trigger = {
-		has_POD_race_trigger = no				   
+		hidden_trigger = {			   
 			NAND = {
 				ai = yes
 				is_society_rank_full = { 
@@ -2116,6 +2126,7 @@ monastic_order_jain = {
 		}
 		age = 16
 		religion = jain
+		has_POD_race_trigger = no
 		custom_tooltip = {
 			text = did_not_betray_society
 			NOT = { has_character_flag = betrayed_monastic_order_jain }
@@ -2343,6 +2354,7 @@ monastic_order_jain = {
 			}
 			NOT = { trait = cynical }
 			has_secret_religion_trait_trigger = no
+			has_POD_race_trigger = no
 			OR = {
 				trait = zealous
 				trait = scholar
@@ -2374,7 +2386,6 @@ monastic_order_stoics = {
 
 	can_join_society = {
 		hidden_trigger = {
-		has_POD_race_trigger = no
 			NAND = {
 				ai = yes
 				is_society_rank_full = { 
@@ -2384,6 +2395,7 @@ monastic_order_stoics = {
 			}
 		}
 		age = 16
+		has_POD_race_trigger = no
 		NOR = { #Not for savages.
 			is_tribal = yes
 			is_nomadic = yes
@@ -2681,6 +2693,7 @@ monastic_order_stoics = {
 			}
 			NOT = { trait = excommunicated }
 			has_secret_religion_trait_trigger = no
+			has_POD_race_trigger = no
 			OR = {
 				trait = zealous
 				trait = scholar
@@ -2710,8 +2723,7 @@ hermetics = {
 	indestructible = yes
 	
 	can_join_society = {
-		hidden_trigger = {
-		has_POD_race_trigger = no				   
+		hidden_trigger = {			   
 			NAND = {
 				ai = yes
 				is_society_rank_full = { 
@@ -2757,6 +2769,12 @@ hermetics = {
 		}
 		hidden_trigger = { mercenary = no }
 		age = 16
+		NOT = { trait = vampire }
+		NOT = { trait = werewolf }
+		NOT = { trait = wraith }
+		NOT = { trait = mummy }
+		NOT = { trait = demon }
+		NOT = { trait = changeling }
 		hidden_trigger = {
 			NOT = { has_character_flag = society_join_block }
 		}
@@ -2948,7 +2966,13 @@ hermetics = {
 			age = 16
 			is_in_society = no
 			is_dumb_trigger = no
-			trait = mage   
+			trait = mage  
+			NOT = { trait = vampire }
+			NOT = { trait = werewolf }
+			NOT = { trait = wraith }
+			NOT = { trait = mummy }
+			NOT = { trait = demon }
+			NOT = { trait = changeling }			
 			OR = {
 				NOT = { is_priest = yes }
 				OR = {
@@ -3019,7 +3043,7 @@ the_assassins = {
 
 	can_join_society = {
 		hidden_trigger = {
-		has_POD_race_trigger = no				   
+					   
 			NAND = {
 				ai = yes
 				is_society_rank_full = { 
@@ -3029,6 +3053,7 @@ the_assassins = {
 			}
 		}
 		age = 16
+		has_POD_race_trigger = no
 		OR = {
 			true_religion = shiite
 			religion_group = muslim
@@ -3380,6 +3405,7 @@ the_assassins = {
 				intrigue = 18
 			}
 			is_in_society = no
+			has_POD_race_trigger = no
 			NOT = { higher_tier_than = DUKE }
 			NOT = { mercenary = yes }
 			OR = {
@@ -3417,8 +3443,7 @@ the_satanists = {
 	indestructible = yes
 	
 	can_join_society = {
-		hidden_trigger = {
-		has_POD_race_trigger = no				   
+		hidden_trigger = {				   
 			NOT = {
 				has_game_rule = {
 					name = devil_worshipers
@@ -3434,6 +3459,7 @@ the_satanists = {
 			}
 		}
 		has_satanists_prerequisites = yes
+		has_POD_race_trigger = no
 		hidden_trigger = {
 			NOT = { has_character_flag = society_join_block }
 		}
@@ -3744,6 +3770,7 @@ the_satanists = {
 				trait = lunatic
 			}
 			age = 16
+			has_POD_race_trigger = no
 			is_in_society = no
 			NOT = { higher_tier_than = DUKE }
 			NOR = {
@@ -3780,8 +3807,7 @@ the_trollcrafters = {
 	indestructible = yes
 	
 	can_join_society = {
-		hidden_trigger = {
-		has_POD_race_trigger = no				   
+		hidden_trigger = {			   
 			NOT = {
 				has_game_rule = {
 					name = devil_worshipers
@@ -3797,6 +3823,7 @@ the_trollcrafters = {
 			}
 		}
 		has_trollcrafters_prerequisites = yes
+		has_POD_race_trigger = no
 		hidden_trigger = {
 			NOT = { has_character_flag = society_join_block }
 		}
@@ -4092,6 +4119,7 @@ the_trollcrafters = {
 			}
 			age = 16
 			is_in_society = no
+			has_POD_race_trigger = no
 			NOT = { higher_tier_than = DUKE }
 			NOR = {
 				mercenary = yes
@@ -4128,8 +4156,7 @@ the_cult_of_kali = {
 	indestructible = yes
 
 	can_join_society = {
-		hidden_trigger = {
-		has_POD_race_trigger = no				   
+		hidden_trigger = {				   
 			NOT = {
 				has_game_rule = {
 					name = devil_worshipers
@@ -4145,6 +4172,7 @@ the_cult_of_kali = {
 			}
 		}
 		has_cult_of_kali_prerequisites = yes
+		has_POD_race_trigger = no
 		hidden_trigger = {
 			NOT = { has_character_flag = society_join_block }
 		}
@@ -4426,6 +4454,7 @@ the_cult_of_kali = {
 				trait = lunatic
 			}
 			age = 16
+			has_POD_race_trigger = no
 			is_in_society = no
 			NOT = { higher_tier_than = DUKE }
 			NOR = {
@@ -4462,8 +4491,7 @@ the_cold_ones = {
 	indestructible = yes
 		
 	can_join_society = {
-		hidden_trigger = {
-		has_POD_race_trigger = no				   
+		hidden_trigger = {			   
 			NOT = {
 				has_game_rule = {
 					name = devil_worshipers
@@ -4479,6 +4507,7 @@ the_cold_ones = {
 			}
 		}
 		has_cold_ones_prerequisites = yes
+		has_POD_race_trigger = no
 		hidden_trigger = {
 			NOT = { has_character_flag = society_join_block }
 		}
@@ -4768,6 +4797,7 @@ the_cold_ones = {
 			}
 			age = 16
 			is_in_society = no
+			has_POD_race_trigger = no
 			NOT = { higher_tier_than = DUKE }
 			NOR = {
 				mercenary = yes
@@ -4803,8 +4833,7 @@ the_plaguebringers = {
 	indestructible = yes
 	
 	can_join_society = {
-		hidden_trigger = {
-		has_POD_race_trigger = no				   
+		hidden_trigger = {			   
 			NOT = {
 				has_game_rule = {
 					name = devil_worshipers
@@ -4820,6 +4849,7 @@ the_plaguebringers = {
 			}
 		}
 		has_plaguebringers_prerequisites = yes
+		has_POD_race_trigger = no
 		hidden_trigger = {
 			NOT = { has_character_flag = society_join_block }
 		}
@@ -5105,6 +5135,7 @@ the_plaguebringers = {
 			}
 			age = 16
 			is_in_society = no
+			has_POD_race_trigger = no
 			NOT = { higher_tier_than = DUKE }
 			NOR = {
 				mercenary = yes
@@ -5140,7 +5171,6 @@ the_vodouns = {
 	
 	can_join_society = {
 		hidden_trigger = {
-		has_POD_race_trigger = no
 			NOT = {
 				has_game_rule = {
 					name = devil_worshipers
@@ -5156,6 +5186,7 @@ the_vodouns = {
 			}
 		}
 		has_vodouns_prerequisites = yes
+		has_POD_race_trigger = no
 		hidden_trigger = {
 			NOT = { has_character_flag = society_join_block }
 		}
@@ -5441,6 +5472,7 @@ the_vodouns = {
 			}
 			age = 16
 			is_in_society = no
+			has_POD_race_trigger = no
 			NOT = { higher_tier_than = DUKE }
 			NOR = {
 				mercenary = yes
@@ -5478,7 +5510,6 @@ the_bacchants = {
 	can_join_society = {
 		has_global_flag = flag_restored_bacchants
 		hidden_trigger = {
-		has_POD_race_trigger = no
 			NOT = {
 				has_game_rule = {
 					name = devil_worshipers
@@ -5494,6 +5525,7 @@ the_bacchants = {
 			}
 		}
 		has_bacchants_prerequisites = yes
+		has_POD_race_trigger = no
 		hidden_trigger = {
 			NOT = { has_character_flag = society_join_block }
 		}
@@ -5801,6 +5833,7 @@ the_bacchants = {
 			}
 			age = 16
 			is_in_society = no
+			has_POD_race_trigger = no
 			NOT = { higher_tier_than = DUKE }
 			NOR = {
 				mercenary = yes
@@ -6103,7 +6136,6 @@ warrior_lodge_norse = {
 	
 	can_join_society = {
 		hidden_trigger = {
-		has_POD_race_trigger = no
 			NAND = {
 				ai = yes
 				is_society_rank_full = { 
@@ -6113,6 +6145,7 @@ warrior_lodge_norse = {
 			}
 		}
 		is_adult = yes
+		has_POD_race_trigger = no
 		custom_tooltip = {
 			text = has_not_angered_society_tt
 			hidden_trigger = { NOT = { has_character_modifier = warrior_lodge_failed_joining_cd } }
@@ -6641,6 +6674,7 @@ warrior_lodge_norse = {
 	    	controls_religion = no
 		   	religion_openly_norse_or_reformed_trigger = yes
 			is_adult = yes
+			has_POD_race_trigger = no
 			is_in_society = no
 			OR = {
 				trait = zealous
@@ -6675,7 +6709,6 @@ warrior_lodge_tengri = { # Also generally for Nomads
 	
 	can_join_society = {
 		hidden_trigger = {
-		has_POD_race_trigger = no
 			NAND = {
 				ai = yes
 				is_society_rank_full = { 
@@ -6685,6 +6718,7 @@ warrior_lodge_tengri = { # Also generally for Nomads
 			}
 		}
 		is_adult = yes
+		has_POD_race_trigger = no
 		custom_tooltip = {
 			text = has_not_angered_society_tt
 			hidden_trigger = { NOT = { has_character_modifier = warrior_lodge_failed_joining_cd } }
@@ -7220,6 +7254,7 @@ warrior_lodge_tengri = { # Also generally for Nomads
 			}
 			is_adult = yes
 			is_in_society = no
+			has_POD_race_trigger = no
 			OR = {
 				trait = zealous
 				martial = 12
@@ -7253,7 +7288,6 @@ warrior_lodge_baltic = {
 	
 	can_join_society = {
 		hidden_trigger = {
-		has_POD_race_trigger = no
 			NAND = {
 				ai = yes
 				is_society_rank_full = { 
@@ -7263,6 +7297,7 @@ warrior_lodge_baltic = {
 			}
 		}
 		is_adult = yes
+		has_POD_race_trigger = no
 		custom_tooltip = {
 			text = has_not_angered_society_tt
 			hidden_trigger = { NOT = { has_character_modifier = warrior_lodge_failed_joining_cd } }
@@ -7792,6 +7827,7 @@ warrior_lodge_baltic = {
 	    	controls_religion = no
 		   	religion_openly_baltic_or_reformed_trigger = yes
 			is_adult = yes
+			has_POD_race_trigger = no
 			is_in_society = no
 			OR = {
 				trait = zealous
@@ -7826,7 +7862,6 @@ warrior_lodge_finnish = {
 	
 	can_join_society = {
 		hidden_trigger = {
-		has_POD_race_trigger = no
 			NAND = {
 				ai = yes
 				is_society_rank_full = { 
@@ -7836,6 +7871,7 @@ warrior_lodge_finnish = {
 			}
 		}
 		is_adult = yes
+		has_POD_race_trigger = no		
 		custom_tooltip = {
 			text = has_not_angered_society_tt
 			hidden_trigger = { NOT = { has_character_modifier = warrior_lodge_failed_joining_cd } }
@@ -8366,6 +8402,7 @@ warrior_lodge_finnish = {
 		   	religion_openly_finnish_or_reformed_trigger = yes
 			is_adult = yes
 			is_in_society = no
+			has_POD_race_trigger = no
 			OR = {
 				trait = zealous
 				martial = 12
@@ -8409,6 +8446,7 @@ warrior_lodge_slavic = {
 			}
 		}
 		is_adult = yes
+		has_POD_race_trigger = no
 		custom_tooltip = {
 			text = has_not_angered_society_tt
 			hidden_trigger = { NOT = { has_character_modifier = warrior_lodge_failed_joining_cd } }
@@ -8939,6 +8977,7 @@ warrior_lodge_slavic = {
 		   	religion_openly_slavic_or_reformed_trigger = yes
 			is_adult = yes
 			is_in_society = no
+			has_POD_race_trigger = no
 			OR = {
 				trait = zealous
 				martial = 12
@@ -8972,7 +9011,6 @@ warrior_lodge_west_african = {
 	
 	can_join_society = {
 		hidden_trigger = {
-		has_POD_race_trigger = no
 			NAND = {
 				ai = yes
 				is_society_rank_full = { 
@@ -8982,6 +9020,7 @@ warrior_lodge_west_african = {
 			}
 		}
 		is_adult = yes
+		has_POD_race_trigger = no
 		custom_tooltip = {
 			text = has_not_angered_society_tt
 			hidden_trigger = { NOT = { has_character_modifier = warrior_lodge_failed_joining_cd } }
@@ -9516,6 +9555,7 @@ warrior_lodge_west_african = {
 		   	religion_openly_west_african_or_reformed_trigger = yes
 			is_adult = yes
 			is_in_society = no
+			has_POD_race_trigger = no
 			OR = {
 				trait = zealous
 				martial = 12
@@ -9550,7 +9590,6 @@ warrior_lodge_zun = {
 	
 	can_join_society = {
 		hidden_trigger = {
-		has_POD_race_trigger = no
 			NAND = {
 				ai = yes
 				is_society_rank_full = { 
@@ -9560,6 +9599,7 @@ warrior_lodge_zun = {
 			}
 		}
 		is_adult = yes
+		has_POD_race_trigger = no
 		custom_tooltip = {
 			text = has_not_angered_society_tt
 			hidden_trigger = { NOT = { has_character_modifier = warrior_lodge_failed_joining_cd } }
@@ -10089,6 +10129,7 @@ warrior_lodge_zun = {
 		   	religion_openly_zun_or_reformed_trigger = yes
 			is_adult = yes
 			is_in_society = no
+			has_POD_race_trigger = no
 			OR = {
 				trait = zealous
 				martial = 12
@@ -10123,7 +10164,6 @@ warrior_lodge_bon = {
 	
 	can_join_society = {
 		hidden_trigger = {
-		has_POD_race_trigger = no
 			NAND = {
 				ai = yes
 				is_society_rank_full = { 
@@ -10133,6 +10173,7 @@ warrior_lodge_bon = {
 			}
 		}
 		is_adult = yes
+		has_POD_race_trigger = no
 		custom_tooltip = {
 			text = has_not_angered_society_tt
 			hidden_trigger = { NOT = { has_character_modifier = warrior_lodge_failed_joining_cd } }
@@ -10658,6 +10699,7 @@ warrior_lodge_bon = {
 		   	religion_openly_bon_or_reformed_trigger = yes
 			is_adult = yes
 			is_in_society = no
+			has_POD_race_trigger = no
 			OR = {
 				trait = zealous
 				martial = 12
@@ -10693,7 +10735,6 @@ warrior_lodge_hellenic = {
 	
 	can_join_society = {
 		hidden_trigger = {
-		has_POD_race_trigger = no
 			NAND = {
 				ai = yes
 				is_society_rank_full = { 
@@ -10702,7 +10743,8 @@ warrior_lodge_hellenic = {
 				}
 			}
 		}
-is_adult = yes
+	is_adult = yes
+	has_POD_race_trigger = no
 		custom_tooltip = {
 			text = has_not_angered_society_tt
 			hidden_trigger = { NOT = { has_character_modifier = warrior_lodge_failed_joining_cd } }
@@ -11231,6 +11273,7 @@ is_adult = yes
 		   	religion_openly_hellenic_or_reformed_trigger = yes
 			is_adult = yes
 			is_in_society = no
+			has_POD_race_trigger = no
 			OR = {
 				trait = zealous
 				martial = 12
