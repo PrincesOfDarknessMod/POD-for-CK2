@@ -23,13 +23,11 @@ order_black_cross = {
 			has_global_flag = bookmark1466
 			}		
 	}
-	indestructible = yes
+	indestructible = no
 
 	can_join_society = {
 		hidden_trigger = {
-		combat_rating = 20
-		martial = 5
-		trait = vampire
+		has_order_black_cross_prerequisites = yes
 			NAND = {
 				ai = yes
 				is_society_rank_full = { 
@@ -51,21 +49,6 @@ order_black_cross = {
 			limit = { prisoner = yes }
 			prisoner = no
 		}
-		OR = {
-			religion_openly_norse_or_reformed_trigger = yes
-			AND = {
-				custom_tooltip = {
-					text = society_has_at_least_10_members_tt
-					FROM = { num_of_society_members >= 10 }
-				}
-				has_tribal_or_nomadic_government_trigger = yes
-				custom_tooltip = {
-					text = special_join_warrior_lodge_trigger_tt
-					special_join_warrior_lodge_trigger = yes
-				}
-				NOT = { trait = zealous }
-			}
-		}
 	}
 
 	show_society = {
@@ -74,10 +57,11 @@ order_black_cross = {
 
 	potential = {
 		trait = vampire
+		has_order_black_cross_prerequisites = yes
 	}
 
 
-	society_rank = { #"Fledling"
+	society_rank = { #"Fledgling"
 		level = 1
 		limit = 50 
 		startup_limit = 10
@@ -371,11 +355,7 @@ order_black_cross = {
 			ai = yes
 	    	controls_religion = no
 			age = 16
-			trait = vampire
-			trait = ventrue
-			culture = german
-			religion = ventrue_high
-			martial = 5
+			has_order_black_cross_prerequisites = yes
 			combat_rating = 20
 			is_in_society = no
 			OR = {
@@ -406,38 +386,51 @@ order_black_cross = {
 
 order_saint_ladre = {
 	primary_attribute = martial
-	opinion_to_other_members = +1
-	opinion_to_perceived_members = -20 
-	opinion_per_rank_above = +1
-	sound = monastic_orders_interface
-	society_ranks_gfx = monk_ranks
+	opinion_to_other_members = +10
+	opinion_per_rank_above = +5
+	sound = warrior_lodge_ambient_01
+	society_ranks_gfx = warriors_ranks
+	society_influence = no
 	
+	non_interference = {
+		always = yes
+	}
+    
 	active = {
-		OR = {
+		#has_dlc = "Holy Fury"
+			OR = {
 			has_global_flag = bookmark767
 			has_global_flag = bookmark1230
 			has_global_flag = bookmark1355
 			has_global_flag = bookmark1466
-			}
+			}		
 	}
-	indestructible = yes
+	indestructible = no
 
 	can_join_society = {
 		hidden_trigger = {
+		has_order_saint_ladre_prerequisites = yes
 			NAND = {
+				ai = yes
 				is_society_rank_full = { 
 					society = order_saint_ladre
 					rank = 1
 				}
 			}
 		}
-		
-		has_order_saint_ladre_prerequisites = yes
-	
+		is_adult = yes
 		custom_tooltip = {
-			text = did_not_betray_society
-			NOT = { has_character_flag = betrayed_order_saint_ladre }
-		}				
+			text = has_not_angered_society_tt
+			hidden_trigger = { NOT = { has_character_modifier = warrior_lodge_failed_joining_cd } }
+		}
+		NOT = { has_character_modifier = warrior_lodge_failed_joining_cd }
+		hidden_trigger = {
+			NOT = { has_character_flag = society_join_block }
+		}
+		trigger_if = {
+			limit = { prisoner = yes }
+			prisoner = no
+		}
 	}
 
 	show_society = {
@@ -445,58 +438,77 @@ order_saint_ladre = {
 	}
 
 	potential = {
-		trait = nosferatu
+		has_order_saint_ladre_prerequisites = yes
 	}
 
-	society_rank = {
+
+	society_rank = { #"Fledgling"
 		level = 1
-		limit = 1000
-		startup_limit = 0
+		limit = 50 
+		startup_limit = 10
 		modifier = {
-			combat_rating = 1
-			martial = 1
+			monthly_character_prestige = 0.25
 		}
-		decisions = {
+		powers = {
+			warrior_lodge_duel #Passive Power: Unlocks Duel
+			#warrior_lodge_shieldmaiden #Passive Power: Unlocks Shieldmaidens
+			warrior_lodge_survivor #Passive Power: Survivor
+			warrior_lodge_lifetime_of_war #Passive Power: A Lifetime of War			
+			warrior_lodge_bon_toughness #Power: Toughness
 		}
 	}
 	
-	society_rank = {
+	society_rank = { #"Warrior"
 		level = 2
-		limit = 50
-		startup_limit = 0
-		modifier = { 
-			combat_rating = 2 # bonus to dueling
+		limit = 20
+		startup_limit = 6
+		modifier = {
+			monthly_character_prestige = 0.5
+			combat_rating = 5
+			martial = 1
+		}		
+		powers = {
+			warrior_lodge_reaver #Passive Power: Reaver
+			warrior_lodge_warrior_training #Power: Warrior Training
+			warrior_lodge_summon_commander #Power: Summon Commander
+		}
+	}
+	
+	society_rank = { #"Veteran"
+		level = 3
+		limit = 10 
+		startup_limit = 4
+		modifier = {
+			monthly_character_prestige = 0.75
+			combat_rating = 10
 			martial = 2
 		}
-		decisions = {
-		
-		}
-	}
-	
-	society_rank = {
-		level = 3
-		limit = 25 
-		startup_limit = 0
-		modifier = {
-			combat_rating = 3 # bonus to dueling (left over)
-			martial = 3
-		}
-		decisions = {
+		powers = {
+			warrior_lodge_inspire_warriors #Power: Inspire Warriors
+			#warrior_lodge_war_sacrifice #Power: War Sacrifice
 		}
 	}
 
-	society_rank = {
+	society_rank = { #"Hero"
 		level = 4
-		limit = 1 
-		startup_limit = 0
-		modifier = {
-			combat_rating = 4 # bonus to dueling (left over)
-			martial = 4
+		limit = 4
+		startup_limit = 3
+		modifier = { 
+			monthly_character_prestige = 1
+			combat_rating = 15
+			martial = 3
 		}
-		decisions = {
+		powers = {
+			warrior_lodge_indomitable #Passive Power: Indomitable
+			warrior_lodge_call_to_glory #Power: Call to Glory
+			warrior_lodge_choose_military_aspect #Power: Choose Military Aspect
 		}
-		 
 	}
+
+	plots = {
+	
+	}
+
 
 	monthly_currency_gain = {
 		name = currency_name_order_saint_ladre
@@ -658,10 +670,8 @@ order_saint_ladre = {
 			ai = yes
 	    	controls_religion = no
 			age = 16
-			trait = vampire
-			trait = nosferatu
-			religion = vampire_low_clans
-			is_in_society = no		
+			is_in_society = no
+			has_order_saint_ladre_prerequisites = yes
 		}
 	}
 	}
@@ -672,27 +682,30 @@ order_saint_ladre = {
 
 order_sable_rose = {
 	primary_attribute = martial
-	is_secret = no
-	devil_worshipper = no
-	opinion_to_other_members = +1
-	opinion_to_pretenders = -20			#Pretenders is the opinion you have of people perceived/discovered to be in your society.
-	opinion_to_perceived_members = -20 	#Perceived is the opinion you have of people perceived/discovered to be of a society you're not part of
-	opinion_per_rank_above = +1
-	sound = assassins_interface
-	society_ranks_gfx = generic_ranks
+	opinion_to_other_members = +10
+	opinion_per_rank_above = +5
+	sound = warrior_lodge_ambient_01
+	society_ranks_gfx = warriors_ranks
+	society_influence = no
 	
+	non_interference = {
+		always = yes
+	}
+    
 	active = {
-		OR = {
+		#has_dlc = "Holy Fury"
+			OR = {
 			has_global_flag = bookmark767
 			has_global_flag = bookmark1230
 			has_global_flag = bookmark1355
 			has_global_flag = bookmark1466
-			}
+			}		
 	}
-	indestructible = yes
+	indestructible = no
 
 	can_join_society = {
 		hidden_trigger = {
+		has_order_sable_rose_prerequisites = yes
 			NAND = {
 				ai = yes
 				is_society_rank_full = { 
@@ -701,13 +714,19 @@ order_sable_rose = {
 				}
 			}
 		}
-		
-		has_order_sable_rose_prerequisites = yes		
-	
+		is_adult = yes
 		custom_tooltip = {
-			text = did_not_betray_society
-			NOT = { has_character_flag = betrayed_order_sable_rose }
-		}				
+			text = has_not_angered_society_tt
+			hidden_trigger = { NOT = { has_character_modifier = warrior_lodge_failed_joining_cd } }
+		}
+		NOT = { has_character_modifier = warrior_lodge_failed_joining_cd }
+		hidden_trigger = {
+			NOT = { has_character_flag = society_join_block }
+		}
+		trigger_if = {
+			limit = { prisoner = yes }
+			prisoner = no
+		}
 	}
 
 	show_society = {
@@ -715,58 +734,77 @@ order_sable_rose = {
 	}
 
 	potential = {
-		trait = vampire
+		has_order_sable_rose_prerequisites = yes
 	}
 
-	society_rank = {
+	
+	society_rank = { #"Fledgling"
 		level = 1
-		limit = 39 
-		startup_limit = 0
+		limit = 50 
+		startup_limit = 10
 		modifier = {
-			combat_rating = 1
-			martial = 1
+			monthly_character_prestige = 0.25
 		}
-		decisions = {
+		powers = {
+			warrior_lodge_duel #Passive Power: Unlocks Duel
+			#warrior_lodge_shieldmaiden #Passive Power: Unlocks Shieldmaidens
+			warrior_lodge_survivor #Passive Power: Survivor
+			warrior_lodge_lifetime_of_war #Passive Power: A Lifetime of War			
+			warrior_lodge_bon_toughness #Power: Toughness
 		}
 	}
 	
-	society_rank = {
+	society_rank = { #"Warrior"
 		level = 2
-		limit = 13
-		startup_limit = 0
-		modifier = { 
-			combat_rating = 2 # bonus to dueling
+		limit = 20
+		startup_limit = 6
+		modifier = {
+			monthly_character_prestige = 0.5
+			combat_rating = 5
+			martial = 1
+		}		
+		powers = {
+			warrior_lodge_reaver #Passive Power: Reaver
+			warrior_lodge_warrior_training #Power: Warrior Training
+			warrior_lodge_summon_commander #Power: Summon Commander
+		}
+	}
+	
+	society_rank = { #"Veteran"
+		level = 3
+		limit = 10 
+		startup_limit = 4
+		modifier = {
+			monthly_character_prestige = 0.75
+			combat_rating = 10
 			martial = 2
 		}
-		decisions = {
-		
-		}
-	}
-	
-	society_rank = {
-		level = 3
-		limit = 3
-		startup_limit = 0
-		modifier = {
-			combat_rating = 3 # bonus to dueling (left over)
-			martial = 3
-		}
-		decisions = {
+		powers = {
+			warrior_lodge_inspire_warriors #Power: Inspire Warriors
+			#warrior_lodge_war_sacrifice #Power: War Sacrifice
 		}
 	}
 
-	society_rank = {
+	society_rank = { #"Hero"
 		level = 4
-		limit = 1 
-		startup_limit = 0
-		modifier = {
-			combat_rating = 4 # bonus to dueling (left over)
-			martial = 4
+		limit = 4
+		startup_limit = 3
+		modifier = { 
+			monthly_character_prestige = 1
+			combat_rating = 15
+			martial = 3
 		}
-		decisions = {
+		powers = {
+			warrior_lodge_indomitable #Passive Power: Indomitable
+			warrior_lodge_call_to_glory #Power: Call to Glory
+			warrior_lodge_choose_military_aspect #Power: Choose Military Aspect
 		}
-		 
 	}
+
+	plots = {
+	
+	}
+
 
 	monthly_currency_gain = {
 		name = currency_name_order_sable_rose
@@ -977,11 +1015,7 @@ order_sable_rose = {
 			ai = yes
 	    	controls_religion = no
 			age = 16
-			trait = vampire
-			trait = toreador
-			religion = toreador_high
-			martial = 7
-			combat_rating = 7
+			has_order_sable_rose_prerequisites = yes
 			is_in_society = no
 			NOT = { mercenary = yes }
 				NOR = {
@@ -1000,33 +1034,36 @@ order_sable_rose = {
 				}			
 		}
 	}
-	}	
+}	
 	
 ### Order of Bitter Ashes ###
 
 order_bitter_ashes = {
 	primary_attribute = martial
-	is_secret = no
-	devil_worshipper = no
-	opinion_to_other_members = +1
-	opinion_to_pretenders = -20			#Pretenders is the opinion you have of people perceived/discovered to be in your society.
-	opinion_to_perceived_members = -20 	#Perceived is the opinion you have of people perceived/discovered to be of a society you're not part of
-	opinion_per_rank_above = +1
-	sound = assassins_interface
-	society_ranks_gfx = generic_ranks
+	opinion_to_other_members = +10
+	opinion_per_rank_above = +5
+	sound = warrior_lodge_ambient_01
+	society_ranks_gfx = warriors_ranks
+	society_influence = no
 	
+	non_interference = {
+		always = yes
+	}
+    
 	active = {
-		OR = {
+		#has_dlc = "Holy Fury"
+			OR = {
 			has_global_flag = bookmark767
 			has_global_flag = bookmark1230
 			has_global_flag = bookmark1355
 			has_global_flag = bookmark1466
-			}
+			}		
 	}
-	indestructible = yes
+	indestructible = no
 
 	can_join_society = {
 		hidden_trigger = {
+		has_order_bitter_ashes_prerequisites = yes
 			NAND = {
 				ai = yes
 				is_society_rank_full = { 
@@ -1035,13 +1072,19 @@ order_bitter_ashes = {
 				}
 			}
 		}
-
-		has_order_bitter_ashes_prerequisites = yes
-		
+		is_adult = yes
 		custom_tooltip = {
-			text = did_not_betray_society
-			NOT = { has_character_flag = betrayed_order_bitter_ashes }
-		}				
+			text = has_not_angered_society_tt
+			hidden_trigger = { NOT = { has_character_modifier = warrior_lodge_failed_joining_cd } }
+		}
+		NOT = { has_character_modifier = warrior_lodge_failed_joining_cd }
+		hidden_trigger = {
+			NOT = { has_character_flag = society_join_block }
+		}
+		trigger_if = {
+			limit = { prisoner = yes }
+			prisoner = no
+		}
 	}
 
 	show_society = {
@@ -1049,57 +1092,75 @@ order_bitter_ashes = {
 	}
 
 	potential = {
-		trait = vampire
+		has_order_bitter_ashes_prerequisites = yes
 	}
 
-	society_rank = {
+	
+	society_rank = { #"Fledgling"
 		level = 1
-		limit = 100
-		startup_limit = 0
+		limit = 50 
+		startup_limit = 10
 		modifier = {
-			combat_rating = 1
-			martial = 1
+			monthly_character_prestige = 0.25
 		}
-		decisions = {
+		powers = {
+			warrior_lodge_duel #Passive Power: Unlocks Duel
+			#warrior_lodge_shieldmaiden #Passive Power: Unlocks Shieldmaidens
+			warrior_lodge_survivor #Passive Power: Survivor
+			warrior_lodge_lifetime_of_war #Passive Power: A Lifetime of War			
+			warrior_lodge_bon_toughness #Power: Toughness
 		}
 	}
 	
-	society_rank = {
+	society_rank = { #"Warrior"
 		level = 2
-		limit = 50
-		startup_limit = 0
-		modifier = { 
-			combat_rating = 2 # bonus to dueling
+		limit = 20
+		startup_limit = 6
+		modifier = {
+			monthly_character_prestige = 0.5
+			combat_rating = 5
+			martial = 1
+		}		
+		powers = {
+			warrior_lodge_reaver #Passive Power: Reaver
+			warrior_lodge_warrior_training #Power: Warrior Training
+			warrior_lodge_summon_commander #Power: Summon Commander
+		}
+	}
+	
+	society_rank = { #"Veteran"
+		level = 3
+		limit = 10 
+		startup_limit = 4
+		modifier = {
+			monthly_character_prestige = 0.75
+			combat_rating = 10
 			martial = 2
 		}
-		decisions = {
-		
-		}
-	}
-	
-	society_rank = {
-		level = 3
-		limit = 25 
-		startup_limit = 0
-		modifier = {
-			combat_rating = 3 # bonus to dueling (left over)
-			martial = 3
-		}
-		decisions = {
+		powers = {
+			warrior_lodge_inspire_warriors #Power: Inspire Warriors
+			#warrior_lodge_war_sacrifice #Power: War Sacrifice
 		}
 	}
 
-	society_rank = {
+	society_rank = { #"Hero"
 		level = 4
-		limit = 1 
-		startup_limit = 0
-		modifier = {
-			combat_rating = 4 # bonus to dueling (left over)
-			martial = 4
+		limit = 4
+		startup_limit = 3
+		modifier = { 
+			monthly_character_prestige = 1
+			combat_rating = 15
+			martial = 3
 		}
-		decisions = {
+		powers = {
+			warrior_lodge_indomitable #Passive Power: Indomitable
+			warrior_lodge_call_to_glory #Power: Call to Glory
+			warrior_lodge_choose_military_aspect #Power: Choose Military Aspect
 		}
-		 
+	}
+
+	plots = {
+	
 	}
 
 	monthly_currency_gain = {
@@ -1455,9 +1516,7 @@ order_bitter_ashes = {
 			ai = yes
 	    	controls_religion = no
 			age = 16
-			trait = vampire
-			martial = 7
-			combat_rating = 7
+			has_order_bitter_ashes_prerequisites = yes
 			is_in_society = no
 			NOT = { mercenary = yes }
 				NOR = {
@@ -1477,34 +1536,37 @@ order_bitter_ashes = {
 				}			
 		}
 	}
-	}	
+}	
 	
 
 ### Twilight Order ###
 
 order_twilight = {
 	primary_attribute = martial
-	is_secret = no
-	devil_worshipper = no
-	opinion_to_other_members = +1
-	opinion_to_pretenders = -20			#Pretenders is the opinion you have of people perceived/discovered to be in your society.
-	opinion_to_perceived_members = -20 	#Perceived is the opinion you have of people perceived/discovered to be of a society you're not part of
-	opinion_per_rank_above = +1
-	sound = assassins_interface
-	society_ranks_gfx = generic_ranks
+	opinion_to_other_members = +10
+	opinion_per_rank_above = +5
+	sound = warrior_lodge_ambient_01
+	society_ranks_gfx = warriors_ranks
+	society_influence = no
 	
+	non_interference = {
+		always = yes
+	}
+    
 	active = {
-		OR = {
+		#has_dlc = "Holy Fury"
+			OR = {
 			has_global_flag = bookmark767
 			has_global_flag = bookmark1230
 			has_global_flag = bookmark1355
 			has_global_flag = bookmark1466
-			}
+			}		
 	}
-	indestructible = yes
+	indestructible = no
 
 	can_join_society = {
 		hidden_trigger = {
+		has_order_twilight_prerequisites = yes
 			NAND = {
 				ai = yes
 				is_society_rank_full = { 
@@ -1513,13 +1575,19 @@ order_twilight = {
 				}
 			}
 		}
-
-		has_order_twilight_prerequisites = yes		
-		
+		is_adult = yes
 		custom_tooltip = {
-			text = did_not_betray_society
-			NOT = { has_character_flag = betrayed_order_twilight }
-		}				
+			text = has_not_angered_society_tt
+			hidden_trigger = { NOT = { has_character_modifier = warrior_lodge_failed_joining_cd } }
+		}
+		NOT = { has_character_modifier = warrior_lodge_failed_joining_cd }
+		hidden_trigger = {
+			NOT = { has_character_flag = society_join_block }
+		}
+		trigger_if = {
+			limit = { prisoner = yes }
+			prisoner = no
+		}
 	}
 
 	show_society = {
@@ -1527,57 +1595,74 @@ order_twilight = {
 	}
 
 	potential = {
-		trait = vampire
+		has_order_twilight_prerequisites = yes
 	}
 
-	society_rank = {
+	society_rank = { #"Fledgling"
 		level = 1
-		limit = 100 
-		startup_limit = 0
+		limit = 50 
+		startup_limit = 10
 		modifier = {
-			combat_rating = 1
-			martial = 1
+			monthly_character_prestige = 0.25
 		}
-		decisions = {
+		powers = {
+			warrior_lodge_duel #Passive Power: Unlocks Duel
+			#warrior_lodge_shieldmaiden #Passive Power: Unlocks Shieldmaidens
+			warrior_lodge_survivor #Passive Power: Survivor
+			warrior_lodge_lifetime_of_war #Passive Power: A Lifetime of War			
+			warrior_lodge_bon_toughness #Power: Toughness
 		}
 	}
 	
-	society_rank = {
+	society_rank = { #"Warrior"
 		level = 2
-		limit = 50
-		startup_limit = 0
-		modifier = { 
-			combat_rating = 2 # bonus to dueling
+		limit = 20
+		startup_limit = 6
+		modifier = {
+			monthly_character_prestige = 0.5
+			combat_rating = 5
+			martial = 1
+		}		
+		powers = {
+			warrior_lodge_reaver #Passive Power: Reaver
+			warrior_lodge_warrior_training #Power: Warrior Training
+			warrior_lodge_summon_commander #Power: Summon Commander
+		}
+	}
+	
+	society_rank = { #"Veteran"
+		level = 3
+		limit = 10 
+		startup_limit = 4
+		modifier = {
+			monthly_character_prestige = 0.75
+			combat_rating = 10
 			martial = 2
 		}
-		decisions = {
-		
-		}
-	}
-	
-	society_rank = {
-		level = 3
-		limit = 25 
-		startup_limit = 0
-		modifier = {
-			combat_rating = 3 # bonus to dueling (left over)
-			martial = 3
-		}
-		decisions = {
+		powers = {
+			warrior_lodge_inspire_warriors #Power: Inspire Warriors
+			#warrior_lodge_war_sacrifice #Power: War Sacrifice
 		}
 	}
 
-	society_rank = {
+	society_rank = { #"Hero"
 		level = 4
-		limit = 1 
-		startup_limit = 0
-		modifier = {
-			combat_rating = 4 # bonus to dueling (left over)
-			martial = 4
+		limit = 4
+		startup_limit = 3
+		modifier = { 
+			monthly_character_prestige = 1
+			combat_rating = 15
+			martial = 3
 		}
-		decisions = {
+		powers = {
+			warrior_lodge_indomitable #Passive Power: Indomitable
+			warrior_lodge_call_to_glory #Power: Call to Glory
+			warrior_lodge_choose_military_aspect #Power: Choose Military Aspect
 		}
-		 
+	}
+
+	plots = {
+	
 	}
 
 	monthly_currency_gain = {
@@ -1935,10 +2020,8 @@ order_twilight = {
 			ai = yes
 	    	controls_religion = no
 			age = 16
-			trait = vampire
-			martial = 7
-			combat_rating = 7
 			is_in_society = no
+			has_order_bitter_ashes_prerequisites =  yes
 			NOT = { mercenary = yes }
 				NOR = {
 				trait = diabolist
