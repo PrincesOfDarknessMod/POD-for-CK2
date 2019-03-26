@@ -59,9 +59,150 @@ decisions =
 		}
 		effect = 
 		{
+			
+			
 			if = 
 			{
-				limit = { trait = mage }
+				limit = 
+				{
+					OR = 
+					{
+						trait = vampire
+						trait = revenant
+					}
+					
+				}
+
+
+				if = 
+				{
+					limit = 
+					{
+						is_patrician = yes
+						NOT = { government = primogen_republic_government }
+					}
+					set_government_type = primogen_republic_government
+					
+				}
+				
+				
+				if = 
+				{
+					limit = 
+					{
+						NOT = { is_patrician = yes }
+						OR = 
+						{ 
+							religion_group = vampire_high_clans_group
+							religion_group = masquerade_camarilla_group
+							religion_group = inconnu_group
+							religion = nosferatulow
+							religion = gangrellow
+							religion = malkavianlow
+							religion = giovanni
+						}
+					}
+					set_government_type = traditions_government
+					
+				}
+					
+				if = 
+				{
+					limit = 
+					{
+						religion_group = sabbat_group
+						NOT = { is_patrician = yes }
+					}
+					set_government_type = milan_government
+					
+				}	
+				
+				if = 
+				{
+					limit = 
+					{
+						NOT = { religion = vampire_low_clans }
+						NOT = { religion = autarkis }
+						NOT = { is_patrician = yes }
+						OR = {
+							religion = anarchs
+							religion_group = vampire_low_clans_group
+						}
+					}
+					set_government_type = free_state_government
+				}		
+				
+				if = 
+				{
+					limit = 
+					{
+						OR = 
+						{ 
+							religion_group = baali_group
+							religion = setite
+							religion = einherjar
+							religion = noiad
+							religion = tremerelow
+							religion = laibon
+						}
+						NOT = { is_patrician = yes }
+					}
+					set_government_type = cult_government
+					
+				}		
+					
+				if = 
+				{
+					limit = 
+					{
+						religion_group = ashirra_vampire_group
+						NOT = { is_patrician = yes }
+					}
+					set_government_type = ashirra_government
+					
+				}
+				
+				if = 
+				{
+					limit = 
+					{
+						religion = mayaparisataya
+						NOT = { is_patrician = yes }
+					}
+					set_government_type = dharmic_government
+					
+				}	
+				
+				if = 
+				{
+					limit = 
+					{
+						religion = anda
+						NOT = { is_patrician = yes }
+					}
+					set_government_type = anda_government
+					
+				}
+					
+				if = 
+				{ 
+					limit = 
+					{
+						religion = autarkis
+						NOT = { is_patrician = yes }
+					}
+					set_government_type = unaligned_government			
+				}			
+			}
+
+
+			
+			if = 
+			{
+				limit = { 
+					trait = mage 
+					NOT = { is_patrician = yes }
+					}
 				
 				if = 
 				{ 
@@ -82,7 +223,10 @@ decisions =
 			
 			if = 
 			{
-				limit = { trait = werewolf }
+				limit = { 
+					trait = werewolf
+					NOT = { is_patrician = yes }
+				}
 				
 				if = 
 				{
@@ -104,116 +248,6 @@ decisions =
 			}			
 			
 			
-			if = 
-			{
-				limit = 
-				{
-					OR = 
-					{
-						trait = vampire
-						trait = revenant
-					}
-					
-				}
-				
-				if = 
-				{
-					limit = 
-					{
-						OR = 
-						{ 
-							religion_group = vampire_high_clans_group
-							religion_group = masquerade_camarilla_group
-							religion_group = inconnu_group
-							religion = nosferatulow
-							religion = gangrellow
-							religion = malkavianlow
-							religion = giovanni
-						}
-					}
-					set_government_type = traditions_government
-					
-					}
-					
-				if = 
-				{
-					limit = 
-					{
-						religion_group = sabbat_group
-					}
-					set_government_type = milan_government
-					
-				}	
-				
-				if = 
-				{
-					limit = 
-					{
-						NOT = { religion = vampire_low_clans }
-						NOT = { religion = autarkis }
-						religion = anarchs
-						religion_group = vampire_low_clans_group
-					}
-					set_government_type = free_state_government
-				}		
-				
-				if = 
-				{
-					limit = 
-					{
-						OR = 
-						{ 
-							religion_group = baali_group
-							religion = setite
-							religion = einherjar
-							religion = noiad
-							religion = tremerelow
-							religion = laibon
-						}
-					}
-					set_government_type = cult_government
-					
-				}		
-					
-				if = 
-				{
-					limit = 
-					{
-						religion_group = ashirra_vampire_group
-					}
-					set_government_type = ashirra_government
-					
-				}
-				
-				if = 
-				{
-					limit = 
-					{
-						religion = mayaparisataya
-					}
-					set_government_type = dharmic_government
-					
-				}	
-				
-				if = 
-				{
-					limit = 
-					{
-						religion = anda
-					}
-					set_government_type = anda_government
-					
-				}
-					
-				if = 
-				{ 
-					limit = 
-					{
-						religion = autarkis
-					}
-					set_government_type = unaligned_government			
-				}			
-			}
 
 			if = 
 			{
@@ -223,6 +257,7 @@ decisions =
 					{
 						trait = firstbornfae
 						trait = changeling
+						NOT = { is_patrician = yes }
 					}
 				}
 				
@@ -244,6 +279,7 @@ decisions =
 				limit = 
 				{ 
 					trait = supe_hunter
+					NOT = { is_patrician = yes }
 				}
 				
 				set_government_type = hunter_government
