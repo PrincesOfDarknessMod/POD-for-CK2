@@ -89,7 +89,7 @@ province_event = {
 	}
 	
 	immediate = {
-		pod_start_camarilla_formation_player = yes
+		pod_start_camarilla_formation_player = yes		
 		any_player = {
 				narrative_event = { id = POD_Camarilla_Sabbat_Formation_Events.101 }
 			}
@@ -603,3 +603,46 @@ province_event = {
 	}
 }
 
+#Bloodline gain
+character_event  = {
+	id = POD_Camarilla_Sabbat_Formation_Events.213
+	desc = "EVTDESC_POD_CAMARILLAFORM_NARRATIVE_213"
+	picture = GFX_evt_vampires_for_arches
+	
+	only_playable = yes
+	only_independent = yes
+	only_capable = yes
+
+
+	trigger = {
+	NOT = { has_character_flag = bloodlines_founders }
+	OR = { 
+			trait = camarilla_founder_trait
+			trait = sabbat_founder_trait
+			trait = anarch_revolt_figure_trait
+		}
+		}
+	mean_time_to_happen = { months = 1 }	
+	
+	option = {
+		name = "EVTOPTA_POD_CAMARILLAFORM_NARRATIVE_213"
+					ROOT = { 
+			if = {
+				limit = { 
+					trait = camarilla_founder_trait }
+						create_bloodline = { type = camarillafounder } 
+						set_character_flag = bloodlines_founders }
+			else_if = {
+				limit = { 
+					trait = sabbat_founder_trait }
+						create_bloodline = { type = sabbatfounder } 
+						set_character_flag = bloodlines_founders }
+			else_if = {
+				limit = { 
+					trait = anarch_revolt_figure_trait }
+						create_bloodline = { type = anarchfounder }
+						set_character_flag = bloodlines_founders
+						}
+						}
+}
+}
