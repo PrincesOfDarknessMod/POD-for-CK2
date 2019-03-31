@@ -517,7 +517,7 @@
 	culture = "italian"
 	religion = "nosferatulow"
 	trait = "intricate_webweaver"
-	dynasty=5000101
+	dynasty=5000109
 	female = no
 	father = 790273
 	
@@ -2204,6 +2204,7 @@
 	trait = "ambitious"
 	female = no
 	disallow_random_traits = yes
+	mother = 790705
 	
 	842.1.1 = {
 		birth = 842.1.1 
@@ -2241,7 +2242,7 @@
 
 505163 = {
 # Monitor of Genoa
-	name = "Dodinni"
+	name = "Dondinni"
 	culture = "italian"
 	dynasty = 5000108
 	religion = "nosferatulow"
@@ -2261,6 +2262,7 @@
 	trait = "craven"
 	female = no
 	disallow_random_traits = yes
+	father = 790796
 	
 	1102.1.1 = {
 		birth = 1102.1.1 
@@ -2296,34 +2298,93 @@
 }
 
 505167 = {
-# Piero Volante, Palermo
-	name = "Piero"
+# True Master of Rome before Camilla, in exile
+	name = "Cato"
 	culture = "italian"
 	dynasty = 5000109
+	religion = "nosferatulow"
+	trait = "vampire"
+	immortal_age = 20
+	trait = "wyrm_taint"	
+	trait = "nosferatu"
+	trait = "neonate"
+	trait = "animalism_1"
+	trait = "obfuscate_1"
+	trait = "vigor_3"
+	trait = "bloodpotency_6"
+	trait = "intricate_webweaver"
+	trait = "vampgeneration7"
+	trait = "patient"
+	trait = "strong"
+	trait = "deceitful"
+	trait = "diligent"
+	female = no
+	disallow_random_traits = yes
+	father = 605120
+	
+	1211.1.1 = {
+		birth = 1211.1.1 
+		}
+	1229.1.1 = {
+		effect = { set_government_type = primogen_republic }	
+		add_trait = "bookmark1230"
+		effect = { set_graphical_culture = nosferatu }
+		effect = { add_claim = c_roma }
+	}			
+	1354.1.1 = {
+		remove_trait = "bookmark1230"
+		add_trait = "bookmark1355"
+	}	
+	
+	1499.1.1 = {
+		remove_trait = "bookmark1355"
+		add_trait = "bookmark1505"
+	}	
+	1506.1.1 = {
+		remove_trait = "bookmark1505"
+		add_trait = "bookmark1506"
+	
+	}	
+	1999.1.1 = {
+		remove_trait = "bookmark1506"
+		add_trait = bookmark2015
+		religion = masquerade_camarilla
+		}
+		
+	2200.1.1 = {
+		death = yes 
+		}	
+}
+
+790796 = {
+# Sire of Dondinni
+	name = "Hauzal"
+	culture = "levantine_arabic"
+	dynasty = 5000099
 	religion = "nosferatulow"
 	trait = "vampire"
 	immortal_age = 30
 	trait = "wyrm_taint"	
 	trait = "nosferatu"
 	trait = "elder"
-	trait = "animalism_3"
-	trait = "obfuscate_3"
+	trait = "animalism_5"
+	trait = "obfuscate_5"
 	trait = "vigor_5"
 	trait = "bloodpotency_6"
-	trait = "intricate_webweaver"
-	trait = "vampgeneration8"
-	trait = "patient"
-	trait = "strong"
-	trait = "brawny"
-	trait = "stubborn"
+	trait = "elusive_shadow"
+	trait = "vampgeneration5"
+	trait = "deceitful"
+	trait = "craven"
 	female = no
 	disallow_random_traits = yes
+	mother = 505075
 	
-	980.1.1 = {
-		birth = 980.1.1 
+	1005.1.1 = {
+		birth = 1005.1.1 
 		}
 	1229.1.1 = {
-		effect = { set_government_type = primogen_republic }	
+		effect = { set_government_type = primogen_republic_government }	
+		effect = { set_secret_religion = inconnu }
 		add_trait = "bookmark1230"
 		effect = { set_graphical_culture = nosferatu }
 	}			
@@ -2335,7 +2396,7 @@
 	1499.1.1 = {
 		remove_trait = "bookmark1355"
 		add_trait = "bookmark1505"
-		religion = masquerade_camarilla
+		religion = inconnu
 	}	
 	1506.1.1 = {
 		remove_trait = "bookmark1505"
@@ -2345,7 +2406,6 @@
 	1999.1.1 = {
 		remove_trait = "bookmark1506"
 		add_trait = bookmark2015
-		religion = masquerade_camarilla
 		}
 		
 	2200.1.1 = {

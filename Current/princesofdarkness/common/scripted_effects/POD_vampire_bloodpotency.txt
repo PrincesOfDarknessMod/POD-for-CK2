@@ -1,0 +1,142 @@
+#this relies on bloodpotency traits being opposite of each other
+POD_vampire_bloodpotency_increase_effect = {
+	trigger_switch = {
+		on_trigger = trait
+		bloodpotency_1 = {
+			if = { 
+				limit = { 
+						OR = {    
+							trait = bloodpotency_2
+							trait = bloodpotency_3
+							trait = bloodpotency_4
+							trait = bloodpotency_5
+							trait = bloodpotency_6
+							trait = bloodpotency_7
+							trait = bloodpotency_8
+							trait = bloodpotency_9
+							trait = bloodpotency_10
+						}
+				}
+				remove_trait = bloodpotency_1
+				add_trait = bloodpotency_2
+			}
+		}
+		bloodpotency_2 = {
+			if = { 
+				limit = { 
+
+					ROOT = {
+						OR = {    
+							trait = bloodpotency_3
+							trait = bloodpotency_4
+							trait = bloodpotency_5
+							trait = bloodpotency_6
+							trait = bloodpotency_7
+							trait = bloodpotency_8
+							trait = bloodpotency_9
+							trait = bloodpotency_10
+						}
+					}
+				}
+				remove_trait = bloodpotency_2
+				add_trait = bloodpotency_3
+			}
+		}
+		bloodpotency_3 = {
+			if = {    
+				limit = { 
+						OR = {    
+							trait = bloodpotency_4
+							trait = bloodpotency_5
+							trait = bloodpotency_6
+							trait = bloodpotency_7
+							trait = bloodpotency_8
+							trait = bloodpotency_9
+							trait = bloodpotency_10
+						}
+				}
+				remove_trait = bloodpotency_3
+				add_trait = bloodpotency_4
+			}
+		}
+		bloodpotency_4 = {
+			if = { 
+				limit = { 
+						OR = {    
+							trait = bloodpotency_5
+							trait = bloodpotency_6
+							trait = bloodpotency_7
+							trait = bloodpotency_8
+							trait = bloodpotency_9
+							trait = bloodpotency_10
+						}
+				}
+				remove_trait = bloodpotency_4
+				add_trait = bloodpotency_5
+			}
+		}
+		bloodpotency_5 = {
+			if = { 
+				limit = { 
+						OR = {    
+							trait = bloodpotency_6
+							trait = bloodpotency_7
+							trait = bloodpotency_8
+							trait = bloodpotency_9
+							trait = bloodpotency_10
+						}
+				}
+				remove_trait = bloodpotency_5
+				add_trait = bloodpotency_6
+			}
+		}
+		bloodpotency_6 = {
+			if = { 
+				limit = {
+						OR = {    
+							trait = bloodpotency_7
+							trait = bloodpotency_8
+							trait = bloodpotency_9
+							trait = bloodpotency_10
+						}
+				}
+				remove_trait = bloodpotency_6
+				add_trait = bloodpotency_7
+			}
+		}
+		bloodpotency_7 = {
+			if = { 
+				limit = { 
+						OR = {    
+							trait = bloodpotency_8
+							trait = bloodpotency_9
+							trait = bloodpotency_10
+						}
+				}
+				remove_trait = bloodpotency_7
+				add_trait = bloodpotency_8
+			}
+		}
+		bloodpotency_8 = {
+			if = {
+				limit = {
+						OR = {    
+							trait = bloodpotency_9
+							trait = bloodpotency_10
+						}
+				}
+				remove_trait = bloodpotency_8
+				add_trait = bloodpotency_9
+			}
+		}
+		bloodpotency_9 = {
+			if = { 
+				limit = { 
+					 trait = bloodpotency_10
+				}
+				remove_trait = bloodpotency_9
+				add_trait = bloodpotency_10
+			}
+		}
+	}
+}	

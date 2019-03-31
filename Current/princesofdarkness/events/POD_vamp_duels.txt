@@ -1,0 +1,211 @@
+namespace = POD_vamp_duels_events
+character_event = {
+	id = POD_vamp_duels_events.1
+	title = "EVTTITLE_POD_VAMP_DUEL_EVENTS_1"
+	desc = "EVTDESC_POD_VAMP_DUEL_EVENTS_1"
+	picture = GFX_evt_vampire_square_showdown
+	border = GFX_event_normal_frame_war
+	is_triggered_only = yes
+	portrait = event_target:other_combatant
+	
+	immediate = {
+		save_event_target_as = vamp_duel_victor
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_VAMP_DUEL_EVENTS_1" # Destroy 
+		character_event = { id = POD_vamp_duels_events.2 tooltip = EVTTOOLTIP_POD_VAMP_DUEL_EVENTS_2 }
+	}
+	
+	option = {
+		name = "EVTOPTB_POD_VAMP_DUEL_EVENTS_1" # Diablerize
+		character_event = { id = POD_vamp_duels_events.3 tooltip = EVTTOOLTIP_POD_VAMP_DUEL_EVENTS_3  }
+	}
+	
+	option = {
+		name = "EVTOPTC_POD_VAMP_DUEL_EVENTS_1" # Stake
+		character_event = { id = POD_vamp_duels_events.4 tooltip = EVTTOOLTIP_POD_VAMP_DUEL_EVENTS_4 }
+	}
+	
+	option = {
+		name = "EVTOPTD_POD_VAMP_DUEL_EVENTS_1" # Release
+		character_event = { id = POD_vamp_duels_events.5 tooltip = EVTTOOLTIP_POD_VAMP_DUEL_EVENTS_5 }
+	}	
+}
+
+# Destroyed
+character_event = {
+	id = POD_vamp_duels_events.2
+	title = "EVTTITLE_POD_VAMP_DUEL_EVENTS_2"
+	desc = "EVTDESC_POD_VAMP_DUEL_EVENTS_2"
+	picture = GFX_evt_vampire_judgement
+	border = GFX_event_normal_frame_war
+	is_triggered_only = yes
+	portrait = event_target:other_combatant
+	
+	immediate = {
+		clr_char_flag = is_vamp_duel
+		event_target:other_combatant = {
+			clr_char_flag = is_vamp_duel
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_VAMP_DUEL_EVENTS_2" # Destroyed 
+
+        custom_tooltip = { text = you_win_the_duel_tt }
+        apply_generic_duel_victory_effect = yes
+        add_blood_splatter_effect = yes
+
+        event_target:other_combatant = {
+			set_character_flag = someone_died
+			show_scope_change = no
+                death = {
+                    death_reason = death_duel
+                    killer = event_target:vamp_duel_victor
+                }
+        }
+        hidden_effect = {
+            event_target:other_combatant = { character_event = { id = HFP.10104 } } #"I was decapitated" event
+			clean_up_after_duel_effect = yes
+			clr_character_flag = murder_in_motion
+        }			
+	}	
+}
+
+# Diablerized 
+character_event = {
+	id = POD_vamp_duels_events.3
+	title = "EVTTITLE_POD_VAMP_DUEL_EVENTS_3"
+	desc = "EVTDESC_POD_VAMP_DUEL_EVENTS_3"
+	picture = GFX_evt_vampire_bloodthirst_i
+	border = GFX_event_normal_frame_war
+	is_triggered_only = yes
+	portrait = event_target:other_combatant
+	
+	immediate = {
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_VAMP_DUEL_EVENTS_3" # Diablerized 
+		
+		hidden_tooltip = {
+			add_blood_splatter_effect = yes
+			save_event_target_as = diablerizer
+			event_target:other_combatant = {
+				save_event_target_as = diablerize_target
+			}
+			if = {
+				limit = { 
+					NOT = { trait = cruel } 
+				}
+				random = {
+					chance = 25
+					add_trait = cruel
+					hidden_tooltip = {
+						character_event = { id = 38259 }
+					}
+				}
+			}
+
+		}		
+
+        add_character_modifier = {
+			name = blood_of_vampire
+            duration = 356
+        }
+		
+		POD_vampire_blood_thirst_decrease_effect = yes
+		POD_vampire_bloodpotency_increase_effect = yes
+		POD_vampire_diablerie_generation_increase_effect = yes
+		
+		if = {
+			limit = { 
+				NOT = { trait = diabolist }
+			}
+			add_trait = "diabolist"
+		}
+
+		custom_tooltip = { text = you_win_the_duel_tt }
+        apply_generic_duel_victory_effect = yes
+
+        tooltip = { event_target:other_combatant = { show_scope_change = no apply_selected_duel_injury_effect = yes } }	
+
+        event_target:other_combatant = {
+			set_character_flag = someone_died
+			show_scope_change = no
+            death = {
+				death_reason = death_execution_diablerie
+				killer = event_target:diablerizer
+            }
+        }		
+		clean_up_after_duel_effect = yes
+		clr_character_flag = murder_in_motion
+	}
+}
+
+# Staked
+character_event = {
+	id = POD_vamp_duels_events.4
+	title = "EVTTITLE_POD_VAMP_DUEL_EVENTS_4"
+	desc = "EVTDESC_POD_VAMP_DUEL_EVENTS_4"
+	picture = GFX_evt_vampire_staked
+	border = GFX_event_normal_frame_intrigue
+	is_triggered_only = yes
+	portrait = event_target:other_combatant
+	
+	immediate = {
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_VAMP_DUEL_EVENTS_4" # Destroyed 
+
+        add_blood_splatter_effect = yes
+        event_target:other_combatant = {
+			show_scope_change = no
+                add_trait = "staked"
+        }
+        hidden_effect = {
+            event_target:other_combatant = { 
+				#character_event = { id = STAKEDEVENT.1 } 
+				add_trait = "staked"
+				imprison = event_target:vamp_duel_victor
+			} #"I was staked" event
+        }		
+		custom_tooltip = { text = you_win_the_duel_tt }
+        apply_generic_duel_victory_effect = yes
+
+        tooltip = { event_target:other_combatant = { show_scope_change = no apply_selected_duel_injury_effect = yes } }			
+		clean_up_after_duel_effect = yes		
+		clr_character_flag = murder_in_motion		
+	}	
+}
+
+# Released
+character_event = {
+	id = POD_vamp_duels_events.5
+	title = "EVTTITLE_POD_VAMP_DUEL_EVENTS_5"
+	desc = "EVTDESC_POD_VAMP_DUEL_EVENTS_5"
+	picture = GFX_evt_vampire_bannerfella
+	border = GFX_event_normal_frame_diplomacy
+	is_triggered_only = yes
+	portrait = event_target:other_combatant
+	
+	immediate = {
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_VAMP_DUEL_EVENTS_5" # Released
+		
+		event_target:vamp_duel_victor = {
+			add_favor = event_target:other_combatant
+		}
+		custom_tooltip = { text = you_win_the_duel_tt }
+        apply_generic_duel_victory_effect = yes
+
+        tooltip = { event_target:other_combatant = { show_scope_change = no apply_selected_duel_injury_effect = yes } }			
+		clean_up_after_duel_effect = yes
+		clr_character_flag = murder_in_motion
+	}
+}
+

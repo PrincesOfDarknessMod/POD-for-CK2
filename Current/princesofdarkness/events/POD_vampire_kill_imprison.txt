@@ -3,7 +3,7 @@ namespace = POD_vampire_kill_imprison
 #	Elder vampire kill plots
 #	by AJ
 #
-#
+#	Updated by flintsparc to use HF Duels
 #
 #
 #
@@ -31,7 +31,21 @@ character_event = {
 	
 	option = {
 		name = "EVTOPTA_POD_ATTACKIMPRISON_DECISION_1" # Diablerize
-		character_event = { id = POD_vampire_kill_imprison.2 }
+		#character_event = { id = POD_vampire_kill_imprison.2 }
+		#REQUIRED event targets for setting up duel evaluation!
+		hidden_tooltip = {
+	    	ROOT = { 
+				save_event_target_as = combatant_1 
+			} #the person issuing the duel...
+			
+			event_target:imprison_target = {
+				save_event_target_as = combatant_2 #the target of the duel...
+			}
+	
+		}
+		event_target:combatant_1 = { 
+			character_event = { id = HFP.10100 } #Duel evaluation (hidden) + result event as follow-up.
+		}
 	}
 	
 	option = {
@@ -2768,11 +2782,28 @@ character_event = {
 			factor = 5
 		}
 		show_portrait = event_target:vampire_number_1
-		change_variable = { which = global_elder_picksomeone1_count value = 1 }
-		event_target:vampire_number_1 = {
-			save_event_target_as = imprison_attacking_char
+		#change_variable = { which = global_elder_picksomeone1_count value = 1 }
+		#event_target:vampire_number_1 = {
+		#	save_event_target_as = imprison_attacking_char
+		#}
+		#event_target:imprison_target = { character_event = { id = POD_vampire_kill_imprison.26 } }
+		
+		
+		#REQUIRED event targets for setting up duel evaluation!
+		hidden_tooltip = {
+	    	event_target:vampire_number_1 = { 
+				save_event_target_as = combatant_1 
+			} #the person issuing the duel...
+			
+			event_target:imprison_target = {
+				save_event_target_as = combatant_2 #the target of the duel...
+			}
+			
+			event_target:vampire_number_1 = { character_event = { id = HFP.10100 } } #Duel evaluation (hidden) + result event as follow-up.
 		}
-		event_target:imprison_target = { character_event = { id = POD_vampire_kill_imprison.26 } }
+
+#		event_target:imprison_target = { character_event = { id = POD_vampire_kill_imprison.26 } }
+
 	}
 	option = {
 		name = "EVTOPTB_POD_ATTACKIMPRISON_DELEGATE_25" #  Vamp 2 leads
@@ -2783,11 +2814,34 @@ character_event = {
 			factor = 5
 		}
 		show_portrait = event_target:vampire_number_2
-		change_variable = { which = global_elder_picksomeone2_count value = 1 }
-		event_target:vampire_number_2 = {
-			save_event_target_as = imprison_attacking_char
+		#change_variable = { which = global_elder_picksomeone2_count value = 1 }
+		#event_target:vampire_number_2 = {
+		#	save_event_target_as = imprison_attacking_char
+		#}
+
+		#REQUIRED event targets for setting up duel evaluation!
+		hidden_tooltip = {
+	    	event_target:plot_attacker = { 
+				save_event_target_as = combatant_1 
+			} #the person issuing the duel...
+			
+			event_target:plot_target = {
+				save_event_target_as = combatant_2 #the target of the duel...
+			}
+			
+			event_target:combatant_2 = {
+				set_character_flag = is_vamp_duel
+			}
+			
+			event_target:combatant_1 = {
+				set_character_flag = is_vamp_duel
+			}
+			
+			event_target:combatant_1 = { character_event = { id = HFP.10100 } } #Duel evaluation (hidden) + result event as follow-up.
+		
 		}
-		event_target:imprison_target = { character_event = { id = POD_vampire_kill_imprison.26 } }
+
+		#event_target:imprison_target = { character_event = { id = POD_vampire_kill_imprison.26 } }
 	}
 	option = {
 		name = "EVTOPTC_POD_ATTACKIMPRISON_DELEGATE_25" #  Vamp 3 leads
@@ -2798,11 +2852,25 @@ character_event = {
 			factor = 5
 		}
 		show_portrait = event_target:vampire_number_3
-		change_variable = { which = global_elder_picksomeone3_count value = 1 }
-		event_target:vampire_number_3 = {
-			save_event_target_as = imprison_attacking_char
+		#change_variable = { which = global_elder_picksomeone3_count value = 1 }
+		#event_target:vampire_number_3 = {
+		#	save_event_target_as = imprison_attacking_char
+		#}
+
+		#REQUIRED event targets for setting up duel evaluation!
+		hidden_tooltip = {
+	    	event_target:vampire_number_3 = { 
+				save_event_target_as = combatant_1 
+			} #the person issuing the duel...
+			
+			event_target:imprison_target = {
+				save_event_target_as = combatant_2 #the target of the duel...
+			}
+			
+			event_target:vampire_number_3 = { character_event = { id = HFP.10100 } } #Duel evaluation (hidden) + result event as follow-up.
 		}
-		event_target:imprison_target = { character_event = { id = POD_vampire_kill_imprison.26 } }
+		
+#		event_target:imprison_target = { character_event = { id = POD_vampire_kill_imprison.26 } }
 	}
 	option = {
 		name = "EVTOPTD_POD_ATTACKIMPRISON_DELEGATE_25" # Cancel Attack. Wuss.
