@@ -8,20 +8,32 @@
 
 # Written by Henrik Fåhraeus & Henrik Eklund
 
-# A tribe comes riding in from the wastes to topple a decadent dynasty
+# Because of the regular breaches of the masquerade, an inquisition is launched 
 character_event = {
 	id = 91000
-	desc = EVTDESC91000
-	picture = GFX_evt_moors
+	desc = EVTDESC_MASQEXPOSURE_INQUISITION
+	picture = GFX_evt_firey_silhouette_hf
 	border = GFX_event_normal_frame_war
-	
+	portrait = event_target:hunter_leader
 	only_playable = yes
 	only_independent = yes
-	religion_group = muslim
 	
 	trigger = {
+		OR = {
+			religion_group = vampire_high_clans_group
+			religion_group = ashirra_vampire_group
+			religion_group = vampire_low_clans_group
+			religion_group = baali_group
+			religion_group = masquerade_camarilla_group
+			religion_group = sabbat_group
+			religion_group = inconnu_group
+			religion_group = masquerade_independent_group
+			religion_group = talmahera_group
+			religion_group = bloodlines_group
+		}
+		trait = vampire		
 		uses_decadence = yes
-		decadence = 75
+		decadence = 50
 		higher_tier_than = count
 		NOT = {
 			any_war = {
@@ -52,22 +64,26 @@ character_event = {
 	}
 	
 	immediate = {
-		random_potential_tribal_county = { # A county suitable for tribal takeover
+
+		random_demesne_title = {
+			
 			location = {
 				create_character = {
 					random_traits = yes
-					dynasty = random
-					religion = ROOT
+					dynasty = actually_culture
+					religion = shadow_inquisition
 					culture = ROOT
 					female = no
 					age = 38
 					attributes = {
-						martial = 7
+						martial = 10
 					}
 					trait = skilled_tactician
+					trait = supe_hunter
 				}
 				
 				new_character = {
+					character_event = { id = CWOD_hunter_noble.1 }
 					create_title = {
 						tier = DUKE
 						landless = yes
@@ -76,6 +92,7 @@ character_event = {
 						name = "DECADENCE_REVOLT"
 						holder = THIS
 					}
+					save_event_target_as = hunter_leader
 					
 					if = {
 						limit = { ROOT = { tier = duke } }
@@ -88,7 +105,7 @@ character_event = {
 					if = {
 						limit = { ROOT = { tier = emperor } }
 						wealth = 2000
-					}
+					}				
 					
 					spawn_unit = {
 						province = PREV
@@ -96,15 +113,15 @@ character_event = {
 						owner = THIS
 						leader = THIS
 						match_character = ROOT
-						match_mult = 0.2
+						match_mult = 0.3
 						earmark = decadence_revolters
 						reinforces = yes
 						reinforce_rate_multiplier = 0.25
 					}
 					create_character = {
 						random_traits = yes
-						dynasty = THIS
-						religion = ROOT
+						dynasty = actually_culture
+						religion = shadow_inquisition
 						culture = ROOT
 						female = no
 						age = 18
@@ -112,9 +129,41 @@ character_event = {
 							martial = 7
 						}
 						trait = skilled_tactician
+						trait = supe_hunter
 					}
 					new_character = {
-						set_father = PREV
+						character_event = { id = CWOD_hunter_noble.1 }
+						
+						spawn_unit = {
+							province = PREVPREV
+							home = PREVPREV
+							owner = PREV
+							#leader = THIS
+							match_character = ROOT
+							match_mult = 0.2
+							earmark = decadence_revolters
+							reinforces = yes
+							reinforce_rate_multiplier = 0.25
+						}
+					}
+					
+					
+					create_character = {
+						random_traits = yes
+						dynasty = actually_culture
+						religion = shadow_inquisition
+						culture = ROOT
+						female = no
+						age = 20
+						attributes = {
+							martial = 7
+						}
+						trait = skilled_tactician
+						trait = supe_hunter
+					}
+					new_character = {
+						character_event = { id = CWOD_hunter_noble.1 }
+							
 						spawn_unit = {
 							province = PREVPREV
 							home = PREVPREV
@@ -130,8 +179,8 @@ character_event = {
 					
 					create_character = {
 						random_traits = yes
-						dynasty = THIS
-						religion = ROOT
+						dynasty = actually_culture
+						religion = shadow_inquisition
 						culture = ROOT
 						female = no
 						age = 20
@@ -139,35 +188,10 @@ character_event = {
 							martial = 7
 						}
 						trait = skilled_tactician
+						trait = supe_hunter
 					}
 					new_character = {
-						set_father = PREV
-						spawn_unit = {
-							province = PREVPREV
-							home = PREVPREV
-							owner = PREV
-							#leader = THIS
-							match_character = ROOT
-							match_mult = 0.2
-							earmark = decadence_revolters
-							reinforces = yes
-							reinforce_rate_multiplier = 0.25
-						}
-					}
-					
-					create_character = {
-						random_traits = yes
-						dynasty = NONE
-						religion = ROOT
-						culture = ROOT
-						female = no
-						age = 20
-						attributes = {
-							martial = 7
-						}
-						trait = skilled_tactician
-					}
-					new_character = {
+						character_event = { id = CWOD_hunter_noble.1 }
 						spawn_unit = {
 							province = PREVPREV
 							home = PREVPREV
@@ -182,8 +206,8 @@ character_event = {
 					}
 					create_character = {
 						random_traits = yes
-						dynasty = NONE
-						religion = ROOT
+						dynasty = actually_culture
+						religion = shadow_inquisition
 						culture = ROOT
 						female = no
 						age = 22
@@ -191,8 +215,11 @@ character_event = {
 							martial = 7
 						}
 						trait = skilled_tactician
+						trait = supe_hunter
 					}
 					new_character = {
+						character_event = { id = CWOD_hunter_noble.1 }
+						
 						spawn_unit = {
 							province = PREVPREV
 							home = PREVPREV
@@ -207,17 +234,20 @@ character_event = {
 					}
 					create_character = {
 						random_traits = yes
-						dynasty = NONE
-						religion = ROOT
+						dynasty = actually_culture
+						religion = shadow_inquisition
 						culture = ROOT
-						female = no
+						female = yes
 						age = 22
 						attributes = {
 							martial = 7
 						}
 						trait = skilled_tactician
+						trait = supe_hunter
 					}
 					new_character = {
+						character_event = { id = CWOD_hunter_noble.1 }
+							
 						spawn_unit = {
 							province = PREVPREV
 							home = PREVPREV
@@ -238,15 +268,25 @@ character_event = {
 					}
 					clr_character_flag = decadence_invader
 					
-#					log = "91000: Decadence revolt in [Root.PrimaryTitle.GetName]!"
+#					log = "91000: Masquerade Exposure revolt in [Root.PrimaryTitle.GetName]!"
 				}
 			}
 		}
 	}
 	
 	option = {
-		name = EVTOPTA91000
-		decadence = -50
+		name = EVTOPTA_MASQEXPOSURE_INQUISITION
+		tooltip_info = decadent
+		hidden_tooltip = 
+		{ 
+		if = {
+			limit = {
+				NOT = { trait = decadent }
+			}
+			add_trait = decadent
+		}		
+			decadence = -50
+		}
 	}
 }
 
@@ -257,17 +297,29 @@ character_event = {
 # Drunkard
 character_event = {
 	id = 91200
-	desc = EVTDESC91200
-	picture = GFX_evt_drunk
+	desc = EVTDESC_MASQEXPOSURE_DRUNKARD
+	picture = GFX_evt_vampire_blood_heal
 	
 	ai = no
 	min_age = 16
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-	religion_group = muslim
 	
 	trigger = {
+		OR = {
+			religion_group = vampire_high_clans_group
+			religion_group = ashirra_vampire_group
+			religion_group = vampire_low_clans_group
+			religion_group = baali_group
+			religion_group = masquerade_camarilla_group
+			religion_group = sabbat_group
+			religion_group = inconnu_group
+			religion_group = masquerade_independent_group
+			religion_group = talmahera_group
+			religion_group = bloodlines_group
+		}
+		trait = vampire	
 		uses_decadence = yes
 		trait = drunkard
 		NOT = { has_character_flag = decadence_drunkard }
@@ -278,56 +330,69 @@ character_event = {
 	}
 	
 	option = {
-		name = EVTOPTA91200
+		name = EVTOPTA_MASQEXPOSURE_DRUNKARD
+		tooltip_info = drunkard
 		decadence = 2
 		set_character_flag = decadence_drunkard
 	}
 }
 
 # Homosexual
-character_event = {
-	id = 91201
-	desc = EVTDESC91201
-	picture = GFX_evt_carriage
-	
-	ai = no
-	min_age = 16
-	capable_only = yes
-	prisoner = no
-	only_rulers = yes
-	religion_group = muslim
-	
-	trigger = {
-		uses_decadence = yes
-		trait = homosexual
-		NOT = { has_character_flag = decadence_homosexual }
-	}
-	
-	mean_time_to_happen = {
-		months = 1200
-	}
-	
-	option = {
-		name = EVTOPTA91201
-		decadence = 2
-		set_character_flag = decadence_homosexual
-	}
-}
+#character_event = {
+#	id = 91201
+#	desc = EVTDESC91201
+#	picture = GFX_evt_carriage
+#	
+#	ai = no
+#	min_age = 16
+#	capable_only = yes
+#	prisoner = no
+#	only_rulers = yes
+#	religion_group = muslim
+#	
+#	trigger = {
+#		uses_decadence = yes
+#		trait = homosexual
+#		NOT = { has_character_flag = decadence_homosexual }
+#	}
+#	
+#	mean_time_to_happen = {
+#		months = 1200
+#	}
+#	
+#	option = {
+#		name = EVTOPTA91201
+#		decadence = 2
+#		set_character_flag = decadence_homosexual
+#	}
+#}
 
 # Hedonist
 character_event = {
 	id = 91202
-	desc = EVTDESC91202
-	picture = GFX_evt_lunatic
+	desc = EVTDESC_MASQEXPOSURE_HEDONIST
+	picture = GFX_evt_ghoul_seeks_domitor
 	
 	ai = no
 	min_age = 16
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-	religion_group = muslim
 	
 	trigger = {
+		OR = {
+			religion_group = vampire_high_clans_group
+			religion_group = ashirra_vampire_group
+			religion_group = vampire_low_clans_group
+			religion_group = baali_group
+			religion_group = masquerade_camarilla_group
+			religion_group = sabbat_group
+			religion_group = inconnu_group
+			religion_group = masquerade_independent_group
+			religion_group = talmahera_group
+			religion_group = bloodlines_group
+		}
+		trait = vampire		
 		uses_decadence = yes
 		trait = hedonist
 		NOT = { has_character_flag = decadence_hedonist }
@@ -338,7 +403,8 @@ character_event = {
 	}
 	
 	option = {
-		name = EVTOPTA91202
+		name = EVTOPTA_MASQEXPOSURE_HEDONIST
+		tooltip_info = hedonist
 		decadence = 2
 		set_character_flag = decadence_hedonist
 	}
@@ -347,17 +413,29 @@ character_event = {
 # Impaler
 character_event = {
 	id = 91203
-	desc = EVTDESC91203
-	picture = GFX_evt_torture
+	desc = EVTDESC_MASQEXPOSURE_IMPALER
+	picture = GFX_evt_ghoul_execution
 	
 	ai = no
 	min_age = 16
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-	religion_group = muslim
 	
 	trigger = {
+		OR = {
+			religion_group = vampire_high_clans_group
+			religion_group = ashirra_vampire_group
+			religion_group = vampire_low_clans_group
+			religion_group = baali_group
+			religion_group = masquerade_camarilla_group
+			religion_group = sabbat_group
+			religion_group = inconnu_group
+			religion_group = masquerade_independent_group
+			religion_group = talmahera_group
+			religion_group = bloodlines_group
+		}
+		trait = vampire	
 		uses_decadence = yes
 		trait = impaler
 		NOT = { has_character_flag = decadence_impaler }
@@ -368,7 +446,8 @@ character_event = {
 	}
 	
 	option = {
-		name = EVTOPTA91203
+		name = EVTOPTA_MASQEXPOSURE_IMPALER
+		tooltip_info = impaler
 		decadence = 2
 		set_character_flag = decadence_impaler
 	}
@@ -377,17 +456,29 @@ character_event = {
 # Lustful
 character_event = {
 	id = 91204
-	desc = EVTDESC91204
-	picture = GFX_evt_sultan
+	desc = EVTDESC_MASQEXPOSURE_LUSTFUL
+	picture = GFX_evt_ghoul_sexy_domitor
 	
 	ai = no
 	min_age = 16
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-	religion_group = muslim
 	
 	trigger = {
+		OR = {
+			religion_group = vampire_high_clans_group
+			religion_group = ashirra_vampire_group
+			religion_group = vampire_low_clans_group
+			religion_group = baali_group
+			religion_group = masquerade_camarilla_group
+			religion_group = sabbat_group
+			religion_group = inconnu_group
+			religion_group = masquerade_independent_group
+			religion_group = talmahera_group
+			religion_group = bloodlines_group
+		}
+		trait = vampire	
 		uses_decadence = yes
 		trait = lustful
 		NOT = { trait = homosexual }
@@ -399,7 +490,8 @@ character_event = {
 	}
 	
 	option = {
-		name = EVTOPTA91204
+		name = EVTOPTA_MASQEXPOSURE_LUSTFUL
+		tooltip_info = lustful
 		decadence = 2
 		set_character_flag = decadence_lustful
 	}
@@ -408,17 +500,29 @@ character_event = {
 # Gluttonous
 character_event = {
 	id = 91205
-	desc = EVTDESC91205
-	picture = GFX_evt_feast
+	desc = EVTDESC_MASQEXPOSURE_GLUTTONOUS
+	picture = GFX_evt_vampire_wight
 	
 	ai = no
 	min_age = 16
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-	religion_group = muslim
 	
 	trigger = {
+		OR = {
+			religion_group = vampire_high_clans_group
+			religion_group = ashirra_vampire_group
+			religion_group = vampire_low_clans_group
+			religion_group = baali_group
+			religion_group = masquerade_camarilla_group
+			religion_group = sabbat_group
+			religion_group = inconnu_group
+			religion_group = masquerade_independent_group
+			religion_group = talmahera_group
+			religion_group = bloodlines_group
+		}
+		trait = vampire		
 		uses_decadence = yes
 		trait = gluttonous
 		NOT = { has_character_flag = decadence_gluttonous }
@@ -429,56 +533,69 @@ character_event = {
 	}
 	
 	option = {
-		name = EVTOPTA91205
+		name = EVTOPTA_MASQEXPOSURE_GLUTTONOUS
+		tooltip_info = gluttonous
 		decadence = 2
 		set_character_flag = decadence_gluttonous
 	}
 }
 
 # Greedy
-character_event = {
-	id = 91206
-	desc = EVTDESC91206
-	picture = GFX_evt_jugglers
-	
-	ai = no
-	min_age = 16
-	capable_only = yes
-	prisoner = no
-	only_rulers = yes
-	religion_group = muslim
-	
-	trigger = {
-		uses_decadence = yes
-		trait = greedy
-		NOT = { has_character_flag = decadence_greedy }
-	}
-	
-	mean_time_to_happen = {
-		months = 1200
-	}
-	
-	option = {
-		name = EVTOPTA91206
-		decadence = 2
-		set_character_flag = decadence_greedy
-	}
-}
+#character_event = {
+#	id = 91206
+#	desc = EVTDESC91206
+#	picture = GFX_evt_jugglers
+#	
+#	ai = no
+#	min_age = 16
+#	capable_only = yes
+#	prisoner = no
+#	only_rulers = yes
+#	religion_group = muslim
+#	
+#	trigger = {
+#		uses_decadence = yes
+#		trait = greedy
+#		NOT = { has_character_flag = decadence_greedy }
+#	}
+#	
+#	mean_time_to_happen = {
+#		months = 1200
+#	}
+#	
+#	option = {
+#		name = EVTOPTA91206
+#		decadence = 2
+#		set_character_flag = decadence_greedy
+#	}
+#}
 
 # Slothful
 character_event = {
 	id = 91207
-	desc = EVTDESC91207
-	picture = GFX_evt_carriage
+	desc = EVTDESC_MASQEXPOSURE_SLOTHFUL
+	picture = GFX_evt_ghoul_feeding
 	
 	ai = no
 	min_age = 16
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-	religion_group = muslim
 	
 	trigger = {
+		OR = {
+			religion_group = vampire_high_clans_group
+			religion_group = ashirra_vampire_group
+			religion_group = vampire_low_clans_group
+			religion_group = baali_group
+			religion_group = masquerade_camarilla_group
+			religion_group = sabbat_group
+			religion_group = inconnu_group
+			religion_group = masquerade_independent_group
+			religion_group = talmahera_group
+			religion_group = bloodlines_group
+		}
+		trait = vampire	
 		uses_decadence = yes
 		trait = slothful
 		NOT = { has_character_flag = decadence_slothful }
@@ -489,56 +606,69 @@ character_event = {
 	}
 	
 	option = {
-		name = EVTOPTA91207
+		name = EVTOPTA_MASQEXPOSURE_SLOTHFUL
+		tooltip_info = slothful
 		decadence = 2
 		set_character_flag = decadence_slothful
 	}
 }
 
 # Envious
-character_event = {
-	id = 91208
-	desc = EVTDESC91208
-	picture = GFX_evt_throne_room
-	
-	ai = no
-	min_age = 16
-	capable_only = yes
-	prisoner = no
-	only_rulers = yes
-	religion_group = muslim
-	
-	trigger = {
-		uses_decadence = yes
-		trait = envious
-		NOT = { has_character_flag = decadence_envious }
-	}
-	
-	mean_time_to_happen = {
-		months = 1200
-	}
-	
-	option = {
-		name = EVTOPTA91208
-		decadence = 2
-		set_character_flag = decadence_envious
-	}
-}
+#character_event = {
+#	id = 91208
+#	desc = EVTDESC91208
+#	picture = GFX_evt_throne_room
+#	
+#	ai = no
+#	min_age = 16
+#	capable_only = yes
+#	prisoner = no
+#	only_rulers = yes
+#	religion_group = muslim
+#	
+#	trigger = {
+#		uses_decadence = yes
+#		trait = envious
+#		NOT = { has_character_flag = decadence_envious }
+#	}
+#	
+#	mean_time_to_happen = {
+#		months = 1200
+#	}
+#	
+#	option = {
+#		name = EVTOPTA91208
+#		decadence = 2
+#		set_character_flag = decadence_envious
+#	}
+#}
 
 # Wroth
 character_event = {
 	id = 91209
-	desc = EVTDESC91209
-	picture = GFX_evt_burning_house
+	desc = EVTDESC_MASQEXPOSURE_WROTH
+	picture = GFX_evt_vampire_frenzy
 	
 	ai = no
 	min_age = 16
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-	religion_group = muslim
 	
 	trigger = {
+		OR = {
+			religion_group = vampire_high_clans_group
+			religion_group = ashirra_vampire_group
+			religion_group = vampire_low_clans_group
+			religion_group = baali_group
+			religion_group = masquerade_camarilla_group
+			religion_group = sabbat_group
+			religion_group = inconnu_group
+			religion_group = masquerade_independent_group
+			religion_group = talmahera_group
+			religion_group = bloodlines_group
+		}
+		trait = vampire	
 		uses_decadence = yes
 		trait = wroth
 		NOT = { has_character_flag = decadence_wroth }
@@ -549,56 +679,70 @@ character_event = {
 	}
 	
 	option = {
-		name = EVTOPTA91209
+		name = EVTOPTA_MASQEXPOSURE_WROTH
+		tooltip_info = wroth
 		decadence = 2
 		set_character_flag = decadence_wroth
 	}
 }
 
 # Proud
-character_event = {
-	id = 91210
-	desc = EVTDESC91210
-	picture = GFX_evt_market
-	
-	ai = no
-	min_age = 16
-	capable_only = yes
-	prisoner = no
-	only_rulers = yes
-	religion_group = muslim
-	
-	trigger = {
-		uses_decadence = yes
-		trait = proud
-		NOT = { has_character_flag = decadence_proud }
-	}
-	
-	mean_time_to_happen = {
-		months = 1200
-	}
-	
-	option = {
-		name = EVTOPTA91210
-		decadence = 2
-		set_character_flag = decadence_proud
-	}
-}
+#character_event = {
+#	id = 91210
+#	desc = EVTDESC91210
+#	picture = GFX_evt_market
+#	
+#	ai = no
+#	min_age = 16
+#	capable_only = yes
+#	prisoner = no
+#	only_rulers = yes
+#	religion_group = muslim
+#	
+#	trigger = {
+#		uses_decadence = yes
+#		trait = proud
+#		NOT = { has_character_flag = decadence_proud }
+#	}
+#	
+#	mean_time_to_happen = {
+#		months = 1200
+#	}
+#	
+#	option = {
+#		name = EVTOPTA91210
+#		decadence = 2
+#		set_character_flag = decadence_proud
+#	}
+#}
 
 # Deceitful
+
 character_event = {
 	id = 91211
-	desc = EVTDESC91211
-	picture = GFX_evt_lunatic
+	desc = EVTDESC_MASQEXPOSURE_DECEITFUL
+	picture = GFX_evt_vampire_rumbles_and_intrigues_i
 	
 	ai = no
 	min_age = 16
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-	religion_group = muslim
 	
 	trigger = {
+		OR = {
+			religion_group = vampire_high_clans_group
+			religion_group = ashirra_vampire_group
+			religion_group = vampire_low_clans_group
+			religion_group = baali_group
+			religion_group = masquerade_camarilla_group
+			religion_group = sabbat_group
+			religion_group = inconnu_group
+			religion_group = masquerade_independent_group
+			religion_group = talmahera_group
+			religion_group = bloodlines_group
+		}
+		trait = vampire
 		uses_decadence = yes
 		trait = deceitful
 		NOT = { has_character_flag = decadence_deceitful }
@@ -609,8 +753,9 @@ character_event = {
 	}
 	
 	option = {
-		name = EVTOPTA91211
-		decadence = 2
+		name = EVTOPTA_MASQEXPOSURE_DECEITFUL
+		tooltip_info = deceitful
+		decadence = -2
 		set_character_flag = decadence_deceitful
 	}
 }
@@ -618,17 +763,29 @@ character_event = {
 # Craven
 character_event = {
 	id = 91212
-	desc = EVTDESC91212
-	picture = GFX_evt_throne_room
+	desc = EVTDESC_MASQEXPOSURE_CRAVEN
+	picture = GFX_evt_vampire_moody_landscape
 	
 	ai = no
 	min_age = 16
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-	religion_group = muslim
 	
 	trigger = {
+		OR = {
+			religion_group = vampire_high_clans_group
+			religion_group = ashirra_vampire_group
+			religion_group = vampire_low_clans_group
+			religion_group = baali_group
+			religion_group = masquerade_camarilla_group
+			religion_group = sabbat_group
+			religion_group = inconnu_group
+			religion_group = masquerade_independent_group
+			religion_group = talmahera_group
+			religion_group = bloodlines_group
+		}
+		trait = vampire	
 		uses_decadence = yes
 		trait = craven
 		NOT = { has_character_flag = decadence_craven }
@@ -639,56 +796,69 @@ character_event = {
 	}
 	
 	option = {
-		name = EVTOPTA91212
-		decadence = 2
+		name = EVTOPTA_MASQEXPOSURE_CRAVEN
+		tooltip_info = craven
+		decadence = -2
 		set_character_flag = decadence_craven
 	}
 }
 
 # Content
-character_event = {
-	id = 91213
-	desc = EVTDESC91213
-	picture = GFX_evt_child_talking
-	
-	ai = no
-	min_age = 16
-	capable_only = yes
-	prisoner = no
-	only_rulers = yes
-	religion_group = muslim
-	
-	trigger = {
-		uses_decadence = yes
-		trait = content
-		NOT = { has_character_flag = decadence_content }
-	}
-	
-	mean_time_to_happen = {
-		months = 1200
-	}
-	
-	option = {
-		name = EVTOPTA91213
-		decadence = 2
-		set_character_flag = decadence_content
-	}
-}
+#character_event = {
+#	id = 91213
+#	desc = EVTDESC91213
+#	picture = GFX_evt_child_talking
+#	
+#	ai = no
+#	min_age = 16
+#	capable_only = yes
+#	prisoner = no
+#	only_rulers = yes
+#	religion_group = muslim
+#	
+#	trigger = {
+#		uses_decadence = yes
+#		trait = content
+#		NOT = { has_character_flag = decadence_content }
+#	}
+#	
+#	mean_time_to_happen = {
+#		months = 1200
+#	}
+#	
+#	option = {
+#		name = EVTOPTA91213
+#		decadence = 2
+#		set_character_flag = decadence_content
+#	}
+#}
 
 # Arbitrary
 character_event = {
 	id = 91214
-	desc = EVTDESC91214
-	picture = GFX_evt_throne_room
+	desc = EVTDESC_MASQEXPOSURE_ARBITRARY
+	picture = GFX_evt_mass_ghoul
 	
 	ai = no
 	min_age = 16
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-	religion_group = muslim
 	
 	trigger = {
+		OR = {
+			religion_group = vampire_high_clans_group
+			religion_group = ashirra_vampire_group
+			religion_group = vampire_low_clans_group
+			religion_group = baali_group
+			religion_group = masquerade_camarilla_group
+			religion_group = sabbat_group
+			religion_group = inconnu_group
+			religion_group = masquerade_independent_group
+			religion_group = talmahera_group
+			religion_group = bloodlines_group
+		}
+		trait = vampire		
 		uses_decadence = yes
 		trait = arbitrary
 		NOT = { has_character_flag = decadence_arbitrary }
@@ -699,56 +869,69 @@ character_event = {
 	}
 	
 	option = {
-		name = EVTOPTA91214
+		name = EVTOPTA_MASQEXPOSURE_ARBITRARY
+		tooltip_info = arbitrary
 		decadence = 2
 		set_character_flag = decadence_arbitrary
 	}
 }
 
 # Cynical
-character_event = {
-	id = 91215
-	desc = EVTDESC91215
-	picture = GFX_evt_bishop_muslim
-	
-	ai = no
-	min_age = 16
-	capable_only = yes
-	prisoner = no
-	only_rulers = yes
-	religion_group = muslim
-	
-	trigger = {
-		uses_decadence = yes
-		trait = cynical
-		NOT = { has_character_flag = decadence_cynical }
-	}
-	
-	mean_time_to_happen = {
-		months = 1200
-	}
-	
-	option = {
-		name = EVTOPTA91215
-		decadence = 2
-		set_character_flag = decadence_cynical
-	}
-}
+#character_event = {
+#	id = 91215
+#	desc = EVTDESC91215
+#	picture = GFX_evt_bishop_muslim
+#	
+#	ai = no
+#	min_age = 16
+#	capable_only = yes
+#	prisoner = no
+#	only_rulers = yes
+#	religion_group = muslim
+#	
+#	trigger = {
+#		uses_decadence = yes
+#		trait = cynical
+#		NOT = { has_character_flag = decadence_cynical }
+#	}
+#	
+#	mean_time_to_happen = {
+#		months = 1200
+#	}
+#	
+#	option = {
+#		name = EVTOPTA91215
+#		decadence = 2
+#		set_character_flag = decadence_cynical
+#	}
+#}
 
 # Paranoid
 character_event = {
 	id = 91216
-	desc = EVTDESC91216
-	picture = GFX_evt_carriage
+	desc = EVTDESC_MASQEXPOSURE_PARANOID
+	picture = GFX_evt_vampire_masquerade_breach
 	
 	ai = no
 	min_age = 16
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-	religion_group = muslim
 	
 	trigger = {
+		OR = {
+			religion_group = vampire_high_clans_group
+			religion_group = ashirra_vampire_group
+			religion_group = vampire_low_clans_group
+			religion_group = baali_group
+			religion_group = masquerade_camarilla_group
+			religion_group = sabbat_group
+			religion_group = inconnu_group
+			religion_group = masquerade_independent_group
+			religion_group = talmahera_group
+			religion_group = bloodlines_group
+		}
+		trait = vampire		
 		uses_decadence = yes
 		trait = paranoid
 		NOT = { has_character_flag = decadence_paranoid }
@@ -759,58 +942,71 @@ character_event = {
 	}
 	
 	option = {
-		name = EVTOPTA91216
-		decadence = 2
+		name = EVTOPTA_MASQEXPOSURE_PARANOID
+		tooltip_info = paranoid
+		decadence = -2
 		set_character_flag = decadence_paranoid
 	}
 }
 
 # Cruel
-character_event = {
-	id = 91217
-	desc = EVTDESC91217
-	picture = GFX_evt_lunatic
-	
-	ai = no
-	min_age = 16
-	capable_only = yes
-	prisoner = no
-	only_rulers = yes
-	religion_group = muslim
-	
-	trigger = {
-		uses_decadence = yes
-		trait = cruel
-		NOT = { has_character_flag = decadence_cruel }
-	}
-	
-	mean_time_to_happen = {
-		months = 1200
-	}
-	
-	option = {
-		name = EVTOPTA91217
-		decadence = 2
-		set_character_flag = decadence_cruel
-	}
-}
+#character_event = {
+#	id = 91217
+#	desc = EVTDESC91217
+#	picture = GFX_evt_lunatic
+#	
+#	ai = no
+#	min_age = 16
+#	capable_only = yes
+#	prisoner = no
+#	only_rulers = yes
+#	religion_group = muslim
+#	
+#	trigger = {
+#		uses_decadence = yes
+#		trait = cruel
+#		NOT = { has_character_flag = decadence_cruel }
+#	}
+#	
+#	mean_time_to_happen = {
+#		months = 1200
+#	}
+#	
+#	option = {
+#		name = EVTOPTA91217
+#		decadence = 2
+#		set_character_flag = decadence_cruel
+#	}
+#}
 
 ### Lowers Decadence
 
 # Genius
 character_event = {
 	id = 91218
-	desc = EVTDESC91218
-	picture = GFX_evt_monk_muslim
+	desc = EVTDESC_MASQEXPOSURE_GENIUS
+	picture = GFX_evt_vampire_discipline_train
 	
 	ai = no
 	min_age = 16
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-	religion_group = muslim
 	
 	trigger = {
+		OR = {
+			religion_group = vampire_high_clans_group
+			religion_group = ashirra_vampire_group
+			religion_group = vampire_low_clans_group
+			religion_group = baali_group
+			religion_group = masquerade_camarilla_group
+			religion_group = sabbat_group
+			religion_group = inconnu_group
+			religion_group = masquerade_independent_group
+			religion_group = talmahera_group
+			religion_group = bloodlines_group
+		}
+		trait = vampire		
 		uses_decadence = yes
 		is_smart_trigger = yes
 		NOT = { has_character_flag = decadence_genius }
@@ -821,116 +1017,130 @@ character_event = {
 	}
 	
 	option = {
-		name = EVTOPTA91218
-		decadence = -2
+		name = EVTOPTA_MASQEXPOSURE_GENIUS
+		tooltip_info = genius
+		decadence = -4
 		set_character_flag = decadence_genius
 	}
 }
 
 # Celibate
-character_event = {
-	id = 91219
-	desc = EVTDESC91219
-	picture = GFX_evt_bishop_muslim
-	
-	ai = no
-	min_age = 16
-	capable_only = yes
-	prisoner = no
-	only_rulers = yes
-	religion_group = muslim
-	
-	trigger = {
-		uses_decadence = yes
-		trait = celibate
-		NOT = { has_character_flag = decadence_celibate }
-	}
-	
-	mean_time_to_happen = {
-		months = 1200
-	}
-	
-	option = {
-		name = EVTOPTA91219
-		decadence = -2
-		set_character_flag = decadence_celibate
-	}
-}
+#character_event = {
+#	id = 91219
+#	desc = EVTDESC91219
+#	picture = GFX_evt_bishop_muslim
+#	
+#	ai = no
+#	min_age = 16
+#	capable_only = yes
+#	prisoner = no
+#	only_rulers = yes
+#	religion_group = muslim
+#	
+#	trigger = {
+#		uses_decadence = yes
+#		trait = celibate
+#		NOT = { has_character_flag = decadence_celibate }
+#	}
+#	
+#	mean_time_to_happen = {
+#		months = 1200
+#	}
+#	
+#	option = {
+#		name = EVTOPTA91219
+#		decadence = -2
+#		set_character_flag = decadence_celibate
+#	}
+#}
 
 # Scholar
-character_event = {
-	id = 91220
-	desc = EVTDESC91220
-	picture = GFX_evt_monk_muslim
-	
-	ai = no
-	min_age = 16
-	capable_only = yes
-	prisoner = no
-	only_rulers = yes
-	religion_group = muslim
-	
-	trigger = {
-		uses_decadence = yes
-		trait = scholar
-		NOT = { has_character_flag = decadence_scholar }
-	}
-	
-	mean_time_to_happen = {
-		months = 1200
-	}
-	
-	option = {
-		name = EVTOPTA91220
-		decadence = -2
-		set_character_flag = decadence_scholar
-	}
-}
+#character_event = {
+#	id = 91220
+#	desc = EVTDESC91220
+#	picture = GFX_evt_monk_muslim
+#	
+#	ai = no
+#	min_age = 16
+#	capable_only = yes
+#	prisoner = no
+#	only_rulers = yes
+#	religion_group = muslim
+#	
+#	trigger = {
+#		uses_decadence = yes
+#		trait = scholar
+#		NOT = { has_character_flag = decadence_scholar }
+#	}
+#	
+#	mean_time_to_happen = {
+#		months = 1200
+#	}
+#	
+#	option = {
+#		name = EVTOPTA91220
+#		decadence = -2
+#		set_character_flag = decadence_scholar
+#	}
+#}
 
 # Chaste
-character_event = {
-	id = 91221
-	desc = EVTDESC91221
-	picture = GFX_evt_birth
-	
-	ai = no
-	min_age = 16
-	capable_only = yes
-	prisoner = no
-	only_rulers = yes
-	religion_group = muslim
-	
-	trigger = {
-		uses_decadence = yes
-		trait = chaste
-		NOT = { has_character_flag = decadence_chaste }
-	}
-	
-	mean_time_to_happen = {
-		months = 1200
-	}
-	
-	option = {
-		name = EVTOPTA91221
-		decadence = -2
-		set_character_flag = decadence_chaste
-	}
-}
+#character_event = {
+#	id = 91221
+#	desc = EVTDESC91221
+#	picture = GFX_evt_birth
+#	
+#	ai = no
+#	min_age = 16
+#	capable_only = yes
+#	prisoner = no
+#	only_rulers = yes
+#	religion_group = muslim
+#	
+#	trigger = {
+#		uses_decadence = yes
+#		trait = chaste
+#		NOT = { has_character_flag = decadence_chaste }
+#	}
+#	
+#	mean_time_to_happen = {
+#		months = 1200
+#	}
+#	
+#	option = {
+#		name = EVTOPTA91221
+#		decadence = -2
+#		set_character_flag = decadence_chaste
+#	}
+#}
 
 # Temperate
 character_event = {
 	id = 91222
-	desc = EVTDESC91222
-	picture = GFX_evt_emissary
+	desc = EVTDESC_MASQEXPOSURE_TEMPERATE
+	picture = GFX_evt_vampire_wolf_hunt
 	
 	ai = no
 	min_age = 16
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-	religion_group = muslim
+
 	
 	trigger = {
+		OR = {
+			religion_group = vampire_high_clans_group
+			religion_group = ashirra_vampire_group
+			religion_group = vampire_low_clans_group
+			religion_group = baali_group
+			religion_group = masquerade_camarilla_group
+			religion_group = sabbat_group
+			religion_group = inconnu_group
+			religion_group = masquerade_independent_group
+			religion_group = talmahera_group
+			religion_group = bloodlines_group
+		}
+		trait = vampire		
 		uses_decadence = yes
 		trait = temperate
 		NOT = { has_character_flag = decadence_temperate }
@@ -941,56 +1151,69 @@ character_event = {
 	}
 	
 	option = {
-		name = EVTOPTA91222
+		name = EVTOPTA_MASQEXPOSURE_TEMPERATE
+		tooltip_info = temperate
 		decadence = -2
 		set_character_flag = decadence_temperate
 	}
 }
 
 # Charitable
-character_event = {
-	id = 91223
-	desc = EVTDESC91223
-	picture = GFX_evt_burning_house
-	
-	ai = no
-	min_age = 16
-	capable_only = yes
-	prisoner = no
-	only_rulers = yes
-	religion_group = muslim
-	
-	trigger = {
-		uses_decadence = yes
-		trait = charitable
-		NOT = { has_character_flag = decadence_charitable }
-	}
-	
-	mean_time_to_happen = {
-		months = 1200
-	}
-	
-	option = {
-		name = EVTOPTA91223
-		decadence = -2
-		set_character_flag = decadence_charitable
-	}
-}
+#character_event = {
+#	id = 91223
+#	desc = EVTDESC91223
+#	picture = GFX_evt_burning_house
+#	
+#	ai = no
+#	min_age = 16
+#	capable_only = yes
+#	prisoner = no
+#	only_rulers = yes
+#	religion_group = muslim
+#	
+#	trigger = {
+#		uses_decadence = yes
+#		trait = charitable
+#		NOT = { has_character_flag = decadence_charitable }
+#	}
+#	
+#	mean_time_to_happen = {
+#		months = 1200
+#	}
+#	
+#	option = {
+#		name = EVTOPTA91223
+#		decadence = -2
+#		set_character_flag = decadence_charitable
+#	}
+#}
 
 # Diligent
 character_event = {
 	id = 91224
-	desc = EVTDESC91224
-	picture = GFX_evt_monk_muslim
+	desc = EVTDESC_MASQEXPOSURE_DILIGENT
+	picture = GFX_evt_vampire_roofies
 	
 	ai = no
 	min_age = 16
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-	religion_group = muslim
 	
 	trigger = {
+		OR = {
+			religion_group = vampire_high_clans_group
+			religion_group = ashirra_vampire_group
+			religion_group = vampire_low_clans_group
+			religion_group = baali_group
+			religion_group = masquerade_camarilla_group
+			religion_group = sabbat_group
+			religion_group = inconnu_group
+			religion_group = masquerade_independent_group
+			religion_group = talmahera_group
+			religion_group = bloodlines_group
+		}
+		trait = vampire	
 		uses_decadence = yes
 		trait = diligent
 		NOT = { has_character_flag = decadence_diligent }
@@ -1001,56 +1224,70 @@ character_event = {
 	}
 	
 	option = {
-		name = EVTOPTA91224
+		name = EVTOPTA_MASQEXPOSURE_DILIGENT
+		tooltip_info = diligent
 		decadence = -2
 		set_character_flag = decadence_diligent
 	}
 }
 
 # Kind
-character_event = {
-	id = 91225
-	desc = EVTDESC91225
-	picture = GFX_evt_emissary
-	
-	ai = no
-	min_age = 16
-	capable_only = yes
-	prisoner = no
-	only_rulers = yes
-	religion_group = muslim
-	
-	trigger = {
-		uses_decadence = yes
-		trait = kind
-		NOT = { has_character_flag = decadence_kind }
-	}
-	
-	mean_time_to_happen = {
-		months = 1200
-	}
-	
-	option = {
-		name = EVTOPTA91225
-		decadence = -2
-		set_character_flag = decadence_kind
-	}
-}
+# character_event = {
+#	id = 91225
+#	desc = EVTDESC91225
+#	picture = GFX_evt_emissary
+#	
+#	ai = no
+#	min_age = 16
+#	capable_only = yes
+#	prisoner = no
+#	only_rulers = yes
+#	religion_group = muslim
+#	
+#	trigger = {
+#		uses_decadence = yes
+#		trait = kind
+#		NOT = { has_character_flag = decadence_kind }
+#	}
+#	
+#	mean_time_to_happen = {
+#		months = 1200
+#	}
+#	
+#	option = {
+#		name = EVTOPTA91225
+#		decadence = -2
+#		set_character_flag = decadence_kind
+#	}
+#}
+#
 
 # Patient
 character_event = {
 	id = 91226
-	desc = EVTDESC91226
-	picture = GFX_evt_throne_room
+	desc = EVTDESC_MASQEXPOSURE_PATIENT
+	picture = GFX_evt_vampire_manor_i
 	
 	ai = no
 	min_age = 16
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-	religion_group = muslim
 	
 	trigger = {
+		OR = {
+			religion_group = vampire_high_clans_group
+			religion_group = ashirra_vampire_group
+			religion_group = vampire_low_clans_group
+			religion_group = baali_group
+			religion_group = masquerade_camarilla_group
+			religion_group = sabbat_group
+			religion_group = inconnu_group
+			religion_group = masquerade_independent_group
+			religion_group = talmahera_group
+			religion_group = bloodlines_group
+		}
+		trait = vampire	
 		uses_decadence = yes
 		trait = patient
 		NOT = { has_character_flag = decadence_patient }
@@ -1061,56 +1298,69 @@ character_event = {
 	}
 	
 	option = {
-		name = EVTOPTA91226
+		name = EVTOPTA_MASQEXPOSURE_PATIENT
+		tooltip_info = patient
 		decadence = -2
 		set_character_flag = decadence_patient
 	}
 }
 
 # Humble
-character_event = {
-	id = 91227
-	desc = EVTDESC91227
-	picture = GFX_evt_desert
-	
-	ai = no
-	min_age = 16
-	capable_only = yes
-	prisoner = no
-	only_rulers = yes
-	religion_group = muslim
-	
-	trigger = {
-		uses_decadence = yes
-		trait = humble
-		NOT = { has_character_flag = decadence_humble }
-	}
-	
-	mean_time_to_happen = {
-		months = 1200
-	}
-	
-	option = {
-		name = EVTOPTA91227
-		decadence = -2
-		set_character_flag = decadence_humble
-	}
-}
-
+#character_event = {
+#	id = 91227
+#	desc = EVTDESC91227
+#	picture = GFX_evt_desert
+#	
+#	ai = no
+#	min_age = 16
+#	capable_only = yes
+#	prisoner = no
+#	only_rulers = yes
+#	religion_group = muslim
+#	
+#	trigger = {
+#		uses_decadence = yes
+#		trait = humble
+#		NOT = { has_character_flag = decadence_humble }
+#	}
+#	
+#	mean_time_to_happen = {
+#		months = 1200
+#	}
+#	
+#	option = {
+#		name = EVTOPTA91227
+#		decadence = -2
+#		set_character_flag = decadence_humble
+#	}
+#}
+#
 # Honest
 character_event = {
 	id = 91228
-	desc = EVTDESC91228
-	picture = GFX_evt_emissary
+	desc = EVTDESC_MASQEXPOSURE_HONEST
+	picture = GFX_evt_ghoul_tag_team
 	
 	ai = no
 	min_age = 16
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-	religion_group = muslim
 	
 	trigger = {
+		OR = {
+			religion_group = vampire_high_clans_group
+			religion_group = ashirra_vampire_group
+			religion_group = vampire_low_clans_group
+			religion_group = baali_group
+			religion_group = masquerade_camarilla_group
+			religion_group = sabbat_group
+			religion_group = inconnu_group
+			religion_group = masquerade_independent_group
+			religion_group = talmahera_group
+			religion_group = bloodlines_group
+		}
+		trait = vampire	
 		uses_decadence = yes
 		trait = honest
 		NOT = { has_character_flag = decadence_honest }
@@ -1121,118 +1371,132 @@ character_event = {
 	}
 	
 	option = {
-		name = EVTOPTA91228
-		decadence = -2
+		name = EVTOPTA_MASQEXPOSURE_HONEST
+		tooltip_info = honest
+		decadence = 2
 		set_character_flag = decadence_honest
 	}
 }
 
 # Brave
-character_event = {
-	id = 91229
-	desc = EVTDESC91229
-	picture = GFX_evt_moors
-	
-	ai = no
-	min_age = 16
-	capable_only = yes
-	prisoner = no
-	only_rulers = yes
-	religion_group = muslim
-	
-	trigger = {
-		uses_decadence = yes
-		trait = brave
-		NOT = { has_character_flag = decadence_brave }
-	}
-	
-	mean_time_to_happen = {
-		months = 1200
-	}
-	
-	option = {
-		name = EVTOPTA91229
-		decadence = -2
-		set_character_flag = decadence_brave
-	}
-}
+#character_event = {
+#	id = 91229
+#	desc = EVTDESC91229
+#	picture = GFX_evt_moors
+#	
+#	ai = no
+#	min_age = 16
+#	capable_only = yes
+#	prisoner = no
+#	only_rulers = yes
+#	religion_group = muslim
+#	
+#	trigger = {
+#		uses_decadence = yes
+#		trait = brave
+#		NOT = { has_character_flag = decadence_brave }
+#	}
+#	
+#	mean_time_to_happen = {
+#		months = 1200
+#	}
+#	
+#	option = {
+#		name = EVTOPTA91229
+#		decadence = -2
+#		set_character_flag = decadence_brave
+#	}
+#}
 
 # Ambitious
-character_event = {
-	id = 91230
-	desc = EVTDESC91230
-	picture = GFX_evt_throne_room
-	
-	ai = no
-	min_age = 16
-	capable_only = yes
-	prisoner = no
-	only_rulers = yes
-	religion_group = muslim
-	
-	trigger = {
-		uses_decadence = yes
-		trait = ambitious
-		NOT = { has_character_flag = decadence_ambitious }
-	}
-	
-	mean_time_to_happen = {
-		months = 1200
-	}
-	
-	option = {
-		name = EVTOPTA91230
-		decadence = -2
-		set_character_flag = decadence_ambitious
-	}
-}
+#character_event = {
+#	id = 91230
+#	desc = EVTDESC91230
+#	picture = GFX_evt_throne_room
+#	
+#	ai = no
+#	min_age = 16
+#	capable_only = yes
+#	prisoner = no
+#	only_rulers = yes
+#	religion_group = muslim
+#	
+#	trigger = {
+#		uses_decadence = yes
+#		trait = ambitious
+#		NOT = { has_character_flag = decadence_ambitious }
+#	}
+#	
+#	mean_time_to_happen = {
+#		months = 1200
+#	}
+#	
+#	option = {
+#		name = EVTOPTA91230
+#		decadence = -2
+#		set_character_flag = decadence_ambitious
+#	}
+#}
 
 # Just
-character_event = {
-	id = 91231
-	desc = EVTDESC91231
-	picture = GFX_evt_bishop_muslim
-	
-	ai = no
-	min_age = 16
-	capable_only = yes
-	prisoner = no
-	only_rulers = yes
-	religion_group = muslim
-	
-	trigger = {
-		uses_decadence = yes
-		trait = just
-		NOT = { has_character_flag = decadence_just }
-	}
-	
-	mean_time_to_happen = {
-		months = 1200
-	}
-	
-	option = {
-		name = EVTOPTA91231
-		decadence = -2
-		set_character_flag = decadence_just
-	}
-}
+#character_event = {
+#	id = 91231
+#	desc = EVTDESC91231
+#	picture = GFX_evt_bishop_muslim
+#	
+#	ai = no
+#	min_age = 16
+#	capable_only = yes
+#	prisoner = no
+#	only_rulers = yes
+#	religion_group = muslim
+#	
+#	trigger = {
+#		uses_decadence = yes
+#		trait = just
+#		NOT = { has_character_flag = decadence_just }
+#	}
+#	
+#	mean_time_to_happen = {
+#		months = 1200
+#	}
+#	
+#	option = {
+#		name = EVTOPTA91231
+#		decadence = -2
+#		set_character_flag = decadence_just
+#	}
+#}
 
 # Zealous
 character_event = {
 	id = 91232
-	desc = EVTDESC91232
-	picture = GFX_evt_bishop_muslim
+	desc = EVTDESC_MASQEXPOSURE_ZEALOUS
+	picture = GFX_evt_moor_arches
 	
 	ai = no
 	min_age = 16
 	capable_only = yes
 	prisoner = no
 	only_rulers = yes
-	religion_group = muslim
 	
 	trigger = {
+		OR = {
+			religion_group = vampire_high_clans_group
+			religion_group = ashirra_vampire_group
+			religion_group = vampire_low_clans_group
+			religion_group = baali_group
+			religion_group = masquerade_camarilla_group
+			religion_group = sabbat_group
+			religion_group = inconnu_group
+			religion_group = masquerade_independent_group
+			religion_group = talmahera_group
+			religion_group = bloodlines_group
+		}
+		trait = vampire	
 		uses_decadence = yes
 		trait = zealous
+		trait = vampire
 		NOT = { has_character_flag = decadence_zealous }
 	}
 	
@@ -1241,101 +1505,108 @@ character_event = {
 	}
 	
 	option = {
-		name = EVTOPTA91232
+		name = EVTOPTA_MASQEXPOSURE_ZEALOUS
+		tooltip_info = zealous
 		decadence = -2
 		set_character_flag = decadence_zealous
 	}
 }
 
 # Mujahid
-character_event = {
-	id = 91233
-	desc = EVTDESC91233
-	picture = GFX_evt_battle
-	
-	ai = no
-	min_age = 16
-	capable_only = yes
-	prisoner = no
-	only_rulers = yes
-	religion_group = muslim
-	
-	trigger = {
-		uses_decadence = yes
-		trait = mujahid
-		NOT = { has_character_flag = decadence_mujahid }
-	}
-	
-	mean_time_to_happen = {
-		months = 1200
-	}
-	
-	option = {
-		name = EVTOPTA91233
-		decadence = -2
-		set_character_flag = decadence_mujahid
-	}
-}
+#character_event = {
+#	id = 91233
+#	desc = EVTDESC91233
+#	picture = GFX_evt_battle
+#	
+#	ai = no
+#	min_age = 16
+#	capable_only = yes
+#	prisoner = no
+#	only_rulers = yes
+#	religion_group = muslim
+#	
+#	trigger = {
+#		uses_decadence = yes
+#		trait = mujahid
+#		NOT = { has_character_flag = decadence_mujahid }
+#	}
+#	
+#	mean_time_to_happen = {
+#		months = 1200
+#	}
+#	
+#	option = {
+#		name = EVTOPTA91233
+#		decadence = -2
+#		set_character_flag = decadence_mujahid
+#	}
+#}
 
 # Hafiz
-character_event = {
-	id = 91234
-	desc = EVTDESC91234
-	picture = GFX_evt_monk_muslim
-	
-	ai = no
-	min_age = 16
-	capable_only = yes
-	prisoner = no
-	only_rulers = yes
-	religion_group = muslim
-	
-	trigger = {
-		uses_decadence = yes
-		trait = hafiz
-		NOT = { has_character_flag = decadence_hafiz }
-	}
-	
-	mean_time_to_happen = {
-		months = 1200
-	}
-	
-	option = {
-		name = EVTOPTA91234
-		decadence = -2
-		set_character_flag = decadence_hafiz
-	}
-}
+#character_event = {
+#	id = 91234
+#	desc = EVTDESC91234
+#	picture = GFX_evt_monk_muslim
+#	
+#	ai = no
+#	min_age = 16
+#	capable_only = yes
+#	prisoner = no
+#	only_rulers = yes
+#	religion_group = muslim
+#	
+#	trigger = {
+#		uses_decadence = yes
+#		trait = hafiz
+#		NOT = { has_character_flag = decadence_hafiz }
+#	}
+#	
+#	mean_time_to_happen = {
+#		months = 1200
+#	}
+#	
+#	option = {
+#		name = EVTOPTA91234
+#		decadence = -2
+#		set_character_flag = decadence_hafiz
+#	}
+#}
 
 # Hajjaj
-character_event = {
-	id = 91235
-	desc = EVTDESC91235
-	picture = GFX_evt_kaaba
-	
-	ai = no
-	min_age = 16
-	capable_only = yes
-	prisoner = no
-	only_rulers = yes
-	religion_group = muslim
-	
-	trigger = {
-		uses_decadence = yes
-		trait = hajjaj
-		NOT = { has_character_flag = decadence_hajjaj }
-	}
-	
-	mean_time_to_happen = {
-		months = 1200
-	}
-	
-	option = {
-		name = EVTOPTA91235
-		decadence = -2
-		set_character_flag = decadence_hajjaj
-	}
-}
+#character_event = {
+#	id = 91235
+#	desc = EVTDESC91235
+#	picture = GFX_evt_kaaba
+#	
+#	ai = no
+#	min_age = 16
+#	capable_only = yes
+#	prisoner = no
+#	only_rulers = yes
+#	religion_group = muslim
+#	
+#	trigger = {
+#		uses_decadence = yes
+#		trait = hajjaj
+#		NOT = { has_character_flag = decadence_hajjaj }
+#	}
+#	
+#	mean_time_to_happen = {
+#		months = 1200
+#	}
+#	
+#	option = {
+#		name = EVTOPTA91235
+#		decadence = -2
+#		set_character_flag = decadence_hajjaj
+#	}
+#}
+
+## Masquerade Exposure Increase
+
+## Masquerade Exposure Decrease
+
+
 
 # Vassal can declare independence after a successful Decadence invasion
 character_event = {
@@ -1447,14 +1718,14 @@ narrative_event = {
 
 character_event = {
 	id = 91300
-	desc = EVTDESC91300
+	desc = EVTDESC_MASQEXPOSURE_DECADENT
 	picture = GFX_evt_sultan
 	
 	only_men = yes
 	min_age = 16
 	capable_only = yes
 	prisoner = no
-	religion_group = muslim
+
 	
 	trigger = {
 		num_of_dynasty_members = 3 # Does not trigger for tiny dynasties
@@ -1462,6 +1733,19 @@ character_event = {
 		holy_order = no
 		is_offmap_ruler = no
 		lower_tier_than = KING
+		OR = {
+			religion_group = vampire_high_clans_group
+			religion_group = ashirra_vampire_group
+			religion_group = vampire_low_clans_group
+			religion_group = baali_group
+			religion_group = masquerade_camarilla_group
+			religion_group = sabbat_group
+			religion_group = inconnu_group
+			religion_group = masquerade_independent_group
+			religion_group = talmahera_group
+			religion_group = bloodlines_group
+		}
+		trait = vampire			
 		NOR = {
 			has_character_flag = invasion_china_claimant
 			trait = decadent
@@ -1481,25 +1765,10 @@ character_event = {
 		months = 70
 		
 		modifier = {
-			factor = 0.5
-			trait = indulgent_wastrel
-		}
-		modifier = {
-			factor = 0.75
-			trait = naive_appeaser
-		}
-		modifier = {
-			factor = 0.75
-			trait = amateurish_plotter
-		}
-		modifier = {
 			factor = 0.1
 			trait = hedonist
 		}
-		modifier = {
-			factor = 0.1
-			trait = bad_priest_muslim
-		}
+
 		modifier = {
 			factor = 0.25
 			trait = gluttonous
@@ -1508,10 +1777,7 @@ character_event = {
 			factor = 0.25
 			trait = drunkard
 		}
-		modifier = {
-			factor = 0.5
-			trait = homosexual
-		}
+
 		modifier = {
 			factor = 0.5
 			trait = slothful
@@ -1520,38 +1786,22 @@ character_event = {
 			factor = 0.5
 			trait = lunatic
 		}
-		modifier = {
-			factor = 0.75
-			trait = cynical
-		}
+
 		modifier = {
 			factor = 0.75
 			trait = lustful
 		}
-		modifier = {
-			factor = 0.75
-			trait = greedy
-		}
+
 		modifier = {
 			factor = 0.75
 			trait = wroth
 		}
-		modifier = {
-			factor = 0.75
-			trait = cruel
-		}
+
 		modifier = {
 			factor = 0.75
 			trait = arbitrary
 		}
-		modifier = {
-			factor = 3.0
-			trait = chaste
-		}
-		modifier = {
-			factor = 3.0
-			trait = just
-		}
+
 		modifier = {
 			factor = 10.0
 			trait = diligent
@@ -1560,34 +1810,8 @@ character_event = {
 			factor = 10.0
 			trait = temperate
 		}
-		modifier = {
-			factor = 2.0
-			trait = faqih
-		}
-		modifier = {
-			factor = 5.0
-			trait = hafiz
-		}
-		modifier = {
-			factor = 10.0
-			trait = ashari
-		}
-		modifier = {
-			factor = 2.0
-			trait = detached_priest
-		}
-		modifier = {
-			factor = 4.0
-			trait = martial_cleric
-		}
-		modifier = {
-			factor = 8.0
-			trait = scholarly_theologian
-		}
-		modifier = {
-			factor = 10.0
-			trait = mastermind_theologian
-		}
+
+
 		modifier = {
 			factor = 10.0
 			OR = {
@@ -1656,7 +1880,7 @@ character_event = {
 	}
 	
 	option = {
-		name = EVTOPTA91300
+		name = EVTOPTA_MASQEXPOSURE_DECADENT
 		add_trait = decadent
 		
 		hidden_tooltip = {
@@ -1664,10 +1888,19 @@ character_event = {
 				limit = {
 					is_offmap_ruler = no
 					ai = no
-					OR = {
-						religion_group = muslim
-						religion_group = ROOT
-					}
+						OR = {
+							religion_group = vampire_high_clans_group
+							religion_group = ashirra_vampire_group
+							religion_group = vampire_low_clans_group
+							religion_group = baali_group
+							religion_group = masquerade_camarilla_group
+							religion_group = sabbat_group
+							religion_group = inconnu_group
+							religion_group = masquerade_independent_group
+							religion_group = talmahera_group
+							religion_group = bloodlines_group
+						}
+						trait = vampire							
 				}
 				character_event = {
 					id = 91370
@@ -1831,7 +2064,16 @@ character_event = {
 					NOT = { trait = decadent }
 					NOT = { character = FROM }
 					OR = {
-						religion_group = muslim
+						religion_group = vampire_high_clans_group
+						religion_group = ashirra_vampire_group
+						religion_group = vampire_low_clans_group
+						religion_group = baali_group
+						religion_group = masquerade_camarilla_group
+						religion_group = sabbat_group
+						religion_group = inconnu_group
+						religion_group = masquerade_independent_group
+						religion_group = talmahera_group
+						religion_group = bloodlines_group
 						religion_group = ROOT
 					}
 				}
@@ -2047,7 +2289,16 @@ character_event = {
 					NOT = { trait = decadent }
 					NOT = { character = FROM }
 					OR = {
-						religion_group = muslim
+						religion_group = vampire_high_clans_group
+						religion_group = ashirra_vampire_group
+						religion_group = vampire_low_clans_group
+						religion_group = baali_group
+						religion_group = masquerade_camarilla_group
+						religion_group = sabbat_group
+						religion_group = inconnu_group
+						religion_group = masquerade_independent_group
+						religion_group = talmahera_group
+						religion_group = bloodlines_group
 						religion_group = ROOT
 					}
 				}
@@ -2525,7 +2776,16 @@ character_event = {
 					NOT = { trait = decadent }
 					NOT = { character = FROM }
 					OR = {
-						religion_group = muslim
+						religion_group = vampire_high_clans_group
+						religion_group = ashirra_vampire_group
+						religion_group = vampire_low_clans_group
+						religion_group = baali_group
+						religion_group = masquerade_camarilla_group
+						religion_group = sabbat_group
+						religion_group = inconnu_group
+						religion_group = masquerade_independent_group
+						religion_group = talmahera_group
+						religion_group = bloodlines_group
 						religion_group = ROOT
 					}
 				}
@@ -2574,7 +2834,7 @@ character_event = {
 character_event = {
 	id = 91369
 	desc = EVTDESC91369
-	picture = GFX_evt_jugglers
+	picture = GFX_evt_vampire_councillor_primo
 	
 	notification = yes
 	
@@ -2659,7 +2919,16 @@ character_event = {
 					NOT = { trait = decadent }
 					NOT = { character = ROOT }
 					OR = {
-						religion_group = muslim
+						religion_group = vampire_high_clans_group
+						religion_group = ashirra_vampire_group
+						religion_group = vampire_low_clans_group
+						religion_group = baali_group
+						religion_group = masquerade_camarilla_group
+						religion_group = sabbat_group
+						religion_group = inconnu_group
+						religion_group = masquerade_independent_group
+						religion_group = talmahera_group
+						religion_group = bloodlines_group
 						religion_group = ROOT
 					}
 				}
@@ -2691,7 +2960,16 @@ character_event = {
 					NOT = { trait = decadent }
 					NOT = { character = ROOT }
 					OR = {
-						religion_group = muslim
+						religion_group = vampire_high_clans_group
+						religion_group = ashirra_vampire_group
+						religion_group = vampire_low_clans_group
+						religion_group = baali_group
+						religion_group = masquerade_camarilla_group
+						religion_group = sabbat_group
+						religion_group = inconnu_group
+						religion_group = masquerade_independent_group
+						religion_group = talmahera_group
+						religion_group = bloodlines_group
 						religion_group = ROOT
 					}
 				}
@@ -2729,7 +3007,16 @@ character_event = {
 					NOT = { trait = decadent }
 					NOT = { character = ROOT }
 					OR = {
-						religion_group = muslim
+						religion_group = vampire_high_clans_group
+						religion_group = ashirra_vampire_group
+						religion_group = vampire_low_clans_group
+						religion_group = baali_group
+						religion_group = masquerade_camarilla_group
+						religion_group = sabbat_group
+						religion_group = inconnu_group
+						religion_group = masquerade_independent_group
+						religion_group = talmahera_group
+						religion_group = bloodlines_group
 						religion_group = ROOT
 					}
 				}
@@ -2761,7 +3048,16 @@ character_event = {
 					NOT = { trait = decadent }
 					NOT = { character = ROOT }
 					OR = {
-						religion_group = muslim
+						religion_group = vampire_high_clans_group
+						religion_group = ashirra_vampire_group
+						religion_group = vampire_low_clans_group
+						religion_group = baali_group
+						religion_group = masquerade_camarilla_group
+						religion_group = sabbat_group
+						religion_group = inconnu_group
+						religion_group = masquerade_independent_group
+						religion_group = talmahera_group
+						religion_group = bloodlines_group
 						religion_group = ROOT
 					}
 				}
@@ -2855,7 +3151,16 @@ character_event = {
 					NOT = { trait = decadent }
 					NOT = { character = ROOT }
 					OR = {
-						religion_group = muslim
+						religion_group = vampire_high_clans_group
+						religion_group = ashirra_vampire_group
+						religion_group = vampire_low_clans_group
+						religion_group = baali_group
+						religion_group = masquerade_camarilla_group
+						religion_group = sabbat_group
+						religion_group = inconnu_group
+						religion_group = masquerade_independent_group
+						religion_group = talmahera_group
+						religion_group = bloodlines_group
 						religion_group = ROOT
 					}
 				}
@@ -2892,7 +3197,16 @@ character_event = {
 					NOT = { trait = decadent }
 					NOT = { character = ROOT }
 					OR = {
-						religion_group = muslim
+						religion_group = vampire_high_clans_group
+						religion_group = ashirra_vampire_group
+						religion_group = vampire_low_clans_group
+						religion_group = baali_group
+						religion_group = masquerade_camarilla_group
+						religion_group = sabbat_group
+						religion_group = inconnu_group
+						religion_group = masquerade_independent_group
+						religion_group = talmahera_group
+						religion_group = bloodlines_group
 						religion_group = ROOT
 					}
 				}
@@ -2938,7 +3252,16 @@ character_event = {
 					NOT = { trait = decadent }
 					NOT = { character = ROOT }
 					OR = {
-						religion_group = muslim
+						religion_group = vampire_high_clans_group
+						religion_group = ashirra_vampire_group
+						religion_group = vampire_low_clans_group
+						religion_group = baali_group
+						religion_group = masquerade_camarilla_group
+						religion_group = sabbat_group
+						religion_group = inconnu_group
+						religion_group = masquerade_independent_group
+						religion_group = talmahera_group
+						religion_group = bloodlines_group
 						religion_group = ROOT
 					}
 				}

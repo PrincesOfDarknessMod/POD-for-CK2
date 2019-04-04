@@ -1825,7 +1825,7 @@ character_event = {
 	immediate = {
 		create_random_soldier = {
 			random_traits = yes
-			dynasty = actually_culture
+			dynasty = random
 			female = no
 			religion = ROOT
 			culture = ROOT
@@ -2072,6 +2072,13 @@ character_event = {
 			FROM = {
 				is_member_of_any_warrior_lodge_trigger = yes
 				society_rank > 1 #Must be rank 2 or higher
+			}
+		}
+
+		modifier = {
+			factor = 0.5 # has a wonder upgrade that allows you to run away easier
+			any_realm_wonder = {
+				has_wonder_upgrade = upgrade_hidden_passageways
 			}
 		}
 	}

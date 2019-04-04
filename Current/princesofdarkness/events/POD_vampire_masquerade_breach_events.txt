@@ -147,6 +147,7 @@ character_event = {
 	}
 
 	immediate = {
+			decadence = 10
 
 			create_character = {
 				random_traits = yes
@@ -191,6 +192,7 @@ character_event = {
 				add_trait = stressed
 				remove_trait = knows_too_much
 		}
+		decadence = -2
     }
 
 # Ignore them	
@@ -201,6 +203,7 @@ character_event = {
 				add_trait = stressed
 				}
 
+		decadence = 2
 		capital_scope = {
 			add_province_modifier = { 					
 				name = masquerade_breach
@@ -273,6 +276,7 @@ character_event = {
 				who = event_target:new_exposes_masquerade
 				modifier = opinion_breached_masquerade }
 		}
+		decadence = -1
     }
 
 # Kill them	
@@ -372,7 +376,7 @@ character_event = {
                             add_trait = wounded
 						}
 			}				
-				
+	decadence = -3			
     }
 	
 	
@@ -512,7 +516,8 @@ character_event = {
 	}
 
 	immediate = {
-
+			
+			decadence = 10
 			liege = { save_event_target_as = vampire_judge_masquerade }
 			ROOT = { save_event_target_as = vampire_exposes_masquerade }
 			
@@ -629,6 +634,7 @@ character_event =
 			add_trait = stressed
 			remove_trait = knows_too_much
 		}
+	decadence = -2
     }
 
 # Ignore them	
@@ -650,7 +656,7 @@ character_event =
 			}
 		}		
 		
-
+	decadence = 2
     }	
 	
 	
@@ -687,7 +693,7 @@ character_event =
 				modifier = opinion_breached_masquerade 
 			}
 		}		
-		
+	decadence = -1 	
 	}
 
 
@@ -825,7 +831,7 @@ character_event =
 			}
 			
 		}		
-				
+		decadence = -3		
     }
 	
 	
@@ -879,7 +885,8 @@ character_event =
 				who = event_target:vampire_exposes_masquerade
 				modifier = opinion_breached_masquerade 
 			}
-		}		
+		}	
+		decadence = 1
 		
     }
 	
@@ -895,7 +902,8 @@ character_event =
 				who = event_target:vampire_exposes_masquerade
 				modifier = opinion_breached_masquerade 
 			}
-		}	
+		}
+		decadence = 3
     }
 
 # Order the Sheriff to Arrest them 
@@ -1010,7 +1018,7 @@ character_event =
 			
 			}
 		}
-		
+	decadence = -2	
 	}
 
 # This is not forgiven or forgotten
@@ -1018,7 +1026,7 @@ character_event =
     option = 
 	{
         name = EVTOPTD_POD_VAMPIRE_MASQUERADE_BREACH4
-		
+		decadence = 1
     }					
 	
 }	

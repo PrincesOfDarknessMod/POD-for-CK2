@@ -155,6 +155,7 @@ character_event = {
 	portrait = event_target:other_combatant
 	
 	immediate = {
+
 	}
 	
 	option = {
@@ -165,13 +166,12 @@ character_event = {
 			show_scope_change = no
                 add_trait = "staked"
         }
-        hidden_effect = {
-            event_target:other_combatant = { 
-				#character_event = { id = STAKEDEVENT.1 } 
-				add_trait = "staked"
-				imprison = event_target:vamp_duel_victor
-			} #"I was staked" event
-        }		
+		
+        event_target:other_combatant = { 
+			character_event = { id = POD_vamp_duels_events.6 }  #I've been Staked!
+			#imprison = ROOT
+		}
+		
 		custom_tooltip = { text = you_win_the_duel_tt }
         apply_generic_duel_victory_effect = yes
 
@@ -209,3 +209,26 @@ character_event = {
 	}
 }
 
+
+# I've been Staked!
+character_event = {
+	id = POD_vamp_duels_events.6
+	title = "EVTTITLE_POD_VAMP_DUEL_EVENTS_6"
+	desc = "EVTDESC_POD_VAMP_DUEL_EVENTS_6"
+	picture = GFX_evt_vampire_staked
+	border = GFX_event_normal_frame_intrigue
+	is_triggered_only = yes
+	portrait = event_target:vamp_duel_victor
+	
+	immediate = {
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_VAMP_DUEL_EVENTS_6" # I've been staked!
+		
+		imprison = FROM
+		
+		clean_up_after_duel_effect = yes
+
+	}
+}

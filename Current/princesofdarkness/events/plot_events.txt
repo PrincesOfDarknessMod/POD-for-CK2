@@ -4483,6 +4483,7 @@ letter_event = {
 			}
 		}
 		FROM = {
+			show_scope_change = no			 
 			faction_increase_council_power = { # The target (title) of the faction
 				increase_council_power_effect = yes
 				increase_vassal_freedom_effect = yes
@@ -4855,28 +4856,16 @@ letter_event = {
 					limit = { has_law = succession_voting_power_0 }
 					add_law_w_cooldown = succession_voting_power_1
 				}
-				custom_tooltip = {
-					text = overthrow_text
-					hidden_tooltip = {
-						if = {
-							limit = { 
-								NOT = { has_law = succ_feudal_elective }
-								has_law = law_voting_power_1
-								has_law = banish_voting_power_1
-								has_law = execution_voting_power_1
-								has_law = revoke_title_voting_power_1
-								has_law = grant_title_voting_power_1
-								has_law = imprison_voting_power_1
-								has_law = war_voting_power_1						
-							}
-							add_law_w_cooldown = succ_feudal_elective
-						}
-						if = {
-							limit = {
-								NOT = { has_law = succ_gavelkind }
-								NOT = { has_law = succ_feudal_elective }
-								NAND = {
-									has_law = succ_feudal_elective
+				if = {
+					limit = { NOT = { has_law = succ_byzantine_elective } }
+					custom_tooltip = {
+						text = overthrow_text
+						hidden_tooltip = {
+							if = {
+								limit = { 
+									title = e_hre
+									NOT = { has_law = succ_hre_elective }
+									NOT = { has_law = succ_feudal_elective }
 									has_law = law_voting_power_1
 									has_law = banish_voting_power_1
 									has_law = execution_voting_power_1
@@ -4885,8 +4874,44 @@ letter_event = {
 									has_law = imprison_voting_power_1
 									has_law = war_voting_power_1						
 								}
+								add_law_w_cooldown = succ_hre_elective
 							}
-							add_law_w_cooldown = succ_gavelkind
+												
+	   
+							if = {
+								limit = { 
+									NOT = { title = e_hre }
+									NOT = { has_law = succ_hre_elective }
+				
+									NOT = { has_law = succ_feudal_elective }
+									has_law = law_voting_power_1
+									has_law = banish_voting_power_1
+									has_law = execution_voting_power_1
+									has_law = revoke_title_voting_power_1
+									has_law = grant_title_voting_power_1
+									has_law = imprison_voting_power_1
+									has_law = war_voting_power_1						
+								}
+								add_law_w_cooldown = succ_feudal_elective
+							}
+							if = {
+								limit = {
+									NOT = { has_law = succ_gavelkind }
+									NOT = { has_law = succ_feudal_elective }
+									NOT = { has_law = succ_hre_elective }
+									NAND = {
+										has_law = succ_feudal_elective
+										has_law = law_voting_power_1
+										has_law = banish_voting_power_1
+										has_law = execution_voting_power_1
+										has_law = revoke_title_voting_power_1
+										has_law = grant_title_voting_power_1
+										has_law = imprison_voting_power_1
+										has_law = war_voting_power_1						
+									}
+								}
+								add_law_w_cooldown = succ_gavelkind
+							}
 						}
 					}
 				}
@@ -5180,7 +5205,25 @@ character_event = {
 				add_law_w_cooldown = succession_voting_power_1
 			}
 			if = {
-				limit = { NOT =  { has_law = succ_feudal_elective } }
+				limit = { 
+					NOT =  { has_law = succ_byzantine_elective } 
+					OR =  { 
+						title = e_hre 
+						has_title_flag = alternate_hre
+					} 
+					NOT =  { has_law = succ_feudal_elective } 
+				}
+				add_law_w_cooldown = succ_hre_elective
+			}
+			if = {
+				limit = { 
+					NOR =  { 
+						title = e_hre 
+						has_title_flag = alternate_hre
+						has_law = succ_feudal_elective 
+						has_law = succ_byzantine_elective
+					} 
+				}
 				add_law_w_cooldown = succ_feudal_elective
 			}
 		}

@@ -898,20 +898,24 @@ svetambara_jain = {
 	ruler_designer_cost = 0
 }
 
-# Controls Muslim decadence gain
+# Controls Muslim decadence gain... hijacked for Vampire Masquerade
 decadent = {
 	opposites = {
-		zealous
 	}
 
 	potential = {
-		religion_group = muslim
+		trait = vampire
 	}
 	
 	customizer = no
 	random = no
 	
-	combat_rating = -10 #old value: -1
+	#combat_rating = -10 #old value: -1
+	general_opinion = -10
+	vassal_opinion = -25
+	church_opinion = -10
+	tribal_opinion = -10
+	same_opinion = 10
 	
 	male_insult = INSULT_SYBARITE
 	female_insult = INSULT_SYBARITE
@@ -1048,7 +1052,9 @@ architect = {
 	
 	stewardship = 2
 	martial = 1
-	
+	wonder_build_cost_modifier = -0.03
+	wonder_build_time_modifier = -0.05
+		
 	command_modifier = {
 		siege = 0.2
 	}

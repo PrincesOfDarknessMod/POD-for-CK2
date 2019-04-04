@@ -54,6 +54,7 @@ character_event = {
 				trait = physician
 			}
 		}
+		NOT = { character = 108500 } #Not for learning scenario character!
 	}
 	
 	weight_multiplier = {
@@ -896,6 +897,7 @@ character_event = {
 			limit = {
 				prisoner = no
 				NOT = { trait = incapable }
+				NOT = { is_senior_consort_party = yes }						   
 			}
 			hidden_tooltip = {
 				if = {
@@ -2678,6 +2680,7 @@ character_event = {
 		}
 		
 		event_target:missionary_physician_target = {
+			show_scope_change = no			 
 			opinion = {
 				modifier = opinion_loyal_servant
 				who = ROOT
@@ -2708,12 +2711,14 @@ character_event = {
 		
 		wealth = 50
 		event_target:missionary_physician_target = {
+			show_scope_change = no			 
 			death = {
 				death_reason = death_execution_burning
 				killer = ROOT
 			}
 		}
 		event_target:origin_realm_of_missionary_physician_target = {
+			show_scope_change = no			 
 			opinion = {
 				modifier = opinion_dishonorable_scum
 				who = ROOT
@@ -2835,20 +2840,30 @@ character_event = {
 		religion = event_target:missionary_physician_target
 		prestige = -500
 		piety = 250
-		any_courtier = {
-			limit = { 
-				is_close_relative = ROOT
-				NOT = { trait = zealous }
+		hidden_tooltip = {
+			any_courtier = {
+				limit = { 
+					is_close_relative = ROOT
+					NOT = { trait = zealous }
+					NOT = { has_character_flag = ai_flag_refuse_conversion }
+					NOT = { trait = stubborn }
+				}
+				religion = event_target:missionary_physician_target
 			}
-			religion = event_target:missionary_physician_target
-		}
-		any_spouse = {
-			limit = { 
-				is_consort = no
-				NOT = { trait = zealous }
+													  
+   
+			any_spouse = {
+				limit = { 
+					is_consort = no
+					NOT = { trait = zealous }
+					NOT = { has_character_flag = ai_flag_refuse_conversion }
+					NOT = { trait = stubborn }
+				}
+				religion = event_target:missionary_physician_target
 			}
-			religion = event_target:missionary_physician_target
+													  
 		}
+		custom_tooltip = { text = EVTOPTB_RIP_4101_TT }
 	}
 	
 	option = {
@@ -3020,6 +3035,7 @@ character_event = {
 		prestige = 25
 		
 		event_target:prosperity_target = {
+			show_scope_change = no			 
 			add_province_modifier = {
 				name = new_roads
 				duration = 730
@@ -3173,6 +3189,7 @@ character_event = {
 		piety = 25
 		
 		event_target:prosperity_target = {
+			show_scope_change = no			 
 			add_province_modifier = {
 				name = new_shrines
 				duration = 730
@@ -3326,6 +3343,7 @@ character_event = {
 		prestige = 25
 		
 		event_target:prosperity_target = {
+			show_scope_change = no			 
 			add_province_modifier = {
 				name = peasants_protected
 				duration = 730
@@ -3479,6 +3497,7 @@ character_event = {
 		prestige = 25
 		
 		event_target:prosperity_target = {
+			show_scope_change = no			 
 			add_province_modifier = {
 				name = messenger_stations
 				duration = 730
@@ -3632,6 +3651,7 @@ character_event = {
 		prestige = 25
 		
 		event_target:prosperity_target = {
+			show_scope_change = no			 
 			add_province_modifier = {
 				name = harvest_festivals
 				duration = 730
@@ -3769,6 +3789,7 @@ character_event = {
 		prestige = 25
 		
 		event_target:prosperity_target = {
+			show_scope_change = no			 
 			add_province_modifier = {
 				name = inspired_peasantry
 				duration = 730
@@ -3966,9 +3987,18 @@ character_event = {
 
 	trigger = {
 		OR = {
-			any_lover = { is_alive = yes }
-			any_friend = { is_alive = yes }
-			any_rival = { is_alive = yes }
+			any_lover = {
+				is_alive = yes
+				NOT = { is_inaccessible_or_incapable_trigger = yes }
+			}
+			any_friend = {
+				is_alive = yes
+				NOT = { is_inaccessible_or_incapable_trigger = yes }
+			}
+			any_rival = {
+				is_alive = yes
+				NOT = { is_inaccessible_or_incapable_trigger = yes }
+			}
 		}
 		NOR = {
 			death_no_trace_trigger = yes
@@ -3982,25 +4012,34 @@ character_event = {
 		spouse = { save_event_target_as = rip_widow }
 
 		random_child = { 
-			limit = { is_adult = yes }
+			limit = {
+				is_adult = yes
+				NOT = { is_inaccessible_or_incapable_trigger = yes }
+			}
 			save_event_target_as = rip_child
 		}
 
 		#Lover event
 		random_lover = {
-			limit = { block_general_event_trigger = no NOT = { has_character_modifier = grief_timer } }
+			limit = {
+				NOT = { is_inaccessible_or_incapable_trigger = yes }
+				NOT = { has_character_modifier = grief_timer }
+			}
 			character_event = { id = RIP.29001 days = 20 } 
 		}
 
 		#Friend event
 		random_friend = {
-			limit = { block_general_event_trigger = no NOT = { has_character_modifier = grief_timer } }
+			limit = {
+				NOT = { is_inaccessible_or_incapable_trigger = yes }
+				NOT = { has_character_modifier = grief_timer }
+			}
 			save_event_target_as = rip_friend_1
 
 			ROOT = { 
 				random_friend = {
 					limit = { 
-						block_general_event_trigger = no 
+						NOT = { is_inaccessible_or_incapable_trigger = yes }
 						NOR = {
 							is_rival = event_target:rip_friend_1
 							character = event_target:rip_friend_1
@@ -4014,7 +4053,12 @@ character_event = {
 			}
 
 			random_list = {
-				75 = { character_event = { id = RIP.29005 days = 30 } }
+				75 = { 
+					trigger = {
+						NOT = { event_target:rip_dead = { killer = { character = event_target:rip_friend_1 } } } #Prevent crocodile tears.
+					}
+					character_event = { id = RIP.29005 days = 30 } 
+				}
 				25 = { 
 					modifier = {
 						factor = 0
@@ -4039,13 +4083,16 @@ character_event = {
 
 		#Rival event
 		random_rival = {
-			limit = { block_general_event_trigger = no NOT = { has_character_modifier = grief_timer } }
+			limit = {
+				NOT = { is_inaccessible_or_incapable_trigger = yes }
+				NOT = { has_character_modifier = grief_timer }
+			}
 			save_event_target_as = rip_enemy_1
 
 			liege = {
 				any_courtier = {
 					limit = { 
-						block_general_event_trigger = no 
+						NOT = { is_inaccessible_or_incapable_trigger = yes }
 						NOR = {
 							is_rival = event_target:rip_enemy_1
 							character = event_target:rip_enemy_1
@@ -4060,7 +4107,7 @@ character_event = {
 			ROOT = { 
 				random_rival = {
 					limit = { 
-						block_general_event_trigger = no 
+						NOT = { is_inaccessible_or_incapable_trigger = yes }
 						NOR = {
 							is_rival = event_target:rip_enemy_1
 							character = event_target:rip_enemy_1
@@ -4072,7 +4119,7 @@ character_event = {
 				}
 				random_child = {
 					limit = { 
-						block_general_event_trigger = no 
+						NOT = { is_inaccessible_or_incapable_trigger = yes }
 						NOR = {
 							is_rival = event_target:rip_enemy_1
 							character = event_target:rip_enemy_1
@@ -4084,7 +4131,7 @@ character_event = {
 				}
 				random_friend = {
 					limit = { 
-						block_general_event_trigger = no 
+						NOT = { is_inaccessible_or_incapable_trigger = yes }
 						NOR = {
 							is_rival = event_target:rip_enemy_1
 							character = event_target:rip_enemy_1
@@ -4930,10 +4977,10 @@ character_event = {
 	id = RIP.29014
 	border = GFX_event_normal_frame_intrigue
 	desc = EVTDSC_RIP_29014
+	show_from_from_from = yes						  
 	picture = GFX_evt_bloody_tools
 
 	is_triggered_only = yes
-	hide_from = yes
 
 	trigger = { NOT = { character = FROM } }
 
@@ -5107,13 +5154,13 @@ character_event = {
 				limit = { any_child = { ai = no } }
 
 				random_child = {
-					limit = { ai = no NOR = { is_rival = ROOT is_friend = ROOT is_lover = ROOT } }
+					limit = { ai = no NOR = { is_rival = ROOT is_friend = ROOT is_lover = ROOT character = ROOT } }
 					save_event_target_as = rip_heir
 				}
 				break = yes
 			}
 			if = {
-				limit = { any_child = { is_heir = yes } NOR = { is_rival = ROOT is_friend = ROOT is_lover = ROOT } }
+				limit = { any_child = { is_heir = yes } NOR = { is_rival = ROOT is_friend = ROOT is_lover = ROOT character = ROOT } }
 
 				random_child = {
 					limit = { is_heir = yes }
@@ -5122,7 +5169,7 @@ character_event = {
 				break = yes
 			}
 			random_child = {
-				limit = { age = 12 NOR = { is_rival = ROOT is_friend = ROOT is_lover = ROOT } }
+				limit = { age = 12 NOR = { is_rival = ROOT is_friend = ROOT is_lover = ROOT character = ROOT } }
 				save_event_target_as = rip_heir
 			}
 		}
@@ -5163,7 +5210,7 @@ character_event = {
 
 			#Root must be motivated
 			OR = { 
-				event_target:rip_heir = { trait = fair }
+				event_target:rip_heir = { has_fair_trait_trigger = yes }
 				trait = lustful 
 				trait = seducer 
 				trait = seductress 
@@ -6611,7 +6658,7 @@ character_event = {
 				modifier = {
 					factor = 0
 					OR = {	
-						has_artifact = prosthetic_leg
+						has_artifact = prosthetic_leg_artifact
 						has_character_modifier = peg_leg
 					}
 				}
@@ -7760,7 +7807,18 @@ character_event = {
 
 character_event = {
 	id = RIP.29801
-	desc = EVTDESC_RIP_29801
+	desc = {
+		trigger = {
+			event_target:reincarnation_target = { is_female = no }
+		}
+		text = EVTDESC_RIP_29801
+	}
+	desc = {
+		trigger = {
+			event_target:reincarnation_target = { is_female = yes }
+		}
+		text = EVTDESC_RIP_29801_B
+	}
 	picture = GFX_evt_into_the_dungeon
 
 	ai = no
@@ -7779,9 +7837,9 @@ character_event = {
 	}
 
 	immediate = {
-		event_target:reincarnation_target = {
-			ROOT = { set_reincarnation = PREV }
-		}
+									   
+			ROOT = { set_reincarnation = event_target:reincarnation_target }
+
 	}
 
 	is_triggered_only = yes
@@ -8410,6 +8468,7 @@ letter_event = {
 			any_war = {
 				limit = {
 					defender = { character = event_target:target_defender }
+					attacker = { character = FROM }				
 				}
 				end_war = whitepeace
 			}
@@ -8537,6 +8596,7 @@ letter_event = {
 			any_war = {
 				limit = {
 					defender = { character = event_target:target_defender }
+					attacker = { character = FROM }				
 				}
 				end_war = whitepeace
 			}
@@ -8606,6 +8666,7 @@ letter_event = {
 		any_war = {
 			limit = {
 				defender = { character = event_target:target_defender }
+				attacker = { character = ROOT }				   
 			}
 			end_war = whitepeace
 		}
@@ -8901,6 +8962,7 @@ letter_event = {
 			any_war = {
 				limit = {
 					attacker = { character = event_target:target_attacker }
+					defender = { character = FROM }				
 				}
 				end_war = success
 			}
@@ -8962,6 +9024,7 @@ letter_event = {
 			any_war = {
 				limit = {
 					attacker = { character = event_target:target_attacker }
+					defender = { character = FROM }				
 				}
 				end_war = success
 			}
@@ -9087,6 +9150,7 @@ letter_event = {
 			any_war = {
 				limit = {
 					attacker = { character = event_target:target_attacker }
+					defender = { character = FROM }				
 				}
 				end_war = success
 			}
@@ -9154,6 +9218,7 @@ letter_event = {
 		any_war = {
 			limit = {
 				attacker = { character = event_target:target_attacker }
+				defender = { character = FROM }				   
 			}
 			end_war = success
 		}
@@ -9991,23 +10056,23 @@ letter_event = {
 					}
 					modifier = {
 						factor = 1.5
-						FROM = { combat_rating = 1 }
+						FROM = { combat_rating = 10 }
 					}
 					modifier = {
 						factor = 1.5
-						FROM = { combat_rating = 2 }
+						FROM = { combat_rating = 20 }
 					}
 					modifier = {
 						factor = 1.5
-						FROM = { combat_rating = 3 }
+						FROM = { combat_rating = 30 }
 					}
 					modifier = {
 						factor = 1.5
-						FROM = { combat_rating = 4 }
+						FROM = { combat_rating = 40 }
 					}
 					modifier = {
 						factor = 1.5
-						FROM = { combat_rating = 5 }
+						FROM = { combat_rating = 50 }
 					}
 
 					set_character_flag = lost_suicide_duel
@@ -10015,23 +10080,23 @@ letter_event = {
 				20 = {
 					modifier = {
 						factor = 1.5
-						FROM = { combat_rating = 1 }
+						FROM = { combat_rating = 10 }
 					}
 					modifier = {
 						factor = 1.5
-						FROM = { combat_rating = 2 }
+						FROM = { combat_rating = 20 }
 					}
 					modifier = {
 						factor = 1.5
-						FROM = { combat_rating = 3 }
+						FROM = { combat_rating = 30 }
 					}
 					modifier = {
 						factor = 1.5
-						FROM = { combat_rating = 4 }
+						FROM = { combat_rating = 40 }
 					}
 					modifier = {
 						factor = 1.5
-						FROM = { combat_rating = 5 }
+						FROM = { combat_rating = 50 }
 					}
 					set_character_flag = incapable_suicide_duel
 				}
@@ -10599,6 +10664,7 @@ character_event = {
 		is_nomadic = no
 		NOT = { has_character_flag = chess_with_death }
 		immortal = no
+		NOT = { has_character_flag = is_child_of_destiny }											
 	}
 
 	is_triggered_only = yes
@@ -11228,13 +11294,9 @@ character_event = {
 		name = EVTOPTC_RIP_30227
 		tooltip_info = deceitful
 
-		random_list = {
-			100 = {
-				custom_tooltip = { text = CHESS_GOOD_MOVE }
-				set_character_flag = good_move
-				hidden_tooltip = { change_variable = { which = chess_score value = 1 } }
-			}
-		}
+		custom_tooltip = { text = CHESS_GOOD_MOVE_100 }
+		set_character_flag = good_move
+		hidden_tooltip = { change_variable = { which = chess_score value = 1 } }
 
 		set_character_flag = chess_30228
 		hidden_tooltip = { FROM = { character_event = { id = RIP.30221 } } }
@@ -11246,13 +11308,9 @@ character_event = {
 		name = EVTOPTC_RIP_30227
 		tooltip_info = schemer
 
-		random_list = {
-			100 = {
-				custom_tooltip = { text = CHESS_GOOD_MOVE }
-				set_character_flag = good_move
-				hidden_tooltip = { change_variable = { which = chess_score value = 1 } }
-			}
-		}
+		custom_tooltip = { text = CHESS_GOOD_MOVE_100 }
+		set_character_flag = good_move
+		hidden_tooltip = { change_variable = { which = chess_score value = 1 } }
 
 		set_character_flag = chess_30228
 		hidden_tooltip = { FROM = { character_event = { id = RIP.30221 } } }
@@ -11264,13 +11322,9 @@ character_event = {
 		name = EVTOPTD_RIP_30227
 		tooltip_info = gamer
 
-		random_list = {
-			100 = {
-				custom_tooltip = { text = CHESS_GREAT_MOVE }
-				set_character_flag = great_move
-				hidden_tooltip = { change_variable = { which = chess_score value = 2 } }
-			}
-		}
+		custom_tooltip = { text = CHESS_GREAT_MOVE_100 }
+		set_character_flag = great_move
+		hidden_tooltip = { change_variable = { which = chess_score value = 2 } }
 
 		set_character_flag = chess_30228
 		hidden_tooltip = { FROM = { character_event = { id = RIP.30221 } } }
@@ -11284,13 +11338,9 @@ character_event = {
 		name = EVTOPTD_RIP_30227
 		tooltip_info = strategist
 
-		random_list = {
-			100 = {
-				custom_tooltip = { text = CHESS_GOOD_MOVE }
-				set_character_flag = good_move
-				hidden_tooltip = { change_variable = { which = chess_score value = 1 } }
-			}
-		}
+		custom_tooltip = { text = CHESS_GOOD_MOVE_100 }
+		set_character_flag = good_move
+		hidden_tooltip = { change_variable = { which = chess_score value = 1 } }
 
 		set_character_flag = chess_30228
 		hidden_tooltip = { FROM = { character_event = { id = RIP.30221 } } }
@@ -11305,13 +11355,14 @@ character_event = {
 		name = EVTOPTE_RIP_30227
 		tooltip_info = genius
 
-		random_list = {
-			100 = {
-				custom_tooltip = { text = CHESS_GREAT_MOVE }
-				set_character_flag = great_move
-				hidden_tooltip = { change_variable = { which = chess_score value = 2 } }
-			}
-		}
+
+		  
+		custom_tooltip = { text = CHESS_GREAT_MOVE_100 }
+		set_character_flag = great_move
+		hidden_tooltip = { change_variable = { which = chess_score value = 2 } }
+	
+   
+
 
 		set_character_flag = chess_30228
 		hidden_tooltip = { FROM = { character_event = { id = RIP.30221 } } }
@@ -11326,13 +11377,9 @@ character_event = {
 		name = EVTOPTE_RIP_30227
 		tooltip_info = quick
 
-		random_list = {
-			100 = {
-				custom_tooltip = { text = CHESS_GOOD_MOVE }
-				set_character_flag = good_move
-				hidden_tooltip = { change_variable = { which = chess_score value = 1 } }
-			}
-		}
+		custom_tooltip = { text = CHESS_GOOD_MOVE_100 }
+		set_character_flag = good_move
+		hidden_tooltip = { change_variable = { which = chess_score value = 1 } }
 
 		set_character_flag = chess_30228
 		hidden_tooltip = { FROM = { character_event = { id = RIP.30221 } } }
@@ -11347,13 +11394,9 @@ character_event = {
 		name = EVTOPTE_RIP_30227
 		tooltip_info = shrewd
 
-		random_list = {
-			100 = {
-				custom_tooltip = { text = CHESS_GOOD_MOVE }
-				set_character_flag = good_move
-				hidden_tooltip = { change_variable = { which = chess_score value = 1 } }
-			}
-		}
+		custom_tooltip = { text = CHESS_GOOD_MOVE_100 }
+		set_character_flag = good_move
+		hidden_tooltip = { change_variable = { which = chess_score value = 1 } }
 
 		set_character_flag = chess_30228
 		hidden_tooltip = { FROM = { character_event = { id = RIP.30221 } } }
@@ -11956,11 +11999,11 @@ narrative_event = {
 					set_character_flag = immortal_rival_shieldmaiden					
 					modifier = {
 						factor = 2
-						combat_rating = 3
+						combat_rating = 30
 					}
 					modifier = {
 						factor = 1.5
-						combat_rating = 4
+						combat_rating = 40
 					}
 				}
 				25 = {
@@ -12131,9 +12174,9 @@ character_event = {
 				trait = strong
 				trait = berserker
 				trait = envious
-				trait = scarred
 				historical = yes
 			}
+			new_character = { add_scarred_high_effect = yes }													
 		}
 		if = {
 			limit = {
@@ -12214,7 +12257,7 @@ character_event = {
 				culture = horse
 				female = no
 				age = 2200
-				immortal_age = 4
+				immortal_age = 20
 				attributes = {
 					martial = 8
 					diplomacy = 18
@@ -12237,6 +12280,7 @@ character_event = {
 				trait = schemer
 				trait = cynical
 				trait = ares_own
+				trait = horse 
 				historical = yes
 			}
 		}
@@ -12382,6 +12426,7 @@ character_event = {
 
 	option = { #fight. berserker and craven get the same option with custom text
 		name = placeholdername_31 #RIP.30301.fight
+		add_blood_splatter_effect = yes						 
 		trigger = {
 			health = 2
 			NOR = {
@@ -12394,7 +12439,7 @@ character_event = {
 		}
 		if = {
 			limit = {
-				combat_rating_diff = { who = event_target:immortal_rival value = 5 }
+				combat_rating_diff = { who = event_target:immortal_rival value = 50 }
 			}
 			custom_tooltip = { text = holmgang_chances_great } #Tooltip reuse FTW
 			hidden_tooltip = {
@@ -12417,9 +12462,9 @@ character_event = {
 		}
 		if = {
 			limit = {
-				combat_rating_diff = { who = event_target:immortal_rival value = 3 }
+				combat_rating_diff = { who = event_target:immortal_rival value = 30 }
 				NOT = {
-					combat_rating_diff = { who = event_target:immortal_rival value = 5 }
+					combat_rating_diff = { who = event_target:immortal_rival value = 50 }
 				}
 			}
 			custom_tooltip = { text = holmgang_chances_very_good }
@@ -12443,9 +12488,9 @@ character_event = {
 		}
 		if = {
 			limit = {
-				combat_rating_diff = { who = event_target:immortal_rival value = 1 }
+				combat_rating_diff = { who = event_target:immortal_rival value = 10 }
 				NOT = {
-					combat_rating_diff = { who = event_target:immortal_rival value = 3 }
+					combat_rating_diff = { who = event_target:immortal_rival value = 30 }
 				}
 			}
 			custom_tooltip = { text = holmgang_chances_good }
@@ -12470,9 +12515,9 @@ character_event = {
 		if = {
 			limit = {
 				NOT = {
-					combat_rating_diff = { who = event_target:immortal_rival value = 1 }
+					combat_rating_diff = { who = event_target:immortal_rival value = 10 }
 					event_target:immortal_rival = {
-						combat_rating_diff = { who = ROOT value = 1 }
+						combat_rating_diff = { who = ROOT value = 10 }
 					}
 				}
 			}
@@ -12498,11 +12543,11 @@ character_event = {
 		if = {
 			limit = {
 				event_target:immortal_rival = {
-					combat_rating_diff = { who = ROOT value = 1 }
+					combat_rating_diff = { who = ROOT value = 10 }
 				}
 				NOT = {
 					event_target:immortal_rival = {
-						combat_rating_diff = { who = ROOT value = 3 }
+						combat_rating_diff = { who = ROOT value = 30 }
 					}
 				}
 			}
@@ -12528,11 +12573,11 @@ character_event = {
 		if = {
 			limit = {
 				event_target:immortal_rival = {
-					combat_rating_diff = { who = ROOT value = 3 }
+					combat_rating_diff = { who = ROOT value = 30 }
 				}
 				NOT = {
 					event_target:immortal_rival = {
-						combat_rating_diff = { who = ROOT value = 5 }
+						combat_rating_diff = { who = ROOT value = 50 }
 					}
 				}
 			}
@@ -12558,7 +12603,7 @@ character_event = {
 		if = {
 			limit = {
 				event_target:immortal_rival = {
-					combat_rating_diff = { who = ROOT value = 5 }
+					combat_rating_diff = { who = ROOT value = 50 }
 				}
 			}
 			custom_tooltip = { text = holmgang_chances_terrible }
@@ -12581,6 +12626,7 @@ character_event = {
 	}
 	option = { #fight. berserker
 		name = placeholdername_33 #RIP.30301.berserkfight
+		add_blood_splatter_effect = yes								 
 		trigger = {
 			health = 2
 			trait = berserker
@@ -12595,7 +12641,7 @@ character_event = {
 		custom_tooltip = { text = placeholdername_5 }
 		if = {
 			limit = {
-				combat_rating_diff = { who = event_target:immortal_rival value = 5 }
+				combat_rating_diff = { who = event_target:immortal_rival value = 50 }
 			}
 			custom_tooltip = { text = holmgang_chances_great } #Tooltip reuse FTW
 			hidden_tooltip = {
@@ -12618,9 +12664,9 @@ character_event = {
 		}
 		if = {
 			limit = {
-				combat_rating_diff = { who = event_target:immortal_rival value = 3 }
+				combat_rating_diff = { who = event_target:immortal_rival value = 30 }
 				NOT = {
-					combat_rating_diff = { who = event_target:immortal_rival value = 5 }
+					combat_rating_diff = { who = event_target:immortal_rival value = 50 }
 				}
 			}
 			custom_tooltip = { text = holmgang_chances_very_good }
@@ -12644,9 +12690,9 @@ character_event = {
 		}
 		if = {
 			limit = {
-				combat_rating_diff = { who = event_target:immortal_rival value = 1 }
+				combat_rating_diff = { who = event_target:immortal_rival value = 10 }
 				NOT = {
-					combat_rating_diff = { who = event_target:immortal_rival value = 3 }
+					combat_rating_diff = { who = event_target:immortal_rival value = 30 }
 				}
 			}
 			custom_tooltip = { text = holmgang_chances_good }
@@ -12671,9 +12717,9 @@ character_event = {
 		if = {
 			limit = {
 				NOT = {
-					combat_rating_diff = { who = event_target:immortal_rival value = 1 }
+					combat_rating_diff = { who = event_target:immortal_rival value = 10 }
 					event_target:immortal_rival = {
-						combat_rating_diff = { who = ROOT value = 1 }
+						combat_rating_diff = { who = ROOT value = 10 }
 					}
 				}
 			}
@@ -12699,11 +12745,11 @@ character_event = {
 		if = {
 			limit = {
 				event_target:immortal_rival = {
-					combat_rating_diff = { who = ROOT value = 1 }
+					combat_rating_diff = { who = ROOT value = 10 }
 				}
 				NOT = {
 					event_target:immortal_rival = {
-						combat_rating_diff = { who = ROOT value = 3 }
+						combat_rating_diff = { who = ROOT value = 30 }
 					}
 				}
 			}
@@ -12729,11 +12775,11 @@ character_event = {
 		if = {
 			limit = {
 				event_target:immortal_rival = {
-					combat_rating_diff = { who = ROOT value = 3 }
+					combat_rating_diff = { who = ROOT value = 30 }
 				}
 				NOT = {
 					event_target:immortal_rival = {
-						combat_rating_diff = { who = ROOT value = 5 }
+						combat_rating_diff = { who = ROOT value = 50 }
 					}
 				}
 			}
@@ -12759,7 +12805,7 @@ character_event = {
 		if = {
 			limit = {
 				event_target:immortal_rival = {
-					combat_rating_diff = { who = ROOT value = 5 }
+					combat_rating_diff = { who = ROOT value = 50 }
 				}
 			}
 			custom_tooltip = { text = holmgang_chances_terrible }
@@ -12792,9 +12838,10 @@ character_event = {
 				trait = berserker
 			}
 		}
+		add_blood_splatter_effect = yes
 		if = {
 			limit = {
-				combat_rating_diff = { who = event_target:immortal_rival value = 5 }
+				combat_rating_diff = { who = event_target:immortal_rival value = 50 }
 			}
 			custom_tooltip = { text = holmgang_chances_great } #Tooltip reuse FTW
 			hidden_tooltip = {
@@ -12817,9 +12864,9 @@ character_event = {
 		}
 		if = {
 			limit = {
-				combat_rating_diff = { who = event_target:immortal_rival value = 3 }
+				combat_rating_diff = { who = event_target:immortal_rival value = 30 }
 				NOT = {
-					combat_rating_diff = { who = event_target:immortal_rival value = 5 }
+					combat_rating_diff = { who = event_target:immortal_rival value = 50 }
 				}
 			}
 			custom_tooltip = { text = holmgang_chances_very_good }
@@ -12843,9 +12890,9 @@ character_event = {
 		}
 		if = {
 			limit = {
-				combat_rating_diff = { who = event_target:immortal_rival value = 1 }
+				combat_rating_diff = { who = event_target:immortal_rival value = 10 }
 				NOT = {
-					combat_rating_diff = { who = event_target:immortal_rival value = 3 }
+					combat_rating_diff = { who = event_target:immortal_rival value = 30 }
 				}
 			}
 			custom_tooltip = { text = holmgang_chances_good }
@@ -12870,9 +12917,9 @@ character_event = {
 		if = {
 			limit = {
 				NOT = {
-					combat_rating_diff = { who = event_target:immortal_rival value = 1 }
+					combat_rating_diff = { who = event_target:immortal_rival value = 10 }
 					event_target:immortal_rival = {
-						combat_rating_diff = { who = ROOT value = 1 }
+						combat_rating_diff = { who = ROOT value = 10 }
 					}
 				}
 			}
@@ -12898,11 +12945,11 @@ character_event = {
 		if = {
 			limit = {
 				event_target:immortal_rival = {
-					combat_rating_diff = { who = ROOT value = 1 }
+					combat_rating_diff = { who = ROOT value = 10 }
 				}
 				NOT = {
 					event_target:immortal_rival = {
-						combat_rating_diff = { who = ROOT value = 3 }
+						combat_rating_diff = { who = ROOT value = 30 }
 					}
 				}
 			}
@@ -12928,11 +12975,11 @@ character_event = {
 		if = {
 			limit = {
 				event_target:immortal_rival = {
-					combat_rating_diff = { who = ROOT value = 3 }
+					combat_rating_diff = { who = ROOT value = 30 }
 				}
 				NOT = {
 					event_target:immortal_rival = {
-						combat_rating_diff = { who = ROOT value = 5 }
+						combat_rating_diff = { who = ROOT value = 50 }
 					}
 				}
 			}
@@ -12958,7 +13005,7 @@ character_event = {
 		if = {
 			limit = {
 				event_target:immortal_rival = {
-					combat_rating_diff = { who = ROOT value = 5 }
+					combat_rating_diff = { who = ROOT value = 50 }
 				}
 			}
 			custom_tooltip = { text = holmgang_chances_terrible }
@@ -13376,6 +13423,7 @@ character_event = { # trick
 		name = placeholdername_13 #RIP.30310.b	
 		tooltip_info = stewardship
 		capital_scope = {
+			show_scope_change = no
 			add_province_modifier = {
 				name = trapped_immortal
 				duration = -1
@@ -13434,6 +13482,7 @@ character_event = { # the power of money
 			death = { death_reason = death_missing killer = ROOT }
 		}
 		capital_scope = {
+			show_scope_change = no
 			add_province_modifier = {
 				name = trapped_immortal
 				duration = -1

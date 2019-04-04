@@ -33,10 +33,13 @@ character_event = {
 	min_age = 16
 	capable_only = yes
 	prisoner = no
+	has_job_title = yes
 	
 	trigger = {
 		has_job_action = action_uncover_plots
 		NOT = { has_character_modifier = in_seclusion }
+		NOT = { has_character_modifier = bedridden_illness }
+		NOT = { trait = incapable }
 		location = {
 			any_province_character = {
 				NOT = { is_liege_of = ROOT }
@@ -146,18 +149,7 @@ character_event = {
 			}
 		}
 		FROM = {
-			random_list = {
-				0 = {
-					set_character_flag = was_murdered_by_plot
-					death = {
-						death_reason = death_murder
-						killer = ROOT
-					}
-				}
-				50 = {
-					character_event = { id = 20291 days = 1 }
-				}
-			}
+			character_event = { id = 20291 days = 1 }
 		}
 	}
 	option = {
@@ -247,6 +239,7 @@ character_event = {
 	option = {
 		name = "EVTOPTA20293"
 		FROM = {
+			show_scope_change = no
 			opinion = {
 				modifier = scheming_bastard
 				who = ROOT
@@ -267,6 +260,7 @@ character_event = {
 	min_age = 16
 	capable_only = yes
 	prisoner = no
+	has_job_title = yes
 	
 	trigger = {
 		OR = {
@@ -274,6 +268,8 @@ character_event = {
 			has_job_action = action_organize_spies_mystics
 		}
 		NOT = { has_character_modifier = in_seclusion }
+		NOT = { has_character_modifier = bedridden_illness }
+		NOT = { trait = incapable }
 		location = {
 			any_province_lord = {
 				NOT = { is_liege_of = ROOT }
@@ -353,17 +349,8 @@ character_event = {
 			NOT = { martial = 5 }
 		}
 		random_list = {
-			25 = { character_event = { id = 20310 tooltip = "EVTTOOLTIP20310" } }
-			50 = { character_event = { id = 20311 tooltip = "EVTTOOLTIP20311" } }
-			0 = {
-				hidden_tooltip = {
-					liege = { character_event = { id = 20313 } }
-				}
-				death = {
-					death_reason = death_murder_unknown
-					killer = event_target:killer_target
-				}
-			}
+			34 = { character_event = { id = 20310 tooltip = "EVTTOOLTIP20310" } }
+			66 = { character_event = { id = 20311 tooltip = "EVTTOOLTIP20311" } }
 		}
 	}
 	option = {
@@ -374,17 +361,8 @@ character_event = {
 			NOT = { martial = 10 }
 		}
 		random_list = {
-			35 = { character_event = { id = 20310 tooltip = "EVTTOOLTIP20310" } }
-			50 = { character_event = { id = 20311 tooltip = "EVTTOOLTIP20311" } }
-			0 = {
-				hidden_tooltip = {
-					liege = { character_event = { id = 20313 } }
-				}
-				death = {
-					death_reason = death_murder_unknown
-					killer = event_target:killer_target
-				}
-			}
+			34 = { character_event = { id = 20310 tooltip = "EVTTOOLTIP20310" } }
+			66 = { character_event = { id = 20311 tooltip = "EVTTOOLTIP20311" } }
 		}
 	}
 	option = {
@@ -394,17 +372,8 @@ character_event = {
 			martial = 10
 		}
 		random_list = {
-			50 = { character_event = { id = 20310 tooltip = "EVTTOOLTIP20310" } }
-			40 = { character_event = { id = 20311 tooltip = "EVTTOOLTIP20311" } }
-			0 = {
-				hidden_tooltip = {
-					liege = { character_event = { id = 20313 } }
-				}
-				death = {
-					death_reason = death_murder_unknown
-					killer = event_target:killer_target
-				}
-			}
+			55 = { character_event = { id = 20310 tooltip = "EVTTOOLTIP20310" } }
+			45 = { character_event = { id = 20311 tooltip = "EVTTOOLTIP20311" } }
 		}
 	}
 }
@@ -480,6 +449,7 @@ character_event = {
 	min_age = 16
 	capable_only = yes
 	prisoner = no
+	has_job_title = yes
 	
 	trigger = {
 		OR = {
@@ -487,6 +457,8 @@ character_event = {
 			has_job_action = action_organize_spies_mystics
 		}
 		NOT = { has_character_modifier = in_seclusion }
+		NOT = { has_character_modifier = bedridden_illness }
+		NOT = { trait = incapable }
 		location = {
 			OR = {
 				owner = {
@@ -729,6 +701,7 @@ letter_event = {
 		tooltip_info = homosexual
 		trigger = { trait = homosexual }
 		FROM = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_pleased
 				who = ROOT
@@ -749,6 +722,7 @@ letter_event = {
 		tooltip_info = impaler
 		trigger = { trait = impaler }
 		FROM = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_pleased
 				who = ROOT
@@ -769,6 +743,7 @@ letter_event = {
 		tooltip_info = lustful
 		trigger = { trait = lustful }
 		FROM = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_pleased
 				who = ROOT
@@ -789,6 +764,7 @@ letter_event = {
 		tooltip_info = drunkard
 		trigger = { trait = drunkard }
 		FROM = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_pleased
 				who = ROOT
@@ -809,6 +785,7 @@ letter_event = {
 		tooltip_info = hedonist
 		trigger = { trait = hedonist }
 		FROM = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_pleased
 				who = ROOT
@@ -829,6 +806,7 @@ letter_event = {
 		tooltip_info = syphilitic
 		trigger = { trait = syphilitic }
 		FROM = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_pleased
 				who = ROOT
@@ -857,6 +835,7 @@ letter_event = {
 	option = { # Agree
 		name = "EVTOPTA9003"
 		FROM = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_pleased
 				who = ROOT
@@ -875,6 +854,7 @@ letter_event = {
 	option = { # Never!
 		name = "EVTOPTB9003"
 		FROM = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_angry
 				who = ROOT
@@ -903,6 +883,7 @@ letter_event = {
 	option = {
 		name = "EVTOPTA9004"
 		FROM = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_coerced_into_leaving_faction
 				who = ROOT
@@ -926,6 +907,7 @@ letter_event = {
 		tooltip_info = just
 		trigger = { trait = just }
 		FROM = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_pleased
 				who = ROOT
@@ -946,6 +928,7 @@ letter_event = {
 		tooltip_info = honest
 		trigger = { trait = honest }
 		FROM = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_pleased
 				who = ROOT
@@ -966,6 +949,7 @@ letter_event = {
 		tooltip_info = trusting
 		trigger = { trait = trusting }
 		FROM = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_pleased
 				who = ROOT
@@ -986,6 +970,7 @@ letter_event = {
 		tooltip_info = content
 		trigger = { trait = content }
 		FROM = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_pleased
 				who = ROOT
@@ -1006,6 +991,7 @@ letter_event = {
 		tooltip_info = kind
 		trigger = { trait = kind }
 		FROM = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_pleased
 				who = ROOT
@@ -1034,6 +1020,7 @@ letter_event = {
 	option = {
 		name = "EVTOPTA9006"
 		FROM = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_angry
 				who = ROOT
@@ -1055,6 +1042,7 @@ letter_event = {
 	option = {
 		name = "EVTOPTA9007"
 		FROM = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_coerced_into_leaving_faction
 				who = ROOT
@@ -1078,6 +1066,7 @@ letter_event = {
 		tooltip_info = craven
 		trigger = { trait = craven }
 		FROM = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_pleased
 				who = ROOT
@@ -1098,6 +1087,7 @@ letter_event = {
 		tooltip_info = paranoid
 		trigger = { trait = paranoid }
 		FROM = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_pleased
 				who = ROOT
@@ -1118,6 +1108,7 @@ letter_event = {
 		tooltip_info = cynical
 		trigger = { trait = cynical }
 		FROM = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_pleased
 				who = ROOT
@@ -1138,6 +1129,7 @@ letter_event = {
 		tooltip_info = humble
 		trigger = { trait = humble }
 		FROM = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_pleased
 				who = ROOT
@@ -1158,6 +1150,7 @@ letter_event = {
 		tooltip_info = slothful
 		trigger = { trait = slothful }
 		FROM = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_pleased
 				who = ROOT
@@ -1186,6 +1179,7 @@ letter_event = {
 	option = {
 		name = "EVTOPTA9010"
 		FROM = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_coerced_into_leaving_faction
 				who = ROOT
@@ -1207,6 +1201,7 @@ character_event = {
 	min_age = 16
 	capable_only = yes
 	prisoner = no
+	has_job_title = yes
 	
 	trigger = {
 		OR = {
@@ -1214,6 +1209,8 @@ character_event = {
 			has_job_action = action_organize_spies_mystics
 		}
 		NOT = { has_character_modifier = in_seclusion }
+		NOT = { has_character_modifier = bedridden_illness }
+		NOT = { trait = incapable }
 		liege = { in_faction = yes }
 		location = {
 			owner = {
@@ -1227,6 +1224,7 @@ character_event = {
 				NOT = { is_liege_of = ROOT }
 				NOT = { character = ROOT }
 				NOT = { trait = incapable }
+				NOT = { has_opinion_modifier = { who = liege modifier = opinion_coerced_into_leaving_faction } } #To avoid weirdness
 				ROOT = {
 					liege = {
 						NOT = { reverse_has_opinion_modifier = { who = PREVPREV modifier = opinion_coerced_into_joining_faction } }
@@ -1402,6 +1400,7 @@ letter_event = {
 		tooltip_info = homosexual
 		trigger = { trait = homosexual }
 		FROM = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_pleased
 				who = ROOT
@@ -1422,6 +1421,7 @@ letter_event = {
 		tooltip_info = impaler
 		trigger = { trait = impaler }
 		FROM = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_pleased
 				who = ROOT
@@ -1442,6 +1442,7 @@ letter_event = {
 		tooltip_info = lustful
 		trigger = { trait = lustful }
 		FROM = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_pleased
 				who = ROOT
@@ -1462,6 +1463,7 @@ letter_event = {
 		tooltip_info = drunkard
 		trigger = { trait = drunkard }
 		FROM = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_pleased
 				who = ROOT
@@ -1482,6 +1484,7 @@ letter_event = {
 		tooltip_info = hedonist
 		trigger = { trait = hedonist }
 		FROM = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_pleased
 				who = ROOT
@@ -1502,6 +1505,7 @@ letter_event = {
 		tooltip_info = syphilitic
 		trigger = { trait = syphilitic }
 		FROM = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_pleased
 				who = ROOT
@@ -1530,6 +1534,7 @@ letter_event = {
 	option = { # Agree
 		name = EVTOPTA9004
 		FROM = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_pleased
 				who = ROOT
@@ -1545,6 +1550,7 @@ letter_event = {
 	option = { # Never!
 		name = EVTOPTA9004
 		FROM = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_angry
 				who = ROOT
@@ -1570,6 +1576,7 @@ letter_event = {
 	option = {
 		name = EVTOPTA9004
 		FROM = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_coerced_into_joining_faction
 				who = ROOT
@@ -1591,6 +1598,7 @@ letter_event = {
 	option = {
 		name = EVTOPTA9004
 		FROM = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_coerced_into_joining_faction
 				who = ROOT
@@ -1612,6 +1620,7 @@ letter_event = {
 	option = {
 		name = "EVTOPTA9006"
 		FROM = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_angry
 				who = ROOT
@@ -1635,6 +1644,7 @@ letter_event = {
 		tooltip_info = paranoid
 		trigger = { trait = paranoid }
 		FROM = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_pleased
 				who = ROOT
@@ -1655,6 +1665,7 @@ letter_event = {
 		tooltip_info = cynical
 		trigger = { trait = cynical }
 		FROM = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_pleased
 				who = ROOT
@@ -1675,6 +1686,7 @@ letter_event = {
 		tooltip_info = humble
 		trigger = { trait = humble }
 		FROM = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_pleased
 				who = ROOT
@@ -1695,6 +1707,7 @@ letter_event = {
 		tooltip_info = slothful
 		trigger = { trait = slothful }
 		FROM = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_pleased
 				who = ROOT
@@ -1723,6 +1736,7 @@ letter_event = {
 	option = {
 		name = "EVTOPTA9030"
 		FROM = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_coerced_into_joining_faction
 				who = ROOT
@@ -1749,10 +1763,13 @@ character_event = {
 	min_age = 16
 	capable_only = yes
 	prisoner = no
+	has_job_title = yes
 	
 	trigger = {
 		has_job_action = action_study_technology
 		NOT = { has_character_modifier = in_seclusion }
+		NOT = { has_character_modifier = bedridden_illness }
+		NOT = { trait = incapable }
 		location = { has_higher_tech_than = ROOT }
 	}
 	
@@ -1765,6 +1782,10 @@ character_event = {
 				has_focus = focus_scholarship
 				liege = { has_focus = focus_scholarship }
 			}
+		}
+		modifier = {
+			factor = 2
+			has_religion_feature = religion_dogmatic
 		}
 		modifier = {
 			factor = 1.25
@@ -1848,6 +1869,7 @@ character_event = {
 	min_age = 16
 	capable_only = yes
 	prisoner = no
+	has_job_title = yes
 	
 	trigger = {
 		OR = {
@@ -1859,6 +1881,8 @@ character_event = {
 			has_job_action = action_sabotage_province
 		}
 		NOT = { has_character_modifier = in_seclusion }
+		NOT = { has_character_modifier = bedridden_illness }
+		NOT = { trait = incapable }
 		location = {
 			any_province_lord = {
 				NOT = { is_liege_of = ROOT }
@@ -1979,6 +2003,7 @@ letter_event = {
 	option = {
 		name = "EVTOPTA20331"
 		FROM = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_dishonorable_scum
 				who = ROOT
@@ -2023,10 +2048,13 @@ character_event = {
 	min_age = 16
 	capable_only = yes
 	prisoner = no
+	has_job_title = yes
 	
 	trigger = {
 		has_job_action = action_organize_spies
 		NOT = { has_character_modifier = in_seclusion }
+		NOT = { has_character_modifier = bedridden_illness }
+		NOT = { trait = incapable }
 		location = {
 			any_province_lord = {
 				NOT = { is_liege_of = ROOT }
@@ -2585,10 +2613,13 @@ character_event = {
 	min_age = 16
 	capable_only = yes
 	prisoner = no
+	has_job_title = yes
 	
 	trigger = {
 		has_job_action = action_organize_spies
 		NOT = { has_character_modifier = in_seclusion }
+		NOT = { has_character_modifier = bedridden_illness }
+		NOT = { trait = incapable }
 		location = {
 			any_province_lord = {
 				NOT = { is_liege_of = ROOT }
