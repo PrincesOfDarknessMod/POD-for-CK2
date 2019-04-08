@@ -83,6 +83,15 @@ character_event = {
 		set_character_flag = FLAG_POD_SETUP_NOBLE_FIRED
 	
 		any_close_relative = { death = "yes" }
+
+		if = {
+			limit = {
+				NOT = { 
+					trait = duelbalance 
+				}
+			}
+			add_trait = duelbalance
+		}
 	
 		capital_scope = {	
 			reverse_religion = ROOT

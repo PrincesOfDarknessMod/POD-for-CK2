@@ -1,0 +1,2376 @@
+namespace = POD_vamp_predatortype_events
+character_event = {
+	id = POD_vamp_predatortype_events.1
+	title = "EVTTITLE_POD_VAMP_PREDATORYPE_EVENTS_1"
+	desc = "EVTDESC_POD_VAMP_PREDATORYPE_EVENTS_1"
+	picture = GFX_evt_vampire_moody_landscape
+	border = GFX_event_normal_frame_intrigue
+	is_triggered_only = yes
+	
+	immediate = {
+		add_character_modifier = {
+			name = predatortype_changed_recently
+            years = 10
+		}
+		if = {
+			limit = {
+				OR = {
+					has_character_modifier = predatortype_farmer
+					has_character_modifier = predatortype_farmer
+					has_character_modifier = predatortype_bloodleech
+					has_character_modifier = predatortype_phlebotomist
+					has_character_modifier = predatortype_bedlamite
+					has_character_modifier = predatortype_cenobite
+					has_character_modifier = predatortype_alleycat
+					has_character_modifier = predatortype_cauchemar
+					has_character_modifier = predatortype_familias
+					has_character_modifier = predatortype_footpad
+					has_character_modifier = predatortype_consensualist
+					has_character_modifier = predatortype_osiris
+					has_character_modifier = predatortype_siren
+					has_character_modifier = predatortype_gentry
+					}
+				}
+				trigger_switch = {
+					on_trigger = has_character_modifier
+					predatortype_farmer = { remove_character_modifier = predatortype_farmer }
+					predatortype_bloodleech = { remove_character_modifier = predatortype_bloodleech }
+					predatortype_phlebotomist = { remove_character_modifier = predatortype_phlebotomist }
+					predatortype_bedlamite = { remove_character_modifier = predatortype_bedlamite }
+					predatortype_cenobite = { remove_character_modifier = predatortype_cenobite }
+					predatortype_alleycat = { remove_character_modifier = predatortype_alleycat }
+					predatortype_cauchemar = { remove_character_modifier = predatortype_cauchemar }
+					predatortype_familias = { remove_character_modifier = predatortype_familias }
+					predatortype_footpad = { remove_character_modifier = predatortype_footpad }
+					predatortype_consensualist = { remove_character_modifier = predatortype_consensualist }
+					predatortype_osiris = { remove_character_modifier = predatortype_osiris }
+					predatortype_siren = { remove_character_modifier = predatortype_siren }
+					predatortype_gentry = { remove_character_modifier = predatortype_gentry }
+				}
+			}
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_VAMP_PREDATORYPE_EVENTS_1" # Kine
+		character_event = { id = POD_vamp_predatortype_events.2 tooltip = EVTTOOLTIP_POD_VAMP_PREDATORYPE_EVENTS_2 }
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 3
+				OR = {
+					trait = ancilla
+					trait = elder
+					society_member_of = path_of_beast
+					society_member_of = path_of_cathari
+					society_member_of = path_of_bones
+					society_member_of = path_of_death_and_the_soul
+					society_member_of = path_of_night
+					society_member_of = path_of_typhon
+					society_member_of = path_of_metamorphosis
+					society_member_of = via_regalis
+					society_member_of = via_bestiae
+					society_member_of = via_ossium
+					society_member_of = via_noctis
+					society_member_of = via_einherjar
+					society_member_of = via_yasaq
+					society_member_of = via_serpentis
+					society_member_of = via_mutationis
+					society_member_of = code_of_tremere
+					society_member_of = tariq_el-harb
+					society_member_of = tariq_el-bedouin
+				}
+			}			
+		}
+	}
+	
+	option = {
+		name = "EVTOPTB_POD_VAMP_PREDATORYPE_EVENTS_1" # Animals
+		trigger = {
+			NOT = { trait = ventrue }
+			NOT = { trait = diabolist }
+			OR = { 
+				trait = bloodpotency_1
+				trait = bloodpotency_2
+				trait = bloodpotency_3
+			}	
+		}
+		character_event = { id = POD_vamp_predatortype_events.3  tooltip = EVTTOOLTIP_POD_VAMP_PREDATORYPE_EVENTS_3 }
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 3
+				OR = {
+					trait = gangrel
+					trait = animalism_1
+					trait = animalism_2
+					trait = animalism_3
+					trait = animalism_4
+					trait = animalism_5
+					trait = kind
+					trait = neonate
+					trait = content
+					society_member_of = via_caeli
+					society_member_of = via_humanitatis
+					society_member_of = path_of_redemption
+					society_member_of = path_of_humanity
+					society_member_of = tariq_el-umma
+					society_member_of = tariq_el-sama
+					true_religion = noiad
+				}
+			}
+			modifier = {
+				factor = 0.5
+				OR = {
+					trait = cruel
+					trait = elder
+				}
+			}			
+		}		
+	}
+	
+	option = {
+		name = "EVTOPTC_POD_VAMP_PREDATORYPE_EVENTS_1" # Kindred
+		character_event = { id = POD_vamp_predatortype_events.4 tooltip = EVTTOOLTIP_POD_VAMP_PREDATORYPE_EVENTS_4 }
+		
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 10
+				trait = diabolist
+			}
+			modifier = {
+				factor = 2
+				OR = {
+					trait = bloodpotency_6
+					trait = bloodpotency_7
+					trait = bloodpotency_8
+					trait = bloodpotency_9
+					trait = methuselah
+					trait = ancient
+					trait = ambitious
+					trait = lunatic
+					society_member_of = path_of_evil_revelations
+					society_member_of = path_of_the_hive
+					society_member_of = path_of_blood
+					society_member_of = path_of_caine
+					society_member_of = via_peccati
+					society_member_of = via_hyron
+					society_member_of = via_sanguinus
+					society_member_of = tariq_el-shaitan
+				}
+			}
+			modifier = {
+				factor = 0.5
+				OR = {
+					trait = kind
+					trait = content
+					society_member_of = via_caeli
+					society_member_of = via_humanitas
+					society_member_of = path_of_redemption
+					society_member_of = path_of_humanity
+				}
+			}
+		}
+	}
+
+}
+
+
+# kine
+character_event = {
+	id = POD_vamp_predatortype_events.2
+	title = "EVTTITLE_POD_VAMP_PREDATORYPE_EVENTS_2"
+	desc = "EVTDESC_POD_VAMP_PREDATORYPE_EVENTS_2"
+	picture = GFX_evt_ghoul_tag_team
+	border = GFX_event_normal_frame_intrigue
+	is_triggered_only = yes
+	
+	immediate = {
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_VAMP_PREDATORYPE_EVENTS_2" # Martial 
+		character_event = { id = POD_vamp_predatortype_events.5 } 
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 5
+				OR = {
+					has_education_martial_trigger = yes
+					has_lifestyle_martial_trigger =	yes
+				}
+			}	
+		}		
+	}	
+	
+	option = {
+		name = "EVTOPTB_POD_VAMP_PREDATORYPE_EVENTS_2" # Diplomacy
+		character_event = { id = POD_vamp_predatortype_events.6 }
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 5
+				OR = {
+					has_education_diplomacy_trigger = yes
+					has_lifestyle_diplomacy_trigger = yes
+					has_education_stewardship_trigger = yes
+					has_lifestyle_stewardship_trigger = yes
+				}
+			}	
+		}		
+	}	
+
+	option = {
+		name = "EVTOPTC_POD_VAMP_PREDATORYPE_EVENTS_2" # Intrigue
+		character_event = { id = POD_vamp_predatortype_events.7 }
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 5
+				OR = {
+					has_education_intrigue_trigger = yes
+					has_lifestyle_intrigue_trigger = yes
+					trait = craven
+					trait = paranoid
+				}
+			}	
+		}		
+	}	
+
+	option = {
+		name = "EVTOPTD_POD_VAMP_PREDATORYPE_EVENTS_2" # Learning
+		character_event = { id = POD_vamp_predatortype_events.8 }
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 5
+				OR = {
+					has_education_learning_trigger = yes
+					has_lifestyle_learning_trigger = yes
+				}
+			}	
+		} 		
+	}		
+}
+
+
+# animal
+character_event = {
+	id = POD_vamp_predatortype_events.3
+	title = "EVTTITLE_POD_VAMP_PREDATORYPE_EVENTS_3"
+	desc = "EVTDESC_POD_VAMP_PREDATORYPE_EVENTS_3"
+	picture = GFX_evt_vampire_or_ghoul_generic_spookiness
+	border = GFX_event_normal_frame_economy
+	is_triggered_only = yes
+	portrait = event_target:vamp_dinner 
+	
+	immediate = {
+	
+		random_list =  (
+			20 = {
+			
+				# horse
+				
+				create_character = {
+					random_traits = no
+					dynasty = NONE
+					religion = innocent
+					culture = horse
+					female = no
+					age = 16
+					trait = mortal
+					trait = duelbalance
+					trait = imbecile
+					trait = animal
+					employer = ROOT
+				}
+				
+				new_character = {
+					save_event_target_as = vamp_dinner
+					imprison = ROOT
+				}			
+			}
+			
+			20 = { 		
+
+				# cat
+			
+				create_character = {
+					random_traits = no
+					dynasty = NONE
+					religion = innocent
+					culture = cat
+					female = no
+					age = 16
+					trait = mortal
+					trait = duelbalance
+					trait = imbecile
+					trait = pod_animal
+					employer = ROOT
+				
+				}
+				
+				new_character = {
+					save_event_target_as = vamp_dinner
+					imprison = ROOT
+				}	
+			}
+			
+			5 = { 
+			
+				#bear 
+				
+				create_character = {
+					random_traits = no
+					dynasty = NONE
+					religion = innocent
+					culture = bear
+					female = no
+					age = 16
+					trait = mortal
+					trait = duelbalance
+					trait = imbecile	
+					trait = pod_animal
+					employer = ROOT
+				
+				}
+				
+				new_character = {
+					save_event_target_as = vamp_dinner
+					imprison = ROOT
+				}				
+			}
+			
+			5 = { 
+			
+				# hedgehog 
+
+				create_character = {
+					random_traits = no
+					dynasty = NONE
+					religion = innocent
+					culture = hedgehog_culture
+					female = no
+					age = 16
+					trait = mortal
+					trait = duelbalance
+					trait = imbecile
+					trait = pod_animal
+					employer = ROOT
+				
+				}
+				
+				new_character = {
+					save_event_target_as = vamp_dinner
+					imprison = ROOT
+				}				
+			}
+			
+			20 = { 
+			
+				# duck 
+
+				create_character = {
+					random_traits = no
+					dynasty = NONE
+					religion = innocent
+					culture = duck_culture
+					female = no
+					age = 16
+					trait = mortal
+					trait = duelbalance
+					trait = imbecile
+					trait = pod_animal					
+					employer = ROOT
+				
+				}
+				
+				new_character = {
+					save_event_target_as = vamp_dinner
+					imprison = ROOT
+				}				
+			}
+			
+			20 = { 
+			
+				# dog 
+
+				create_character = {
+					random_traits = no
+					dynasty = NONE
+					religion = innocent
+					culture = dog_culture
+					female = no
+					age = 16
+					trait = mortal
+					trait = duelbalance
+					trait = imbecile
+					trait = pod_animal					
+					employer = ROOT
+				
+				}
+				
+				new_character = {
+					save_event_target_as = vamp_dinner
+					imprison = ROOT
+				}				
+			}
+			
+			5 = { 
+			
+				# elephant 
+
+				create_character = {
+					random_traits = no
+					dynasty = NONE
+					religion = innocent
+					culture = elephant_culture
+					female = no
+					age = 16
+					trait = mortal
+					trait = duelbalance
+					trait = imbecile
+					trait = pod_animal					
+					employer = ROOT
+				
+				}
+				
+				new_character = {
+					save_event_target_as = vamp_dinner
+					imprison = ROOT
+				}				
+			}
+			
+			5 = { 
+			
+				# panda 
+
+				create_character = {
+					random_traits = no
+					dynasty = NONE
+					religion = innocent
+					culture = red_panda
+					female = no
+					age = 16
+					trait = mortal
+					trait = duelbalance
+					trait = imbecile
+					trait = pod_animal					
+					employer = ROOT
+				
+				}
+				
+				new_character = {
+					save_event_target_as = vamp_dinner
+					imprison = ROOT
+				}				
+			}
+		}
+		
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_VAMP_PREDATORYPE_EVENTS_3" 
+		add_character_modifier = {
+			name = predatortype_farmer
+            duration = -1
+		}
+		
+		if = { 
+			limit = { 
+				trait = cruel 
+			}
+			remove_trait = cruel
+		}
+		
+		if = { 
+			limit = { 
+				NOT = { trait = kind }
+			}
+			add_trait = kind
+		}		
+		
+		if = { 
+			limit = {
+				NOT = { trait = animalism_1 }
+				NOT = { trait = animalism_2 }
+				NOT = { trait = animalism_3 }
+				NOT = { trait = animalism_4 }
+				NOT = { trait = animalism_5 }
+			}
+			add_trait = animalism_1
+		}
+		decadence = -2	
+	}		
+}
+
+# Kindred
+character_event = {
+	id = POD_vamp_predatortype_events.4
+	title = "EVTTITLE_POD_VAMP_PREDATORYPE_EVENTS_4"
+	desc = "EVTDESC_POD_VAMP_PREDATORYPE_EVENTS_4"
+	picture = GFX_evt_ghoul_feeding
+	border = GFX_event_normal_frame_war
+	is_triggered_only = yes
+	
+	immediate = {
+	}
+
+	option = {
+		name = "EVTOPTA_POD_VAMP_PREDATORYPE_EVENTS_4" 
+		add_character_modifier = {
+			name = predatortype_blooodleach
+            duration = -1
+		}		
+		if = { 
+			limit = {
+				NOT = { trait = auspex_1 }
+				NOT = { trait = auspex_2 }
+				NOT = { trait = auspex_3 }
+				NOT = { trait = auspex_4 }
+				NOT = { trait = auspex_5 }
+			}
+			add_trait = auspex_1
+		}
+		add_trait = diabolist
+		POD_vampire_bloodpotency_increase_effect = yes
+		decadence = -3
+		
+	}
+}
+
+# Alley Cat
+character_event = {
+	id = POD_vamp_predatortype_events.5
+	title = "EVTTITLE_POD_VAMP_PREDATORYPE_EVENTS_5"
+	desc = "EVTDESC_POD_VAMP_PREDATORYPE_EVENTS_5"
+	picture = GFX_evt_vampire_duel
+	border = GFX_event_normal_frame_war
+	is_triggered_only = yes
+	
+	immediate = {
+	}
+
+	option = {
+		name = "EVTOPTA_POD_VAMP_PREDATORYPE_EVENTS_5" 
+		add_character_modifier = {
+			name = predatortype_alleycat
+            duration = -1
+		}		
+		if = { 
+			limit = {
+				NOT = { trait = vigor_1 }
+				NOT = { trait = vigor_2 }
+				NOT = { trait = vigor_3 }
+				NOT = { trait = vigor_4 }
+				NOT = { trait = vigor_5 }
+			}
+			add_trait = vigor_1
+		}
+		decadence = 2
+		
+	}
+}
+
+# Diplomacy
+character_event = {
+	id = POD_vamp_predatortype_events.6
+	title = "EVTTITLE_POD_VAMP_PREDATORYPE_EVENTS_6"
+	desc = "EVTDESC_POD_VAMP_PREDATORYPE_EVENTS_6"
+	picture = GFX_evt_vampire_conclave_i
+	border = GFX_event_normal_frame_diplomacy
+	is_triggered_only = yes
+	
+	immediate = {
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_VAMP_PREDATORYPE_EVENTS_6" # Consensualist
+		character_event = { id = POD_vamp_predatortype_events.9 } 
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 5
+				OR = {
+					trait = trusting
+					trait = honest
+					trait = salubri
+					trait = majesty_1
+					trait = majesty_2
+					trait = majesty_3
+					trait = majesty_4
+					trait = majesty_5
+				}
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					trait = paranoid
+					trait = deceitful
+					trait = nosferatu
+					trait = nosferatuantitribu
+				}
+			}
+		}		
+	}	
+	
+	option = {
+		name = "EVTOPTB_POD_VAMP_PREDATORYPE_EVENTS_6" # Siren
+		character_event = { id = POD_vamp_predatortype_events.10 }
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 5
+				OR = {
+					trait = lustful
+					trait = hedonist
+					trait = seducer
+					trait = seductress
+					trait = fair
+					trait = toreador
+					trait = toreadorantitribu
+					trait = majesty_1
+					trait = majesty_2
+					trait = majesty_3
+					trait = majesty_4
+					trait = majesty_5
+					trait = homosexual
+					trait = groomed
+					trait = poet
+					trait = socializer
+					society_member_of = via_humanitas
+					society_member_of = path_of_humanity
+					society_member_of = tariq_el-umma
+				}
+			}	
+			modifier = {
+				factor = 0
+				OR = {
+					trait = celibate
+					trait = chaste
+					trait = ugly
+					trait = uncouth
+					trait = nosferatu
+					trait = nosferatuantitribu
+				}
+			}				
+		}		
+		
+	}	
+
+	option = {
+		name = "EVTOPTC_POD_VAMP_PREDATORYPE_EVENTS_6" # Gentry
+		character_event = { id = POD_vamp_predatortype_events.11 } 		
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 5
+				OR = {
+					trait = proud
+					trait = ventrue
+					trait = ventrueantitribu
+					trait = toreador
+					trait = toreadorantitribu
+					trait = dominate_1
+					trait = dominate_2
+					trait = dominate_3
+					trait = dominate_4
+					trait = dominate_5
+					trait = socializer
+					trait = administrator
+					trait = gamer
+					has_education_stewardship_trigger = yes
+					has_lifestyle_stewardship_trigger = yes
+					society_member_of = order_black_cross
+					society_member_of = via_regalis
+					
+				}
+			}	
+			modifier = {
+				factor = 0.5
+				OR = {
+					trait = humble
+				}
+			}			
+		}		
+	}
+
+	option = {
+		name = "EVTOPTD_POD_VAMP_PREDATORYPE_EVENTS_6" # Osiris
+		character_event = { id = POD_vamp_predatortype_events.12 } 	
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 5
+				OR = {
+					trait = ambitious
+					trait = followerofset
+					trait = followerofsetantitribu
+					trait = tzimisce
+					trait = tzimisceantitribu
+					trait = malkavian
+					trait = malkavianantitribu
+					trait = majesty_1
+					trait = majesty_2
+					trait = majesty_3
+					trait = majesty_4
+					trait = majesty_5
+					trait = mystic
+					trait = lunatic
+					trait = brave
+					has_education_learning_trigger = yes
+					has_lifestyle_learning_trigger = yes
+					society_member_of = via_serpentis
+					society_member_of = via_einherjar
+					
+				}
+			}	
+			modifier = {
+				factor = 0.5
+				OR = {
+					trait = content
+					trait = depressed
+					trait = paranoid
+					trait = craven
+				}
+			}			
+		}		
+	}	
+	
+}
+
+# Intrigue 
+character_event = {
+	id = POD_vamp_predatortype_events.7
+	title = "EVTTITLE_POD_VAMP_PREDATORYPE_EVENTS_7"
+	desc = "EVTDESC_POD_VAMP_PREDATORYPE_EVENTS_7"
+	picture = GFX_evt_moor_arches
+	border = GFX_event_normal_frame_intrigue
+	is_triggered_only = yes
+	
+	immediate = {
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_VAMP_PREDATORYPE_EVENTS_7" # Cauchemar
+		character_event = { id = POD_vamp_predatortype_events.13 } 	
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 5
+				OR = {
+					trait = craven
+					trait = paranoid
+					trait = malkavian
+					trait = malkavianantitribu
+					trait = nosferatu
+					trait = nosferatuantitribu
+					trait = cappadocian
+					trait = obfuscate_1
+					trait = obfuscate_2
+					trait = obfuscate_3
+					trait = obfuscate_4
+					trait = obfuscate_5
+				}
+			}
+			modifier = {
+				factor = 0.5
+				OR = {
+					trait = proud
+					trait = brave
+					trait = paranoid
+					trait = craven
+					trait = trusting 
+					trait = giovanni
+				}
+			}
+		}
+	}	
+	
+	option = {
+		name = "EVTOPTB_POD_VAMP_PREDATORYPE_EVENTS_7" # Familias
+		character_event = { id = POD_vamp_predatortype_events.14 } 
+		trigger = { 
+			ai = no 
+		}
+	}	
+
+	option = {
+		name = "EVTOPTC_POD_VAMP_PREDATORYPE_EVENTS_7" # Footpad
+		character_event = { id = POD_vamp_predatortype_events.15 } 
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 5
+				OR = {
+					trait = nosferatu
+					trait = nosferatuantitribu
+					trait = obfuscate_1
+					trait = obfuscate_2
+					trait = obfuscate_3
+					trait = obfuscate_4
+					trait = obfuscate_5
+					trait = humble
+					trait = uncouth
+					society_member_of = via_humanitas
+					society_member_of = path_of_humanity
+					society_member_of = tariq_el-umma
+				}
+			}
+			modifier = {
+				factor = 0.5
+				OR = {
+					trait = proud
+					trait = groomed
+					trait = ventrue
+					trait = toreador
+				}
+			}
+		}		
+	}	
+	
+}
+
+# Learning 
+character_event = {
+	id = POD_vamp_predatortype_events.8
+	title = "EVTTITLE_POD_VAMP_PREDATORYPE_EVENTS_8"
+	desc = "EVTDESC_POD_VAMP_PREDATORYPE_EVENTS_8"
+	picture = GFX_evt_vampire_lasombra
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	
+	immediate = {
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_VAMP_PREDATORYPE_EVENTS_8" # Phlebotomist
+		character_event = { id = POD_vamp_predatortype_events.16 } 	
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 5
+				OR = {
+					trait = tremere
+					trait = tremereantitribu
+					trait = tzimisce
+					trait = tzimisceantitribu
+					trait = cappadocian
+					trait = giovanni
+					trait = necromancy_1
+					trait = necromancy_2
+					trait = necromancy_3
+					trait = necromancy_4
+					trait = necromancy_5
+					trait = thaumaturgy_1
+					trait = thaumaturgy_2
+					trait = thaumaturgy_3
+					trait = thaumaturgy_4
+					trait = thaumaturgy_5				
+					trait = physician
+					trait = mystic
+					trait = cynical
+					trait = patient
+					trait = scholar
+					trait = impaler
+					trait = genius
+					trait = quick
+					society_member_of = path_of_bones
+					society_member_of = path_of_death_and_the_soul
+					society_member_of = path_of_metamorphosis
+					society_member_of = via_ossium
+					society_member_of = via_mutationis
+					society_member_of = code_of_tremere
+					society_member_of = via_humanitas
+					society_member_of = path_of_humanity
+					society_member_of = tariq_el-umma
+				}
+			}
+			modifier = {
+				factor = 0.5
+				OR = {
+					trait = uncouth 
+					trait = zealous
+					trait = crusader
+					trait = monk
+					trait = nun
+					trait = theologian
+				}
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					trait = nosferatu
+					trait = nosferatuantitribu
+				}
+			}			
+		}		
+		
+	}	
+	
+	option = {
+		name = "EVTOPTB_POD_VAMP_PREDATORYPE_EVENTS_8" # Bedlamite
+		character_event = { id = POD_vamp_predatortype_events.17 } 	
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 5
+				OR = {
+					trait = malkavian
+					trait = malkavianantitribu
+					trait = dementation_1
+					trait = dementation_2
+					trait = dementation_3
+					trait = dementation_4
+					trait = dementation_5
+					trait = lunatic
+					trait = depressed
+					trait = paranoid
+				}
+			}
+			modifier = {
+				factor = 0.5
+				OR = {
+					NOT = { trait = lunatic }
+					NOT = { trait = depressed }
+					NOT = { trait = paranoid }
+				}
+			}
+		}			
+	}	
+
+	option = {
+		name = "EVTOPTC_POD_VAMP_PREDATORYPE_EVENTS_8" # Cenobite
+		character_event = { id = POD_vamp_predatortype_events.18 }
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 5
+				OR = {
+					trait = lasombra
+					trait = lasombraantitribu
+					trait = nosferatu
+					trait = nosferatuantitribu
+					trait = auspex_1
+					trait = auspex_2
+					trait = auspex_3
+					trait = auspex_4
+					trait = auspex_5
+					trait = crusader
+					trait = erudite
+					trait = monk
+					trait = nun
+					trait = theologian
+					trait = zealous
+					trait = pilgrim
+					trait = faqih
+					
+					society_member_of = order_bitter_ashes
+					society_member_of = order_sable_rose
+					society_member_of = order_saint_ladre
+					society_member_of = via_ossium
+					society_member_of = crimson_curia
+					society_member_of = order_st_panteleimon
+					society_member_of = via_caeli
+					society_member_of = path_of_redemption
+					society_member_of = tariq_el-sama
+					true_religion = cainite
+				}
+			}
+			modifier = {
+				factor = 0.5
+				OR = {
+					trait = cynical
+				}
+			}
+		}		
+	}	
+	
+}
+
+# Consensualist
+character_event = {
+	id = POD_vamp_predatortype_events.9
+	title = "EVTTITLE_POD_VAMP_PREDATORYPE_EVENTS_9"
+	desc = "EVTDESC_POD_VAMP_PREDATORYPE_EVENTS_9"
+	picture = GFX_evt_ghoul_domitor
+	border = GFX_event_normal_frame_diplomacy
+	is_triggered_only = yes
+	portrait = event_target:vamp_dinner
+	
+	immediate = {
+		create_character = {
+			random_traits = yes
+			dynasty = NONE
+			religion = innocent
+			culture = ROOT
+			trait = mortal
+			trait = duelbalance
+			employer = ROOT
+			trait = trusting
+			trait = mortal
+			trait = ghoul
+			trait = majesty_1
+			trait = bloodbound
+			trait = duelbalance
+		}
+				
+		new_character = {
+			save_event_target_as = vamp_dinner
+			add_friend = ROOT
+			opinion = {
+				modifier = opinion_blood_bond_to_domitor_ghoul
+				who = FROM
+				years = 3000
+			}
+			FROM = { save_event_target_as = domitor }
+			event_target:domitor = {
+			
+				opinion = {
+					modifier = opinion_my_ghoul
+					who = PREV
+					years = 3000
+				}
+			}
+			ROOT = {
+				opinion = {
+					modifier = opinion_herd
+					who = PREV
+					years = 3000
+				}
+			}	
+		}	
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_VAMP_PREDATORYPE_EVENTS_9" 
+		add_character_modifier = {
+			name = predatortype_consensualist
+            duration = -1
+		}
+		if = { 
+			limit = { 
+				trait = deceitful
+			}
+			remove_trait = deceitful
+		}
+		
+		if = { 
+			limit = { 
+				NOT = { trait = honest }
+			}
+			add_trait = honest 
+		}	
+		if = { 
+			limit = { 
+				trait = paranoid
+			}
+			remove_trait = paranoid
+		}
+		
+		if = { 
+			limit = { 
+				NOT = { trait = trusting }
+			}
+			add_trait = trusting
+		}	
+		
+		if = { 
+			limit = {
+				NOT = { trait = majesty_1 }
+				NOT = { trait = majesty_2 }
+				NOT = { trait = majesty_3 }
+				NOT = { trait = majesty_4 }
+				NOT = { trait = majesty_5 }
+			}
+			add_trait = majesty_1
+		}
+		decadence = -3
+	}		
+	
+}
+
+# Siren
+character_event = {
+	id = POD_vamp_predatortype_events.10
+	title = "EVTTITLE_POD_VAMP_PREDATORYPE_EVENTS_10"
+	desc = "EVTDESC_POD_VAMP_PREDATORYPE_EVENTS_10"
+	picture = GFX_evt_ghoul_sexy_domitor
+	border = GFX_event_normal_frame_diplomacy
+	is_triggered_only = yes
+	portrait = event_target:vamp_dinner
+	
+	immediate = {
+			if = {
+				limit = {
+					NOT = { trait = homosexual }
+				}
+				random = {
+					chance = 10
+					add_trait = homosexual 
+				}
+			}	
+
+
+		if = { 
+			limit = {
+				is_female = no
+				NOT = { trait = homosexual }
+				}
+				create_character = {
+					random_traits = yes
+					dynasty = NONE
+					religion = innocent
+					culture = ROOT
+					female = yes
+					trait = mortal
+					trait = duelbalance
+					employer = ROOT
+				
+				}
+				
+				new_character = {
+					save_event_target_as = vamp_dinner
+					add_lover = ROOT
+					ROOT = {
+						opinion = {
+							modifier = opinion_herd
+							who = PREV
+							years = 3000
+						}
+					}
+				}					
+		}
+		
+		if = { 
+			limit = {
+				is_female = yes
+				NOT = { trait = homosexual }
+				}
+				create_character = {
+					random_traits = yes
+					dynasty = NONE
+					religion = innocent
+					culture = ROOT
+					female = no
+					trait = mortal
+					trait = duelbalance
+					employer = ROOT
+				
+				}
+				
+				new_character = {
+					save_event_target_as = vamp_dinner
+					add_lover = ROOT
+					ROOT = {
+						opinion = {
+							modifier = opinion_herd
+							who = PREV
+							years = 3000
+						}
+					}
+				}					
+		}	
+
+		if = { 
+			limit = {
+				is_female = no
+				trait = homosexual 
+				}
+				create_character = {
+					random_traits = yes
+					dynasty = NONE
+					religion = innocent
+					culture = ROOT
+					female = no
+					trait = mortal
+					trait = duelbalance
+					employer = ROOT
+				
+				}
+				
+				new_character = {
+					save_event_target_as = vamp_dinner
+					add_lover = ROOT
+					ROOT = {
+						opinion = {
+							modifier = opinion_herd
+							who = PREV
+							years = 3000
+						}
+					}
+				}					
+		}	
+
+		if = { 
+			limit = {
+				is_female = yes
+				trait = homosexual
+				}
+				create_character = {
+					random_traits = yes
+					dynasty = NONE
+					religion = innocent
+					culture = ROOT
+					female = yes
+					trait = mortal
+					trait = duelbalance
+					employer = ROOT
+				
+				}
+				
+				new_character = {
+					save_event_target_as = vamp_dinner
+					add_lover = ROOT
+					ROOT = {
+						opinion = {
+							modifier = opinion_herd
+							who = PREV
+							years = 3000
+						}
+					}
+				}					
+		}		
+
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_VAMP_PREDATORYPE_EVENTS_10"
+		add_character_modifier = {
+			name = predatortype_siren
+            duration = -1
+		}
+		if = { 
+			limit = {
+				NOT = { trait = majesty_1 }
+				NOT = { trait = majesty_2 }
+				NOT = { trait = majesty_3 }
+				NOT = { trait = majesty_4 }
+				NOT = { trait = majesty_5 }
+			}
+			add_trait = majesty_1
+		}
+		if = { 
+			limit = { 
+				NOT = { trait = lustful }
+				NOT = { trait = hedonist }
+				NOT = { trait = seducer }
+				NOT = { trait = seductress }
+			}
+			
+			random_list = {
+				33 = {
+					add_trait = lustful
+				}
+				33 = {
+					add_trait = hedonist
+				}
+				34 = {
+
+					if = {
+						limit = {
+							is_female = yes
+						}
+						add_trait = seductress
+					}
+					if = {
+						limit = {
+							is_female = no 
+						}
+						add_trait = seducer
+					}				
+				}
+			}
+		}		
+		decadence = -1
+	}		
+	
+}
+
+# Gentry
+character_event = {
+	id = POD_vamp_predatortype_events.11
+	title = "EVTTITLE_POD_VAMP_PREDATORYPE_EVENTS_11"
+	desc = "EVTDESC_POD_VAMP_PREDATORYPE_EVENTS_11"
+	picture = GFX_evt_vampire_councillor_primo
+	border = GFX_event_normal_frame_diplomacy
+	is_triggered_only = yes
+	portrait = event_target:vamp_dinner
+	
+	immediate = {
+	
+		create_random_steward = {
+			random_traits = yes
+			dynasty = acutally_culture
+			religion = innocent
+			employer = ROOT
+			trait = mortal
+			trait = ghoul
+			trait = dominate_1
+			trait = bloodbound
+			trait = duelbalance	
+			trait = groomed
+		}
+		new_character = {		
+			save_event_target_as = vamp_dinner
+			random_list = {
+				10 = { trait = legit_bastard }
+				5 = { trait = fair }
+				5 = { trait = quick }
+				5 = { trait = inbred }
+				10 = { trait = hedonist }
+				5 = { trait = poet }
+				10 = { trait = falconer }
+				5 = { trait = impaler }
+				5 = { trait = hunter }
+				10 = { trait = administrator }
+				5 = { trait = architect }
+				5 = { trait = socializer }
+				5 = { trait = duelist }
+				5 = { trait = greedy }
+				5 = { trait = gluttonous }
+				5 = { trait = proud }
+			}
+			opinion = {
+				modifier = opinion_blood_bond_to_domitor_ghoul
+				who = FROM
+				years = 3000
+			}
+			ROOT = {
+				opinion = {
+					modifier = opinion_herd
+					who = PREV
+					years = 3000
+				}
+			}
+			FROM = { save_event_target_as = domitor }
+			event_target:domitor = {
+			
+				opinion = {
+					modifier = opinion_my_ghoul
+					who = PREV
+					years = 3000
+				}
+			}			
+		}		
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_VAMP_PREDATORYPE_EVENTS_11"
+		add_character_modifier = {
+			name = predatortype_gentry
+            duration = -1
+		}
+		if = { 
+			limit = {
+				NOT = { trait = dominate_1 }
+				NOT = { trait = dominate_2 }
+				NOT = { trait = dominate_3 }
+				NOT = { trait = dominate_4 }
+				NOT = { trait = dominate_5 }
+			}
+			add_trait = dominate_1	
+		}
+		if = { 
+			limit = { 
+				trait = uncouth
+			}
+			remove_trait = uncouth
+		}
+		
+		if = { 
+			limit = { 
+				NOT = { trait = groomed }
+			}
+			add_trait = groomed 
+		}		
+		decadence = 1		
+	}		
+	
+}
+
+# Osiris
+character_event = {
+	id = POD_vamp_predatortype_events.12
+	title = "EVTTITLE_POD_VAMP_PREDATORYPE_EVENTS_12"
+	desc = "EVTDESC_POD_VAMP_PREDATORYPE_EVENTS_12"
+	picture = GFX_evt_ghoul_dies_defending
+	border = GFX_event_normal_frame_diplomacy
+	is_triggered_only = yes
+	portrait = event_target:vamp_dinner
+	
+	immediate = {
+		create_random_priest = {
+			random_traits = yes
+			dynasty = NONE
+			religion = ROOT
+			employer = ROOT
+			trait = mortal
+			trait = ghoul
+			trait = majesty_1
+			trait = bloodbound
+			trait = duelbalance
+		}
+				
+		new_character = {
+			save_event_target_as = vamp_dinner
+			remove_trait = slow
+			remove_trait = imbecile
+			remove_trait = dull
+			remove_trait = mystic
+			remove_trait = socializer
+			remove_trait = gamer
+			remove_trait = hedonist
+			remove_trait = duelist
+			remove_trait = hunter
+			remove_trait = strategist
+			remove_trait = administrator
+			remove_trait = architect
+			remove_trait = gardener
+			remove_trait = schemer
+			remove_trait = impaler
+			remove_trait = seducer
+			remove_trait = seductress
+			remove_trait = theologian
+			remove_trait = scholar
+				
+			random_list = { # Flavor Randomization
+				35 = { 
+					# Nothing
+				}
+				15 = {
+					change_learning = 2
+				}
+				20 = {
+					add_trait = theologian
+				}
+				5 = {
+					add_trait = scholar
+				}
+				5 = {
+					add_trait = mystic
+				}
+				10 = {
+					change_learning = 4
+				}
+				5 = {
+					change_learning = 6
+				}
+				5 = {
+					add_trait = shrewd
+				}
+			}
+			opinion = {
+				modifier = opinion_blood_bond_to_domitor_ghoul
+				who = FROM
+				years = 3000
+			}
+			ROOT = {
+				opinion = {
+					modifier = opinion_herd
+					who = PREV
+					years = 3000
+				}
+			}
+			FROM = { save_event_target_as = domitor }
+			event_target:domitor = {
+			
+				opinion = {
+					modifier = opinion_my_ghoul
+					who = PREV
+					years = 3000
+				}
+			}			
+		}						
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_VAMP_PREDATORYPE_EVENTS_12"
+		add_character_modifier = {
+			name = predatortype_osiris
+            duration = -1
+		}
+		if = { 
+			limit = {
+				NOT = { trait = majesty_1 }
+				NOT = { trait = majesty_2 }
+				NOT = { trait = majesty_3 }
+				NOT = { trait = majesty_4 }
+				NOT = { trait = majesty_5 }
+			}
+			add_trait = majesty_1
+		}
+		if = { 
+			limit = { 
+				NOT = { trait = mystic }
+			}
+			add_trait = mystic
+		}		
+		decadence = 3
+	}		
+	
+}
+
+# Cauchemar
+character_event = {
+	id = POD_vamp_predatortype_events.13
+	title = "EVTTITLE_POD_VAMP_PREDATORYPE_EVENTS_13"
+	desc = "EVTDESC_POD_VAMP_PREDATORYPE_EVENTS_13"
+	picture = GFX_evt_vampire_torpor
+	border = GFX_event_normal_frame_intrigue
+	is_triggered_only = yes
+	
+	immediate = {
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_VAMP_PREDATORYPE_EVENTS_13"
+		add_character_modifier = {
+			name = predatortype_cauchemar
+            duration = -1
+		}
+		if = { 
+			limit = {
+				NOT = { trait = obfuscate_1 }
+				NOT = { trait = obfuscate_2 }
+				NOT = { trait = obfuscate_3 }
+				NOT = { trait = obfuscate_4 }
+				NOT = { trait = obfuscate_5 }
+			}
+			add_trait = obfuscate_1
+		}
+		if = { 
+			limit = { 
+				trait = brave
+			}
+			remove_trait = brave
+		}
+		
+		if = { 
+			limit = { 
+				NOT = { trait = craven }
+			}
+			add_trait = craven 
+		}	
+		if = { 
+			limit = { 
+				trait = gregarious
+			}
+			remove_trait = gregarious
+		}
+		
+		if = { 
+			limit = { 
+				NOT = { trait = shy }
+			}
+			add_trait = shy
+		}	
+		
+		decadence = -2
+	}		
+	
+}
+
+# Familias
+character_event = {
+	id = POD_vamp_predatortype_events.14
+	title = "EVTTITLE_POD_VAMP_PREDATORYPE_EVENTS_14"
+	desc = "EVTDESC_POD_VAMP_PREDATORYPE_EVENTS_14"
+	picture = GFX_evt_vampire_ghoul_gift
+	border = GFX_event_normal_frame_intrigue
+	is_triggered_only = yes
+	portrait = event_target:vamp_dinner
+	
+	immediate = {
+	
+		create_character = {
+			random_traits = yes
+			dynasty = actually_culture
+			religion = innocent
+			employer = ROOT
+			age = 60
+			female = no
+			trait = mortal
+			trait = ghoul
+			trait = dementation_1
+			trait = bloodbound
+			trait = duelbalance	
+		}
+		new_character = {		
+			save_event_target_as = vamp_dinner
+			save_event_target_as = paterfamilias
+			opinion = {
+				modifier = opinion_blood_bond_to_domitor_ghoul
+				who = FROM
+				years = 3000
+			}
+			opinion = {
+				modifier = opinion_familias
+				who = FROM
+			}
+			FROM = { save_event_target_as = domitor }
+			event_target:domitor = {
+			
+				opinion = {
+					modifier = opinion_my_ghoul
+					who = PREV
+					years = 3000
+				}
+				opinion = {
+					modifier = opinion_herd
+					who = PREV
+					years = 3000
+				}
+			}	
+			religion = ROOT
+
+			create_character = {
+				random_traits = yes
+				dynasty = THIS
+				religion = innocent
+				employer = ROOT
+				age = 40
+				female = no
+				trait = mortal
+				trait = duelbalance	
+				
+			}
+			
+			new_character = {	
+				set_father = PREV
+				save_event_target_as = firstson
+				opinion = {
+					modifier = opinion_familias
+					who = ROOT
+				}
+				ROOT = {
+					opinion = {
+						modifier = opinion_herd
+						who = PREV
+					}
+				}
+				
+				create_character = {
+					random_traits = yes
+					dynasty = THIS
+					religion = innocent
+					employer = ROOT
+					age = 20
+					female = no
+					trait = mortal
+					trait = duelbalance	
+				}
+				
+				new_character = {
+					set_father = PREV
+					opinion = {
+						modifier = opinion_familias
+						who = ROOT
+						years = 3000
+					}
+					ROOT = {
+						opinion = {
+							modifier = opinion_herd
+							who = PREV
+							years = 3000
+						}
+					}	
+					create_character = {
+						random_traits = yes
+						dynasty = NONE
+						father = PREV
+						religion = innocent
+						employer = ROOT
+						age = 20
+						female = yes
+						trait = mortal
+						trait = duelbalance	
+						trait = pregnant
+						spouce = PREV
+					}
+					new_character = {
+						add_spouse = PREV
+						add_lover = PREV
+						opinion = {
+							modifier = opinion_familias
+							who = ROOT
+							years = 3000
+						}
+						ROOT = {
+							opinion = {
+								modifier = opinion_herd
+								who = PREV
+								years = 3000
+							}
+						}
+					}
+				}		
+			}				
+		}					
+		
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_VAMP_PREDATORYPE_EVENTS_14" 
+		add_character_modifier = {
+			name = predatortype_familias
+            duration = -1
+		}
+		if = { 
+			limit = {
+				NOT = { trait = dominate_1 }
+				NOT = { trait = dominate_2 }
+				NOT = { trait = dominate_3 }
+				NOT = { trait = dominate_4 }
+				NOT = { trait = dominate_5 }
+			}
+			add_trait = dominate_1	
+		}
+		if = { 
+			limit = { 
+				trait = honest
+			}
+			remove_trait = honest
+		}
+		
+		if = { 
+			limit = { 
+				NOT = { trait = deceitful }
+			}
+			add_trait = deceitful 
+		}		
+		decadence = 1	
+	}		
+	
+}
+
+# Footpad
+character_event = {
+	id = POD_vamp_predatortype_events.15
+	title = "EVTTITLE_POD_VAMP_PREDATORYPE_EVENTS_15"
+	desc = "EVTDESC_POD_VAMP_PREDATORYPE_EVENTS_15"
+	picture = GFX_evt_ghoul_nos_basement_conspiracy
+	border = GFX_event_normal_frame_intrigue
+	is_triggered_only = yes
+	portrait = event_target:vamp_dinner
+	
+	immediate = {
+	
+		create_random_intriguer = {
+			random_traits = yes
+			dynasty = NONE
+			religion = criminal
+			employer = ROOT
+			trait = mortal
+			trait = ghoul
+			trait = obfuscate_1
+			trait = bloodbound
+			trait = duelbalance	
+			trait = uncouth
+		}
+		new_character = {		
+			save_event_target_as = vamp_dinner
+			random_list = {
+				10 = { trait = clubfooted }
+				10 = { trait = dwarf }
+				10 = { trait = harelip }
+				10 = { trait = hunchback }
+				10 = { trait = lisp }
+				10 = { trait = stutter }
+				10 = { trait = ugly }
+				10 = { trait = lefthanded }
+				10 = { trait = pirate }
+				10 = { trait = kinslayer }
+			}
+			opinion = {
+				modifier = opinion_blood_bond_to_domitor_ghoul
+				who = FROM
+				years = 3000
+			}
+			FROM = { save_event_target_as = domitor }
+			ROOT = {
+				opinion = {
+					modifier = opinion_herd
+					who = PREV
+					years = 3000
+				}
+			}
+			event_target:domitor = {
+			
+				opinion = {
+					modifier = opinion_my_ghoul
+					who = PREV
+					years = 3000
+				}
+			}			
+		}	
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_VAMP_PREDATORYPE_EVENTS_15"
+		add_character_modifier = {
+			name = predatortype_footpad
+            duration = -1
+		}
+		if = { 
+			limit = {
+				NOT = { trait = obfuscate_1 }
+				NOT = { trait = obfuscate_2 }
+				NOT = { trait = obfuscate_3 }
+				NOT = { trait = obfuscate_4 }
+				NOT = { trait = obfuscate_5 }
+			}
+			add_trait = obfuscate_1
+		}		
+		if = { 
+			limit = { 
+				trait = groomed 
+			}
+			remove_trait = groomed
+		}
+		
+		if = { 
+			limit = { 
+				NOT = { trait = uncouth }
+			}
+			add_trait = uncouth
+		}	
+		decadence = -1
+	}		
+	
+}
+
+# Phlebotomist
+character_event = {
+	id = POD_vamp_predatortype_events.16
+	title = "EVTTITLE_POD_VAMP_PREDATORYPE_EVENTS_16"
+	desc = "EVTDESC_POD_VAMP_PREDATORYPE_EVENTS_16"
+	picture = GFX_evt_ghoul_gifts_gold
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	
+	immediate = {	
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_VAMP_PREDATORYPE_EVENTS_16"
+		add_character_modifier = {
+			name = predatortype_phlebotomist
+            duration = -1
+		}
+		if = { 
+			limit = {
+				NOT = { trait = necromancy_1 }
+				NOT = { trait = necromancy_2 }
+				NOT = { trait = necromancy_3 }
+				NOT = { trait = necromancy_4 }
+				NOT = { trait = necromancy_5 }
+			}
+			add_trait = necromancy_1
+		}	
+		if = { 
+			limit = { 
+				NOT = { trait = physician }
+			}
+			add_trait = physician
+		}
+		
+		decadence = -1
+	}		
+	
+}
+
+# Bedlamite
+character_event = {
+	id = POD_vamp_predatortype_events.17
+	title = "EVTTITLE_POD_VAMP_PREDATORYPE_EVENTS_17"
+	desc = "EVTDESC_POD_VAMP_PREDATORYPE_EVENTS_17"
+	picture = GFX_evt_vampires_for_arches
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	portrait = event_target:vamp_dinner
+	
+	immediate = {
+	
+		create_character = {
+			random_traits = yes
+			dynasty = NONE
+			religion = insane
+			employer = ROOT
+			trait = mortal
+			trait = ghoul
+			trait = dementation_1
+			trait = bloodbound
+			trait = duelbalance	
+		}
+		new_character = {		
+			save_event_target_as = vamp_dinner
+			random_list = { 
+				40 = { add_trait = lunatic }
+				20 = { add_trait = paranoid }
+				20 = { add_trait = depressed }
+				20 = { add_trait = possessed }
+			}
+			opinion = {
+				modifier = opinion_blood_bond_to_domitor_ghoul
+				who = FROM
+				years = 3000
+			}
+			FROM = { save_event_target_as = domitor }
+			ROOT = {
+				opinion = {
+					modifier = opinion_herd
+					who = PREV
+					years = 3000
+				}
+			}
+			event_target:domitor = {
+			
+				opinion = {
+					modifier = opinion_my_ghoul
+					who = PREV
+					years = 3000
+				}
+			}			
+		}
+		
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_VAMP_PREDATORYPE_EVENTS_17" 
+		add_character_modifier = {
+			name = predatortype_bedlamite
+            duration = -1
+		}
+		if = { 
+			limit = {
+				NOT = { trait = dementation_1 }
+				NOT = { trait = dementation_2 }
+				NOT = { trait = dementation_3 }
+				NOT = { trait = dementation_4 }
+				NOT = { trait = dementation_5 }
+			}
+			add_trait = dementation_1
+		}
+		if = { 
+			limit = { 
+				NOT = { trait = lunatic }
+				NOT = { trait = depressed }
+				NOT = { trait = malkavian }
+				NOT = { trait = malkavianantitribu }
+				NOT = { trait = paranoid }
+			}
+			
+			random_list = {
+				33 = {
+					add_trait = lunatic
+				}
+				33 = {
+					add_trait = depressed 
+				}
+				34 = {
+					add_trait = paranoid 
+				}
+			}
+		}	
+		decadence = -2
+	}		
+	
+}
+
+# Cenobite
+character_event = {
+	id = POD_vamp_predatortype_events.18
+	title = "EVTTITLE_POD_VAMP_PREDATORYPE_EVENTS_18"
+	desc = "EVTDESC_POD_VAMP_PREDATORYPE_EVENTS_18"
+	picture = GFX_evt_ghoul_request
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	portrait = event_target:vamp_dinner
+	
+	immediate = {
+	
+		create_random_priest = {
+			random_traits = yes
+			dynasty = NONE
+			religion = ROOT
+			employer = ROOT
+			trait = mortal
+			trait = ghoul
+			trait = auspex_1
+			trait = bloodbound
+			trait = duelbalance	
+		}
+				
+		new_character = {
+			save_event_target_as = vamp_dinner
+			remove_trait = slow
+			remove_trait = imbecile
+			remove_trait = dull
+			remove_trait = mystic
+			remove_trait = socializer
+			remove_trait = gamer
+			remove_trait = hedonist
+			remove_trait = duelist
+			remove_trait = hunter
+			remove_trait = strategist
+			remove_trait = administrator
+			remove_trait = architect
+			remove_trait = gardener
+			remove_trait = schemer
+			remove_trait = impaler
+			remove_trait = seducer
+			remove_trait = seductress
+			remove_trait = theologian
+			remove_trait = scholar
+				
+			random_list = { # Flavor Randomization
+				35 = { 
+					# Nothing
+				}
+				15 = {
+					change_learning = 2
+				}
+				20 = {
+					add_trait = theologian
+				}
+				5 = {
+					add_trait = scholar
+				}
+				5 = {
+					add_trait = mystic
+				}
+				10 = {
+					change_learning = 4
+				}
+				5 = {
+					change_learning = 6
+				}
+				5 = {
+					add_trait = shrewd
+				}
+			}	
+			if = {
+				limit = {
+					OR = {
+						culture_group = arabic
+						culture_group = iranian
+						culture_group = altaic
+						}
+					}
+				if = {
+					limit = {
+						is_female = no 
+					}
+					add_trait = faqih
+				}
+				if = {
+					limit = {
+						is_female = yes
+					}
+					add_trait = nun 
+				}
+			}
+			
+			if = {
+				limit = {
+					OR = {
+						culture_group = indo_aryan_group
+						culture_group = dravidian_group
+					}
+				}
+				if = {
+						limit = {
+							is_female = no 
+						}
+						add_trait = sanyasi
+					}
+					if = {
+						limit = {
+							is_female = yes
+						}
+						add_trait = sanyasini 
+					}
+				
+			}
+			
+			if = {
+				limit = {
+					OR = {
+						culture_group = chinese_group
+						culture_group = tibetan_group
+					}
+				}
+				if = {
+						limit = {
+							is_female = no 
+						}
+						add_trait = bhikkhu
+					}
+					if = {
+						limit = {
+							is_female = yes
+						}
+						add_trait = bhikkhuni 
+					}
+				
+			}
+
+			if = {
+				limit = {
+						NOT = { culture_group = arabic }
+						NOT = { culture_group = iranian }
+						NOT = { culture_group = altaic }
+						NOT = { culture_group = indo_aryan_group }
+						NOT = { culture_group = dravidian_group }
+						NOT = { culture_group = chinese_group }
+						NOT = { culture_group = tibetan_group }
+					}
+					if = {
+						limit = {
+							is_female = no 
+						}
+						add_trait = monk
+					}
+					if = {
+						limit = {
+							is_female = yes
+						}
+						add_trait = nun 
+					}
+			}	
+			opinion = {
+				modifier = opinion_blood_bond_to_domitor_ghoul
+				who = FROM
+				years = 3000
+			}
+			ROOT = {
+				opinion = {
+					modifier = opinion_herd
+					who = PREV
+					years = 3000
+				}
+			}
+			FROM = { save_event_target_as = domitor }
+			event_target:domitor = {
+			
+				opinion = {
+					modifier = opinion_my_ghoul
+					who = PREV
+					years = 3000
+				}
+			}	
+		}	
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_VAMP_PREDATORYPE_EVENTS_18" 
+		add_character_modifier = {
+			name = predatortype_cenobite
+            duration = -1
+		}
+		if = { 
+			limit = {
+				NOT = { trait = auspex_1 }
+				NOT = { trait = auspex_2 }
+				NOT = { trait = auspex_3 }
+				NOT = { trait = auspex_4 }
+				NOT = { trait = auspex_5 }
+			}
+			add_trait = auspex_1
+		}
+		if = { 
+			limit = { 
+				NOT = { trait = monk }
+				NOT = { trait = nun }
+				NOT = { trait = muni }
+				NOT = { trait = sanyasi }
+				NOT = { trait = sanyasini }
+				NOT = { trait = bhikkhu }
+				NOT = { trait = bhikkhuni }
+				NOT = { trait = faqih }
+			}
+			
+			if = {
+				limit = {
+					OR = {
+						culture_group = arabic
+						culture_group = iranian
+						culture_group = altaic
+						}
+					}
+				if = {
+					limit = {
+						is_female = no 
+					}
+					add_trait = faqih
+				}
+				if = {
+					limit = {
+						is_female = yes
+					}
+					add_trait = nun 
+				}
+			}
+			
+			if = {
+				limit = {
+					OR = {
+						culture_group = indo_aryan_group
+						culture_group = dravidian_group
+					}
+				}
+				if = {
+						limit = {
+							is_female = no 
+						}
+						add_trait = sanyasi
+					}
+					if = {
+						limit = {
+							is_female = yes
+						}
+						add_trait = sanyasini 
+					}
+				
+			}
+			
+			if = {
+				limit = {
+					OR = {
+						culture_group = chinese_group
+						culture_group = tibetan_group
+					}
+				}
+				if = {
+						limit = {
+							is_female = no 
+						}
+						add_trait = bhikkhu
+					}
+					if = {
+						limit = {
+							is_female = yes
+						}
+						add_trait = bhikkhuni 
+					}
+				
+			}
+
+			if = {
+				limit = {
+						NOT = { culture_group = arabic }
+						NOT = { culture_group = iranian }
+						NOT = { culture_group = altaic }
+						NOT = { culture_group = indo_aryan_group }
+						NOT = { culture_group = dravidian_group }
+						NOT = { culture_group = chinese_group }
+						NOT = { culture_group = tibetan_group }
+					}
+					if = {
+						limit = {
+							is_female = no 
+						}
+						add_trait = monk
+					}
+					if = {
+						limit = {
+							is_female = yes
+						}
+						add_trait = nun 
+					}
+			}
+
+			
+		}
+		decadence = -1
+	}		
+	
+}
+
+character_event = {
+	id = POD_vamp_predatortype_events.19
+	hide_window = yes
+    is_triggered_only = yes
+	ai = yes
+
+	
+	trigger = {
+		trait = vampire
+		NOT = { trait = torpor }
+		NOR = {
+			has_character_modifier = predatortype_farmer
+			has_character_modifier = predatortype_farmer
+			has_character_modifier = predatortype_bloodleech
+			has_character_modifier = predatortype_phlebotomist
+			has_character_modifier = predatortype_bedlamite
+			has_character_modifier = predatortype_cenobite
+			has_character_modifier = predatortype_alleycat
+			has_character_modifier = predatortype_cauchemar
+			has_character_modifier = predatortype_familias
+			has_character_modifier = predatortype_footpad
+			has_character_modifier = predatortype_consensualist
+			has_character_modifier = predatortype_osiris
+			has_character_modifier = predatortype_siren
+			has_character_modifier = predatortype_gentry
+		}
+		OR = {
+			trait = bloodpotency_1
+			trait = bloodpotency_2
+			trait = bloodpotency_3
+			trait = bloodpotency_4
+			trait = bloodpotency_5
+			trait = bloodpotency_6
+			trait = bloodpotency_7
+			trait = bloodpotency_8
+			trait = bloodpotency_9
+		}
+	}
+	immediate = {
+		character_event = { id = POD_vamp_predatortype_events.1 }
+	}
+}
+
+character_event = {
+	id = POD_vamp_predatortype_events.20
+	hide_window = yes
+    is_triggered_only = yes
+	ai = no
+
+	
+	trigger = {
+		trait = vampire
+		NOT = { trait = torpor }
+		NOR = {
+			has_character_modifier = predatortype_farmer
+			has_character_modifier = predatortype_farmer
+			has_character_modifier = predatortype_bloodleech
+			has_character_modifier = predatortype_phlebotomist
+			has_character_modifier = predatortype_bedlamite
+			has_character_modifier = predatortype_cenobite
+			has_character_modifier = predatortype_alleycat
+			has_character_modifier = predatortype_cauchemar
+			has_character_modifier = predatortype_familias
+			has_character_modifier = predatortype_footpad
+			has_character_modifier = predatortype_consensualist
+			has_character_modifier = predatortype_osiris
+			has_character_modifier = predatortype_siren
+			has_character_modifier = predatortype_gentry
+		}
+		OR = {
+			trait = bloodpotency_1
+			trait = bloodpotency_2
+			trait = bloodpotency_3
+			trait = bloodpotency_4
+			trait = bloodpotency_5
+			trait = bloodpotency_6
+			trait = bloodpotency_7
+			trait = bloodpotency_8
+			trait = bloodpotency_9
+		}
+	}
+	immediate = {
+		character_event = { id = POD_vamp_predatortype_events.1  days = 5 }
+	}
+}
+

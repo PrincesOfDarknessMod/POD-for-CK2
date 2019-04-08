@@ -71,6 +71,14 @@ character_event = {
 		set_character_flag = FLAG_POD_SETUP_COMMONER_FIRED
 		if = {
 			limit = {
+				NOT = { 
+					trait = duelbalance 
+				}
+			}
+			add_trait = duelbalance
+		}		
+		if = {
+			limit = {
 				NOT = { age = 16 }						
 			}
 			add_trait = mortal

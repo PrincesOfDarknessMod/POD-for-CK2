@@ -1,0 +1,22 @@
+decisions = {
+	predatortype_decision = {
+	
+		potential = {
+			trait = vampire	
+		}
+		
+		allow = {
+			NOT = { trait = torpor }
+			NOT = { trait = wight }
+			NOT = { has_character_modifier = predatortype_changed_recently }
+			prisoner = no
+			ai = no
+		}
+		
+		effect = {	
+			character_event = { id = POD_vamp_predatortype_events.1 }	
+		}  
+
+	}
+
+}
