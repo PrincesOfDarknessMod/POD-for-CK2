@@ -876,7 +876,7 @@ send_duel_result_event_effect = { # Runs via the attacker/combatant_1
 			trigger = {
 				NOR = {
 					has_character_flag = mock_duel
-					has_character_flag = is_vamp_duel
+					has_character_flag = vamp_duel
 					has_character_flag = is_legendary_duel
 					has_character_flag = claim_duel@event_target:combatant_2
 				}
@@ -994,7 +994,7 @@ send_duel_result_event_effect = { # Runs via the attacker/combatant_1
 
 			if = {
 				limit = {
-					has_character_flag = is_vamp_duel
+					has_character_flag = vamp_duel
 				}
 				event_target:combatant_2 = {
 					character_event = { id = POD_vamp_duels_events.1 days = 1 } #"The Vanquished Vampire" event sent to winner...
@@ -1079,7 +1079,7 @@ send_duel_result_event_effect = { # Runs via the attacker/combatant_1
 
 			if = {
 				limit = {
-					has_character_flag = is_vamp_duel
+					has_character_flag = vamp_duel
 				}
 				character_event = { id = POD_vamp_duels_events.1 days = 1 } #"The Vanquished Vampire" event sent to winner...
 			}

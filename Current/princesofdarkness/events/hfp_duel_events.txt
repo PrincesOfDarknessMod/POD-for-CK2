@@ -1045,8 +1045,8 @@ character_event = {
 					trait = "vampire"
 					event_target:combatant_2 = { trait = "vampire" }
 				}
-				set_character_flag = is_vamp_duel
-				event_target:combatant_2 = { set_character_flag = is_vamp_duel }
+				set_character_flag = vamp_duel
+				event_target:combatant_2 = { set_character_flag = vamp_duel }
 			}
 		}
 		
@@ -2653,7 +2653,7 @@ character_event = {
         name = { 
             text = EVTOPTC_HFP_10105_vamp
             trigger = {
-                has_character_flag = is_vamp_duel
+                has_character_flag = vamp_duel
             }
         }
         	
@@ -2792,7 +2792,7 @@ character_event = {
         }
         trigger = {
             is_allowed_deadly_duels_trigger = yes
-			NOT = { has_character_flag = is_vamp_duel }
+			NOT = { has_character_flag = vamp_duel }
         }
     }
 	

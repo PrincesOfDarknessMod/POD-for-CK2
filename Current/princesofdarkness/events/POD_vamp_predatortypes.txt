@@ -17,7 +17,6 @@ character_event = {
 			limit = {
 				OR = {
 					has_character_modifier = predatortype_farmer
-					has_character_modifier = predatortype_farmer
 					has_character_modifier = predatortype_bloodleech
 					has_character_modifier = predatortype_phlebotomist
 					has_character_modifier = predatortype_bedlamite
@@ -61,7 +60,7 @@ character_event = {
 				OR = {
 					trait = ancilla
 					trait = elder
-					society_member_of = path_of_beast
+					society_member_of = path_of_the_beast
 					society_member_of = path_of_cathari
 					society_member_of = path_of_bones
 					society_member_of = path_of_death_and_the_soul
@@ -166,7 +165,7 @@ character_event = {
 					trait = kind
 					trait = content
 					society_member_of = via_caeli
-					society_member_of = via_humanitas
+					society_member_of = via_humanitatis
 					society_member_of = path_of_redemption
 					society_member_of = path_of_humanity
 				}
@@ -266,208 +265,226 @@ character_event = {
 	portrait = event_target:vamp_dinner 
 	
 	immediate = {
-	
-		random_list =  (
-			20 = {
-			
-				# horse
-				
-				create_character = {
-					random_traits = no
-					dynasty = NONE
-					religion = innocent
-					culture = horse
-					female = no
-					age = 3
-					trait = mortal
-					trait = duelbalance
-					trait = imbecile
-					trait = animal
-					employer = ROOT
-				}
-				
-				new_character = {
-					save_event_target_as = vamp_dinner
-					imprison = ROOT
-				}			
-			}
-			
-			20 = { 		
 
-				# cat
-			
-				create_character = {
-					random_traits = no
-					dynasty = NONE
-					religion = innocent
-					culture = cat
-					female = no
-					age = 3
-					trait = mortal
-					trait = duelbalance
-					trait = imbecile
-					trait = pod_animal
-					employer = ROOT
-				
+		if = { 
+			limit = {
+				OR = {
+					trait = "canon"
+					ai = no
 				}
-				
-				new_character = {
-					save_event_target_as = vamp_dinner
-					imprison = ROOT
-				}	
-			}
-			
-			5 = { 
-			
-				#bear 
-				
-				create_character = {
-					random_traits = no
-					dynasty = NONE
-					religion = innocent
-					culture = bear
-					female = no
-					age = 3
-					trait = mortal
-					trait = duelbalance
-					trait = imbecile	
-					trait = pod_animal
-					employer = ROOT
-				
-				}
-				
-				new_character = {
-					save_event_target_as = vamp_dinner
-					imprison = ROOT
-				}				
-			}
-			
-			5 = { 
-			
-				# hedgehog 
-
-				create_character = {
-					random_traits = no
-					dynasty = NONE
-					religion = innocent
-					culture = hedgehog_culture
-					female = no
-					age = 3
-					trait = mortal
-					trait = duelbalance
-					trait = imbecile
-					trait = pod_animal
-					employer = ROOT
-				
-				}
-				
-				new_character = {
-					save_event_target_as = vamp_dinner
-					imprison = ROOT
-				}				
-			}
-			
-			20 = { 
-			
-				# duck 
-
-				create_character = {
-					random_traits = no
-					dynasty = NONE
-					religion = innocent
-					culture = duck_culture
-					female = no
-					age = 3
-					trait = mortal
-					trait = duelbalance
-					trait = imbecile
-					trait = pod_animal					
-					employer = ROOT
-				
-				}
-				
-				new_character = {
-					save_event_target_as = vamp_dinner
-					imprison = ROOT
-				}				
-			}
-			
-			20 = { 
-			
-				# dog 
-
-				create_character = {
-					random_traits = no
-					dynasty = NONE
-					religion = innocent
-					culture = dog_culture
-					female = no
-					age = 3
-					trait = mortal
-					trait = duelbalance
-					trait = imbecile
-					trait = pod_animal					
-					employer = ROOT
-				
-				}
-				
-				new_character = {
-					save_event_target_as = vamp_dinner
-					imprison = ROOT
-				}				
-			}
-			
-			5 = { 
-			
-				# elephant 
-
-				create_character = {
-					random_traits = no
-					dynasty = NONE
-					religion = innocent
-					culture = elephant_culture
-					female = no
-					age = 3
-					trait = mortal
-					trait = duelbalance
-					trait = imbecile
-					trait = pod_animal					
-					employer = ROOT
-				
-				}
-				
-				new_character = {
-					save_event_target_as = vamp_dinner
-					imprison = ROOT
-				}				
-			}
-			
-			5 = { 
-			
-				# panda 
-
-				create_character = {
-					random_traits = no
-					dynasty = NONE
-					religion = innocent
-					culture = red_panda
-					female = no
-					age = 3
-					trait = mortal
-					trait = duelbalance
-					trait = imbecile
-					trait = pod_animal					
-					employer = ROOT
-				
-				}
-				
-				new_character = {
-					save_event_target_as = vamp_dinner
-					imprison = ROOT
-				}				
-			}
-		}
+			}	
 		
+			random_list =  {
+				20 = {
+				
+					# horse
+					
+					create_character = {
+						random_traits = no
+						dynasty = NONE
+						religion = innocent
+						culture = horse
+						female = no
+						age = 3
+						trait = mortal
+						trait = duelbalance
+						trait = imbecile
+						trait = pod_animal
+						trait = noculldynasty
+						
+					}
+					
+					new_character = {
+						save_event_target_as = vamp_dinner
+						imprison = ROOT
+					}			
+				}
+				
+				20 = { 		
+
+					# cat
+				
+					create_character = {
+						random_traits = no
+						dynasty = NONE
+						religion = innocent
+						culture = cat
+						female = no
+						age = 3
+						trait = mortal
+						trait = duelbalance
+						trait = imbecile
+						trait = pod_animal
+						trait = noculldynasty
+						
+					
+					}
+					
+					new_character = {
+						save_event_target_as = vamp_dinner
+						imprison = ROOT
+					}	
+				}
+				
+				5 = { 
+				
+					#bear 
+					
+					create_character = {
+						random_traits = no
+						dynasty = NONE
+						religion = innocent
+						culture = bear
+						female = no
+						age = 3
+						trait = mortal
+						trait = duelbalance
+						trait = imbecile	
+						trait = pod_animal
+						trait = noculldynasty
+						
+					
+					}
+					
+					new_character = {
+						save_event_target_as = vamp_dinner
+						imprison = ROOT
+					}				
+				}
+				
+				5 = { 
+				
+					# hedgehog 
+
+					create_character = {
+						random_traits = no
+						dynasty = NONE
+						religion = innocent
+						culture = hedgehog_culture
+						female = no
+						age = 3
+						trait = mortal
+						trait = duelbalance
+						trait = imbecile
+						trait = pod_animal
+						trait = noculldynasty
+						
+					
+					}
+					
+					new_character = {
+						save_event_target_as = vamp_dinner
+						imprison = ROOT
+					}				
+				}
+				
+				20 = { 
+				
+					# duck 
+
+					create_character = {
+						random_traits = no
+						dynasty = NONE
+						religion = innocent
+						culture = duck_culture
+						female = no
+						age = 3
+						trait = mortal
+						trait = duelbalance
+						trait = imbecile
+						trait = pod_animal	
+						trait = noculldynasty						
+						
+					
+					}
+					
+					new_character = {
+						save_event_target_as = vamp_dinner
+						imprison = ROOT
+					}				
+				}
+				
+				20 = { 
+				
+					# dog 
+
+					create_character = {
+						random_traits = no
+						dynasty = NONE
+						religion = innocent
+						culture = dog_culture
+						female = no
+						age = 3
+						trait = mortal
+						trait = duelbalance
+						trait = imbecile
+						trait = pod_animal	
+						trait = noculldynasty
+						
+					
+					}
+					
+					new_character = {
+						save_event_target_as = vamp_dinner
+						imprison = ROOT
+					}				
+				}
+				
+				5 = { 
+				
+					# elephant 
+
+					create_character = {
+						random_traits = no
+						dynasty = NONE
+						religion = innocent
+						culture = elephant_culture
+						female = no
+						age = 3
+						trait = mortal
+						trait = duelbalance
+						trait = noculldynasty
+						trait = imbecile
+						trait = pod_animal					
+						
+					
+					}
+					
+					new_character = {
+						save_event_target_as = vamp_dinner
+						imprison = ROOT
+					}				
+				}
+				
+				5 = { 
+				
+					# panda 
+
+					create_character = {
+						random_traits = no
+						dynasty = NONE
+						religion = innocent
+						culture = red_panda
+						female = no
+						age = 3
+						trait = mortal
+						trait = duelbalance
+						trait = noculldynasty
+						trait = imbecile
+						trait = pod_animal					
+						
+					
+					}
+					
+					new_character = {
+						save_event_target_as = vamp_dinner
+						imprison = ROOT
+					}				
+				}
+			}
+		
+		}
+
 	}
 	
 	option = {
@@ -520,7 +537,7 @@ character_event = {
 	option = {
 		name = "EVTOPTA_POD_VAMP_PREDATORYPE_EVENTS_4" 
 		add_character_modifier = {
-			name = predatortype_blooodleach
+			name = predatortype_bloodleech
             duration = -1
 		}		
 		if = { 
@@ -640,7 +657,7 @@ character_event = {
 					trait = groomed
 					trait = poet
 					trait = socializer
-					society_member_of = via_humanitas
+					society_member_of = via_humanitatis
 					society_member_of = path_of_humanity
 					society_member_of = tariq_el-umma
 				}
@@ -690,9 +707,7 @@ character_event = {
 			}	
 			modifier = {
 				factor = 0.5
-				OR = {
-					trait = humble
-				}
+				trait = humble
 			}			
 		}		
 	}
@@ -814,7 +829,7 @@ character_event = {
 					trait = obfuscate_5
 					trait = humble
 					trait = uncouth
-					society_member_of = via_humanitas
+					society_member_of = via_humanitatis
 					society_member_of = path_of_humanity
 					society_member_of = tariq_el-umma
 				}
@@ -883,7 +898,7 @@ character_event = {
 					society_member_of = via_ossium
 					society_member_of = via_mutationis
 					society_member_of = code_of_tremere
-					society_member_of = via_humanitas
+					society_member_of = via_humanitatis
 					society_member_of = path_of_humanity
 					society_member_of = tariq_el-umma
 				}
@@ -965,8 +980,7 @@ character_event = {
 					trait = theologian
 					trait = zealous
 					trait = pilgrim
-					trait = faqih
-					
+					trait = faqih	
 					society_member_of = order_bitter_ashes
 					society_member_of = order_sable_rose
 					society_member_of = order_saint_ladre
@@ -981,9 +995,7 @@ character_event = {
 			}
 			modifier = {
 				factor = 0.5
-				OR = {
-					trait = cynical
-				}
+				trait = cynical
 			}
 		}		
 	}	
@@ -1001,45 +1013,52 @@ character_event = {
 	portrait = event_target:vamp_dinner
 	
 	immediate = {
-		create_character = {
-			random_traits = yes
-			dynasty = NONE
-			religion = innocent
-			culture = ROOT
-			trait = mortal
-			trait = duelbalance
-			employer = ROOT
-			trait = trusting
-			trait = mortal
-			trait = ghoul
-			trait = majesty_1
-			trait = bloodbound
-			trait = duelbalance
-		}
+		if = { 
+			limit = {
+				OR = {
+					trait = "canon"
+					ai = no
+				}
+			}	
+					
+			create_character = {
+				random_traits = yes
+				dynasty = NONE
+				religion = innocent
+				culture = ROOT
+				trait = mortal
+				trait = duelbalance
+				trait = noculldynasty
+				trait = trusting
+				trait = ghoul
+				trait = majesty_1
+				trait = bloodbound
+			}
+					
+			new_character = {
+				save_event_target_as = vamp_dinner
+				add_friend = ROOT
+				opinion = {
+					modifier = opinion_blood_bond_to_domitor_ghoul
+					who = FROM
+					years = 3000
+				}
+				FROM = { save_event_target_as = domitor }
+				event_target:domitor = {
 				
-		new_character = {
-			save_event_target_as = vamp_dinner
-			add_friend = ROOT
-			opinion = {
-				modifier = opinion_blood_bond_to_domitor_ghoul
-				who = FROM
-				years = 3000
-			}
-			FROM = { save_event_target_as = domitor }
-			event_target:domitor = {
-			
-				opinion = {
-					modifier = opinion_my_ghoul
-					who = PREV
-					years = 3000
+					opinion = {
+						modifier = opinion_my_ghoul
+						who = PREV
+						years = 3000
+					}
 				}
-			}
-			ROOT = {
-				opinion = {
-					modifier = opinion_herd
-					who = PREV
-					years = 3000
-				}
+				ROOT = {
+					opinion = {
+						modifier = opinion_herd
+						who = PREV
+						years = 3000
+					}
+				}	
 			}	
 		}	
 	}
@@ -1103,137 +1122,149 @@ character_event = {
 	portrait = event_target:vamp_dinner
 	
 	immediate = {
-			if = {
+	
+		if = {
+			limit = {
+				NOT = { trait = homosexual }
+			}
+			random = {
+				chance = 10
+				add_trait = homosexual 
+			}
+		}	
+
+		if = { 
+			limit = {
+				OR = {
+					trait = "canon"
+					ai = no
+				}
+			}
+
+			if = { 
 				limit = {
+					is_female = no
 					NOT = { trait = homosexual }
-				}
-				random = {
-					chance = 10
-					add_trait = homosexual 
-				}
+					}
+					create_character = {
+						random_traits = yes
+						dynasty = NONE
+						religion = innocent
+						culture = ROOT
+						female = yes
+						trait = mortal
+						trait = duelbalance
+						trait = noculldynasty
+						
+					
+					}
+					
+					new_character = {
+						save_event_target_as = vamp_dinner
+						add_lover = ROOT
+						ROOT = {
+							opinion = {
+								modifier = opinion_herd
+								who = PREV
+								years = 3000
+							}
+						}
+					}					
+			}
+			
+			if = { 
+				limit = {
+					is_female = yes
+					NOT = { trait = homosexual }
+					}
+					create_character = {
+						random_traits = yes
+						dynasty = NONE
+						religion = innocent
+						culture = ROOT
+						female = no
+						trait = mortal
+						trait = duelbalance
+						trait = noculldynasty
+						
+					
+					}
+					
+					new_character = {
+						save_event_target_as = vamp_dinner
+						add_lover = ROOT
+						ROOT = {
+							opinion = {
+								modifier = opinion_herd
+								who = PREV
+								years = 3000
+							}
+						}
+					}					
 			}	
 
-
-		if = { 
-			limit = {
-				is_female = no
-				NOT = { trait = homosexual }
-				}
-				create_character = {
-					random_traits = yes
-					dynasty = NONE
-					religion = innocent
-					culture = ROOT
-					female = yes
-					trait = mortal
-					trait = duelbalance
-					employer = ROOT
-				
-				}
-				
-				new_character = {
-					save_event_target_as = vamp_dinner
-					add_lover = ROOT
-					ROOT = {
-						opinion = {
-							modifier = opinion_herd
-							who = PREV
-							years = 3000
-						}
+			if = { 
+				limit = {
+					is_female = no
+					trait = homosexual 
 					}
-				}					
+					create_character = {
+						random_traits = yes
+						dynasty = NONE
+						religion = innocent
+						culture = ROOT
+						female = no
+						trait = mortal
+						trait = duelbalance
+						trait = noculldynasty
+						
+					
+					}
+					
+					new_character = {
+						save_event_target_as = vamp_dinner
+						add_lover = ROOT
+						ROOT = {
+							opinion = {
+								modifier = opinion_herd
+								who = PREV
+								years = 3000
+							}
+						}
+					}					
+			}	
+
+			if = { 
+				limit = {
+					is_female = yes
+					trait = homosexual
+					}
+					create_character = {
+						random_traits = yes
+						dynasty = NONE
+						religion = innocent
+						culture = ROOT
+						female = yes
+						trait = mortal
+						trait = duelbalance
+						trait = noculldynasty
+						
+					
+					}
+					
+					new_character = {
+						save_event_target_as = vamp_dinner
+						add_lover = ROOT
+						ROOT = {
+							opinion = {
+								modifier = opinion_herd
+								who = PREV
+								years = 3000
+							}
+						}
+					}					
+			}		
 		}
-		
-		if = { 
-			limit = {
-				is_female = yes
-				NOT = { trait = homosexual }
-				}
-				create_character = {
-					random_traits = yes
-					dynasty = NONE
-					religion = innocent
-					culture = ROOT
-					female = no
-					trait = mortal
-					trait = duelbalance
-					employer = ROOT
-				
-				}
-				
-				new_character = {
-					save_event_target_as = vamp_dinner
-					add_lover = ROOT
-					ROOT = {
-						opinion = {
-							modifier = opinion_herd
-							who = PREV
-							years = 3000
-						}
-					}
-				}					
-		}	
-
-		if = { 
-			limit = {
-				is_female = no
-				trait = homosexual 
-				}
-				create_character = {
-					random_traits = yes
-					dynasty = NONE
-					religion = innocent
-					culture = ROOT
-					female = no
-					trait = mortal
-					trait = duelbalance
-					employer = ROOT
-				
-				}
-				
-				new_character = {
-					save_event_target_as = vamp_dinner
-					add_lover = ROOT
-					ROOT = {
-						opinion = {
-							modifier = opinion_herd
-							who = PREV
-							years = 3000
-						}
-					}
-				}					
-		}	
-
-		if = { 
-			limit = {
-				is_female = yes
-				trait = homosexual
-				}
-				create_character = {
-					random_traits = yes
-					dynasty = NONE
-					religion = innocent
-					culture = ROOT
-					female = yes
-					trait = mortal
-					trait = duelbalance
-					employer = ROOT
-				
-				}
-				
-				new_character = {
-					save_event_target_as = vamp_dinner
-					add_lover = ROOT
-					ROOT = {
-						opinion = {
-							modifier = opinion_herd
-							who = PREV
-							years = 3000
-						}
-					}
-				}					
-		}		
-
 	}
 	
 	option = {
@@ -1300,61 +1331,69 @@ character_event = {
 	portrait = event_target:vamp_dinner
 	
 	immediate = {
-	
-		create_random_steward = {
-			random_traits = yes
-			dynasty = acutally_culture
-			religion = innocent
-			employer = ROOT
-			trait = mortal
-			trait = ghoul
-			trait = dominate_1
-			trait = bloodbound
-			trait = duelbalance	
-			trait = groomed
-		}
-		new_character = {		
-			save_event_target_as = vamp_dinner
-			random_list = {
-				10 = { trait = legit_bastard }
-				5 = { trait = fair }
-				5 = { trait = quick }
-				5 = { trait = inbred }
-				10 = { trait = hedonist }
-				5 = { trait = poet }
-				10 = { trait = falconer }
-				5 = { trait = impaler }
-				5 = { trait = hunter }
-				10 = { trait = administrator }
-				5 = { trait = architect }
-				5 = { trait = socializer }
-				5 = { trait = duelist }
-				5 = { trait = greedy }
-				5 = { trait = gluttonous }
-				5 = { trait = proud }
-			}
-			opinion = {
-				modifier = opinion_blood_bond_to_domitor_ghoul
-				who = FROM
-				years = 3000
-			}
-			ROOT = {
-				opinion = {
-					modifier = opinion_herd
-					who = PREV
-					years = 3000
+		if = { 
+			limit = {
+				OR = {
+					trait = "canon"
+					ai = no
 				}
 			}
-			FROM = { save_event_target_as = domitor }
-			event_target:domitor = {
 			
+			create_random_steward = {
+				random_traits = yes
+				dynasty = actually_culture
+				religion = innocent
+				trait = mortal
+				trait = ghoul
+				trait = dominate_1
+				trait = bloodbound
+				trait = duelbalance
+				trait = noculldynasty				
+				trait = groomed
+			}
+			new_character = {		
+				save_event_target_as = vamp_dinner
+				random_list = {
+					10 = { add_trait = legit_bastard }
+					5 = { add_trait = fair }
+					5 = { add_trait = quick }
+					5 = { add_trait = inbred }
+					10 = { add_trait = hedonist }
+					5 = { add_trait = poet }
+					10 = { add_trait = falconer }
+					5 = { add_trait = impaler }
+					5 = { add_trait = hunter }
+					10 = { add_trait = administrator }
+					5 = { add_trait = architect }
+					5 = { add_trait = socializer }
+					5 = { add_trait = duelist }
+					5 = { add_trait = greedy }
+					5 = { add_trait = gluttonous }
+					5 = { add_trait = proud }
+				}
 				opinion = {
-					modifier = opinion_my_ghoul
-					who = PREV
+					modifier = opinion_blood_bond_to_domitor_ghoul
+					who = FROM
 					years = 3000
 				}
-			}			
-		}		
+				ROOT = {
+					opinion = {
+						modifier = opinion_herd
+						who = PREV
+						years = 3000
+					}
+				}
+				FROM = { save_event_target_as = domitor }
+				event_target:domitor = {
+				
+					opinion = {
+						modifier = opinion_my_ghoul
+						who = PREV
+						years = 3000
+					}
+				}			
+			}	
+		}
 	}
 	
 	option = {
@@ -1402,88 +1441,98 @@ character_event = {
 	portrait = event_target:vamp_dinner
 	
 	immediate = {
-		create_random_priest = {
-			random_traits = yes
-			dynasty = NONE
-			religion = ROOT
-			employer = ROOT
-			trait = mortal
-			trait = ghoul
-			trait = majesty_1
-			trait = bloodbound
-			trait = duelbalance
-		}
-				
-		new_character = {
-			save_event_target_as = vamp_dinner
-			remove_trait = slow
-			remove_trait = imbecile
-			remove_trait = dull
-			remove_trait = mystic
-			remove_trait = socializer
-			remove_trait = gamer
-			remove_trait = hedonist
-			remove_trait = duelist
-			remove_trait = hunter
-			remove_trait = strategist
-			remove_trait = administrator
-			remove_trait = architect
-			remove_trait = gardener
-			remove_trait = schemer
-			remove_trait = impaler
-			remove_trait = seducer
-			remove_trait = seductress
-			remove_trait = theologian
-			remove_trait = scholar
-				
-			random_list = { # Flavor Randomization
-				35 = { 
-					# Nothing
-				}
-				15 = {
-					change_learning = 2
-				}
-				20 = {
-					add_trait = theologian
-				}
-				5 = {
-					add_trait = scholar
-				}
-				5 = {
-					add_trait = mystic
-				}
-				10 = {
-					change_learning = 4
-				}
-				5 = {
-					change_learning = 6
-				}
-				5 = {
-					add_trait = shrewd
+		if = { 
+			limit = {
+				OR = {
+					trait = "canon"
+					ai = no
 				}
 			}
-			opinion = {
-				modifier = opinion_blood_bond_to_domitor_ghoul
-				who = FROM
-				years = 3000
-			}
-			ROOT = {
-				opinion = {
-					modifier = opinion_herd
-					who = PREV
-					years = 3000
-				}
-			}
-			FROM = { save_event_target_as = domitor }
-			event_target:domitor = {
 			
+			create_random_priest = {
+				random_traits = yes
+				dynasty = NONE
+				religion = ROOT
+				
+				trait = mortal
+				trait = ghoul
+				trait = majesty_1
+				trait = bloodbound
+				trait = duelbalance
+				trait = noculldynasty
+			}
+					
+			new_character = {
+				save_event_target_as = vamp_dinner
+				remove_trait = slow
+				remove_trait = imbecile
+				remove_trait = dull
+				remove_trait = mystic
+				remove_trait = socializer
+				remove_trait = gamer
+				remove_trait = hedonist
+				remove_trait = duelist
+				remove_trait = hunter
+				remove_trait = strategist
+				remove_trait = administrator
+				remove_trait = architect
+				remove_trait = gardener
+				remove_trait = schemer
+				remove_trait = impaler
+				remove_trait = seducer
+				remove_trait = seductress
+				remove_trait = theologian
+				remove_trait = scholar
+					
+				random_list = { # Flavor Randomization
+					35 = { 
+						# Nothing
+					}
+					15 = {
+						change_learning = 2
+					}
+					20 = {
+						add_trait = theologian
+					}
+					5 = {
+						add_trait = scholar
+					}
+					5 = {
+						add_trait = mystic
+					}
+					10 = {
+						change_learning = 4
+					}
+					5 = {
+						change_learning = 6
+					}
+					5 = {
+						add_trait = shrewd
+					}
+				}
 				opinion = {
-					modifier = opinion_my_ghoul
-					who = PREV
+					modifier = opinion_blood_bond_to_domitor_ghoul
+					who = FROM
 					years = 3000
 				}
-			}			
-		}						
+				ROOT = {
+					opinion = {
+						modifier = opinion_herd
+						who = PREV
+						years = 3000
+					}
+				}
+				FROM = { save_event_target_as = domitor }
+				event_target:domitor = {
+				
+					opinion = {
+						modifier = opinion_my_ghoul
+						who = PREV
+						years = 3000
+					}
+				}			
+			}	
+		}
 	}
 	
 	option = {
@@ -1584,115 +1633,98 @@ character_event = {
 	portrait = event_target:vamp_dinner
 	
 	immediate = {
-	
-		create_character = {
-			random_traits = yes
-			dynasty = actually_culture
-			religion = innocent
-			employer = ROOT
-			age = 60
-			female = no
-			trait = mortal
-			trait = ghoul
-			trait = dementation_1
-			trait = bloodbound
-			trait = duelbalance	
-		}
-		new_character = {		
-			save_event_target_as = vamp_dinner
-			save_event_target_as = paterfamilias
-			opinion = {
-				modifier = opinion_blood_bond_to_domitor_ghoul
-				who = FROM
-				years = 3000
-			}
-			opinion = {
-				modifier = opinion_familias
-				who = FROM
-			}
-			FROM = { save_event_target_as = domitor }
-			event_target:domitor = {
-			
-				opinion = {
-					modifier = opinion_my_ghoul
-					who = PREV
-					years = 3000
-				}
-				opinion = {
-					modifier = opinion_herd
-					who = PREV
-					years = 3000
-				}
-			}	
-			religion = ROOT
 
+		if = { 
+			limit = {
+				OR = {
+					trait = "canon"
+					ai = no
+				}
+			}
+			
 			create_character = {
 				random_traits = yes
-				dynasty = THIS
+				dynasty = actually_culture
 				religion = innocent
-				employer = ROOT
-				age = 40
+				
+				age = 60
 				female = no
 				trait = mortal
+				trait = ghoul
+				trait = dementation_1
+				trait = bloodbound
 				trait = duelbalance	
-				
+				trait = noculldynasty
 			}
-			
-			new_character = {	
-				set_father = PREV
-				save_event_target_as = firstson
+			new_character = {		
+				save_event_target_as = vamp_dinner
+				save_event_target_as = paterfamilias
+				opinion = {
+					modifier = opinion_blood_bond_to_domitor_ghoul
+					who = FROM
+					years = 3000
+				}
 				opinion = {
 					modifier = opinion_familias
-					who = ROOT
+					who = FROM
 				}
-				ROOT = {
+				FROM = { save_event_target_as = domitor }
+				event_target:domitor = {
+				
+					opinion = {
+						modifier = opinion_my_ghoul
+						who = PREV
+						years = 3000
+					}
 					opinion = {
 						modifier = opinion_herd
 						who = PREV
+						years = 3000
 					}
-				}
-				
+				}	
+				religion = ROOT
+
 				create_character = {
 					random_traits = yes
 					dynasty = THIS
 					religion = innocent
-					employer = ROOT
-					age = 20
+					
+					age = 40
 					female = no
 					trait = mortal
 					trait = duelbalance	
+					trait = noculldynasty
+					
 				}
 				
-				new_character = {
+				new_character = {	
 					set_father = PREV
+					save_event_target_as = firstson
 					opinion = {
 						modifier = opinion_familias
 						who = ROOT
-						years = 3000
 					}
 					ROOT = {
 						opinion = {
 							modifier = opinion_herd
 							who = PREV
-							years = 3000
 						}
-					}	
+					}
+					
 					create_character = {
 						random_traits = yes
-						dynasty = NONE
-						father = PREV
+						dynasty = THIS
 						religion = innocent
-						employer = ROOT
+						
 						age = 20
-						female = yes
+						female = no
 						trait = mortal
 						trait = duelbalance	
-						trait = pregnant
-						spouce = PREV
+						trait = noculldynasty
 					}
+					
 					new_character = {
-						add_spouse = PREV
-						add_lover = PREV
+						set_father = PREV
 						opinion = {
 							modifier = opinion_familias
 							who = ROOT
@@ -1704,12 +1736,39 @@ character_event = {
 								who = PREV
 								years = 3000
 							}
+						}	
+						create_character = {
+							random_traits = yes
+							dynasty = NONE
+							father = PREV
+							religion = innocent
+							
+							age = 20
+							female = yes
+							trait = mortal
+							trait = duelbalance	
+							trait = noculldynasty
 						}
-					}
-				}		
-			}				
-		}					
-		
+						new_character = {
+							add_spouse = PREV
+							add_lover = PREV
+							opinion = {
+								modifier = opinion_familias
+								who = ROOT
+								years = 3000
+							}
+							ROOT = {
+								opinion = {
+									modifier = opinion_herd
+									who = PREV
+									years = 3000
+								}
+							}
+						}
+					}		
+				}				
+			}					
+		}
 	}
 	
 	option = {
@@ -1758,54 +1817,63 @@ character_event = {
 	
 	immediate = {
 	
-		create_random_intriguer = {
-			random_traits = yes
-			dynasty = NONE
-			religion = criminal
-			employer = ROOT
-			trait = mortal
-			trait = ghoul
-			trait = obfuscate_1
-			trait = bloodbound
-			trait = duelbalance	
-			trait = uncouth
+		if = { 
+			limit = {
+				OR = {
+					trait = "canon"
+					ai = no
+				}
+			}	
+	
+			create_random_intriguer = {
+				random_traits = yes
+				dynasty = NONE
+				religion = criminal
+				
+				trait = mortal
+				trait = ghoul
+				trait = obfuscate_1
+				trait = bloodbound
+				trait = duelbalance	
+				trait = uncouth
+			}
+			new_character = {		
+				save_event_target_as = vamp_dinner
+				random_list = {
+					10 = { add_trait = clubfooted }
+					10 = { add_trait = dwarf }
+					10 = { add_trait = harelip }
+					10 = { add_trait = hunchback }
+					10 = { add_trait = lisp }
+					10 = { add_trait = stutter }
+					10 = { add_trait = ugly }
+					10 = { add_trait = lefthanded }
+					10 = { add_trait = pirate }
+					10 = { add_trait = kinslayer }
+				}
+				opinion = {
+					modifier = opinion_blood_bond_to_domitor_ghoul
+					who = FROM
+					years = 3000
+				}
+				FROM = { save_event_target_as = domitor }
+				ROOT = {
+					opinion = {
+						modifier = opinion_herd
+						who = PREV
+						years = 3000
+					}
+				}
+				event_target:domitor = {
+				
+					opinion = {
+						modifier = opinion_my_ghoul
+						who = PREV
+						years = 3000
+					}
+				}			
+			}	
 		}
-		new_character = {		
-			save_event_target_as = vamp_dinner
-			random_list = {
-				10 = { trait = clubfooted }
-				10 = { trait = dwarf }
-				10 = { trait = harelip }
-				10 = { trait = hunchback }
-				10 = { trait = lisp }
-				10 = { trait = stutter }
-				10 = { trait = ugly }
-				10 = { trait = lefthanded }
-				10 = { trait = pirate }
-				10 = { trait = kinslayer }
-			}
-			opinion = {
-				modifier = opinion_blood_bond_to_domitor_ghoul
-				who = FROM
-				years = 3000
-			}
-			FROM = { save_event_target_as = domitor }
-			ROOT = {
-				opinion = {
-					modifier = opinion_herd
-					who = PREV
-					years = 3000
-				}
-			}
-			event_target:domitor = {
-			
-				opinion = {
-					modifier = opinion_my_ghoul
-					who = PREV
-					years = 3000
-				}
-			}			
-		}	
 	}
 	
 	option = {
@@ -1893,49 +1961,57 @@ character_event = {
 	portrait = event_target:vamp_dinner
 	
 	immediate = {
-	
-		create_character = {
-			random_traits = yes
-			dynasty = NONE
-			religion = insane
-			employer = ROOT
-			trait = mortal
-			trait = ghoul
-			trait = dementation_1
-			trait = bloodbound
-			trait = duelbalance	
-		}
-		new_character = {		
-			save_event_target_as = vamp_dinner
-			random_list = { 
-				40 = { add_trait = lunatic }
-				20 = { add_trait = paranoid }
-				20 = { add_trait = depressed }
-				20 = { add_trait = possessed }
-			}
-			opinion = {
-				modifier = opinion_blood_bond_to_domitor_ghoul
-				who = FROM
-				years = 3000
-			}
-			FROM = { save_event_target_as = domitor }
-			ROOT = {
-				opinion = {
-					modifier = opinion_herd
-					who = PREV
-					years = 3000
+
+		if = { 
+			limit = {
+				OR = {
+					trait = "canon"
+					ai = no
 				}
-			}
-			event_target:domitor = {
+			}	
 			
+			create_character = {
+				random_traits = yes
+				dynasty = NONE
+				religion = insane
+				
+				trait = mortal
+				trait = ghoul
+				trait = dementation_1
+				trait = bloodbound
+				trait = duelbalance	
+			}
+			new_character = {		
+				save_event_target_as = vamp_dinner
+				random_list = { 
+					40 = { add_trait = lunatic }
+					20 = { add_trait = paranoid }
+					20 = { add_trait = depressed }
+					20 = { add_trait = possessed }
+				}
 				opinion = {
-					modifier = opinion_my_ghoul
-					who = PREV
+					modifier = opinion_blood_bond_to_domitor_ghoul
+					who = FROM
 					years = 3000
 				}
-			}			
+				FROM = { save_event_target_as = domitor }
+				ROOT = {
+					opinion = {
+						modifier = opinion_herd
+						who = PREV
+						years = 3000
+					}
+				}
+				event_target:domitor = {
+				
+					opinion = {
+						modifier = opinion_my_ghoul
+						who = PREV
+						years = 3000
+					}
+				}			
+			}
 		}
-		
 	}
 	
 	option = {
@@ -1991,148 +2067,88 @@ character_event = {
 	portrait = event_target:vamp_dinner
 	
 	immediate = {
-	
-		create_random_priest = {
-			random_traits = yes
-			dynasty = NONE
-			religion = ROOT
-			employer = ROOT
-			trait = mortal
-			trait = ghoul
-			trait = auspex_1
-			trait = bloodbound
-			trait = duelbalance	
-		}
-				
-		new_character = {
-			save_event_target_as = vamp_dinner
-			remove_trait = slow
-			remove_trait = imbecile
-			remove_trait = dull
-			remove_trait = mystic
-			remove_trait = socializer
-			remove_trait = gamer
-			remove_trait = hedonist
-			remove_trait = duelist
-			remove_trait = hunter
-			remove_trait = strategist
-			remove_trait = administrator
-			remove_trait = architect
-			remove_trait = gardener
-			remove_trait = schemer
-			remove_trait = impaler
-			remove_trait = seducer
-			remove_trait = seductress
-			remove_trait = theologian
-			remove_trait = scholar
-				
-			random_list = { # Flavor Randomization
-				35 = { 
-					# Nothing
-				}
-				15 = {
-					change_learning = 2
-				}
-				20 = {
-					add_trait = theologian
-				}
-				5 = {
-					add_trait = scholar
-				}
-				5 = {
-					add_trait = mystic
-				}
-				10 = {
-					change_learning = 4
-				}
-				5 = {
-					change_learning = 6
-				}
-				5 = {
-					add_trait = shrewd
-				}
-			}	
-			if = {
-				limit = {
-					OR = {
-						culture_group = arabic
-						culture_group = iranian
-						culture_group = altaic
-						}
-					}
-				if = {
-					limit = {
-						is_female = no 
-					}
-					add_trait = faqih
-				}
-				if = {
-					limit = {
-						is_female = yes
-					}
-					add_trait = nun 
-				}
-			}
-			
-			if = {
-				limit = {
-					OR = {
-						culture_group = indo_aryan_group
-						culture_group = dravidian_group
-					}
-				}
-				if = {
-						limit = {
-							is_female = no 
-						}
-						add_trait = sanyasi
-					}
-					if = {
-						limit = {
-							is_female = yes
-						}
-						add_trait = sanyasini 
-					}
-				
-			}
-			
-			if = {
-				limit = {
-					OR = {
-						culture_group = chinese_group
-						culture_group = tibetan_group
-					}
-				}
-				if = {
-						limit = {
-							is_female = no 
-						}
-						add_trait = bhikkhu
-					}
-					if = {
-						limit = {
-							is_female = yes
-						}
-						add_trait = bhikkhuni 
-					}
-				
-			}
 
-			if = {
-				limit = {
-						NOT = { culture_group = arabic }
-						NOT = { culture_group = iranian }
-						NOT = { culture_group = altaic }
-						NOT = { culture_group = indo_aryan_group }
-						NOT = { culture_group = dravidian_group }
-						NOT = { culture_group = chinese_group }
-						NOT = { culture_group = tibetan_group }
+		if = { 
+			limit = {
+				OR = {
+					trait = "canon"
+					ai = no
+				}
+			}
+			
+			create_random_priest = {
+				random_traits = yes
+				dynasty = NONE
+				religion = ROOT
+				
+				trait = mortal
+				trait = ghoul
+				trait = auspex_1
+				trait = bloodbound
+				trait = duelbalance	
+			}
+					
+			new_character = {
+				save_event_target_as = vamp_dinner
+				remove_trait = slow
+				remove_trait = imbecile
+				remove_trait = dull
+				remove_trait = mystic
+				remove_trait = socializer
+				remove_trait = gamer
+				remove_trait = hedonist
+				remove_trait = duelist
+				remove_trait = hunter
+				remove_trait = strategist
+				remove_trait = administrator
+				remove_trait = architect
+				remove_trait = gardener
+				remove_trait = schemer
+				remove_trait = impaler
+				remove_trait = seducer
+				remove_trait = seductress
+				remove_trait = theologian
+				remove_trait = scholar
+					
+				random_list = { # Flavor Randomization
+					35 = { 
+						# Nothing
 					}
+					15 = {
+						change_learning = 2
+					}
+					20 = {
+						add_trait = theologian
+					}
+					5 = {
+						add_trait = scholar
+					}
+					5 = {
+						add_trait = mystic
+					}
+					10 = {
+						change_learning = 4
+					}
+					5 = {
+						change_learning = 6
+					}
+					5 = {
+						add_trait = shrewd
+					}
+				}	
+				if = {
+					limit = {
+						OR = {
+							culture_group = arabic
+							culture_group = iranian
+							culture_group = altaic
+							}
+						}
 					if = {
 						limit = {
 							is_female = no 
 						}
-						add_trait = monk
+						add_trait = faqih
 					}
 					if = {
 						limit = {
@@ -2140,29 +2156,98 @@ character_event = {
 						}
 						add_trait = nun 
 					}
-			}	
-			opinion = {
-				modifier = opinion_blood_bond_to_domitor_ghoul
-				who = FROM
-				years = 3000
-			}
-			ROOT = {
+				}
+				
+				if = {
+					limit = {
+						OR = {
+							culture_group = indo_aryan_group
+							culture_group = dravidian_group
+						}
+					}
+					if = {
+							limit = {
+								is_female = no 
+							}
+							add_trait = sanyasi
+						}
+						if = {
+							limit = {
+								is_female = yes
+							}
+							add_trait = sanyasini 
+						}
+					
+				}
+				
+				if = {
+					limit = {
+						OR = {
+							culture_group = chinese_group
+							culture_group = tibetan_group
+						}
+					}
+					if = {
+							limit = {
+								is_female = no 
+							}
+							add_trait = bhikkhu
+						}
+						if = {
+							limit = {
+								is_female = yes
+							}
+							add_trait = bhikkhuni 
+						}
+					
+				}
+
+				if = {
+					limit = {
+							NOT = { culture_group = arabic }
+							NOT = { culture_group = iranian }
+							NOT = { culture_group = altaic }
+							NOT = { culture_group = indo_aryan_group }
+							NOT = { culture_group = dravidian_group }
+							NOT = { culture_group = chinese_group }
+							NOT = { culture_group = tibetan_group }
+						}
+						if = {
+							limit = {
+								is_female = no 
+							}
+							add_trait = monk
+						}
+						if = {
+							limit = {
+								is_female = yes
+							}
+							add_trait = nun 
+						}
+				}	
 				opinion = {
-					modifier = opinion_herd
-					who = PREV
+					modifier = opinion_blood_bond_to_domitor_ghoul
+					who = FROM
 					years = 3000
 				}
-			}
-			FROM = { save_event_target_as = domitor }
-			event_target:domitor = {
-			
-				opinion = {
-					modifier = opinion_my_ghoul
-					who = PREV
-					years = 3000
+				ROOT = {
+					opinion = {
+						modifier = opinion_herd
+						who = PREV
+						years = 3000
+					}
 				}
+				FROM = { save_event_target_as = domitor }
+				event_target:domitor = {
+				
+					opinion = {
+						modifier = opinion_my_ghoul
+						who = PREV
+						years = 3000
+					}
+				}	
 			}	
-		}	
+		}
 	}
 	
 	option = {
@@ -2306,7 +2391,6 @@ character_event = {
 		NOT = { trait = torpor }
 		NOR = {
 			has_character_modifier = predatortype_farmer
-			has_character_modifier = predatortype_farmer
 			has_character_modifier = predatortype_bloodleech
 			has_character_modifier = predatortype_phlebotomist
 			has_character_modifier = predatortype_bedlamite
@@ -2352,7 +2436,6 @@ character_event = {
 		trait = vampire
 		NOT = { trait = torpor }
 		NOR = {
-			has_character_modifier = predatortype_farmer
 			has_character_modifier = predatortype_farmer
 			has_character_modifier = predatortype_bloodleech
 			has_character_modifier = predatortype_phlebotomist

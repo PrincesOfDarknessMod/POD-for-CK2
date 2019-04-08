@@ -1,32 +1,12 @@
-# Mage
-
-Daedalan_Wings = {
-	combat_rating = 5
-	command_modifier ={
-		speed = 3
-		pursue = 0.2
-		light_infantry = 0.5
-		}
-	active = { 
-		"trait = mage" 
-	}
-	quality = 2
-	allowed_gift = { 
-		trait = "mage" 
-	}
-	indestructible = no
-	stacking = no
-	slot = steed
-	flags { steed magic }
-	picture = "GFX_Daedalan_Wings"
-	}
-
 ##Consumables
 
 Prophetic_Drugs = {
 	#when consumed, causes scrying as per the alchemist society
 	quality = 1
 	flags = { consumable_mortal consumable_mage consumable_werewolf consumable_changeling }
+	allowed_gift = { 
+		trait = "mage" 
+	}	
 	picture = "GFX_Prophetic_Drugs"
 	indestructible = no
 	stacking = yes
@@ -36,6 +16,9 @@ Medical_Kit = {
 	#when consumed, grants a wounded character a "bandaged" trait that prevents infection
 	quality = 1
 	flags = { consumable_mortal consumable_mage }
+	allowed_gift = { 
+		trait = "mage" 
+	}	
 	picture = "GFX_Medical_Kit"
 	indestructible = no
 	stacking = yes
@@ -45,6 +28,9 @@ Awakened_Medicine = {
 	#When consumed, heals wounded and downgrades more serious conditions (severely wounded/maimed etc.) to wounded and applies "Bandaged"
 	quality = 2
 	flags = { consumable_mortal consumable_mage }
+	allowed_gift = { 
+		trait = "mage" 
+	}	
 	picture = "GFX_Awakened_Medicine"
 	indestructible = no
 	stacking = no
@@ -54,6 +40,9 @@ Advanced_Awakened_Medicine = {
 	#When consumed, heals all health traits except stressed/depressed
 	quality = 3
 	flags = { consumable_mortal consumable_mage }
+	allowed_gift = { 
+		trait = "mage" 
+	}	
 	picture = "GFX_Advanced_Awakened_Medicine"
 	indestructible = no
 	stacking = no
@@ -63,6 +52,9 @@ Tass = {
 	#When consumed, downgrades quintessence loss one step.
 	quality = 1
 	flags = { consumable_mage }
+	allowed_gift = { 
+		trait = "mage" 
+	}	
 	picture = "GFX_Tass"
 	indestructible = no
 	stacking = yes
@@ -626,4 +618,27 @@ Justice_Blades = {
 	stacking = no
 	picture = "GFX_scimitar_T3"
 	slot = weapon
+}
+
+# Mage
+
+Daedalan_Wings = {
+	combat_rating = 5
+	command_modifier ={
+		speed = 3
+		pursue = 0.2
+		light_infantry = 0.5
+		}
+	active = { 
+		trait = mage
+	}
+	quality = 2
+	allowed_gift = { 
+		trait = "mage" 
+	}
+	indestructible = no
+	stacking = no
+	slot = steed
+	flags = { steed magic }
+	picture = "GFX_Daedalan_Wings"
 }
