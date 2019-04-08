@@ -6,6 +6,7 @@ character_event = {
 	picture = GFX_evt_vampire_moody_landscape
 	border = GFX_event_normal_frame_intrigue
 	is_triggered_only = yes
+
 	
 	immediate = {
 		add_character_modifier = {
@@ -277,7 +278,7 @@ character_event = {
 					religion = innocent
 					culture = horse
 					female = no
-					age = 16
+					age = 3
 					trait = mortal
 					trait = duelbalance
 					trait = imbecile
@@ -301,7 +302,7 @@ character_event = {
 					religion = innocent
 					culture = cat
 					female = no
-					age = 16
+					age = 3
 					trait = mortal
 					trait = duelbalance
 					trait = imbecile
@@ -326,7 +327,7 @@ character_event = {
 					religion = innocent
 					culture = bear
 					female = no
-					age = 16
+					age = 3
 					trait = mortal
 					trait = duelbalance
 					trait = imbecile	
@@ -351,7 +352,7 @@ character_event = {
 					religion = innocent
 					culture = hedgehog_culture
 					female = no
-					age = 16
+					age = 3
 					trait = mortal
 					trait = duelbalance
 					trait = imbecile
@@ -376,7 +377,7 @@ character_event = {
 					religion = innocent
 					culture = duck_culture
 					female = no
-					age = 16
+					age = 3
 					trait = mortal
 					trait = duelbalance
 					trait = imbecile
@@ -401,7 +402,7 @@ character_event = {
 					religion = innocent
 					culture = dog_culture
 					female = no
-					age = 16
+					age = 3
 					trait = mortal
 					trait = duelbalance
 					trait = imbecile
@@ -426,7 +427,7 @@ character_event = {
 					religion = innocent
 					culture = elephant_culture
 					female = no
-					age = 16
+					age = 3
 					trait = mortal
 					trait = duelbalance
 					trait = imbecile
@@ -451,7 +452,7 @@ character_event = {
 					religion = innocent
 					culture = red_panda
 					female = no
-					age = 16
+					age = 3
 					trait = mortal
 					trait = duelbalance
 					trait = imbecile
@@ -549,6 +550,7 @@ character_event = {
 	is_triggered_only = yes
 	
 	immediate = {
+		add_blood_splatter_effect = yes
 	}
 
 	option = {
@@ -2296,6 +2298,10 @@ character_event = {
 
 	
 	trigger = {
+		has_game_rule = {
+			name = predator_types
+			value = v5
+		}	
 		trait = vampire
 		NOT = { trait = torpor }
 		NOR = {
@@ -2339,6 +2345,10 @@ character_event = {
 
 	
 	trigger = {
+		has_game_rule = {
+			name = predator_types
+			value = v5
+		}	
 		trait = vampire
 		NOT = { trait = torpor }
 		NOR = {

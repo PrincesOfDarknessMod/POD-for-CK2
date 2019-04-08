@@ -15,6 +15,151 @@
 #	}
 # }
 
+
+predator_types = {
+	name = "RULE_PREDATOR_TYPES"
+	group = "RULE_GROUP_PREDATOR_TYPES"
+	OPTION = {
+		name = v5
+		text = "RULE_PREDATOR_TYPE_V5"
+		desc = "RULE_PREDATOR_TYPE_V5_DESC"
+	}
+	OPTION = {
+		name = off
+		text = "RULE_PREDATOR_TYPE_OFF"
+		desc = "RULE_PREDATOR_TYPE_OFF_DESC"
+	}	
+	
+}
+
+#freewayz died for this
+gehenna_black_death = {
+	name = "RULE_BLACK_DEATH"
+	group = "RULE_GROUP_GEHENNA"
+	
+	option = {
+		name = weak
+		text = "RULE_BLACK_DEATH_WEAK"
+		desc = "RULE_BLACK_DEATH_WEAK_DESC"
+	}	
+	
+	option = {
+		name = normal
+		text = "RULE_BLACK_DEATH_NORMAL"
+		desc = "RULE_BLACK_DEATH_NORMAL_DESC"
+	}
+	
+	option = {
+		name = deadly
+		text = "RULE_BLACK_DEATH_DEADLY"
+		desc = "RULE_BLACK_DEATH_DEADLY_DESC"
+	}	
+
+	option = {
+		name = off
+		text = "RULE_BLACK_DEATH_OFF"
+		desc = "RULE_BLACK_DEATH_OFF_DESC"
+	}
+}
+
+
+culture_conversion = {
+	name = "RULE_CULTURE_CONVERSION"
+	group = "RULE_GROUP_DIPLOMACY"
+	option = {
+		name = by_era
+		text = "RULE_CULTURE_CONVERSION_BY_ERA"
+		desc = "RULE_CULTURE_CONVERSION_BY_ERA_DESC"
+	}
+	option = {
+		name = slower_normal
+		text = "RULE_CULTURE_CONVERSION_SLOWER_NORMAL"
+		desc = "RULE_CULTURE_CONVERSION_SLOWER_NORMAL_DESC"
+	}	
+	option = {
+		name = default
+		text = "RULE_OPTION_DEFAULT"
+		desc = "RULE_CULTURE_CONVERSION_DEFAULT_DESC"
+	}
+	option = {
+		name = restricted
+		text = "RULE_OPTION_RESTRICTED"
+		desc = "RULE_CULTURE_CONVERSION_RESTRICTED_DESC"
+	}
+	option = {
+		name = faster_melting_pots
+		text = "RULE_CULTURE_CONVERSION_FASTER_MELTING_POTS"
+		desc = "RULE_CULTURE_CONVERSION_FASTER_MELTING_POTS_DESC"
+	}
+	option = {
+		name = faster_melting_pots_and_slower_normal
+		text = "RULE_CULTURE_CONVERSION_FASTER_MELTING_POTS_AND_SLOWER_NORMAL"
+		desc = "RULE_CULTURE_CONVERSION_FASTER_MELTING_POTS_AND_SLOWER_NORMAL_DESC"
+	}
+}
+
+dueling = {
+	name = "RULE_DUELING"
+	dlc = "Way of Life"
+	group = "RULE_GROUP_DIPLOMACY"
+	group = "RULE_GROUP_WOL"
+	option = {
+		name = default
+		text = "RULE_OPTION_DEFAULT"
+		desc = "RULE_DUELING_DEFAULT_DESC"
+	}
+	option = {
+		name = restricted
+		text = "RULE_OPTION_RESTRICTED"
+		desc = "RULE_DUELING_RESTRICTED_DESC"
+		achievements = no
+		alt_start_achievements = no					  
+	}
+	option = {
+		name = unrestricted
+		text = "RULE_OPTION_UNRESTRICTED"
+		desc = "RULE_DUELING_UNRESTRICTED_DESC"
+		achievements = no
+		alt_start_achievements = no					 
+	}
+}
+
+blood_splatter_rule = {
+	name = "RULE_BLOOD_SPLATTER"
+	group = "RULE_GROUP_VARIOUS"
+	option = {
+		name = on
+		text = "RULE_OPTION_ON"
+		desc = "RULE_BLOOD_SPLATTER_ON"
+	}
+	option = {
+		name = off
+		text = "RULE_OPTION_OFF"
+		desc = "RULE_BLOOD_SPLATTER_OFF"
+	}
+}
+
+gender = {
+	name = "RULE_GENDER"
+	group = "RULE_GROUP_VARIOUS"
+	option = {
+		name = all
+		#achievements = no
+		text = "RULE_OPTION_ALL"
+		desc = "RULE_GENDER_ALL_DESC"
+	}	
+	option = {
+		name = default
+		text = "RULE_OPTION_DEFAULT"
+		desc = "RULE_GENDER_DEFAULT_DESC"
+	}
+	option = {
+		name = historical
+		text = "RULE_OPTION_HISTORICAL"
+		desc = "RULE_GENDER_HISTORICAL_DESC"
+	}
+}
+
 epidemics = {
 	name = "RULE_EPIDEMICS"
 	dlc = "The Reaper's Due"
@@ -418,27 +563,6 @@ defensive_pacts = {
 	}
 }
 
-gender = {
-	name = "RULE_GENDER"
-	group = "RULE_GROUP_VARIOUS"
-	option = {
-		name = all
-		#achievements = no
-		text = "RULE_OPTION_ALL"
-		desc = "RULE_GENDER_ALL_DESC"
-	}	
-	option = {
-		name = default
-		text = "RULE_OPTION_DEFAULT"
-		desc = "RULE_GENDER_DEFAULT_DESC"
-	}
-	option = {
-		name = historical
-		text = "RULE_OPTION_HISTORICAL"
-		desc = "RULE_GENDER_HISTORICAL_DESC"
-	}
-}
-
 supernatural_events = {
 	name = "RULE_SUPERNATURAL"
 	group = "RULE_GROUP_VARIOUS"
@@ -465,14 +589,14 @@ silly_events = {
 	name = "RULE_SILLY"
 	group = "RULE_GROUP_VARIOUS"
 	option = {
-		name = on
-		text = "RULE_OPTION_ON"
-		desc = "RULE_SILLY_ON_DESC"
-	}
-	option = {
 		name = off
 		text = "RULE_OPTION_OFF"
 		desc = "RULE_SILLY_OFF_DESC"
+	}	
+	option = {
+		name = on
+		text = "RULE_OPTION_ON"
+		desc = "RULE_SILLY_ON_DESC"
 	}
 	option = {
 		name = unrestricted
@@ -555,41 +679,6 @@ nomad_stability = {
 		name = stable
 		text = "RULE_OPTION_NOMAD_STABILITY_STABLE"
 		desc = "RULE_OPTION_NOMAD_STABILITY_STABLE_DESC"
-	}
-}
-
-culture_conversion = {
-	name = "RULE_CULTURE_CONVERSION"
-	group = "RULE_GROUP_DIPLOMACY"
-	option = {
-		name = by_era
-		text = "RULE_CULTURE_CONVERSION_BY_ERA"
-		desc = "RULE_CULTURE_CONVERSION_BY_ERA_DESC"
-	}
-	option = {
-		name = slower_normal
-		text = "RULE_CULTURE_CONVERSION_SLOWER_NORMAL"
-		desc = "RULE_CULTURE_CONVERSION_SLOWER_NORMAL_DESC"
-	}	
-	option = {
-		name = default
-		text = "RULE_OPTION_DEFAULT"
-		desc = "RULE_CULTURE_CONVERSION_DEFAULT_DESC"
-	}
-	option = {
-		name = restricted
-		text = "RULE_OPTION_RESTRICTED"
-		desc = "RULE_CULTURE_CONVERSION_RESTRICTED_DESC"
-	}
-	option = {
-		name = faster_melting_pots
-		text = "RULE_CULTURE_CONVERSION_FASTER_MELTING_POTS"
-		desc = "RULE_CULTURE_CONVERSION_FASTER_MELTING_POTS_DESC"
-	}
-	option = {
-		name = faster_melting_pots_and_slower_normal
-		text = "RULE_CULTURE_CONVERSION_FASTER_MELTING_POTS_AND_SLOWER_NORMAL"
-		desc = "RULE_CULTURE_CONVERSION_FASTER_MELTING_POTS_AND_SLOWER_NORMAL_DESC"
 	}
 }
 
@@ -957,32 +1046,6 @@ ai_intrigue = {
 	}
 }
 
-dueling = {
-	name = "RULE_DUELING"
-	dlc = "Way of Life"
-	group = "RULE_GROUP_DIPLOMACY"
-	group = "RULE_GROUP_WOL"
-	option = {
-		name = default
-		text = "RULE_OPTION_DEFAULT"
-		desc = "RULE_DUELING_DEFAULT_DESC"
-	}
-	option = {
-		name = restricted
-		text = "RULE_OPTION_RESTRICTED"
-		desc = "RULE_DUELING_RESTRICTED_DESC"
-		achievements = no
-		alt_start_achievements = no					  
-	}
-	option = {
-		name = unrestricted
-		text = "RULE_OPTION_UNRESTRICTED"
-		desc = "RULE_DUELING_UNRESTRICTED_DESC"
-		achievements = no
-		alt_start_achievements = no					 
-	}
-}
-
 punishment_release_prisoner = {
 	name = "RULE_PUNISHMENT_RELEASE_PRISONER"
 	group = "RULE_GROUP_DIPLOMACY"
@@ -1180,36 +1243,6 @@ conclave_education_focuses = {
 	}
 }
 
-#freewayz died for this
-gehenna_black_death = {
-	name = "RULE_BLACK_DEATH"
-	group = "RULE_GROUP_GEHENNA"
-	
-	option = {
-		name = weak
-		text = "RULE_BLACK_DEATH_WEAK"
-		desc = "RULE_BLACK_DEATH_WEAK_DESC"
-	}	
-	
-	option = {
-		name = normal
-		text = "RULE_BLACK_DEATH_NORMAL"
-		desc = "RULE_BLACK_DEATH_NORMAL_DESC"
-	}
-	
-	option = {
-		name = deadly
-		text = "RULE_BLACK_DEATH_DEADLY"
-		desc = "RULE_BLACK_DEATH_DEADLY_DESC"
-	}	
-
-	option = {
-		name = off
-		text = "RULE_BLACK_DEATH_OFF"
-		desc = "RULE_BLACK_DEATH_OFF_DESC"
-	}
-}
-
 dynamic_crusader_states = {
 					   
 	name = "RULE_CRUSADER_STATES"
@@ -1384,20 +1417,7 @@ non_aggression_pacts_block_factions = {
 	}
 }
 
-blood_splatter_rule = {
-	name = "RULE_BLOOD_SPLATTER"
-	group = "RULE_GROUP_VARIOUS"
-	option = {
-		name = on
-		text = "RULE_OPTION_ON"
-		desc = "RULE_BLOOD_SPLATTER_ON"
-	}
-	option = {
-		name = off
-		text = "RULE_OPTION_OFF"
-		desc = "RULE_BLOOD_SPLATTER_OFF"
-	}
-}
+
 hellenism_rule = {
 	name = "RULE_HELLENISM"
 	group = "RULE_GROUP_RELIGION"
