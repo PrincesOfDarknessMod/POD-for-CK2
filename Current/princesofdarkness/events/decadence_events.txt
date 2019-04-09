@@ -1612,7 +1612,7 @@ character_event = {
 character_event = {
 	id = 91240
 	desc = EVTDESC91240
-	picture = GFX_evt_council
+	picture = GFX_evt_ghoul_domitor
 	
 	is_triggered_only = yes
 	
@@ -1622,15 +1622,17 @@ character_event = {
 			factor = 100
 			modifier = {
 				factor = 10
-				trait = content
+				#trait = content
+				trait = supe_hunter
 			}
 			modifier = {
-				factor = 4
-				trait = zealous
-				liege = {
-					controls_religion = yes # Stay loyal to the Caliph
-					religion = ROOT
-				}
+				factor = 1
+				trait = vampire
+				#trait = zealous
+				#liege = {
+				#	controls_religion = yes # Stay loyal to the Caliph
+				#	religion = ROOT
+				#}
 			}
 		}
 	}
@@ -1639,6 +1641,10 @@ character_event = {
 		name = EVTOPTB91240 # Declare independence
 		ai_chance = {
 			factor = 50
+			modifier = {
+				factor = 5
+				trait = vampire
+			}
 			modifier = {
 				factor = 3
 				trait = ambitious

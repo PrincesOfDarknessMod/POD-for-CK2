@@ -1031,5 +1031,239 @@ character_event =
 	
 }	
 
+#  fund_massive_cover_up_decision	
+character_event = 
+{
+    id = POD_VAMPIRE_MASQUERADE_BREACH.5
+	title = EVTTITLE_POD_VAMPIRE_MASQUERADE_BREACH_5
+    desc = EVTDESC_POD_VAMPIRE_MASQUERADE_BREACH_5
+	picture = GFX_evt_ghoul_gifts_gold
+	border = GFX_event_normal_frame_intrigue
+	only_playable = yes
+    is_triggered_only = yes	
+
+	trigger = 
+	{
+		trait = vampire
+		ai = no		
+	}		
+
+    option = 
+	{	
+		name = "EVTOPTA_POD_VAMPIRE_MASQUERADE_BREACH_5" 
+		scaled_wealth = -5
+		add_character_modifier = {
+			name = masquerade_enforcer
+			years = 5
+		}
+		if = { 
+			limit = {
+				NOT = { trait = patient }
+				NOT = { trait = wroth }
+			}
+			random = {
+				chance = 30
+				add_trait = patient
+			}
+		}	
+		random_list = {
+			60 = {
+				custom_tooltip = { text = EVTTITLE_POD_VAMPIRE_MASQUERADE_BREACH_6 }
+				character_event = { id = POD_VAMPIRE_MASQUERADE_BREACH.6 months = 9 }
+			}
+			40 = { 
+				custom_tooltip = { text = EVTTITLE_POD_VAMPIRE_MASQUERADE_BREACH_7 }
+				character_event = { id = POD_VAMPIRE_MASQUERADE_BREACH.7 months = 9 }
+			}
+		}	
+	}
+
+    option = 
+	{	
+		name = "EVTOPTB_POD_VAMPIRE_MASQUERADE_BREACH_5" 
+		trigger = {
+			scaled_wealth = 6
+		}
+		scaled_wealth = -6
+		add_character_modifier = {
+			name = masquerade_tyrant
+			years = 5
+		}
+		
+		if = { 
+			limit = {
+				NOT = { trait = kind }
+				NOT = { trait = cruel }
+			}
+			random = {
+				chance = 30
+				add_trait = cruel
+			}
+		}
+		
+		random_list = {
+			80 = { 
+				custom_tooltip = { text = EVTTITLE_POD_VAMPIRE_MASQUERADE_BREACH_8 }
+				character_event = { id = POD_VAMPIRE_MASQUERADE_BREACH.8 months = 3 }
+			}
+			20 = { 
+				custom_tooltip = { text = EVTTITLE_POD_VAMPIRE_MASQUERADE_BREACH_9 }
+				character_event = { id = POD_VAMPIRE_MASQUERADE_BREACH.9 months = 3 }				
+			}
+		}	
+	}	
+}
+
+#  fund_massive_cover_up_decision small success
+
+character_event = 
+{
+    id = POD_VAMPIRE_MASQUERADE_BREACH.6
+	title = EVTTITLE_POD_VAMPIRE_MASQUERADE_BREACH_6
+    desc = EVTDESC_POD_VAMPIRE_MASQUERADE_BREACH_6
+	picture = GFX_evt_ghoul_nos_basement_conspiracy
+	border = GFX_event_normal_frame_intrigue
+	only_playable = yes
+    is_triggered_only = yes		
+
+    option = 
+	{	
+		name = "EVTOPTA_POD_VAMPIRE_MASQUERADE_BREACH_6"
+		if = { 
+			limit = {
+				NOT = { trait = kind }
+				NOT = { trait = cruel }
+			}
+			random = {
+				chance = 30
+				add_trait = kind
+			}
+		}		
+		decadence = -10
+		if = { 
+			limit = {
+				trait = decadent 
+			}
+			random = {
+				chance = 40
+				remove_trait = decadent
+			}
+		}			
+	}
+}
+
+#  fund_massive_cover_up_decision small failure
+
+character_event = 
+{
+    id = POD_VAMPIRE_MASQUERADE_BREACH.7
+	title = EVTTITLE_POD_VAMPIRE_MASQUERADE_BREACH_7
+    desc = EVTDESC_POD_VAMPIRE_MASQUERADE_BREACH_7
+	picture = GFX_evt_vampire_staked
+	border = GFX_event_normal_frame_intrigue
+	only_playable = yes
+    is_triggered_only = yes	
+
+    option = 
+	{	
+		name = "EVTOPTA_POD_VAMPIRE_MASQUERADE_BREACH_7" 
+		if = { 
+			limit = {
+				NOT = { trait = craven }
+				NOT = { trait = brave }
+			}
+			random = {
+				chance = 30
+				add_trait = craven
+			}
+		}		
+		if = { 
+			limit = {
+				NOT = { trait = decadent }
+			}
+			random = {
+				chance = 20
+				add_trait = decadent
+			}
+		}		
+		decadence = 5
+	}
+}
+
+#  fund_massive_cover_up_decision large success
+
+character_event = 
+{
+    id = POD_VAMPIRE_MASQUERADE_BREACH.8
+	title = EVTTITLE_POD_VAMPIRE_MASQUERADE_BREACH_8
+    desc = EVTDESC_POD_VAMPIRE_MASQUERADE_BREACH_8
+	picture = GFX_evt_ghoul_execution
+	border = GFX_event_normal_frame_intrigue
+	only_playable = yes
+    is_triggered_only = yes	
+
+    option = 
+	{	
+		name = "EVTOPTA_POD_VAMPIRE_MASQUERADE_BREACH_8" 
+		if = { 
+			limit = {
+				NOT = { trait = patient }
+				NOT = { trait = wroth }
+			}
+			random = {
+				chance = 40
+				add_trait = wroth
+			}
+		}		
+		
+		decadence = -25	
+		
+		if = { 
+			limit = {
+				trait = decadent 
+			}
+			random = {
+				chance = 60
+				remove_trait = decadent
+			}
+		}		
+	}
+}
+
+#  fund_massive_cover_up_decision large failure
+
+character_event = 
+{
+    id = POD_VAMPIRE_MASQUERADE_BREACH.9
+	title = EVTTITLE_POD_VAMPIRE_MASQUERADE_BREACH_9
+    desc = EVTDESC_POD_VAMPIRE_MASQUERADE_BREACH_9
+	picture = GFX_evt_ghoul_beating
+	border = GFX_event_normal_frame_intrigue
+	only_playable = yes
+    is_triggered_only = yes	
 	
-	
+    option = 
+	{	
+		name = "EVTOPTA_POD_VAMPIRE_MASQUERADE_BREACH_9" 
+		decadence = 10
+		if = { 
+			limit = {
+				NOT = { trait = decadent }
+			}
+			random = {
+				chance = 40
+				add_trait = decadent
+			}
+		}		
+		if = { 
+			limit = {
+				NOT = { trait = paranoid }
+				NOT = { trait = trusting }
+			}
+			random = {
+				chance = 40
+				add_trait = paranoid
+			}
+		}
+	}
+}

@@ -1,0 +1,34 @@
+decisions = {
+	fundmassivecoverup_decision = {
+		is_high_prio = yes
+		
+		potential = {
+			trait = vampire	
+			decadence = 40
+		}
+		
+		allow = {	
+			is_playable = yes
+			is_landed = yes
+			higher_tier_than = BARON
+			trait = vampire
+			decadence = 40
+			prisoner = no
+			conditional_tooltip = {
+				scaled_wealth = 5
+			}			
+			NOT = { has_character_modifier = funded_massive_cover_up_recently }
+		}
+		
+		effect = {	
+			add_character_modifier = {
+				name = funded_massive_cover_up_recently 
+				years = 5
+			}		
+			character_event = { id = POD_VAMPIRE_MASQUERADE_BREACH.5 }				
+			
+		}  
+
+	}
+
+}
