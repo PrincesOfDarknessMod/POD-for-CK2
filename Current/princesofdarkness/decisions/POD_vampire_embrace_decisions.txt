@@ -27,7 +27,9 @@ targetted_decisions = {
 		}
 		
 		effect = {
-
+			FROM = {
+				decadence = 2
+			}
 			if = 
 			{
 				limit = { trait = revenant }
@@ -318,6 +320,10 @@ targetted_decisions = {
 			NOT = { trait = werewolf_abomination }
 		}
 		effect = {
+			
+			FROM = {
+				decadence = 3
+			}
 			custom_tooltip = {
 				name = "player_embrace_werewolf_decision_tooltip"		
 			set_character_flag = FLAG_NWOD_EMBRACE_MORTAL_MINOR_TITLE_FIRED
@@ -374,6 +380,9 @@ targetted_decisions = {
 			}
 		}
 		effect = {
+			FROM = {
+				decadence = 1
+			}	
 			add_trait = ghoul
 			add_trait = vigor_1
 			add_trait = bloodbound
@@ -384,7 +393,7 @@ targetted_decisions = {
 			}
 			FROM = { save_event_target_as = domitor }
 			event_target:domitor = {
-			
+			decadence = 1
 				opinion = {
 					modifier = opinion_my_ghoul
 					who = PREV
@@ -417,6 +426,9 @@ targetted_decisions = {
 		}
 		
 		effect = {
+			FROM = {
+				decadence = 1
+			}
 			custom_tooltip = {
 					name = "player_embrace_mage_decision_tooltip"	
 			set_character_flag = FLAG_NWOD_EMBRACE_MORTAL_MINOR_TITLE_FIRED
@@ -478,6 +490,9 @@ targetted_decisions = {
 		}
 		
 		effect = {
+			FROM = {
+				decadence = 2
+			}
 			wealth = -200
 			custom_tooltip = {
 					name = "player_embrace_mage_ritual_decision_tooltip"	

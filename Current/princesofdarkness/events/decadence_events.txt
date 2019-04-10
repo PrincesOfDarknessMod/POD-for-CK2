@@ -1727,7 +1727,7 @@ character_event = {
 	desc = EVTDESC_MASQEXPOSURE_DECADENT
 	picture = GFX_evt_sultan
 	
-	only_men = yes
+	#only_men = yes
 	min_age = 16
 	capable_only = yes
 	prisoner = no
@@ -1738,7 +1738,7 @@ character_event = {
 		uses_decadence = yes
 		holy_order = no
 		is_offmap_ruler = no
-		lower_tier_than = KING
+		lower_tier_than = EMPEROR
 		OR = {
 			religion_group = vampire_high_clans_group
 			religion_group = ashirra_vampire_group
@@ -2248,27 +2248,28 @@ character_event = {
 		}
 	}
 	
-	option = {
-		name = EVTOPTE91355 # Seduce wife (intrigue)
-		ai_chance = {
-			factor = 6
-		}
-		tooltip_info = intrigue
-		trigger = {
-			intrigue = 12
-			FROM = {
-				is_married = yes
-			}
-		}
-		FROM = {
-			spouse = {
-				character_event = {
-					id = 91374
-					days = 3
-				}
-			}
-		}
-	}
+#	option = {
+#		name = EVTOPTE91355 # Seduce wife (intrigue)
+#		ai_chance = {
+#			factor = 6
+#		}
+#		tooltip_info = intrigue
+#		trigger = {
+#			intrigue = 12
+#			FROM = {
+#				is_married = yes
+#			}
+#		}
+#		FROM = {
+#			spouse = {
+#				character_event = {
+#					id = 91374
+#					days = 3
+#				}
+#			}
+#		}
+#	}
+	
 }
 
 # The decadent character refuses the diplomatic attempt
@@ -2461,70 +2462,71 @@ character_event = {
 			hidden_tooltip = { character_event = { id = 91377 } }
 		}
 	}
-	option = {
-		name = EVTOPTD91360 # Go on Hajj
-		trigger = {
-			NOT = {
-				OR = {
-					trait = hajjaj
-					trait = on_hajj
-				}
-			}
-		}
-		
-		ai_chance = {
-			factor = 5
-		}
-		
-		set_character_flag = straightened_up
-		
-		remove_trait = decadent
-		clr_character_flag = negotiated_to_drop_decadence
-		piety = 50
-		
-		hidden_tooltip = {
-			FROM = {
-				character_event = {
-					id = 91362
-					days = 3
-				}
-			}
-		}
-		
-		scaled_wealth = -0.20
-		clr_character_flag = promise_hajj
-		set_character_flag = activated_hajj
-		set_character_flag = do_not_disturb
-		hidden_tooltip = {
-			letter_event = { 
-				id = 86000
-			}
-		}
-	}
-	option = {
-		name = EVTOPTE91360 # Donate money to charity
-		
-		ai_chance = {
-			factor = 5
-		}	
-		set_character_flag = straightened_up
-		
-		remove_trait = decadent
-		clr_character_flag = negotiated_to_drop_decadence
-		
-		hidden_tooltip = {
-			FROM = {
-				character_event = {
-					id = 91363
-					days = 3
-				}
-			}
-		}
-		
-		wealth = -10
-		piety = 20
-	}
 	
+#	option = {
+#		name = EVTOPTD91360 # Go on Hajj
+#		trigger = {
+#			NOT = {
+#				OR = {
+#					trait = hajjaj
+#					trait = on_hajj
+#				}
+#			}
+#		}
+#		
+#		ai_chance = {
+#			factor = 5
+#		}
+#		
+#		set_character_flag = straightened_up
+#		
+#		remove_trait = decadent
+#		clr_character_flag = negotiated_to_drop_decadence
+#		piety = 50
+#		
+#		hidden_tooltip = {
+#			FROM = {
+#				character_event = {
+#					id = 91362
+#					days = 3
+#				}
+#			}
+#		}
+#		
+#		scaled_wealth = -0.20
+#		clr_character_flag = promise_hajj
+#		set_character_flag = activated_hajj
+#		set_character_flag = do_not_disturb
+#		hidden_tooltip = {
+#			letter_event = { 
+#				id = 86000
+#			}
+#		}
+#	}
+#	option = {
+#		name = EVTOPTE91360 # Donate money to charity
+#		
+#		ai_chance = {
+#			factor = 5
+#		}	
+#		set_character_flag = straightened_up
+#		
+#		remove_trait = decadent
+#		clr_character_flag = negotiated_to_drop_decadence
+#		
+#		hidden_tooltip = {
+#			FROM = {
+#				character_event = {
+#					id = 91363
+#					days = 3
+#				}
+#			}
+#		}
+#		
+#		wealth = -10
+#		piety = 20
+#	}
+
 	option = {
 		name = EVTOPTC91355 # Bribe (diplo)
 		ai_chance = {
@@ -2559,25 +2561,26 @@ character_event = {
 		}
 	}
 	
-	option = {
-		trigger = {
-			FROM = { is_married = yes }
-			intrigue = 12
-		}
-		name = EVTOPTE91355 # Seduce wife (intrigue)
-		ai_chance = {
-			factor = 6
-		}
-		tooltip_info = intrigue
-		FROM = {
-			spouse = {
-				character_event = {
-					id = 91374
-					days = 3
-				}
-			}
-		}
-	}
+#	option = {
+#		trigger = {
+#			FROM = { is_married = yes }
+#			intrigue = 12
+#		}
+#		name = EVTOPTE91355 # Seduce wife (intrigue)
+#		ai_chance = {
+#			factor = 6
+#		}
+#		tooltip_info = intrigue
+#		FROM = {
+#			spouse = {
+#				character_event = {
+#					id = 91374
+#					days = 3
+#				}
+#			}
+#		}
+#	}
+	
 }
 
 
@@ -2600,40 +2603,40 @@ character_event = {
 }
 
 # The decadent character went on the Hajj
-character_event = {
-	id = 91362
-	desc = EVTDESC91362
-	picture = GFX_evt_kaaba
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = EVTOPTA91362
-		opinion = {
-			modifier = opinion_straightened_up
-			who = FROM
-			months = 120
-		}
-	}
-}
-
-# The decadent character gave money to charity
-character_event = {
-	id = 91363
-	desc = EVTDESC91363
-	picture = GFX_evt_kaaba
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = EVTOPTA91363
-		opinion = {
-			modifier = opinion_straightened_up
-			who = FROM
-			months = 120
-		}
-	}
-}
+#character_event = {
+#	id = 91362
+#	desc = EVTDESC91362
+#	picture = GFX_evt_kaaba
+#	
+#	is_triggered_only = yes
+#	
+#	option = {
+#		name = EVTOPTA91362
+#		opinion = {
+#			modifier = opinion_straightened_up
+#			who = FROM
+#			months = 120
+#		}
+#	}
+#}
+#
+## The decadent character gave money to charity
+#character_event = {
+#	id = 91363
+#	desc = EVTDESC91363
+#	picture = GFX_evt_kaaba
+#	
+#	is_triggered_only = yes
+#	
+#	option = {
+#		name = EVTOPTA91363
+#		opinion = {
+#			modifier = opinion_straightened_up
+#			who = FROM
+#			months = 120
+#		}
+#	}
+#}
 
 # Attempt at Intrigue persuasion
 character_event = {
@@ -3077,210 +3080,210 @@ character_event = {
 	}
 }
 
-# The decadent character seduces the spouse of the dynasty head
-character_event = {
-	id = 91374
-	desc = EVTDESC91374
-	picture = GFX_evt_lovers
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = EVTOPTA91374 # Spouse falls for the decadent character
-		custom_tooltip = { text = EVTTOOLTIP91374A }
-		ai_chance = {
-			factor = 3
-			modifier = {
-				factor = 0
-				trait = celibate
-			}
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = spouse value = 0 } }
-			}
-		}
-		
-		add_lover = FROM
-		
-		spouse = {
-			character_event = {
-				id = 91375 # Ask spouse to let your lover be
-				days = 1
-			}
-		}
-	}
-	
-	option = {
-		name = EVTOPTB91374 # Spouse sees through the decadent character
-		custom_tooltip = { text = EVTTOOLTIP91374B }
-		ai_chance = {
-			factor = 5
-		}
-		opinion = {
-			who = FROM
-			modifier = opinion_used
-			months = 240
-		}
-		spouse = {
-			character_event = {
-				id = 91376 # Tell spouse of the decadent character's plans
-				days = 1
-			}
-		}
-	}
-}
-
-# Dynasty head is asked by wife to leave decadent character alone
-character_event = {
-	id = 91375
-	desc = EVTDESC91375
-	picture = GFX_evt_quarrel
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = EVTOPTA91373 # Accept
-		ai_chance = {
-			factor = 4
-		}	
-		opinion = {
-			modifier = opinion_pleased
-			who = spouse
-			months = 240
-		}
-		
-		hidden_tooltip = {
-			any_dynasty_member = {
-				limit = {
-					is_offmap_ruler = no
-					is_playable = yes
-					NOT = { trait = decadent }
-					NOT = { character = ROOT }
-					OR = {
-						religion_group = vampire_high_clans_group
-						religion_group = ashirra_vampire_group
-						religion_group = vampire_low_clans_group
-						religion_group = baali_group
-						religion_group = masquerade_camarilla_group
-						religion_group = sabbat_group
-						religion_group = inconnu_group
-						religion_group = masquerade_independent_group
-						religion_group = talmahera_group
-						religion_group = bloodlines_group
-						religion_group = ROOT
-					}
-				}
-				
-				character_event = {
-					id = 91369
-					days = 1
-				}
-			}
-		}
-	}
-	
-	option = {
-		name = EVTOPTA91351 # Denounce
-		ai_chance = {
-			factor = 5
-		}
-		reverse_opinion = {
-			modifier = opinion_very_disappointed
-			who = spouse
-			months = 240
-		}
-		reverse_opinion = {
-			modifier = opinion_takfir
-			who = FROMFROM
-			months = 240
-		}
-		
-		hidden_tooltip = {
-			any_dynasty_member = {
-				limit = {
-					is_offmap_ruler = no
-					is_playable = yes
-					NOT = { trait = decadent }
-					NOT = { character = ROOT }
-					OR = {
-						religion_group = vampire_high_clans_group
-						religion_group = ashirra_vampire_group
-						religion_group = vampire_low_clans_group
-						religion_group = baali_group
-						religion_group = masquerade_camarilla_group
-						religion_group = sabbat_group
-						religion_group = inconnu_group
-						religion_group = masquerade_independent_group
-						religion_group = talmahera_group
-						religion_group = bloodlines_group
-						religion_group = ROOT
-					}
-				}
-				
-				character_event = {
-					id = 91369
-					days = 1
-				}
-			}
-		}
-	}
-}
-
-# Dynasty head is informed about decadent character's attempt to seduce your spouse
-character_event = {
-	id = 91376
-	desc = EVTDESC91376
-	picture = GFX_evt_lovers
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = EVTOPTA91351 # Denounce
-		ai_chance = {
-			factor = 5
-		}
-		opinion = {
-			modifier = opinion_takfir
-			who = FROMFROM 
-			months = 240
-		}
-		opinion = {
-			modifier = honest_pos
-			who = FROM
-			months = 240
-		}
-		
-		hidden_tooltip = {
-			any_dynasty_member = {
-				limit = {
-					is_offmap_ruler = no
-					is_playable = yes
-					NOT = { trait = decadent }
-					NOT = { character = ROOT }
-					OR = {
-						religion_group = vampire_high_clans_group
-						religion_group = ashirra_vampire_group
-						religion_group = vampire_low_clans_group
-						religion_group = baali_group
-						religion_group = masquerade_camarilla_group
-						religion_group = sabbat_group
-						religion_group = inconnu_group
-						religion_group = masquerade_independent_group
-						religion_group = talmahera_group
-						religion_group = bloodlines_group
-						religion_group = ROOT
-					}
-				}
-				
-				character_event = {
-					id = 91369
-					days = 1
-				}
-			}
-		}
-	}
-}
-
+## The decadent character seduces the spouse of the dynasty head
+#character_event = {
+#	id = 91374
+#	desc = EVTDESC91374
+#	picture = GFX_evt_lovers
+#	
+#	is_triggered_only = yes
+#	
+#	option = {
+#		name = EVTOPTA91374 # Spouse falls for the decadent character
+#		custom_tooltip = { text = EVTTOOLTIP91374A }
+#		ai_chance = {
+#			factor = 3
+#			modifier = {
+#				factor = 0
+#				trait = celibate
+#			}
+#			modifier = {
+#				factor = 2
+#				NOT = { opinion = { who = spouse value = 0 } }
+#			}
+#		}
+#		
+#		add_lover = FROM
+#		
+#		spouse = {
+#			character_event = {
+#				id = 91375 # Ask spouse to let your lover be
+#				days = 1
+#			}
+#		}
+#	}
+#	
+#	option = {
+#		name = EVTOPTB91374 # Spouse sees through the decadent character
+#		custom_tooltip = { text = EVTTOOLTIP91374B }
+#		ai_chance = {
+#			factor = 5
+#		}
+#		opinion = {
+#			who = FROM
+#			modifier = opinion_used
+#			months = 240
+#		}
+#		spouse = {
+#			character_event = {
+#				id = 91376 # Tell spouse of the decadent character's plans
+#				days = 1
+#			}
+#		}
+#	}
+#}
+#
+## Dynasty head is asked by wife to leave decadent character alone
+#character_event = {
+#	id = 91375
+#	desc = EVTDESC91375
+#	picture = GFX_evt_quarrel
+#	
+#	is_triggered_only = yes
+#	
+#	option = {
+#		name = EVTOPTA91373 # Accept
+#		ai_chance = {
+#			factor = 4
+#		}	
+#		opinion = {
+#			modifier = opinion_pleased
+#			who = spouse
+#			months = 240
+#		}
+#		
+#		hidden_tooltip = {
+#			any_dynasty_member = {
+#				limit = {
+#					is_offmap_ruler = no
+#					is_playable = yes
+#					NOT = { trait = decadent }
+#					NOT = { character = ROOT }
+#					OR = {
+#						religion_group = vampire_high_clans_group
+#						religion_group = ashirra_vampire_group
+#						religion_group = vampire_low_clans_group
+#						religion_group = baali_group
+#						religion_group = masquerade_camarilla_group
+#						religion_group = sabbat_group
+#						religion_group = inconnu_group
+#						religion_group = masquerade_independent_group
+#						religion_group = talmahera_group
+#						religion_group = bloodlines_group
+#						religion_group = ROOT
+#					}
+#				}
+#				
+#				character_event = {
+#					id = 91369
+#					days = 1
+#				}
+#			}
+#		}
+#	}
+#	
+#	option = {
+#		name = EVTOPTA91351 # Denounce
+#		ai_chance = {
+#			factor = 5
+#		}
+#		reverse_opinion = {
+#			modifier = opinion_very_disappointed
+#			who = spouse
+#			months = 240
+#		}
+#		reverse_opinion = {
+#			modifier = opinion_takfir
+#			who = FROMFROM
+#			months = 240
+#		}
+#		
+#		hidden_tooltip = {
+#			any_dynasty_member = {
+#				limit = {
+#					is_offmap_ruler = no
+#					is_playable = yes
+#					NOT = { trait = decadent }
+#					NOT = { character = ROOT }
+#					OR = {
+#						religion_group = vampire_high_clans_group
+#						religion_group = ashirra_vampire_group
+#						religion_group = vampire_low_clans_group
+#						religion_group = baali_group
+#						religion_group = masquerade_camarilla_group
+#						religion_group = sabbat_group
+#						religion_group = inconnu_group
+#						religion_group = masquerade_independent_group
+#						religion_group = talmahera_group
+#						religion_group = bloodlines_group
+#						religion_group = ROOT
+#					}
+#				}
+#				
+#				character_event = {
+#					id = 91369
+#					days = 1
+#				}
+#			}
+#		}
+#	}
+#}
+#
+## Dynasty head is informed about decadent character's attempt to seduce your spouse
+#character_event = {
+#	id = 91376
+#	desc = EVTDESC91376
+#	picture = GFX_evt_lovers
+#	
+#	is_triggered_only = yes
+#	
+#	option = {
+#		name = EVTOPTA91351 # Denounce
+#		ai_chance = {
+#			factor = 5
+#		}
+#		opinion = {
+#			modifier = opinion_takfir
+#			who = FROMFROM 
+#			months = 240
+#		}
+#		opinion = {
+#			modifier = honest_pos
+#			who = FROM
+#			months = 240
+#		}
+#		
+#		hidden_tooltip = {
+#			any_dynasty_member = {
+#				limit = {
+#					is_offmap_ruler = no
+#					is_playable = yes
+#					NOT = { trait = decadent }
+#					NOT = { character = ROOT }
+#					OR = {
+#						religion_group = vampire_high_clans_group
+#						religion_group = ashirra_vampire_group
+#						religion_group = vampire_low_clans_group
+#						religion_group = baali_group
+#						religion_group = masquerade_camarilla_group
+#						religion_group = sabbat_group
+#						religion_group = inconnu_group
+#						religion_group = masquerade_independent_group
+#						religion_group = talmahera_group
+#						religion_group = bloodlines_group
+#						religion_group = ROOT
+#					}
+#				}
+#				
+#				character_event = {
+#					id = 91369
+#					days = 1
+#				}
+#			}
+#		}
+#	}
+#}
+#
 # Spouse notified of divorce due to husband going off to join holy order
 character_event = {
 	id = 91377
