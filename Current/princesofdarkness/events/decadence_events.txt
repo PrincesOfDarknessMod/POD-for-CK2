@@ -1159,7 +1159,7 @@ character_event = {
 }
 
 # Charitable
-#character_event = {
+# character_event = {
 #	id = 91223
 #	desc = EVTDESC91223
 #	picture = GFX_evt_burning_house
@@ -1496,7 +1496,6 @@ character_event = {
 		trait = vampire	
 		uses_decadence = yes
 		trait = zealous
-		trait = vampire
 		NOT = { has_character_flag = decadence_zealous }
 	}
 	
@@ -1625,14 +1624,17 @@ character_event = {
 				#trait = content
 				trait = supe_hunter
 			}
+			
 			modifier = {
-				factor = 1
-				trait = vampire
+				factor = 2
+				trait = werewolf
+				
 				#trait = zealous
 				#liege = {
 				#	controls_religion = yes # Stay loyal to the Caliph
 				#	religion = ROOT
 				#}
+				
 			}
 		}
 	}
@@ -1768,7 +1770,12 @@ character_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 70
+		months = 210
+		
+		modifier = {
+			factor = 9
+			ai = yes
+		}
 		
 		modifier = {
 			factor = 0.1
@@ -2740,25 +2747,26 @@ character_event = {
 		}
 	}
 	
-	option = {
-		trigger = {
-			FROM = { is_married = yes }
-			intrigue = 12
-		}
-		name = EVTOPTE91355 # Seduce wife (intrigue)
-		ai_chance = {
-			factor = 6
-		}
-		tooltip_info = intrigue
-		FROM = {
-			spouse = {
-				character_event = {
-					id = 91374
-					days = 3
-				}
-			}
-		}
-	}
+#	option = {
+#		trigger = {
+#			FROM = { is_married = yes }
+#			intrigue = 12
+#		}
+#		name = EVTOPTE91355 # Seduce wife (intrigue)
+#		ai_chance = {
+#			factor = 6
+#		}
+#		tooltip_info = intrigue
+#		FROM = {
+#			spouse = {
+#				character_event = {
+#					id = 91374
+#					days = 3
+#				}
+#			}
+#		}
+#	}
+
 }
 
 # The decadent character refuses the Intrigue attempt

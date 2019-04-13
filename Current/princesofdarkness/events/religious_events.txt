@@ -1046,10 +1046,9 @@ narrative_event = {
 	has_global_flag = christian_crusades_unlocked
 	
 	trigger = {
-		NOT = { has_global_flag = princesofdarkness_mod_running }	
 		NOT = {
 			has_alternate_start_parameter = { key = religion_names value = random }
-			}
+		}
 		OR = {
 			religion = catholic
 			religion = cathar
@@ -1166,10 +1165,9 @@ narrative_event = {
 	has_global_flag = christian_crusades_unlocked
 	
 	trigger = {
-		NOT = { has_global_flag = princesofdarkness_mod_running }	
 		NOT = {
 			has_alternate_start_parameter = { key = religion_names value = random }
-			}
+		}
 		OR = {
 			religion = catholic
 			religion = cathar
@@ -1273,13 +1271,13 @@ narrative_event = {
 	has_global_flag = christian_crusades_unlocked
 	
 	trigger = {
-		NOT = { has_global_flag = princesofdarkness_mod_running }	
 		NOT = {
 			has_alternate_start_parameter = { key = religion_names value = random }
 		}
 		NOT = {
 			is_title_active = k_teutonic_state
-		}		OR = {
+		}
+		OR = {
 			religion = catholic
 			religion = cathar
 			religion = fraticelli
@@ -2422,7 +2420,7 @@ character_event = {
 	is_triggered_only = yes
 	
 	option = {
-		name = "GLORY_TO_HIGHGOD"
+		name = "GLORY_TO_HIGHGOD" 
 		prestige = 10
 	}
 }
@@ -3767,7 +3765,8 @@ character_event = {
 					OR = {
 						using_cb = crusade
 						using_cb = new_crusade
-					}					defender = {
+					}
+					defender = {
 						character = ROOT
 					}
 				}
@@ -4048,7 +4047,8 @@ character_event = {
 					OR = {
 						using_cb = crusade
 						using_cb = new_crusade
-					}					defender = {
+					}
+					defender = {
 						character = ROOT
 					}
 					NOT = { war_score = 50 }
@@ -4252,8 +4252,6 @@ character_event = {
 				}
 			}
 		}
-		
-		
 		#### Holy Fury - Mass Baptism clause
 
 		if = {
@@ -4362,6 +4360,7 @@ character_event = {
 		custom_tooltip = { text = preacher_convert }
 		
 		}		
+	}
 	option = {
 		name = EVTOPTB39601
 		ai_chance = {
@@ -4386,7 +4385,6 @@ character_event = {
 			}
 		}
 		custom_tooltip = { text = preacher_banished }
-		}
 	}
 }
 
@@ -4897,10 +4895,10 @@ narrative_event = {
 	religion_group = muslim
 	
 	trigger = {
-		NOT = { has_global_flag = princesofdarkness_mod_running }	
 		NOT = {
 			has_alternate_start_parameter = { key = religion_names value = random }
-		}		is_landed = yes
+		}
+		is_landed = yes
 		NOT = { religion = shiite }
 		higher_tier_than = DUKE
 		d_shiite = {
@@ -5535,7 +5533,6 @@ narrative_event = {
 		}
 		year = 900
 		controls_religion = yes
-		NOT = { has_global_flag = princesofdarkness_mod_running }	
 		NOT = { has_global_flag = christian_crusades_unlocked }
 		
 		OR = {
@@ -5733,7 +5730,6 @@ narrative_event = {
 	religion_group = muslim
 	
 	trigger = {
-		NOT = { has_global_flag = princesofdarkness_mod_running }	
 		NOT = {
 			has_alternate_start_parameter = { key = religion_names value = random }
 		}
@@ -5784,7 +5780,6 @@ narrative_event = {
 	religion_group = muslim
 	
 	trigger = {
-		NOT = { has_global_flag = princesofdarkness_mod_running }	
 		NOT = {
 			has_alternate_start_parameter = { key = religion_names value = random }
 		}
@@ -5837,7 +5832,6 @@ narrative_event = {
 	religion_group = muslim
 	
 	trigger = {
-		NOT = { has_global_flag = princesofdarkness_mod_running }	
 		NOT = {
 			has_alternate_start_parameter = { key = religion_names value = random }
 		}
@@ -5890,7 +5884,6 @@ narrative_event = {
 	religion_group = muslim
 	
 	trigger = {
-		NOT = { has_global_flag = princesofdarkness_mod_running }		
 		NOT = {
 			has_alternate_start_parameter = { key = religion_names value = random }
 		}
@@ -5951,7 +5944,6 @@ narrative_event = {
 	religion_group = muslim
 	
 	trigger = {
-		NOT = { has_global_flag = princesofdarkness_mod_running }	
 		NOT = {
 			has_alternate_start_parameter = { key = religion_names value = random }
 		}
@@ -6012,7 +6004,6 @@ narrative_event = {
 	religion_group = pagan_group
 	
 	trigger = {
-		NOT = { has_global_flag = princesofdarkness_mod_running }	
 		NOT = {
 			has_alternate_start_parameter = { key = religion_names value = random }
 		}
@@ -6068,7 +6059,6 @@ character_event = {
 	is_triggered_only = yes
 	
 	trigger = {
-	
 		NOT = { religion = FROMFROM }
 		OR = {
 			character = FROM
@@ -7549,7 +7539,7 @@ character_event = {
 		trigger = {
 			OR = {
 				trait = gregarious
-				has_fair_trait_trigger = yes 
+				has_fair_trait_trigger = yes
 				trait = charismatic_negotiator
 				trait = midas_touched
 				trait = grey_eminence

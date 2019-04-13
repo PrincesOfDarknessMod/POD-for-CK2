@@ -286,6 +286,15 @@ shift_zulo_form_decision = {
 					}
 			}			
 			
+			modifier = {
+				factor = 0
+				decadence = 50
+			}				
+
+			modifier = {
+				factor = 0
+				trait = decadent
+			}
 			
 		modifier = {
 			factor = 0
@@ -391,6 +400,17 @@ shift_blood_form_decision = {
 						trait = in_hiding
 				}
 			}		
+			
+			modifier = {
+				factor = 0
+				decadence = 50
+			}				
+
+			modifier = {
+				factor = 0
+				trait = decadent
+			}
+			
 		modifier = {
 			factor = 0
 			has_character_modifier = dire_blood_thirst
@@ -492,6 +512,17 @@ shift_beast_form_decision = {
 						trait = in_hiding
 				}
 			}		
+			
+			modifier = {
+				factor = 0
+				decadence = 50
+			}				
+
+			modifier = {
+				factor = 0
+				trait = decadent
+			}
+			
 		modifier = {
 			factor = 0
 			has_character_modifier = dire_blood_thirst
@@ -592,6 +623,17 @@ shift_mist_form_decision = {
 						trait = in_hiding
 				}
 			}		
+			
+			modifier = {
+				factor = 0
+				decadence = 50
+			}				
+
+			modifier = {
+				factor = 0
+				trait = decadent
+			}
+			
 		modifier = {
 			factor = 0
 			has_character_modifier = dire_blood_thirst
@@ -692,6 +734,17 @@ shift_shadow_form_decision = {
 						trait = in_hiding
 				}
 			}		
+			
+			modifier = {
+				factor = 0
+				decadence = 50
+			}				
+
+			modifier = {
+				factor = 0
+				trait = decadent
+			}
+			
 		modifier = {
 			factor = 0
 			has_character_modifier = dire_blood_thirst
@@ -759,5 +812,52 @@ shift_set_godform_decision = {
 		add_trait = set_godform		
 		POD_vampire_blood_thirst_increase_effect = yes			
 	}
+	
+	ai_will_do = {
+				factor = 1	
+			
+			modifier = {
+				factor = 5
+				FROM = {
+					OR = {
+						in_battle = yes
+					}
+				}
+			}			
+			
+			modifier = {
+				factor = 5
+				FROM = {
+						trait = patient
+					}
+			}
+			modifier = {
+				factor = 5
+				FROM = {
+						trait = wroth
+					}
+			}			
+			
+			modifier = {
+				factor = 0
+				decadence = 50
+			}				
+
+			modifier = {
+				factor = 0
+				trait = decadent
+			}
+			
+		modifier = {
+			factor = 0
+			has_character_modifier = dire_blood_thirst
+				}
+				
+		modifier = {
+			factor = 0
+			has_character_modifier = dreadful_blood_thirst
+				}	
+				
+		}	
 	}
 }

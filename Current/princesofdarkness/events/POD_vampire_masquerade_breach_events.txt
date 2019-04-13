@@ -167,6 +167,7 @@ character_event = {
 # Dominate Forgetful Mind
     option = {
         name = EVTOPTA_POD_VAMPIRE_MASQUERADE_BREACH1
+		
 		  trigger = {
 			FROM = { 
 				OR = { 
@@ -176,6 +177,7 @@ character_event = {
 					}
 				}	
 		  }		
+		  
 		tooltip_info = dominate_3
 		  
 		FROM = { POD_vampire_blood_thirst_increase_effect = yes
@@ -197,13 +199,16 @@ character_event = {
 
 # Ignore them	
     option = {
+	
         name = EVTOPTB_POD_VAMPIRE_MASQUERADE_BREACH1
+		
 		event_target:new_exposes_masquerade = {
 				add_trait = knows_too_much
 				add_trait = stressed
 				}
 
 		decadence = 2
+		
 		capital_scope = {
 			add_province_modifier = { 					
 				name = masquerade_breach
@@ -271,17 +276,21 @@ character_event = {
 				if = { limit = { NOT = { trait = deceitful } } 
 				add_trait = deceitful	}
 				}
-		FROM = { wealth = -20
+				
+		FROM = { 
+				wealth = -20
+				decadence = -1
 				remove_opinion = { 
 				who = event_target:new_exposes_masquerade
 				modifier = opinion_breached_masquerade }
 		}
-		decadence = -1
+		
     }
 
 # Kill them	
     option = {
         name = EVTOPTD_POD_VAMPIRE_MASQUERADE_BREACH1
+		
 		event_target:new_exposes_masquerade = { death = { death_reason = death_murder_unknown killer = FROM } }
 		
                 FROM = {
@@ -293,6 +302,8 @@ character_event = {
                         }
                     }
                 }		
+				
+				decadence = -3	
 				
 				random = {
 				chance = 5
@@ -373,16 +384,13 @@ character_event = {
 				}
 				
                 FROM = {
-                            add_trait = wounded
-						}
-			}				
-	decadence = -3			
-    }
+                    add_trait = wounded
+				}
+			}						
 	
+		}
 	
-	}
-	
-
+}
 # AI vamp masquerade breach
 
 character_event = {
@@ -586,12 +594,6 @@ character_event =
 		trait = vampire
 		ai = no		
 	}		
-
-	immediate = 
-	{ 
-
-	
-	}
 	
 # Dominate Forgetful Mind
     option = 
@@ -831,6 +833,7 @@ character_event =
 			}
 			
 		}		
+		
 		decadence = -3		
     }
 	
@@ -853,12 +856,6 @@ character_event =
 		trait = vampire
 		ai = no		
 	}		
-
-	immediate = 
-	{ 
-	
-	}
-
 
 # Forgive them for a favor
 
@@ -886,6 +883,7 @@ character_event =
 				modifier = opinion_breached_masquerade 
 			}
 		}	
+		
 		decadence = 1
 		
     }
@@ -1040,13 +1038,7 @@ character_event =
 	picture = GFX_evt_ghoul_gifts_gold
 	border = GFX_event_normal_frame_intrigue
 	only_playable = yes
-    is_triggered_only = yes	
-
-	trigger = 
-	{
-		trait = vampire
-		ai = no		
-	}		
+    is_triggered_only = yes			
 
     option = 
 	{	
@@ -1076,6 +1068,33 @@ character_event =
 				character_event = { id = POD_VAMPIRE_MASQUERADE_BREACH.7 months = 9 }
 			}
 		}	
+		
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 5
+				OR = {
+					trait = kind
+					trait = patient
+					trait = greedy
+					trait = diligent 
+					trait = craven
+				}
+			}	
+			modifier = {
+				factor = 0.5
+				OR = {
+					trait = slothful
+					trait = lunatic
+					trait = wroth
+					trait = cruel
+					trait = arbitrary
+					trait = impaler
+					trait = paranoid
+					trait = decadent
+				}
+			}			
+		}			
 	}
 
     option = 
@@ -1110,7 +1129,34 @@ character_event =
 				custom_tooltip = { text = EVTTITLE_POD_VAMPIRE_MASQUERADE_BREACH_9 }
 				character_event = { id = POD_VAMPIRE_MASQUERADE_BREACH.9 months = 3 }				
 			}
-		}	
+		}
+
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 5
+				OR = {
+					trait = slothful
+					trait = lunatic
+					trait = wroth
+					trait = cruel
+					trait = arbitrary
+					trait = impaler
+					trait = paranoid
+					trait = decadent
+				}
+			}	
+			modifier = {
+				factor = 0.5
+				OR = {
+					trait = kind
+					trait = patient
+					trait = greedy
+					trait = diligent 
+					trait = craven
+				}
+			}			
+		}		
 	}	
 }
 
