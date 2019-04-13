@@ -297,7 +297,7 @@ shadow_inquisition_kill_effect = {
 pod_shadow_inquisition_spawn = {
 	create_character = {
 		random_traits = yes
-		dynasty = none
+		dynasty = actually_culture
 		religion = shadow_inquisition
 		culture = event_target:target_province
 		female = 50
@@ -316,6 +316,7 @@ pod_shadow_inquisition_spawn = {
 		set_character_flag = SI_revolter
 		set_hunter_type = yes
 		save_event_target_as = rebel_leader
+		set_character_flag = decadence_invader
 		create_title = {
 			tier = DUKE
 			landless = yes
@@ -325,17 +326,136 @@ pod_shadow_inquisition_spawn = {
 			name = "SI_REVOLT"
 			holder = THIS
 		}
+		character_event = { id = CWOD_hunter_noble.1 }
 		spawn_SI_army_effect = yes
+
+					create_character = {
+						random_traits = yes
+						dynasty = actually_culture
+						religion = shadow_inquisition
+						culture = ROOT
+						female = no
+						age = 20
+						attributes = {
+							martial = 7
+						}
+						trait = skilled_tactician
+						trait = supe_hunter
+					}
+					new_character = {
+						character_event = { id = CWOD_hunter_noble.1 }
+							
+						spawn_unit = {
+							province = PREVPREV
+							home = PREVPREV
+							owner = PREV
+							#leader = THIS
+							match_character = ROOT
+							match_mult = 0.2
+							earmark = decadence_revolters
+							reinforces = yes
+							reinforce_rate_multiplier = 0.25
+						}
+					}
+					
+					create_character = {
+						random_traits = yes
+						dynasty = actually_culture
+						religion = shadow_inquisition
+						culture = ROOT
+						female = no
+						age = 20
+						attributes = {
+							martial = 7
+						}
+						trait = skilled_tactician
+						trait = supe_hunter
+					}
+					new_character = {
+						character_event = { id = CWOD_hunter_noble.1 }
+						spawn_unit = {
+							province = PREVPREV
+							home = PREVPREV
+							owner = PREV
+							#leader = THIS
+							match_character = ROOT
+							match_mult = 0.2
+							earmark = decadence_revolters
+							reinforces = yes
+							reinforce_rate_multiplier = 0.25
+						}
+					}
+					create_character = {
+						random_traits = yes
+						dynasty = actually_culture
+						religion = shadow_inquisition
+						culture = ROOT
+						female = no
+						age = 22
+						attributes = {
+							martial = 7
+						}
+						trait = skilled_tactician
+						trait = supe_hunter
+					}
+					new_character = {
+						character_event = { id = CWOD_hunter_noble.1 }
+						
+						spawn_unit = {
+							province = PREVPREV
+							home = PREVPREV
+							owner = PREV
+							#leader = THIS
+							match_character = ROOT
+							match_mult = 0.2
+							earmark = decadence_revolters
+							reinforces = yes
+							reinforce_rate_multiplier = 0.25
+						}
+					}
+					create_character = {
+						random_traits = yes
+						dynasty = actually_culture
+						religion = shadow_inquisition
+						culture = ROOT
+						female = yes
+						age = 22
+						attributes = {
+							martial = 7
+						}
+						trait = skilled_tactician
+						trait = supe_hunter
+					}
+					new_character = {
+						character_event = { id = CWOD_hunter_noble.1 }
+							
+						spawn_unit = {
+							province = PREVPREV
+							home = PREVPREV
+							owner = PREV
+							#leader = THIS
+							match_character = ROOT
+							match_mult = 0.2
+							earmark = decadence_revolters
+							reinforces = yes
+							reinforce_rate_multiplier = 0.25
+						}
+					}
+					
+		log = "91000: Masquerade Exposure revolt during Shadow Inquisition narrative event!"		
+		
 		event_target:target_province = {
 			owner = {
+				
 				top_liege = {
 					log = "[rebel_leader.GetTitledName] war vs [This.GetTitledName] in [rebel_leader.Location.GetName]"
 					reverse_war = {
 						target = PREVPREVPREV
-						casus_belli = SI_inquisition_uprising_war
+						casus_belli = decadence_invasion
 						thirdparty_title = ROOT # The county...
 						tier = DUKE # ... but really the de jure duchy
 					}
+					clr_character_flag = decadence_invader
 					reverse_opinion = {
 						who = PREVPREVPREV
 						modifier = opinion_evil_tyrant
