@@ -1,6 +1,455 @@
 spriteTypes = {
 	
 	# File contains society specific clothing
+
+# Einerjar / Valdermen
+
+	portraitType = { #Portraits - Male
+		effectFile = "gfx/FX/portrait.lua"
+		name = "PORTRAIT_society_warrior_lodge_norse_male_clothing"
+		
+		weight = {
+			additive_modifier = {
+				value = 10000
+				has_dlc = "Holy Fury"
+				portrait_age > child
+				portrait_is_female = no
+				portrait_clothing = yes
+				OR = {
+					portrait_society = via_einherjar
+					portrait_religion = valdaermen
+				}
+			}
+		}
+		
+		layer = { 
+			"GFX_society_warrior_lodge_norse_male_headgear_behind:p5:c1"
+			"GFX_society_warrior_lodge_norse_male_clothes_behind:p3:c0"
+			"GFX_society_warrior_lodge_norse_male_clothes:p3:c2"
+			"GFX_society_warrior_lodge_norse_male_headgear_mid:p5:c3"
+			"GFX_society_warrior_lodge_norse_male_headgear:p5:c5"
+			"GFX_empty:c6"
+			"GFX_empty:c7"
+			"GFX_empty:c3"
+		}
+		
+		# Correct rank
+		allow_property_values = {
+			3 = {
+				0 = {
+					portrait_society_rank = 1
+				}
+				1 = {
+					portrait_society_rank = 2
+				}
+				2 = {
+					portrait_society_rank = 3
+				}
+				3 = {
+					portrait_society_rank = 4
+				}
+			}
+			5 = {
+				0 = {
+					portrait_society_rank = 1
+				}
+				1 = {
+					portrait_society_rank = 2
+				}
+				2 = {
+					portrait_society_rank = 3
+				}
+				3 = {
+					portrait_society_rank = 4
+				}
+			}
+		}
+	}
+	
+	portraitType = { #Portraits - Female
+		effectFile = "gfx/FX/portrait.lua"
+		name = "PORTRAIT_society_warrior_lodge_norse_female_clothing"
+		
+		weight = {
+			additive_modifier = {
+				value = 10000
+				has_dlc = "Holy Fury"
+				portrait_age > child
+				portrait_is_female = yes
+				portrait_clothing = yes
+				OR = {
+					portrait_society = via_einherjar
+					portrait_religion = valdaermen
+					portrait_religion = get_of_fenris
+				}
+			}
+		}
+		
+		layer = { 
+			"GFX_society_warrior_lodge_norse_female_headgear_behind:p5:c1"
+			"GFX_society_warrior_lodge_norse_female_clothes_behind:p3:c0"
+		#	"GFX_society_warrior_lodge_norse_female_hairlayer_behind:p5:c6:h"
+			"GFX_society_warrior_lodge_norse_female_clothes:p3:c2"
+			"GFX_society_warrior_lodge_norse_female_headgear_mid:p5:c3"
+		#	"GFX_society_warrior_lodge_norse_female_hairlayer_front:p5:c7:h"
+			"GFX_society_warrior_lodge_norse_female_headgear:p5:c5"
+			"GFX_empty:c4"
+		}
+		
+		# Correct rank
+		allow_property_values = {
+			3 = {
+				0 = {
+					portrait_society_rank = 1
+				}
+				1 = {
+					portrait_society_rank = 2
+				}
+				2 = {
+					portrait_society_rank = 3
+				}
+				3 = {
+					portrait_society_rank = 4
+				}
+			}
+			5 = {
+				0 = {
+					portrait_society_rank = 1
+				}
+				1 = {
+					portrait_society_rank = 2
+				}
+				2 = {
+					portrait_society_rank = 3
+				}
+				3 = {
+					portrait_society_rank = 4
+				}
+			}
+		}
+
+	}
+	
+	
+# Via Yasaq
+
+	portraitType = { #Portraits - Male
+		effectFile = "gfx/FX/portrait.lua"
+		name = "PORTRAIT_society_warrior_lodge_tengri_male_clothing"
+		
+		weight = {
+			additive_modifier = {
+				value = 10000
+				has_dlc = "Holy Fury"
+				portrait_age > child
+				portrait_is_female = no
+				portrait_clothing = yes
+				OR = {
+					portrait_society = via_yasaq
+					portrait_religion = sons_of_tengri
+				}
+			}
+		}
+		
+		layer = { 
+			"GFX_society_warrior_lodge_tengri_male_headgear_behind:p5:c1"
+			"GFX_society_warrior_lodge_tengri_male_clothes_behind:p3:c0"
+			"GFX_society_warrior_lodge_tengri_male_clothes:p3:c2"
+			"GFX_society_warrior_lodge_tengri_male_headgear_mid:p5:c3"
+			"GFX_society_warrior_lodge_tengri_male_headgear:p5:c5"
+			"GFX_empty:c4"
+			"GFX_society_warrior_lodge_tengri_male_clothes_infront:c7"
+		}
+		
+		# Correct rank
+		allow_property_values = {
+			1 = {
+				6 = {
+					always = yes
+				}
+			}
+			3 = {
+				0 = {
+					portrait_society_rank = 1
+				}
+				1 = {
+					portrait_society_rank = 2
+				}
+				2 = {
+					portrait_society_rank = 3
+				}
+				3 = {
+					portrait_society_rank = 4
+				}
+			}
+			5 = {
+				0 = {
+					portrait_society_rank = 1
+				}
+				1 = {
+					portrait_society_rank = 2
+				}
+				2 = {
+					portrait_society_rank = 3
+				}
+				3 = {
+					portrait_society_rank = 4
+				}
+			}
+		}
+	}
+	
+
+	portraitType = { #Portraits - Female
+		effectFile = "gfx/FX/portrait.lua"
+		name = "PORTRAIT_society_warrior_lodge_tengri_female_clothing"
+		
+		weight = {
+			additive_modifier = {
+				value = 10000
+				has_dlc = "Holy Fury"
+				portrait_age > child				
+				portrait_is_female = yes
+				portrait_clothing = yes
+				OR = {
+					portrait_society = via_yasaq
+					portrait_religion = sons_of_tengri
+				}
+			}
+		}
+		
+		layer = { 
+			"GFX_society_warrior_lodge_tengri_female_headgear_behind:p5:c1"
+			"GFX_society_warrior_lodge_tengri_female_clothes_behind:p3:c0"
+			"GFX_empty:c4"
+			"GFX_society_warrior_lodge_tengri_female_clothes:p3:c2"
+			"GFX_empty:c3"
+			"GFX_society_warrior_lodge_tengri_female_headgear:p5:c5"
+			"GFX_empty:c6"
+			"GFX_society_warrior_lodge_tengri_female_clothes_infront:c7"
+		}
+		
+		# Correct rank
+		allow_property_values = {
+			1 = {
+				6 = {
+					always = yes
+				}
+			}
+			3 = {
+				0 = {
+					portrait_society_rank = 1
+				}
+				1 = {
+					portrait_society_rank = 2
+				}
+				2 = {
+					portrait_society_rank = 3
+				}
+				3 = {
+					portrait_society_rank = 4
+				}
+			}
+			5 = {
+				0 = {
+					portrait_society_rank = 1
+				}
+				1 = {
+					portrait_society_rank = 2
+				}
+				2 = {
+					portrait_society_rank = 3
+				}
+				3 = {
+					portrait_society_rank = 4
+				}
+			}
+		}
+	}
+}	
+
+# Silver Fangs
+
+	portraitType = { #Portraits - Male
+		effectFile = "gfx/FX/portrait.lua"
+		name = "PORTRAIT_society_warrior_lodge_baltic_male_clothing"
+		
+		weight = {
+			additive_modifier = {
+				value = 10000
+				portrait_age > child
+				portrait_is_female = no
+				portrait_clothing = yes
+				has_dlc = "Holy Fury"
+				OR = {
+					portrait_religion = silver_fangs
+					portrait_religion = get_of_fenris
+				}
+			}
+		}
+		
+		layer = { 
+			"GFX_society_warrior_lodge_baltic_male_headgear_behind:p5:c1"
+			"GFX_society_warrior_lodge_baltic_male_clothes_behind:p3:c0"
+			"GFX_society_warrior_lodge_baltic_male_headgear_hairlayer_behind:p5:c6"
+			"GFX_society_warrior_lodge_baltic_male_clothes:p3:c2"
+			"GFX_society_warrior_lodge_baltic_male_headgear:p5:c4"
+			"GFX_society_warrior_lodge_baltic_male_headgear_hairlayer:p5:c5"
+			"GFX_empty:c7"
+			"GFX_society_warrior_lodge_baltic_male_clothes_infront:p5:c7"
+		}
+		
+		# Correct rank
+		allow_property_values = {
+			3 = {
+				0 = {
+					portrait_society_rank = 1
+				}
+				1 = {
+					portrait_society_rank = 2
+				}
+				2 = {
+					portrait_society_rank = 3
+				}
+				3 = {
+					portrait_society_rank = 4
+				}
+			}
+			5 = {
+				0 = {
+					portrait_society_rank = 1
+				}
+				1 = {
+					portrait_society_rank = 2
+				}
+				2 = {
+					portrait_society_rank = 3
+				}
+				3 = {
+					portrait_society_rank = 4
+				}
+			}
+		}
+	}
+		
+	
+	portraitType = { #Portraits - Female
+		effectFile = "gfx/FX/portrait.lua"
+		name = "PORTRAIT_society_warrior_lodge_slavic_female_clothing"
+		
+		weight = {
+			additive_modifier = {
+				value = 10000
+				portrait_age > child
+				portrait_is_female = yes
+				portrait_clothing = yes
+				portrait_religion = silver_fangs
+			}
+		}
+		
+		layer = { 
+			"GFX_society_warrior_lodge_slavic_female_headgear_behind:p5:c1"
+			"GFX_society_warrior_lodge_slavic_female_clothes_behind:p3:c0"
+			"GFX_empty:c6"
+			"GFX_society_warrior_lodge_slavic_female_clothes:p3:c2"
+			"GFX_empty:c3"
+			"GFX_empty:c5"
+			"GFX_empty:c7"
+			"GFX_society_warrior_lodge_slavic_female_clothes_infront:p5:c5"
+		}
+		
+		# Correct rank
+		allow_property_values = {
+			3 = {
+				0 = {
+					portrait_society_rank = 1
+				}
+				1 = {
+					portrait_society_rank = 2
+				}
+				2 = {
+					portrait_society_rank = 3
+				}
+				3 = {
+					portrait_society_rank = 4
+				}
+			}
+			5 = {
+				0 = {
+					portrait_society_rank = 1
+				}
+				1 = {
+					portrait_society_rank = 2
+				}
+				2 = {
+					portrait_society_rank = 3
+				}
+				3 = {
+					portrait_society_rank = 4
+				}
+			}
+		}
+	}
+	
+# Black Furies 
+
+	portraitType = { #Portraits - Female
+		effectFile = "gfx/FX/portrait.lua"
+		name = "PORTRAIT_society_warrior_lodge_hellenic_female_clothing"
+		
+		weight = {
+			additive_modifier = {
+				value = 10000
+				portrait_age > child
+				portrait_is_female = yes
+				portrait_clothing = yes
+				portrait_religion = black_furies
+			}
+		}
+		
+		layer = { 
+			"GFX_society_warrior_lodge_hellenic_female_headgear_behind:p5:c1"
+			"GFX_society_warrior_lodge_hellenic_female_clothes_behind:p3:c0"
+			"GFX_empty:c6"
+			"GFX_society_warrior_lodge_hellenic_female_clothes:p3:c2"
+			"GFX_empty:c3"
+			"GFX_empty:c4"
+			"GFX_empty:c7"
+			"GFX_society_warrior_lodge_hellenic_female_clothes_infront:p3:c5"
+		}
+		
+		# Correct rank
+		allow_property_values = {
+			3 = {
+				0 = {
+					portrait_society_rank = 1
+				}
+				1 = {
+					portrait_society_rank = 2
+				}
+				2 = {
+					portrait_society_rank = 3
+				}
+				3 = {
+					portrait_society_rank = 4
+				}
+			}
+			5 = {
+				0 = {
+					portrait_society_rank = 1
+				}
+				1 = {
+					portrait_society_rank = 2
+				}
+				2 = {
+					portrait_society_rank = 3
+				}
+				3 = {
+					portrait_society_rank = 4
+				}
+			}
+		}
+	}	
 	
 	### Nude ###
 #	
