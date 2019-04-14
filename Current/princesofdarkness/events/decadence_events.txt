@@ -7,6 +7,7 @@
 ###################################
 
 # Written by Henrik Fåhraeus & Henrik Eklund
+# Modified by flintsparc
 
 # Because of the regular breaches of the masquerade, an inquisition is launched 
 character_event = {
@@ -66,6 +67,8 @@ character_event = {
 	immediate = {
 
 		random_demesne_title = {
+
+
 			
 			location = {
 				create_character = {
@@ -93,6 +96,102 @@ character_event = {
 						holder = THIS
 					}
 					save_event_target_as = hunter_leader
+
+					if = { 
+						limit = { 
+							OR = {
+								culture_group = east_slavic
+								culture_group = south_slavic
+								culture_group = byzantine
+							}
+							NOT = { culture = croatian }
+							NOT = { culture = industrialcroatian }
+							NOT = { culture = renncroatian }
+							NOT = { culture = colonialcroatian }
+							NOT = { culture = moderncroatian }
+							NOT = { culture = bosian }
+							NOT = { culture = industrialbosian }
+							NOT = { culture = rennbosian }
+							NOT = { culture = colonialbosian }
+							NOT = { culture = modernbosian }
+							NOT = { culture = slovenian }
+							NOT = { culture = industrialslovenian }
+							NOT = { culture = rennslovenian }
+							NOT = { culture = colonialslovenian }
+							NOT = { culture = modernslovenian }	
+							NOT = { culture = albanian }
+							NOT = { culture = industrialalbanian }
+							NOT = { culture = rennalbanian }
+							NOT = { culture = colonialalbanian }
+							NOT = { culture = modernalbanian }								
+						}
+					
+						religion = akritai
+		
+					}
+					
+					if = { 
+						limit = { 
+							OR = {
+								culture_group = arabic
+								culture_group = iranian
+								culture_group = indo_aryan_group 
+								culture_group = dravidian_group
+								culture_group = tibetan_group
+							}
+						}
+					
+						religion = ilkhwan_al-safa
+						
+						create_character = 
+						{
+							random_traits = yes
+							age = 30
+							culture = PREV
+							religion = PREV
+							dynasty = actually_culture
+						}
+						
+						new_character =
+						{
+							save_event_target_as = new_dynasty_character
+							PREV = 
+							{ 
+								dynasty = event_target:new_dynasty_character
+							}							
+							clear_event_target = event_target:new_dynasty_character
+							death = "yes"
+						}						
+					}
+					
+					if = { 
+						limit = { 
+							culture_group = israelite
+						}
+					
+						religion = judges
+
+						create_character = 
+						{
+							random_traits = yes
+							age = 30
+							culture = PREV
+							religion = PREV
+							dynasty = actually_culture
+						}
+						
+						new_character =
+						{
+							save_event_target_as = new_dynasty_character
+							PREV = 
+							{ 
+								dynasty = event_target:new_dynasty_character
+							}							
+							clear_event_target = event_target:new_dynasty_character
+							death = "yes"
+						}						
+					}					
+					
 					
 					if = {
 						limit = { ROOT = { tier = duke } }
@@ -121,7 +220,7 @@ character_event = {
 					create_character = {
 						random_traits = yes
 						dynasty = actually_culture
-						religion = shadow_inquisition
+						religion = PREV
 						culture = ROOT
 						female = no
 						age = 18
@@ -151,7 +250,7 @@ character_event = {
 					create_character = {
 						random_traits = yes
 						dynasty = actually_culture
-						religion = shadow_inquisition
+						religion = PREV
 						culture = ROOT
 						female = no
 						age = 20
@@ -181,7 +280,7 @@ character_event = {
 						random_traits = yes
 						dynasty = actually_culture
 						religion = shadow_inquisition
-						culture = ROOT
+						culture = PREV
 						female = no
 						age = 20
 						attributes = {
@@ -207,7 +306,7 @@ character_event = {
 					create_character = {
 						random_traits = yes
 						dynasty = actually_culture
-						religion = shadow_inquisition
+						religion = PREV
 						culture = ROOT
 						female = no
 						age = 22
@@ -235,7 +334,7 @@ character_event = {
 					create_character = {
 						random_traits = yes
 						dynasty = actually_culture
-						religion = shadow_inquisition
+						religion = PREV
 						culture = ROOT
 						female = yes
 						age = 22

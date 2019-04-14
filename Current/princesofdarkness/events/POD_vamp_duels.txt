@@ -16,18 +16,67 @@ character_event = {
 	}
 	
 	option = {
+		name = "EVTOPTE_POD_VAMP_DUEL_EVENTS_1" # Drain the non vampire
+		character_event = { id = POD_vamp_duels_events.7 tooltip = EVTTOOLTIP_POD_VAMP_DUEL_EVENTS_7 }
+		trigger = {
+			trait = vampire
+			event_target:vamp_duel_loser = {
+				NOT = { trait = vampire }
+			}
+		}	
+	}	
+	
+	option = {
+		name = "EVTOPTF_POD_VAMP_DUEL_EVENTS_1" # Imprison the non vampire
+		character_event = { id = POD_vamp_duels_events.8 tooltip = EVTTOOLTIP_POD_VAMP_DUEL_EVENTS_8 }
+		trigger = {
+			event_target:vamp_duel_loser = {
+				NOT = { trait = vampire }
+			}
+		}	
+	}		
+	
+	option = {
+		name = "EVTOPTG_POD_VAMP_DUEL_EVENTS_1" # Imprison the non vampire
+		character_event = { id = POD_vamp_duels_events.9 tooltip = EVTTOOLTIP_POD_VAMP_DUEL_EVENTS_9 }
+		trigger = {
+			event_target:vamp_duel_loser = {
+				NOT = { trait = vampire }
+			}
+		}	
+	}			
+	
+	option = {
 		name = "EVTOPTA_POD_VAMP_DUEL_EVENTS_1" # Destroy 
 		character_event = { id = POD_vamp_duels_events.2 tooltip = EVTTOOLTIP_POD_VAMP_DUEL_EVENTS_2 }
+		trigger = {
+			event_target:vamp_duel_loser = {
+				trait = vampire
+			}
+			trait = vampire
+		}		
 	}
 	
 	option = {
 		name = "EVTOPTB_POD_VAMP_DUEL_EVENTS_1" # Diablerize
 		character_event = { id = POD_vamp_duels_events.3 tooltip = EVTTOOLTIP_POD_VAMP_DUEL_EVENTS_3  }
+		trigger = {
+			event_target:vamp_duel_loser = {
+				trait = vampire
+			}
+			trait = vampire
+		}		
 	}
 	
 	option = {
 		name = "EVTOPTC_POD_VAMP_DUEL_EVENTS_1" # Stake
 		character_event = { id = POD_vamp_duels_events.4 tooltip = EVTTOOLTIP_POD_VAMP_DUEL_EVENTS_4 }
+		trigger = {
+			event_target:vamp_duel_loser = {
+				trait = vampire
+			}
+			trait = vampire
+		}		
 	}
 	
 	option = {
@@ -235,3 +284,273 @@ character_event = {
 
 	}
 }
+
+# Drain the non-Vampire
+character_event = {
+	id = POD_vamp_duels_events.7
+	title = "EVTTITLE_POD_VAMP_DUEL_EVENTS_7"
+	desc = "EVTDESC_POD_VAMP_DUEL_EVENTS_7"
+	picture = GFX_evt_vampire_victim
+	border = GFX_event_normal_frame_war
+	is_triggered_only = yes
+	portrait = event_target:vamp_duel_loser
+	
+	immediate = {
+		clr_character_flag = vamp_duel
+		event_target:vamp_duel_loser = {
+			clr_character_flag = vamp_duel
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_VAMP_DUEL_EVENTS_7" # Drain
+
+        custom_tooltip = { text = you_win_the_duel_tt }
+        apply_generic_duel_victory_effect = yes
+        add_blood_splatter_effect = yes
+
+        event_target:vamp_duel_loser = {
+			set_character_flag = someone_died
+			show_scope_change = no
+                death = {
+                    death_reason = death_duel
+                    killer = event_target:vamp_duel_victor
+                }
+				
+                trigger_switch = {
+                    on_trigger = trait
+                    werewolf = {
+                        FROM = {
+                            add_character_modifier = {
+                                name = blood_of_werewolf
+                                duration = 356
+                            }
+
+                        }
+                    }
+                    mage = {
+                        FROM = {
+                            add_character_modifier = {
+                                name = blood_of_mage
+                                duration = 356
+                            }
+
+                        }
+                    }
+                    demon = {
+                        FROM = {
+                            add_character_modifier = {
+                                name = blood_of_demon
+                                duration = 356
+                            }
+
+                        }
+                    }
+                    changeling = {
+                        FROM = {
+                            add_character_modifier = {
+                                name = blood_of_changeling
+                                duration = 356
+                            }
+
+                        }
+                    }
+                    firstbornfae = {
+                        FROM = {
+                            add_character_modifier = {
+                                name = blood_of_fae
+                                duration = 356
+                            }
+
+                        }
+                    }					
+					
+                    mummy = {
+                        FROM = {
+                            add_character_modifier = {
+                                name = blood_of_mummy
+                                duration = 356
+                            }
+
+                        }
+                    }
+                    promethean = {
+                        FROM = {
+                            add_character_modifier = {
+                                name = blood_of_promethean
+                                duration = 356
+                            }
+
+                        }
+                    }
+                    geist = {
+                        FROM = {
+                            add_character_modifier = {
+                                name = blood_of_geist
+                                duration = 356
+                            }
+
+                        }
+                    }
+                    revenant = {
+                        FROM = {
+                            add_character_modifier = {
+                                name = blood_of_revenant
+                                duration = 30
+                            }
+
+                        }
+                    }						
+                    wolf-blooded = {
+                        FROM = {
+                            add_character_modifier = {
+                                name = blood_of_wolf-blooded
+                                duration = 30
+                            }
+
+                        }
+                    }					
+					
+                    mortal = {
+                        FROM = {
+                            add_character_modifier = {
+                                name = blood_of_mortal
+                                duration = 30
+                            }
+
+                        }
+                    }
+                }
+                FROM = {
+					POD_vampire_blood_thirst_decrease_effect = yes
+                    if = {
+                        limit = { NOT = { trait = cruel } }
+                        random = {
+                            chance = 25
+                            add_trait = cruel
+                            character_event = { id = 38259 }
+                        }
+                    }
+                }
+				hidden_effect = {
+                mother = {
+                    opinion = {
+                        modifier = opinion_killed_close_kin
+                        who = FROM
+                    }
+                }
+                father = {
+                    opinion = {
+                        modifier = opinion_killed_close_kin
+                        who = FROM
+                    }
+                }
+                spouse = {
+                    opinion = {
+                        modifier = opinion_killed_close_kin
+                        who = FROM
+                    }
+                }
+                any_child = {
+                    opinion = {
+                        modifier = opinion_killed_father
+                        who = FROM
+                    }
+                }
+                if = {
+                    limit = {
+                        FROM = {
+                            NOT = { dynasty = ROOT }
+                            NOT = { sibling = ROOT }
+                        }
+                    }
+                    any_sibling = {
+                        opinion = {
+                            modifier = opinion_killed_close_kin
+                            who = FROM
+                        }
+                    }
+                }
+				}
+        }
+		
+		
+        hidden_effect = {
+            event_target:vamp_duel_loser = { character_event = { id = HFP.10104 } } #"I was decapitated" event
+			clean_up_after_duel_effect = yes
+			clr_character_flag = murder_in_motion
+        }			
+	}	
+}
+
+# Imprison
+character_event = {
+	id = POD_vamp_duels_events.8
+	title = "EVTTITLE_POD_VAMP_DUEL_EVENTS_8"
+	desc = "EVTDESC_POD_VAMP_DUEL_EVENTS_8"
+	picture = GFX_evt_prisoner_hf
+	border = GFX_event_normal_frame_intrigue
+	is_triggered_only = yes
+	portrait = event_target:vamp_duel_loser
+	
+	immediate = {
+
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_VAMP_DUEL_EVENTS_8" # Imprison
+		
+        event_target:vamp_duel_loser = { 
+			imprison = ROOT
+		}
+		
+		custom_tooltip = { text = you_win_the_duel_tt }
+        apply_generic_duel_victory_effect = yes
+
+        tooltip = { event_target:vamp_duel_loser = { show_scope_change = no apply_selected_duel_injury_effect = yes } }			
+		clean_up_after_duel_effect = yes		
+		clr_character_flag = murder_in_motion		
+	}	
+}
+
+# kill
+character_event = {
+	id = POD_vamp_duels_events.9
+	title = "EVTTITLE_POD_VAMP_DUEL_EVENTS_9"
+	desc = "EVTDESC_POD_VAMP_DUEL_EVENTS_9"
+	picture = GFX_evt_vampire_judgement
+	border = GFX_event_normal_frame_war
+	is_triggered_only = yes
+	portrait = event_target:vamp_duel_loser
+	
+	immediate = {
+		clr_character_flag = vamp_duel
+		event_target:vamp_duel_loser = {
+			clr_character_flag = vamp_duel
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA_POD_VAMP_DUEL_EVENTS_9" # Destroyed 
+
+        custom_tooltip = { text = you_win_the_duel_tt }
+        apply_generic_duel_victory_effect = yes
+        add_blood_splatter_effect = yes
+
+        event_target:vamp_duel_loser = {
+			set_character_flag = someone_died
+			show_scope_change = no
+                death = {
+                    death_reason = death_duel
+                    killer = event_target:vamp_duel_victor
+                }
+        }
+        hidden_effect = {
+            event_target:vamp_duel_loser = { character_event = { id = HFP.10104 } } #"I was decapitated" event
+			clean_up_after_duel_effect = yes
+			clr_character_flag = murder_in_motion
+        }		
+			
+	}	
+}
+
