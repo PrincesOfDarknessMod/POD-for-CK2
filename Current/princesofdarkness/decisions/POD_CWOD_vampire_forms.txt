@@ -83,6 +83,7 @@ return_to_human_form_decision = {
 					trait = shadow_form
 					trait = beast_form
 					trait = set_godform
+					trait = dracul_form
 					}
 	}
 	
@@ -97,6 +98,7 @@ return_to_human_form_decision = {
 					trait = shadow_form
 					trait = beast_form
 					trait = set_godform
+					trait = dracul_form
 					}
 	}
 	effect = {
@@ -121,6 +123,9 @@ return_to_human_form_decision = {
 					}
 					set_godform = {
 						remove_trait = set_godform
+					}
+					dracul_form = {
+						remove_trait = dracul_form
 					}
 		}
 	
@@ -252,7 +257,10 @@ shift_zulo_form_decision = {
 					}
 					set_godform = {
 						remove_trait = set_godform
-					}					
+					}
+					dracul_form = {
+						remove_trait = dracul_form
+					}
 				}
 				
 		add_trait = zulo_form		
@@ -361,6 +369,9 @@ shift_blood_form_decision = {
 					}
 					set_godform = {
 						remove_trait = set_godform
+					}
+					dracul_form = {
+					    remove_trait = dracul_form
 					}
 				}
 		add_trait = blood_form		
@@ -478,6 +489,9 @@ shift_beast_form_decision = {
 					}
 					set_godform = {
 						remove_trait = set_godform
+					}
+                    dracul_form = {
+					    remove_trait = dracul_form
 					}					
 				}
 		add_trait = beast_form		
@@ -584,6 +598,12 @@ shift_mist_form_decision = {
 					}
 					set_godform = {
 						remove_trait = set_godform
+					}
+					set_godform = {
+						remove_trait = set_godform
+					}
+					dracul_form = {
+						remove_trait = dracul_form
 					}
 				}
 		add_trait = mist_form		
@@ -696,6 +716,9 @@ shift_shadow_form_decision = {
 					set_godform = {
 						remove_trait = set_godform
 					}
+					dracul_form = {
+						remove_trait = dracul_form
+					}
 				}
 		add_trait = shadow_form		
 		POD_vampire_blood_thirst_increase_effect = yes			
@@ -806,6 +829,9 @@ shift_set_godform_decision = {
 					}	
 					mist_form = {
 						remove_trait = mist_form
+					}
+                    dracul_form = {
+						remove_trait = dracul_form
 					}					
 				}
 		give_nickname = nick_the_unliving_god
@@ -859,5 +885,113 @@ shift_set_godform_decision = {
 				}	
 				
 		}	
+	}
+	shift_dracul_form_decision = {
+	potential = {
+			age = 16
+			NOT = { trait = torpor }
+			trait = vicissitude_5
+			trait = methuselah
+			NOT = { trait = dracul_form }
+	}
+	
+	allow = {
+			age = 16
+			trait = vicissitude_5
+			trait = methuselah
+			NOT = { trait = dracul_form }
+			NOT = { trait = torpor }
+	}
+	effect = {
+				decadence = 5
+                trigger_switch = {
+                    on_trigger = trait	
+					homid = {
+						remove_trait = homid
+						}
+                    glabro = {
+                        remove_trait = glabro 
+                    }		
+					crinos = {
+						remove_trait = crinos
+					}
+					hispo = {
+						remove_trait = hispo 
+						}
+					lupus = {
+						remove_trait = lupus
+					}
+					blood_form = {
+						remove_trait = blood_form
+					}
+					mist_form = {
+						remove_trait = mist_form
+					}
+					shadow_form = {
+						remove_trait = shadow_form
+					}	
+					beast_form = {
+						remove_trait = beast_form
+					}
+					set_godform = {
+						remove_trait = set_godform
+					}
+					zulo_form = {
+						remove_trait = zulo_form
+					}
+				}
+				
+		add_trait = dracul_form		
+		POD_vampire_blood_thirst_increase_effect = yes		
+	}
+	
+	revoke_allowed = { always = no }
+	
+	ai_will_do = {
+				factor = 1	
+			
+			modifier = {
+				factor = 5
+				FROM = {
+					OR = {
+						in_battle = yes
+					}
+				}
+			}			
+			
+			modifier = {
+				factor = 5
+				FROM = {
+						trait = patient
+					}
+			}
+			modifier = {
+				factor = 5
+				FROM = {
+						trait = wroth
+					}
+			}			
+			
+			modifier = {
+				factor = 0
+				decadence = 50
+			}				
+
+			modifier = {
+				factor = 0
+				trait = decadent
+			}
+			
+		modifier = {
+			factor = 0
+			has_character_modifier = dire_blood_thirst
+				}
+				
+		modifier = {
+			factor = 0
+			has_character_modifier = dreadful_blood_thirst
+				}	
+				
+		}
 	}
 }

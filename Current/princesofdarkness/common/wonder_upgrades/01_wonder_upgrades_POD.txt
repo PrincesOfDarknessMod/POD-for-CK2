@@ -1,0 +1,229 @@
+#####################################################################
+############################ INDEX ##################################
+#####################################################################
+### ANYONE ADDING UPGRADES(features): Keep this updated, please!
+###
+### Template:
+###
+###		upgrade_example_name
+###			picture = GFX_upgrade_icon_crates
+###			show_in_history = yes
+###			allow = { }
+###			potential = { }
+###			active = { }
+###			flags = { }
+###			build_time = 20
+###			gold_cost_flat = 450
+###			gold_cost_ticking = 1
+###			local_modifier = { }
+###			owner_modifier = { }
+###		}
+###
+
+# Note: Names are reference points, but likely displayed differently in game
+# Upgrades are referred to as "features" in game
+# Scopes: ROOT is the character, FROM is the upgrade, FROMFROM the wonder, and FROMFROMFROM the province.
+
+upgrade_POD_template = {
+	picture = GFX_upgrade_icon_skulls	
+	potential = { }
+	allow = { }
+	active = { }
+	flags = { }
+	build_time = 24
+	gold_cost_flat = 450
+	gold_cost_ticking = 1
+	local_modifier = { }
+	owner_modifier = { }
+}
+
+################### Available Upgrades ###########################
+
+#### GENERIC UPGRADES
+# Hidden Room ..................... upgrade_POD_hidden_room
+# Spikes .......................... upgrade_POD_spikes
+
+#### CATHEDRAL OF FLESH UPGRADES
+# upgrade_POD_lessen_kupalas_influence_1
+# upgrade_POD_lessen_kupalas_influence_2
+# upgrade_POD_lessen_kupalas_influence_3
+# upgrade_POD_lessen_kupalas_influence_4
+
+#### PYRAMID UPGRADES
+# Extra Pyramids .................. upgrade_POD_extra_pyramids
+# Big Stone Snek .................. upgrade_POD_set_statue
+# Sacrifical Altar ................ upgrade_POD_sacrificial_altar
+# Necropolis ...................... upgrade_POD_necropolis
+# Traps ........................... upgrade_POD_traps
+# Overseer of Rites ............... upgrade_POD_overseer_of_rites
+# Cultist Barracks ................ upgrade_POD_cultist_barracks
+
+###################################################################
+
+##########################################
+# Generic upgrades....
+##########################################
+
+upgrade_POD_spikes = {
+	picture = GFX_upgrade_icon_skulls
+
+	potential = { }
+	allow = { }
+	active = { }
+
+	flags = {
+		scary
+		is_plural
+	}
+	build_time = 24
+	gold_cost_flat = 450
+	gold_cost_ticking = 1
+	local_modifier = {
+		siege_defence = 0.05
+	}
+	owner_modifier = {
+		custom_modifier_text = execution_possible_modifier_tt
+	}
+	ai_will_do = {
+		factor = 0.5
+		modifier = {
+			factor = 3
+			trait = impaler
+		}
+		modifier = { #can the pope PLS stop building spikes?!
+			factor = 0
+			k_papal_state = {
+    			holder_scope = {
+    				character = THIS
+    			}
+    		}
+		}
+	}
+}
+
+upgrade_POD_hidden_room = {
+	#A hidden heaven
+	picture = GFX_upgrade_icon_key
+	potential = { }
+	allow = { }
+	active = { }
+
+	flags = {
+		room
+		is_singular
+		artifact_protection
+		secluded
+	}
+	build_time = 24
+	gold_cost_flat = 450
+	gold_cost_ticking = 1
+	owner_modifier = {
+		custom_modifier_text = less_likely_to_be_looted_modifier_tt
+	}
+}
+
+upgrade_POD_szlachta_barracks = {
+	picture = GFX_upgrade_icon_skulls	
+	potential = { }
+	allow = { }
+	active = { }
+	flags = { }
+	build_time = 24
+	gold_cost_flat = 450
+	gold_cost_ticking = 1
+	local_modifier = {
+		mass_szlachta = 100
+	}
+	owner_modifier = { }
+}
+
+##########################################
+# Cathedral of Flesh upgrades....
+##########################################
+
+upgrade_POD_lessen_kupalas_influence_1 = {
+	picture = GFX_upgrade_icon_skulls	
+	potential = { }
+	allow = { }
+	active = { }
+	flags = { }
+	build_time = 24
+	gold_cost_flat = 450
+	gold_cost_ticking = 1
+	local_modifier = { }
+	owner_modifier = { 
+	plot_power_modifier = 0.25
+	}
+}
+
+upgrade_POD_lessen_kupalas_influence_2 = {
+	picture = GFX_upgrade_icon_skulls	
+	potential = { }
+	allow = { has_wonder_upgrade = upgrade_POD_lessen_kupalas_influence_1 }
+	active = { has_wonder_upgrade = upgrade_POD_lessen_kupalas_influence_1 }
+	flags = { }
+	build_time = 24
+	gold_cost_flat = 600
+	gold_cost_ticking = 1
+	local_modifier = { }
+	owner_modifier = { 
+	plot_power_modifier = 0.25
+	}
+}
+
+upgrade_POD_lessen_kupalas_influence_3 = {
+	picture = GFX_upgrade_icon_skulls	
+	potential = { }
+	allow = { has_wonder_upgrade = upgrade_POD_lessen_kupalas_influence_2 }
+	active = { has_wonder_upgrade = upgrade_POD_lessen_kupalas_influence_2 }
+	flags = { }
+	build_time = 24
+	gold_cost_flat = 750
+	gold_cost_ticking = 1
+	local_modifier = { }
+	owner_modifier = { 
+	plot_power_modifier = 0.25
+	}
+}
+
+upgrade_POD_lessen_kupalas_influence_4 = {
+	picture = GFX_upgrade_icon_skulls	
+	potential = { }
+	allow = { has_wonder_upgrade = upgrade_POD_lessen_kupalas_influence_3 }
+	active = { has_wonder_upgrade = upgrade_POD_lessen_kupalas_influence_3 }
+	flags = { }
+	build_time = 24
+	gold_cost_flat = 900
+	gold_cost_ticking = 1
+	local_modifier = { }
+	owner_modifier = { 
+	plot_power_modifier = 0.25
+	}
+}
+
+##########################################
+# Pyramid upgrades....
+##########################################
+
+upgrade_POD_set_statue = { #think giant snake statue
+	picture = GFX_upgrade_icon_crates
+	potential = {
+		OR = {
+			trait = followerofset
+			religion = setite
+		}
+	}
+	allow = { }
+	active = { }
+
+	flags = {
+		is_singular
+	}
+	build_time = 60
+	gold_cost_flat = 450
+	gold_cost_ticking = 1
+	owner_modifier = {
+		proud_opinion = 5
+		same_religion_opinion = 2
+	}
+}

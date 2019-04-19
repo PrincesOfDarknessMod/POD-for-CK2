@@ -1,6 +1,92 @@
 spriteTypes = {
 	
 	# File contains society specific clothing
+	
+# Eternal Senate / Inconnu
+
+	portraitType = {
+		effectFile = "gfx/FX/portrait.lua"
+
+		name = "PORTRAIT_society_roman_clothing_male"
+		
+		weight = {
+			additive_modifier = {
+				value = 10000
+				has_dlc = "Holy Fury"
+				portrait_age > child
+				portrait_is_female = no
+				portrait_clothing = yes
+				NOT = { portrait_has_trait = blood_form }
+				NOT = { portrait_has_trait = shadow_form }
+				NOT = { portrait_has_trait = mist_form }
+				NOT = { portrait_has_trait = zulo_form }
+				NOT = { portrait_has_trait = beast_form }
+				NOT = { portrait_has_trait = crinos }
+				NOT = { portrait_has_trait = lupus }
+				NOT = { portrait_has_trait = hispo }				
+				OR = {
+				portrait_society = eternal_senate
+				portrait_religion = inconnu
+				}
+				# NOT = { portrait_tier = king }
+			}
+		}
+		
+		layer = {
+			"GFX_roman_male_clothes_behind:p3:c0"
+			"GFX_roman_male_headgear_behind:p5:c1"
+			"GFX_roman_male_clothes:p3:c2"
+			"GFX_roman_male_headgear_mid:p5:c3"	
+			"GFX_roman_male_headgear:p5:c5"
+		}
+		
+		allow_property_values = {
+		}
+	}
+	
+	portraitType = {
+		effectFile = "gfx/FX/portrait.lua"
+
+		name = "PORTRAIT_society_roman_clothing_male"
+		
+		weight = {
+			additive_modifier = {
+				value = 10000
+				has_dlc = "Holy Fury"
+				portrait_age > child
+				portrait_is_female = yes
+				portrait_clothing = yes
+				NOT = { portrait_has_trait = blood_form }
+				NOT = { portrait_has_trait = shadow_form }
+				NOT = { portrait_has_trait = mist_form }
+				NOT = { portrait_has_trait = zulo_form }
+				NOT = { portrait_has_trait = beast_form }
+				NOT = { portrait_has_trait = crinos }
+				NOT = { portrait_has_trait = lupus }
+				NOT = { portrait_has_trait = hispo }				
+				OR = {
+				portrait_society = eternal_senate
+				portrait_religion = inconnu
+				}
+				# NOT = { portrait_tier = king }
+			}
+		}
+		
+		layer = {
+			"GFX_roman_female_clothes_behind:p3:c0"
+			"GFX_roman_female_headgear_behind:p5:c1"
+			"GFX_roman_female_hair_behind:p1:h:y"
+			"GFX_roman_female_headgear_behind_mid:p5:c6"
+			"GFX_roman_female_clothes:p3:c2"
+			"GFX_roman_female_headgear_mid:p5:c3"
+			"GFX_roman_female_hair:p1:h:y"
+			"GFX_roman_female_headgear:p5:c5"
+		}
+		
+		allow_property_values = {
+		}
+	}	
+	
 
 # Einerjar / Valdermen
 
@@ -77,10 +163,10 @@ spriteTypes = {
 				portrait_age > child
 				portrait_is_female = yes
 				portrait_clothing = yes
+				NOT = { year = 1900 }
 				OR = {
 					portrait_society = via_einherjar
 					portrait_religion = valdaermen
-					portrait_religion = get_of_fenris
 				}
 			}
 		}
@@ -280,6 +366,7 @@ spriteTypes = {
 				portrait_is_female = no
 				portrait_clothing = yes
 				has_dlc = "Holy Fury"
+				NOT = { year = 1900 }
 				OR = {
 					portrait_religion = silver_fangs
 					portrait_religion = get_of_fenris
@@ -342,6 +429,7 @@ spriteTypes = {
 				portrait_age > child
 				portrait_is_female = yes
 				portrait_clothing = yes
+				NOT = { year = 1900 }
 				portrait_religion = silver_fangs
 			}
 		}

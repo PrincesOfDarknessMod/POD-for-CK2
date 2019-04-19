@@ -1,0 +1,311 @@
+
+#####################################################################
+############################ INDEX ##################################
+#####################################################################
+### ANYONE ADDING WONDERS: Keep this updated, please!
+###
+### Template:
+###
+###		wonder_example_name = {
+###		    picture = GFX_something
+###			model = GFX_something
+###			default_picture_stage = 3
+###			allow_construction = yes
+###			is_in_water = no
+###			allow_coastal = no
+###			show_model = yes
+###			background_overrides = {
+###				jungle = fields
+###				forest = jungle
+###			}
+###			potential = {
+###			}
+###			active = {
+###			}
+###			available_upgrades = {
+###			}
+###			flags = {
+###			}
+###			stage = {
+###				allow = {
+###
+###				}
+###				build_time = 600
+###				restore_time = 90
+###				loot_time = 10
+###				gold_cost_flat = 1000
+###				gold_cost_ticking = 2
+###				restore_cost_flat = 427
+###				restore_cost_ticking = 3
+###				upgrade_slots = {
+###
+###				}
+###				local_modifier = {
+###
+###				}
+###				owner_modifier = {
+###
+###				}
+###			}
+###		}
+###
+
+
+# (Note: Names are reference points, but likely displayed differently in game)
+# Scopes: ROOT is the character, FROMFROM the wonder and FROMFROMFROM the province.
+
+################### Available Wonders #############################
+
+#### 1. VAMPS GOTTA VAMP
+# 01V. Settite Pyramid ............ wonder_POD_settite_pyramid
+# 02V. Cathedral of Flesh ......... wonder_POD_cathedral_of_flesh
+# 03V. Grand Chantry .............. wonder_POD_grand_chantry
+
+
+###########################################################
+################# 1. VAMPS GOTTA VAMP  ####################
+###########################################################
+
+# 01V. Settite Pyramid
+wonder_POD_settite_pyramid = {
+	allow_coastal = yes
+	picture = GFX_wonder_strip_pyramid
+	model = wonder_pyramid
+	potential = {
+		OR = {
+			trait = followerofset
+			religion = setite
+		}
+	}
+	active = {
+	}
+	flags = {
+		burial_ground
+		is_destructible
+		cost_high
+	}
+	available_upgrades = {
+		#upgrade_POD_extra_pyramids
+		#upgrade_POD_set_statue
+		#upgrade_POD_hidden_room
+		#upgrade_POD_sacrificial_altar
+		#upgrade_POD_necropolis
+		#upgrade_POD_traps
+		#upgrade_POD_overseer_of_rites
+		#upgrade_POD_cultist_barracks
+	}
+	stage = {
+		allow = {
+		}
+		build_time = 400
+		gold_cost_flat = 3000
+		gold_cost_ticking = 5
+		restore_time = 150
+		loot_time = 200
+		restore_cost_flat = 400
+		restore_cost_ticking = 2
+		upgrade_slots = 2
+		local_modifier = {
+		}
+		owner_modifier = {
+			monthly_character_prestige = 0.2
+		}
+	}
+	stage = {
+		allow = {
+		}
+		build_time = 450
+		gold_cost_flat = 3500
+		gold_cost_ticking = 5
+		restore_time = 200
+		loot_time = 200
+		restore_cost_flat = 500
+		restore_cost_ticking = 2
+		upgrade_slots = 2
+		local_modifier = {
+		}
+		owner_modifier = {
+			monthly_character_prestige = 0.3
+		}
+	}
+	stage = {
+		allow = {
+		}
+		build_time = 500
+		gold_cost_flat = 4000
+		gold_cost_ticking = 5
+		restore_time = 200
+		loot_time = 20
+		restore_cost_flat = 500
+		restore_cost_ticking = 2
+		upgrade_slots = 2
+		local_modifier = {
+			local_revolt_risk = -0.005
+		}
+		owner_modifier = {
+			monthly_character_prestige = 0.3
+		}
+	}
+	stage = {
+		allow = {
+		}
+		build_time = 550
+		gold_cost_flat = 4500
+		gold_cost_ticking = 5
+		restore_time = 200
+		loot_time = 20
+		restore_cost_flat = 500
+		restore_cost_ticking = 2
+		upgrade_slots = 2
+		local_modifier = {
+			local_revolt_risk = -0.005
+		}
+		owner_modifier = {
+			monthly_character_prestige = 0.4
+			same_religion_opinion = 2
+		}
+	}
+}
+
+# 02V. Cathedral of Flesh
+wonder_POD_cathedral_of_flesh = {
+	picture = GFX_wonder_strip_cathedral
+	model = wonder_cathedral
+	potential = {
+			trait = vicissitude_5
+			OR = {
+				religion = koldun
+				religion = baali
+			}
+			OR = {
+				trait = elder
+				trait = ancient
+				trait = methuselah
+				trait = antediluvian
+			}
+	}
+	active = {
+			OR = {
+				religion = koldun
+				religion = baali
+			}
+			OR = {
+				trait = elder
+				trait = ancient
+				trait = methuselah
+				trait = antediluvian
+			}
+	}
+	
+	flags = {
+		holy_building
+		inspires_piety
+	}
+	
+	available_upgrades = {
+		upgrade_POD_lessen_kupalas_influence_1
+		upgrade_POD_lessen_kupalas_influence_2
+		upgrade_POD_lessen_kupalas_influence_3
+		upgrade_POD_lessen_kupalas_influence_4
+	}
+	
+#	ai_will_do = {
+#	
+#		factor = 0.5
+#		
+#		modifier = {
+#			factor = 3
+#			trait = impaler
+#		}
+#		
+#		modifier = {
+#			factor = 2
+#			trait = tzimisce
+#		}
+#		
+#	}
+	
+	stage = {
+		allow = {}
+		build_time = 325
+		gold_cost_flat = 4000
+		gold_cost_ticking = 3
+		restore_time = 100
+		loot_time = 6
+		restore_cost_flat = 400
+		restore_cost_ticking = 2
+		upgrade_slots = 1
+		local_modifier = {
+			siege_defence = 0.1
+		}
+		owner_modifier = {
+			monthly_character_prestige = 0.1
+			monthly_character_piety = 0.15
+			plot_power_modifier = -1
+			defensive_plot_power_modifier = 1.1
+			koldun_opinion = 10
+			baali_opinion = 10
+			mass_szlachta = 50
+		}
+	}
+	stage = {
+		allow = {}
+		build_time = 375
+		gold_cost_flat = 5000
+		gold_cost_ticking = 5
+		restore_time = 200
+		loot_time = 6
+		restore_cost_flat = 500
+		restore_cost_ticking = 2
+		upgrade_slots = 1
+		local_modifier = {
+			siege_defence = 0.2
+		}
+		owner_modifier = {
+			monthly_character_prestige = 0.15
+			monthly_character_piety = 0.15
+			defensive_plot_power_modifier = 0.1
+			mass_szlachta = 50
+		}
+	}
+	stage = {
+		allow = {}
+		build_time = 375
+		gold_cost_flat = 6000
+		gold_cost_ticking = 5
+		restore_time = 200
+		loot_time = 6
+		restore_cost_flat = 500
+		restore_cost_ticking = 2
+		upgrade_slots = 1
+		local_modifier = {
+			siege_defence = 0.3
+		}
+		owner_modifier = {
+			monthly_character_prestige = 0.15
+			monthly_character_piety = 0.2
+			defensive_plot_power_modifier = 0.1
+			mass_szlachta = 50
+		}
+	}
+	stage = {
+		allow = {}
+		build_time = 325
+		gold_cost_flat = 7000
+		gold_cost_ticking = 5
+		restore_time = 200
+		loot_time = 1
+		restore_cost_flat = 500
+		restore_cost_ticking = 2
+		upgrade_slots = 1
+		local_modifier = {
+			siege_defence = 0.4
+		}
+		owner_modifier = {
+			monthly_character_prestige = 0.2
+			monthly_character_piety = 0.3
+			defensive_plot_power_modifier = 0.1
+			mass_szlachta = 50
+		}
+	}
+}

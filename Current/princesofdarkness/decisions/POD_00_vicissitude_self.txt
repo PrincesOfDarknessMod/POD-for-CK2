@@ -1,0 +1,25 @@
+decisions = {
+	malleable_visage_decision = {
+		ai_check_interval = 60
+		potential = {
+			trait = vampire
+			age = 16
+			NOT = { trait = fair }
+			OR = { 
+				trait = vicissitude_1 
+				trait = vicissitude_2
+				trait = vicissitude_3
+				trait = vicissitude_4
+				trait = vicissitude_5
+			}
+		}
+		allow = {
+			NOT = { trait = fair }		
+			NOT = { trait = torpor }
+		}
+		effect = {
+			if = { limit = { ai = no } POD_vampire_blood_thirst_increase_effect = yes }
+			character_event = { id = POD_vicissitude_events.1 }
+		}
+	}	
+}
