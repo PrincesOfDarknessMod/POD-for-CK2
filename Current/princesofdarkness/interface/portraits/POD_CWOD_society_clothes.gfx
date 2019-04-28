@@ -1,7 +1,7 @@
 spriteTypes = {
 	
 	# File contains society specific clothing
-	
+
 # Eternal Senate / Inconnu
 
 	portraitType = {
@@ -43,6 +43,8 @@ spriteTypes = {
 		allow_property_values = {
 		}
 	}
+	
+	
 	
 	portraitType = {
 		effectFile = "gfx/FX/portrait.lua"
@@ -998,6 +1000,8 @@ spriteTypes = {
 
 ### Mages ###
 
+
+
 	portraitType = {
 		effectFile = "gfx/FX/portrait.lua"
 		name = "PORTRAIT_society_mage_clothing_male"
@@ -1011,8 +1015,6 @@ spriteTypes = {
 				has_dlc = "Mystics"
 				OR = {
 				portrait_society = code_of_tremere
-				portrait_society = derech_lilit
-				portrait_society = path_of_lilith
 				portrait_religion = order_of_hermes
 				portrait_religion = solificati				
 				}
@@ -1159,8 +1161,6 @@ spriteTypes = {
 				has_dlc = "Mystics"
 				OR = {
 				portrait_society = code_of_tremere
-				portrait_society = derech_lilit
-				portrait_society = path_of_lilith
 				portrait_religion = order_of_hermes
 				portrait_religion = solificati
 				}
@@ -1412,6 +1412,7 @@ spriteTypes = {
 					portrait_society = via_hyron
 					portrait_society = via_peccati
 					portrait_society = via_noctis
+					portrait_society = via_ossium 
 					portrait_society = path_of_the_hive
 					portrait_society = path_of_night
 					portrait_society = path_of_death_and_the_soul
@@ -1622,12 +1623,12 @@ spriteTypes = {
     }	
 	
 	
-### Giovanni ###
+### renaissance ###
 
 	portraitType = {
 		effectFile = "gfx/FX/portrait.lua"
 
-		name = "PORTRAIT_society_giovanni_clothing_male"
+		name = "PORTRAIT_society_renaissance_clothing_male"
 		
 		weight = {
 			additive_modifier = {
@@ -1704,7 +1705,7 @@ spriteTypes = {
 	portraitType = {
 		effectFile = "gfx/FX/portrait.lua"
 
-		name = "PORTRAIT_society_giovanni_clothing_female"
+		name = "PORTRAIT_society_renaissance_clothing_female"
 		
 		weight = {
 			additive_modifier = {
@@ -1968,4 +1969,509 @@ spriteTypes = {
 		}
     }
 	
+	
+# Cainte Knight Orders
+
+
+
+# Order of the Black Cross
+	portraitType = {
+		effectFile = "gfx/FX/portrait.lua"
+
+		name = "PORTRAIT_society_blackcross_clothing"
+		
+		weight = {
+			additive_modifier = {
+				value = 10000
+				has_dlc = "Holy Fury"
+				portrait_age > child
+				portrait_clothing = yes
+				NOT = { portrait_has_trait = blood_form }
+				NOT = { portrait_has_trait = shadow_form }
+				NOT = { portrait_has_trait = mist_form }
+				NOT = { portrait_has_trait = zulo_form }
+				NOT = { portrait_has_trait = beast_form }
+				NOT = { portrait_has_trait = crinos }
+				NOT = { portrait_has_trait = lupus }
+				NOT = { portrait_has_trait = hispo }				
+				portrait_society = order_black_cross
+				# NOT = { portrait_tier = king }
+			}
+		}
+		
+		layer = {
+			"GFX_character_special_helmets:c5"
+		}
+		
+		allow_property_values = {
+			5 = {	
+			
+				0 = {
+					NOT = { portrait_society = order_black_cross }
+					NOT = { portrait_has_trait = vampire }
+				}
+			
+				1 = {
+					portrait_society_rank = 2
+				}			
+			
+				2 = {
+					portrait_society_rank = 4
+					portrait_is_female = no		
+					NOT = { portrait_society_rank = 3 }
+					NOT = { portrait_society_rank = 2 }
+					NOT = { portrait_society_rank = 1 }				
+				}
+				
+				3 = {
+					portrait_society_rank = 4
+					portrait_is_female = yes	
+					NOT = { portrait_society_rank = 3 }
+					NOT = { portrait_society_rank = 2 }
+					NOT = { portrait_society_rank = 1 }
+				}
+				
+				
+				4 = {
+					NOT = { portrait_society = order_black_cross }
+					NOT = { portrait_has_trait = vampire }
+				}
+				
+				5 = {
+					portrait_society_rank = 3
+				}		
+
+				6 = {
+					portrait_society_rank = 3
+				}		
+
+				7 = {
+					NOT = { portrait_society = order_black_cross }
+					NOT = { portrait_has_trait = vampire }
+				}
+				
+				8 = {
+					NOT = { portrait_society = order_black_cross }
+					NOT = { portrait_has_trait = vampire }
+				}
+				
+				9 = {
+					portrait_society_rank = 1
+				}
+
+				10 = {
+					NOT = { portrait_society = order_black_cross }
+					NOT = { portrait_has_trait = vampire }
+				}				
+			}		
+		}
+
+	}
+
+# Order of the Saint Ladre
+	portraitType = {
+		effectFile = "gfx/FX/portrait.lua"
+
+		name = "PORTRAIT_society_saintladre_clothing"
+		
+		weight = {
+			additive_modifier = {
+				value = 10000
+				has_dlc = "Holy Fury"
+				portrait_age > child
+				portrait_clothing = yes
+				NOT = { portrait_has_trait = blood_form }
+				NOT = { portrait_has_trait = shadow_form }
+				NOT = { portrait_has_trait = mist_form }
+				NOT = { portrait_has_trait = zulo_form }
+				NOT = { portrait_has_trait = beast_form }
+				NOT = { portrait_has_trait = crinos }
+				NOT = { portrait_has_trait = lupus }
+				NOT = { portrait_has_trait = hispo }				
+				portrait_society = order_saint_ladre
+				# NOT = { portrait_tier = king }
+			}
+		}
+		
+		layer = {
+			"GFX_character_special_helmets:c5"
+		}
+		
+		allow_property_values = {
+			5 = {	
+				0 = {
+					NOT = { portrait_society = order_saint_ladre }
+					NOT = { portrait_has_trait = vampire }
+				}
+				
+				1 = {
+					OR = {
+					portrait_society_rank = 2
+					portrait_society_rank = 3
+					portrait_society_rank = 4
+					}
+				}
+
+				2 = {
+					NOT = { portrait_society = order_saint_ladre }
+					NOT = { portrait_has_trait = vampire }
+				}
+				
+				3 = {
+					NOT = { portrait_society = order_saint_ladre }
+					NOT = { portrait_has_trait = vampire }
+				}
+				
+				4 = {
+					portrait_society_rank = 1
+				}				
+			
+				5 = {
+					NOT = { portrait_society = order_saint_ladre }
+					NOT = { portrait_has_trait = vampire }
+				}
+				
+				6 = {
+					NOT = { portrait_society = order_saint_ladre }
+					NOT = { portrait_has_trait = vampire }
+				}
+				
+				7 = {
+					NOT = { portrait_society = order_saint_ladre }
+					NOT = { portrait_has_trait = vampire }
+				}
+				
+				8 = {
+					NOT = { portrait_society = order_saint_ladre }
+					NOT = { portrait_has_trait = vampire }
+				}
+				
+				9 = {
+					NOT = { portrait_society = order_saint_ladre }
+					NOT = { portrait_has_trait = vampire }
+				}
+				
+				10 = {
+					NOT = { portrait_society = order_saint_ladre }
+					NOT = { portrait_has_trait = vampire }
+				}
+			}		
+		}
+
+	}
+	
+# Order of Bitter Ashes	
+
+	portraitType = {
+		effectFile = "gfx/FX/portrait.lua"
+
+		name = "PORTRAIT_society_bitterashes_clothing"
+		
+		weight = {
+			additive_modifier = {
+				value = 10000
+				has_dlc = "Holy Fury"
+				portrait_age > child
+				portrait_clothing = yes
+				NOT = { portrait_has_trait = blood_form }
+				NOT = { portrait_has_trait = shadow_form }
+				NOT = { portrait_has_trait = mist_form }
+				NOT = { portrait_has_trait = zulo_form }
+				NOT = { portrait_has_trait = beast_form }
+				NOT = { portrait_has_trait = crinos }
+				NOT = { portrait_has_trait = lupus }
+				NOT = { portrait_has_trait = hispo }				
+				portrait_society = order_bitter_ashes
+				# NOT = { portrait_tier = king }
+			}
+		}
+		
+		layer = {
+			"GFX_character_special_helmets:c5"
+		}
+		
+		allow_property_values = {
+			5 = {	
+			
+				1 = {
+					portrait_society_rank = 2
+				}			
+				
+				2 = {
+					NOT = { portrait_society = order_bitter_ashes }
+					NOT = { portrait_has_trait = vampire }
+				}
+				
+				3 = {
+					NOT = { portrait_society = order_bitter_ashes }
+					NOT = { portrait_has_trait = vampire }
+				}
+				
+				4 = {
+					NOT = { portrait_society = order_bitter_ashes }
+					NOT = { portrait_has_trait = vampire }
+				}
+				
+				5 = {
+					NOT = { portrait_society = order_bitter_ashes }
+					NOT = { portrait_has_trait = vampire }
+				}
+				
+				6 = {
+					NOT = { portrait_society = order_bitter_ashes }
+					NOT = { portrait_has_trait = vampire }
+				}
+				
+				7 = {
+					OR = {
+						portrait_society_rank = 3
+						portrait_society_rank = 4
+					}
+				}		
+
+				8 = {
+					OR = { 
+						portrait_society_rank = 3
+						portrait_society_rank = 4
+					}
+				}	
+				
+				9 = {
+					portrait_society_rank = 1
+				}
+
+				10 = {
+					NOT = { portrait_society = order_bitter_ashes }
+					NOT = { portrait_has_trait = vampire }
+				}
+				
+			}		
+		}
+
+	}
+
+# Order of Twilight Order
+
+	portraitType = {
+		effectFile = "gfx/FX/portrait.lua"
+
+		name = "PORTRAIT_society_ordertwilight_clothing"
+		
+		weight = {
+			additive_modifier = {
+				value = 10000
+				has_dlc = "Holy Fury"
+				portrait_age > child
+				portrait_clothing = yes
+				NOT = { portrait_has_trait = blood_form }
+				NOT = { portrait_has_trait = shadow_form }
+				NOT = { portrait_has_trait = mist_form }
+				NOT = { portrait_has_trait = zulo_form }
+				NOT = { portrait_has_trait = beast_form }
+				NOT = { portrait_has_trait = crinos }
+				NOT = { portrait_has_trait = lupus }
+				NOT = { portrait_has_trait = hispo }				
+				portrait_society = order_twilight
+				# NOT = { portrait_tier = king }
+			}
+		}
+		
+		layer = {
+			"GFX_character_special_helmets:c5"
+		}
+		
+		allow_property_values = {
+			5 = {	
+			
+				0 = {
+					portrait_society_rank = 1
+				}
+			
+				1 = {
+					OR = {
+					portrait_society_rank = 3
+					portrait_society_rank = 4
+					}
+				}	
+
+				2 = {
+					NOT = { portrait_society = order_twilight }
+					NOT = { portrait_has_trait = vampire }
+				}
+				
+				3 = {
+					NOT = { portrait_society = order_twilights }
+					NOT = { portrait_has_trait = vampire }
+				}
+				
+				4 = {
+					OR = {
+					portrait_society_rank = 3
+					portrait_society_rank = 4
+					}
+				}					
+				
+				5 = {
+					NOT = { portrait_society = order_twilight }
+					NOT = { portrait_has_trait = vampire }
+				}
+				
+				6 = {
+					NOT = { portrait_society = order_twilight }
+					NOT = { portrait_has_trait = vampire }
+				}
+				
+				7 = {
+					NOT = { portrait_society = order_twilight }
+					NOT = { portrait_has_trait = vampire }
+				}
+				
+				8 = {
+					NOT = { portrait_society = order_twilight }
+					NOT = { portrait_has_trait = vampire }
+				}
+				
+				9 = {
+					portrait_society_rank = 2
+				}	
+				
+				10 = {
+					NOT = { portrait_society = order_twilight }
+					NOT = { portrait_has_trait = vampire }
+				}
+			}		
+		}
+
+	}
+	
+	# Male
+	
+	portraitType = {
+		effectFile = "gfx/FX/portrait.lua"
+		name = "PORTRAIT_society_derechlilit_clothing_male"
+		
+		weight = {
+			additive_modifier = {
+				value = 10000
+				has_dlc = "Holy Fury"
+				portrait_age > child
+				portrait_is_female = no
+				portrait_clothing = yes
+				portrait_society = derech_lilit
+				portrait_society = path_of_lilith
+			}
+		}
+		
+		layer = { 
+			"GFX_society_bacchant_male_clothing_behind:c0"
+			"GFX_society_bacchant_male_clothing_front:c2"
+			"GFX_society_bacchant_male_headgear_mid:c3"
+			"GFX_society_bacchant_male_headgear_front:c5"
+			"GFX_society_bacchant_male_headgear_behind:c1"
+			"GFX_empty:c6"
+			"GFX_empty:c7"
+			"GFX_empty:c4"
+		}
+		
+		# Correct rank
+		allow_property_values = {
+			3 = {
+				0 = {
+					portrait_society_rank = 1
+				}
+				1 = {
+					portrait_society_rank = 2
+				}
+				2 = {
+					portrait_society_rank = 3
+				}
+				3 = {
+					portrait_society_rank = 4
+				}
+			}
+			5 = {
+				0 = {
+					portrait_society_rank = 1
+				}
+				1 = {
+					portrait_society_rank = 2
+				}
+				2 = {
+					portrait_society_rank = 3
+				}
+				3 = {
+					portrait_society_rank = 4
+				}
+			}
+		}
+	}
+	
+	# Female
+	
+	portraitType = {
+		effectFile = "gfx/FX/portrait.lua"
+		name = "PORTRAIT_society_derechlilit_clothing_female"
+		
+		weight = {
+			additive_modifier = {
+				value = 10000
+				portrait_age > child
+				has_dlc = "Holy Fury"
+				portrait_is_female = yes
+				portrait_clothing = yes
+				portrait_society = derech_lilit
+				portrait_society = path_of_lilith
+			}
+		}
+		
+		layer = { 
+			"GFX_society_bacchant_female_clothing_behind:c0"
+			"GFX_society_bacchant_female_clothing_front:c2"
+			"GFX_empty:c3"
+			"GFX_society_bacchant_female_headgear_front:c5"
+			"GFX_society_bacchant_female_headgear_behind:c1"
+			"GFX_empty:c6"
+			"GFX_empty:c7"
+			"GFX_empty:c4"
+		}
+		
+		# No hair, correct rank
+		allow_property_values = {
+			1 = {
+				0 = {
+					always = yes
+				}
+			}
+			3 = {
+				0 = {
+					portrait_society_rank = 1
+				}
+				1 = {
+					portrait_society_rank = 2
+				}
+				2 = {
+					portrait_society_rank = 3
+				}
+				3 = {
+					portrait_society_rank = 4
+				}
+			}
+			5 = {
+				0 = {
+					portrait_society_rank = 1
+				}
+				1 = {
+					portrait_society_rank = 2
+				}
+				2 = {
+					portrait_society_rank = 3
+				}
+				3 = {
+					portrait_society_rank = 4
+				}
+			}
+		}
+	}
 }
+	
+	

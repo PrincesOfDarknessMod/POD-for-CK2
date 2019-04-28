@@ -1723,6 +1723,11 @@
 					value = on
 				}
 			}
+			NOT = { society_member_of = order_bitter_ashes }
+			NOT = { society_member_of = order_black_cross }
+			NOT = { society_member_of = order_twilight }
+			NOT = { society_member_of = order_sable_rose }
+			NOT = { society_member_of = order_saint_ladre }
 			NOR = {
 				government = order_government
 				primary_title = {
@@ -1738,17 +1743,17 @@
 			}
 		}
 		modifier = {
-			factor = 0.001
+			factor = 0.1
 			OR = {
-				trait = ventrue
+				#trait = ventrue
 				trait = tremere
-				trait = toreador
+				#trait = toreador
 				trait = tzimisce
 				trait = lasombra
 				trait = cappadocian
 				trait = giovanni
-				trait = nosferatu
-				trait = malkavian 
+				#trait = nosferatu
+				#trait = malkavian 
 				trait = ravnos 
 			}
 		}		
@@ -1767,6 +1772,7 @@
 						}
 					}
 				}
+				
 			#	real_tier = king
 			#	real_tier = emperor
 				AND = {
@@ -3270,6 +3276,7 @@
 				NOT = { has_portrait_property = { layer = 3 index = 10 } } 
 				primary_title = { #Holy Orders in peace time should wear martial clothes, but not the helmet.
 					OR = {
+					
 						title = d_knights_hospitaler
 						title = d_knights_templar
 						title = d_teutonic_order
@@ -4237,6 +4244,7 @@
 				NAND = {
 					trait = one_eyed
 					OR = {
+						trait = dead_crown_fylkir
 						trait = paranoid
 						trait = possessed
 					}
@@ -4247,6 +4255,7 @@
 		modifier = {
 			factor = 2
 			OR = {
+				trait = dead_crown_fylkir
 				trait = paranoid
 				trait = possessed
 			}
@@ -4845,6 +4854,12 @@
 		modifier = { #Imperial Laurels
 			factor = 0
 			NOT = { trait = augustus }
+			NOT = { 
+					society_rank = {
+					society = eternal_senate
+					rank == 4
+				}
+			}
 		}
 	}
 	6 = { 
@@ -5015,15 +5030,17 @@
 	14 = { 
 		factor = 100
 		hide_layers = { 5 = { } } #Hide layer 5 (headgear) when this frame is picked.
-		modifier = {
-			factor = 0
-			year = 1245
-		}
+		#modifier = {
+		#	factor = 0
+		#	year = 1245
+		#}
 		modifier = {
 			factor = 0
 			NOR = {
+				society_member_of = crimson_curia
 				has_minor_title = title_cardinal
 				has_minor_title = title_fraticelli_cardinal
+				
 			}
 		}
 	}
@@ -5040,8 +5057,10 @@
 		modifier = {
 			factor = 0
 			NOR = {
+				society_member_of = crimson_curia
 				has_minor_title = title_cardinal
 				has_minor_title = title_fraticelli_cardinal
+				
 			}
 		}
 	}
@@ -5215,6 +5234,7 @@
 			OR = { 
 				trait = ill
 				trait = is_malnourished
+				trait = cappadocian
 			}
 		}
  	}
@@ -5223,6 +5243,7 @@
 		factor = 100
 		modifier = {
 			factor = 0
+			NOT = { trait = cappadocian }
 			NOT = { trait = ill }
 			NOT = { trait = is_malnourished }
 		}
@@ -5861,7 +5882,7 @@
 		modifier = {
 			factor = 0
 			NOT = { trait = african_tattoo_5 }
-		}
+		}		
   	}
 	6 = { 
 		factor = 100
@@ -6082,10 +6103,10 @@
 		modifier = {
 			factor = 0
 			has_character_modifier = demon_horns
-			has_game_rule = {
-   				name = supernatural_events
-				value = unrestricted
-   			}
+			#has_game_rule = {
+   			#	name = supernatural_events
+			#	value = unrestricted
+   			#}
  		}
  	}
 
@@ -6093,15 +6114,17 @@
 		factor = 100 
 		modifier = {
 			factor = 0
-			NOT = { 
-				has_game_rule = {
-   					name = supernatural_events
-					value = unrestricted
-   				}
-			}
+			#NOT = { 
+			#	has_game_rule = {
+   			#		name = supernatural_events
+			#		value = unrestricted
+   			#	}
+			#}
 		}
 		modifier = {
 			factor = 0
+			NOT = { trait = wight }
+			NOT = { trait = brujah }
 			NOT = {
 				has_character_modifier = demon_horns
    			}
@@ -6698,15 +6721,41 @@
 				name = martial_headgear
 				value = on
 			}
-			religion = catholic
 			OR = {
+				religion = catholic
+				trait = vampire 
+			}
+			OR = {
+				society_member_of = order_saint_ladre
+				society_member_of = order_saint_ladre
+				society_member_of = order_black_cross
+				society_member_of = order_twilight
+				society_member_of = order_bitter_ashes
+				has_landed_title = d_thorned_wreath
+				has_landed_title = d_last_state
+				has_landed_title = d_summary_execution
+				has_landed_title = d_order_of_chanticleer
+				has_landed_title = d_knights_of_blood
+				has_landed_title = d_the_white_company
+				has_landed_title = d_crooked_cross
+				has_landed_title = d_crimson_rose
+				has_landed_title = d_order_of_sir_martin
+				liege = { has_landed_title = d_thorned_wreath }
+				liege = { has_landed_title = d_last_state }
+				liege = { has_landed_title = d_summary_execution }
+				liege = { has_landed_title = d_order_of_chanticleer }
+				liege = { has_landed_title = d_knights_of_blood }
+				liege = { has_landed_title = d_the_white_company }
+				liege = { has_landed_title = d_crooked_cross }
+				liege = { has_landed_title = d_crimson_rose }
+				liege = { has_landed_title = d_order_of_sir_martin }				
 				has_landed_title = d_knights_templar 
 				has_landed_title = d_knights_hospitaler
 				has_landed_title = d_teutonic_order
 				has_landed_title = k_teutonic_state
 				has_landed_title = d_livonian_order
 				has_landed_title = d_knights_santiago
-				has_landed_title = d_knights_calatrava
+				has_landed_title = d_knights_calatrava				
 				liege = { has_landed_title = d_knights_templar }
 				liege = { has_landed_title = d_knights_hospitaler }
 				liege = { has_landed_title = d_teutonic_order }
@@ -6774,15 +6823,16 @@
 		hide_layers = { 31 = { } } #Veil overload.
 		hide_layers = { 32 = { } } 
 		hide_layers = { 33 = { } }
-		modifier = {
-			factor = 0
-			NOT = { 
-				any_artifact = {
-					artifact_type = crown_crusader_king
-					is_artifact_equipped = yes 
-				}
-			}
-		}
+		#modifier = {
+		#	factor = 0
+		#	NOT = { 
+		#		any_artifact = {
+		#			artifact_type = crown_crusader_king
+		#			is_artifact_equipped = yes 
+		#		}
+		#	}			
+		#}
+	
 		modifier = {
 			factor = 0
 			is_female = yes
@@ -6809,15 +6859,16 @@
 		hide_layers = { 31 = { } } #Veil overload.
 		hide_layers = { 32 = { } } 
 		hide_layers = { 33 = { } }
-		modifier = { 
-			factor = 0
-			NOT = { 
-				any_artifact = {
-					artifact_type = crown_crusader_king
-					is_artifact_equipped = yes 
-				}
-			}
-		}
+		#modifier = { 
+		#	factor = 0
+		#	NOT = { 
+		#		any_artifact = {
+		#			artifact_type = crown_crusader_king
+		#			is_artifact_equipped = yes 
+		#		}
+		#	}
+		#}
+
 		modifier = {
 			factor = 0
 			is_female = no
@@ -6858,6 +6909,24 @@
 			factor = 0
 			NOR = {
 				has_landed_title = d_knights_hospitaler 
+				has_landed_title = d_thorned_wreath
+				has_landed_title = d_last_state
+				has_landed_title = d_summary_execution
+				has_landed_title = d_order_of_chanticleer
+				has_landed_title = d_knights_of_blood
+				has_landed_title = d_the_white_company
+				has_landed_title = d_crooked_cross
+				has_landed_title = d_crimson_rose
+				has_landed_title = d_order_of_sir_martin
+				liege = { has_landed_title = d_thorned_wreath }
+				liege = { has_landed_title = d_last_state }
+				liege = { has_landed_title = d_summary_execution }
+				liege = { has_landed_title = d_order_of_chanticleer }
+				liege = { has_landed_title = d_knights_of_blood }
+				liege = { has_landed_title = d_the_white_company }
+				liege = { has_landed_title = d_crooked_cross }
+				liege = { has_landed_title = d_crimson_rose }
+				liege = { has_landed_title = d_order_of_sir_martin }				
 				liege = { has_landed_title = d_knights_hospitaler }
 			}
 		}
