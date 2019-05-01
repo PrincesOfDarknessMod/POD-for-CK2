@@ -1,0 +1,238 @@
+namespace = POD_fleshcraft_ghoul
+#Pick your flavour
+character_event = {
+	id = POD_fleshcraft_ghoul.1
+	picture = GFX_evt_secret_ceremony
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	immediate = { }
+	
+	desc = {
+		text = EVTDESC_POD_FLESHCRAFT_GHOUL_1
+		picture = GFX_evt_secret_ceremony
+	}
+
+	option = {
+		name = EVTOPTA_EVTDESC_POD_FLESHCRAFT_GHOUL_1 # Brute
+		FROM = { character_event = { id = POD_fleshcraft_ghoul.2 days = 1 } 
+			set_character_flag = POD_FLESHCRAFT_BRUTE
+			wealth = -75
+		}
+	}
+	
+	option = {
+		name = EVTOPTB_EVTDESC_POD_FLESHCRAFT_GHOUL_1 # Reaver
+		FROM = { character_event = { id = POD_fleshcraft_ghoul.2 days = 1 }
+			set_character_flag = POD_FLESHCRAFT_REAVER
+			wealth = -75
+		}
+	}
+	
+	option = {
+		name = EVTOPTC_EVTDESC_POD_FLESHCRAFT_GHOUL_1 # Ameliorated
+		FROM = { character_event = { id = POD_fleshcraft_ghoul.2 days = 1 } 
+			set_character_flag = POD_AMELIORATE_GHOUL
+			wealth = -75
+		}
+	}
+	
+	option = {
+		name = EVTOPTD_EVTDESC_POD_FLESHCRAFT_GHOUL_1 # Cancel
+		FROM = { character_event = { id = POD_fleshcraft_ghoul.2 days = 1 } }
+	}
+}
+#Fleshcraft ghoul
+character_event = {
+	id = POD_fleshcraft_ghoul.2
+	picture = GFX_evt_magic_ritual
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = { is_female = no }			
+			random_list = {	
+				50 = {
+					create_character = {
+						random_traits = yes
+						trait = ghoul
+						female = no
+						dynasty = random
+						culture = ROOT
+						religion = ROOT
+					}
+					new_character = {
+						if = { limit = { trait = slow } 
+							remove_trait = slow
+						}
+						if = { limit = { trait = imbecile } 
+							remove_trait = imbecile
+						}						
+						if = { limit = { trait = inbred } 
+							remove_trait = inbred
+						}								
+						if = { limit = { FROM = { has_character_flag = POD_FLESHCRAFT_BRUTE } }
+							FROM = { clr_character_flag = POD_FLESHCRAFT_BRUTE }
+							set_character_flag = POD_BRUTE_GHOUL
+							add_trait = brute
+							add_trait = sturdy
+						}
+						if = { limit = { FROM = { has_character_flag = POD_FLESHCRAFT_REAVER } }
+							FROM = { clr_character_flag = POD_FLESHCRAFT_REAVER }
+							set_character_flag = POD_REAVER_GHOUL
+							add_trait = reaver
+							add_trait = is_malnourished
+						}
+						if = { limit = { FROM = { has_character_flag = POD_AMELIORATE_GHOUL } }
+							FROM = { clr_character_flag = POD_AMELIORATE_GHOUL }
+							set_character_flag = POD_AMELIORATED_GHOUL
+							add_trait = strong
+							add_trait = fair
+						}
+						pod_create_bloodbond = yes						
+					}
+				}
+				50 = {
+					create_character = {
+						random_traits = yes
+						trait = ghoul
+						female = yes
+						dynasty = random
+						culture = ROOT
+						religion = ROOT
+					}
+					new_character = {
+						if = { limit = { trait = slow } 
+							remove_trait = slow
+						}
+						if = { limit = { trait = imbecile } 
+							remove_trait = imbecile
+						}						
+						if = { limit = { trait = inbred } 
+							remove_trait = inbred
+						}
+						if = { limit = { FROM = { has_character_flag = POD_FLESHCRAFT_BRUTE } }
+							FROM = { clr_character_flag = POD_FLESHCRAFT_BRUTE }
+							set_character_flag = POD_BRUTE_GHOUL
+							add_trait = brute
+							add_trait = sturdy
+						}
+						if = { limit = { FROM = { has_character_flag = POD_FLESHCRAFT_REAVER } }
+							FROM = { clr_character_flag = POD_FLESHCRAFT_REAVER }
+							set_character_flag = POD_REAVER_GHOUL
+							add_trait = reaver
+							add_trait = is_malnourished
+						}
+						if = { limit = { FROM = { has_character_flag = POD_AMELIORATE_GHOUL } }
+							FROM = { clr_character_flag = POD_AMELIORATE_GHOUL }
+							set_character_flag = POD_AMELIORATED_GHOUL
+							add_trait = strong
+							add_trait = fair
+						}
+						pod_create_bloodbond = yes						
+					}
+				}
+			}	
+		}
+		if = {
+			limit = { is_female = yes }			
+			random_list = {	
+				50 = {
+					create_character = {
+						random_traits = yes
+						trait = ghoul
+						female = no
+						dynasty = random
+						culture = ROOT
+						religion = ROOT
+					}
+					new_character = {
+						if = { limit = { trait = slow } 
+							remove_trait = slow
+						}
+						if = { limit = { trait = imbecile } 
+							remove_trait = imbecile
+						}						
+						if = { limit = { trait = inbred } 
+							remove_trait = inbred
+						}
+						if = { limit = { FROM = { has_character_flag = POD_FLESHCRAFT_BRUTE } }
+							FROM = { clr_character_flag = POD_FLESHCRAFT_BRUTE }
+							set_character_flag = POD_BRUTE_GHOUL
+							add_trait = brute
+							add_trait = sturdy
+						}
+						if = { limit = { FROM = { has_character_flag = POD_FLESHCRAFT_REAVER } }
+							FROM = { clr_character_flag = POD_FLESHCRAFT_REAVER }
+							set_character_flag = POD_REAVER_GHOUL
+							add_trait = reaver
+							add_trait = is_malnourished
+						}
+						if = { limit = { FROM = { has_character_flag = POD_AMELIORATE_GHOUL } }
+							FROM = { clr_character_flag = POD_AMELIORATE_GHOUL }
+							set_character_flag = POD_AMELIORATED_GHOUL
+							add_trait = strong
+							add_trait = fair
+						}
+						pod_create_bloodbond = yes						
+					}
+				}
+				50 = {
+					create_character = {
+						random_traits = yes
+						trait = ghoul													
+						female = yes
+						dynasty = random
+						culture = ROOT
+						religion = ROOT	
+					}
+					new_character = {
+						if = { limit = { trait = slow } 
+							remove_trait = slow
+						}
+						if = { limit = { trait = imbecile } 
+							remove_trait = imbecile
+						}						
+						if = { limit = { trait = inbred } 
+							remove_trait = inbred
+						}
+						if = { limit = { FROM = { has_character_flag = POD_FLESHCRAFT_BRUTE } }
+							FROM = { clr_character_flag = POD_FLESHCRAFT_BRUTE }
+							set_character_flag = POD_BRUTE_GHOUL
+							add_trait = brute
+							add_trait = sturdy
+						}
+						if = { limit = { FROM = { has_character_flag = POD_FLESHCRAFT_REAVER } }
+							FROM = { clr_character_flag = POD_FLESHCRAFT_REAVER }
+							set_character_flag = POD_REAVER_GHOUL
+							add_trait = reaver
+							add_trait = is_malnourished
+						}
+						if = { limit = { FROM = { has_character_flag = POD_AMELIORATE_GHOUL } }
+							FROM = { clr_character_flag = POD_AMELIORATE_GHOUL }
+							set_character_flag = POD_AMELIORATED_GHOUL
+							add_trait = strong
+							add_trait = fair
+						}
+						pod_create_bloodbond = yes
+					}
+				}
+			}	
+		}
+		FROM = {
+			POD_vampire_blood_thirst_increase_effect = yes
+		}
+	}
+	
+	desc = {
+		text = EVTDESC_POD_FLESHCRAFT_GHOUL_2
+		picture = GFX_evt_secret_ceremony
+	}
+	
+	option = {
+		name = EVTOPTA_EVTDESC_POD_FLESHCRAFT_GHOUL_2 # Welcome
+	}
+}

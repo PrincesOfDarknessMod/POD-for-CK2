@@ -2613,6 +2613,12 @@ character_event = {
 	}
 	
     immediate = {
+		decadence = 2
+		
+		event_target:player_childe = {
+			decadence = 2 
+		}
+		
 		if = {
 			limit = { event_target:player_childe = { is_female = no } }			
 			random_list = {	
@@ -2729,7 +2735,8 @@ character_event = {
 						character_event = { id = vampire_embrace.2
 											days = 1
 											random = 5
-						}						
+						}
+						decadence =	2					
 					}
 				}
 				50 = {
@@ -2767,6 +2774,7 @@ character_event = {
 											days = 1
 											random = 5
 						}
+						decadence = 2
 					}
 				}
 			}	
@@ -2775,6 +2783,7 @@ character_event = {
 	
 	option = {
 		name = EVTOPTA_POD_CHILDE_EVENTS_3
+		decadence = 2
 		event_target:player_childe = {
 			opinion = { 
 				modifier = opinion_grateful 
@@ -2799,6 +2808,7 @@ character_event = {
 	}
 	option = {
 		name = EVTOPTB_POD_CHILDE_EVENTS_3
+		decadence = -1
 		event_target:player_childe = {
 			opinion = { 
 				modifier = opinion_furious 
@@ -2818,6 +2828,7 @@ character_event = {
 	}
 	option = {
 		name = EVTOPTC_POD_CHILDE_EVENTS_3
+		decadence = -2
 		event_target:player_childe = {
 			death = { death_reason = death_execution killer = ROOT }
 		}
@@ -2838,6 +2849,7 @@ character_event = {
 	}
 	option = {
 		name = EVTOPTD_POD_CHILDE_EVENTS_3
+		decadence = -3
 		event_target:player_childe = {
 			death = { death_reason = death_execution killer = ROOT }
 		}

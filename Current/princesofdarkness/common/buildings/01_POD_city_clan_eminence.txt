@@ -394,7 +394,38 @@ city =
 		mass_ravnos = 10
 		extra_tech_building_start = 2
 		add_number_to_name = no		
-	}			
+	}
+
+		ct_clan_salubri_eminence_1 = 
+	{
+		desc = ct_clan_salubri_eminence_1_desc
+		potential = 
+		{
+			FROM = 
+			{
+				trait = vampire
+				trait = salubri
+			}
+		}		
+		is_active_trigger = 
+		{
+			FROM = 
+			{ 
+				trait = vampire
+				trait = salubri
+			}
+		}
+		
+		trigger = { }
+		gold_cost = 1	
+		##prestige_cost = 1		
+		build_time = 1
+		ai_creation_factor = 95
+		stewardship = 1
+		mass_salubri = 10
+		extra_tech_building_start = 2
+		add_number_to_name = no		
+	}	
 	
 	ct_clan_toreador_eminence_1 = 
 	{
@@ -2547,7 +2578,56 @@ city =
 		mass_ravnos = 10
 		extra_tech_building_start = 2
 		add_number_to_name = no		
-	}			
+	}
+
+	ct_clan_salubri_eminence_2 = 
+	{
+		desc = ct_clan_salubri_eminence_2_desc
+		potential = 
+		{
+			FROM = 
+			{
+				trait = vampire
+				trait = salubri
+				#TECH_CULTURE_FLEX  = 2
+			}
+			FROMFROM = 
+			{ 
+				OR = {
+					has_building = ct_pop_10k
+					has_building = ct_pop_20k
+					has_building = ct_pop_50k
+					has_building = ct_pop_100k
+					has_building = ct_pop_150k
+					has_building = ct_pop_200k
+					has_building = ct_pop_250k 
+					has_building = ct_pop_500k
+					has_building = ct_pop_1m
+					has_building = ct_pop_2m
+					}
+			}			
+		}		
+		is_active_trigger = 
+		{
+			FROM = 
+			{ 
+				trait = vampire
+				trait = salubri
+			}
+		}
+		
+		trigger = { TECH_LEGALISM = 2 }
+		prerequisites = {  }
+		upgrades_from = ct_clan_salubri_eminence_1	
+		gold_cost = 1	
+		##prestige_cost = 1		
+		build_time = 1
+		ai_creation_factor = 95
+		stewardship = 1
+		mass_salubri = 10
+		extra_tech_building_start = 2
+		add_number_to_name = no		
+	}
 	
 	ct_clan_toreador_eminence_2 = 
 	{
@@ -3722,6 +3802,54 @@ city =
 		add_number_to_name = no		
 	}			
 	
+	ct_clan_salubri_eminence_3 = 
+	{
+		desc = ct_clan_salubri_eminence_3_desc
+		potential = 
+		{
+			FROM = 
+			{
+				trait = vampire
+				trait = salubri
+			}
+			FROMFROM = 
+			{ 
+				OR = {
+
+					has_building = ct_pop_20k
+					has_building = ct_pop_50k
+					has_building = ct_pop_100k
+					has_building = ct_pop_150k
+					has_building = ct_pop_200k
+					has_building = ct_pop_250k 
+					has_building = ct_pop_500k
+					has_building = ct_pop_1m
+					has_building = ct_pop_2m
+					}
+			}			
+		}		
+		is_active_trigger = 
+		{
+			FROM = 
+			{ 
+				trait = vampire
+				trait = salubri
+			}
+		}
+		
+		trigger = { TECH_LEGALISM = 3 }
+		prerequisites = {  }
+		upgrades_from = ct_clan_salubri_eminence_2
+		gold_cost = 1	
+		##prestige_cost = 1		
+		build_time = 1
+		ai_creation_factor = 95
+		stewardship = 1
+		mass_salubri = 10
+		extra_tech_building_start = 3
+		add_number_to_name = no		
+	}	
+	
 	ct_clan_toreador_eminence_3 = 
 	{
 		desc = ct_clan_toreador_eminence_3_desc
@@ -4893,6 +5021,54 @@ city =
 		add_number_to_name = no		
 	}			
 	
+	ct_clan_salubri_eminence_4 = 
+	{
+		desc = ct_clan_salubri_eminence_4_desc
+		potential = 
+		{
+			FROM = 
+			{
+				trait = vampire
+				trait = salubri
+			}
+			FROMFROM = 
+			{ 
+				OR = {
+
+
+					has_building = ct_pop_50k
+					has_building = ct_pop_100k
+					has_building = ct_pop_150k
+					has_building = ct_pop_200k
+					has_building = ct_pop_250k 
+					has_building = ct_pop_500k
+					has_building = ct_pop_1m
+					has_building = ct_pop_2m
+					}
+			}			
+		}		
+		is_active_trigger = 
+		{
+			FROM = 
+			{ 
+				trait = vampire
+				trait = salubri
+			}
+		}
+		
+		trigger = { TECH_LEGALISM = 4 }
+		prerequisites = {  }
+		upgrades_from = ct_clan_salubri_eminence_3	
+		gold_cost = 1	
+		##prestige_cost = 1		
+		build_time = 1
+		ai_creation_factor = 95
+		stewardship = 1
+		mass_salubri = 10
+		extra_tech_building_start = 4
+		add_number_to_name = no		
+	}
+	
 	ct_clan_toreador_eminence_4 = 
 	{
 		desc = ct_clan_toreador_eminence_4_desc
@@ -6063,7 +6239,55 @@ city =
 		mass_ravnos = 10
 		extra_tech_building_start = 5
 		add_number_to_name = no		
-	}			
+	}
+
+	ct_clan_salubri_eminence_5 = 
+	{
+		desc = ct_clan_salubri_eminence_5_desc
+		potential = 
+		{
+			FROM = 
+			{
+				trait = vampire
+				trait = salubri
+			}
+			FROMFROM = 
+			{ 
+				OR = {
+
+
+
+					has_building = ct_pop_100k
+					has_building = ct_pop_150k
+					has_building = ct_pop_200k
+					has_building = ct_pop_250k 
+					has_building = ct_pop_500k
+					has_building = ct_pop_1m
+					has_building = ct_pop_2m
+					}
+			}			
+		}		
+		is_active_trigger = 
+		{
+			FROM = 
+			{ 
+				trait = vampire
+				trait = salubri
+			}
+		}
+		
+		trigger = { TECH_LEGALISM = 5 }
+		prerequisites = {  }
+		upgrades_from = ct_clan_salubri_eminence_4	
+		gold_cost = 1	
+		##prestige_cost = 1		
+		build_time = 1
+		ai_creation_factor = 95
+		stewardship = 1
+		mass_salubri = 10
+		extra_tech_building_start = 5
+		add_number_to_name = no		
+	}
 	
 	ct_clan_toreador_eminence_5 = 
 	{
@@ -7236,7 +7460,55 @@ city =
 		mass_ravnos = 10
 		extra_tech_building_start = 6
 		add_number_to_name = no		
-	}			
+	}
+
+	ct_clan_salubri_eminence_6 = 
+	{
+		desc = ct_clan_salubri_eminence_6_desc
+		potential = 
+		{
+			FROM = 
+			{
+				trait = vampire
+				trait = salubri
+			}
+			FROMFROM = 
+			{ 
+				OR = {
+
+
+
+
+					has_building = ct_pop_150k
+					has_building = ct_pop_200k
+					has_building = ct_pop_250k 
+					has_building = ct_pop_500k
+					has_building = ct_pop_1m
+					has_building = ct_pop_2m
+					}
+			}			
+		}		
+		is_active_trigger = 
+		{
+			FROM = 
+			{ 
+				trait = vampire
+				trait = salubri
+			}
+		}
+		
+		trigger = { TECH_LEGALISM = 6 }
+		prerequisites = {  }
+		upgrades_from = ct_clan_salubri_eminence_5
+		gold_cost = 1	
+		##prestige_cost = 1		
+		build_time = 1
+		ai_creation_factor = 95
+		stewardship = 1
+		mass_salubri = 10
+		extra_tech_building_start = 6
+		add_number_to_name = no		
+	}
 	
 	ct_clan_toreador_eminence_6 = 
 	{
@@ -8411,6 +8683,54 @@ city =
 		add_number_to_name = no		
 	}			
 	
+	ct_clan_salubri_eminence_7 = 
+	{
+		desc = ct_clan_salubri_eminence_7_desc
+		potential = 
+		{
+			FROM = 
+			{
+				trait = vampire
+				trait = salubri
+			}
+			FROMFROM = 
+			{ 
+				OR = {
+
+
+
+
+
+					has_building = ct_pop_200k
+					has_building = ct_pop_250k 
+					has_building = ct_pop_500k
+					has_building = ct_pop_1m
+					has_building = ct_pop_2m
+					}
+			}			
+		}		
+		is_active_trigger = 
+		{
+			FROM = 
+			{ 
+				trait = vampire
+				trait = salubri
+			}
+		}
+		
+		trigger = { TECH_LEGALISM = 7 }
+		prerequisites = {  }
+		upgrades_from = ct_clan_salubri_eminence_6	
+		gold_cost = 1	
+		##prestige_cost = 1		
+		build_time = 1
+		ai_creation_factor = 95
+		stewardship = 1
+		mass_salubri = 10
+		extra_tech_building_start = 7
+		add_number_to_name = no		
+	}
+	
 	ct_clan_toreador_eminence_7 = 
 	{
 		desc = ct_clan_toreador_eminence_7_desc
@@ -9578,7 +9898,49 @@ city =
 		mass_ravnos = 10
 		extra_tech_building_start = 8
 		add_number_to_name = no		
-	}			
+	}
+
+	ct_clan_salubri_eminence_8 = 
+	{
+		desc = ct_clan_salubri_eminence_8_desc
+		potential = 
+		{
+			FROM = 
+			{
+				trait = vampire
+				trait = salubri
+			}
+			FROMFROM = 
+			{ 
+				OR = {
+					has_building = ct_pop_250k 
+					has_building = ct_pop_500k
+					has_building = ct_pop_1m
+					has_building = ct_pop_2m
+					}
+			}			
+		}		
+		is_active_trigger = 
+		{
+			FROM = 
+			{ 
+				trait = vampire
+				trait = salubri
+			}
+		}
+		
+		trigger = { TECH_LEGALISM = 8 }
+		prerequisites = {  }
+		upgrades_from = ct_clan_salubri_eminence_7
+		gold_cost = 1	
+		##prestige_cost = 1		
+		build_time = 1
+		ai_creation_factor = 95
+		stewardship = 1
+		mass_salubri = 10
+		extra_tech_building_start = 8
+		add_number_to_name = no		
+	}
 	
 	ct_clan_toreador_emiinence_8 = 
 	{
