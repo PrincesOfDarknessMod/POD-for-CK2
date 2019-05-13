@@ -1,0 +1,166 @@
+malfeas = {
+	name = malfeas_offmap
+	window_name = domestic_offmaps_window
+	button_name = icon_offmaps_entry
+	currency_name = TXT_CORRUPTED_GNOSIS
+	currency_gain = monthly_gnosis
+	currency_reset_on_dynasty_change = no
+	holder_title = title_malfeas
+	governor_title = e_malfeas_on_earth
+	tier = emperor
+	non_aggression_modifier = peace_deal_with_china
+	coa_religion = wyrm
+	government = wyrm_government
+	beginning_of_history = 1.1.1
+	sound = china_interaction_interface
+	display_trigger = {
+		#has_dlc = "Jade Dragon"
+		FROM = {
+			#worships_ideal_masters = yes
+			trait = vampire
+		}
+	}
+
+	policies = {
+		#oblivion_isolationist
+		#oblivion_interactive
+		#oblivion_interventionist
+	}
+	statuses = {
+		#oblivion_normal
+		#oblivion_apogee
+		#oblivion_convalescing
+		#oblivion_cataclysm
+	}
+	buttons = {
+		offmap_gifts = {
+			is_active_trigger = {
+				always = yes
+			}
+		}
+		offmap_boons = {
+			is_active_trigger = {
+				#oblivion_molag_boon_decisions_enabled_trigger = yes
+			}
+		}
+		offmap_hostility = {
+			is_active_trigger = {
+				#china_offmap_hostile_decisions_enabled_trigger = yes
+			}
+			display_trigger = {
+				always = no
+			}
+		}
+		offmap_hostility2 = {
+			display_trigger = {
+				always = no
+			}
+		}
+	}
+	
+	#These conditions only effect the appearance of the button, it does not actually disable them from being clickable. The same triggers are used in all tribute/boon decisions respectively
+	
+	icon_triggers = {
+	}
+	
+	monthly_currency_gain = {
+
+		offmap_likes_cruel = {
+			value = 0.25
+			FROM = { likes_cruel = yes }
+		}
+
+		offmap_likes_wroth = {
+			value = 0.25
+			FROM = { likes_wroth = yes }
+		}
+		offmap_likes_proud = {
+			value = 0.25
+			FROM = { likes_proud = yes }
+		}
+		offmap_likes_lustful = {
+			value = 0.25
+			FROM = { likes_lustful = yes }
+		}
+		offmap_likes_zealous = {
+			value = 0.25
+			FROM = { likes_zealous = yes }
+		}
+
+		offmap_likes_impalers = {
+			value = 0.25
+			FROM = { likes_impalers = yes }
+		}
+
+		offmap_likes_vampires = {
+			value = 0.5
+			FROM = { likes_vampires = yes }
+		}
+
+		# offmap_ = {
+			# FROM = {  = yes }
+		# }
+	}
+	
+	temple_names = {
+		{ # Founder names
+			"Maejlin Incarna"
+		}
+		{ # Successor names
+			"Maejlin Incarna"
+		}
+	}
+	holder_succession = {
+		is_female = {					# chances of getting a female holder, as a percentage: if the total is >= 100, the new holder will always be female. If the total is <= 0, the new holder will always be male
+			value = 50
+		}
+		culture = {
+			scottish = {
+				value = 100
+			}
+		}
+
+		graphical_culture = { 
+			FROM = {
+				value = 100
+			}
+		}
+
+		religion = {
+			wyrm  = {
+				value = 100
+			}
+		}
+
+		dynasty = {
+			FROM = {
+				value = 100
+			}
+		}
+		
+		likes = {
+			likes_cruel = {
+				value = 250
+			}
+		}
+		
+		dislikes = {
+			likes_kind = {
+				value = 100
+			}
+		}
+	}
+	
+	diplomatic_range = { #Already includes the western governor's "normal" diplo range
+		NOT = { 
+			religion_group = "garou_group" 
+		}
+		
+		OR = {
+			religion = wyrm
+			religion = black_spiral_dancers
+			trait = vampire
+			trait = werewolf
+		}
+	}
+}

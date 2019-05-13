@@ -89,7 +89,10 @@ character_event = {
         event_target:combatant_1 = {
             character_event = { id = HF.10096 days = 2 }
         }
-        set_character_flag = add_duel_xp
+        random = {
+			chance = 10
+			set_character_flag = add_duel_xp
+		}
         clr_character_flag = punish_declining
     }
     option = { #No way! He/She can't just DUEL me for my titles...!
@@ -247,7 +250,10 @@ character_event = {
         }
         else = {
             hidden_effect = {
-                set_character_flag = add_duel_xp
+				random = {
+					chance = 10
+					set_character_flag = add_duel_xp
+				}	
                 reset_duel_timers_effect = yes
                 character_event = { id = HFP.10100 } #Send hidden set-up of duel (from there: result)
             }
@@ -292,7 +298,10 @@ character_event = {
         }
         else = {
             hidden_effect = {
-                set_character_flag = add_duel_xp
+                random = {
+					chance = 10
+					set_character_flag = add_duel_xp
+				}
                 reset_duel_timers_effect = yes
                 character_event = { id = HFP.10100 } #Send hidden set-up of duel (from there: result)
             }
@@ -461,7 +470,10 @@ character_event = {
         event_target:combatant_1 = {
             character_event = { id = HFP.10096 days = 3 }
         }
-        set_character_flag = add_duel_xp
+        random = {
+			chance = 10
+			set_character_flag = add_duel_xp
+		}
         clr_character_flag = punish_declining
         ai_chance = {
             factor = 80
@@ -526,7 +538,10 @@ character_event = {
         event_target:combatant_1 = {
             character_event = { id = HFP.10096 days = 3 }
         }
-        set_character_flag = add_duel_xp
+        random = {
+			chance = 10
+			set_character_flag = add_duel_xp
+		}
         clr_character_flag = punish_declining
 
         ai_chance = {
@@ -743,7 +758,10 @@ character_event = {
         }
         else = {
             hidden_effect = {
-                set_character_flag = add_duel_xp
+                random = {
+					chance = 10
+					set_character_flag = add_duel_xp
+				}
                 reset_duel_timers_effect = yes
                 character_event = { id = HFP.10100 } #Send hidden set-up of duel (from there: result)
                 #character_event = { id = MIL.600 } #Milla's debug event
@@ -805,7 +823,10 @@ character_event = {
         }
         else = {
             hidden_effect = {
-                set_character_flag = add_duel_xp
+                random = {
+					chance = 10
+					set_character_flag = add_duel_xp
+				}
                 reset_duel_timers_effect = yes
                 character_event = { id = HFP.10100 } #Send hidden set-up of duel (from there: result)
             }

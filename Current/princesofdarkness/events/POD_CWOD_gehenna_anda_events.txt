@@ -1,0 +1,397 @@
+###########################################
+#     									  #
+# 		POD CWOD Gehenna Anda	 		  #
+#                                         #
+###########################################
+
+namespace = POD_CWOD_GEHENNA_ANDA
+
+# A prophet appears
+character_event = {
+	id = POD_CWOD_GEHENNA_ANDAA.1
+	desc = EVTDESCPOD_CWOD_GEHENNA_ANDA_1
+	hide_window = yes	
+	ai = no
+	has_global_flag = bookmark1230
+	
+	trigger = {
+				#year = 1245
+				#NOT = { year = 1245 }	
+				#trait = vampire
+	}	
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	immediate = {
+			random_list = {
+				50 = {
+					create_character = {
+						random_traits = yes
+						dynasty = culture
+						female = no
+						age = 115
+						immortal_age = 30
+						trait = mystic
+						trait = vampire
+						religion = autarkis
+						trait = wyrm_taint
+						trait = bloodpotency_2
+						trait = vampgeneration9
+						trait = ancilla								
+					}	
+					new_character = {
+						save_event_target_as = gehenna_baghdad_seer
+					}
+				}
+				50 = {
+					create_character = {
+						random_traits = yes
+						religion = autarkis
+						dynasty = culture
+						female = yes
+						age = 110
+						immortal_age = 25
+						trait = mystic
+						trait = vampire
+						religion = autarkis
+						trait = wyrm_taint
+						trait = bloodpotency_2
+						trait = vampgeneration9
+						trait = ancilla		
+					}	
+					new_character = {
+						save_event_target_as = gehenna_baghdad_seer
+					}					
+				}		
+			}
+			
+			event_target:gehenna_baghdad_seer = { 		
+				random_list = {
+					50 = { 
+						add_trait = malkavian
+						random_list = {
+							50 = { add_trait = lunatic }
+							25 = { add_trait = depressed }
+							25 = { add_trait = paranoid }
+						}
+					}
+					10 = { add_trait = caitiff }
+					10 = { add_trait = tzimisce }
+					10 = { add_trait = cappadocian }
+					5 = { add_trait = salubri }
+					10 = { add_trait = toreador }
+					5 = { add_trait = tremere }
+				}
+				
+				if = { limit = { trait = slow } 
+					remove_trait = slow
+				}
+				if = { limit = { trait = imbecile } 
+					remove_trait = imbecile
+				}						
+				if = { limit = { trait = inbred } 
+					remove_trait = inbred
+				}	
+	
+				POD_CWOD_dynasty_effect = yes
+				POD_CWOD_vampire_governments_init_effect = yes
+				POD_CWOD_vampire_disciplines_init_effect = yes	
+				if = { 
+					limit = { 
+						trait = auspex_2 
+					}
+					remove_trait = auspex_2
+				}	
+				add_trait = auspex_5 
+				POD_CWOD_vampire_roads_init_effect = yes
+				POD_CWOD_vampire_paths_init_effect = yes
+				POD_CWOD_vampire_secret_religion_init_effect = yes
+				POD_CWOD_vampire_sabbat_secret_religion_init_effect = yes
+				POD_CWOD_vampire_roads_grand_master_init_effect = yes			
+				}				
+			}		
+		
+	after = {
+		character_event = { id = POD_CWOD_GEHENNA_ANDA.2 days = 10 }
+		
+	}
+}
+
+# Gehenna Baghdad Seer gives a prophecy
+
+narrative_event = {
+	id = POD_CWOD_GEHENNA_ANDA.2
+	title = EVTNAME_POD_CWOD_GEHENNA_ANDA_2
+    desc = {
+		text = EVTDESC_POD_CWOD_GEHENNA_ANDA_2
+		trigger = {
+			 event_target:gehenna_baghdad_seer
+		}
+	}	
+	picture = GFX_evt_vampire_mental
+	border = GFX_event_narrative_frame_religion
+	ai = no
+	is_triggered_only = yes	
+	only_playable = yes
+
+	major = yes
+	
+	major_trigger = {
+		trait = vampire
+		ai = no
+	}
+
+	major_trigger = {
+		trait = vampire
+		ai = no
+	}	
+
+	# Ask to know more
+	option = {
+		name = "EVTOPTC_POD_CWOD_GEHENNA_ANDA_2"
+		if = {
+			limit = {
+				NOT = { trait = scholar }
+				}
+			random = {
+				chance = 5
+				add_trait = scholar 
+			}	
+		}	
+		
+		if = {
+			limit = {
+				NOT = { trait = erudite }
+				}
+			random = {
+				chance = 5
+				add_trait = erudite 
+			}	
+		}	
+		
+		if = {
+			limit = {
+				NOT = { trait = lunatic }			
+				}
+			random = {
+				chance = 5
+				add_trait = lunatic
+			}	
+		}	
+		if = {
+			limit = {
+				NOT = { trait = paranoid }			
+				}
+			random = {
+				chance = 5
+				add_trait = paranoid
+			}	
+		}			
+		add_character_modifier = {
+			name = gehenna_prophecy_tigirs_modifier
+			years = 14
+		}			
+		character_event = { id = POD_CWOD_GEHENNA_ANDA.2 days = 10 }
+	}
+	
+	# Accept the Prophecy 
+	option = {
+		name = "EVTOPTA_POD_CWOD_GEHENNA_ANDA_2" 
+		piety = 10
+		if = {
+			limit = {
+				NOT = { trait = proud }
+				}
+			random = {
+				chance = 10
+				add_trait = humble
+			}	
+		}		
+		if = {
+			limit = {
+				NOT = { trait = zealous }
+				NOT = { trait = cynical }
+				}
+			random = {
+				chance = 25
+				add_trait = zealous
+			}	
+		}		
+		add_character_modifier = {
+			name = gehenna_prophecy_babylon_modifier
+			years = 14
+		}		
+	}
+	
+	# Reject the Prophecy 	
+	option = {
+		name = "EVTOPTB_POD_CWOD_GEHENNA_ANDA_2"
+		prestige = 10 
+		if = {
+			limit = {
+				NOT = { trait = cynical }
+				NOT = { trait = zealous }
+				}
+			random = {
+				chance = 25
+				add_trait = cynical
+			}	
+		}
+
+	}	
+	
+}	
+
+# Gehenna Baghdad Seer Tells a Story of ancient Ur and Uruk
+	
+narrative_event = {
+	id = POD_CWOD_GEHENNA_ANDA.3
+	title = EVTNAME_POD_CWOD_GEHENNA_ANDA_3
+    desc = {
+		text = EVTDESC_POD_CWOD_GEHENNA_ANDA_3
+		trigger = {
+			 event_target:gehenna_baghdad_seer 
+		}
+	}	
+	picture = GFX_evt_vampire_mental
+	border = GFX_event_narrative_frame_religion
+	ai = no
+	is_triggered_only = yes	
+	only_playable = yes
+	
+	trigger = {
+		trait = vampire
+	}		
+	
+	# Ask to know more
+	option = {
+	name = "EVTOPTA_POD_CWOD_GEHENNA_ANDA_3"
+	}
+}	
+
+
+
+# Rumors of Great Person Baha al-Din Zuhyar
+
+character_event = {
+	id = POD_CWOD_GEHENNA_ANDA.6
+	desc = EVTDESC_POD_CWOD_GEHENNA_ANDA_6
+	
+	picture = GFX_evt_beheading
+	border = GFX_event_normal_frame_war
+	
+	ai = no
+	has_global_flag = bookmark1230
+	
+	trigger = {
+	#			year = 1249
+	#			NOT = { year = 1249 }	
+	}	
+
+	major = yes
+	
+	major_trigger = {
+		trait = vampire
+		ai = no
+	}	
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	immediate = {
+
+	}
+	
+}
+
+# an Anda commander spawns and his coterie comes to the city with the Mongols and lays a claim to the city 
+
+
+# Mongols destroy the army 
+
+narrative_event = {
+	id = POD_CWOD_GEHENNA_ANDA.7
+	title = EVTNAME_POD_CWOD_GEHENNA_ANDA_7
+	desc = EVTDESC_POD_CWOD_GEHENNA_ANDA_7
+	picture = GFX_evt_mongols_pillage_oldgods
+	border = GFX_event_narrative_frame_war
+	
+	is_triggered_only = yes
+	
+	major = yes
+	
+	major_trigger = {
+		trait = vampire
+		ai = no
+	}	
+	
+	option = {
+		name = EVTOPTA_POD_CWOD_GEHENNA_ANDA_7
+	}
+}
+
+
+
+
+
+# Baha al-Din Zuhyar tries to prevent the fall of Baghdad
+
+character_event = {
+	id = POD_CWOD_GEHENNA_AND.7
+	desc = EVTDESC_POD_CWOD_GEHENNA_AND_7
+	
+	picture = GFX_evt_beheading
+	border = GFX_event_normal_frame_war
+	
+	ai = no
+	has_global_flag = bookmark1230	
+	
+	mean_time_to_happen = {
+		months = 11
+	}
+	
+	major = yes
+	
+	major_trigger = {
+		trait = vampire
+		ai = no
+	}		
+	
+	immediate = {
+
+	}
+	
+	# Send Gold to Aid Zuhyar 
+	
+	# Embrace Zuhyar as a Vampire 
+	
+	# Kill Zuhyar 
+	
+	# Do nothing
+	
+}
+
+
+# Zuhyar is embraced as a vampire  
+
+# Zuhyar's embrace fails and he is killed
+
+# Zuhyar is embraced and becomes player's childe
+
+# Zuhyar is attacked 
+
+# Zuhyar fails (because of attack, embrace, or just failure), Mongols Sack Baghdad, Population Influence building destroyed, Great Library of Baghdad destroyed
+
+# Blood from the all the carnage spilled causes an methuselah childe of Urlon and his slumbering court to awaken he immediately mass ghouls an army and lays a claim on 
+
+# If gehenna_baghdad_seer still exists, they appear with a cult of lunatics and a claim on Baghdad
+
+
+
+
+
+
+
