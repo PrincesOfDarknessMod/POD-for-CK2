@@ -1,0 +1,2866 @@
+####ID Ranges####
+#Player 0-199
+#AI 200-399
+
+
+
+
+namespace = aao
+
+
+
+
+####setup 
+character_event = {
+	id = aao.001
+	
+	is_triggered_only = yes
+	hide_window = yes
+	
+	immediate = {
+		FROM = {
+			save_event_target_as = target_character
+			random_artifact = {
+				limit = { has_artifact_flag = targeted }
+				save_event_target_as = target_artifact
+			}
+		}
+		character_event = {id = aao.002}
+	}	
+}
+####Preparing the heist
+character_event = {
+	id = aao.002
+	picture = GFX_evt_whispers
+	desc = EVTDESAaao.002
+	
+	is_triggered_only = yes
+	
+	#ask marshal
+	option = { 
+		name = EVTOPTAaao.002
+		trigger = {
+			ROOT = {
+				job_marshal = {
+					NOR = {
+						is_incapable = yes
+						has_regent = yes
+						prisoner = yes
+						trait = slow
+						trait = imbecile
+					}
+				}
+			}
+		}
+		ROOT = {
+			job_marshal = {
+				save_event_target_as = accomplice
+				opinion = {modifier = trusting_pos who=PREVPREV years = 3}
+			}
+			character_event = {id = aao.003 days = 30}
+		}
+	}
+	#ask spymaster
+	option = { 
+		name = EVTOPTBaao.002
+		trigger = {
+			ROOT = {
+				job_spymaster = {
+					NOR = {
+						is_incapable = yes
+						has_regent = yes
+						prisoner = yes
+						in_seclusion = yes
+						trait = slow
+						trait = imbecile
+					}
+				}
+			}
+		}
+		ROOT = {
+			job_spymaster = {
+				save_event_target_as = accomplice
+				opinion = {modifier = trusting_pos who=PREVPREV years = 3}
+			}
+			character_event = {id = aao.003 days = 30}
+		}
+	}
+	#ask lover
+	option = {
+		name = EVTOPTCaao.002
+		
+		trigger = {
+			ROOT = {
+				any_lover = {
+					NOR = {
+						is_incapable = yes
+						has_regent = yes
+						prisoner = yes
+						in_seclusion = yes
+						trait = slow
+						trait = imbecile
+						}
+					}
+				}
+			}
+		ROOT = {
+			random_lover = {
+				limit = {
+					NOR = {
+						is_incapable = yes
+						has_regent = yes
+						prisoner = yes
+						in_seclusion = yes
+						trait = slow
+						trait = imbecile
+					}
+				}
+				save_event_target_as = accomplice
+				opinion = {modifier = trusting_pos who=PREVPREV years = 3}
+			}	
+			character_event = {id = aao.003 days = 30}
+		}
+	}
+	#ask friend
+	option = {
+		name = EVTOPTDaao.002
+		trigger = {
+			ROOT = {
+				any_friend = {
+					is_adult = yes
+					NOR = {
+						is_incapable = yes
+						has_regent = yes
+						prisoner = yes
+						in_seclusion = yes
+						trait = slow
+						trait = imbecile
+					}
+				}
+			}
+		}
+		ROOT = {
+			random_friend = {
+				limit = {
+					is_adult = yes
+					NOR = {
+						is_incapable = yes
+						has_regent = yes
+						prisoner = yes
+						in_seclusion = yes
+						trait = slow
+						trait = imbecile
+					}
+				}
+				save_event_target_as = accomplice
+				opinion = {modifier = trusting_pos who=PREVPREV years = 3}
+			}
+			character_event = {id = aao.003 days = 30}
+		}
+	}
+	#heir
+	option = {
+		name = EVTOPTEaao.002
+		trigger = {
+			ROOT = {
+				current_heir = {
+					dynasty = ROOT
+					is_adult = yes
+					NOR = {	
+						is_incapable = yes
+						has_regent = yes
+						prisoner = yes
+						in_seclusion = yes
+						trait = slow
+						trait = imbecile
+					}	
+				}
+			}
+		}	
+		ROOT = {
+			current_heir = {
+				save_event_target_as = accomplice
+				opinion = {modifier = trusting_pos who=PREVPREV years = 3}
+			}
+			character_event = {id = aao.003 days = 30}
+		}
+	}
+	#Nevermind
+	option = {
+		name = EVTOPTFaao.002
+		hidden_tooltip = {
+			event_target:target_artifact = {clr_artifact_flag = targeted}
+			ROOT = { remove_character_modifier = active_heist }	
+		}
+	}
+	
+}
+
+####Heist stage 1 outside
+character_event = {
+	id = aao.003
+	desc = EVTDESAaao.003
+	picture = GFX_evt_secret_ceremony
+	
+	is_triggered_only = yes
+	
+	#Frontal Assault
+	option = {
+		name = EVTOPTAaao.003
+		custom_tooltip = {text = Success_martial}
+		random_list = {
+			#Success
+			40 = {
+				modifier = {
+					factor = 0.8
+					trait = stressed	
+				}
+				modifier = {
+					factor = 0.8
+					trait = drunkard
+				}
+				modifier = {
+					factor = 0.7
+					trait = feeble	
+				}
+				modifier = {
+					factor = 0.7
+					trait = weak
+				}					
+				modifier = {
+					factor = 0.9
+					trait = misguided_warrior	
+				}
+				modifier = {
+					factor = 1.1
+					trait = tough_soldier	
+				}
+				modifier = {
+					factor = 1.3
+					trait = skilled_tactician	
+				}
+				modifier = {
+					factor = 1.6
+					trait = brilliant_strategist	
+				}
+				modifier = {
+					factor = 1.1
+					martial = 20	
+				}
+				modifier = {
+					factor = 1.1 
+					martial = 26	
+				}
+				modifier = {
+					factor = 1.1
+					martial = 30	
+				}
+				modifier = {
+					factor = 1.1
+					combat_rating = 25	
+				}
+				modifier = {
+					factor = 1.1
+					combat_rating = 50
+				}
+				modifier = {
+					factor = 1.2
+					combat_rating = 100
+				}
+				modifier = {
+					factor = 1.3
+					trait = strong	
+				}
+				modifier = {
+					factor = 1.2
+					trait = robust	
+				}
+				modifier = {
+					factor = 1.1
+					trait = brave	
+				}
+				modifier = {
+					factor = 1.3
+					trait = viking	
+				}
+				modifier = {
+					factor = 1.6
+					trait = ravager	
+				}
+				modifier = {
+					factor = 2.0
+					OR= {
+						trait = seaking
+						trait = sea_queen
+					}
+				}
+				modifier = {
+					factor = 1.4
+					trait = berserker
+				}
+				modifier = {
+					factor = 1.4
+					trait = varangian	
+				}
+				modifier = {
+					factor = 1.6
+					trait = duelist	
+				}
+				modifier = {
+					factor = 1.2
+					trait = hunter	
+				}
+				modifier = {
+					factor = 1.1
+					event_target:accomplice = {martial = 20}
+				}
+				modifier = {
+					factor = 1.2
+					event_target:accomplice = {martial = 25}
+				}
+				modifier = {
+					factor = 1.1
+					event_target:accomplice = {combat_rating = 25}
+				}
+				character_event = {id = aao.005 days = 10 tooltip = EVTSuccess}
+			}
+			#Failure
+			60 = {
+				modifier = {
+					factor = 0.8
+					event_target:target_artifact = {quality = 1}
+				}
+				modifier = {
+					factor = 0.9
+					event_target:target_artifact = {quality = 2}
+				}
+				modifier = {
+					factor = 1.1
+					event_target:target_artifact = {quality = 4}
+				}
+				modifier = {
+					factor = 1.2
+					event_target:target_artifact = {quality = 5}
+				}
+				character_event = {id = aao.004 days = 10 tooltip = EVTFail}
+			}	
+		}
+	}
+	#Stealth infiltration
+	option = {
+		name = EVTOPTBaao.003
+		custom_tooltip = {text = Success_intrigue}
+		random_list = {
+			#Success
+			40 = {
+				modifier = {
+					factor = 0.8
+					trait = stressed	
+				}
+				modifier = {
+					factor = 0.8
+					trait = drunkard
+				}
+				modifier = {
+					factor = 0.9
+					trait = amateurish_plotter	
+				}
+				modifier = {
+					factor = 1.1
+					trait = flamboyant_schemer	
+				}
+				modifier = {
+					factor = 1.3
+					trait = intricate_webweaver	
+				}
+				modifier = {
+					factor = 1.6
+					trait = elusive_shadow	
+				}
+				modifier = {
+					factor = 1.1
+					intrigue = 20	
+				}
+				modifier = {
+					factor = 1.1
+					intrigue = 26	
+				}
+				modifier = {
+					factor = 1.3 
+					intrigue = 30
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 35	
+				}
+				modifier = {
+					factor = 1.2
+					trait = quick	
+				}
+				modifier = {
+					factor = 1.8
+					trait = genius	
+				}
+				modifier = {
+					factor = 1.4
+					trait = shrewd
+				}
+				modifier = {
+					factor = 1.6
+					trait = schemer	
+				}
+				modifier = {
+					factor = 1.2
+					society_rank = {
+						society = the_assassins
+						rank = 1
+					}	
+				}
+				modifier = {
+					factor = 1.4
+					society_rank = {
+						society = the_assassins
+						rank = 2
+					}	
+				}
+				modifier = {
+					factor = 1.8
+					society_rank = {
+						society = the_assassins
+						rank = 3
+					}	
+				}
+				modifier = {
+					factor = 2.0
+					society_rank = {
+						society = the_assassins
+						rank = 4
+					}	
+				}
+				modifier = {
+					factor = 1.1
+					event_target:accomplice = {intrigue = 20}
+				}
+				modifier = {
+					factor = 1.2
+					event_target:accomplice = {intrigue = 26}
+				}
+				modifier = {
+					factor = 1.4
+					event_target:accomplice = {intrigue = 30}
+				}
+				character_event = {id = aao.005 days = 10 tooltip = EVTSuccess}
+			}
+			#Failure
+			60 = {
+				modifier = {
+					factor = 0.8
+					event_target:target_artifact = {quality = 1}
+				}
+				modifier = {
+					factor = 0.9
+					event_target:target_artifact = {quality = 2}
+				}
+				modifier = {
+					factor = 1.1
+					event_target:target_artifact = {quality = 4}
+				}
+				modifier = {
+					factor = 1.2
+					event_target:target_artifact = {quality = 5}
+				}
+				character_event = {id = aao.004 days = 10 tooltip = EVTFail}
+			}	
+		}
+	}
+	#Convince someone to distract
+	option = {
+		name = EVTOPTCaao.003
+		custom_tooltip = {text = Success_diplomacy}
+		random_list = {
+			#Success
+			40 = {
+				modifier = {
+					factor = 0.8
+					trait = stressed	
+				}
+				modifier = {
+					factor = 0.8
+					trait = drunkard
+				}
+				modifier = {
+					factor = 0.9
+					trait = naive_appeaser	
+				}
+				modifier = {
+					factor = 1.1
+					trait = underhanded_rogue	
+				}
+				modifier = {
+					factor = 1.3
+					trait = charismatic_negotiator	
+				}
+				modifier = {
+					factor = 1.6
+					trait = grey_eminence	
+				}
+				modifier = {
+					factor = 1.1
+					diplomacy = 20
+				}
+				modifier = {
+					factor = 1.1
+					diplomacy = 26	
+				}
+				modifier = {
+					factor = 1.3
+					diplomacy = 30	
+				}
+				modifier = {
+					factor = 1.5
+					diplomacy = 35
+				}
+				modifier = {
+					factor = 1.2
+					trait = fair	
+				}
+				modifier = {
+					factor = 1.8
+					trait = genius	
+				}
+				modifier = {
+					factor = 1.4
+					trait = shrewd
+				}
+				modifier = {
+					factor = 1.3
+					trait = socializer
+				}
+				modifier = {
+					factor = 1.4
+					trait = gregarious
+				}
+				modifier = {
+					factor = 1.2
+					trait = deceitful
+				}
+				modifier = {
+					factor = 1.1
+					OR = {
+						society_rank = {
+							society = monastic_order_benedictine
+							rank = 1
+						}
+						society_rank = {
+							society = monastic_order_dominican
+							rank = 1
+						}	
+						society_rank = {
+							society = monastic_order_orthodox
+							rank = 1
+						}	
+						society_rank = {
+							society = monastic_order_nestorian
+							rank = 1
+						}
+						society_rank = {
+							society = monastic_order_monophysite
+							rank = 1
+						}
+						society_rank = {
+							society = monastic_order_hindu
+							rank = 1
+						}
+						society_rank = {
+							society = monastic_order_buddhist
+							rank = 1
+						}
+						society_rank = {
+							society = monastic_order_jain
+							rank = 1
+						}
+					}	
+				}
+				modifier = {
+					factor = 1.2
+					OR = {
+						society_rank = {
+							society = monastic_order_benedictine
+							rank = 2
+						}
+						society_rank = {
+							society = monastic_order_dominican
+							rank = 2
+						}	
+						society_rank = {
+							society = monastic_order_orthodox
+							rank = 2
+						}	
+						society_rank = {
+							society = monastic_order_nestorian
+							rank = 2
+						}
+						society_rank = {
+							society = monastic_order_monophysite
+							rank = 2
+						}
+						society_rank = {
+							society = monastic_order_hindu
+							rank = 2
+						}
+						society_rank = {
+							society = monastic_order_buddhist
+							rank = 2
+						}
+						society_rank = {
+							society = monastic_order_jain
+							rank = 2
+						}
+					}	
+				}
+				modifier = {
+					factor = 1.4
+					OR = {
+						society_rank = {
+							society = monastic_order_benedictine
+							rank = 3
+						}
+						society_rank = {
+							society = monastic_order_dominican
+							rank = 3
+						}	
+						society_rank = {
+							society = monastic_order_orthodox
+							rank = 3
+						}	
+						society_rank = {
+							society = monastic_order_nestorian
+							rank = 3
+						}
+						society_rank = {
+							society = monastic_order_monophysite
+							rank = 3
+						}
+						society_rank = {
+							society = monastic_order_hindu
+							rank = 3
+						}
+						society_rank = {
+							society = monastic_order_buddhist
+							rank = 3
+						}
+						society_rank = {
+							society = monastic_order_jain
+							rank = 3
+						}
+					}	
+				}
+				modifier = {
+					factor = 1.6
+					OR = {
+						society_rank = {
+							society = monastic_order_benedictine
+							rank = 4
+						}
+						society_rank = {
+							society = monastic_order_dominican
+							rank = 4
+						}	
+						society_rank = {
+							society = monastic_order_orthodox
+							rank = 4
+						}	
+						society_rank = {
+							society = monastic_order_nestorian
+							rank = 4
+						}
+						society_rank = {
+							society = monastic_order_monophysite
+							rank = 4
+						}
+						society_rank = {
+							society = monastic_order_hindu
+							rank = 4
+						}
+						society_rank = {
+							society = monastic_order_buddhist
+							rank = 4
+						}
+						society_rank = {
+							society = monastic_order_jain
+							rank = 4
+						}
+					}	
+				}
+				modifier = {
+					factor = 1.1
+					event_target:accomplice = {diplomacy = 20}
+				}
+				modifier = {
+					factor = 1.2
+					event_target:accomplice = {diplomacy = 30}
+				}
+				modifier = {
+					factor = 1.1
+					event_target:accomplice = {trait = gregarious}
+				}
+				character_event = {id = aao.005 days = 10 tooltip = EVTSuccess}
+			}
+			#Failure
+			60 = {
+				modifier = {
+					factor = 0.8
+					event_target:target_artifact = {quality = 1}
+				}
+				modifier = {
+					factor = 0.9
+					event_target:target_artifact = {quality = 2}
+				}
+				modifier = {
+					factor = 1.1
+					event_target:target_artifact = {quality = 4}
+				}
+				modifier = {
+					factor = 1.2
+					event_target:target_artifact = {quality = 5}
+				}
+				character_event = {id = aao.004 days = 10 tooltip = EVTFail}
+			}	
+		}
+	}
+}	
+
+####Heist stage 1 failure
+character_event = {
+	id = aao.004
+	desc = EVTDESAaao.004
+	picture = GFX_evt_bad_news
+	
+	is_triggered_only = yes
+	
+	#run away
+	option = {
+		name = EVTOPTAaao.004
+		custom_tooltip = {text = Success_intrigue}
+		random_list = {
+			20 = {
+				imprison = event_target:target_character
+				custom_tooltip = {
+					text = EVTsharedfate
+					hidden_tooltip = {
+						event_target:accomplice = {imprison = event_target:target_character}
+						character_event = {id = aao.010 days = 10}
+					}
+				}
+			}
+			30 = {
+				custom_tooltip = {text = EVTEscape}
+				add_trait = wounded
+				custom_tooltip = {
+					text = EVTsharedfate	
+					hidden_tooltip = {
+						event_target:accomplice = {add_trait = wounded}
+						character_event = {id = aao.010 days = 10}
+					}
+				}
+			}
+			50 = {
+				modifier = {
+					factor = 1.2
+					intrigue = 20
+				}
+				modifier = {
+					factor = 1.2
+					intrigue = 26
+				}
+				modifier = {
+					factor = 1.2
+					intrigue = 30
+				}
+				character_event = {id = aao.010 days = 10 tooltip = EVTEscape}
+			}
+		}
+	}
+
+	#beg for fogiveness
+	option = {
+		name = EVTOPTBaao.004
+		custom_tooltip = {text = Success_diplomacy}
+		random_list = {
+			20 = {
+				imprison = event_target:target_character
+				custom_tooltip = {
+					text = EVTsharedfate	
+					hidden_tooltip = {
+						event_target:accomplice = {imprison = event_target:target_character}
+						character_event = {id = aao.010 days = 10}
+					}
+				}	
+			}
+			30 = {
+				custom_tooltip = {text = EVTEscape}
+				prestige = -500
+				custom_tooltip = {
+					text = EVTsharedfate
+					hidden_tooltip = {
+						event_target:accomplice = {prestige = -250}
+						character_event = {id = aao.010 days = 10}
+					}
+				}	
+			}
+			50 = {
+				modifier = {
+					factor = 1.2
+					diplomacy = 20
+				}
+				modifier = {
+					factor = 1.2
+					diplomacy = 26
+				}
+				modifier = {
+					factor = 1.2
+					diplomacy = 30
+				}
+				character_event = {id = aao.010 days = 10 tooltip = EVTEscape}
+			}
+		}
+	}
+	#fight your way out
+	option = {
+		name = EVTOPTCaao.004
+		custom_tooltip = {text = Success_martial}
+		random_list = {
+			20 = {
+				imprison = event_target:target_character
+				custom_tooltip = {
+					text = EVTsharedfate
+					hidden_tooltip = {
+						event_target:accomplice = {imprison = event_target:target_character}
+						character_event = {id = aao.010 days = 10}
+					}
+				}	
+			}
+			30 = {
+				custom_tooltip = {text = EVTEscape}
+				add_trait = wounded
+				custom_tooltip = {
+					text = EVTsharedfate
+					hidden_tooltip = {
+						event_target:accomplice = {add_trait = wounded}
+						character_event = {id = aao.010 days = 10}
+					}
+				}
+			}
+			50 = {
+				modifier = {
+					factor = 1.2
+					martial = 20
+				}
+				modifier = {
+					factor = 1.2
+					martial = 26
+				}
+				modifier = {
+					factor = 1.2
+					martial = 30
+				}
+				modifier = {
+					factor = 1.1
+					combat_rating = 50
+				}
+				modifier = {
+					factor = 1.1
+					event_target:accomplice = {combat_rating = 50}
+				}
+				character_event = {id = aao.010 days = 10 tooltip = EVTEscape}
+			}
+		}
+	}
+}
+####Heist stage 2 inside guards
+character_event = {
+	id = aao.005
+	desc = EVTDESAaao.005
+	picture = GFX_evt_eavesdropping
+	
+	is_triggered_only = yes
+	
+	#kill them
+	option = {
+		name = EVTOPTAaao.005
+		custom_tooltip = {text = Success_martial}
+		random_list	= {
+			#success
+			30 = {
+				modifier = {
+					factor = 0.8
+					trait = stressed	
+				}
+				modifier = {
+					factor = 0.8
+					trait = drunkard
+				}
+				modifier = {
+					factor = 0.7
+					trait = feeble	
+				}				
+				modifier = {
+					factor = 0.7
+					trait = weak	
+				}					
+				modifier = {
+					factor = 0.8
+					NOT = {martial = 20}
+				}
+				modifier = {
+					factor = 0.9
+					trait = misguided_warrior	
+				}
+				modifier = {
+					factor = 1.1
+					trait = tough_soldier	
+				}
+				modifier = {
+					factor = 1.3
+					trait = skilled_tactician	
+				}
+				modifier = {
+					factor = 1.6
+					trait = brilliant_strategist	
+				}
+				modifier = {
+					factor = 1.1
+					martial = 20	
+				}
+				modifier = {
+					factor = 1.1
+					martial = 26
+				}
+				modifier = {
+					factor = 1.1 
+					martial = 30	
+				}
+				modifier = {
+					factor = 1.1
+					martial = 35	
+				}
+				modifier = {
+					factor = 1.1
+					combat_rating = 25	
+				}
+				modifier = {
+					factor = 1.2
+					combat_rating = 50	
+				}
+				modifier = {
+					factor = 1.2
+					combat_rating = 75	
+				}
+				modifier = {
+					factor = 1.2
+					combat_rating = 100	
+				}
+				modifier = {
+					factor = 1.3
+					trait = strong	
+				}
+				modifier = {
+					factor = 1.2
+					trait = robust	
+				}
+				modifier = {
+					factor = 1.1
+					trait = brave	
+				}
+				modifier = {
+					factor = 1.3
+					trait = viking	
+				}
+				modifier = {
+					factor = 1.6
+					trait = ravager	
+				}
+				modifier = {
+					factor = 2.0
+					OR= {
+						trait = seaking
+						trait = sea_queen
+					}
+				}
+				modifier = {
+					factor = 1.4
+					trait = berserker
+				}
+				modifier = {
+					factor = 1.4
+					trait = varangian	
+				}
+				modifier = {
+					factor = 1.6
+					trait = duelist	
+				}
+				modifier = {
+					factor = 1.4
+					trait = hunter	
+				}
+				modifier = {
+					factor = 1.2
+					trait = strategist	
+				}
+				modifier = {
+					factor = 1.1
+					event_target:accomplice = {martial = 20}
+				}
+				modifier = {
+					factor = 1.2
+					event_target:accomplice = {martial = 26}
+				}
+				modifier = {
+					factor = 1.4
+					event_target:accomplice = {martial = 30}
+				}
+				modifier = {
+					factor = 1.1
+					event_target:accomplice = {combat_rating = 25}
+				}
+				character_event = {id = aao.007 days = 10 tooltip = EVTSuccess}
+			}
+			#failure	
+			70 = {
+				modifier = {
+					factor = 0.8
+					event_target:target_artifact = {quality = 1}
+				}
+				modifier = {
+					factor = 0.9
+					event_target:target_artifact = {quality = 2}
+				}
+				modifier = {
+					factor = 1.1
+					event_target:target_artifact = {quality = 4}
+				}
+				modifier = {
+					factor = 1.2
+					event_target:target_artifact = {quality = 5}
+				}
+				character_event = {id = aao.006 days = 10 tooltip = EVTFail}
+			}
+		}
+	}
+	#poison them with drinks
+	option = {
+		name = EVTOPTBaao.005
+		custom_tooltip = {text = Success_diplomacy_intrigue}
+		random_list	= {
+			35 = {
+				modifier = {
+					factor = 0.8
+					trait = stressed	
+				}
+				modifier = {
+					factor = 0.8
+					trait = drunkard
+				}
+				modifier = {
+					factor = 0.8
+					trait = honest	
+				}
+				modifier = {
+					factor = 0.8
+					trait = stutter
+				}
+				modifier = {
+					factor = 0.8
+					trait = shy	
+				}				
+				modifier = {
+					factor = 0.8
+					NOT = {intrigue = 20}
+				}
+				modifier = {
+					factor = 0.8
+					NOT = {diplomacy = 26}
+				}				
+				modifier = {
+					factor = 0.9
+					trait = amateurish_plotter	
+				}
+				modifier = {
+					factor = 1.1
+					trait = flamboyant_schemer	
+				}
+				modifier = {
+					factor = 1.3
+					trait = intricate_webweaver	
+				}
+				modifier = {
+					factor = 1.6
+					trait = elusive_shadow	
+				}
+				modifier = {
+					factor = 0.9
+					trait = naive_appeaser	
+				}
+				modifier = {
+					factor = 1.1
+					trait = underhanded_rogue	
+				}
+				modifier = {
+					factor = 1.3
+					trait = charismatic_negotiator	
+				}
+				modifier = {
+					factor = 1.6
+					trait = grey_eminence	
+				}				
+				modifier = {
+					factor = 1.2
+					intrigue = 20	
+				}
+				modifier = {
+					factor = 1.2
+					intrigue = 26	
+				}
+				modifier = {
+					factor = 1.1 
+					intrigue = 30	
+				}
+				modifier = {
+					factor = 1.1
+					diplomacy = 20
+				}
+				modifier = {
+					factor = 1.2
+					diplomacy = 26
+				}
+				modifier = {
+					factor = 1.1 
+					diplomacy = 30
+				}				
+				modifier = {
+					factor = 1.2
+					trait = quick	
+				}
+				modifier = {
+					factor = 1.5
+					trait = genius	
+				}
+				modifier = {
+					factor = 1.3
+					trait = shrewd
+				}
+				modifier = {
+					factor = 1.2
+					trait = gregarious
+				}
+				modifier = {
+					factor = 1.1
+					trait = socializer
+				}
+				modifier = {
+					factor = 1.1
+					trait = impaler	
+				}
+				modifier = {
+					factor = 1.5
+					trait = schemer	
+				}
+				modifier = {
+					factor = 1.4
+					trait = deceitful	
+				}
+				modifier = {
+					factor = 1.2
+					trait = dynastic_kinslayer	
+				}
+				modifier = {
+					factor = 1.4
+					trait = familial_kinslayer	
+				}
+				modifier = {
+					factor = 1.6
+					trait = kinslayer	
+				}
+				modifier = {
+					factor = 1.1
+					society_rank = {
+						society = the_assassins
+						rank = 1
+					}	
+				}
+				modifier = {
+					factor = 1.2
+					society_rank = {
+						society = the_assassins
+						rank = 2
+					}	
+				}
+				modifier = {
+					factor = 1.4
+					society_rank = {
+						society = the_assassins
+						rank = 3
+					}	
+				}
+				modifier = {
+					factor = 2.0
+					society_rank = {
+						society = the_assassins
+						rank = 4
+					}	
+				}
+				modifier = {
+					factor = 1.1
+					event_target:accomplice = {intrigue = 20}
+				}
+				modifier = {
+					factor = 1.1
+					event_target:accomplice = {intrigue = 26}
+				}
+				modifier = {
+					factor = 1.1
+					event_target:accomplice = {diplomacy = 20}
+				}
+				modifier = {
+					factor = 1.1
+					event_target:accomplice = {diplomacy = 26}
+				}
+				character_event = {id = aao.007 days = 10 tooltip = EVTSuccess}
+			}
+			#failure
+			65 = {
+				modifier = {
+					factor = 0.8
+					event_target:target_artifact = {quality = 1}
+				}
+				modifier = {
+					factor = 0.9
+					event_target:target_artifact = {quality = 2}
+				}
+				modifier = {
+					factor = 1.1
+					event_target:target_artifact = {quality = 4}
+				}
+				modifier = {
+					factor = 1.2
+					event_target:target_artifact = {quality = 5}
+				}
+				character_event = {id = aao.006 days = 10 tooltip = EVTFail}
+			}
+		}
+	}
+	#hermatic gas
+	option = {
+		name = EVTOPTCaao.005
+		trigger = {
+			society_member_of = hermetics
+			any_artifact = {has_artifact_flag = ingredient}
+		}
+		custom_tooltip = {text = Success_alchemy}
+		random_list = {
+			50 = {
+				modifier = {
+					factor = 0.8
+					trait = stressed	
+				}
+				modifier = {
+					factor = 0.8
+					trait = drunkard
+				}		
+				modifier = {
+					factor = 0.8
+					NOT = {learning = 20}
+				}
+				modifier = {
+					factor = 0.9
+					trait = detached_priest	
+				}
+				modifier = {
+					factor = 1.1
+					trait = martial_cleric	
+				}
+				modifier = {
+					factor = 1.3
+					trait = scholarly_theologian	
+				}
+				modifier = {
+					factor = 1.6
+					trait = mastermind_theologian	
+				}
+				modifier = {
+					factor = 1.1
+					learning = 20
+				}
+				modifier = {
+					factor = 1.2
+					learning = 26
+				}
+				modifier = {
+					factor = 1.2
+					learning = 30
+				}
+				modifier = {
+					factor = 1.2
+					learning = 35
+				}
+				modifier = {
+					factor = 1.2
+					trait = quick
+				}
+				modifier = {
+					factor = 1.5
+					trait = genius
+				}
+				modifier = {
+					factor = 1.3
+					trait = shrewd
+				}
+				modifier = {
+					factor = 1.1
+					has_artifact = magnum_opus_alchemy_panacea_1
+				}
+				modifier = {
+					factor = 1.2
+					has_artifact = magnum_opus_alchemy_panacea_2
+				}
+				modifier = {
+					factor = 1.4
+					has_artifact = magnum_opus_alchemy_panacea_3
+				}
+				modifier = {
+					factor = 1.6
+					has_artifact = magnum_opus_alchemy_panacea_4
+				}
+				modifier = {
+					factor = 1.1
+					has_artifact = magnum_opus_alchemy_transmutation_1
+				}
+				modifier = {
+					factor = 1.2
+					has_artifact = magnum_opus_alchemy_transmutation_2
+				}
+				modifier = {
+					factor = 1.4
+					has_artifact = magnum_opus_alchemy_transmutation_3
+				}
+				modifier = {
+					factor = 1.6
+					has_artifact = magnum_opus_alchemy_transmutation_4
+				}
+				random_artifact = {
+					limit = {
+						has_artifact_flag = ingredient
+					}
+					destroy_artifact = yes
+				}
+				character_event = {id = aao.007 days = 10 tooltip = EVTSuccess}
+			}
+			#failure
+			50 = {
+				modifier = {
+					factor = 0.8
+					event_target:target_artifact = {quality = 1}
+				}
+				modifier = {
+					factor = 0.9
+					event_target:target_artifact = {quality = 2}
+				}
+				modifier = {
+					factor = 1.1
+					event_target:target_artifact = {quality = 4}
+				}
+				modifier = {
+					factor = 1.2
+					event_target:target_artifact = {quality = 5}
+				}
+				character_event = {id = aao.006 days = 10 tooltip = EVTFail}
+			}
+		}
+	}
+	
+	#seduce them
+	option = {
+		name = EVTOPTDaao.005
+		custom_tooltip = {text = Success_seduction}
+		trigger = {
+			OR = {
+				ROOT = {is_female = yes}
+				event_target:accomplice = {is_female = yes}
+			}
+		}
+		random_list = {
+			50 = {
+				modifier = {
+					factor = 0.8
+					OR = {
+						trait = stressed
+						event_target:accomplice = {trait = stressed}
+					}	
+				}
+				modifier = {
+					factor = 0.8
+					OR = {
+						trait = drunkard
+						event_target:accomplice = {trait = drunkard}
+					}	
+				}
+				modifier = {
+					factor = 0.4
+					OR = {
+						trait = homosexual
+						event_target:accomplice = {trait = homosexual}
+					}	
+				}
+				modifier = {
+					factor = 0.8
+					OR = {
+						trait = ugly
+						event_target:accomplice = {trait = ugly}
+					}	
+				}
+				modifier = {
+					factor = 0.8
+					OR = {
+						trait = harelip
+						event_target:accomplice = {trait = harelip}
+					}	
+				}
+				modifier = {
+					factor = 0.5
+					OR = {
+						trait = inbred
+						event_target:accomplice = {trait = inbred}
+					}	
+				}
+				modifier = {
+					factor = 0.8
+					OR = {
+						trait = weak
+						event_target:accomplice = {trait = weak}
+					}	
+				}
+				modifier = {
+					factor = 0.8
+					OR = {
+						trait = feeble
+						event_target:accomplice = {trait = feeble}
+					}	
+				}
+				modifier = {
+					factor = 1.1
+					OR = {
+						diplomacy = 20
+						event_target:accomplice = {diplomacy = 20}
+					}	
+				}
+				modifier = {
+					factor = 1.1
+					OR = {
+						diplomacy = 26
+						event_target:accomplice = {diplomacy = 26}
+					}	
+				}
+				modifier = {
+					factor = 1.2
+					OR = {
+						intrigue = 30
+						event_target:accomplice = {intrigue = 30}
+					}	
+				}
+				modifier = {
+					factor = 1.2
+					OR = {
+						intrigue = 35
+						event_target:accomplice = {intrigue = 35}
+					}	
+				}
+				modifier = {
+					factor = 1.4
+					OR = {
+						trait = fair
+						event_target:accomplice = {trait = fair}
+					}	
+				}
+				modifier = {
+					factor = 2.0
+					OR = {
+						trait = seductress
+						event_target:accomplice = {trait = seductress}
+					}			
+				}
+				modifier = {
+					factor = 1.2
+					OR = {
+						trait = gregarious
+						event_target:accomplice = {trait = gregarious}
+					}	
+				}
+				modifier = {
+					factor = 1.2
+					OR = {
+						trait = socializer
+						event_target:accomplice = {trait = socializer}
+					}	
+				}
+				character_event = {id = aao.007 days = 10 tooltip = EVTSuccess}
+			}
+			#failure
+			50 = {
+				modifier = {
+					factor = 0.8
+					event_target:target_artifact = {quality = 1}
+				}
+				modifier = {
+					factor = 0.9
+					event_target:target_artifact = {quality = 2}
+				}
+				modifier = {
+					factor = 1.1
+					event_target:target_artifact = {quality = 4}
+				}
+				modifier = {
+					factor = 1.2
+					event_target:target_artifact = {quality = 5}
+				}
+				character_event = {id = aao.006 days = 10 tooltip = EVTFail}
+			}
+		}
+	}
+}
+####Heist Stage 2 failure
+character_event = {
+	id = aao.006
+	desc = EVTDESAaao.006
+	picture = GFX_evt_melee
+	
+	is_triggered_only = yes
+	
+	#fight 
+	option = {
+		name = EVTOPTAaao.006
+		custom_tooltip = {text = Success_martial}
+		random_list = {
+			40 = {
+				imprison = event_target:target_character
+				custom_tooltip = {
+					text = EVTsharedfate
+					hidden_tooltip = {
+						event_target:accomplice = {imprison = event_target:target_character}
+						character_event = {id = aao.010 days = 10}
+					}
+				}	
+			}
+			30 = {
+				custom_tooltip = {text = EVTEscape}
+				add_maimed_trait_effect = yes
+				custom_tooltip = {
+					text = EVTsharedfate
+					hidden_tooltip = {
+						event_target:accomplice = {add_maimed_trait_effect = yes}
+						character_event = {id = aao.010 days = 10}
+					}
+				}
+			}
+			30 = {
+				modifier = {
+					factor = 1.2
+					martial = 20
+				}
+				modifier = {
+					factor = 1.2
+					martial = 26
+				}
+				modifier = {
+					factor = 1.2
+					martial = 30
+				}
+				modifier = {
+					factor = 1.2
+					combat_rating = 25
+				}
+				modifier = {
+					factor = 1.1
+					event_target:accomplice = {combat_rating = 25}
+				}
+				character_event = {id = aao.010 days = 10 tooltip = EVTEscape}
+			}
+		}
+	}
+	#bribe the guards
+	option = {
+		name = EVTOPTBaao.006
+		custom_tooltip = {text = Success_diplomacy}
+		random_list = {
+			30 = {
+				imprison = event_target:target_character
+				custom_tooltip = {
+					text = EVTsharedfate
+					hidden_tooltip = {
+						event_target:accomplice = {imprison = event_target:target_character}
+						character_event = {id = aao.010 days = 10}
+					}	
+				}	
+			}
+			20 = {
+				custom_tooltip = {text = EVTEscape}
+				add_character_modifier = {
+					name = pathetic_bribe
+					years = 5
+				}
+				scaled_wealth = {value = -0.10 min = 30}
+				custom_tooltip = {
+					text = EVTsharedfate
+					hidden_tooltip = {
+						event_target:accomplice = {
+							add_character_modifier = {
+								name = pathetic_bribe
+								years = 5
+							}
+							scaled_wealth = {value = -0.05 min = 10}
+						}
+						character_event = {id = aao.010 days = 10}
+					}
+				}	
+			}
+			50 = {
+				modifier = {
+					factor = 1.2
+					diplomacy = 20
+				}
+				modifier = {
+					factor = 1.2
+					diplomacy = 26
+				}
+				modifier = {
+					factor = 1.2
+					diplomacy = 30
+				}
+				modifier = {
+					factor = 1.2
+					diplomacy = 35
+				}
+				custom_tooltip = {text = EVTEscape}
+				scaled_wealth = {value = -0.20 min = 100}		
+				custom_tooltip = {
+					text = EVTsharedfate
+					hidden_tooltip = {
+						event_target:accomplice = {scaled_wealth = {value = -0.10 min = 20}}	
+						character_event = {id = aao.010 days = 10}
+					}
+				}
+			}
+		}
+	}	
+	#jump out the window
+	option = {
+		name = EVTOPTCaao.006
+		custom_tooltip = {text = Success_intrigue}
+		random_list = {
+			10 = {
+				death = {death_reason = death_murder_unknown_fall}
+				custom_tooltip = {
+					text = EVTsharedfate
+					hidden_tooltip = {
+						event_target:accomplice = {death = {death_reason = death_murder_unknown_fall}}
+					}
+				}	
+				hidden_tooltip = {
+					clear_event_target = target_artifact
+					clear_event_target = target_character
+					clear_event_target = accomplice
+				}
+			}
+			50 = {
+				imprison = event_target:target_character
+				custom_tooltip = {
+					text = EVTsharedfate
+					hidden_tooltip = {
+						event_target:accomplice = {imprison = event_target:target_character}
+						character_event = {id = aao.010 days = 10}
+					}
+				}
+			}
+			40 = {
+				modifier = {
+					factor = 0.8
+					trait = feeble
+				}
+				modifier = {
+					factor = 0.8
+					trait = weak
+				}
+				modifier = {
+					factor = 1.2
+					intrigue = 20
+				}
+				modifier = {
+					factor = 1.2
+					intrigue = 26
+				}
+				modifier = {
+					factor = 1.2
+					intrigue = 30
+				}
+				modifier = {
+					factor = 1.3
+					trait = strong
+				}
+				modifier = {
+					factor = 1.4
+					trait = robust
+				}
+				modifier = {
+					factor = 1.3
+					trait = brave
+				}
+				character_event = {id = aao.010 days = 10 tooltip = EVTEscape}
+			}
+		}
+	}
+}
+####Heist Stage 3
+character_event = {
+	id = aao.007
+	desc = EVTDESAaao.007
+	picture = GFX_evt_treasure_chamber
+	
+	is_triggered_only = yes
+	
+	#search carefully
+	option = {
+		name = EVTOPTAaao.007
+		custom_tooltip = {text = Success_stewardship_learning}
+		random_list = {
+			35 = {
+				modifier = {
+					factor = 0.8
+					trait = stressed	
+				}
+				modifier = {
+					factor = 0.8
+					trait = drunkard
+				}
+				modifier = {
+					factor = 0.9
+					trait = slothful
+				}
+				modifier = {
+					factor = 0.5
+					trait = one_handed
+				}
+				modifier = {
+					factor = 0.8
+					trait = arbitrary
+				}
+				modifier = {
+					factor = 1.1
+					OR = {
+						trait = thrifty_clerk
+						trait = martial_cleric
+					}
+				}
+				modifier = {
+					factor = 1.3
+					OR = {
+						trait = fortune_builder
+						trait = scholarly_theologian
+					}
+				}
+				modifier = {
+					factor = 1.6
+					OR = {
+						trait = midas_touched
+						trait = mastermind_theologian
+					}
+				}
+				modifier = {
+					factor = 1.1
+					stewardship = 20
+				}
+				modifier = {
+					factor = 1.1
+					stewardship = 26
+				}
+				modifier = {
+					factor = 1.3
+					stewardship = 30
+				}
+				modifier = {
+					factor = 1.1
+					learning = 20
+				}
+				modifier = {
+					factor = 1.1
+					learning = 26
+				}
+				modifier = {
+					factor = 1.3
+					learning = 30
+				}
+				modifier = {
+					factor = 1.5
+					trait = diligent
+				}
+				modifier = {
+					factor = 1.2
+					trait = quick
+				}
+				modifier = {
+					factor = 1.5
+					trait = genius
+				}
+				modifier = {
+					factor = 1.2
+					trait = shrewd
+				}
+				modifier = {
+					factor = 1.5
+					trait = administrator
+				}
+				modifier = {
+					factor = 1.5
+					trait = scholar
+				}
+				modifier = {
+					factor = 1.5
+					trait = poet
+				}
+				modifier = {
+					factor = 1.5
+					trait = erudite
+				}
+				character_event = {id = aao.009 days = 10 tooltip = EVTSuccess}
+			}
+			#failure
+			65 = {
+				modifier = {
+					factor = 0.8
+					event_target:target_artifact = {quality = 1}
+				}
+				modifier = {
+					factor = 0.9
+					event_target:target_artifact = {quality = 2}
+				}
+				modifier = {
+					factor = 1.1
+					event_target:target_artifact = {quality = 4}
+				}
+				modifier = {
+					factor = 1.2
+					event_target:target_artifact = {quality = 5}
+				}
+				character_event = {id = aao.008 days = 10 tooltip = EVTFail}
+			}
+		}
+	}
+	#search franticly
+	option = {
+		name = EVTOPTBaao.007
+		custom_tooltip = {text = Success_everything}
+		random_list = {
+			45 = {
+				modifier = {
+					factor = 0.8
+					trait = stressed	
+				}
+				modifier = {
+					factor = 0.8
+					trait = drunkard
+				}
+				modifier = {
+					factor = 0.9
+					trait = slothful
+				}
+				modifier = {
+					factor = 0.5
+					trait = one_handed
+				}
+				modifier = {
+					factor = 0.8
+					trait = arbitrary
+				}
+				modifier = {
+					factor = 1.1
+					stewardship = 20
+				}
+				modifier = {
+					factor = 1.1
+					learning = 20
+				}
+				modifier = {
+					factor = 1.1
+					martial = 20
+				}
+				modifier = {
+					factor = 1.1
+					diplomacy = 20
+				}
+				modifier = {
+					factor = 1.1
+					intrigue = 20
+				}
+				modifier = {
+					factor = 1.1
+					stewardship = 26
+				}
+				modifier = {
+					factor = 1.1
+					learning = 26
+				}
+				modifier = {
+					factor = 1.1
+					martial = 26
+				}
+				modifier = {
+					factor = 1.1
+					diplomacy = 26
+				}
+				modifier = {
+					factor = 1.1
+					intrigue = 26
+				}
+				character_event = {id = aao.009 days = 10 tooltip = EVTSuccess}
+			}
+			#failure
+			65 = {
+				modifier = {
+					factor = 0.8
+					event_target:target_artifact = {quality = 1}
+				}
+				modifier = {
+					factor = 0.9
+					event_target:target_artifact = {quality = 2}
+				}
+				modifier = {
+					factor = 1.1
+					event_target:target_artifact = {quality = 4}
+				}
+				modifier = {
+					factor = 1.2
+					event_target:target_artifact = {quality = 5}
+				}
+				character_event = {id = aao.008 days = 10 tooltip = EVTFail}
+			}
+		}
+	}
+	#split up to search
+	option = {
+		name = EVTOPTCaao.007
+		custom_tooltip = {text = Success_split_up}
+		random_list = {
+			45 = {
+				modifier = {
+					factor = 0.8
+					trait = stressed	
+				}
+				modifier = {
+					factor = 0.8
+					trait = drunkard
+				}
+				modifier = {
+					factor = 0.9
+					trait = slothful
+				}
+				modifier = {
+					factor = 0.5
+					trait = one_handed
+				}
+				modifier = {
+					factor = 0.8
+					trait = arbitrary
+				}
+				modifier = {
+					factor = 1.1
+					stewardship = 20
+				}
+				modifier = {
+					factor = 1.1
+					stewardship = 26
+				}
+				modifier = {
+					factor = 1.1
+					learning = 20
+				}
+				modifier = {
+					factor = 1.1
+					learning = 26
+				}
+				modifier = {
+					factor = 1.2
+					OR = {
+						trait = thrifty_clerk
+						trait = fortune_builder
+						trait = midas_touched
+						trait = martial_cleric
+						trait = scholarly_theologian
+						trait = mastermind_theologian
+					}
+				}
+				modifier = {
+					factor = 1.2
+					trait = diligent
+				}
+				modifier = {
+					factor = 0.8
+					event_target:accomplice = {trait = stressed}	
+				}
+				modifier = {
+					factor = 0.8
+					event_target:accomplice = {trait = drunkard}
+				}
+				modifier = {
+					factor = 0.9
+					event_target:accomplice = {trait = slothful}
+				}
+				modifier = {
+					factor = 0.5
+					event_target:accomplice = {trait = one_handed}
+				}
+				modifier = {
+					factor = 0.8
+					event_target:accomplice = {trait = arbitrary}
+				}
+				modifier = {
+					factor = 1.5
+					event_target:accomplice = {stewardship = 10}
+				}
+				modifier = {
+					factor = 1.5
+					event_target:accomplice = {learning = 10}
+				}
+				modifier = {
+					factor = 1.2
+					event_target:accomplice = {
+						OR = {
+							trait = thrifty_clerk
+							trait = martial_cleric
+						}
+					}	
+				}
+				modifier = {
+					factor = 1.4
+					event_target:accomplice = {
+						OR = {
+							trait = fortune_builder
+							trait = scholarly_theologian
+						}
+					}	
+				}
+				modifier = {
+					factor = 1.6
+					event_target:accomplice = {
+						OR = {
+							trait = midas_touched
+							trait = mastermind_theologian
+						}
+					}	
+				}
+				modifier = {
+					factor = 1.5
+					event_target:accomplice = {trait = diligent}
+				}
+				character_event = {id = aao.009 days = 10 tooltip = EVTSuccess}
+			}
+			#failure
+			55 = {
+				modifier = {
+					factor = 0.8
+					event_target:target_artifact = {quality = 1}
+				}
+				modifier = {
+					factor = 0.9
+					event_target:target_artifact = {quality = 2}
+				}
+				modifier = {
+					factor = 1.1
+					event_target:target_artifact = {quality = 4}
+				}
+				modifier = {
+					factor = 1.2
+					event_target:target_artifact = {quality = 5}
+				}
+				character_event = {id = aao.008 days = 10 tooltip = EVTFail}
+			}
+		}
+	}
+	#use magic
+	option = {
+		name = EVTOPTDaao.007
+		custom_tooltip = {text = Success_magic}
+		trigger = {
+			OR = {
+				trait = mystic
+				society_is_devil_worshiper = yes
+			}
+		}
+		random_list = {
+			50 = {
+				modifier = {
+					factor = 0.8
+					trait = stressed	
+				}
+				modifier = {
+					factor = 0.8
+					trait = drunkard
+				}
+				modifier = {
+					factor = 1.1
+					learning = 20
+				}
+				modifier = {
+					factor = 1.1
+					learning = 26
+				}
+				modifier = {
+					factor = 1.1
+					learning = 30
+				}
+				modifier = {
+					factor = 1.2
+					learning = 35
+				}
+				modifier = {
+					factor = 1.4
+					trait = mystic	
+				}
+				modifier = {
+					factor = 1.1
+					society_is_devil_worshiper = yes
+					society_rank = 1
+				}
+				modifier = {
+					factor = 1.2
+					society_is_devil_worshiper = yes
+					society_rank = 2
+				}
+				modifier = {
+					factor = 1.4
+					society_is_devil_worshiper = yes
+					society_rank = 3
+				}
+				modifier = {
+					factor = 1.8
+					society_is_devil_worshiper = yes
+					society_rank = 4
+				}
+				modifier = {
+					factor = 1.5
+					has_artifact = necronomicon
+				}
+				character_event = {id = aao.009 days = 10 tooltip = EVTSuccess}
+			}
+			#failure
+			50 = {
+				modifier = {
+					factor = 0.8
+					event_target:target_artifact = {quality = 1}
+				}
+				modifier = {
+					factor = 0.9
+					event_target:target_artifact = {quality = 2}
+				}
+				modifier = {
+					factor = 1.1
+					event_target:target_artifact = {quality = 4}
+				}
+				modifier = {
+					factor = 1.2
+					event_target:target_artifact = {quality = 5}
+				}
+				character_event = {id = aao.008 days = 10 tooltip = EVTFail}
+			}
+		}
+	}
+}
+####Heist Stage 3 failure
+character_event = {
+	id = aao.008
+	desc = EVTDESAaao.008
+	picture = GFX_evt_catching_heretic
+	
+	is_triggered_only = yes
+	
+	#surrender
+	option = {
+		name = EVTOPTAaao.008
+		imprison = event_target:target_character
+		custom_tooltip = {
+			text = EVTsharedfate
+			hidden_tooltip = {
+				event_target:accomplice = {
+					imprison = event_target:target_character
+					opinion = {modifier = opinion_coward who = ROOT years = 5}
+				}
+				character_event = {id = aao.010 days = 10}
+			}
+		}	
+	}
+	#fight your way out
+	option = {
+		name = EVTOPTBaao.008
+		custom_tooltip = {text = Success_martial}
+		random_list = {
+			#wounded capture
+			40 = {
+				add_trait = wounded
+				imprison = event_target:target_character
+				custom_tooltip = {
+					text = EVTsharedfate
+					hidden_tooltip = {
+						event_target:accomplice = {
+							add_trait = wounded
+							imprison = event_target:target_character
+						}
+						character_event = {id = aao.010 days = 10}
+					}
+				}	
+			}
+			#capture
+			20 = {
+				imprison = event_target:target_character
+				custom_tooltip = {
+					text = EVTsharedfate
+					hidden_tooltip = {
+						event_target:accomplice = {imprison = event_target:target_character}
+						character_event = {id = aao.010 days = 10}
+					}
+				}	
+			}
+			#wounded escape
+			20 = {
+				modifier = {
+					factor = 0.8
+					trait = stressed	
+				}
+				modifier = {
+					factor = 0.8
+					trait = drunkard
+				}
+				modifier = {
+					factor = 0.7
+					trait = feeble	
+				}				
+				modifier = {
+					factor = 0.7
+					trait = weak	
+				}					
+				modifier = {
+					factor = 0.8
+					NOT = {martial = 8}
+				}
+				modifier = {
+					factor = 0.9
+					trait = misguided_warrior	
+				}
+				modifier = {
+					factor = 1.1
+					trait = tough_soldier	
+				}
+				modifier = {
+					factor = 1.3
+					trait = skilled_tactician	
+				}
+				modifier = {
+					factor = 1.6
+					trait = brilliant_strategist	
+				}
+				modifier = {
+					factor = 1.1
+					martial = 20	
+				}
+				modifier = {
+					factor = 1.2 
+					martial = 26	
+				}
+				modifier = {
+					factor = 1.2
+					combat_rating = 25	
+				}
+				modifier = {
+					factor = 1.3
+					trait = strong	
+				}
+				modifier = {
+					factor = 1.2
+					trait = robust	
+				}
+				modifier = {
+					factor = 1.1
+					trait = brave	
+				}
+				modifier = {
+					factor = 1.1
+					trait = viking	
+				}
+				modifier = {
+					factor = 1.4
+					trait = ravager	
+				}
+				modifier = {
+					factor = 1.8
+					OR= {
+						trait = seaking
+						trait = sea_queen
+					}
+				}
+				modifier = {
+					factor = 1.3
+					trait = berserker
+				}
+				modifier = {
+					factor = 1.3
+					trait = varangian	
+				}
+				modifier = {
+					factor = 1.3
+					trait = duelist	
+				}
+				modifier = {
+					factor = 1.3
+					trait = hunter	
+				}
+				modifier = {
+					factor = 1.3
+					trait = strategist	
+				}
+				modifier = {
+					factor = 1.2
+					event_target:accomplice = {martial = 20}
+				}
+				modifier = {
+					factor = 1.2
+					event_target:accomplice = {martial = 26}
+				}
+				modifier = {
+					factor = 1.2
+					event_target:accomplice = {martial = 30}
+				}
+				custom_tooltip = {text = EVTEscape}
+				add_trait = wounded
+				custom_tooltip = {
+					text = EVTsharedfate
+					event_target:accomplice = {add_trait = wounded}
+					character_event = {id = aao.010 days = 10}
+				}
+			}
+			#no penalty
+			20 = {
+				modifier = {
+					factor = 0.8
+					trait = stressed	
+				}
+				modifier = {
+					factor = 0.8
+					trait = drunkard
+				}
+				modifier = {
+					factor = 0.7
+					trait = feeble	
+				}				
+				modifier = {
+					factor = 0.7
+					trait = weak	
+				}					
+				modifier = {
+					factor = 0.8
+					NOT = {martial = 20}
+				}
+				modifier = {
+					factor = 0.9
+					trait = misguided_warrior	
+				}
+				modifier = {
+					factor = 1.1
+					trait = tough_soldier	
+				}
+				modifier = {
+					factor = 1.3
+					trait = skilled_tactician	
+				}
+				modifier = {
+					factor = 1.6
+					trait = brilliant_strategist	
+				}
+				modifier = {
+					factor = 1.1
+					martial = 20	
+				}
+				modifier = {
+					factor = 1.1 
+					martial = 26	
+				}
+				modifier = {
+					factor = 1.1
+					combat_rating = 25	
+				}
+				modifier = {
+					factor = 1.2
+					combat_rating = 50	
+				}
+				modifier = {
+					factor = 1.3
+					trait = strong	
+				}
+				modifier = {
+					factor = 1.2
+					trait = robust	
+				}
+				modifier = {
+					factor = 1.1
+					trait = brave	
+				}
+				modifier = {
+					factor = 1.1
+					trait = viking	
+				}
+				modifier = {
+					factor = 1.3
+					trait = ravager	
+				}
+				modifier = {
+					factor = 1.6
+					OR= {
+						trait = seaking
+						trait = sea_queen
+					}
+				}
+				modifier = {
+					factor = 1.2
+					trait = berserker
+				}
+				modifier = {
+					factor = 1.2
+					trait = varangian	
+				}
+				modifier = {
+					factor = 1.2
+					trait = duelist	
+				}
+				modifier = {
+					factor = 1.2
+					trait = hunter	
+				}
+				modifier = {
+					factor = 1.2
+					trait = strategist	
+				}
+				modifier = {
+					factor = 1.1
+					event_target:accomplice = {martial = 20}
+				}
+				modifier = {
+					factor = 1.1
+					event_target:accomplice = {martial = 26}
+				}
+				modifier = {
+					factor = 1.1
+					event_target:accomplice = {martial = 30}
+				}
+				modifier = {
+					factor = 1.1
+					event_target:accomplice = {combat_rating = 25}
+				}
+				character_event = {id = aao.010 days = 10 tooltip = EVTEscape}
+			}
+		}
+	}
+	#demand audience
+	option = {
+		name = EVTOPTCaao.008
+		custom_tooltip = {text = Success_audience}
+		random_list = {
+			#levy
+			40 = {
+				modifier = {
+					factor = 0.8
+					trait = stressed	
+				}
+				modifier = {
+					factor = 0.8
+					trait = drunkard
+				}
+				modifier = {
+					factor = 0.8
+					trait = stutter
+				}
+				modifier = {
+					factor = 0.8
+					trait = shy
+				}
+				modifier = {
+					factor = 1.1
+					OR = {
+						trait = naive_appeaser
+						trait = underhanded_rogue
+						trait = charismatic_negotiator
+						trait = grey_eminence
+					}
+				}
+				modifier = {
+					factor = 1.1
+					diplomacy = 20
+				}
+				modifier = {
+					factor = 1.2
+					trait = gregarious
+				}
+				modifier = {
+					factor = 0.8
+					event_target:target_character = {trait = content}
+				}
+				modifier = {
+					factor = 1.5
+					event_target:target_character = {trait = ambitious}
+				}
+				modifier = {
+					factor = 1.2
+					event_target:target_character = {
+						OR = { 
+							trait = misguided_warrior
+							trait = tough_soldier
+							trait = skilled_tactician
+							trait = brilliant_strategist
+						}
+					}
+				}
+				modifier = {
+					factor = 1.2
+					event_target:target_character = {trait = envious}
+				}
+				modifier = {
+					factor = 1.1
+					event_target:target_character = {martial = 8}
+				}
+				modifier = {
+					factor = 1.2
+					event_target:target_character = {martial = 16}
+				}
+				modifier = {
+					factor = 1.2
+					event_target:target_character = {in_faction = yes}
+				}
+				custom_tooltip = {
+					text = levy_agreement
+					hidden_tooltip = {
+						add_character_modifier = {name = levy_agreement_neg years = 5}
+						event_target:target_character = {add_character_modifier = {modifier = levy_agreement_pos years = 5}}
+						character_event = {id = aao.010 days = 10}
+					}
+				}
+			}
+			#tax
+			40 = {
+				modifier = {
+					factor = 0.8
+					trait = stressed	
+				}
+				modifier = {
+					factor = 0.8
+					trait = drunkard
+				}
+				modifier = {
+					factor = 0.8
+					trait = stutter
+				}
+				modifier = {
+					factor = 0.8
+					trait = shy
+				}
+				modifier = {
+					factor = 1.1
+					OR = {
+						trait = naive_appeaser
+						trait = underhanded_rogue
+						trait = charismatic_negotiator
+						trait = grey_eminence
+					}
+				}
+				modifier = {
+					factor = 1.1
+					diplomacy = 20
+				}
+				modifier = {
+					factor = 1.2
+					trait = gregarious
+				}
+				modifier = {
+					factor = 0.8
+					event_target:target_character = {trait = charitable}
+				}
+				modifier = {
+					factor = 1.2
+					event_target:target_character = {
+						OR = { 
+							trait = indulgent_wastrel
+							trait = thrifty_clerk
+							trait = fortune_builder
+							trait = midas_touched
+						}
+					}
+				}
+				modifier = {
+					factor = 1.2
+					event_target:target_character = {trait = envious}
+				}
+				modifier = {
+					factor = 1.2
+					event_target:target_character = {trait = greedy}
+				}
+				modifier = {
+					factor = 1.2
+					event_target:target_character = {trait = gluttonous}
+				}
+				modifier = {
+					factor = 1.2
+					event_target:target_character = {trait = deceitful}
+				}
+				modifier = {
+					factor = 1.2
+					event_target:target_character = {trait = shrewd}
+				}
+				modifier = {
+					factor = 1.1
+					event_target:target_character = {stewardship = 8}
+				}
+				modifier = {
+					factor = 1.2
+					event_target:target_character = {stewardship = 16}
+				}
+				custom_tooltip = {
+					text = tax_agreement
+					hidden_tooltip = {
+						add_character_modifier = {name = tax_agreement_neg years = 5}
+						event_target:target_character = {add_character_modifier = {modifier = tax_agreement_pos years = 5}}
+						character_event = {id = aao.010 days = 10}
+					}
+				}
+			}
+			#death
+			33 = {
+				modifier = {
+					factor = 1.2
+					event_target:target_character = {trait = possessed}
+				}
+				modifier = {
+					factor = 1.2
+					event_target:target_character = {trait = lunatic}
+				}
+				modifier = {
+					factor = 1.3
+					event_target:target_character = {trait = impaler}
+				}
+				modifier = {
+					factor = 1.1
+					event_target:target_character = {trait = dynastic_kinslayer}
+				}
+				modifier = {
+					factor = 1.2
+					event_target:target_character = {trait = familial_kinslayer}
+				}
+				modifier = {
+					factor = 1.4
+					event_target:target_character = {trait = kinslayer}
+				}
+				modifier = {
+					factor = 1.1
+					event_target:target_character = {trait = paranoid}
+				}
+				modifier = {
+					factor = 1.1
+					event_target:target_character = {trait = wroth}
+				}
+				modifier = {
+					factor = 1.1
+					event_target:target_character = {trait = cruel}
+				}
+				modifier = {
+					factor = 0.5
+					event_target:target_character = {trait = kind}
+				}
+				modifier = {
+					factor = 0.75
+					event_target:target_character = {trait = charitable}
+				}
+				modifier = {
+					factor = 0.8
+					event_target:target_character = {learning = 14}
+				}
+				custom_tooltip = {
+					text = no_mercy
+					hidden_tooltip = {
+						death = {death_reason = death_execution killer = event_target:target_character}
+						event_target:accomplice = {death = {death_reason = death_execution killer = event_target:target_character}}
+						clear_event_target = target_artifact
+						clear_event_target = target_character
+						clear_event_target = accomplice
+					}
+				}
+			}
+		}
+	}
+}
+####Heist success
+character_event = {
+	id = aao.009
+	desc = EVTDESAaao.009
+	picture = GFX_evt_relic_box
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAaao.009
+		event_target:target_artifact = {
+			transfer_artifact = {
+				from = event_target:target_character
+				to = ROOT
+			}
+		}	
+		hidden_tooltip = {
+			remove_character_modifier = active_heist
+			event_target:target_artifact = {
+				clr_artifact_flag = targeted
+			}
+			event_target:target_character = { character_event = { id = aao.011 days = 10 } }
+		}
+		event_target:accomplice = {opinion = {modifier = opinion_happy who = ROOT years = 5}}
+		add_character_modifier = { 
+			name = heist_cd
+			years = 5
+			hidden = yes
+		}
+		
+	}
+	
+}
+####Heist failure
+character_event = {
+	id = aao.010
+	desc = EVTDESAaao.010
+	picture = GFX_evt_stressed_ruler
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAaao.010
+		random = {
+			chance = 20
+			add_trait = depressed
+		}
+		hidden_tooltip = {
+			remove_character_modifier = active_heist
+			event_target:target_artifact = {clr_artifact_flag = targeted}
+			event_target:target_character = { character_event = { id = aao.012 days = 10 } }
+		}
+		event_target:accomplice = {opinion = {modifier = opinion_extremely_disappointed who = ROOT years = 5}}
+		add_character_modifier = { 
+			name = heist_cd
+			years = 5
+			hidden = yes
+		}
+	}
+}
+####inform target of success
+character_event = {
+	id = aao.011
+	desc = EVTDESAaao.011
+	picture = GFX_evt_judged_by_ruler
+	
+	is_triggered_only = yes
+	
+	#vassal
+	option = {
+		name = EVTOPTAaao.011
+		trigger = { FROM = { is_liege_or_above = ROOT } }
+		opinion = { modifier = opinion_stole_artifact_my_vassal who = FROM }
+	}
+	#different realm
+	option = {
+		name = EVTOPTBaao.011
+		trigger = { 
+			NOR = { 
+				FROM = { is_liege_or_above = ROOT }
+				same_realm = FROM
+			} 
+		}
+		opinion = { modifier = opinion_stole_artifact who = FROM }
+		add_rival = FROM
+	}
+	#vassal of another vassal, while u are also a vassal
+	option = {
+		name = EVTOPTCaao.011
+		trigger = {
+			NOT = { FROM = { is_liege_or_above = ROOT } }
+			FROM = {
+				same_realm = ROOT
+				liege = { 
+					ROOT = {
+						liege = { 
+							NOT = { character = PREVPREV }
+						}
+					}
+				}
+			}
+		}
+		opinion = { modifier = opinion_stole_artifact who = FROM }
+		FROM = {
+			liege = { reverse_opinion = { modifier = opinion_stole_artifact_other_vassal who = ROOT } }
+		}	
+	}
+	#another same rank vassal as you
+	option = {
+		name = EVTOPTDaao.011
+		trigger = {
+			NOT = { FROM = { is_liege_or_above = ROOT } }
+			FROM = {
+				same_realm = ROOT
+				liege = { 
+					ROOT = {
+						liege = { character = PREVPREV }
+					}
+				}
+			}
+		}
+		opinion = { modifier = opinion_stole_artifact who = FROM }
+	}
+	#your leige
+	option = {
+		name = EVTOPTEaao.011
+		trigger = { is_liege_or_above = FROM }
+		opinion = { modifier = opinion_stole_artifact who = FROM }
+		any_realm_character = {
+			limit = { liege = { character = FROM } }
+			opinion = { modifier = opinion_dishonorable who = FROM years = 5 }
+		}
+	}
+	after = {
+		clear_event_target = target_artifact
+		clear_event_target = target_character
+		clear_event_target = accomplice
+	}
+}
+####inform target of failure 
+character_event = {
+	id = aao.012
+	desc = EVTDESAaao.012
+	picture = GFX_evt_judged_by_ruler
+	
+	is_triggered_only = yes
+	
+	#vassal
+	option = {
+		name = EVTOPTAaao.012
+		trigger = { is_liege_or_above = FROM }
+		opinion = { modifier = opinion_traitor who = FROM }
+	}
+	#someone else
+	option = {
+		name = EVTOPTBaao.012
+		trigger = { NOT = { is_liege_or_above = FROM } }
+		opinion = { modifier = opinion_dishonorable_scum who = FROM }
+	}
+	after = {
+		clear_event_target = target_artifact
+		clear_event_target = target_character
+		clear_event_target = accomplice
+	}
+}

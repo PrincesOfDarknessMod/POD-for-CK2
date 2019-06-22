@@ -1,0 +1,126 @@
+
+targeted_decisions = {
+	#taking other artifacts
+	steal_artifact = {
+		
+		ai = no
+		third_party_filter = artifacts
+		third_party = ROOT
+		
+		potential = { num_of_artifacts = 1 }
+		third_party_potential = {
+			FROMFROM = {
+				show_scope_change = no
+				NOT = { custom_tooltip = { text = steal_artifact_allow3 has_artifact_flag = ingredient } }
+			}
+		}
+		allow = {
+			ROOT = {
+				in_seclusion = no
+				OR = {
+					is_landed = yes
+					mercenary = yes
+					holy_order = yes
+					controls_religion = yes
+				}	
+			}
+			FROM = {
+				is_within_diplo_range = ROOT
+				is_incapable = no
+				has_regent = no
+				prisoner = no
+				in_seclusion = no
+				NOT = { has_non_aggression_pact_with = ROOT }
+				custom_tooltip = {
+					text = steal_artifact_active
+					NOT = {has_character_modifier = active_heist}
+				}
+				custom_tooltip = {
+					text = steal_artifact_cd
+					NOT = {has_character_modifier = heist_cd}
+				}
+			}
+		}
+		effect = {
+			FROMFROM = {
+				set_artifact_flag = targeted
+			}
+			FROM = {
+				character_event = {id = aao.001}
+				add_character_modifier = { 
+					name = active_heist 
+					duration = -1
+					hidden = yes
+				}
+			}
+		}
+	}
+	###taking equipped from prisoners
+	seize_artifact = {
+		
+		ai = no
+		third_party_filter = artifacts
+		third_party = ROOT
+		
+		potential = {
+			num_of_artifacts = 1
+			any_artifact = { is_artifact_equipped = yes }
+		}
+		third_party_potential = { FROMFROM = { is_artifact_equipped = yes } }
+		allow = {
+			ROOT = {
+				custom_tooltip = {
+					text = seize_artifact_allow
+					prisoner = yes
+					host = { character = FROM }
+				}
+			}
+			FROM = {
+				is_incapable = no
+				prisoner = no
+			}
+		}
+		effect = {
+			FROM = {
+				custom_tooltip = {
+					text = seize_artifact_effect
+					ROOT = {
+						FROMFROM = {
+							transfer_artifact = {
+								from = PREV
+								to = PREVPREV
+							}
+						}
+					}
+				}
+				custom_tooltip = {
+					text = seize_artifact_effect2
+					any_vassal = {
+						opinion = { who = FROM modifier = opinion_seized_artifact_tyranny }
+					}
+				}
+				imprison = no
+			}
+			custom_tooltip = {
+				text = seize_artifact_effect3
+				ROOT = {
+					opinion = { who = FROM modifier = seized_artifact }
+					add_rival = FROM
+					current_heir = { opinion = { who = FROM modifier = seized_artifact_inheritance } }
+					any_dynasty_member = {
+						limit = { is_alive = yes }
+						opinion = { who = FROM modifier = seized_artifact_dynastic }
+					}
+				}
+			}
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+}
