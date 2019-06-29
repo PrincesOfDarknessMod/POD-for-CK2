@@ -11,18 +11,6 @@
  #	extra_tech_building_start = when starting a new game this building will be pre-built if the province has higher tech than the requirement + this + random 0-1
  #}
  
-# Haven: add fort level
-# Kennel: add blood hounds special unit
-# Brothel: add province blood, add monthly gold
-# Tavern: add province blood, add monthly gold
-# Crypt: add fort level
-# Sewer: add fort level 
-# Smuggler Ring: add ships
-# Hidden Cove: add ships
-# Pirate Fleet: add ships
-# Blacksmith
-# Silversmith: give a damage bonus against werewolves
-# Gargoyle rookery (workshop?): add gargoyles as a special unit
 
  # Temple
 temple = {
@@ -31,7 +19,7 @@ temple = {
 	tp_haven_1 = {
 		desc = tp_haven_1_desc
 		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 0 }
-		gold_cost = 75
+		gold_cost = 50
 		build_time = 30
 		fort_level = 0.1
 		ai_creation_factor = 80
@@ -43,7 +31,7 @@ temple = {
 		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 1 }
 		upgrades_from = tp_haven_1
 		gold_cost = 125
-		build_time = 90
+		build_time = 60
 		fort_level = 0.2
 		ai_creation_factor = 79
 		extra_tech_building_start = 0.0
@@ -54,9 +42,8 @@ temple = {
 		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 2 }
 		upgrades_from = tp_haven_2
 		gold_cost = 200
-		build_time = 356
-		retinuesize = 2
-		#fort_level = 0.3
+		build_time = 90
+		fort_level = 0.3
 		ai_creation_factor = 78
 		extra_tech_building_start = 0.0
 		add_number_to_name = no		
@@ -66,9 +53,8 @@ temple = {
 		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 3 }
 		upgrades_from = tp_haven_3
 		gold_cost = 300
-		build_time = 1000
+		build_time = 120
 		fort_level = 0.4
-		retinuesize = 5
 		ai_creation_factor = 78
 		extra_tech_building_start = 0.0
 		add_number_to_name = no		
@@ -78,9 +64,8 @@ temple = {
 		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 4 }
 		upgrades_from = tp_haven_2
 		gold_cost = 400
-		build_time = 1250
+		build_time = 150
 		fort_level = 0.5
-		retinuesize = 20
 		ai_creation_factor = 78
 		extra_tech_building_start = 0.0
 		add_number_to_name = no		
@@ -92,16 +77,14 @@ temple = {
 	tp_temple_guard_1 = {	
 		desc = tp_temple_guard_1_desc
 		trigger = { TECH_TEMPLE_CONSTRUCTION = 0 }
-		gold_cost = 10
-		build_time = 7
-		light_infantry = 1
+		gold_cost = 150
+		build_time = 30
+		light_infantry = 25
 		garrison_size = 0.01
-		ai_creation_factor = 99
+		ai_creation_factor = 70
 		extra_tech_building_start = 0.0
 		# Helps Masquerade
 		add_number_to_name = no
-		tech_growth_modifier = 0.1
-		military_techpoints = 0.1
 	}
 
 # Influenced Temple Guard Sergeant (Level 2)	
@@ -109,17 +92,14 @@ temple = {
 		desc = tp_temple_guard_2_desc
 		upgrades_from = tp_temple_guard_1
 		trigger = { TECH_TEMPLE_CONSTRUCTION = 1 }
-		gold_cost = 50
-		build_time = 30
-		light_infantry = 10
-		heavy_infantry = 5
+		prestige_cost = 150
+		build_time = 60
+		light_infantry = 50
 		garrison_size = 0.02
-		ai_creation_factor = 98
+		ai_creation_factor = 75
 		extra_tech_building_start = 0.0
 		# Helps Masquerade
 		add_number_to_name = no
-		tech_growth_modifier = 0.2
-		military_techpoints = 0.02
 	}	
 	
 # Ghouled Temple Guard Commander (Level 2.G)
@@ -132,17 +112,14 @@ temple = {
 		}		
 		prerequisites = { tp_temple_guard_2 }
 		trigger = { TECH_TEMPLE_CONSTRUCTION = 1 }
-		gold_cost = 10
-		build_time = 7
-		heavy_infantry = 10
-		light_infantry = 25	
-		garrison_size = 0.03		
-		ai_creation_factor = 96
+		piety_cost = 300
+		build_time = 60
+		light_infantry = 100
+		garrison_size = 0.02		
+		ai_creation_factor = 75
 		extra_tech_building_start = 0.0
 		# -1 province blood for ghoul
 		add_number_to_name = no		
-		tech_growth_modifier = 0.1
-		military_techpoints = 0.1
 	}	
 
 # Controlled Temple Guard(Level 3)	
@@ -150,17 +127,14 @@ temple = {
 		desc = tp_temple_guard_3_desc
 		upgrades_from = tp_temple_guard_2
 		trigger = { TECH_TEMPLE_CONSTRUCTION = 2 }
-		gold_cost = 400
-		build_time = 356
-		light_infantry = 50
-		heavy_infantry = 25 
+		prestige_cost = 300
+		build_time = 90
+		light_infantry = 75
 		garrison_size = 0.03
-		ai_creation_factor = 95
+		ai_creation_factor = 75
 		extra_tech_building_start = 0.0
 		# Helps Masquerade
-		add_number_to_name = no
-		tech_growth_modifier = 0.3
-		military_techpoints = 0.3		
+		add_number_to_name = no	
 	}
 	
 # Conditioned Temple Guard (Level 3.C)
@@ -176,11 +150,9 @@ temple = {
 		}		
 		prerequisites = { tp_temple_guard_3 }
 		trigger = { TECH_TEMPLE_CONSTRUCTION = 3 }
-		gold_cost = 250
-		build_time = 180
-		heavy_infantry = 10
-		garrison_size = 0.02	
-		light_infantry = 25
+		prestige_cost = 300
+		build_time = 90
+		light_infantry = 150
 		ai_creation_factor = 97
 		extra_tech_building_start = 0.0
 		add_number_to_name = no		
@@ -192,15 +164,13 @@ temple = {
 	tp_monastery_1 = {	
 		desc = tp_monastery_1_desc
 		trigger = { TECH_TEMPLE_CONSTRUCTION = 0 }
-		gold_cost = 9
-		build_time = 7
-		light_infantry = 1
-		ai_creation_factor = 99
+		gold_cost = 150
+		build_time = 30
+		ai_creation_factor = 50
 		extra_tech_building_start = 0.0
 		# +1 province blood
 		add_number_to_name = no	
-		tech_growth_modifier = 0.1
-		economy_techpoints = 0.01			
+		tech_growth_modifier = 0.1		
 	}
 
 # Influenced Brother (Level 2)	
@@ -208,16 +178,13 @@ temple = {
 		desc = tp_monastery_2_desc
 		upgrades_from = tp_monastery_1
 		trigger = { TECH_TEMPLE_CONSTRUCTION = 1 }
-		gold_cost = 50
-		build_time = 30
-		tax_income = 2
-		light_infantry = 3
-		ai_creation_factor = 98
+		prestige_cost = 150
+		build_time = 60
+		ai_creation_factor = 60
 		extra_tech_building_start = 0.0
 		# +4 province blood
 		add_number_to_name = no	
-		tech_growth_modifier = 0.2
-		economy_techpoints = 0.02		
+		tech_growth_modifier = 0.2	
 	}	
 
 # Ghouled Father Superior (Level 2.G)
@@ -230,16 +197,13 @@ temple = {
 		}		
 		prerequisites = { tp_monastery_2 }
 		trigger = { TECH_TEMPLE_CONSTRUCTION = 1 }
-		gold_cost = 10
-		build_time = 7
-		tax_income = 3
-		light_infantry = 3
-		ai_creation_factor = 96
+		piety_cost = 300
+		build_time = 60
+		ai_creation_factor = 70
 		extra_tech_building_start = 0.0
 		# +8 province blood (+9 province blood, -1 for ghoul)
 		add_number_to_name = no		
-		tech_growth_modifier = 0.3
-		economy_techpoints = 0.03		
+		tech_growth_modifier = 0.3	
 	}	
 	
 # Controlled Monastery (Level 3)	
@@ -247,17 +211,13 @@ temple = {
 		desc = tp_monastery_3_desc
 		upgrades_from = tp_monastery_2
 		trigger = { TECH_TEMPLE_CONSTRUCTION = 2 }
-		gold_cost = 400
-		build_time = 356
-		tax_income = 3
-		light_infantry = 5
-		retinuesize = 1.2
-		ai_creation_factor = 95
+		prestige_cost = 300
+		build_time = 90
+		ai_creation_factor = 80
 		extra_tech_building_start = 0.0
 		# +9 province blood
 		add_number_to_name = no		
-		tech_growth_modifier = 0.3
-		economy_techpoints = 0.03		
+		tech_growth_modifier = 0.4	
 	}
 	
 # Conditioned Monks (Level 3.C)
@@ -273,10 +233,9 @@ temple = {
 		}		
 		prerequisites = { tp_monastery_3 }
 		trigger = { TECH_TEMPLE_CONSTRUCTION = 3 }
-		gold_cost = 250
-		build_time = 180
-		tax_income = 3
-		light_infantry = 3
+		prestige_cost = 300
+		build_time = 90
+		light_infantry = 150
 		ai_creation_factor = 97
 		extra_tech_building_start = 0.0
 		# +8 province blood 
@@ -289,15 +248,13 @@ temple = {
 	tp_convent_1 = {	
 		desc = tp_convent_1_desc
 		trigger = { TECH_TEMPLE_CONSTRUCTION = 0 }
-		gold_cost = 9
-		build_time = 7
-		light_infantry = 1
+		gold_cost = 150
+		build_time = 30
+		monthly_character_piety = 0.2
 		ai_creation_factor = 99
 		extra_tech_building_start = 0.0
 		# +1 province blood
-		add_number_to_name = no		
-		tech_growth_modifier = 0.1
-		economy_techpoints = 0.01		
+		add_number_to_name = no			
 	}
 
 # Influenced Sister (Level 2)	
@@ -305,16 +262,13 @@ temple = {
 		desc = tp_convent_2_desc
 		upgrades_from = tp_convent_1
 		trigger = { TECH_TEMPLE_CONSTRUCTION = 1 }
-		gold_cost = 50
-		build_time = 30
-		tax_income = 2
-		light_infantry = 3
+		prestige_cost = 150
+		build_time = 60
+		monthly_character_piety = 0.2
 		ai_creation_factor = 98
 		extra_tech_building_start = 0.0
 		# +4 province blood
-		add_number_to_name = no	
-		tech_growth_modifier = 0.2
-		economy_techpoints = 0.02		
+		add_number_to_name = no		
 	}	
 
 # Ghouled Mother Superior (Level 2.G)
@@ -327,16 +281,13 @@ temple = {
 		}		
 		prerequisites = { tp_convent_2 }
 		trigger = { TECH_TEMPLE_CONSTRUCTION = 1 }
-		gold_cost = 10
-		build_time = 7
-		tax_income = 3
-		light_infantry = 3
+		piety_cost = 300
+		build_time = 60
+		monthly_character_piety = 0.5
 		ai_creation_factor = 96
 		extra_tech_building_start = 0.0
 		# +8 province blood (+9 province blood, -1 for ghoul)
-		add_number_to_name = no		
-		tech_growth_modifier = 0.3
-		economy_techpoints = 0.03		
+		add_number_to_name = no			
 	}	
 	
 # Controlled Nunnery (Level 3)	
@@ -344,17 +295,13 @@ temple = {
 		desc = tp_convent_3_desc
 		upgrades_from = tp_convent_2
 		trigger = { TECH_TEMPLE_CONSTRUCTION = 2 }
-		gold_cost = 400
-		build_time = 356
-		tax_income = 3
-		light_infantry = 5
-		retinuesize = 1.2
+		prestige_cost = 300
+		build_time = 90
+		monthly_character_piety = 0.3
 		ai_creation_factor = 95
 		extra_tech_building_start = 0.0
 		# +9 province blood
-		add_number_to_name = no	
-		tech_growth_modifier = 0.3
-		economy_techpoints = 0.03		
+		add_number_to_name = no		
 	}
 	
 # Conditioned Nuns (Level 3.C)
@@ -370,10 +317,9 @@ temple = {
 		}		
 		prerequisites = { tp_convent_3 }
 		trigger = { TECH_TEMPLE_CONSTRUCTION = 3 }
-		gold_cost = 250
-		build_time = 180
-		tax_income = 3
-		light_infantry = 3
+		prestige_cost = 300
+		light_infantry = 150
+		build_time = 90
 		ai_creation_factor = 97
 		extra_tech_building_start = 0.0
 		# +8 province blood 
@@ -387,16 +333,13 @@ temple = {
 		desc = tp_smuggler_1_desc
 		trigger = { TECH_NAVAL = 0 }
 		port = yes
-		gold_cost = 9
-		build_time = 7
-		light_infantry = 1
+		gold_cost = 150
+		build_time = 30
+		tax_income = 0.2
 		galleys = 1
-		tax_income = 0.5
-		ai_creation_factor = 80
+		ai_creation_factor = 85
 		extra_tech_building_start = 0.0
-		add_number_to_name = no		
-		tech_growth_modifier = 0.1
-		economy_techpoints = 0.01		
+		add_number_to_name = no			
 	}
 
 # Influenced Smuggler Ring (Level 2)	
@@ -405,17 +348,14 @@ temple = {
 		upgrades_from = tp_smuggler_1
 		trigger = { TECH_NAVAL = 1 }
 		port = yes
-		gold_cost = 50
-		build_time = 30
+		prestige_cost = 150
+		build_time = 60
 		galleys = 5
-		tax_income = 1
-		light_infantry = 5
+		tax_income = 0.2
 		ai_creation_factor = 79
 		extra_tech_building_start = 0.0
 		# +4 province blood
-		add_number_to_name = no	
-		tech_growth_modifier = 0.2
-		economy_techpoints = 0.02		
+		add_number_to_name = no		
 	}	
 
 # Ghouled Pirate Lord (Level 2.G)
@@ -429,17 +369,14 @@ temple = {
 		prerequisites = { tp_smuggler_2 }
 		trigger = { TECH_NAVAL = 1 }
 		port = yes
-		gold_cost = 10
-		build_time = 7
-		tax_income = 3
-		light_infantry = 10
+		piety_cost = 300
+		build_time = 90
 		galleys = 10
+		tax_income = 0.5
 		ai_creation_factor = 77
 		extra_tech_building_start = 0.0
 		# -1 province blood for ghoul		
-		add_number_to_name = no	
-		tech_growth_modifier = 0.3
-		economy_techpoints = 0.03		
+		add_number_to_name = no		
 	}	
 	
 # Controlled Pirate Fleet (Level 3)	
@@ -448,16 +385,12 @@ temple = {
 		upgrades_from = tp_smuggler_2
 		trigger = { TECH_NAVAL = 2 }
 		port = yes
-		gold_cost = 400
-		build_time = 356
-		tax_income = 3
-		light_infantry = 10
+		prestige_cost = 300
+		build_time = 90
 		galleys = 10
 		ai_creation_factor = 76
 		extra_tech_building_start = 0.0
-		add_number_to_name = no
-		tech_growth_modifier = 0.3
-		economy_techpoints = 0.03		
+		add_number_to_name = no	
 	}
 
 	
@@ -475,11 +408,10 @@ temple = {
 		prerequisites = { tp_smuggler_3 }
 		trigger = { TECH_NAVAL = 3 }
 		port = yes
-		gold_cost = 250
-		build_time = 180
-		tax_income = 3
-		light_infantry = 9
-		galleys = 9
+		prestige_cost = 300
+		build_time = 90
+		galleys = 10
+		light_infantry = 50
 		ai_creation_factor = 78		
 		extra_tech_building_start = 0.0
 		add_number_to_name = no		
@@ -494,16 +426,14 @@ temple = {
 			}
 		}		
 		trigger = { TECH_NOBLE_CUSTOMS = 1 }
-		gold_cost = 75
-		build_time = 365
+		gold_cost = 350
+		build_time = 90
 		ai_creation_factor = 80
-		diplomacy = 3
+		diplomacy = 1
 		retinuesize = 1.2
-		monthly_character_prestige = 0.50
+		monthly_character_prestige = 0.2
 		extra_tech_building_start = 0.0
-		add_number_to_name = no		
-		tech_growth_modifier = 0.3
-		culture_techpoints = 0.3			
+		add_number_to_name = no				
 	}
 	
 	# Nosferatu Warrens
@@ -516,16 +446,14 @@ temple = {
 			}
 		}		
 		trigger = { TECH_CONSTRUCTION = 1 }
-		gold_cost = 75
-		build_time = 365
+		gold_cost = 350
+		build_time = 90
 		ai_creation_factor = 80
-		fort_level = 0.2	
+		fort_level = 0.5	
 		retinuesize = 1.2
 		intrigue = 1
 		extra_tech_building_start = 0.0
-		add_number_to_name = no	
-		tech_growth_modifier = 0.1
-		culture_techpoints = 0.1			
+		add_number_to_name = no			
 	}	
 
 	# Hellhound Kennel
@@ -544,10 +472,10 @@ temple = {
 			}
 		}		
 		trigger = { TECH_RECRUITMENT = 1 }
-		gold_cost = 75
-		build_time = 365
-		ai_creation_factor = 80
-		fort_level = 0.2
+		gold_cost = 350
+		build_time = 90
+		ai_creation_factor = 99
+		light_cavalry = 150
 		extra_tech_building_start = 0.0
 		add_number_to_name = no		
 	}

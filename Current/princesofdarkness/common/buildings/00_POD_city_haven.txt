@@ -1,32 +1,13 @@
 # Building/Influence Overhaul
-# Bribed (Level 1):  First stage of controlling a resource.  Quick and cheap to do with small reward.  1 week, 10 gold.  +1 light_infantry.
-# Influenced (Level 2): Second stage of controlling a resource.  Moderate time, moderate cost with moderate reward.  1 month, 50 gold. +10 .
-# Ghouled (Additional Level 2.G): For vampires only and costs province blood. Quick and cheap to do with large reward.  1 week, 10 gold, +100 light_infantry.  But costs 1 province blood every month,
-# and has a trigger of a high province blood to do. Provides an early influence game boost to vampires. 
-# Controlled (Level 3): Third stage of controlling a resource.  Large time, large cost with large reward.  1 year, 400 gold. +100 light_infantry
-# Conditioned (Additional Level 3.C): For vampires with Dominate IV.  Large time, moderate cost with a large reward.  6 months, 250 gold. +75 light_infantry.  This will give Ventrue a substantial
-# late game edge over other vampires in influencing society.
-# Not all building/influence will have these options and paths; but most will
+# Each building branch provides a different bonus. Dominate always opens a special building to turn the building into 150 light infantry.
 
 # Example of levels for a Brothel
-# Bribed Whore (Level 1)
-# Influenced Pimp (Level 2)
-# Ghouled Madam (Level 2.G)
-# Controlled Brothel (Level 3)
-# Conditioned Whores (Level 3.C)
+# Bribed Whore (Level 1) : Level 1 of a branch, always cost gold.
+# Influenced Pimp (Level 2) : Level 2, cost prestige.
+# Ghouled Madam (Level 2.G) : Ghouled variant, cost piety.
+# Controlled Brothel (Level 3) : Level 3, cost prestige.
+# Conditioned Whores (Level 3.C) : Dominated variant, cost prestige and gives 150 light infantry.
 
-# Kinds of buildings
-# Brothel: add province blood, add monthly gold
-# Tavern: add province blood, add monthly gold, light infantry
-# Night Watch of the City Guard: add pikemen, helps masquerade
-# Smugglers: add ships, monthly gold, light infantry
-# Haven: add fort level, #garrison 
-# Elysium: reduces vampire frenzy, helps masquerade
-# Kennels: adds heavy_infantry, leading to hellhounds
-# Sculptor: for Gargoyles
-# Stables: adds calvary, leading to nightmares
-# Silversmith: give a damage bonus against werewolves
-# Street gang: adds light infantry, add monthly gold, add influence spread, add economic influence points
 
 city = {
 
@@ -34,7 +15,7 @@ city = {
 	ct_haven_1 = {
 		desc = ct_haven_1_desc
 		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 0 }
-		gold_cost = 75
+		gold_cost = 50
 		build_time = 30
 		fort_level = 0.1
 		ai_creation_factor = 80
@@ -46,7 +27,7 @@ city = {
 		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 1 }
 		upgrades_from = ct_haven_1
 		gold_cost = 125
-		build_time = 90
+		build_time = 60
 		fort_level = 0.2
 		#garrison_size = 0.05
 		ai_creation_factor = 79
@@ -58,10 +39,8 @@ city = {
 		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 2 }
 		upgrades_from = ct_haven_2
 		gold_cost = 200
-		build_time = 365
+		build_time = 90
 		fort_level = 0.3
-		retinuesize = 2
-		#garrison_size = 0.10
 		ai_creation_factor = 78
 		extra_tech_building_start = 0.0
 		add_number_to_name = no		
@@ -71,10 +50,8 @@ city = {
 		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 3 }
 		upgrades_from = ct_haven_3
 		gold_cost = 300
-		build_time = 1000
+		build_time = 120
 		fort_level = 0.4
-		#garrison_size = 0.4
-		retinuesize = 5
 		ai_creation_factor = 78
 		extra_tech_building_start = 0.0
 		add_number_to_name = no		
@@ -84,10 +61,8 @@ city = {
 		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 4 }
 		upgrades_from = ct_haven_2
 		gold_cost = 400
-		build_time = 1250
+		build_time = 150
 		fort_level = 0.5
-		retinuesize = 20
-		#garrison_size = 0.10
 		ai_creation_factor = 78
 		extra_tech_building_start = 0.0
 		add_number_to_name = no		
@@ -99,16 +74,13 @@ city = {
 	ct_brothel_1 = {	
 		desc = ct_brothel_1_desc
 		trigger = { TECH_TRADE_PRACTICES = 0 }
-		gold_cost = 10
-		build_time = 7
-		tax_income = 1
-		light_infantry = 1
+		gold_cost = 150
+		build_time = 30
+		tax_income = 0.5
 		ai_creation_factor = 99
 		extra_tech_building_start = 0.0
 		# +1 province blood
-		add_number_to_name = no	
-		tech_growth_modifier = 0.1
-		economy_techpoints = 0.1		
+		add_number_to_name = no		
 	}
 
 # Influenced Pimp (Level 2)	
@@ -116,16 +88,13 @@ city = {
 		desc = ct_brothel_2_desc
 		upgrades_from = ct_brothel_1
 		trigger = { TECH_TRADE_PRACTICES = 1 }
-		gold_cost = 50
-		build_time = 30
-		tax_income = 2
-		light_infantry = 2
+		prestige_cost = 150
+		build_time = 60
+		tax_income = 0.5
 		ai_creation_factor = 98
 		extra_tech_building_start = 0.0
 		# +5 province blood
-		add_number_to_name = no	
-		tech_growth_modifier = 0.2
-		economy_techpoints = 0.2		
+		add_number_to_name = no		
 	}	
 
 # Ghouled Madame (Level 3.B)
@@ -138,16 +107,13 @@ city = {
 		}		
 		prerequisites = { ct_brothel_2 }
 		trigger = { TECH_TRADE_PRACTICES = 1 }
-		gold_cost = 10
-		build_time = 7
-		tax_income = 3
-		light_infantry = 1
+		piety_cost = 300
+		build_time = 90
+		tax_income = 0.7
 		ai_creation_factor = 96
 		extra_tech_building_start = 0.0
 		# +9 province blood (+10 province blood, -1 for ghoul)
-		add_number_to_name = no		
-		tech_growth_modifier = 0.3
-		economy_techpoints = 0.3		
+		add_number_to_name = no			
 	}	
 	
 # Controlled Brothel (Level 3)	
@@ -155,17 +121,13 @@ city = {
 		desc = ct_brothel_3_desc
 		upgrades_from = ct_brothel_2
 		trigger = { TECH_TRADE_PRACTICES = 2 }
-		gold_cost = 400
-		build_time = 356
-		tax_income = 3
-		light_infantry = 5
-		retinuesize = 1.2
+		prestige_cost = 300
+		build_time = 90
+		tax_income = 0.7
 		ai_creation_factor = 95
 		extra_tech_building_start = 0.0
 		# +10 province blood
-		add_number_to_name = no	
-		tech_growth_modifier = 0.3
-		economy_techpoints = 0.3		
+		add_number_to_name = no		
 	}
 	
 # Conditioned Whores (Level 3.C)
@@ -182,10 +144,9 @@ city = {
 		}		
 		prerequisites = { ct_brothel_3 }
 		trigger = { TECH_TRADE_PRACTICES = 3 }
-		gold_cost = 250
-		build_time = 180
-		tax_income = 3
-		light_infantry = 2
+		prestige_cost = 300
+		build_time = 90
+		light_infantry = 150
 		ai_creation_factor = 97
 		extra_tech_building_start = 0.0
 		# +9 province blood 
@@ -198,16 +159,13 @@ city = {
 	ct_nightwatch_1 = {	
 		desc = ct_nightwatch_1_desc
 		trigger = { TECH_CITY_CONSTRUCTION = 0 }
-		gold_cost = 10
-		build_time = 7
-		pikemen = 1
-		garrison_size = 0.01
+		gold_cost = 150
+		build_time = 30
+		pikemen = 25
 		ai_creation_factor = 99
 		extra_tech_building_start = 0.0
 		# Helps Masquerade
-		add_number_to_name = no
-		tech_growth_modifier = 0.1
-		military_techpoints = 0.1		
+		add_number_to_name = no	
 	}
 
 # Influenced Night Watch Sergeant (Level 2)	
@@ -215,16 +173,13 @@ city = {
 		desc = ct_nightwatch_2_desc
 		upgrades_from = ct_nightwatch_1
 		trigger = { TECH_CITY_CONSTRUCTION = 0 }
-		gold_cost = 50
-		build_time = 30
-		pikemen = 10
-		garrison_size = 0.02
+		prestige_cost = 150
+		build_time = 60
+		pikemen = 50
 		ai_creation_factor = 98
 		extra_tech_building_start = 0.0
 		# Helps Masquerade
-		add_number_to_name = no
-		tech_growth_modifier = 0.2
-		military_techpoints = 0.2		
+		add_number_to_name = no	
 	}	
 	
 # Ghouled Night Watch Commander (Level 3.B)
@@ -237,18 +192,13 @@ city = {
 		}		
 		prerequisites = { ct_nightwatch_2 }
 		trigger = { TECH_CITY_CONSTRUCTION = 1 }
-		gold_cost = 10
-		build_time = 7
-		pikemen = 50
-		heavy_infantry = 5
-		archers = 5		
-		garrison_size = 0.03		
+		piety_cost = 300
+		build_time = 90
+		pikemen = 100	
 		ai_creation_factor = 96
 		extra_tech_building_start = 0.0
 		# -1 province blood for ghoul
-		add_number_to_name = no		
-		tech_growth_modifier = 0.3
-		military_techpoints = 0.3		
+		add_number_to_name = no			
 	}
 	
 # Controlled Night Watch(Level 3)	
@@ -256,18 +206,13 @@ city = {
 		desc = ct_nightwatch_3_desc
 		upgrades_from = ct_nightwatch_2
 		trigger = { TECH_CITY_CONSTRUCTION = 2 }
-		gold_cost = 400
-		build_time = 356
+		prestige_cost = 300
+		build_time = 90
 		pikemen = 100
-		heavy_infantry = 10
-		archers = 10 
-		garrison_size = 0.03
 		ai_creation_factor = 95
 		extra_tech_building_start = 0.0
 		# Helps Masquerade
-		add_number_to_name = no		
-		tech_growth_modifier = 0.3
-		military_techpoints = 0.3		
+		add_number_to_name = no			
 	}
 	
 # Conditioned Night Watch (Level 3.C)
@@ -284,12 +229,9 @@ city = {
 		}		
 		prerequisites = { ct_nightwatch_3 }
 		trigger = { TECH_CITY_CONSTRUCTION = 3 }
-		gold_cost = 250
-		build_time = 180
-		pikemen = 50
-		garrison_size = 0.02		
-		heavy_infantry = 5
-		archers = 5		
+		prestige_cost = 300
+		build_time = 90	
+		light_infantry = 150
 		ai_creation_factor = 97
 		extra_tech_building_start = 0.0
 		add_number_to_name = no		
@@ -301,15 +243,13 @@ city = {
 	ct_tavern_1 = {	
 		desc = ct_tavern_1_desc
 		trigger = { TECH_CITY_CONSTRUCTION = 0 }
-		gold_cost = 9
-		build_time = 7
-		light_infantry = 1
-		ai_creation_factor = 99
+		gold_cost = 150
+		build_time = 30
+		archers = 25
+		ai_creation_factor = 78
 		extra_tech_building_start = 0.0
 		# +1 province blood
-		add_number_to_name = no	
-		tech_growth_modifier = 0.1
-		economy_techpoints = 0.1			
+		add_number_to_name = no				
 	}
 
 # Influenced Bartender (Level 2)	
@@ -317,16 +257,13 @@ city = {
 		desc = ct_tavern_2_desc
 		upgrades_from = ct_tavern_1
 		trigger = { TECH_CITY_CONSTRUCTION = 0 }
-		gold_cost = 50
-		build_time = 30
-		tax_income = 2
-		light_infantry = 3
-		ai_creation_factor = 98
+		prestige_cost = 150
+		build_time = 60
+		archers = 50
+		ai_creation_factor = 80
 		extra_tech_building_start = 0.0
 		# +4 province blood
-		add_number_to_name = no	
-		tech_growth_modifier = 0.2
-		economy_techpoints = 0.2			
+		add_number_to_name = no				
 	}	
 
 # Ghouled Tavern Owner (Level 3.B)
@@ -339,16 +276,13 @@ city = {
 		}		
 		prerequisites = { ct_tavern_2 }
 		trigger = { TECH_TRADE_PRACTICES = 2 }
-		gold_cost = 10
-		build_time = 7
-		tax_income = 3
-		light_infantry = 3
+		piety_cost = 300
+		build_time = 90
+		archers = 100
 		ai_creation_factor = 96
 		extra_tech_building_start = 0.0
 		# +8 province blood (+9 province blood, -1 for ghoul)
-		add_number_to_name = no	
-		tech_growth_modifier = 0.3
-		economy_techpoints = 0.3		
+		add_number_to_name = no		
 	}	
 	
 # Controlled Tavern (Level 3)	
@@ -356,17 +290,13 @@ city = {
 		desc = ct_tavern_3_desc
 		upgrades_from = ct_tavern_2
 		trigger = { TECH_TRADE_PRACTICES = 2 }
-		gold_cost = 400
-		build_time = 356
-		tax_income = 3
-		light_infantry = 5
-		retinuesize = 1.2
+		prestige_cost = 300
+		build_time = 90
+		archers = 100
 		ai_creation_factor = 95
 		extra_tech_building_start = 0.0
 		# +9 province blood
-		add_number_to_name = no		
-		tech_growth_modifier = 0.3
-		economy_techpoints = 0.3		
+		add_number_to_name = no				
 	}
 	
 # Conditioned Tavern (Level 3.C)
@@ -383,10 +313,9 @@ city = {
 		}		
 		prerequisites = { ct_tavern_3 }
 		trigger = { TECH_TRADE_PRACTICES = 3 }
-		gold_cost = 250
-		build_time = 180
-		tax_income = 3
-		light_infantry = 3
+		prestige_cost = 300
+		build_time = 90
+		light_infantry = 150
 		ai_creation_factor = 97
 		extra_tech_building_start = 0.0
 		# +8 province blood 
@@ -400,16 +329,13 @@ city = {
 		desc = ct_smuggler_1_desc
 		trigger = { TECH_NAVAL = 0 }
 		port = yes
-		gold_cost = 9
-		build_time = 7
-		light_infantry = 1
+		gold_cost = 150
+		build_time = 60
 		galleys = 1
 		tax_income = 0.5
-		ai_creation_factor = 80
+		ai_creation_factor = 99
 		extra_tech_building_start = 0.0
-		add_number_to_name = no		
-		tech_growth_modifier = 0.1
-		economy_techpoints = 0.1			
+		add_number_to_name = no				
 	}
 
 # Influenced Smuggler Ring (Level 2)	
@@ -418,17 +344,14 @@ city = {
 		upgrades_from = ct_smuggler_1
 		trigger = { TECH_NAVAL = 1 }
 		port = yes
-		gold_cost = 50
-		build_time = 30
+		prestige_cost = 150
+		build_time = 60
 		galleys = 5
-		tax_income = 1
-		light_infantry = 5
-		ai_creation_factor = 79
+		tax_income = 0.5
+		ai_creation_factor = 99
 		extra_tech_building_start = 0.0
 		# +4 province blood
-		add_number_to_name = no		
-		tech_growth_modifier = 0.2
-		economy_techpoints = 0.2			
+		add_number_to_name = no				
 	}	
 
 # Ghouled Pirate Lord (Level 2.G)
@@ -442,17 +365,14 @@ city = {
 		prerequisites = { ct_smuggler_2 }
 		trigger = { TECH_NAVAL = 1 }
 		port = yes
-		gold_cost = 10
-		build_time = 7
-		tax_income = 3
-		light_infantry = 10
+		piety_cost = 300
+		build_time = 60
+		tax_income = 1
 		galleys = 10
-		ai_creation_factor = 77
+		ai_creation_factor = 99
 		extra_tech_building_start = 0.0
 		# -1 province blood for ghoul		
-		add_number_to_name = no		
-		tech_growth_modifier = 0.3
-		economy_techpoints = 0.3			
+		add_number_to_name = no				
 	}	
 	
 # Controlled Pirate Fleet (Level 3)	
@@ -461,16 +381,13 @@ city = {
 		upgrades_from = ct_smuggler_2
 		trigger = { TECH_NAVAL = 2 }
 		port = yes
-		gold_cost = 400
-		build_time = 356
-		tax_income = 3
-		light_infantry = 10
+		prestige_cost = 300
+		build_time = 90
+		tax_income = 1
 		galleys = 10
-		ai_creation_factor = 76
+		ai_creation_factor = 99
 		extra_tech_building_start = 0.0
-		add_number_to_name = no	
-		tech_growth_modifier = 0.3
-		economy_techpoints = 0.3		
+		add_number_to_name = no			
 	}
 
 	
@@ -489,10 +406,9 @@ city = {
 		prerequisites = { ct_smuggler_3 }
 		trigger = { TECH_NAVAL = 3 }
 		port = yes
-		gold_cost = 250
-		build_time = 180
-		tax_income = 3
-		light_infantry = 9
+		prestige_cost = 300
+		build_time = 90
+		light_infantry = 50
 		galleys = 9
 		ai_creation_factor = 78		
 		extra_tech_building_start = 0.0
@@ -505,17 +421,13 @@ city = {
 	ct_streetgang_1 = {	
 		desc = ct_streetgang_1_desc
 		trigger = { TECH_TRADE_PRACTICES = 0 }
-		gold_cost = 10
-		build_time = 7
-		light_infantry = 1
+		gold_cost = 150
+		build_time = 30
+		heavy_infantry = 25
 		garrison_size = 0.01
-		tax_income = 0.5
-		tech_growth_modifier = 0.1
 		ai_creation_factor = 99
 		extra_tech_building_start = 0.0
-		add_number_to_name = no
-		tech_growth_modifier = 0.1
-		economy_techpoints = 0.1			
+		add_number_to_name = no			
 	}
 
 # Influenced Street Gang Lieutenant (Level 2)	
@@ -523,18 +435,13 @@ city = {
 		desc = ct_streetgang_2_desc
 		upgrades_from = ct_streetgang_1
 		trigger = { TECH_TRADE_PRACTICES = 0 }
-		gold_cost = 50
-		build_time = 30
-		tax_income = 1
-		tech_growth_modifier = 0.3
-		economy_techpoints = 0.04		
-		light_infantry = 5
+		prestige_cost = 150
+		build_time = 60	
+		heavy_infantry = 50
 		garrison_size = 0.02
 		ai_creation_factor = 98
 		extra_tech_building_start = 0.0
-		add_number_to_name = no
-		tech_growth_modifier = 0.2
-		economy_techpoints = 0.2			
+		add_number_to_name = no		
 	}	
 
 # Ghouled Street Gang Boss (Level 2.G )
@@ -547,20 +454,14 @@ city = {
 		}		
 		prerequisites = { ct_streetgang_2 }
 		trigger = { TECH_TRADE_PRACTICES = 1 }
-		gold_cost = 10
-		build_time = 7
-		light_infantry = 25
-		tax_income = 2		
-		tech_growth_modifier = 0.3
-		economy_techpoints = 0.04				
-		archers = 5 		
+		piety_cost = 300
+		build_time = 60
+		heavy_infantry = 100	
 		garrison_size = 0.03
 		ai_creation_factor = 96
 		extra_tech_building_start = 0.0
 		# -1 province blood for ghoul
-		add_number_to_name = no		
-		tech_growth_modifier = 0.3
-		economy_techpoints = 0.3			
+		add_number_to_name = no					
 	}	
 	
 # Controlled Street Gang(Level 3)	
@@ -568,19 +469,13 @@ city = {
 		desc = ct_streetgang_3_desc
 		upgrades_from = ct_streetgang_2
 		trigger = { TECH_TRADE_PRACTICES = 2 }
-		gold_cost = 400
-		build_time = 356
-		tax_income = 2
-		tech_growth_modifier = 0.3
-		economy_techpoints = 0.04				
-		light_infantry = 50
-		archers = 5
+		prestige_cost = 300
+		build_time = 90			
+		heavy_infantry = 100
 		garrison_size = 0.03
 		ai_creation_factor = 95
 		extra_tech_building_start = 0.0
-		add_number_to_name = no		
-		tech_growth_modifier = 0.3
-		economy_techpoints = 0.3			
+		add_number_to_name = no				
 	}
 	
 # Conditioned Street Gang (Level 3.C)
@@ -597,14 +492,9 @@ city = {
 		}		
 		prerequisites = { ct_streetgang_2g }
 		trigger = { TECH_TRADE_PRACTICES = 3 }
-		gold_cost = 250
-		build_time = 180
-		tax_income = 1
-		tech_growth_modifier = 0.2
-		economy_techpoints = 0.3				
-		light_infantry = 20
-		archers = 4		
-		garrison_size = 0.02
+		prestige_cost = 300
+		build_time = 90			
+		light_infantry = 150
 		ai_creation_factor = 97
 		extra_tech_building_start = 0.0
 		add_number_to_name = no		
@@ -619,16 +509,14 @@ city = {
 			}
 		}		
 		trigger = { TECH_NOBLE_CUSTOMS = 1 }
-		gold_cost = 75
-		build_time = 365
+		gold_cost = 350
+		build_time = 90
 		ai_creation_factor = 80
-		diplomacy = 3
+		diplomacy = 1
 		retinuesize = 1.2
-		monthly_character_prestige = 0.50
+		monthly_character_prestige = 0.2
 		extra_tech_building_start = 0.0
-		add_number_to_name = no	
-		tech_growth_modifier = 0.3
-		culture_techpoints = 0.3			
+		add_number_to_name = no				
 	}
 	
 	# Nosferatu Warrens
@@ -641,16 +529,14 @@ city = {
 			}
 		}		
 		trigger = { TECH_CONSTRUCTION = 1 }
-		gold_cost = 75
-		build_time = 365
+		gold_cost = 350
+		build_time = 90
 		ai_creation_factor = 80
-		fort_level = 0.2	
-		retinuesize = 1.2		
+		fort_level = 0.5	
+		retinuesize = 1.2
 		intrigue = 1
 		extra_tech_building_start = 0.0
-		add_number_to_name = no		
-		tech_growth_modifier = 0.1
-		culture_techpoints = 0.1			
+		add_number_to_name = no				
 	}	
 
 	# Hellhound Kennel
@@ -669,10 +555,10 @@ city = {
 			}
 		}		
 		trigger = { TECH_RECRUITMENT = 1 }
-		gold_cost = 75
-		build_time = 365
-		ai_creation_factor = 80
-		fort_level = 0.2
+		gold_cost = 350
+		build_time = 90
+		ai_creation_factor = 99
+		light_cavalry = 150
 		extra_tech_building_start = 0.0
 		add_number_to_name = no		
 	}	
@@ -689,14 +575,13 @@ city = {
 			}
 		}		
 		trigger = { TECH_LIGHT_INFANTRY = 0 }
-		gold_cost = 10
-		build_time = 7
-		mass_kinfolk = 1
+		gold_cost = 150
+		build_time = 60
+		mass_kinfolk = 10
 		ai_creation_factor = 99
 		extra_tech_building_start = 0.0
 		# Helps Masquerade
 		add_number_to_name = no
-		tech_growth_modifier = 0.1
 		culture_techpoints = 0.1			
 	}
 
@@ -710,14 +595,13 @@ city = {
 		}		
 		upgrades_from = ct_kinfolk_1
 		trigger = { TECH_LIGHT_INFANTRY = 1 }
-		gold_cost = 50
-		build_time = 30
-		mass_kinfolk = 5
+		prestige_cost = 150
+		build_time = 60
+		mass_kinfolk = 25
 		ai_creation_factor = 98
 		extra_tech_building_start = 0.0
 		# Helps Masquerade
 		add_number_to_name = no
-		tech_growth_modifier = 0.2
 		culture_techpoints = 0.2			
 	}	
 
@@ -731,15 +615,13 @@ city = {
 		}		
 		prerequisites = { ct_kinfolk_2 }
 		trigger = { TECH_LIGHT_INFANTRY = 1 }
-		gold_cost = 10
-		build_time = 30
-		retinuesize = 1.2
-		mass_kinfolk = 10			
+		piety_cost = 300
+		build_time = 60
+		mass_kinfolk = 100			
 		ai_creation_factor = 96
 		extra_tech_building_start = 0.0
 		# -1 province blood for ghoul
 		add_number_to_name = no	
-		tech_growth_modifier = 0.3
 		culture_techpoints = 0.3			
 	}	
 	
@@ -753,14 +635,13 @@ city = {
 		}		
 		upgrades_from = ct_kinfolk_2
 		trigger = { TECH_LIGHT_INFANTRY = 2 }
-		gold_cost = 400
-		build_time = 356
-		mass_kinfolk = 25
+		prestige_cost = 300
+		build_time = 90
+		mass_kinfolk = 100
 		ai_creation_factor = 95
 		extra_tech_building_start = 0.0
 		# Helps Masquerade
 		add_number_to_name = no	
-		tech_growth_modifier = 0.3
 		culture_techpoints = 0.3		
 	}
 	
@@ -776,9 +657,9 @@ city = {
 		}		
 		prerequisites = { ct_kinfolk_3 }
 		trigger = { TECH_LIGHT_INFANTRY = 3 }
-		gold_cost = 250
-		build_time = 180
-		mass_kinfolk = 20
+		prestige_cost = 300
+		build_time = 90
+		light_infantry = 150
 		ai_creation_factor = 97
 		extra_tech_building_start = 0.0
 		add_number_to_name = no		

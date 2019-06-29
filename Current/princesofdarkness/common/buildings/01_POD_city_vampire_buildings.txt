@@ -4,15 +4,12 @@ city = {
 	ct_civicward_1 = {	
 		desc = ct_civicward_1_desc
 		trigger = { TECH_CITY_CONSTRUCTION = 0 }
-		gold_cost = 10
-		build_time = 7
-		tax_income = 1
-		light_infantry = 1
-		ai_creation_factor = 99
+		gold_cost = 150
+		build_time = 30
+		ai_creation_factor = 50
 		extra_tech_building_start = 0.0
 		# +1 province blood
 		add_number_to_name = no	
-		tech_growth_modifier = 0.1
 		economy_techpoints = 0.1		
 	}
 
@@ -21,15 +18,12 @@ city = {
 		desc = ct_civicward_2_desc
 		upgrades_from = ct_civicward_1
 		trigger = { TECH_CITY_CONSTRUCTION = 1 }
-		gold_cost = 50
-		build_time = 30
-		tax_income = 2
-		light_infantry = 2
-		ai_creation_factor = 98
+		prestige_cost = 150
+		build_time = 60
+		ai_creation_factor = 45
 		extra_tech_building_start = 0.0
 		# +5 province blood
 		add_number_to_name = no	
-		tech_growth_modifier = 0.2
 		economy_techpoints = 0.2		
 	}	
 
@@ -45,15 +39,12 @@ city = {
 		}
 		prerequisites = { ct_civicward_2 }
 		trigger = { TECH_CITY_CONSTRUCTION = 1 }
-		gold_cost = 10
-		build_time = 7
-		tax_income = 3
-		light_infantry = 1
-		ai_creation_factor = 96
+		piety_cost = 300
+		build_time = 60
+		ai_creation_factor = 45
 		extra_tech_building_start = 0.0
 		# +9 province blood (+10 province blood, -1 for ghoul)
 		add_number_to_name = no		
-		tech_growth_modifier = 0.3
 		economy_techpoints = 0.3		
 	}	
 	
@@ -62,16 +53,12 @@ city = {
 		desc = ct_civicward_3_desc
 		upgrades_from = ct_civicward_2
 		trigger = { TECH_CITY_CONSTRUCTION = 2 }
-		gold_cost = 400
-		build_time = 356
-		tax_income = 3
-		light_infantry = 5
-		retinuesize = 1.2
-		ai_creation_factor = 95
+		prestige_cost = 300
+		build_time = 90
+		ai_creation_factor = 45
 		extra_tech_building_start = 0.0
 		# +10 province blood
 		add_number_to_name = no	
-		tech_growth_modifier = 0.3
 		economy_techpoints = 0.3		
 	}
 	
@@ -89,14 +76,13 @@ city = {
 		}		
 		prerequisites = { ct_civicward_3 }
 		trigger = { TECH_CITY_CONSTRUCTION = 3 }
-		gold_cost = 250
+		prestige_cost = 300
 		build_time = 180
-		tax_income = 3
-		light_infantry = 2
-		ai_creation_factor = 97
+		ai_creation_factor = 40
 		extra_tech_building_start = 0.0
 		# +9 province blood 
-		add_number_to_name = no			
+		add_number_to_name = no	
+		economy_techpoints = 0.4			
 	}
 	
 # University
@@ -104,15 +90,13 @@ city = {
 	ct_university_1 = {	
 		desc = ct_university_1_desc
 		trigger = { TECH_CITY_CONSTRUCTION = 0 }
-		gold_cost = 10
-		build_time = 7
-		light_infantry = 1
-		ai_creation_factor = 99
+		gold_cost = 150
+		build_time = 30
+		ai_creation_factor = 40
 		extra_tech_building_start = 0.0
 		# +1 province blood
 		add_number_to_name = no	
-		tech_growth_modifier = 0.2
-		economy_techpoints = 0.2		
+		culture_techpoints = 0.1		
 	}
 
 # Influenced Professor (Level 2)	
@@ -120,15 +104,13 @@ city = {
 		desc = ct_university_2_desc
 		upgrades_from = ct_university_1
 		trigger = { TECH_CITY_CONSTRUCTION = 1 }
-		gold_cost = 50
-		build_time = 30
-		light_infantry = 2
-		ai_creation_factor = 98
+		prestige_cost = 150
+		build_time = 60
+		ai_creation_factor = 45
 		extra_tech_building_start = 0.0
 		# +5 province blood
 		add_number_to_name = no	
-		tech_growth_modifier = 0.3
-		economy_techpoints = 0.3		
+		culture_techpoints = 0.2		
 	}	
 
 # Ghouled Dean (Level 3.B)
@@ -141,16 +123,13 @@ city = {
 		}		
 		prerequisites = { ct_university_2 }
 		trigger = { TECH_CITY_CONSTRUCTION = 1 }
-		gold_cost = 10
-		build_time = 7
-		tax_income = 2
-		light_infantry = 1
-		ai_creation_factor = 96
+		piety_cost = 300
+		build_time = 60
+		ai_creation_factor = 45
 		extra_tech_building_start = 0.0
 		# +9 province blood (+10 province blood, -1 for ghoul)
 		add_number_to_name = no		
-		tech_growth_modifier = 0.4
-		economy_techpoints = 0.4		
+		culture_techpoints = 0.3		
 	}	
 	
 # Controlled University (Level 3)	
@@ -158,17 +137,13 @@ city = {
 		desc = ct_university_3_desc
 		upgrades_from = ct_university_2
 		trigger = { TECH_CITY_CONSTRUCTION = 2 }
-		gold_cost = 400
-		build_time = 356
-		tax_income = 2
-		light_infantry = 15
-		retinuesize = 1.2
-		ai_creation_factor = 95
+		prestige_cost = 300
+		build_time = 90
+		ai_creation_factor = 45
 		extra_tech_building_start = 0.0
 		# +10 province blood
 		add_number_to_name = no	
-		tech_growth_modifier = 0.7
-		economy_techpoints = 0.7
+		culture_techpoints = 0.4	
 	}
 	
 # Conditioned Student Body (Level 3.C)
@@ -185,10 +160,9 @@ city = {
 		}		
 		prerequisites = { ct_university_3 }
 		trigger = { TECH_CITY_CONSTRUCTION = 3 }
-		gold_cost = 250
-		build_time = 180
-		tax_income = 1
-		light_infantry = 15
+		prestige_cost = 300
+		build_time = 90
+		light_infantry = 150
 		ai_creation_factor = 97
 		extra_tech_building_start = 0.0
 		# +9 province blood 
@@ -200,15 +174,13 @@ city = {
 	ct_hospital_1 = {	
 		desc = ct_hospital_1_desc
 		trigger = { TECH_CITY_CONSTRUCTION = 0 }
-		gold_cost = 10
-		build_time = 7
-		light_infantry = 1
-		ai_creation_factor = 99
+		gold_cost = 150
+		build_time = 30
+		ai_creation_factor = 60
 		extra_tech_building_start = 0.0
 		# +1 province blood
 		add_number_to_name = no	
-		tech_growth_modifier = 0.1
-		economy_techpoints = 0.1		
+		liege_prestige = 0.1		
 	}
 
 # Influenced Nurse (Level 2)	
@@ -216,15 +188,13 @@ city = {
 		desc = ct_hospital_2_desc
 		upgrades_from = ct_hospital_1
 		trigger = { TECH_CITY_CONSTRUCTION = 1 }
-		gold_cost = 50
-		build_time = 30
-		light_infantry = 2
-		ai_creation_factor = 98
+		gold_cost = 300
+		build_time = 60
+		ai_creation_factor = 60
 		extra_tech_building_start = 0.0
 		# +5 province blood
 		add_number_to_name = no	
-		tech_growth_modifier = 0.2
-		economy_techpoints = 0.2		
+		liege_prestige = 0.2		
 	}	
 
 # Ghouled Doctor (Level 3.B)
@@ -237,16 +207,13 @@ city = {
 		}		
 		prerequisites = { ct_hospital_2 }
 		trigger = { TECH_CITY_CONSTRUCTION = 1 }
-		gold_cost = 10
-		build_time = 7
-		tax_income = 1
-		light_infantry = 1
-		ai_creation_factor = 96
+		piety_cost = 450
+		build_time = 90
+		ai_creation_factor = 65
 		extra_tech_building_start = 0.0
 		# +9 province blood (+10 province blood, -1 for ghoul)
 		add_number_to_name = no		
-		tech_growth_modifier = 0.3
-		economy_techpoints = 0.3		
+		liege_prestige = 0.5	
 	}	
 	
 # Controlled Hospital (Level 3)	
@@ -254,17 +221,13 @@ city = {
 		desc = ct_hospital_3_desc
 		upgrades_from = ct_hospital_2
 		trigger = { TECH_CITY_CONSTRUCTION = 2 }
-		gold_cost = 400
-		build_time = 356
-		tax_income = 1
-		light_infantry = 5
-		retinuesize = 1.2
-		ai_creation_factor = 95
+		gold_cost = 450
+		build_time = 90
+		ai_creation_factor = 65
 		extra_tech_building_start = 0.0
 		# +10 province blood
 		add_number_to_name = no	
-		tech_growth_modifier = 0.3
-		economy_techpoints = 0.3		
+		liege_prestige = 0.3		
 	}
 	
 # Conditioned Hospital Staff (Level 3.C)
@@ -281,14 +244,13 @@ city = {
 		}		
 		prerequisites = { ct_hospital_3 }
 		trigger = { TECH_CITY_CONSTRUCTION = 3 }
-		gold_cost = 250
-		build_time = 180
-		tax_income = 1
-		light_infantry = 10
+		prestige_cost = 450
+		build_time = 90
 		ai_creation_factor = 97
+		light_infantry = 150
 		extra_tech_building_start = 0.0
 		# +9 province blood 
-		add_number_to_name = no			
+		add_number_to_name = no		
 	}
 
 # Orphanage
@@ -296,15 +258,13 @@ city = {
 	ct_orphanage_1 = {	
 		desc = ct_orphanage_1_desc
 		trigger = { TECH_TRADE_PRACTICES = 0 }
-		gold_cost = 10
-		build_time = 7
-		light_infantry = 1
-		ai_creation_factor = 99
+		gold_cost = 150
+		build_time = 30
+		light_infantry = 100
+		ai_creation_factor = 200
 		extra_tech_building_start = 0.0
 		# +1 province blood
-		add_number_to_name = no	
-		tech_growth_modifier = 0.1
-		economy_techpoints = 0.1		
+		add_number_to_name = no		
 	}
 
 # Influenced Bully (Level 2)	
@@ -312,16 +272,13 @@ city = {
 		desc = ct_orphanage_2_desc
 		upgrades_from = ct_orphanage_1
 		trigger = { TECH_TRADE_PRACTICES = 1 }
-		gold_cost = 50
-		build_time = 30
-		light_infantry = 10
-		tax_income = 1
+		prestige_cost = 150
+		build_time = 60
+		light_infantry = 100
 		ai_creation_factor = 98
 		extra_tech_building_start = 0.0
 		# +5 province blood
-		add_number_to_name = no	
-		tech_growth_modifier = 0.2
-		economy_techpoints = 0.2		
+		add_number_to_name = no			
 	}	
 
 # Ghouled Matron (Level 3.B)
@@ -334,16 +291,13 @@ city = {
 		}		
 		prerequisites = { ct_orphanage_2 }
 		trigger = { TECH_TRADE_PRACTICES = 1 }
-		gold_cost = 10
-		build_time = 7
-		tax_income = 1
-		light_infantry = 1
+		piety_cost = 450
+		build_time = 90
+		light_infantry = 150
 		ai_creation_factor = 96
 		extra_tech_building_start = 0.0
 		# +9 province blood (+10 province blood, -1 for ghoul)
-		add_number_to_name = no		
-		tech_growth_modifier = 0.3
-		economy_techpoints = 0.3		
+		add_number_to_name = no			
 	}	
 	
 # Controlled Orphanage (Level 3)	
@@ -351,17 +305,13 @@ city = {
 		desc = ct_orphanage_3_desc
 		upgrades_from = ct_orphanage_2
 		trigger = { TECH_TRADE_PRACTICES = 2 }
-		gold_cost = 400
-		build_time = 356
-		tax_income = 3
-		light_infantry = 25
-		retinuesize = 1.2
+		prestige_cost = 300
+		build_time = 90
+		light_infantry = 100
 		ai_creation_factor = 95
 		extra_tech_building_start = 0.0
 		# +10 province blood
-		add_number_to_name = no	
-		tech_growth_modifier = 0.3
-		economy_techpoints = 0.3		
+		add_number_to_name = no			
 	}
 	
 # Conditioned Orphans (Level 3.C)
@@ -378,10 +328,9 @@ city = {
 		}		
 		prerequisites = { ct_orphanage_3 }
 		trigger = { TECH_TRADE_PRACTICES = 3 }
-		gold_cost = 250
-		build_time = 180
-		tax_income = 1
-		light_infantry = 10
+		prestige_cost = 300
+		build_time = 90
+		light_infantry = 150
 		ai_creation_factor = 97
 		extra_tech_building_start = 0.0
 		# +9 province blood 
@@ -395,15 +344,13 @@ city = {
 		desc = ct_prison_1_desc
 		prerequisites = { ct_nightwatch_3 }
 		trigger = { TECH_CITY_CONSTRUCTION = 0 }
-		gold_cost = 10
-		build_time = 7
-		light_infantry = 1
+		gold_cost = 150
+		build_time = 30
 		garrison_size = 0.01
-		ai_creation_factor = 99
+		ai_creation_factor = 70
 		extra_tech_building_start = 0.0
 		# Helps Masquerade
 		add_number_to_name = no
-		tech_growth_modifier = 0.1
 		military_techpoints = 0.1		
 	}
 # Influenced Guard (Level 2)	
@@ -411,16 +358,14 @@ city = {
 		desc = ct_prison_2_desc
 		upgrades_from = ct_prison_1
 		trigger = { TECH_CITY_CONSTRUCTION = 0 }
-		gold_cost = 50
-		build_time = 30
-		pikemen = 3
+		prestige_cost = 150
+		build_time = 60
 		garrison_size = 0.02
-		ai_creation_factor = 98
+		ai_creation_factor = 70
 		extra_tech_building_start = 0.0
 		# Helps Masquerade
 		add_number_to_name = no
-		tech_growth_modifier = 0.2
-		military_techpoints = 0.2		
+		military_techpoints = 0.1		
 	}	
 	
 # Ghouled Warden (Level 3.B)
@@ -433,19 +378,14 @@ city = {
 		}		
 		prerequisites = { ct_prison_2 }
 		trigger = { TECH_CITY_CONSTRUCTION = 1 }
-		gold_cost = 10
-		build_time = 7
-		pikemen = 25
-		light_infantry = 25
-		heavy_infantry = 5
-		archers = 5		
+		piety_cost = 450
+		build_time = 90	
 		garrison_size = 0.03		
-		ai_creation_factor = 96
+		ai_creation_factor = 70
 		extra_tech_building_start = 0.0
 		# -1 province blood for ghoul
 		add_number_to_name = no		
-		tech_growth_modifier = 0.3
-		military_techpoints = 0.3		
+		military_techpoints = 0.2		
 	}
 	
 # Controlled Prison (Level 3)	
@@ -453,18 +393,14 @@ city = {
 		desc = ct_prison_3_desc
 		upgrades_from = ct_prison_2
 		trigger = { TECH_CITY_CONSTRUCTION = 2 }
-		gold_cost = 400
-		build_time = 356
-		light_infantry = 50
-		pikemen = 50
-		archers = 10 
+		prestige_cost = 300
+		build_time = 90
 		garrison_size = 0.03
-		ai_creation_factor = 95
+		ai_creation_factor = 70
 		extra_tech_building_start = 0.0
 		# Helps Masquerade
 		add_number_to_name = no		
-		tech_growth_modifier = 0.3
-		military_techpoints = 0.3		
+		military_techpoints = 0.2		
 	}
 	
 # Conditioned Prison Gang(Level 3.C)
@@ -481,12 +417,10 @@ city = {
 		}		
 		prerequisites = { ct_prison_3 }
 		trigger = { TECH_CITY_CONSTRUCTION = 3 }
-		gold_cost = 250
-		build_time = 180
+		prestige_cost = 300
+		build_time = 90
 		pikemen = 50
-		garrison_size = 0.02		
-		heavy_infantry = 5
-		archers = 5		
+		garrison_size = 0.02			
 		ai_creation_factor = 97
 		extra_tech_building_start = 0.0
 		add_number_to_name = no		
@@ -497,15 +431,14 @@ city = {
 	ct_guildward_1 = {	
 		desc = ct_guildward_1_desc
 		trigger = { TECH_CITY_CONSTRUCTION = 0 }
-		gold_cost = 9
-		build_time = 7
-		light_infantry = 1
-		ai_creation_factor = 99
+		gold_cost = 150
+		build_time = 30
+		ai_creation_factor = 50
 		extra_tech_building_start = 0.0
 		# +1 province blood
 		add_number_to_name = no	
 		tech_growth_modifier = 0.1
-		economy_techpoints = 0.1			
+		liege_piety = 0.1 			
 	}
 
 # Influenced Journeyman (Level 2)	
@@ -513,16 +446,13 @@ city = {
 		desc = ct_guildward_2_desc
 		upgrades_from = ct_guildward_1
 		trigger = { TECH_CITY_CONSTRUCTION = 0 }
-		gold_cost = 50
-		build_time = 30
-		tax_income = 2
-		light_infantry = 3
-		ai_creation_factor = 98
+		prestige_cost = 150
+		build_time = 60
+		ai_creation_factor = 50
 		extra_tech_building_start = 0.0
 		# +4 province blood
 		add_number_to_name = no	
-		tech_growth_modifier = 0.2
-		economy_techpoints = 0.2			
+		liege_piety = 0.3		
 	}	
 
 # Ghouled Guild Master (Level 3.B)
@@ -535,16 +465,13 @@ city = {
 		}		
 		prerequisites = { ct_guildward_2 }
 		trigger = { TECH_CITY_CONSTRUCTION = 2 }
-		gold_cost = 10
-		build_time = 7
-		tax_income = 3
-		light_infantry = 3
-		ai_creation_factor = 96
+		piety_cost = 450
+		build_time = 90
+		ai_creation_factor = 50
 		extra_tech_building_start = 0.0
 		# +8 province blood (+9 province blood, -1 for ghoul)
 		add_number_to_name = no	
-		tech_growth_modifier = 0.3
-		economy_techpoints = 0.3		
+		liege_piety = 0.5	
 	}	
 	
 # Controlled Guilds (Level 3)	
@@ -552,17 +479,13 @@ city = {
 		desc = ct_guildward_3_desc
 		upgrades_from = ct_guildward_2
 		trigger = { TECH_CITY_CONSTRUCTION = 2 }
-		gold_cost = 400
-		build_time = 356
-		tax_income = 3
-		light_infantry = 5
-		retinuesize = 1.2
-		ai_creation_factor = 95
+		prestige_cost = 300
+		build_time = 90
+		ai_creation_factor = 50
 		extra_tech_building_start = 0.0
 		# +9 province blood
 		add_number_to_name = no		
-		tech_growth_modifier = 0.3
-		economy_techpoints = 0.3		
+		liege_piety = 0.5 		
 	}
 	
 # Conditioned Guildmembers (Level 3.C)
@@ -579,10 +502,9 @@ city = {
 		}		
 		prerequisites = { ct_guildward_3 }
 		trigger = { TECH_CITY_CONSTRUCTION = 3 }
-		gold_cost = 250
-		build_time = 180
-		tax_income = 3
-		light_infantry = 25
+		prestige_cost = 300
+		build_time = 90
+		light_infantry = 150
 		ai_creation_factor = 97
 		extra_tech_building_start = 0.0
 		# +8 province blood 
@@ -594,17 +516,14 @@ city = {
 	ct_slums_1 = {	
 		desc = ct_slums_1_desc
 		trigger = { TECH_TRADE_PRACTICES = 0 }
-		gold_cost = 10
-		build_time = 7
-		light_infantry = 1
+		gold_cost = 150
+		build_time = 30
+		levy_size = 0.025
 		garrison_size = 0.01
-		tax_income = 0.5
 		tech_growth_modifier = 0.1
 		ai_creation_factor = 99
 		extra_tech_building_start = 0.0
-		add_number_to_name = no
-		tech_growth_modifier = 0.1
-		economy_techpoints = 0.1			
+		add_number_to_name = no			
 	}
 
 # Influenced Landlord (Level 2)	
@@ -612,18 +531,13 @@ city = {
 		desc = ct_slums_2_desc
 		upgrades_from = ct_slums_1
 		trigger = { TECH_TRADE_PRACTICES = 0 }
-		gold_cost = 50
-		build_time = 30
-		tax_income = 1
-		tech_growth_modifier = 0.3
-		economy_techpoints = 0.04		
-		light_infantry = 5
-		garrison_size = 0.02
+		prestige_cost = 150
+		build_time = 60
+		levy_size = 0.025
+		garrison_size = 0.01
 		ai_creation_factor = 98
 		extra_tech_building_start = 0.0
-		add_number_to_name = no
-		tech_growth_modifier = 0.2
-		economy_techpoints = 0.2			
+		add_number_to_name = no		
 	}	
 
 # Ghouled Slumlord (Level 2.G )
@@ -636,20 +550,15 @@ city = {
 		}		
 		prerequisites = { ct_slums_2 }
 		trigger = { TECH_TRADE_PRACTICES = 1 }
-		gold_cost = 10
-		build_time = 7
+		piety_cost = 300
+		build_time = 60
 		light_infantry = 25
-		tax_income = 1		
-		tech_growth_modifier = 0.3
-		economy_techpoints = 0.04				
-		archers = 5 		
-		garrison_size = 0.03
+		levy_size = 0.050		
+		garrison_size = 0.01
 		ai_creation_factor = 96
 		extra_tech_building_start = 0.0
 		# -1 province blood for ghoul
-		add_number_to_name = no		
-		tech_growth_modifier = 0.3
-		economy_techpoints = 0.3			
+		add_number_to_name = no				
 	}	
 	
 # Controlled Slum(Level 3)	
@@ -657,19 +566,13 @@ city = {
 		desc = ct_slums_3_desc
 		upgrades_from = ct_slums_2
 		trigger = { TECH_TRADE_PRACTICES = 2 }
-		gold_cost = 400
-		build_time = 356
-		tax_income = 1
-		tech_growth_modifier = 0.3
-		economy_techpoints = 0.04				
-		light_infantry = 50
-		archers = 5
-		garrison_size = 0.03
+		prestige_cost = 300
+		build_time = 90
+		levy_size = 0.050
+		garrison_size = 0.01
 		ai_creation_factor = 95
 		extra_tech_building_start = 0.0
-		add_number_to_name = no		
-		tech_growth_modifier = 0.3
-		economy_techpoints = 0.3			
+		add_number_to_name = no					
 	}
 	
 # Conditioned Slum Gang (Level 3.C)
@@ -686,14 +589,9 @@ city = {
 		}		
 		prerequisites = { ct_slums_2g }
 		trigger = { TECH_TRADE_PRACTICES = 3 }
-		gold_cost = 250
-		build_time = 180
-		tax_income = 1
-		tech_growth_modifier = 0.2
-		economy_techpoints = 0.3				
-		light_infantry = 20
-		archers = 4		
-		garrison_size = 0.02
+		prestige_cost = 300
+		build_time = 90				
+		light_infantry = 150
 		ai_creation_factor = 97
 		extra_tech_building_start = 0.0
 		add_number_to_name = no		
@@ -714,15 +612,13 @@ city = {
 			}
 		}		
 		trigger = { TECH_CITY_CONSTRUCTION = 0 }
-		gold_cost = 9
-		build_time = 7
-		light_infantry = 1
+		gold_cost = 150
+		build_time = 30
+		levy_size = 0.025
 		ai_creation_factor = 99
 		extra_tech_building_start = 0.0
 		# +1 province blood
-		add_number_to_name = no	
-		tech_growth_modifier = 0.1
-		economy_techpoints = 0.1			
+		add_number_to_name = no				
 	}
 
 # Influenced Meat Cutter (Level 2)	
@@ -740,16 +636,13 @@ city = {
 		}
 		upgrades_from = ct_abbatoirward_1
 		trigger = { TECH_CITY_CONSTRUCTION = 0 }
-		gold_cost = 50
-		build_time = 30
-		tax_income = 2
-		light_infantry = 3
+		prestige_cost = 150
+		build_time = 60
+		levy_size = 0.025
 		ai_creation_factor = 98
 		extra_tech_building_start = 0.0
 		# +4 province blood
-		add_number_to_name = no	
-		tech_growth_modifier = 0.2
-		economy_techpoints = 0.2			
+		add_number_to_name = no				
 	}	
 
 # Ghouled Butcher (Level 3.B)
@@ -768,16 +661,13 @@ city = {
 		}		
 		prerequisites = { ct_abbatoirward_2 }
 		trigger = { TECH_CITY_CONSTRUCTION = 2 }
-		gold_cost = 10
-		build_time = 7
-		tax_income = 3
-		light_infantry = 3
+		piety_cost = 450
+		build_time = 90
+		levy_size = 0.050
 		ai_creation_factor = 96
 		extra_tech_building_start = 0.0
 		# +8 province blood (+9 province blood, -1 for ghoul)
-		add_number_to_name = no	
-		tech_growth_modifier = 0.3
-		economy_techpoints = 0.3		
+		add_number_to_name = no		
 	}	
 	
 # Controlled Abbatoir Ward (Level 3)	
@@ -795,17 +685,12 @@ city = {
 		}
 		upgrades_from = ct_abbatoirward_2
 		trigger = { TECH_CITY_CONSTRUCTION = 2 }
-		gold_cost = 400
-		build_time = 356
-		tax_income = 3
-		light_infantry = 5
-		retinuesize = 1.2
+		prestige_cost = 300
+		levy_size = 0.025
 		ai_creation_factor = 95
 		extra_tech_building_start = 0.0
 		# +9 province blood
-		add_number_to_name = no		
-		tech_growth_modifier = 0.3
-		economy_techpoints = 0.3		
+		add_number_to_name = no			
 	}
 	
 # Conditioned Butcher's Guild (Level 3.C)
@@ -827,10 +712,9 @@ city = {
 		}		
 		prerequisites = { ct_abbatoirward_3 }
 		trigger = { TECH_CITY_CONSTRUCTION = 3 }
-		gold_cost = 250
-		build_time = 180
-		tax_income = 3
-		light_infantry = 25
+		prestige_cost = 300
+		build_time = 90
+		light_infantry = 150
 		ai_creation_factor = 97
 		extra_tech_building_start = 0.0
 		# +8 province blood 
@@ -850,16 +734,11 @@ city = {
 			}
 		}
 		trigger = { TECH_TRADE_PRACTICES = 0 }
-		gold_cost = 10
-		build_time = 7
-		light_infantry = 1
-		garrison_size = 0.01
-		tax_income = 0.5
-		tech_growth_modifier = 0.1
-		ai_creation_factor = 99
+		gold_cost = 150
+		build_time = 30
+		ai_creation_factor = 50
 		extra_tech_building_start = 0.0
 		add_number_to_name = no
-		tech_growth_modifier = 0.1
 		economy_techpoints = 0.1			
 	}
 
@@ -876,17 +755,11 @@ city = {
 		}
 		upgrades_from = ct_asylum_1
 		trigger = { TECH_TRADE_PRACTICES = 0 }
-		gold_cost = 50
-		build_time = 30
-		tax_income = 1
-		tech_growth_modifier = 0.3
-		economy_techpoints = 0.04		
-		pikemen = 5
-		garrison_size = 0.02
-		ai_creation_factor = 98
+		prestige_cost = 150
+		build_time = 60
+		ai_creation_factor = 50
 		extra_tech_building_start = 0.0
 		add_number_to_name = no
-		tech_growth_modifier = 0.2
 		economy_techpoints = 0.2			
 	}	
 
@@ -904,19 +777,12 @@ city = {
 		}		
 		prerequisites = { ct_asylum_2 }
 		trigger = { TECH_TRADE_PRACTICES = 1 }
-		gold_cost = 10
-		build_time = 7
-		light_infantry = 25
-		tax_income = 1		
-		tech_growth_modifier = 0.3
-		economy_techpoints = 0.04				
-		pikemen = 5 		
-		garrison_size = 0.03
-		ai_creation_factor = 96
+		piety_cost = 300
+		build_time = 60
+		ai_creation_factor = 50
 		extra_tech_building_start = 0.0
 		# -1 province blood for ghoul
 		add_number_to_name = no		
-		tech_growth_modifier = 0.3
 		economy_techpoints = 0.3			
 	}	
 	
@@ -933,18 +799,11 @@ city = {
 		}
 		upgrades_from = ct_asylum_2
 		trigger = { TECH_TRADE_PRACTICES = 2 }
-		gold_cost = 400
-		build_time = 356
-		tax_income = 1
-		tech_growth_modifier = 0.3
-		economy_techpoints = 0.04				
-		light_infantry = 50
-		pikemen = 15
-		garrison_size = 0.03
-		ai_creation_factor = 95
+		prestige_cost = 300
+		build_time = 90
+		ai_creation_factor = 50
 		extra_tech_building_start = 0.0
 		add_number_to_name = no		
-		tech_growth_modifier = 0.3
 		economy_techpoints = 0.3			
 	}
 	
@@ -966,15 +825,10 @@ city = {
 		}		
 		prerequisites = { ct_asylum_2g }
 		trigger = { TECH_TRADE_PRACTICES = 3 }
-		gold_cost = 250
-		build_time = 180
-		tax_income = 1
-		tech_growth_modifier = 0.2
-		economy_techpoints = 0.3				
-		light_infantry = 20
-		archers = 4		
-		garrison_size = 0.02
-		ai_creation_factor = 97
+		prestige_cost = 300
+		build_time = 90
+		light_infantry = 150
+		ai_creation_factor = 98
 		extra_tech_building_start = 0.0
 		add_number_to_name = no		
 	}
@@ -987,16 +841,219 @@ city = {
 			ct_brothel_3
 			ct_tavern_3
 		}
-		gold_cost = 10
-		build_time = 7
-		tax_income = 3
-		light_infantry = 15
-		pikemen = 10
-		ai_creation_factor = 99
+		prestige_cost = 150
+		build_time = 30
+		liege_piety = 0.5
+		ai_creation_factor = 50
 		extra_tech_building_start = 0.0
 		# +10 province blood
-		add_number_to_name = no	
+		add_number_to_name = no			
+	}
+
+	#Architect Bloodline buildings.
+	ct_planned_infrastructure_1 = { #Garrisoned roads
+		desc = ct_planned_infrastructure_1_desc
+		potential = { 
+			OR = {
+				FROMFROM = { has_building = ct_planned_infrastructure_1 } #Show the building only if it has been already built or if the owner has the proper bloodline to build it.
+				FROM = {
+					any_owned_bloodline = {
+						has_bloodline_flag = bloodline_architect 
+					}
+				}
+				FROM = {
+					any_liege = {
+						any_owned_bloodline = {
+							has_bloodline_flag = bloodline_architect 
+						}	
+					}
+				}
+			}
+		}
+		trigger = { 
+			TECH_CITY_CONSTRUCTION = 1
+			custom_tooltip = {
+				text = tooltip_has_architect_bloodline
+				hidden_tooltip = {
+					OR = {
+						FROM = {
+							any_owned_bloodline = {
+								has_bloodline_flag = bloodline_architect 
+							}
+						}
+						FROM = {
+							any_liege = {
+								any_owned_bloodline = {
+									has_bloodline_flag = bloodline_architect 
+								}	
+							}
+						}
+					}
+				}
+			}
+		}
+		is_active_trigger = {
+			FROMFROM = {
+				owner = {
+					NOR = {
+						is_tribal = yes
+						is_nomadic = yes
+					}
+				}
+			}
+		}
+
+		gold_cost = 125
+		build_time = 365
+		tax_income = 3
+		land_morale = 0.05
+		tech_growth_modifier = 0.05
+		
+		add_number_to_name = no
+
+		ai_creation_factor = 88
+
+		extra_tech_building_start = 1.2
+	}
+	ct_planned_infrastructure_2 = { #Stone Roads
+		desc = ct_planned_infrastructure_2_desc
+		trigger = { 
+			TECH_CITY_CONSTRUCTION = 3
+			custom_tooltip = {
+				text = tooltip_has_architect_bloodline
+				hidden_tooltip = {
+					OR = {
+						FROM = {
+							any_owned_bloodline = {
+								has_bloodline_flag = bloodline_architect 
+							}
+						}
+						FROM = {
+							any_liege = {
+								any_owned_bloodline = {
+									has_bloodline_flag = bloodline_architect 
+								}	
+							}
+						}
+					}
+				}
+			}
+		}
+		is_active_trigger = {
+			FROMFROM = {
+				owner = {
+					NOR = {
+						is_tribal = yes
+						is_nomadic = yes
+					}
+				}
+			}
+		}
+		upgrades_from = ct_planned_infrastructure_1
+		gold_cost = 250
+		build_time = 560
+		tax_income = 3
+		tech_growth_modifier = 0.05
+
+		add_number_to_name = no
+		
+		ai_creation_factor = 88
+
+		extra_tech_building_start = 1.2
+	}
+	ct_planned_infrastructure_3 = { #Cleared Pathways
+		desc = ct_planned_infrastructure_3_desc
+		trigger = { 
+			TECH_CITY_CONSTRUCTION = 5
+			custom_tooltip = {
+				text = tooltip_has_architect_bloodline
+				hidden_tooltip = {
+					OR = {
+						FROM = {
+							any_owned_bloodline = {
+								has_bloodline_flag = bloodline_architect 
+							}
+						}
+						FROM = {
+							any_liege = {
+								any_owned_bloodline = {
+									has_bloodline_flag = bloodline_architect 
+								}	
+							}
+						}
+					}
+				}
+			}
+		}
+		is_active_trigger = {
+			FROMFROM = {
+				owner = {
+					NOR = {
+						is_tribal = yes
+						is_nomadic = yes
+					}
+				}
+			}
+		}
+		upgrades_from = ct_planned_infrastructure_2
+		gold_cost = 450
+		build_time = 760
+
 		tech_growth_modifier = 0.1
-		economy_techpoints = 0.1		
+		levy_reinforce_rate = 0.1
+
+
+		add_number_to_name = no
+		
+		ai_creation_factor = 88
+
+		extra_tech_building_start = 1.2
+	}
+	ct_planned_infrastructure_4 = { #Great Acqueduct
+		desc = ct_planned_infrastructure_4_desc
+		trigger = { 
+			TECH_CITY_CONSTRUCTION = 7
+			custom_tooltip = {
+				text = tooltip_has_architect_bloodline
+				hidden_tooltip = {
+					OR = {
+						FROM = {
+							any_owned_bloodline = {
+								has_bloodline_flag = bloodline_architect 
+							}
+						}
+						FROM = {
+							any_liege = {
+								any_owned_bloodline = {
+									has_bloodline_flag = bloodline_architect 
+								}	
+							}
+						}
+					}
+				}
+			}
+		}
+		is_active_trigger = {
+			FROMFROM = {
+				owner = {
+					NOR = {
+						is_tribal = yes
+						is_nomadic = yes
+					}
+				}
+			}
+		}
+		upgrades_from = ct_planned_infrastructure_3
+		gold_cost = 750
+		build_time = 1250
+		tech_growth_modifier = 0.05
+		economy_techpoints = 0.1
+
+
+		add_number_to_name = no
+		
+		ai_creation_factor = 88
+
+		extra_tech_building_start = 1.2
 	}	
 }

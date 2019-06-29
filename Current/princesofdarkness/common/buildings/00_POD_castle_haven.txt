@@ -11,34 +11,6 @@
  #	extra_tech_building_start = when starting a new game this building will be pre-built if the province has higher tech than the requirement + this + random 0-1
  #}
  
-# Haven: add fort level
-# Kennel: add blood hounds special unit
-# Brothel: add province blood, add monthly gold
-# Tavern: add province blood, add monthly gold
-# Crypt: add fort level
-# Sewer: add fort level 
-# Smuggler Ring: add ships
-# Hidden Cove: add ships
-# Pirate Fleet: add ships
-# Blacksmith
-# Silversmith: give a damage bonus against werewolves
-# Gargoyle rookery (workshop?): add gargoyles as a special unit
-
-# Building/Influence Overhaul
-# Bribed (Level 1):  First stage of controlling a resource.  Quick and cheap to do with small reward.  1 week, 10 gold.  +1 light_infantry
-# Influenced (Level 2): Second stage of controlling a resource.  Moderate time, moderate cost with moderate reward.  1 month, 50 gold. +10 light_infantry
-# Controlled (Level 3): Third stage of controlling a resource.  Large time, large cost with large reward.  1 year, 400 gold. +100 light_infantry
-# Ghouled (Level 2.G): For vampires only and costs province blood. Quick and cheap to do with large reward.  1 week, 10 gold, +100 light_infantry.  But costs 1 province blood every month, and has 
-# a trigger of a high provnice blood to do.
-# Conditioned (Level 3.C): For vampires with Dominate IV.  Large time, moderate cost with a large reward.  6 months, 250 gold. +75 light_infantry.  This will give Ventrue a subsantial edge over
-# other vampires in influencing society.
-# Not all building/influence will have these options and paths; but most will
-
-# Bribed Whore (Level 1)
-# Influenced Pimp (Level 2)
-# Controlled Brothel (Level 3)
-# Ghouled Madam (Level 2.G)
-# Conditioned Whores (Level 3.C)
 
 
  # Castle
@@ -48,8 +20,8 @@ castle = {
 	ca_haven_1 = {
 		desc = ca_haven_1_desc
 		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 0 }
-		gold_cost = 75
-		build_time = 39
+		gold_cost = 50
+		build_time = 30
 		fort_level = 0.1
 		ai_creation_factor = 80
 		extra_tech_building_start = 1.0
@@ -60,8 +32,9 @@ castle = {
 		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 1 }
 		upgrades_from = ca_haven_1
 		gold_cost = 125
-		build_time = 90
+		build_time = 60
 		fort_level = 0.2
+		#garrison_size = 0.05
 		ai_creation_factor = 79
 		extra_tech_building_start = 0.0
 		add_number_to_name = no
@@ -71,21 +44,19 @@ castle = {
 		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 2 }
 		upgrades_from = ca_haven_2
 		gold_cost = 200
-		build_time = 365
+		build_time = 90
 		fort_level = 0.3
-		retinuesize = 2
 		ai_creation_factor = 78
 		extra_tech_building_start = 0.0
-		add_number_to_name = no		
+		add_number_to_name = no			
 	}
 	ca_haven_4 = {
 		desc = ca_haven_4_desc
 		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 3 }
 		upgrades_from = ca_haven_3
 		gold_cost = 300
-		build_time = 1000
+		build_time = 120
 		fort_level = 0.4
-		retinuesize = 5
 		ai_creation_factor = 78
 		extra_tech_building_start = 0.0
 		add_number_to_name = no		
@@ -95,12 +66,11 @@ castle = {
 		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 4 }
 		upgrades_from = ca_haven_4
 		gold_cost = 400
-		build_time = 1250
+		build_time = 150
 		fort_level = 0.5
-		retinuesize = 20
 		ai_creation_factor = 78
 		extra_tech_building_start = 0.0
-		add_number_to_name = no		
+		add_number_to_name = no	
 	}	
 
 # Castle Guard 
@@ -109,16 +79,14 @@ castle = {
 	ca_castle_guard_1 = {	
 		desc = ca_castle_guard_1_desc
 		trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
-		gold_cost = 10
-		build_time = 7
-		heavy_infantry = 1
+		gold_cost = 150
+		build_time = 30
+		heavy_infantry = 25
 		garrison_size = 0.01
 		ai_creation_factor = 99
 		extra_tech_building_start = 0.0
 		# Helps Masquerade
 		add_number_to_name = no
-		tech_growth_modifier = 0.1
-		military_techpoints = 0.1
 	}
 
 # Influenced Castle Guard Sergeant (Level 2)	
@@ -126,17 +94,14 @@ castle = {
 		desc = ca_castle_guard_2_desc
 		upgrades_from = ca_castle_guard_1
 		trigger = { TECH_CASTLE_CONSTRUCTION = 1 }
-		gold_cost = 50
-		build_time = 30
-		heavy_infantry = 10
-		pikemen = 5
+		prestige_cost = 150
+		build_time = 60
+		heavy_infantry = 50
 		garrison_size = 0.02
 		ai_creation_factor = 98
 		extra_tech_building_start = 0.0
 		# Helps Masquerade
 		add_number_to_name = no
-		tech_growth_modifier = 0.2
-		military_techpoints = 0.02
 	}	
 	
 # Ghouled Baron (Level 2.G)
@@ -149,17 +114,14 @@ castle = {
 		}		
 		prerequisites = { ca_castle_guard_2 }
 		trigger = { TECH_CASTLE_CONSTRUCTION = 1 }
-		gold_cost = 10
-		build_time = 7
-		pikemen = 10
-		heavy_infantry = 25	
+		piety_cost = 300
+		build_time = 60
+		heavy_infantry = 100
 		garrison_size = 0.03		
 		ai_creation_factor = 96
 		extra_tech_building_start = 0.0
 		# -1 province blood for ghoul
 		add_number_to_name = no		
-		tech_growth_modifier = 0.3
-		military_techpoints = 0.3
 	}	
 
 # Controlled Castle Guard(Level 3)	
@@ -167,17 +129,14 @@ castle = {
 		desc = ca_castle_guard_3_desc
 		upgrades_from = ca_castle_guard_2
 		trigger = { TECH_CASTLE_CONSTRUCTION = 2 }
-		gold_cost = 400
-		build_time = 356
-		heavy_infantry = 50
-		pikemen = 25 
+		prestige_cost = 300
+		build_time = 90
+		heavy_infantry = 100
 		garrison_size = 0.03
 		ai_creation_factor = 95
 		extra_tech_building_start = 0.0
 		# Helps Masquerade
 		add_number_to_name = no		
-		tech_growth_modifier = 0.3
-		military_techpoints = 0.3
 	}
 	
 # Conditioned Castle Guard (Level 3.C)
@@ -193,11 +152,9 @@ castle = {
 		}		
 		prerequisites = { ca_castle_guard_3 }
 		trigger = { TECH_CASTLE_CONSTRUCTION = 3 }
-		gold_cost = 250
-		build_time = 180
-		pikemen = 10
-		garrison_size = 0.02		
-		heavy_infantry = 25
+		prestige_cost = 300
+		build_time = 90
+		light_infantry = 150	
 		ai_creation_factor = 97
 		extra_tech_building_start = 0.0
 		add_number_to_name = no		
@@ -210,14 +167,12 @@ castle = {
 	ca_knights_1 = {	
 		desc = ca_knights_1_desc
 		trigger = { TECH_CAVALRY = 0 }
-		gold_cost = 10
-		build_time = 7
-		light_cavalry = 1
+		gold_cost = 150
+		build_time = 30
+		knights = 25
 		ai_creation_factor = 99
 		extra_tech_building_start = 0.0
 		add_number_to_name = no
-		tech_growth_modifier = 0.1
-		military_techpoints = 0.1
 	}
 
 # Influenced Knight (Level 2)	
@@ -225,15 +180,12 @@ castle = {
 		desc = ca_knights_2_desc
 		upgrades_from = ca_knights_1
 		trigger = { TECH_CAVALRY = 1 }
-		gold_cost = 50
-		build_time = 30
-		light_cavalry = 5
-		knights = 1
+		prestige_cost = 150
+		build_time = 60
+		knights = 50
 		ai_creation_factor = 98
 		extra_tech_building_start = 0.0
 		add_number_to_name = no
-		tech_growth_modifier = 0.2
-		military_techpoints = 0.02
 	}	
 
 # Ghouled Knight Commander (Level 2.G)
@@ -246,16 +198,13 @@ castle = {
 		}		
 		prerequisites = { ca_knights_2 }
 		trigger = { TECH_CAVALRY = 1 }
-		gold_cost = 10
-		build_time = 7
-		knights = 10
-		light_cavalry = 25		
+		piety_cost = 300
+		build_time = 90
+		knights = 100
 		ai_creation_factor = 96
 		extra_tech_building_start = 0.0
 		# -1 province blood for ghoul
 		add_number_to_name = no		
-		tech_growth_modifier = 0.3
-		military_techpoints = 0.3
 	}	
 	
 # Controlled Knightly Order (Level 3)	
@@ -263,15 +212,12 @@ castle = {
 		desc = ca_knights_3_desc
 		upgrades_from = ca_knights_2
 		trigger = { TECH_CAVALRY = 2 }
-		gold_cost = 400
-		build_time = 356
-		knights = 25
-		light_cavalry = 50
+		prestige_cost = 300
+		build_time = 90
+		knights = 100
 		ai_creation_factor = 95
 		extra_tech_building_start = 0.0
 		add_number_to_name = no		
-		tech_growth_modifier = 0.3
-		military_techpoints = 0.3
 	}
 	
 # Conditioned Knights (Level 3.C)
@@ -287,11 +233,9 @@ castle = {
 		}		
 		prerequisites = { ca_knights_3 }
 		trigger = { TECH_CAVALRY = 3 }
-		gold_cost = 250
-		build_time = 180
-		knights = 15
-		light_cavalry = 30	
-		garrison_size = 0.04
+		prestige_cost = 300
+		build_time = 90
+		light_infantry = 150
 		ai_creation_factor = 97
 		extra_tech_building_start = 0.0
 		add_number_to_name = no		
@@ -303,16 +247,14 @@ castle = {
 	ca_militia_1 = {	
 		desc = ca_militia_1_desc
 		trigger = { TECH_LIGHT_INFANTRY = 0 }
-		gold_cost = 10
-		build_time = 7
-		light_infantry = 1
+		gold_cost = 150
+		build_time = 30
+		light_infantry = 25
 		garrison_size = 0.01
 		ai_creation_factor = 99
 		extra_tech_building_start = 0.0
 		# Helps Masquerade
 		add_number_to_name = no
-		tech_growth_modifier = 0.1
-		military_techpoints = 0.1
 	}
 
 # Influenced Militia Sergeant (Level 2)	
@@ -320,17 +262,14 @@ castle = {
 		desc = ca_militia_2_desc
 		upgrades_from = ca_militia_1
 		trigger = { TECH_LIGHT_INFANTRY = 1 }
-		gold_cost = 50
-		build_time = 30
-		light_infantry = 10
-		archers = 5
+		prestige_cost = 150
+		build_time = 60
+		light_infantry = 50
 		garrison_size = 0.02
 		ai_creation_factor = 98
 		extra_tech_building_start = 0.0
 		# Helps Masquerade
 		add_number_to_name = no
-		tech_growth_modifier = 0.2
-		military_techpoints = 0.02
 	}	
 
 # Ghouled Militia Commander (Level 2.G)
@@ -343,17 +282,14 @@ castle = {
 		}		
 		prerequisites = { ca_militia_2 }
 		trigger = { TECH_LIGHT_INFANTRY = 1 }
-		gold_cost = 10
-		build_time = 7
-		archers = 10
-		light_infantry = 20	
+		piety_cost = 300
+		build_time = 60
+		light_infantry = 100
 		garrison_size = 0.03		
 		ai_creation_factor = 96
 		extra_tech_building_start = 0.0
 		# -1 province blood for ghoul
 		add_number_to_name = no		
-		tech_growth_modifier = 0.3
-		military_techpoints = 0.3
 	}	
 	
 # Controlled Militia(Level 3)	
@@ -361,17 +297,14 @@ castle = {
 		desc = ca_militia_3_desc
 		upgrades_from = ca_militia_2
 		trigger = { TECH_LIGHT_INFANTRY = 2 }
-		gold_cost = 400
-		build_time = 356
-		light_infantry = 50
-		archers = 25 
+		prestige_cost = 300
+		build_time = 90
+		light_infantry = 100
 		garrison_size = 0.03
 		ai_creation_factor = 95
 		extra_tech_building_start = 0.0
 		# Helps Masquerade
 		add_number_to_name = no		
-		tech_growth_modifier = 0.3
-		military_techpoints = 0.3
 	}
 	
 # Conditioned Militia (Level 3.C)
@@ -387,11 +320,9 @@ castle = {
 		}		
 		prerequisites = { ca_militia_3 }
 		trigger = { TECH_LIGHT_INFANTRY = 3 }
-		gold_cost = 250
-		build_time = 180
-		archers = 10
-		#garrison_size = 0.02		
-		light_infantry = 20
+		prestige_cost = 300
+		build_time = 90	
+		light_infantry = 150
 		ai_creation_factor = 97
 		extra_tech_building_start = 0.0
 		add_number_to_name = no		
@@ -403,15 +334,13 @@ castle = {
 	ca_inn_1 = {	
 		desc = ca_inn_1_desc
 		trigger = { TECH_CITY_CONSTRUCTION = 0 }
-		gold_cost = 9
-		build_time = 7
-		light_infantry = 1
-		ai_creation_factor = 99
+		gold_cost = 150
+		build_time = 30
+		monthly_character_prestige = 0.2
+		ai_creation_factor = 80
 		extra_tech_building_start = 0.0
 		# +1 province blood
 		add_number_to_name = no		
-		tech_growth_modifier = 0.1
-		economy_techpoints = 0.1
 	}
 
 # Influenced Cook (Level 2)	
@@ -419,16 +348,13 @@ castle = {
 		desc = ca_inn_2_desc
 		upgrades_from = ca_inn_1
 		trigger = { TECH_CITY_CONSTRUCTION = 1 }
-		gold_cost = 50
-		build_time = 30
-		tax_income = 2
-		light_infantry = 3
-		ai_creation_factor = 98
+		prestige_cost = 150
+		build_time = 60
+		monthly_character_prestige = 0.4
+		ai_creation_factor = 85
 		extra_tech_building_start = 0.0
 		# +4 province blood
-		add_number_to_name = no	
-		tech_growth_modifier = 0.2
-		economy_techpoints = 0.2		
+		add_number_to_name = no		
 	}	
 
 # Ghouled Inkeeper (Level 2.G)
@@ -441,16 +367,13 @@ castle = {
 		}		
 		prerequisites = { ca_inn_2 }
 		trigger = { TECH_CITY_CONSTRUCTION = 1 }
-		gold_cost = 10
-		build_time = 7
-		tax_income = 3
-		light_infantry = 3
-		ai_creation_factor = 96
+		piety_cost = 300
+		build_time = 60
+		monthly_character_prestige = 0.5
+		ai_creation_factor = 95
 		extra_tech_building_start = 0.0
 		# +8 province blood (+9 province blood, -1 for ghoul)
-		add_number_to_name = no		
-		tech_growth_modifier = 0.3
-		economy_techpoints = 0.3		
+		add_number_to_name = no			
 	}	
 	
 # Controlled Inn (Level 3)	
@@ -458,17 +381,13 @@ castle = {
 		desc = ca_inn_3_desc
 		upgrades_from = ca_inn_2
 		trigger = { TECH_CITY_CONSTRUCTION = 2 }
-		gold_cost = 400
-		build_time = 356
-		tax_income = 3
-		light_infantry = 5
-		ai_creation_factor = 95
+		prestige_cost = 300
+		build_time = 90
+		monthly_character_prestige = 0.5
+		ai_creation_factor = 90
 		extra_tech_building_start = 0.0
 		# +9 province blood
-		add_number_to_name = no	
-		retinuesize = 1.2		
-		tech_growth_modifier = 0.3
-		economy_techpoints = 0.3		
+		add_number_to_name = no		
 	}
 	
 # Conditioned Inn (Level 3.C)
@@ -484,10 +403,9 @@ castle = {
 		}		
 		prerequisites = { ca_inn_3 }
 		trigger = { TECH_TRADE_PRACTICES = 3 }
-		gold_cost = 250
-		build_time = 180
-		tax_income = 3
-		light_infantry = 3
+		prestige_cost = 300
+		build_time = 90
+		light_infantry = 150
 		ai_creation_factor = 97
 		extra_tech_building_start = 0.0
 		# +8 province blood 
@@ -501,16 +419,13 @@ castle = {
 		desc = ca_smuggler_1_desc
 		trigger = { TECH_NAVAL = 0 }
 		port = yes
-		gold_cost = 9
-		build_time = 7
-		light_infantry = 1
+		gold_cost = 150
+		build_time = 30
 		galleys = 1
-		tax_income = 0.5
+		tax_income = 0.2
 		ai_creation_factor = 80
 		extra_tech_building_start = 0.0
-		add_number_to_name = no
-		tech_growth_modifier = 0.1
-		economy_techpoints = 0.1		
+		add_number_to_name = no	
 	}
 
 # Influenced Smuggler Ring (Level 2)	
@@ -519,17 +434,14 @@ castle = {
 		upgrades_from = ca_smuggler_1
 		trigger = { TECH_NAVAL = 1 }
 		port = yes
-		gold_cost = 50
-		build_time = 30
+		prestige_cost = 300
+		build_time = 60
 		galleys = 5
-		tax_income = 1
-		light_infantry = 5
+		tax_income = 0.2
 		ai_creation_factor = 79
 		extra_tech_building_start = 0.0
 		# +4 province blood
-		add_number_to_name = no		
-		tech_growth_modifier = 0.2
-		economy_techpoints = 0.2		
+		add_number_to_name = no				
 	}	
 
 # Ghouled Pirate Lord (Level 2.G)
@@ -543,11 +455,10 @@ castle = {
 		prerequisites = { ca_smuggler_2 }
 		trigger = { TECH_NAVAL = 1 }
 		port = yes
-		gold_cost = 10
-		build_time = 7
-		tax_income = 3
-		light_infantry = 10
+		piety_cost = 300
+		build_time = 60
 		galleys = 10
+		tax_income = 0.3
 		ai_creation_factor = 77
 		extra_tech_building_start = 0.0
 		# -1 province blood for ghoul		
@@ -562,16 +473,13 @@ castle = {
 		upgrades_from = ca_smuggler_2
 		trigger = { TECH_NAVAL = 2 }
 		port = yes
-		gold_cost = 400
-		build_time = 356
-		tax_income = 3
-		light_infantry = 10
+		prestige_cost = 300
+		build_time = 90
 		galleys = 10
+		tax_income = 0.3
 		ai_creation_factor = 76
 		extra_tech_building_start = 0.0
-		add_number_to_name = no		
-		tech_growth_modifier = 0.3
-		economy_techpoints = 0.3		
+		add_number_to_name = no				
 	}
 
 	
@@ -589,11 +497,10 @@ castle = {
 		prerequisites = { ca_smuggler_3 }
 		trigger = { TECH_NAVAL = 3 }
 		port = yes
-		gold_cost = 250
-		build_time = 180
-		tax_income = 3
-		light_infantry = 9
-		galleys = 9
+		prestige_cost = 300
+		build_time = 90
+		galleys = 5
+		light_infantry = 50
 		ai_creation_factor = 78		
 		extra_tech_building_start = 0.0
 		add_number_to_name = no		
@@ -605,16 +512,12 @@ castle = {
 	ca_bandits_1 = {	
 		desc = ca_bandits_1_desc
 		trigger = { TECH_TRADE_PRACTICES = 0 }
-		gold_cost = 10
-		build_time = 7
-		light_cavalry = 1
-		tax_income = 0.5
-		tech_growth_modifier = 0.1
+		gold_cost = 150
+		build_time = 30
+		light_cavalry = 50
 		ai_creation_factor = 99
 		extra_tech_building_start = 0.0
-		add_number_to_name = no
-		tech_growth_modifier = 0.1
-		economy_techpoints = 0.1		
+		add_number_to_name = no		
 	}
 
 # Influenced Bandit Lieutenant (Level 2)	
@@ -622,17 +525,13 @@ castle = {
 		desc = ca_bandits_2_desc
 		upgrades_from = ca_bandits_1
 		trigger = { TECH_TRADE_PRACTICES = 1 }
-		gold_cost = 50
-		build_time = 30
-		tax_income = 2
-		tech_growth_modifier = 0.3
-		economy_techpoints = 0.04		
-		light_cavalry = 5
+		prestige_cost = 300
+		build_time = 60
+		light_cavalry = 75
 		ai_creation_factor = 98
 		extra_tech_building_start = 0.0
 		add_number_to_name = no
-		tech_growth_modifier = 0.2
-		economy_techpoints = 0.2		
+	
 	}	
 
 # Ghouled Bandits Boss (Level 2.G)
@@ -645,18 +544,13 @@ castle = {
 		}		
 		prerequisites = { ca_bandits_2 }
 		trigger = { TECH_TRADE_PRACTICES = 1 }
-		gold_cost = 10
-		build_time = 7
-		light_cavalry = 25
-		tax_income = 3		
-		tech_growth_modifier = 0.3
-		economy_techpoints = 0.04				
+		piety_cost = 300
+		build_time = 90
+		light_cavalry = 100		
 		ai_creation_factor = 96
 		extra_tech_building_start = 0.0
 		# -1 province blood for ghoul
-		add_number_to_name = no	
-		tech_growth_modifier = 0.3
-		economy_techpoints = 0.3		
+		add_number_to_name = no			
 	}	
 	
 # Controlled Bandits(Level 3)	
@@ -664,17 +558,12 @@ castle = {
 		desc = ca_bandits_3_desc
 		upgrades_from = ca_bandits_2
 		trigger = { TECH_TRADE_PRACTICES = 2 }
-		gold_cost = 400
-		build_time = 356
-		tax_income = 3
-		tech_growth_modifier = 0.3
-		economy_techpoints = 0.04				
-		light_cavalry = 50
+		prestige_cost = 300
+		build_time = 90
+		light_cavalry = 100
 		ai_creation_factor = 95
 		extra_tech_building_start = 0.0
-		add_number_to_name = no	
-		tech_growth_modifier = 0.3
-		economy_techpoints = 0.3		
+		add_number_to_name = no		
 	}
 	
 # Conditioned Bandits (Level 3.C)
@@ -690,12 +579,9 @@ castle = {
 		}		
 		prerequisites = { ca_bandits_3 }
 		trigger = { TECH_TRADE_PRACTICES = 3 }
-		gold_cost = 250
-		build_time = 180
-		tax_income = 3
-		tech_growth_modifier = 0.2
-		economy_techpoints = 0.3				
-		light_cavalry = 25	
+		prestige_cost = 300
+		build_time = 90
+		light_infantry = 150
 		#garrison_size = 0.04
 		ai_creation_factor = 97
 		extra_tech_building_start = 0.0
@@ -711,16 +597,14 @@ castle = {
 			}
 		}		
 		trigger = { TECH_NOBLE_CUSTOMS = 3 }
-		gold_cost = 75
-		build_time = 365
+		gold_cost = 350
+		build_time = 90
 		ai_creation_factor = 80
-		diplomacy = 3
+		diplomacy = 1
 		retinuesize = 1.2
-		monthly_character_prestige = 0.50
+		monthly_character_prestige = 0.2
 		extra_tech_building_start = 0.0
-		add_number_to_name = no		
-		tech_growth_modifier = 0.3
-		culture_techpoints = 0.3		
+		add_number_to_name = no			
 	}
 	
 	# Nosferatu Warrens
@@ -733,12 +617,12 @@ castle = {
 			}
 		}		
 		trigger = { TECH_CONSTRUCTION = 3 }
-		gold_cost = 75
-		build_time = 365
+		gold_cost = 350
+		build_time = 90
 		ai_creation_factor = 80
-		fort_level = 0.2		
+		fort_level = 0.5	
+		retinuesize = 1.2
 		intrigue = 1
-		mass_nosferatu = 5
 		extra_tech_building_start = 0.0
 		add_number_to_name = no		
 		tech_growth_modifier = 0.1
@@ -761,10 +645,10 @@ castle = {
 			}
 		}		
 		trigger = { TECH_RECRUITMENT = 3 }
-		gold_cost = 75
-		build_time = 365
-		ai_creation_factor = 80
-		fort_level = 0.2
+		gold_cost = 350
+		build_time = 90
+		ai_creation_factor = 99
+		light_cavalry = 150
 		extra_tech_building_start = 0.0
 		add_number_to_name = no		
 	}		
@@ -780,14 +664,13 @@ castle = {
 			}
 		}		
 		trigger = { TECH_LIGHT_INFANTRY = 0 }
-		gold_cost = 10
-		build_time = 7
-		mass_kinfolk = 1
+		gold_cost = 150
+		build_time = 60
+		mass_kinfolk = 10
 		ai_creation_factor = 99
 		extra_tech_building_start = 0.0
 		# Helps Masquerade
 		add_number_to_name = no
-		tech_growth_modifier = 0.1
 		culture_techpoints = 0.1		
 	}
 
@@ -801,15 +684,14 @@ castle = {
 		}		
 		upgrades_from = ca_Kinfolk_1
 		trigger = { TECH_LIGHT_INFANTRY = 1 }
-		gold_cost = 50
-		build_time = 30
-		mass_kinfolk = 5
+		prestige_cost = 150
+		build_time = 60
+		mass_kinfolk = 25
 		ai_creation_factor = 98
 		extra_tech_building_start = 0.0
 		# Helps Masquerade
 		add_number_to_name = no
-		tech_growth_modifier = 0.2
-		culture_techpoints = 0.2		
+		culture_techpoints = 0.2			
 	}	
 
 # Kinfolk Werewolf Cult (Level 2.G)
@@ -822,16 +704,14 @@ castle = {
 		}		
 		prerequisites = { ca_Kinfolk_2 }
 		trigger = { TECH_LIGHT_INFANTRY = 1 }
-		gold_cost = 10
-		build_time = 30
-		mass_kinfolk = 10	
-		retinuesize = 1.2
+		piety_cost = 300
+		build_time = 60
+		mass_kinfolk = 100			
 		ai_creation_factor = 96
 		extra_tech_building_start = 0.0
 		# -1 province blood for ghoul
-		add_number_to_name = no		
-		tech_growth_modifier = 0.3
-		culture_techpoints = 0.3		
+		add_number_to_name = no	
+		culture_techpoints = 0.3	
 	}	
 	
 # Controlled Kinfolk(Level 3)	
@@ -844,14 +724,13 @@ castle = {
 		}		
 		upgrades_from = ca_Kinfolk_2
 		trigger = { TECH_LIGHT_INFANTRY = 2 }
-		gold_cost = 400
-		build_time = 356
-		mass_kinfolk = 25 
+		prestige_cost = 300
+		build_time = 90
+		mass_kinfolk = 100
 		ai_creation_factor = 95
 		extra_tech_building_start = 0.0
 		# Helps Masquerade
-		add_number_to_name = no		
-		tech_growth_modifier = 0.3
+		add_number_to_name = no	
 		culture_techpoints = 0.3		
 	}
 	
@@ -867,9 +746,9 @@ castle = {
 		}		
 		prerequisites = { ca_Kinfolk_3 }
 		trigger = { TECH_LIGHT_INFANTRY = 3 }
-		gold_cost = 250
-		build_time = 180
-		mass_kinfolk = 20
+		prestige_cost = 300
+		build_time = 90
+		light_infantry = 150
 		ai_creation_factor = 97
 		extra_tech_building_start = 0.0
 		add_number_to_name = no		
