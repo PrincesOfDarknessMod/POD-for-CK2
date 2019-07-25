@@ -1351,6 +1351,9 @@ can_be_spiritual_trigger = {
 		trait = faqih
 		trait = malkavian
 		trait = malkavianantitribu
+		trait = cappadocian
+		trait = baali
+		trait = auspex_1
 		trait = auspex_2
 		trait = auspex_3
 		trait = auspex_4
@@ -2961,6 +2964,14 @@ is_devil_worshiper_trigger = {
 	}
 }
 
+has_positive_congenital_trigger = {
+	OR = {
+		trait = strong
+		trait = fair
+		trait = quick
+		trait = genius
+	}
+}
 has_negative_congenital_trigger = {
 	OR = {
 		trait = ugly
@@ -4013,6 +4024,23 @@ higher_society_rank_than_prev_trigger = {
 		}
 		AND = {
 			PREV = { society_rank == 3 }
+			society_rank > 3
+		}
+	}
+}
+
+higher_society_rank_than_root_trigger = {
+	OR = {
+		AND = {
+			ROOT = { society_rank == 1 }
+			society_rank > 1
+		}
+		AND = {
+			ROOT = { society_rank == 2 }
+			society_rank > 2
+		}
+		AND = {
+			ROOT = { society_rank == 3 }
 			society_rank > 3
 		}
 	}
@@ -5980,6 +6008,7 @@ religion_openly_norse_or_reformed_trigger = {
 				religion = norse_pagan_reformed
 				religion = get_of_fenris
 				religion = einherjar
+				religion = aesir
 			}
 		}
 	}
@@ -6564,6 +6593,9 @@ silk_road_trade_post_trigger = {
 }
 
 is_any_kinslayer_trigger = {
+	NOT = {
+		trait = vampire
+		}
 	OR = {
 		trait = kinslayer
 		trait = familial_kinslayer
@@ -6933,6 +6965,53 @@ current_scope_and_root_make_sense_as_rivals_trigger = {
 	root_potentially_interested_in_rivaling_this_trigger = yes
 }
 
+#checks whether the current scope has one of the following opinion modifiers against PREV
+this_has_friendly_opinion_modifier_of_prev_trigger = {
+	OR = {
+		has_opinion_modifier = { who = PREV modifier = opinion_budding_friendship }
+		has_opinion_modifier = { who = PREV modifier = opinion_was_praised }
+		has_opinion_modifier = { who = PREV modifier = opinion_charmed }
+		has_opinion_modifier = { who = PREV modifier = opinion_honorable }
+		has_opinion_modifier = { who = PREV modifier = opinion_was_rewarded }
+		has_opinion_modifier = { who = PREV modifier = nice_adventure }
+		has_opinion_modifier = { who = PREV modifier = great_adventure }
+		has_opinion_modifier = { who = PREV modifier = epic_adventure }
+		has_opinion_modifier = { who = PREV modifier = opinion_accomplice }
+		has_opinion_modifier = { who = PREV modifier = opinion_mediator }
+		has_opinion_modifier = { who = PREV modifier = opinion_poet_pen_pal }
+		has_opinion_modifier = { who = PREV modifier = opinion_calmed }
+		has_opinion_modifier = { who = PREV modifier = opinion_cheered_up }
+		has_opinion_modifier = { who = PREV modifier = opinion_teach_virtue }
+		has_opinion_modifier = { who = PREV modifier = opinion_no_cat }
+		has_opinion_modifier = { who = PREV modifier = opinion_feels_appreciated }
+		has_opinion_modifier = { who = PREV modifier = opinion_amused }
+		has_opinion_modifier = { who = PREV modifier = opinion_swayed_3 }
+	}
+}
+
+#checks whether PREV has one of the following opinion modifiers against the currently scoped character
+prev_has_friendly_opinion_modifier_of_this_trigger = {
+	OR = {
+		reverse_has_opinion_modifier = { who = PREV modifier = opinion_budding_friendship }
+		reverse_has_opinion_modifier = { who = PREV modifier = opinion_was_praised }
+		reverse_has_opinion_modifier = { who = PREV modifier = opinion_charmed }
+		reverse_has_opinion_modifier = { who = PREV modifier = opinion_honorable }
+		reverse_has_opinion_modifier = { who = PREV modifier = opinion_was_rewarded }
+		reverse_has_opinion_modifier = { who = PREV modifier = nice_adventure }
+		reverse_has_opinion_modifier = { who = PREV modifier = great_adventure }
+		reverse_has_opinion_modifier = { who = PREV modifier = epic_adventure }
+		reverse_has_opinion_modifier = { who = PREV modifier = opinion_accomplice }
+		reverse_has_opinion_modifier = { who = PREV modifier = opinion_mediator }
+		reverse_has_opinion_modifier = { who = PREV modifier = opinion_poet_pen_pal }
+		reverse_has_opinion_modifier = { who = PREV modifier = opinion_calmed }
+		reverse_has_opinion_modifier = { who = PREV modifier = opinion_cheered_up }
+		reverse_has_opinion_modifier = { who = PREV modifier = opinion_teach_virtue }
+		reverse_has_opinion_modifier = { who = PREV modifier = opinion_no_cat }
+		reverse_has_opinion_modifier = { who = PREV modifier = opinion_feels_appreciated }
+		reverse_has_opinion_modifier = { who = PREV modifier = opinion_amused }
+		reverse_has_opinion_modifier = { who = PREV modifier = opinion_swayed_3 }
+	}
+}
 
 #checks whether the current scope has one of the following opinion modifiers against ROOT
 this_has_friendly_opinion_modifier_of_root_trigger = {
@@ -7185,6 +7264,52 @@ root_has_terrible_opinion_modifier_of_this_extended_trigger = {
 	}
 }
 
+this_has_terrible_opinion_modifier_of_prev_extended_trigger = {
+	OR = {
+		#Personal grievances.
+
+		has_opinion_modifier = { who = PREV modifier = opinion_hate }
+		has_opinion_modifier = { who = PREV modifier = opinion_tortured_me }
+		has_opinion_modifier = { who = PREV modifier = opinion_mutilated_me }
+		has_opinion_modifier = { who = PREV modifier = opinion_imprisoned }
+		has_opinion_modifier = { who = PREV modifier = attempted_murder }
+
+		#Family grievances
+		has_opinion_modifier = { who = PREV modifier = opinion_tortured_family }
+		has_opinion_modifier = { who = PREV modifier = opinion_tortured_close_kin }
+		has_opinion_modifier = { who = PREV modifier = opinion_mutilated_family }
+		has_opinion_modifier = { who = PREV modifier = opinion_mutilated_close_kin }
+		has_opinion_modifier = { who = PREV modifier = opinion_executed_child }
+
+		has_opinion_modifier = { who = PREV modifier = attempted_murder_of_spouse }
+		has_opinion_modifier = { who = PREV modifier = attempted_murder_of_child }
+		has_opinion_modifier = { who = PREV modifier = attempted_murder_of_parent }
+		has_opinion_modifier = { who = PREV modifier = attempted_murder_of_sibling }
+	}
+}
+prev_has_terrible_opinion_modifier_of_this_extended_trigger = {
+	OR = {
+		#Personal grievances.
+
+		reverse_has_opinion_modifier = { who = PREV modifier = opinion_hate }
+		reverse_has_opinion_modifier = { who = PREV modifier = opinion_tortured_me }
+		reverse_has_opinion_modifier = { who = PREV modifier = opinion_mutilated_me }
+		reverse_has_opinion_modifier = { who = PREV modifier = opinion_imprisoned }
+		reverse_has_opinion_modifier = { who = PREV modifier = attempted_murder }
+
+		#Family grievances
+		reverse_has_opinion_modifier = { who = PREV modifier = opinion_tortured_family }
+		reverse_has_opinion_modifier = { who = PREV modifier = opinion_tortured_close_kin }
+		reverse_has_opinion_modifier = { who = PREV modifier = opinion_mutilated_family }
+		reverse_has_opinion_modifier = { who = PREV modifier = opinion_mutilated_close_kin }
+		reverse_has_opinion_modifier = { who = PREV modifier = opinion_executed_child }
+
+		reverse_has_opinion_modifier = { who = PREV modifier = attempted_murder_of_spouse }
+		reverse_has_opinion_modifier = { who = PREV modifier = attempted_murder_of_child }
+		reverse_has_opinion_modifier = { who = PREV modifier = attempted_murder_of_parent }
+		reverse_has_opinion_modifier = { who = PREV modifier = attempted_murder_of_sibling }
+	}
+}
 # Hardcoded trigger for Coronation alert. Only used (except where referenced in script) for that alert, on top of the "potential" for the coronation decision. If it does not exist, only the decision potential is used
 needs_coronation_trigger = {
 	age >= 16
@@ -7803,6 +7928,7 @@ this_has_lame_nickname_trigger = {
 		has_nickname = nick_the_fair
 		has_nickname = nick_the_hideous
 		has_nickname = nick_the_frog
+		has_nickname = nick_the_tenacious
 		has_nickname = nick_the_repulsive
 		has_nickname = nick_the_mad
 		has_nickname = nick_the_fat
@@ -7996,6 +8122,9 @@ this_has_average_nickname_trigger = {
 		has_nickname = nick_the_guide
 		has_nickname = nick_the_elder
 		has_nickname = nick_the_knight_of_turnips
+		has_nickname = nick_the_festive
+		has_nickname = nick_the_burden
+		has_nickname = nick_the_snake
 	}
 }
 this_has_cool_nickname_trigger = {

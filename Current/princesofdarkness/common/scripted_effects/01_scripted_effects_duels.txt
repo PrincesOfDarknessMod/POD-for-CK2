@@ -54,9 +54,40 @@ apply_degree_of_dishonorable_duel_effect = { #Needs to be run in the scope of th
 						has_disease_trigger = yes
 						poorly_treated_for_disease_trigger = yes #this should exclude lovers_pox (as it doesn't get treated)
 					}
+					AND = {
 					has_injury_trigger = yes #target has an injury (wounded, or severly injured)...
+	        			NOT = { trait = immortal }
+						NOT = { trait = vampire }
+						NOT = { trait = ghoul }
+						NOT = { trait = revenant }
+						NOT = { trait = sphere_life_3 }
+						NOT = { trait = sphere_life_4 }
+						NOT = { trait = sphere_life_5 }
+						NOT = { trait = mummy }
+						NOT = { trait = wraith }
+						NOT = { trait = spectre }
+						NOT = { trait = firstbornfae }
+						NOT = { trait = demon }
+						NOT = { trait = geist }
+						NOT = { trait = promethean }	
+						}					
+					AND = { 
 					has_severe_disability_trigger = yes #target has serious disability... (blind, mangled, etc)
-
+	        			NOT = { trait = immortal }
+						NOT = { trait = vampire }
+						NOT = { trait = ghoul }
+						NOT = { trait = revenant }
+						NOT = { trait = sphere_life_3 }
+						NOT = { trait = sphere_life_4 }
+						NOT = { trait = sphere_life_5 }
+						NOT = { trait = mummy }
+						NOT = { trait = wraith }
+						NOT = { trait = spectre }
+						NOT = { trait = firstbornfae }
+						NOT = { trait = demon }
+						NOT = { trait = geist }
+						NOT = { trait = promethean }	
+						}
 					AND = { #Target has any disease, and has not been treated/treated well for it, but is ALSO suffering from something from the medium category...
 						OR = {
 							character_disease_trigger = yes
