@@ -1,0 +1,222 @@
+spriteTypes = {
+	
+	# File contains vampire forms
+	
+### Vampire Zulo ###
+
+### 
+
+	portraitType = {
+		effectFile = "gfx/FX/portrait.lua"
+
+		name = "PORTRAIT_vampire_zulo_form_clothing"
+		
+		weight = {
+			additive_modifier = {
+				value = 10000			
+				portrait_age > child
+				portrait_clothing = yes					
+				portrait_has_trait = zulo_form
+			}
+		}
+		
+		layer = {			
+			"GFX_vampire_zulo_form_headgear_front:c5"
+		}
+		
+		allow_property_values = {}
+	}
+	
+	portraitType = {
+		effectFile = "gfx/FX/portrait.lua"
+
+		name = "PORTRAIT_vampire_beast_form_clothing"
+		
+		weight = {
+			additive_modifier = {
+				value = 10000			
+				portrait_age > child
+				portrait_clothing = yes					
+				portrait_has_trait = beast_form
+			}
+		}
+		
+		layer = {			
+			"GFX_vampire_beast_form_headgear_front:c5"
+		}
+		
+		allow_property_values = {
+				5 = {
+						0 = { 
+							OR = { 
+									portrait_culture_group = iberian
+									portrait_culture_group = celtic
+									portrait_culture_group = west_african
+									portrait_culture_group = east_african
+								}
+						}
+						1 = {
+							OR = { 
+									portrait_culture_group = east_slavic
+									portrait_culture_group = north_germanic
+									portrait_culture_group = finno_ugric								
+									}
+						}
+						2 = { 
+							OR = { 
+									portrait_culture_group = baltic
+									portrait_culture_group = west_slavic
+									portrait_culture_group = south_slavic
+									portrait_culture_group = altaic
+									portrait_culture_group = arabic
+									portrait_culture_group = iranian	
+									portrait_culture_group = arabic
+									}
+						}
+						3 = { 
+							OR = {
+									portrait_culture_group = west_germanic
+									portrait_culture_group = central_germanic
+									portrait_culture_group = latin
+									portrait_culture_group = israelite
+									}			
+						}			
+						4 = { 
+							OR = { 
+									portrait_culture_group = indo_aryan_group
+									portrait_culture_group = dravidian_group
+									}
+						}
+						5 = {  
+									NOT = { portrait_has_trait = vampire}
+						}
+				}
+		}
+	}
+
+
+	portraitType = {
+		effectFile = "gfx/FX/portrait.lua"
+
+		name = "PORTRAIT_vampire_blood_form"
+		
+		weight = {
+			additive_modifier = {
+				value = 10000			
+				portrait_age > child
+				portrait_clothing = yes					
+				portrait_has_trait = blood_form
+			}
+		}
+		
+		layer = {			
+			"GFX_vampire_blood_form_headgear_front:c5"
+		}
+		
+		allow_property_values = { }
+		
+		}
+
+	portraitType = {
+		effectFile = "gfx/FX/portrait.lua"
+
+		name = "PORTRAIT_vampire_shadow_form"
+		
+		weight = {
+			additive_modifier = {
+				value = 10000			
+				portrait_age > child
+				portrait_clothing = yes					
+				portrait_has_trait = shadow_form
+			}
+		}
+		
+		layer = {			
+			"GFX_vampire_shadow_form_headgear_front:c5"
+		}
+		
+		allow_property_values = { }
+		
+		}
+		
+	portraitType = {
+		effectFile = "gfx/FX/portrait.lua"
+
+		name = "PORTRAIT_vampire_mist_form"
+		
+		weight = {
+			additive_modifier = {
+				value = 10000			
+				portrait_age > child
+				portrait_clothing = yes					
+				portrait_has_trait = mist_form
+			}
+		}
+		
+		layer = {			
+			"GFX_vampire_mist_form_headgear_front:c5"
+		}
+		
+		allow_property_values = { }
+		
+		}
+	
+		portraitType = {
+		effectFile = "gfx/FX/portrait.lua"
+
+		name = "PORTRAIT_vampire_set_godform"
+		
+		weight = {
+			additive_modifier = {
+				value = 10000			
+				portrait_age > child
+				portrait_clothing = yes					
+				portrait_has_trait = set_godform
+			}
+		}
+		
+		layer = {			
+			"GFX_vampire_set_godform_headgear_front:c5"
+		}
+		
+		allow_property_values = { }
+		
+		}
+
+    spriteType = {
+        name = "GFX_vampire_mist_form_headgear_front"
+        textureFile = "gfx/characters/vampire_forms/vampire_mist_form_headgear_front.dds"
+        noOfFrames = 1
+    }
+	
+	spriteType = {
+        name = "GFX_vampire_shadow_form_headgear_front"
+        textureFile = "gfx/characters/vampire_forms/vampire_shadow_form_headgear_front.dds"
+        noOfFrames = 1
+    }
+		
+    spriteType = {
+        name = "GFX_vampire_blood_form_headgear_front"
+        textureFile = "gfx/characters/vampire_forms/vampire_blood_form_headgear_front.dds"
+        noOfFrames = 1
+    }	
+	
+    spriteType = {
+        name = "GFX_vampire_beast_form_headgear_front"
+        textureFile = "gfx/characters/vampire_forms/vampire_beast_form_headgear_front.dds"
+        noOfFrames = 6
+    }		
+	
+    spriteType = {
+        name = "GFX_vampire_zulo_form_headgear_front"
+        textureFile = "gfx/characters/vampire_forms/vampire_zulo_form_headgear_front.dds"
+        noOfFrames = 1
+    }	
+	spriteType = {
+        name = "GFX_vampire_set_godform_headgear_front"
+        textureFile = "gfx/characters/vampire_forms/vampire_set_godform_headgear_front.dds"
+        noOfFrames = 1
+    }
+	
+	
+}

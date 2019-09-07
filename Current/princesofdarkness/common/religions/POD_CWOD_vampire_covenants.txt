@@ -3016,7 +3016,7 @@ baali_group = {
 	
 	ai_peaceful = no # Will NOT make Hordes lose their super aggressiveness
 	
-		ai_convert_same_group = 0 # never try to convert
+		ai_convert_same_group = 2 # never try to convert
 		ai_convert_other_group = 2 # always try to convert	
 
 	male_names = {
@@ -3102,6 +3102,85 @@ baali = {
 		
 		can_demand_religious_conversion = yes
 	}
+	
+orderofmoloch = {
+		graphical_culture = westerngfx
+
+		icon = 60
+		heresy_icon = 60
+		
+		color = { 0.0 0.0 0.0 }
+		crusade_name = JYHAD
+		scripture_name = BOOK_OF_NOD
+		piety_name = LOYALTY
+		priest_title = ASHEN_PRIEST
+		high_god_name = BAAL
+		god_names = {
+			BAAL
+		}
+		evil_god_names = {
+			GOD_THE_ADVERSARY
+		}
+		
+		unit_modifier = {		
+			garrison_size = 0.3
+			levy_size = 0.1
+			
+			key = "DEF_RELIGION"
+		}
+		unit_home_modifier = {
+			land_morale = 0.8
+			light_infantry_defensive = 0.8
+			heavy_infantry_defensive = 0.8
+			pikemen_defensive = 0.8
+			light_cavalry_defensive = 0.8
+			knights_defensive = 0.8
+			archers_defensive = 0.8
+			horse_archers_defensive = 0.8
+			
+			garrison_size = 0.4
+			
+			key = "DEF_RELIGION_HOME_TERRITORY"
+		}
+		
+		priests_can_marry = yes
+		can_grant_divorce = yes
+		
+		priests_can_inherit = yes
+		
+		female_temple_holders = yes
+		feminist = yes      # Nullifies the negative opinion modifier that vassals normally get if ruler is female or has female heir
+
+		defensive_attrition = yes
+		allow_looting = yes
+		
+		max_consorts = 3
+		bs_marriage = yes
+		pc_marriage = yes
+		allow_rivermovement = yes
+		has_heir_designation = yes
+		attacking_same_religion_piety_loss = yes
+		hard_to_convert = yes
+		dynamic_cult = yes
+		secret_religion = yes
+		
+		independence_war_score_bonus = 30 # Overrides define CONTESTED_TITLE_OCCUPIED_WARSCORE_BONUS_INDEP
+		 
+		uses_decadence = yes
+
+		religious_clothing_head = 3
+		religious_clothing_priest = 3
+		
+		ai_convert_same_group = 2
+		ai_convert_other_group = 2  
+		
+		religious_clothing_head = 0
+		religious_clothing_priest = 1
+		
+		aggression = 2.0
+		
+		can_demand_religious_conversion = yes
+	}	
 	
 revenant_baali = {
 		graphical_culture = westerngfx

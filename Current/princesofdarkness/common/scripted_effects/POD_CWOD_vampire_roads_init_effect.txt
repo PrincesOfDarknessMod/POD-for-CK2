@@ -26,6 +26,7 @@ POD_CWOD_vampire_roads_init_effect = {
 					NOT = { religion = baali }
 					NOT = { religion = setite }
 					NOT = { religion = assamite }
+					NOT = { religion = orderofmoloch }
 				}	
 
 				if = { 
@@ -362,11 +363,28 @@ POD_CWOD_vampire_roads_init_effect = {
 				}
 			}
 			
+			if = { 
+				limit = { 
+					is_in_society = no
+					true_religion = orderofmoloch
+				}
+				if = { 
+					limit = { 
+						NOT = { religion = orderofmoloch }
+						is_in_society = no
+						secret_religion = orderofmoloch
+					}
+					random_list = {
+						75 = { join_society = secret_religious_cult }
+					}
+				}
+			}			
+			
 			
 # Baali			
 			if = { 
 				limit = {
-					true_religion = baali
+					true_religion = orderofmoloch
 					trait = baali
 					is_in_society = no
 						NOT = { 
@@ -381,6 +399,7 @@ POD_CWOD_vampire_roads_init_effect = {
 					join_society = via_hyron
 					}
 			}		
+
 
 
 # Setites
