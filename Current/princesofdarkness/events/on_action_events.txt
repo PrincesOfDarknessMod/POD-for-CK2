@@ -5871,3 +5871,74 @@ character_event = {
 		remove_trait = in_hiding
 	}
 }
+
+# Scripted default elective token setup
+character_event = {
+	id = 689
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	only_rulers = yes
+	
+	immediate = {
+		any_demesne_title = {
+			if = {
+				limit = {
+					has_law = succ_elective_gavelkind
+				}
+				elective_voting_rules = elective_gavelkind
+			}
+			else_if = {
+				limit = {
+					has_law = succ_tanistry
+				}
+				elective_voting_rules = tanistry
+			}
+			else_if = {
+				limit = {
+					has_law = succ_feudal_elective
+				}
+				elective_voting_rules = feudal_elective
+			}
+		}
+	}
+}
+
+character_event = {
+	id = 687
+	hide_window = yes
+	
+	is_triggered_only = yes
+
+	trigger = {
+		FROM = {
+			ai = no
+		}
+		is_shattered_world = yes
+		has_character_flag = great_conqueror
+	}
+	immediate = {
+		FROM = {
+			set_character_flag = achievement_not_so_great
+		}
+	}
+}
+
+character_event = {
+	id = 688
+	hide_window = yes
+	
+	is_triggered_only = yes
+
+	trigger = {
+		ai = no
+		is_shattered_world = yes
+		FROM = { 
+			has_character_flag = great_conqueror
+		}
+	}
+	immediate = {
+		set_character_flag = achievement_not_so_great
+	}
+}
