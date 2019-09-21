@@ -1,0 +1,44 @@
+decisions = {
+	remove_poor_stats_courtiers = {
+		
+		potential = {
+			ai = yes			# Affecte toutes les IA ayant une cour
+			is_ruler = yes
+		}
+		
+		allow = {				# Intervalle de un an avant de la refaire
+			OR = {
+				NOT = { has_character_flag = has_removed_courtiers }
+				had_character_flag = { flag = has_removed_courtiers days = 10 }
+			}
+		}
+		
+		effect = {
+			clr_flag = has_removed_courtiers
+			any_courtier = {					# Tous les courtisants...
+				limit = {
+					age = 16					# adulte
+					NOT = { intrigue = 18 } 	# qui n'a pas au moins 18 dans une stat
+					NOT = { diplomacy = 18 }
+					NOT = { learning = 18 }
+					NOT = { martial = 18 }
+					NOT = { stewardship = 18 }
+					NOT = { trait = canon }		# qui n'est pas canon
+					is_ruler = no 				# qui ne règne pas (les vassaux font partie de la cour)
+					#NOT = { has_strong_claim = no }	# qui n'a pas de revendication
+					is_councillor = no 			# qui ne sont pas conseillé
+					NOT = { dynasty = ROOT } 	# ni membre de la dynastie du dirigeant
+					NOT = { family = ROOT } 	# ni membre de sa famille
+					OR = {
+						spouse = { NOT = { dynasty = ROOT } } # ni apparenté à sa famille (par mariage d'un membre de la famille par exemple)
+						is_married = no
+					}
+				}
+				death = { death_reason = death_accident } # meurt d'un accident
+			}
+			set_character_flag = has_removed_courtiers 	# ajoute un modifier caché servant de décompte d'un an avant que la décision ne soit prise à nouveau pour enmpecher le spam
+		}
+
+		ai_will_do = { factor = 1 }	# l'ia fera toujours cette décision
+	}
+}
