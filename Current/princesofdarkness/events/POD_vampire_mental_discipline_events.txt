@@ -266,3 +266,526 @@ character_event = {
     }
 	
 }
+
+# Host notified of death by psychomachia (generic executions)
+character_event = {
+	id = POD_VAMPIRE_MENTAL_DISCIPLINE.10
+	desc = EVTDESC_POD_MENTAL_DISCIPLINE10
+	picture = GFX_evt_beheading
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_POD_VAMPIRE_MENTAL_DISCIPLINE10
+	}
+}
+
+# Killed by psychomachia (generic executions)
+character_event = {
+	id = POD_VAMPIRE_MENTAL_DISCIPLINE.11
+	desc = EVTDESC_POD_MENTAL_DISCIPLINE11
+	picture = GFX_evt_beheading
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_POD_VAMPIRE_MENTAL_DISCIPLINE11
+		death = {
+			death_reason = death_execution
+			killer = FROMFROM
+		}
+	}
+}
+
+#Permanency
+character_event = {
+	id = POD_VAMPIRE_MENTAL_DISCIPLINE.12
+	desc = EVTDESC_POD_MENTAL_DISCIPLINE12
+	picture = GFX_evt_meeting_hf
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_POD_VAMPIRE_MENTAL_DISCIPLINE12
+		wealth = -100
+		decadence = -15
+	}
+	option = {
+		name = EVTOPTB_POD_VAMPIRE_MENTAL_DISCIPLINE12
+		wealth = -250
+		decadence = -30
+	}
+	option = {
+		name = EVTOPTC_POD_VAMPIRE_MENTAL_DISCIPLINE12
+		wealth = -500
+		decadence = -50
+	}
+	option = {
+		name = EVTOPTD_POD_VAMPIRE_MENTAL_DISCIPLINE12
+		hidden_tooltip = {
+			remove_character_modifier = deflection_decision_cooldown
+		}
+		break = yes
+	}
+}
+
+#Anesthetic Touch
+character_event = {
+	id = POD_VAMPIRE_MENTAL_DISCIPLINE.13
+	desc = EVTDESC_POD_MENTAL_DISCIPLINE13
+	picture = { 
+		trigger = { 
+			has_dlc = "Way of Life"
+		} 
+		picture = GFX_evt_war_planning
+	}
+	picture = { 
+		trigger = { 
+			NOT = { has_dlc = "Way of Life" }
+		} 
+		picture = GFX_evt_council
+	}
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+
+	option = { 
+		name = EVTOPTA_POD_VAMPIRE_MENTAL_DISCIPLINE13
+		if = { 
+			limit = { 
+				OR = {
+					trait = salubri
+					martial = 15
+				} 
+			}
+			prestige = -300 
+		}
+		if = { 
+			limit = { 
+				NOR = {
+					trait = salubri
+					martial = 15
+				} 
+			}
+			prestige = -600
+		}
+		add_character_modifier = { name = infiltration_tactics years = 4 } 
+		ai_chance = { 
+			factor = 25 
+		}
+	}
+	option = { 
+		name = EVTOPTB_POD_VAMPIRE_MENTAL_DISCIPLINE13
+		if = { 
+			limit = { 
+				OR = {
+					trait = salubri
+					martial = 15
+				} 
+			}
+			prestige = -300 
+		}
+		if = { 
+			limit = { 
+				NOR = {
+					trait = salubri
+					martial = 15
+				} 
+			}
+			prestige = -600
+		}
+		add_character_modifier = { name = polished_formation years = 4 } 
+		ai_chance = { 
+			factor = 25 
+		}
+	}
+	option = { 
+		name = EVTOPTC_POD_VAMPIRE_MENTAL_DISCIPLINE13
+		if = { 
+			limit = { 
+				OR = {
+					trait = salubri
+					martial = 15
+				} 
+			}
+			prestige = -200 
+		}
+		if = { 
+			limit = { 
+				NOR = {
+					trait = salubri
+					martial = 15
+				} 
+			}
+			prestige = -400
+		}
+		add_character_modifier = { name = advanced_supply_lines years = 4 } 
+		ai_chance = { 
+			factor = 75
+		}
+	}
+	option = { #Changed my mind.
+		name = EVTOPTD_POD_VAMPIRE_MENTAL_DISCIPLINE13
+		hidden_tooltip = { remove_character_modifier = drill_troops_cooldown }
+		break = yes #No post effects if player changed his mind and picked Option C.
+		ai_chance = { 
+			factor = 0
+		}
+	}
+}
+
+#Majesty
+character_event = {
+	id = POD_VAMPIRE_MENTAL_DISCIPLINE.14
+	desc = EVTDESC_POD_MENTAL_DISCIPLINE14
+	picture = { 
+		trigger = { 
+			has_religion_feature = religion_matriarchal
+		} 
+		picture = GFX_evt_matriarchy_throne_room
+	}
+	picture = { 
+		trigger = { 
+			has_religion_feature = religion_patriarchal
+		} 
+		picture = GFX_evt_tengri_throneroom_oldgods
+	}
+	picture = { 
+		trigger = { 
+			NOR = { 
+				has_religion_feature = religion_matriarchal
+				has_religion_feature = religion_patriarchal
+			}
+		} 
+		picture = GFX_evt_fancy_feast
+	}
+	border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+
+	option = { #Endear neighbors.
+		name = EVTOPTA_POD_VAMPIRE_MENTAL_DISCIPLINE14
+		trigger = { 
+			any_neighbor_independent_ruler = { 
+				is_alive = yes
+				is_adult = yes
+			}
+		}
+		custom_tooltip = { text = TT_EVTOPTA_POD_VAMPIRE_MENTAL_DISCIPLINE14 }
+		if = { 
+			limit = { 
+				OR = {
+					is_attractive_trigger = yes
+					diplomacy = 15
+				} 
+			}
+			prestige = -300 
+		}
+		if = { 
+			limit = { 
+				NOR = {
+					is_attractive_trigger = yes
+					diplomacy = 15
+				} 
+			}
+			prestige = -600
+		}
+		hidden_tooltip = { 
+			random_neighbor_independent_ruler = { #Random infatuation
+				limit = { 
+					ai = yes
+					is_adult = yes 
+					NOR = { trait = celibate trait = eunuch is_rival = ROOT }
+					OR = {	
+						AND = {
+							ROOT = { is_female = no }
+							prefers_men_trigger = yes
+							NOT = { has_religion_feature = religion_matriarchal }
+						}
+						AND = {
+							ROOT = { is_female = yes }
+							prefers_men_trigger = no
+							NOT = { has_religion_feature = religion_patriarchal }
+						}
+					}
+				}
+				preferred_limit = {
+					trait = lustful
+				}
+				random = {
+					chance = 20
+					modifier = {
+						factor = 1.5
+						ROOT = { is_attractive_trigger = yes }
+					}
+					modifier = {
+						factor = 0.5
+						ROOT = { is_unattractive_trigger = yes }
+					}
+					modifier = {
+						factor = 0.5
+						ROOT = { age = 40 }
+					}
+					modifier = {
+						factor = 1.5
+						ROOT = { diplomacy = 8 }
+					}
+					modifier = {
+						factor = 1.5
+						ROOT = { diplomacy = 10 }
+					}
+					modifier = {
+						factor = 1.5
+						ROOT = { diplomacy = 12 }
+					}
+					modifier = {
+						factor = 1.5
+						ROOT = { diplomacy = 14 }
+					}
+					modifier = {
+						factor = 1.5
+						ROOT = { diplomacy = 16 }
+					}
+					opinion = { 
+						who = ROOT
+						modifier = opinion_infatuated
+						years = 8
+					}
+				}
+			}
+		}
+		ai_chance = { 
+			factor = 25 
+		}
+	}
+	option = { #Endear subjects.
+		name = EVTOPTB_POD_VAMPIRE_MENTAL_DISCIPLINE14
+		add_character_modifier = { name = endearing_peasants duration = 1460 }
+		if = { 
+			limit = { 
+				OR = {
+					is_attractive_trigger = yes
+					diplomacy = 15
+				} 
+			}
+			prestige = -200 
+		}
+		if = { 
+			limit = { 
+				NOR = {
+					is_attractive_trigger = yes
+					diplomacy = 15
+				} 
+			}
+			prestige = -400
+		}
+		ai_chance = { 
+			factor = 25 
+		}
+	}
+	option = { #Changed my mind.
+		name = EVTOPTC_POD_VAMPIRE_MENTAL_DISCIPLINE14
+		hidden_tooltip = { remove_character_modifier = endearing_noblemen_cooldown }
+		break = yes #No post effects if player changed his mind and picked Option C.
+		ai_chance = { 
+			factor = 0
+		}
+	}
+}
+
+#Telepathy
+character_event = {
+	id = POD_VAMPIRE_MENTAL_DISCIPLINE.15
+	desc = EVTDESC_POD_MENTAL_DISCIPLINE15
+	picture = { 
+		trigger = { 
+			has_dlc = "Mystics"
+		} 
+		picture = GFX_evt_catching_heretic
+	}
+	picture = { 
+		trigger = { 
+			NOT = { has_dlc = "Mystics" }
+		} 
+		picture = GFX_evt_beheading
+	}
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+
+	option = { 
+		name = EVTOPTA_POD_VAMPIRE_MENTAL_DISCIPLINE15
+		trigger = { intrigue = 18 }
+		tooltip_info = intrigue
+		custom_tooltip = { text = TT_EVTOPTA_POD_VAMPIRE_MENTAL_DISCIPLINE15 }
+		prestige = -450
+		hidden_tooltip = { 
+			any_vassal = { character_event = { id = HF.24145 days = 5 random = 10 } }
+		}
+		ai_chance = { 
+			factor = 25 
+		}
+	}
+	option = { 
+		name = EVTOPTB_POD_VAMPIRE_MENTAL_DISCIPLINE15
+		trigger = { intrigue = 14 }
+		tooltip_info = intrigue
+		custom_tooltip = { text = TT_EVTOPTB_POD_VAMPIRE_MENTAL_DISCIPLINE15 }
+		prestige = -350
+		hidden_tooltip = { 
+			any_vassal = { character_event = { id = HF.24146 days = 5 random = 10 } }
+		}
+		ai_chance = { 
+			factor = 25 
+		}
+	}
+	option = { 
+		name = EVTOPTC_POD_VAMPIRE_MENTAL_DISCIPLINE15
+		trigger = { intrigue = 10 }
+		tooltip_info = intrigue
+		custom_tooltip = { text = TT_EVTOPTC_POD_VAMPIRE_MENTAL_DISCIPLINE15 }
+		prestige = -250
+		hidden_tooltip = { 
+			any_vassal = { character_event = { id = HF.24147 days = 5 random = 10 } }
+		}
+		ai_chance = { 
+			factor = 25 
+		}
+	}
+	option = { 
+		name = EVTOPTD_POD_VAMPIRE_MENTAL_DISCIPLINE15
+		custom_tooltip = { text = TT_EVTOPTD_POD_VAMPIRE_MENTAL_DISCIPLINE15 }
+		hidden_tooltip = { 
+			any_vassal = { character_event = { id = HF.24148 days = 5 random = 10 } }
+		}
+		ai_chance = { 
+			factor = 25 
+		}
+	}
+	
+}
+
+# Blood Essence (Jailer's perspective)
+character_event = {
+	id = POD_VAMPIRE_MENTAL_DISCIPLINE.16
+	desc = EVTDESC_POD_MENTAL_DISCIPLINE16
+	picture = GFX_evt_pagan_blood_sacrifice
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+
+	
+	option = {
+		name = EVTOPTA_POD_VAMPIRE_MENTAL_DISCIPLINE16
+		prestige = 5
+	}
+
+	after = {
+		if = { 
+			limit = { FROM = { is_ruler = no } }
+			piety = 5
+		}
+		if = { 
+			limit = { FROM = { tier = BARON } }
+			piety = 15
+		}
+		if = { 
+			limit = { FROM = { tier = COUNT } }
+			piety = 30
+		}
+		if = { 
+			limit = { FROM = { tier = DUKE } }
+			piety = 75
+		}
+		if = { 
+			limit = { FROM = { tier = KING } }
+			piety = 150
+		}
+		if = { 
+			limit = { FROM = { tier = EMPEROR } }
+			piety = 250
+		}
+		#Bloodthirsty Bloodline bonus.
+		if = { 
+			limit = { 
+				FROM = { 
+					is_ruler = no 
+				} 
+				ROOT = { 
+					any_owned_bloodline = { 
+						has_bloodline_flag = bloodline_prestige_sacrifice
+					}
+				} 
+			}
+			prestige = 10
+		}
+		if = { 
+			limit = { 
+				FROM = { 
+					tier = BARON
+				} 
+				ROOT = { 
+					any_owned_bloodline = { 
+						has_bloodline_flag = bloodline_prestige_sacrifice
+					}
+				}
+			}
+			prestige = 30
+		}
+		if = { 
+			limit = { 
+				FROM = { 
+					tier = COUNT
+				} 
+				ROOT = { 
+					any_owned_bloodline = { 
+						has_bloodline_flag = bloodline_prestige_sacrifice
+					}
+				}
+			}
+			prestige = 60
+		}
+		if = { 
+			limit = { 
+				FROM = { 
+					tier = DUKE
+				} 
+				ROOT = { 
+					any_owned_bloodline = { 
+						has_bloodline_flag = bloodline_prestige_sacrifice
+					}
+				}
+			}
+			prestige = 150
+		}
+		if = { 
+			limit = { 
+				FROM = { 
+					tier = KING
+				} 
+				ROOT = { 
+					any_owned_bloodline = { 
+						has_bloodline_flag = bloodline_prestige_sacrifice
+					}
+				}
+			}
+			prestige = 300
+		}
+		if = { 
+			limit = { 
+				FROM = { 
+					tier = EMPEROR
+				} 
+				ROOT = { 
+					any_owned_bloodline = { 
+						has_bloodline_flag = bloodline_prestige_sacrifice
+					}
+				}
+			}
+			prestige = 500
+		}
+	}
+}

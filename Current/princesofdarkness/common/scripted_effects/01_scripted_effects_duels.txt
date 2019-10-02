@@ -23,20 +23,7 @@ apply_degree_of_dishonorable_duel_effect = { #Needs to be run in the scope of th
 	        	OR = {
 	        		AND = { #target is old (but not immortal)...
 	                	age = 80
-	        			NOT = { trait = immortal }
-						NOT = { trait = vampire }
-						NOT = { trait = ghoul }
-						NOT = { trait = revenant }
-						NOT = { trait = sphere_life_3 }
-						NOT = { trait = sphere_life_4 }
-						NOT = { trait = sphere_life_5 }
-						NOT = { trait = mummy }
-						NOT = { trait = wraith }
-						NOT = { trait = spectre }
-						NOT = { trait = firstbornfae }
-						NOT = { trait = demon }
-						NOT = { trait = geist }
-						NOT = { trait = promethean }
+						immortal = no
 	        		}
 	               	AND = { #target is a child, while attacker is adult...
 	               		is_adult = no
@@ -56,37 +43,11 @@ apply_degree_of_dishonorable_duel_effect = { #Needs to be run in the scope of th
 					}
 					AND = {
 					has_injury_trigger = yes #target has an injury (wounded, or severly injured)...
-	        			NOT = { trait = immortal }
-						NOT = { trait = vampire }
-						NOT = { trait = ghoul }
-						NOT = { trait = revenant }
-						NOT = { trait = sphere_life_3 }
-						NOT = { trait = sphere_life_4 }
-						NOT = { trait = sphere_life_5 }
-						NOT = { trait = mummy }
-						NOT = { trait = wraith }
-						NOT = { trait = spectre }
-						NOT = { trait = firstbornfae }
-						NOT = { trait = demon }
-						NOT = { trait = geist }
-						NOT = { trait = promethean }	
+					immortal = no
 						}					
 					AND = { 
 					has_severe_disability_trigger = yes #target has serious disability... (blind, mangled, etc)
-	        			NOT = { trait = immortal }
-						NOT = { trait = vampire }
-						NOT = { trait = ghoul }
-						NOT = { trait = revenant }
-						NOT = { trait = sphere_life_3 }
-						NOT = { trait = sphere_life_4 }
-						NOT = { trait = sphere_life_5 }
-						NOT = { trait = mummy }
-						NOT = { trait = wraith }
-						NOT = { trait = spectre }
-						NOT = { trait = firstbornfae }
-						NOT = { trait = demon }
-						NOT = { trait = geist }
-						NOT = { trait = promethean }	
+					immortal = no
 						}
 					AND = { #Target has any disease, and has not been treated/treated well for it, but is ALSO suffering from something from the medium category...
 						OR = {
@@ -100,9 +61,21 @@ apply_degree_of_dishonorable_duel_effect = { #Needs to be run in the scope of th
 						}
 						well_treated_for_disease_trigger = no
 						OR = {
-							age = 60 #target is old
-							is_maimed_trigger = yes #has a maimed trait
-							has_medium_disability_trigger = yes #limits the character to some extent
+							AND = {
+								immortal = no
+								
+								age = 60 #target is old
+							}
+							AND = {
+								immortal = no
+							
+								is_maimed_trigger = yes #has a maimed trait
+							}
+							AND = {
+								immortal = no
+							
+								has_medium_disability_trigger = yes #limits the character to some extent
+							}
 						}
 					}
 				}
@@ -135,8 +108,17 @@ apply_degree_of_dishonorable_duel_effect = { #Needs to be run in the scope of th
 	    else_if = {
 	        limit = {
 	      		OR = {
-	                age = 60 #target is old
-					has_medium_disability_trigger = yes #limits the character to some extent
+					AND = {
+						immortal = no
+					
+						age = 60 #target is old
+					}
+					
+					AND = {
+						immortal = no
+					
+						has_medium_disability_trigger = yes #limits the character to some extent
+					}
 					character_disease_trigger = yes #Target has a *serious* disease (disregarding treatments)
 					
 					AND = { #Target has any disease, and has not been treated/treated well for it, while ALSO suffering from something minor...
@@ -151,21 +133,17 @@ apply_degree_of_dishonorable_duel_effect = { #Needs to be run in the scope of th
 						}
 						well_treated_for_disease_trigger = no
 						OR = {
-							age = 50 #target is old
-							is_maimed_trigger = yes #has a maimed trait
-							NOT = { trait = vampire }
-							NOT = { trait = ghoul }
-							NOT = { trait = revenant }
-							NOT = { trait = sphere_life_3 }
-							NOT = { trait = sphere_life_4 }
-							NOT = { trait = sphere_life_5 }
-							NOT = { trait = mummy }
-							NOT = { trait = wraith }
-							NOT = { trait = spectre }
-							NOT = { trait = firstbornfae }
-							NOT = { trait = demon }
-							NOT = { trait = geist }
-							NOT = { trait = promethean }							
+							AND = {
+								immortal = no
+								
+								age = 50 #target is old
+							}
+							
+							AND = {
+								immortal = no
+								
+								is_maimed_trigger = yes #has a maimed trait
+							}
 						}
 					}
 				}
@@ -199,9 +177,21 @@ apply_degree_of_dishonorable_duel_effect = { #Needs to be run in the scope of th
 		else_if = {
 	        limit = {
 	            OR = {
-	                age = 50 #target is old...
-	                is_maimed_trigger = yes #has a maimed trait
-	                has_bruises_trigger = yes
+					AND = {
+						immortal = no
+						
+						age = 50 #target is old...
+					}
+					AND = {
+						immortal = no
+						
+						is_maimed_trigger = yes #has a maimed trait
+					}
+					AND = {
+						immortal = no
+					
+						has_bruises_trigger = yes
+					}
 				}
 	        }
 	        #effect
