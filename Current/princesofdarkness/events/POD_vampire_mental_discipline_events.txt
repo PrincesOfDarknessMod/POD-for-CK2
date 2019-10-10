@@ -789,3 +789,524 @@ character_event = {
 		}
 	}
 }
+
+
+#POWER: Enchanting Gaze
+#Notification for ruler who performs the power
+character_event = {
+	id = POD_VAMPIRE_MENTAL_DISCIPLINE.17
+	desc = EVTDESC_POD_MENTAL_DISCIPLINE17
+	picture = GFX_evt_hippodrome_byzantine
+	border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	notification = yes
+	
+	option = {
+		name = EXCELLENT
+	}
+}
+
+#Notification event for county owner if different from user
+character_event = {
+	id = POD_VAMPIRE_MENTAL_DISCIPLINE.18
+	desc = EVTDESC_POD_MENTAL_DISCIPLINE18
+	picture = GFX_evt_hippodrome_byzantine
+	border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = I_SEE
+	}
+}
+
+
+#POWER: Awe
+#Notification for ruler who performs the power
+character_event = {
+	id = POD_VAMPIRE_MENTAL_DISCIPLINE.19
+	desc = EVTDESC_POD_MENTAL_DISCIPLINE19
+	picture = GFX_evt_hippodrome_byzantine
+	border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	notification = yes
+	
+	option = {
+		name = EXCELLENT
+	}
+}
+
+#Notification event for county owner if different from user
+character_event = {
+	id = POD_VAMPIRE_MENTAL_DISCIPLINE.20
+	desc = EVTDESC_POD_MENTAL_DISCIPLINE20
+	picture = GFX_evt_hippodrome_byzantine
+	border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = I_SEE
+	}
+}
+
+## Power Auspex 2: Summon Commander
+character_event = {
+    id = POD_VAMPIRE_MENTAL_DISCIPLINE.21
+    desc = EVTDESC_POD_MENTAL_DISCIPLINE21
+    picture = { 
+        trigger = { event_target:invited_lodge_soldier = { society_member_of = warrior_lodge_tengri } }
+        picture = GFX_evt_eagle_warriors
+    }
+    picture = { 
+        trigger = { event_target:invited_lodge_soldier = { OR = { society_member_of = warrior_lodge_zun society_member_of = warrior_lodge_west_african } } }
+        picture = GFX_evt_sun_temple
+    }
+    picture = { 
+        trigger = { event_target:invited_lodge_soldier = { society_member_of = warrior_lodge_hellenic } }
+        picture = GFX_evt_hellenic_temple
+    }
+    picture = { 
+        trigger = { 
+            event_target:invited_lodge_soldier = { 
+                NOR = { 
+                    society_member_of = warrior_lodge_zun 
+                    society_member_of = warrior_lodge_west_african 
+                    society_member_of = warrior_lodge_tengri 
+                    society_member_of = warrior_lodge_hellenic 
+                } 
+            } 
+        }
+        picture = GFX_evt_viking_battle_oldgods
+    }
+
+    border = GFX_event_normal_frame_war
+
+    is_triggered_only = yes
+    
+	option = {
+		name = EVTOPTAPOD_VAMPIRE_MENTAL_DISCIPLINE.21
+		
+		trigger = {
+			OR = { 
+				NOT = { ROOT = { has_law = succ_byzantine_elective } }  #Either not Imperial...
+				NOT = { #...Or there are no valid vassal candidates that can be commanders.
+					any_vassal = { 
+						higher_real_tier_than = BARON
+						NOT = { 
+							primary_title = { temporary = yes } 
+						}
+						OR = {
+							AND = {
+								OR = {
+									male_can_hold_minor_title_trigger = yes
+									female_can_hold_minor_commander_title_trigger = yes
+								}
+								OR = {
+									NOT = { religion = hindu }
+									trait = kshatriya
+								}
+								is_adult = yes
+							}
+							has_character_flag = special_marshal
+						}
+				
+						prisoner = no
+						NOT = { trait = incapable }
+						NOT = { is_inaccessible_trigger = yes }
+						NOT = { has_character_flag = guru }
+						NOT = { has_character_modifier = refusing_to_lead }
+						NOR = {
+							has_job_title = job_chancellor
+							has_job_title = job_marshal
+							has_job_title = job_treasurer
+							has_job_title = job_spymaster
+							has_job_title = job_spiritual
+							has_minor_title = title_commander
+						}
+					} 
+				}
+			}
+			any_realm_character = {
+				NOT = {
+					higher_tier_than = BARON
+				}
+				liege = { character = ROOT }
+				has_minor_title = title_commander
+				NOT = {
+					martial = 10
+				}
+			}
+			OR = {
+				AND = {
+					tier = COUNT
+					any_realm_character = {
+						count = 2
+						liege = { character = ROOT }
+						has_minor_title = title_commander
+					}
+				}
+				AND = {
+					tier = DUKE
+					any_realm_character = {
+						count = 4
+						liege = { character = ROOT }
+						has_minor_title = title_commander
+					}
+				}
+				AND = {
+					tier = KING
+					is_nomadic = no
+					any_realm_character = {
+						count = 6
+						liege = { character = ROOT }
+						has_minor_title = title_commander
+					}
+				}
+				AND = {
+					tier = EMPEROR
+					is_nomadic = no
+					any_realm_character = {
+						count = 8
+						liege = { character = ROOT }
+						has_minor_title = title_commander
+					}
+				}
+				AND = {
+					tier = KING
+					is_nomadic = yes
+					any_realm_character = {
+						count = 2
+						liege = { character = ROOT }
+						has_minor_title = title_commander
+					}
+				}
+				AND = {
+					tier = EMPEROR
+					is_nomadic = yes
+					any_realm_character = {
+						count = 4
+						liege = { character = ROOT }
+						has_minor_title = title_commander
+					}
+				}
+			}
+		}
+		
+		random_realm_character = {
+			limit = {
+				NOT = {
+					higher_tier_than = BARON
+				}
+				liege = { character = ROOT }
+				has_minor_title = title_commander
+				NOT = {
+					martial = 12
+				}
+			}
+			opinion = {
+				modifier = insulted
+				who = ROOT
+				years = 2
+			}
+			remove_title = title_commander
+		}
+		
+		event_target:invited_lodge_soldier = {
+			show_scope_change = no
+			opinion = {
+				modifier = opinion_loyal_servant
+				who = ROOT
+				years = 100
+			}
+			give_minor_title = title_commander
+		}
+	}
+    option = {
+        name = EVTOPTBPOD_VAMPIRE_MENTAL_DISCIPLINE.21
+        trigger = {
+			OR = { 
+				NOT = { ROOT = { has_law = succ_byzantine_elective } }  #Either not Imperial...
+				NOT = { #...Or there are no valid vassal candidates that can be commanders.
+					any_vassal = { 
+						higher_real_tier_than = BARON
+						NOT = { 
+							primary_title = { temporary = yes } 
+						}
+						OR = {
+							AND = {
+								OR = {
+									male_can_hold_minor_title_trigger = yes
+									female_can_hold_minor_commander_title_trigger = yes
+								}
+								OR = {
+									NOT = { religion = hindu }
+									trait = kshatriya
+								}
+								is_adult = yes
+							}
+							has_character_flag = special_marshal
+						}
+				
+						prisoner = no
+						NOT = { trait = incapable }
+						NOT = { is_inaccessible_trigger = yes }
+						NOT = { has_character_flag = guru }
+						NOT = { has_character_modifier = refusing_to_lead }
+						NOR = {
+							has_job_title = job_chancellor
+							has_job_title = job_marshal
+							has_job_title = job_treasurer
+							has_job_title = job_spymaster
+							has_job_title = job_spiritual
+							has_minor_title = title_commander
+						}
+					} 
+				}
+			}
+            OR = {
+                AND = {
+                    tier = COUNT
+                    NOT = {
+                        any_realm_character = {
+                            count = 2
+                            liege = { character = ROOT }
+                            has_minor_title = title_commander
+                        }
+                    }
+                }
+                AND = {
+                    tier = DUKE
+                    NOT = {
+                        any_realm_character = {
+                            count = 4
+                            liege = { character = ROOT }
+                            has_minor_title = title_commander
+                        }
+                    }
+                }
+                AND = {
+                    tier = KING
+                    is_nomadic = no
+                    NOT = {
+                        any_realm_character = {
+                            count = 6
+                            liege = { character = ROOT }
+                            has_minor_title = title_commander
+                        }
+                    }
+                }
+                AND = {
+                    tier = EMPEROR
+                    is_nomadic = no
+                    NOT = {
+                        any_realm_character = {
+                            count = 8
+                            liege = { character = ROOT }
+                            has_minor_title = title_commander
+                        }
+                    }
+                }
+                AND = {
+                    tier = KING
+                    is_nomadic = yes
+                    NOT = {
+                        any_realm_character = {
+                            count = 2
+                            liege = { character = ROOT }
+                            has_minor_title = title_commander
+                        }
+                    }
+                }
+                AND = {
+                    tier = EMPEROR
+                    is_nomadic = yes
+                    NOT = {
+                        any_realm_character = {
+                            count = 4
+                            liege = { character = ROOT }
+                            has_minor_title = title_commander
+                        }
+                    }
+                }
+            }
+        }
+        
+        event_target:invited_lodge_soldier = {
+			show_scope_change = no
+            opinion = {
+                modifier = opinion_loyal_servant
+                who = ROOT
+                years = 100
+            }
+            give_minor_title = title_commander
+        }
+    }
+    option = {
+        name = EVTOPTCPOD_VAMPIRE_MENTAL_DISCIPLINE.21
+        event_target:invited_lodge_soldier = { 
+            show_scope_change = no
+            opinion = {
+                modifier = opinion_loyal_servant
+                who = ROOT
+                years = 100
+            }
+        }
+        ai_chance = {    
+            factor = 100
+        }
+    }
+}
+
+#Animalism II: Summon familiar
+character_event = {
+    id = POD_VAMPIRE_MENTAL_DISCIPLINE.22
+    desc = EVTDESC_POD_MENTAL_DISCIPLINE22
+	picture = GFX_evt_mysterious_forest
+	border = GFX_event_normal_frame_religion
+
+	is_triggered_only = yes
+
+	immediate = {
+		remove_character_modifier = cat_familiar
+		remove_character_modifier = raven_familiar
+		remove_character_modifier = owl_familiar
+		remove_character_modifier = wolf_familiar
+	}
+
+	#Intrigue (cat)
+	option = {
+		name = EVTOPTAPOD_VAMPIRE_MENTAL_DISCIPLINE.22
+
+		add_character_modifier = {
+			name = cat_familiar
+			duration = -1
+		}
+
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 3
+				has_education_intrigue_trigger = yes
+			}
+		}
+	}
+
+	#Martial (wolf)
+	option = {
+		name = EVTOPTBPOD_VAMPIRE_MENTAL_DISCIPLINE.22
+
+		add_character_modifier = {
+			name = wolf_familiar
+			duration = -1
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 3
+				has_education_martial_trigger = yes
+			}
+		}
+	}
+
+	#Owl (learning)
+	option = {
+		name = EVTOPTCPOD_VAMPIRE_MENTAL_DISCIPLINE.22
+
+		add_character_modifier = {
+			name = owl_familiar
+			duration = -1
+		}
+
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 3
+				has_education_learning_trigger = yes
+			}
+		}
+	}
+
+	#Raven familiar
+	option = {
+		name = EVTOPTDPOD_VAMPIRE_MENTAL_DISCIPLINE.22
+
+		add_character_modifier = {
+			name = raven_familiar
+			duration = -1
+		}
+
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 3
+				has_education_stewardship_trigger = yes
+			}
+		}
+	}
+}
+
+#Dagon's call
+character_event = {
+    id = POD_VAMPIRE_MENTAL_DISCIPLINE.23
+    desc = EVTDESC_POD_MENTAL_DISCIPLINE23
+	picture = GFX_evt_uncomfortable
+	border = GFX_event_normal_frame_intrigue
+
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAPOD_VAMPIRE_MENTAL_DISCIPLINE.23
+		tooltip = { FROMFROM  = { add_favor = ROOT } }
+		opinion = {
+			modifier = opinion_threatened_me
+			who = FROMFROM
+			years = 5
+		}
+		hidden_effect = { FROMFROM = { character_event = { id = POD_VAMPIRE_MENTAL_DISCIPLINE.24 } } }
+	}
+}
+
+character_event = {
+	id = POD_VAMPIRE_MENTAL_DISCIPLINE.24
+	desc = EVTDESC_POD_MENTAL_DISCIPLINE24
+	picture = GFX_evt_uncomfortable
+	border = GFX_event_normal_frame_intrigue
+
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAPOD_VAMPIRE_MENTAL_DISCIPLINE.24
+		tooltip = { add_favor = FROM }
+		tooltip = {
+			reverse_opinion = {
+				modifier = opinion_threatened_me
+				who = FROMFROM
+				years = 5
+			}
+		}
+	}
+}
+
+#Fail 
+character_event = {
+	id = POD_VAMPIRE_MENTAL_DISCIPLINE.25
+	desc = EVTDESC_POD_MENTAL_DISCIPLINE25
+	picture = GFX_evt_uncomfortable
+	border = GFX_event_normal_frame_intrigue
+
+	is_triggered_only = yes
+
+	option = {
+		name = CURSES
+		reverse_opinion = {
+			modifier = opinion_threatened_me
+			who = FROM
+			years = 5
+		}
+	}
+}

@@ -2461,5 +2461,659 @@ unburdening = {
 		}
 	}
 	
+aura_perception = {
+		filter = self
+		ai_target_filter = self
+		ai = no
+		only_playable = yes
+		
+		potential = {
+			is_playable = yes
+			character = FROM
+			prisoner = no
+			trait = vampire
+			OR = { 
+			trait = auspex_2
+			trait = auspex_3
+			trait = auspex_4
+			trait = auspex_5
+			}
+			NOT = { trait = torpor }
+			NOT = { trait = incapable }
+			NOT = { trait = wight }
+		}
+		
+		allow = {
+			prestige = 500
+		}
+		effect = {
+			prestige = -500
+			custom_tooltip = { text = tooltip_aura_perception_action }
+			hidden_tooltip = { 
+			if = { 
+				limit = { has_religion_feature = religion_matriarchal }
+				create_random_soldier = {
+					random_traits = yes
+					dynasty = random
+					female = yes
+					attributes = {
+						diplomacy = 4
+						learning = 4
+						stewardship = 4
+						intrigue = 4
+						martial = 14
+					}
+				}
+			}
+			if = { 
+				limit = { NOT = { has_religion_feature = religion_matriarchal } }
+				create_random_soldier = {
+					random_traits = yes
+					dynasty = random
+					female = no
+					attributes = {
+						diplomacy = 4
+						learning = 4
+						stewardship = 4
+						intrigue = 4
+						martial = 14
+					}
+				}
+			}
+			if = { 
+				limit = { 
+					NOR = { 
+						has_religion_feature = religion_matriarchal 
+						has_religion_feature = religion_patriarchal 
+					} 
+					has_game_rule = {
+						name = gender
+						value = all
+					}
+				}
+				create_random_soldier = {
+					random_traits = yes
+					dynasty = random
+					female = 50
+					attributes = {
+						diplomacy = 4
+						learning = 4
+						stewardship = 4
+						intrigue = 4
+						martial = 14
+					}
+				}
+			}
+			if = { 
+				limit = { 
+					NOR = { 
+						has_religion_feature = religion_matriarchal 
+						has_religion_feature = religion_patriarchal 
+						has_game_rule = {
+							name = gender
+							value = all
+						}
+					} 
+				}
+				create_random_soldier = {
+					random_traits = yes
+					dynasty = random
+					female = 5
+					attributes = {
+						diplomacy = 4
+						learning = 4
+						stewardship = 4
+						intrigue = 4
+						martial = 14
+					}
+				}
+			}
+			if = { 
+				limit = { has_religion_feature = religion_patriarchal }
+				create_random_soldier = {
+					random_traits = yes
+					dynasty = random
+					female = no
+					attributes = {
+						diplomacy = 4
+						learning = 4
+						stewardship = 4
+						intrigue = 4
+						martial = 14
+					}
+				}
+			}
+			}
+			new_character = {
+				remove_trait = weak
+				remove_trait = slow
+				remove_trait = imbecile
+				remove_trait = dull
+		
+				remove_trait = mystic
+				remove_trait = socializer
+				remove_trait = gamer
+				remove_trait = hedonist
+				remove_trait = duelist
+				remove_trait = hunter
+				remove_trait = strategist
+				remove_trait = administrator
+				remove_trait = architect
+				remove_trait = gardener
+				remove_trait = schemer
+				remove_trait = impaler
+				remove_trait = seducer
+				remove_trait = seductress
+				remove_trait = theologian
+				remove_trait = scholar
+				add_trait = mortal
+				if = { 
+					limit = { 
+						is_female = yes 
+						ROOT = { 
+							NOR = { 
+								has_religion_feature = religion_matriarchal 
+								has_religion_feature = religion_patriarchal 
+								has_game_rule = {
+									name = gender
+									value = all
+								}
+							} 
+						} 
+					}
+					set_character_flag = special_marshal
+				}
+		
+				random_list = { # Flavor Randomization
+					35 = { 
+						# Nothing
+					}
+					15 = {
+						change_martial = 2
+					}
+					10 = {
+						add_trait = robust
+					}
+					10 = {
+						add_trait = duelist
+					}
+					10 = {
+						add_trait = hunter
+					}
+					5 = {
+						add_trait = strategist
+					}
+					5 = {
+						change_martial = 4
+					}
+					5 = {
+						if = {
+							limit = {
+								has_dlc = "Reapers"
+							}
+							add_trait = one_eyed
+						}
+					}
+					5 = { 
+						add_trait = shrewd
+					}
+					3 = { 
+						add_trait = giant
+					}
+				}
+				set_character_flag = invited_lodge_soldier
+				set_character_flag = lodge_warrior_original_court_@ROOT
+                set_character_flag = no_court_invites
+				save_event_target_as = invited_lodge_soldier
+			}
+			character_event = { id = POD_VAMPIRE_MENTAL_DISCIPLINE.21 }
+		}
+		revoke_allowed = {
+			always = no
+		}
+	}
 	
+song_of_serenity = {
+		filter = self
+		ai_target_filter = self
+		ai = no
+		only_playable = yes
+		
+		potential = {
+			is_playable = yes
+			character = FROM
+			prisoner = no
+			trait = vampire
+			OR = { 
+			trait = animalism_3
+			trait = animalism_4
+			trait = animalism_5
+			}
+			NOT = { trait = torpor }
+			NOT = { trait = incapable }
+			NOT = { trait = wight }
+		}
+
+		allow = {
+			custom_tooltip = {
+				text = song_of_serenity_tooltip
+				NOT = { has_character_modifier = summon_familiar_cooldown }
+			}
+		}
+
+		effect = {
+			hidden_effect = {
+				add_character_modifier = {
+					name = summon_familiar_cooldown
+					years = 5
+					hidden = yes
+				}
+				character_event = { id = POD_VAMPIRE_MENTAL_DISCIPLINE.22 }
+			}
+		}
+
+		revoke_allowed = {
+			always = no
+		}
+		
+	}
+	
+mens_sana = {  
+		ai = no
+		only_playable = yes
+		
+		potential = {
+			NOT = { trait = incapable }
+			OR = {
+				same_realm = FROM
+				same_society_as = FROM
+			}
+			is_within_diplo_range = FROM
+			religion = FROM
+		}
+		
+		from_potential = {
+			is_playable = yes
+			prisoner = no
+			trait = vampire
+			OR = { 
+			trait = obeah_4
+			trait = obeah_5
+			}
+			NOT = { trait = torpor }
+			NOT = { trait = incapable }
+			NOT = { trait = wight }
+		}
+		
+		allow = {
+			FROM = {
+				prestige = 100
+				is_inaccessible_trigger = no
+				prisoner = no
+				in_command = no
+			}
+			is_inaccessible_trigger = no
+			prisoner = no
+			in_command = no
+			same_realm = FROM
+			OR = {
+				is_landed = yes
+				is_patrician = yes
+				is_close_relative = FROM
+			}
+			NOT = {
+				has_opinion_modifier = {	###opinion modifier 10yrs cooldown
+					who =  FROM
+					modifier = opinion_spiritual_guidance
+				}
+			}
+			custom_tooltip = {
+				text = spiritual_guidance_tooltip
+				OR ={
+					AND = {
+						trait = lustful
+						FROM = { NOT = { trait = lustful } }
+					}
+					AND = {
+						trait = gluttonous
+						FROM = { NOT = { trait = gluttonous } }
+					}
+					AND = {
+						trait = greedy
+						FROM = { NOT = { trait = greedy } }
+					}
+					AND = {
+						trait = slothful
+						FROM = { NOT = { trait = slothful } }
+					}
+					AND = {
+						trait = wroth
+						FROM = { NOT = { trait = wroth } }
+					}
+					AND = {
+						trait = envious
+						FROM = { NOT = { trait = envious } }
+					}
+					AND = {
+						trait = proud
+						FROM = { NOT = { trait = proud } }
+					}
+				}
+			}
+		}
+		
+		effect = {
+			FROM = {
+				prestige = 100
+			}
+			random_list = {				###Will randomly remove one sin that target has and you don't
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							NOT = { trait = lustful }
+							FROM = { trait = lustful }
+						}
+					}
+					set_character_flag = spiritual_guidance_lustful
+					remove_trait = lustful
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							NOT = { trait = gluttonous }
+							FROM = { trait = gluttonous }
+						}
+					}
+					set_character_flag = spiritual_guidance_gluttonous
+					remove_trait = gluttonous
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							NOT = { trait = greedy }
+							FROM = { trait = greedy }
+						}
+					}
+					set_character_flag = spiritual_guidance_greedy
+					remove_trait = greedy
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							NOT = { trait = slothful }
+							FROM = { trait = slothful }
+						}
+					}
+					set_character_flag = spiritual_guidance_slothful
+					remove_trait = slothful
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							NOT = { trait = wroth }
+							FROM = { trait = wroth }
+						}
+					}
+					set_character_flag = spiritual_guidance_wroth
+					remove_trait = wroth
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							NOT = { trait = envious }
+							FROM = { trait = envious }
+						}
+					}
+					set_character_flag = spiritual_guidance_envious
+					remove_trait = envious
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							NOT = { trait = proud }
+							FROM = { trait = proud }
+						}
+					}
+					set_character_flag = spiritual_guidance_proud
+					remove_trait = proud
+				}
+			}
+			opinion = {										###opinion mostly serves as a 10 years cooldown ; +5 Opinion
+				who = FROM
+				modifier = opinion_spiritual_guidance
+				months = 120
+			}
+			FROM = { character_event = { id = MNM.4950 } }
+			character_event = { id = MNM.4951 }
+		}
+		
+		revoke_allowed = {
+		always = no
+		}
+	}
+	
+dagons_call = {	
+		ai = no
+		only_playable = yes
+
+		from_potential = {
+			is_playable = yes
+			prisoner = no
+			trait = vampire
+			OR = { 
+			trait = quietus_3
+			trait = quietus_4
+			trait = quietus_5
+			}
+			NOT = { trait = torpor }
+			NOT = { trait = incapable }
+			NOT = { trait = wight }
+		}
+
+		potential = {
+			NOT = { character = FROM }
+			is_ruler = yes
+			OR = {
+				FROM = { ai = yes } # Only checks realm, so by definition in range
+				is_within_diplo_range = FROM
+			}
+		}
+
+		allow = {
+			FROM = {
+				prestige = 100
+				is_inaccessible_trigger = no
+				prisoner = no
+				in_command = no
+			}
+			ROOT = {
+				prisoner = no
+				is_inaccessible_trigger = no
+				NOT = { owes_favor_to = FROM }
+			}
+			NOT = {
+				has_opinion_modifier = {
+					modifier = opinion_threatened_me
+					who = FROM
+				}
+			}
+		}
+
+		effect = {
+			FROM = { prestige = -100 }
+
+			random_list = {
+				50 = {
+					hidden_effect = { character_event = { id = POD_VAMPIRE_MENTAL_DISCIPLINE.23 days = 1 } }
+					FROM = { add_favor = ROOT }
+				}
+				50 = {
+					modifier = { #Makes it even harder to threaten someone 2 steps above you
+						factor = 3
+						OR = {
+							AND = {
+								tier = EMPEROR
+								FROM = { lower_tier_than = KING }
+							}
+							AND = {
+								tier = KING
+								FROM = { tier = BARON }
+							}
+						}
+					}
+					modifier = { #Makes it harder to threaten someone above you
+						factor = 3
+						higher_tier_than = FROM
+					}
+					custom_tooltip = { text = assassins_scare_ruler_fail }
+					hidden_effect = { FROM = { character_event = { id = POD_VAMPIRE_MENTAL_DISCIPLINE.25 days = 1 } } }
+				}
+			}
+			
+		}
+	}
+}
+
+title_decisions = {
+
+	enchanting_gaze = {
+		only_playable = yes
+		ai_check_interval = 5
+		
+		from_potential = {
+			is_ruler = yes
+			is_playable = yes
+			prisoner = no
+			trait = vampire
+			OR = {
+			trait = serpentis_1
+			trait = serpentis_2
+			trait = serpentis_3
+			trait = serpentis_4
+			trait = serpentis_5
+			}
+			NOT = { trait = torpor }
+			NOT = { trait = incapable }
+			NOT = { trait = wight }
+		}
+		
+		potential = {
+			tier = COUNT
+			location = { NOT = { religion = FROM } }
+			holder_scope = {
+				OR = {
+					is_liege_or_above = FROM
+					character = FROM
+				}
+			}
+		}
+		
+		allow = {
+			FROM = {
+				piety = 50
+			}
+			location = {
+				NOT = { religion = FROM }
+				owner = { NOT = { religion = PREV } } 
+			}
+		}
+		
+		effect = {
+			FROM = {
+				piety = -50
+				hidden_tooltip = { character_event = { id = POD_VAMPIRE_MENTAL_DISCIPLINE.17 } }
+			}
+			location = {
+				religion = FROM
+				add_province_modifier = {
+					name = peasant_unrest
+					years = 2
+				}
+			}
+			hidden_tooltip = {
+				if = { # Notify county owner
+					limit = {
+						holder_scope = { NOT = { character = FROM } }
+					}
+					holder_scope = { character_event = { id = POD_VAMPIRE_MENTAL_DISCIPLINE.18 } }
+				}
+			}
+		}	
+	ai_will_do = {
+			factor = 1
+		}	
+	}
+	
+	awe = {
+		only_playable = yes
+		ai_check_interval = 300
+		ai = no
+		
+		from_potential = {
+			is_ruler = yes
+			is_playable = yes
+			prisoner = no
+			trait = vampire
+			OR = {
+			trait = majesty_1
+			trait = majesty_2
+			trait = majesty_3
+			trait = majesty_4
+			trait = majesty_5
+			}
+			NOT = { trait = torpor }
+			NOT = { trait = incapable }
+			NOT = { trait = wight }
+		}
+		
+		potential = {
+			tier = COUNT
+			location = { NOT = { culture = FROM } }
+			holder_scope = {
+				OR = {
+					is_liege_or_above = FROM
+					character = FROM
+				}
+			}
+		}
+		
+		allow = {
+			FROM = {
+				piety = 50
+			}
+			location = {
+				NOT = { culture = FROM }
+				owner = { NOT = { culture = PREV } } 
+			}
+		}
+		
+		effect = {
+			FROM = {
+				piety = -50
+				hidden_tooltip = { character_event = { id = POD_VAMPIRE_MENTAL_DISCIPLINE.19 } }
+			}
+			location = {
+				culture = FROM
+				add_province_modifier = {
+					name = peasant_unrest
+					years = 2
+				}
+			}
+			hidden_tooltip = {
+				if = { # Notify county owner
+					limit = {
+						holder_scope = { NOT = { character = FROM } }
+					}
+					holder_scope = { character_event = { id = POD_VAMPIRE_MENTAL_DISCIPLINE.20 } }
+				}
+			}
+		}	
+	}	
 }
