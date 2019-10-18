@@ -44,7 +44,7 @@ targeted_decisions = {
 	                is_female = yes
 	                OR = {
 	                    trait = brave
-	                    religion_group = pagan_group
+	                    trait = vampire
 	                    is_nomadic = yes
 	                    religion = buddhist
 	                    religion = bogomilist
@@ -349,7 +349,7 @@ targeted_decisions = {
 	                is_female = yes
 	                OR = {
 	                    trait = brave
-	                    religion_group = pagan_group
+	                    trait = vampire
 	                    is_nomadic = yes
 	                    religion = buddhist
 	                    religion = bogomilist
@@ -959,14 +959,13 @@ targeted_decisions = {
 			has_dlc = "Holy Fury"
 			is_playable = yes
 			is_adult = yes
-			society_member_of = warrior_lodge_bon
+			is_member_of_any_warrior_lodge_trigger = yes
 			society_rank = 1
 			NOT = { has_character_flag = using_toughness } #to stop you spamming the button
 		}
 		
 		allow = {
 			has_society_currency_minor_trigger = yes
-			has_religion_matching_joined_warrior_lodge_trigger = yes
 			custom_tooltip = {
 				text = not_already_using_toughness_tt
 				NOT = { has_character_flag = using_toughness }
@@ -1390,7 +1389,7 @@ society_decisions = {
 				remove_trait = slow
 				remove_trait = imbecile
 				remove_trait = dull
-		
+				add_trait = mortal
 				remove_trait = mystic
 				remove_trait = socializer
 				remove_trait = gamer

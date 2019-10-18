@@ -24,18 +24,6 @@
 # Upgrades are referred to as "features" in game
 # Scopes: ROOT is the character, FROM is the upgrade, FROMFROM the wonder, and FROMFROMFROM the province.
 
-upgrade_POD_template = {
-	picture = GFX_upgrade_icon_skulls	
-	potential = { }
-	allow = { }
-	active = { }
-	flags = { }
-	build_time = 24
-	gold_cost_flat = 450
-	gold_cost_ticking = 1
-	local_modifier = { }
-	owner_modifier = { }
-}
 
 ################### Available Upgrades ###########################
 
@@ -64,63 +52,6 @@ upgrade_POD_template = {
 # Generic upgrades....
 ##########################################
 
-upgrade_POD_spikes = {
-	picture = GFX_upgrade_icon_skulls
-
-	potential = { }
-	allow = { }
-	active = { }
-
-	flags = {
-		scary
-		is_plural
-	}
-	build_time = 24
-	gold_cost_flat = 450
-	gold_cost_ticking = 1
-	local_modifier = {
-		siege_defence = 0.05
-	}
-	owner_modifier = {
-		custom_modifier_text = execution_possible_modifier_tt
-	}
-	ai_will_do = {
-		factor = 0.5
-		modifier = {
-			factor = 3
-			trait = impaler
-		}
-		modifier = { #can the pope PLS stop building spikes?!
-			factor = 0
-			k_papal_state = {
-    			holder_scope = {
-    				character = THIS
-    			}
-    		}
-		}
-	}
-}
-
-upgrade_POD_hidden_room = {
-	#A hidden heaven
-	picture = GFX_upgrade_icon_key
-	potential = { }
-	allow = { }
-	active = { }
-
-	flags = {
-		room
-		is_singular
-		artifact_protection
-		secluded
-	}
-	build_time = 24
-	gold_cost_flat = 450
-	gold_cost_ticking = 1
-	owner_modifier = {
-		custom_modifier_text = less_likely_to_be_looted_modifier_tt
-	}
-}
 
 upgrade_POD_szlachta_barracks = {
 	picture = GFX_upgrade_icon_skulls	
@@ -148,7 +79,7 @@ upgrade_POD_lessen_kupalas_influence_1 = {
 	active = { }
 	flags = { }
 	build_time = 24
-	gold_cost_flat = 450
+	gold_cost_flat = 550
 	gold_cost_ticking = 1
 	local_modifier = { }
 	owner_modifier = { 
@@ -162,8 +93,8 @@ upgrade_POD_lessen_kupalas_influence_2 = {
 	allow = { has_wonder_upgrade = upgrade_POD_lessen_kupalas_influence_1 }
 	active = { has_wonder_upgrade = upgrade_POD_lessen_kupalas_influence_1 }
 	flags = { }
-	build_time = 24
-	gold_cost_flat = 600
+	build_time = 48
+	gold_cost_flat = 1000
 	gold_cost_ticking = 1
 	local_modifier = { }
 	owner_modifier = { 
@@ -177,8 +108,8 @@ upgrade_POD_lessen_kupalas_influence_3 = {
 	allow = { has_wonder_upgrade = upgrade_POD_lessen_kupalas_influence_2 }
 	active = { has_wonder_upgrade = upgrade_POD_lessen_kupalas_influence_2 }
 	flags = { }
-	build_time = 24
-	gold_cost_flat = 750
+	build_time = 72
+	gold_cost_flat = 1750
 	gold_cost_ticking = 1
 	local_modifier = { }
 	owner_modifier = { 
@@ -192,8 +123,8 @@ upgrade_POD_lessen_kupalas_influence_4 = {
 	allow = { has_wonder_upgrade = upgrade_POD_lessen_kupalas_influence_3 }
 	active = { has_wonder_upgrade = upgrade_POD_lessen_kupalas_influence_3 }
 	flags = { }
-	build_time = 24
-	gold_cost_flat = 900
+	build_time = 94
+	gold_cost_flat = 2900
 	gold_cost_ticking = 1
 	local_modifier = { }
 	owner_modifier = { 
@@ -224,6 +155,977 @@ upgrade_POD_set_statue = { #think giant snake statue
 	gold_cost_ticking = 1
 	owner_modifier = {
 		proud_opinion = 5
-		same_religion_opinion = 2
+		same_religion_opinion = 5
+	}
+}
+
+upgrade_POD_cultist_barracks = {	
+	picture = GFX_upgrade_icon_equipment	
+	potential = { }
+	allow = { 
+	FROMFROM = { wonder_stage = 2 }	
+	}
+	active = { }
+
+	flags = {
+		is_singular
+	}
+	build_time = 24
+	gold_cost_flat = 450
+	gold_cost_ticking = 1
+	owner_modifier = {		
+	}
+	local_modifier = {
+		heavy_infantry = 200
+	}
+}
+
+upgrade_hidden_tunnels = { 
+	picture = GFX_upgrade_icon_key
+	potential = { }
+	allow = { 
+	FROMFROM = { wonder_stage = 3 }	
+	}
+	active = { }
+
+	flags = {
+		is_plural
+	}
+	build_time = 36
+	gold_cost_flat = 550
+	gold_cost_ticking = 1
+	local_modifier = {
+		assassinate_chance_modifier = 0.05
+	}
+	owner_modifier = {
+		custom_modifier_text = hidden_passageways_modifier_tt
+		court_size_modifier = 2
+	}
+}
+
+upgrade_private_altar = { 
+	picture = GFX_upgrade_icon_roses_white
+
+	potential = {  }
+	allow = {
+		FROMFROM = { wonder_stage = 4 }	
+	}
+	active = { }
+
+	flags = {
+		holy
+		decorative
+		is_singular
+		secluded
+		religion_conversion_faster
+	}
+	build_time = 48
+	gold_cost_flat = 750
+	gold_cost_ticking = 1
+	local_modifier = {
+	}
+	owner_modifier = {
+		custom_modifier_text = private_talk_possible_modifier_tt
+		custom_modifier_text = religious_spread_custom_modifier_tt
+		monthly_character_piety = 0.3
+	}
+}
+
+upgrade_central_vault = { # Alamut
+	picture = GFX_upgrade_icon_written_paper
+	potential = { }
+	allow = {
+			e_assamites = {
+    			holder_scope = {
+    				character = ROOT
+    			}
+    		}	}
+	active = { }
+
+	flags = {
+		is_singular
+	}
+	build_time = 24
+	gold_cost_flat = 450
+	gold_cost_ticking = 1
+	owner_modifier = {
+		tech_growth_modifier = 0.05	
+	}
+}
+
+upgrade_heartsblood = { #Alamut
+	picture = GFX_upgrade_icon_skulls
+
+	potential = { }
+	allow = {			
+			e_assamites = {
+    			holder_scope = {
+    				character = ROOT
+    			} }
+	FROMFROM = { wonder_stage = 3 }				
+			}		
+	active = { }
+
+	flags = {
+		is_singular
+	}
+	build_time = 24
+	gold_cost_flat = 750
+	gold_cost_ticking = 1
+	local_modifier = {
+		local_revolt_risk = -0.05
+	}
+	owner_modifier = {
+		same_religion_opinion = 10
+	}
+}
+
+upgrade_black_throne_of_haqim = { # Alamut
+	picture = GFX_upgrade_icon_skulls
+	potential = {	
+	}
+	allow = { 
+	ROOT = { 
+	realm_size = 150
+	}
+	num_of_wonder_upgrades = 15
+	FROMFROM = { wonder_stage = 4 }	
+	}
+	active = {
+	}
+
+	flags = {
+		is_singular
+		scary
+	}
+	build_time = 250
+	gold_cost_flat = 5000
+	gold_cost_ticking = 1
+	owner_modifier = {
+		same_religion_opinion = 100
+	}
+}
+
+#Rome
+
+upgrade_montium_et_biberatice = {
+	picture = GFX_upgrade_icon_walls
+
+	potential = { }
+	allow = { 
+	FROMFROM = { wonder_stage = 1 }	
+	}
+	active = { }
+
+	flags = {
+		is_singular
+	}
+	build_time = 250
+	gold_cost_flat = 500
+	gold_cost_ticking = 1
+	local_modifier = {
+		
+	}
+	owner_modifier = {
+	monthly_character_prestige = 0.1
+	}
+}
+
+upgrade_trivii_et_vie_late = {
+	picture = GFX_upgrade_icon_crates
+	
+	potential = { }
+	allow = { 
+	FROMFROM = { wonder_stage = 1 }	
+	}
+	active = { }
+
+	flags = {
+		is_singular
+	}
+	build_time = 250
+	gold_cost_flat = 500
+	gold_cost_ticking = 1
+	local_modifier = {
+		local_movement_speed = 0.1
+		local_revolt_risk = -0.005
+	}
+}
+
+upgrade_columpne_et_sancte_marie_in_aquiro = { 
+	picture = GFX_upgrade_roses_red
+	potential = { }
+	allow = { 
+	FROMFROM = { wonder_stage = 1 }	
+	}
+	active = { }
+
+	flags = {
+		is_singular
+		secluded
+		romantic
+	}
+	build_time = 250
+	gold_cost_flat = 500
+	gold_cost_ticking = 1
+	owner_modifier = {
+		custom_modifier_text = private_talk_possible_modifier_tt
+		court_size_modifier = 5
+	}
+}
+
+upgrade_campi_martis_et_sancte_laurentii_in_lucina = { 
+	picture = GFX_upgrade_icon_guards
+	potential = { }
+	allow = { 
+	FROMFROM = { wonder_stage = 2 }	
+	}
+	active = { }
+
+	flags = {
+		summon_commander
+		is_singular
+	}
+	build_time = 300
+	gold_cost_flat = 600
+	gold_cost_ticking = 1
+	owner_modifier = {
+		custom_modifier_text = recruit_gladiator_modifier_tt #Allows you to summon a warrior every year or so
+	}
+}
+
+upgrade_pontis_et_scorteclariorum = { 
+	picture = GFX_upgrade_icon_written_paper
+	
+	potential = { }
+	allow = { 
+	FROMFROM = { wonder_stage = 2 }	
+	}
+	active = { }
+
+	flags = {
+		is_singular
+	}
+	build_time = 300
+	gold_cost_flat = 600
+	gold_cost_ticking = 1
+	local_modifier = {
+		local_tax_modifier = 0.1
+		supply_limit = 0.50
+	}
+}
+
+upgrade_sancte_eustachii_et_vinea_teudemarii = { 
+	picture = GFX_upgrade_icon_skulls
+	potential = { }
+	allow = { 
+	FROMFROM = { wonder_stage = 2 }	
+	}
+	active = { }
+
+	flags = {
+		is_singular
+	}
+	build_time = 300
+	gold_cost_flat = 600
+	gold_cost_ticking = 1
+	owner_modifier = {
+		defensive_plot_power_modifier = 0.05
+		plot_power_modifier = 0.05
+	}
+}
+
+upgrade_arenule_et_caccabariorum = { 
+	picture = GFX_upgrade_icon_logistics
+	potential = { }
+	allow = { 
+	FROMFROM = { wonder_stage = 3 }	
+	}
+	active = { }
+
+	flags = {
+		is_singular
+	}
+	build_time = 350
+	gold_cost_flat = 600
+	gold_cost_ticking = 1
+	owner_modifier = {
+		koldun_opinion = -50
+		ventrue_high_opinion = 50
+	}
+}
+
+upgrade_parionis_et_sancte_saurentii_in_damaso = {
+	picture = GFX_upgrade_icon_roses_blue
+	potential = { }
+	allow = { 
+	FROMFROM = { wonder_stage = 3 }	
+	}
+	active = { }
+
+	flags = {
+		is_plural
+	}
+	build_time = 350
+	gold_cost_flat = 600
+	gold_cost_ticking = 1
+	owner_modifier = {
+		monthly_character_prestige = 0.05
+		poet_opinion = 5
+	}
+}
+
+upgrade_pinee_et_sancte_marci = {
+	picture = GFX_upgrade_icon_skulls
+
+	potential = {  }
+	allow = { 
+	FROMFROM = { wonder_stage = 3 }	
+	}
+	active = { }
+
+	flags = {
+		decorative
+		is_singular
+	}
+	build_time = 350
+	gold_cost_flat = 600
+	gold_cost_ticking = 1
+	owner_modifier = {
+		monthly_character_piety = 0.05
+	}
+	local_modifier = {
+		siege_defence = 0.1
+	}
+}
+
+upgrade_sancte_angeli_in_foro_piscium = { 
+	picture = GFX_upgrade_icon_anchor
+	
+	potential = { }
+	allow = { 
+	FROMFROM = { wonder_stage = 3 }	
+	}
+	active = { }
+
+	flags = {
+		is_singular
+	}
+	build_time = 350
+	gold_cost_flat = 600
+	gold_cost_ticking = 1
+	local_modifier = {
+		supply_limit = 0.25
+		local_tax_modifier = 0.05
+	}
+}
+
+upgrade_ripe_et_marmorate = { 
+	picture = GFX_upgrade_icon_guard
+	
+	potential = { }
+	allow = {
+	}
+	active = { 
+	NOT = { FROMFROM = { has_wonder_upgrade = upgrade_ripe_et_marmorate } }
+		}
+
+	flags = {
+		defensive
+		#unit
+	}
+	build_time = 24
+	gold_cost_flat = 450
+	gold_cost_ticking = 1
+	local_modifier = {
+		local_revolt_risk = 0.1
+	}
+	owner_modifier = {
+		levy_size = -0.1
+		levy_reinforce_rate = -0.1
+	}	
+}
+
+upgrade_ripe_et_marmorate1 = { 
+	picture = GFX_upgrade_icon_guard
+	
+	potential = { }
+	allow = { 
+	 FROMFROM = { has_wonder_upgrade = upgrade_ripe_et_marmorate } 
+	}
+	active = {  }
+
+	flags = {
+		defensive
+		#unit
+	}
+	build_time = 240
+	gold_cost_flat = 500
+	gold_cost_ticking = 1
+	local_modifier = {
+		local_revolt_risk = -0.1
+	}
+	owner_modifier = {
+		levy_size = 0.1
+		levy_reinforce_rate = 0.1
+	}	
+}
+
+upgrade_campitelli_et_sancte_adrian = {
+	picture = GFX_upgrade_icon_ingots_gold
+
+	potential = {  }
+	allow = { 
+		FROMFROM = { wonder_stage = 4 }	
+	}
+	active = {  }
+
+	flags = {
+		decorative
+		is_singular
+		golden
+	}
+	build_time = 500
+	gold_cost_flat = 1000
+	gold_cost_ticking = 1
+	owner_modifier = {
+		zealous_opinion = 20
+		monthly_character_piety = 0.05
+	}
+}
+
+upgrade_trastavere = { 
+	picture = GFX_upgrade_icon_skulls
+	potential = { }
+	allow = {
+		FROMFROM = { wonder_stage = 4 }		
+		}
+	active = { }
+
+	flags = {
+		body_stash
+		is_singular
+	}
+	build_time = 500
+	gold_cost_flat = 1000
+	gold_cost_ticking = 1
+	owner_modifier = {
+		defensive_plot_power_modifier = 0.05
+		plot_power_modifier = 0.05
+	}
+}
+
+upgrade_sinner_rome = { 
+	picture = GFX_upgrade_icon_ingots_gold
+	potential = {	
+	}
+	allow = { 
+	ROOT = { 
+	realm_size = 150
+	character = 790101 
+	}
+	num_of_wonder_upgrades = 15
+	FROMFROM = { wonder_stage = 4 }	
+	}
+	active = {
+	}
+
+	flags = {
+		is_singular
+		scary
+	}
+	build_time = 1000
+	gold_cost_flat = 10000
+	gold_cost_ticking = 1
+	owner_modifier = {
+		same_religion_opinion = 100
+		monthly_character_prestige = 5
+	}
+	local_modifier = {
+		heavy_infantry = 1000
+	}	
+}
+
+upgrade_tosia_faction = { 
+	picture = GFX_upgrade_icon_guard
+	
+	potential = {  }
+	allow = {
+	}
+	active = { 
+	NOR = { FROMFROM = { has_wonder_upgrade = tosia_cabal }
+		FROMFROM = { has_wonder_upgrade = tosia_dealt_with }	}
+		}
+
+	flags = {
+		defensive
+		#unit
+		is_singular
+	}
+	build_time = 24
+	gold_cost_flat = 450
+	gold_cost_ticking = 1
+	local_modifier = {
+		local_revolt_risk = 0.1
+		local_movement_speed = -0.2
+	}
+	owner_modifier = {
+		levy_size = -0.1
+		levy_reinforce_rate = -0.2
+	}	
+}
+
+upgrade_tosia_cabal = { 
+	picture = GFX_upgrade_icon_guard
+	
+	potential = {  }
+	allow = {	
+	 FROMFROM = { has_wonder_upgrade = upgrade_tosia_faction } 
+	}
+	active = { 
+	NOR = { FROMFROM = { has_wonder_upgrade = tosia_faction }
+		FROMFROM = { has_wonder_upgrade = tosia_dealt_with }	}
+		}
+
+	flags = {
+		defensive
+		#unit
+		is_singular
+	}
+	build_time = 500
+	gold_cost_flat = 1000
+	gold_cost_ticking = 1
+	local_modifier = {
+		local_movement_speed = -0.2
+	}
+	owner_modifier = {
+		levy_size = -0.1
+	}	
+}
+
+upgrade_tosia_dealt_with = { 
+	picture = GFX_upgrade_icon_guard
+	
+	potential = { 
+		FROMFROM = { wonder_stage = 2 }		}
+	allow = {	
+	 FROMFROM = { wonder_stage = 2 }	
+	 FROMFROM = { has_wonder_upgrade = upgrade_tosia_cabal } 
+	}
+	active = { 
+	NOR = { FROMFROM = { has_wonder_upgrade = tosia_faction }
+		FROMFROM = { has_wonder_upgrade = tosia_cabal }	}
+		}
+
+	flags = {
+		defensive
+		#unit
+		is_singular
+	}
+	build_time = 500
+	gold_cost_flat = 1000
+	gold_cost_ticking = 1
+	local_modifier = {
+		local_movement_speed = 0.2
+	}
+	owner_modifier = {
+		levy_size = 0.1
+		levy_reinforce_rate = 0.2
+	}	
+}
+
+upgrade_council_chambers = { 
+	picture = GFX_upgrade_icon_key
+	potential = { }
+	allow = {
+	FROMFROM = { wonder_stage = 4 }	 
+	}
+	active = { }
+
+	flags = {
+		room
+		is_singular
+		religion_conversion_faster
+	}
+	build_time = 700
+	gold_cost_flat = 1500
+	gold_cost_ticking = 1
+	owner_modifier = {
+		vassal_opinion = 40
+		intrigue = 2
+		custom_modifier_text = religious_spread_custom_modifier_tt
+	}
+}
+
+upgrade_library = { 
+	picture = GFX_upgrade_icon_written_paper
+	potential = { }
+	allow = {
+	FROMFROM = { wonder_stage = 3 }	 
+	}
+	active = { }
+
+	flags = {
+		room
+		is_singular
+	}
+	build_time = 350
+	gold_cost_flat = 750
+	gold_cost_ticking = 1
+	owner_modifier = {
+		tech_growth_modifier = 0.1
+		monthly_character_prestige = 0.1
+	}
+}
+
+upgrade_gargoyle_pens = { 
+	picture = GFX_upgrade_icon_crates
+	potential = { }
+	allow = { 
+	FROMFROM = { wonder_stage = 3 }	 
+	}
+	active = { }
+
+	flags = {
+		animal_cages
+		is_plural
+	}
+	build_time = 300
+	gold_cost_flat = 750
+	gold_cost_ticking = 1
+	owner_modifier = {
+		monthly_character_piety = 0.1
+	}
+	local_modifier = {
+		mass_gargoyles = 500
+	}
+}
+
+upgrade_time_prison = {
+	picture = GFX_upgrade_icon_key
+	
+	potential = { }
+	allow = {
+		FROMFROM = { wonder_stage = 4 }	
+		trait = temporis_5
+	}
+	active = { 
+	}
+
+	flags = {
+		is_singular
+		holy
+		stores_relic
+	}
+	build_time = 200
+	gold_cost_flat = 4000
+	gold_cost_ticking = 1
+	local_modifier = {
+		mass_brujah = 500
+		mass_baali = 500
+		mass_assamite = 250
+	}
+}
+
+upgrade_brujah_district = { 
+	picture = GFX_upgrade_icon_key
+	potential = { }
+	allow = {
+		FROMFROM = { wonder_stage = 2 }	
+		}
+	active = { }
+
+	flags = {
+		is_singular
+	}
+	build_time = 200
+	gold_cost_flat = 1000
+	gold_cost_ticking = 1
+	owner_modifier = {
+		martial = 5
+		stewardship = 5
+	}
+}
+
+upgrade_baali_district = {
+	picture = GFX_upgrade_icon_skulls
+
+	potential = { }
+	allow = { FROMFROM = { wonder_stage = 4 }
+	}
+	active = { }
+
+	flags = {
+		scary
+		secluded
+		is_singular
+	}
+	build_time = 200
+	gold_cost_flat = 1000
+	gold_cost_ticking = 1
+	local_modifier = {
+		
+	}
+	owner_modifier = {
+		intrigue = 5
+		ashirra_opinion = -50
+		custom_modifier_text = execution_possible_modifier_tt
+		custom_modifier_text = intimidation_possible_modifier_tt
+		custom_modifier_text = private_talk_possible_modifier_tt
+	}
+}
+
+upgrade_assamite_district = { 
+	picture = GFX_upgrade_icon_stones
+
+	potential = {
+
+	}
+	allow = {
+	FROMFROM = { wonder_stage = 3 }
+	}
+	
+	build_time = 200
+	gold_cost_flat = 1000
+	gold_cost_ticking = 5
+
+	owner_modifier = {
+	learning = 5
+	diplomacy = 5
+	}
+	
+	
+	local_modifier = {
+	}
+	
+	flags = {
+
+	}
+	active = {
+	}
+}
+
+upgrade_statue_caias = { 
+	picture = GFX_upgrade_icon_statue
+	potential = { }
+	allow = { }
+	active = { }
+
+	flags = {
+		statues
+		is_singular
+	}
+	build_time = 200
+	gold_cost_flat = 550
+	gold_cost_ticking = 1
+	owner_modifier = {
+		same_religion_opinion = 10
+	}
+}
+
+upgrade_altar_of_the_priestess = {
+	picture = GFX_upgrade_icon_key
+	potential = { }
+	allow = {
+	FROMFROM = { wonder_stage = 2 }	}
+	active = { }
+
+	flags = {
+		is_singular
+		unlocks_minor_title
+		religion_conversion_faster
+	}
+	build_time = 500
+	gold_cost_flat = 750
+	gold_cost_ticking = 1
+	local_modifier = {
+		
+	}
+	owner_modifier = {
+		custom_modifier_text = kepper_of_dead_custom_modifier_tt
+		custom_modifier_text = religious_spread_custom_modifier_tt
+	}
+}
+
+upgrade_alcove_fragments = { 
+	picture = GFX_upgrade_icon_crates
+
+	potential = {  }
+	allow = {
+		FROMFROM = { wonder_stage = 3 }
+	}
+	active = {  }
+
+	flags = {
+		is_singular
+	}
+	build_time = 750
+	gold_cost_flat = 900
+	gold_cost_ticking = 1
+	local_modifier = {
+		local_revolt_risk = -0.02
+	}
+	owner_modifier = {
+		vassal_opinion = 40
+	}
+}
+
+upgrade_pappadocius_chamber = { 
+	picture = GFX_upgrade_icon_skulls
+	potential = {	
+	}
+	allow = { 
+		FROMFROM = { wonder_stage = 4 }
+	}
+	active = {
+	}
+
+	flags = {
+		is_singular
+		scary
+	}
+	build_time = 1000
+	gold_cost_flat = 1250
+	gold_cost_ticking = 1
+	owner_modifier = {
+	monthly_character_piety = 1
+	monthly_character_prestige = 1
+	demesne_size = 2
+	}
+}
+
+upgrade_pool_of_blood = {
+	picture = GFX_upgrade_icon_roses_blue
+	potential = { }
+	allow = { FROMFROM = { wonder_stage = 4 }}
+	active = {}
+
+	flags = {
+		is_singular
+	}
+	build_time = 24
+	gold_cost_flat = 200
+	gold_cost_ticking = 1
+	owner_modifier = {
+		cruel_opinion = 25
+	}
+}
+
+upgrade_wailing_chorus = { 
+	picture = GFX_upgrade_icon_skulls
+	potential = {	
+	}
+	allow = { 
+	FROMFROM = { wonder_stage = 4 }	
+	}
+	active = {
+	}
+
+	flags = {
+		is_singular
+		scary
+	}
+	build_time = 250
+	gold_cost_flat = 500
+	gold_cost_ticking = 1
+	owner_modifier = {
+		global_revolt_risk = -1
+	}
+}
+
+upgrade_shadow_walls = { 
+	picture = GFX_upgrade_icon_stones
+
+	potential = {
+	
+	}
+	allow = {
+	FROMFROM = { wonder_stage = 2 }	
+	}
+	
+	build_time = 60
+	gold_cost_flat = 500
+	gold_cost_ticking = 1
+
+	owner_modifier = {
+	}
+	
+	local_modifier = {
+		heavy_infantry = 100
+		siege_defence = 0.05
+	}
+	owner_modifier = {
+		custom_modifier_text = castellan_custom_modifier_tt
+	}
+	flags = {
+		towering
+	}
+	active = {
+		#always
+	}
+}
+
+upgrade_court_of_blood = { 
+	picture = GFX_upgrade_icon_ingots_gold
+	potential = { }
+	allow = { 
+	FROMFROM = { wonder_stage = 3 }	
+	}
+	active = { }
+
+	flags = {
+
+	}
+	build_time = 50
+	gold_cost_flat = 1000
+	gold_cost_ticking = 1
+	owner_modifier = {
+		plot_power_modifier = 0.2
+		defensive_plot_power_modifier = 0.2
+	}
+}
+
+upgrade_labyrinth_of_darkness = {
+	picture = GFX_upgrade_icon_key
+	
+	potential = {  }
+	allow = {
+		FROMFROM = { wonder_stage = 3 }	
+	}
+	active = { 
+	}
+
+	flags = {
+
+	}
+	build_time = 150
+	gold_cost_flat = 1500
+	gold_cost_ticking = 1
+	owner_modifier = {
+		arrest_chance_modifier = 0.5
+		plot_discovery_chance = 0.3
+	}
+}
+
+upgrade_lasombra_chamber = { 
+	picture = GFX_upgrade_icon_skulls
+	potential = {	
+	}
+	allow = { 
+		FROMFROM = { wonder_stage = 4 }
+	}
+	active = {
+	}
+
+	flags = {
+		is_singular
+		scary
+	}
+	build_time = 1000
+	gold_cost_flat = 2550
+	gold_cost_ticking = 1
+	owner_modifier = {
+	vassal_opinion = 20
+	demesne_size = 2
 	}
 }

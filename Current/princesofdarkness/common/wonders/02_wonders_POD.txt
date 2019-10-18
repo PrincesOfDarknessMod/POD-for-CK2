@@ -66,18 +66,35 @@
 ################# 1. VAMPS GOTTA VAMP  ####################
 ###########################################################
 
-# 01V. Settite Pyramid
-wonder_POD_settite_pyramid = {
-	allow_coastal = yes
+# 01V. Setite Pyramid
+wonder_POD_setite_pyramid = {
+	allow_construction = yes
 	picture = GFX_wonder_strip_pyramid
 	model = wonder_pyramid
 	potential = {
+	FROMFROMFROM = {
+		OR = { 
+		province_id = 800
+		province_id = 1782
+		province_id = 794
+		province_id = 802
+		province_id = 790
+		province_id = 796
+		province_id = 817
+		province_id = 841
+		province_id = 334	
+		}	
+			}
 		OR = {
 			trait = followerofset
 			religion = setite
 		}
 	}
 	active = {
+		OR = {
+			trait = followerofset
+			religion = setite
+		}	
 	}
 	flags = {
 		burial_ground
@@ -85,20 +102,32 @@ wonder_POD_settite_pyramid = {
 		cost_high
 	}
 	available_upgrades = {
-		#upgrade_POD_extra_pyramids
-		#upgrade_POD_set_statue
-		#upgrade_POD_hidden_room
-		#upgrade_POD_sacrificial_altar
-		#upgrade_POD_necropolis
-		#upgrade_POD_traps
-		#upgrade_POD_overseer_of_rites
-		#upgrade_POD_cultist_barracks
+		# UNIQUE:
+		upgrade_extra_pyramids
+		upgrade_mythological_beast
+		upgrade_hidden_room
+		upgrade_sacrificial_altar
+		upgrade_necropolis
+		upgrade_lime_stone_casing
+		upgrade_traps
+		upgrade_overseer_of_rites
+
+		# OTHER:
+		upgrade_roads
+		upgrade_spikes
+		upgrade_retinue
+		upgrade_road_tolls
+		upgrade_tavern
+		upgrade_POD_set_statue
+		upgrade_POD_cultist_barracks
+		upgrade_hidden_tunnels
+		upgrade_private_altar
 	}
 	stage = {
 		allow = {
 		}
 		build_time = 400
-		gold_cost_flat = 3000
+		gold_cost_flat = 1000
 		gold_cost_ticking = 5
 		restore_time = 150
 		loot_time = 200
@@ -108,14 +137,15 @@ wonder_POD_settite_pyramid = {
 		local_modifier = {
 		}
 		owner_modifier = {
-			monthly_character_prestige = 0.2
+			monthly_character_prestige = 0.1
+			same_religion_opinion = 5
 		}
 	}
 	stage = {
 		allow = {
 		}
 		build_time = 450
-		gold_cost_flat = 3500
+		gold_cost_flat = 2500
 		gold_cost_ticking = 5
 		restore_time = 200
 		loot_time = 200
@@ -125,14 +155,15 @@ wonder_POD_settite_pyramid = {
 		local_modifier = {
 		}
 		owner_modifier = {
-			monthly_character_prestige = 0.3
+			monthly_character_prestige = 0.1
+			same_religion_opinion = 5
 		}
 	}
 	stage = {
 		allow = {
 		}
 		build_time = 500
-		gold_cost_flat = 4000
+		gold_cost_flat = 3000
 		gold_cost_ticking = 5
 		restore_time = 200
 		loot_time = 20
@@ -143,26 +174,27 @@ wonder_POD_settite_pyramid = {
 			local_revolt_risk = -0.005
 		}
 		owner_modifier = {
-			monthly_character_prestige = 0.3
+			monthly_character_prestige = 0.2
+			general_opinion = 5
 		}
 	}
 	stage = {
 		allow = {
 		}
 		build_time = 550
-		gold_cost_flat = 4500
+		gold_cost_flat = 3500
 		gold_cost_ticking = 5
 		restore_time = 200
 		loot_time = 20
 		restore_cost_flat = 500
 		restore_cost_ticking = 2
-		upgrade_slots = 2
+		upgrade_slots = 5
 		local_modifier = {
 			local_revolt_risk = -0.005
 		}
 		owner_modifier = {
-			monthly_character_prestige = 0.4
-			same_religion_opinion = 2
+			monthly_character_prestige = 0.3
+			general_opinion = 5
 		}
 	}
 }
@@ -171,18 +203,8 @@ wonder_POD_settite_pyramid = {
 wonder_POD_cathedral_of_flesh = {
 	picture = GFX_wonder_strip_cathedral
 	model = wonder_cathedral
+	allow_construction = no
 	potential = {
-			trait = vicissitude_5
-			OR = {
-				religion = koldun
-				religion = baali
-			}
-			OR = {
-				trait = elder
-				trait = ancient
-				trait = methuselah
-				trait = antediluvian
-			}
 	}
 	active = {
 			OR = {
@@ -200,30 +222,34 @@ wonder_POD_cathedral_of_flesh = {
 	flags = {
 		holy_building
 		inspires_piety
+		is_historical
 	}
 	
 	available_upgrades = {
+		upgrade_stained_glass_window
+		upgrade_relic_tomb
+		upgrade_grand_basilica
+		upgrade_catacombs
+		upgrade_torture_chamber
+		upgrade_historical_mural
+
+		# OTHER:
+	 	upgrade_roads
+		upgrade_watchtower_network
+		upgrade_spikes
+		upgrade_tower
+		upgrade_hypocausts
+		upgrade_heating_pipes
+		upgrade_retinue
+		upgrade_road_tolls		
 		upgrade_POD_lessen_kupalas_influence_1
 		upgrade_POD_lessen_kupalas_influence_2
 		upgrade_POD_lessen_kupalas_influence_3
 		upgrade_POD_lessen_kupalas_influence_4
+		upgrade_POD_szlachta_barracks
+		upgrade_pool_of_blood
+		upgrade_wailing_chorus
 	}
-	
-#	ai_will_do = {
-#	
-#		factor = 0.5
-#		
-#		modifier = {
-#			factor = 3
-#			trait = impaler
-#		}
-#		
-#		modifier = {
-#			factor = 2
-#			trait = tzimisce
-#		}
-#		
-#	}
 	
 	stage = {
 		allow = {}
@@ -234,17 +260,14 @@ wonder_POD_cathedral_of_flesh = {
 		loot_time = 6
 		restore_cost_flat = 400
 		restore_cost_ticking = 2
-		upgrade_slots = 1
+		upgrade_slots = 3
 		local_modifier = {
 			siege_defence = 0.1
 		}
 		owner_modifier = {
-			monthly_character_prestige = 0.1
 			monthly_character_piety = 0.15
 			plot_power_modifier = -1
-			defensive_plot_power_modifier = 1.1
-			koldun_opinion = 10
-			baali_opinion = 10
+			koldun_opinion = 50
 			mass_szlachta = 50
 		}
 	}
@@ -257,14 +280,12 @@ wonder_POD_cathedral_of_flesh = {
 		loot_time = 6
 		restore_cost_flat = 500
 		restore_cost_ticking = 2
-		upgrade_slots = 1
+		upgrade_slots = 3
 		local_modifier = {
 			siege_defence = 0.2
 		}
 		owner_modifier = {
-			monthly_character_prestige = 0.15
 			monthly_character_piety = 0.15
-			defensive_plot_power_modifier = 0.1
 			mass_szlachta = 50
 		}
 	}
@@ -277,14 +298,12 @@ wonder_POD_cathedral_of_flesh = {
 		loot_time = 6
 		restore_cost_flat = 500
 		restore_cost_ticking = 2
-		upgrade_slots = 1
+		upgrade_slots = 5
 		local_modifier = {
 			siege_defence = 0.3
 		}
 		owner_modifier = {
-			monthly_character_prestige = 0.15
 			monthly_character_piety = 0.2
-			defensive_plot_power_modifier = 0.1
 			mass_szlachta = 50
 		}
 	}
@@ -297,15 +316,792 @@ wonder_POD_cathedral_of_flesh = {
 		loot_time = 1
 		restore_cost_flat = 500
 		restore_cost_ticking = 2
-		upgrade_slots = 1
+		upgrade_slots = 10
 		local_modifier = {
 			siege_defence = 0.4
 		}
 		owner_modifier = {
-			monthly_character_prestige = 0.2
 			monthly_character_piety = 0.3
-			defensive_plot_power_modifier = 0.1
 			mass_szlachta = 50
 		}
 	}
 }
+
+
+# Alamut
+wonder_alamut = {
+	allow_construction = no
+	picture = GFX_wonder_strip_grandfortress
+	potential = {
+	}
+	active = {
+		ROOT = {
+				trait = assamite
+				trait = vampire
+			}
+		}	
+	flags = {
+		defensive
+		cost_high
+	}
+	available_upgrades = {
+		# UNIQUE:
+		upgrade_armory
+		upgrade_watch_tower
+		upgrade_vault
+		upgrade_moat_pit
+		upgrade_moat_spike
+		upgrade_moat_water
+		upgrade_moat_bones
+		upgrade_hidden_passageways
+		upgrade_garden_inner
+		upgrade_dueling_room
+
+		#
+		upgrade_torture_chamber
+		upgrade_historical_mural
+
+		# OTHER:
+		upgrade_roads
+		upgrade_watchtower_network
+		upgrade_spikes
+		upgrade_hypocausts
+		upgrade_heating_pipes
+		upgrade_retinue
+		upgrade_road_tolls
+		upgrade_tavern
+		upgrade_central_vault
+		upgrade_heartsblood
+		upgrade_black_throne_of_haqim
+	}
+	stage = {
+		allow = {
+		}
+		build_time = 250
+		gold_cost_flat = 2000
+		gold_cost_ticking = 3
+		restore_time = 150
+		loot_time = 200
+		restore_cost_flat = 400
+		restore_cost_ticking = 2
+		upgrade_slots = 2
+		local_modifier = {
+			fort_level = 0.25
+		}
+		owner_modifier = {
+			monthly_character_prestige = -0.1
+			plot_power_modifier = -0.1
+			murder_plot_power_modifier = -0.1
+		}
+	}
+	stage = {
+		allow = {
+		}
+		build_time = 300
+		gold_cost_flat = 2500
+		gold_cost_ticking = 3
+		restore_time = 200
+		loot_time = 200
+		restore_cost_flat = 500
+		restore_cost_ticking = 2
+		upgrade_slots = 2
+		local_modifier = {
+			fort_level = 0.25
+		}
+		owner_modifier = {
+			monthly_character_prestige = 0.1
+			plot_power_modifier = 0.1
+			murder_plot_power_modifier = 0.1
+		}
+	}
+	stage = {
+		allow = {
+		}
+		build_time = 400
+		gold_cost_flat = 3000
+		gold_cost_ticking = 3
+		restore_time = 200
+		loot_time = 20
+		restore_cost_flat = 500
+		restore_cost_ticking = 2
+		upgrade_slots = 2
+		local_modifier = {
+			fort_level = 0.25
+			siege_defence = 0.05
+		}
+		owner_modifier = {
+			monthly_character_prestige = 0.1
+			plot_power_modifier = 0.1
+			murder_plot_power_modifier = 0.1
+		}
+	}
+	stage = {
+		allow = {
+		}
+		build_time = 500
+		gold_cost_flat = 3500
+		gold_cost_ticking = 3
+		restore_time = 200
+		loot_time = 20
+		restore_cost_flat = 500
+		restore_cost_ticking = 2
+		upgrade_slots = 10
+		local_modifier = {
+			fort_level = 0.5
+			siege_defence = 0.05
+		}
+		owner_modifier = {
+			monthly_character_prestige = 0.1
+			plot_power_modifier = 0.1
+			murder_plot_power_modifier = 0.1
+		}
+	}
+}
+
+#Rome
+wonder_rome = {
+	picture = GFX_wonder_strip_royalpalace
+	allow_construction = no
+	potential = {
+	}
+	active = {
+		ROOT = {
+				trait = vampire
+			}	
+	}
+	flags = {
+		inspires_relaxing
+		inspires_contentedness
+		cost_high
+	}
+	available_upgrades = {
+		# UNIQUE:
+		upgrade_throne_fancy
+		upgrade_trap_door
+		upgrade_skull_throne
+		upgrade_golden_throne
+		upgrade_royal_custodian
+
+		#
+		upgrade_torture_chamber
+		upgrade_brewery
+		upgrade_historical_mural
+		upgrade_dueling_room
+
+		# OTHER:
+		upgrade_roads
+		upgrade_watchtower_network
+		upgrade_spikes
+		upgrade_tower
+		upgrade_hypocausts
+		upgrade_heating_pipes
+		upgrade_retinue
+		upgrade_road_tolls
+		upgrade_tavern
+		upgrade_montium_et_biberatice
+		upgrade_trivii_et_vie_late
+		upgrade_columpne_et_sancte_marie_in_aquiro
+		upgrade_campi_martis_et_sancte_laurentii_in_lucina
+		upgrade_pontis_et_scorteclariorum 
+		upgrade_sancte_eustachii_et_vinea_teudemarii
+		upgrade_arenule_et_caccabariorum
+		upgrade_parionis_et_sancte_saurentii_in_damaso
+		upgrade_pinee_et_sancte_marci
+		upgrade_ripe_et_marmorate
+		upgrade_ripe_et_marmorate1
+		upgrade_campitelli_et_sancte_adrian
+		upgrade_trastavere
+		upgrade_sinner_rome
+	}
+	stage = {
+		allow = {
+		}
+		build_time = 300
+		gold_cost_flat = 2000
+		gold_cost_ticking = 3
+		restore_time = 150
+		loot_time = 100
+		restore_cost_flat = 400
+		restore_cost_ticking = 2
+		upgrade_slots = 2
+		local_modifier = {
+		local_revolt_risk = 0.005
+		local_tax_modifier = -0.025
+		}
+		owner_modifier = {
+			monthly_character_prestige = 0.1
+			demesne_size = -1
+		}
+	}
+	stage = {
+		allow = {
+		}
+		build_time = 300
+		gold_cost_flat = 2500
+		gold_cost_ticking = 3
+		restore_time = 200
+		loot_time = 100
+		restore_cost_flat = 500
+		restore_cost_ticking = 2
+		upgrade_slots = 5
+		local_modifier = {
+		local_revolt_risk = -0.005
+		local_tax_modifier = 0.025
+		}
+		owner_modifier = {
+			monthly_character_prestige = 0.1
+			demesne_size = 1
+		}
+	}
+	stage = {
+		allow = {
+		}
+		build_time = 300
+		gold_cost_flat = 3000
+		gold_cost_ticking = 3
+		restore_time = 200
+		loot_time = 20
+		restore_cost_flat = 500
+		restore_cost_ticking = 2
+		upgrade_slots = 5
+		local_modifier = {
+		local_tax_modifier = 0.025
+		}
+		owner_modifier = {
+			monthly_character_prestige = 0.1
+		}
+	}
+	stage = {
+		allow = {
+		}
+		build_time = 300
+		gold_cost_flat = 3500
+		gold_cost_ticking = 3
+		restore_time = 200
+		loot_time = 2
+		restore_cost_flat = 500
+		restore_cost_ticking = 2
+		upgrade_slots = 10
+		local_modifier = {
+		local_tax_modifier = 0.025
+		}
+		owner_modifier = {
+			monthly_character_prestige = 0.1
+			demesne_size = 1
+		}
+	}
+}
+
+
+# Ceoris
+wonder_ceoris = {
+	picture = GFX_wonder_strip_library
+	allow_construction = no
+	potential = {
+	}
+	active = {
+		ROOT = {
+				trait = vampire
+				trait = tremere
+			}
+	}
+	flags = {
+		inspires_learning
+		cost_high
+		gives_artifact
+		gives_artifact_bells
+	}
+	available_upgrades = {
+		# UNIQUE:
+		upgrade_collection_drama
+		upgrade_collection_architecture
+		upgrade_collection_math
+		upgrade_collection_history
+		upgrade_collection_science
+		upgrade_scribe_room
+		upgrade_keeper_of_tomes
+
+		upgrade_historical_mural
+
+		# OTHER:
+		upgrade_roads
+		upgrade_watchtower_network
+		upgrade_tower
+		upgrade_hypocausts
+		upgrade_heating_pipes
+		upgrade_retinue
+		upgrade_road_tolls
+		upgrade_tavern
+		upgrade_tosia_faction
+		upgrade_tosia_cabal
+		upgrade_tosia_dealt_with
+		upgrade_council_chambers
+		upgrade_library
+		upgrade_gargoyle_pens
+	}
+	stage = {
+		allow = {
+		}
+		build_time = 300
+		gold_cost_flat = 2000
+		gold_cost_ticking = 3
+		restore_time = 150
+		loot_time = 20
+		restore_cost_flat = 400
+		restore_cost_ticking = 2
+		upgrade_slots = 2
+		local_modifier = {
+			culture_techpoints = 0.05
+			fort_level = 0.50
+			siege_defence = 0.05
+		}
+		owner_modifier = {
+			monthly_character_prestige = 0.1
+		}
+	}
+	stage = {
+		allow = {
+		}
+		build_time = 300
+		gold_cost_flat = 2500
+		gold_cost_ticking = 3
+		restore_time = 200
+		loot_time = 20
+		restore_cost_flat = 500
+		restore_cost_ticking = 2
+		upgrade_slots = 2
+		local_modifier = {
+			culture_techpoints = 0.05
+			fort_level = 0.50
+			siege_defence = 0.05
+		}
+		owner_modifier = {
+			monthly_character_prestige = 0.2
+		}
+	}
+	stage = {
+		allow = {
+		}
+		build_time = 300
+		gold_cost_flat = 3000
+		gold_cost_ticking = 3
+		restore_time = 200
+		loot_time = 6
+		restore_cost_flat = 500
+		restore_cost_ticking = 2
+		upgrade_slots = 2
+		local_modifier = {
+			culture_techpoints = 0.05
+			fort_level = 0.50
+			siege_defence = 0.05
+		}
+		owner_modifier = {
+			monthly_character_prestige = 0.3
+		}
+	}
+	stage = {
+		allow = {
+		}
+		build_time = 300
+		gold_cost_flat = 3500
+		gold_cost_ticking = 3
+		restore_time = 200
+		loot_time = 2
+		restore_cost_flat = 500
+		restore_cost_ticking = 2
+		upgrade_slots = 5
+		local_modifier = {
+			tech_growth_modifier_economy = 0.05
+			tech_growth_modifier_military = 0.05
+			culture_techpoints = 0.05
+			fort_level = 0.50		
+		}
+		owner_modifier = {
+			monthly_character_prestige = 0.4
+		}
+	}
+}
+
+# Carthage
+wonder_carthage = {
+	picture = GFX_wonder_strip_undergroundcity
+	allow_construction = yes
+	potential = {
+	FROMFROMFROM = { province_id = 817 }
+	OR = {
+			religion = baali
+			religion = brujah_high
+			religion = vampire_promethean
+			religion = assamite
+			religion = orderofmoloch
+		}
+	}
+	active = {
+	OR = {
+			religion = baali
+			religion = brujah_high
+			religion = vampire_promethean
+			religion = assamite
+			religion = orderofmoloch
+		}	
+	}
+	flags = {
+		is_historical
+		defensive
+		cost_high
+	}
+	available_upgrades = {
+		# UNIQUE:
+		upgrade_caves_natural
+		upgrade_tunnels_travel
+		upgrade_metal_mine_precious
+		upgrade_dungeon
+		upgrade_guardian_of_the_deep
+
+		#
+		upgrade_torture_chamber
+		upgrade_historical_mural
+
+		# OTHER:
+		upgrade_roads
+		upgrade_watchtower_network
+		upgrade_hypocausts
+		upgrade_heating_pipes
+		upgrade_retinue
+		upgrade_road_tolls
+		upgrade_tavern
+		upgrade_brujah_district
+		upgrade_assamite_district
+		upgrade_baali_district
+		upgrade_time_prison
+	}
+	stage = {
+		allow = {
+		}
+		build_time = 500
+		gold_cost_flat = 4000
+		gold_cost_ticking = 3
+		restore_time = 150
+		loot_time = 200
+		restore_cost_flat = 400
+		restore_cost_ticking = 2
+		upgrade_slots = 2
+		local_modifier = {
+		}
+		owner_modifier = {
+			ventrue_high_opinion = -100
+			brujah_high_opinion = 50
+			vampire_promethean_opinion = 100
+			monthly_character_prestige = 0.1
+		}
+	}
+	stage = {
+		allow = {
+		}
+		build_time = 300
+		gold_cost_flat = 2000
+		gold_cost_ticking = 3
+		restore_time = 200
+		loot_time = 200
+		restore_cost_flat = 500
+		restore_cost_ticking = 2
+		upgrade_slots = 2
+		local_modifier = {
+		}
+		owner_modifier = {
+			monthly_character_prestige = 0.1
+		}
+	}
+	stage = {
+		allow = {
+		}
+		build_time = 300
+		gold_cost_flat = 2000
+		gold_cost_ticking = 3
+		restore_time = 200
+		loot_time = 20
+		restore_cost_flat = 500
+		restore_cost_ticking = 2
+		upgrade_slots = 2
+		local_modifier = {
+		}
+		owner_modifier = {
+			monthly_character_prestige = 0.1
+		}
+	}
+	stage = {
+		allow = {
+		}
+		build_time = 300
+		gold_cost_flat = 2500
+		gold_cost_ticking = 3
+		restore_time = 200
+		loot_time = 20
+		restore_cost_flat = 500
+		restore_cost_ticking = 2
+		upgrade_slots = 5
+		local_modifier = {
+		}
+		owner_modifier = {
+			monthly_character_prestige = 0.1
+		}
+	}
+}
+
+# Erciyes
+wonder_erciyes = {
+	picture = GFX_wonder_strip_library
+	allow_construction = no
+	potential = {
+	}
+	active = {
+		ROOT = { 
+			OR = {
+				trait = cappadocian
+				trait = giovanni
+				trait = malkavian
+			}
+			}
+	}
+	flags = {
+		is_historical
+		inspires_learning
+		cost_high
+		gives_artifact
+		gives_artifact_book
+	}
+	available_upgrades = {
+		# UNIQUE:
+		upgrade_collection_drama
+		upgrade_collection_architecture
+		upgrade_collection_math
+		upgrade_collection_history
+		upgrade_collection_science
+		upgrade_scribe_room
+		upgrade_keeper_of_tomes
+
+		upgrade_historical_mural
+
+		# OTHER:
+		upgrade_roads
+		upgrade_watchtower_network
+		upgrade_spikes
+		upgrade_tower
+		upgrade_hypocausts
+		upgrade_heating_pipes
+		upgrade_retinue
+		upgrade_road_tolls
+		upgrade_statue_caias
+		upgrade_altar_of_the_priestess
+		upgrade_alcove_fragments
+		upgrade_pappadocius_chamber
+	}
+	stage = {
+		allow = {
+		}
+		build_time = 300
+		gold_cost_flat = 2000
+		gold_cost_ticking = 3
+		restore_time = 150
+		loot_time = 20
+		restore_cost_flat = 400
+		restore_cost_ticking = 2
+		upgrade_slots = 2
+		local_modifier = {
+			fort_level = 0.25
+		}
+		owner_modifier = {
+			monthly_character_piety  = 0.1
+			plot_power_modifier = -0.5
+		}
+	}
+	stage = {
+		allow = {
+		}
+		build_time = 300
+		gold_cost_flat = 1000
+		gold_cost_ticking = 3
+		restore_time = 200
+		loot_time = 20
+		restore_cost_flat = 500
+		restore_cost_ticking = 2
+		upgrade_slots = 2
+		local_modifier = {
+			fort_level = 0.25
+		}
+		owner_modifier = {
+			monthly_character_piety  = 0.1
+			plot_power_modifier = 0.1
+		}
+	}
+	stage = {
+		allow = {
+		}
+		build_time = 300
+		gold_cost_flat = 1000
+		gold_cost_ticking = 3
+		restore_time = 200
+		loot_time = 6
+		restore_cost_flat = 500
+		restore_cost_ticking = 2
+		upgrade_slots = 2
+		local_modifier = {
+			fort_level = 0.25
+		}
+		owner_modifier = {
+			monthly_character_piety  = 0.1
+			plot_power_modifier = 0.1
+		}
+	}
+	stage = {
+		allow = {
+		}
+		build_time = 300
+		gold_cost_flat = 1000
+		gold_cost_ticking = 3
+		restore_time = 200
+		loot_time = 2
+		restore_cost_flat = 500
+		restore_cost_ticking = 2
+		upgrade_slots = 5
+		local_modifier = {
+			fort_level = 0.25
+		}
+		owner_modifier = {
+			monthly_character_piety  = 0.1
+			plot_power_modifier = 0.1
+		}
+	}
+}
+
+wonder_castle_of_shadows = {
+	allow_construction = no
+	picture = GFX_wonder_strip_grandfortress
+	potential = {
+	}
+	active = {
+			ROOT = { 
+			OR = {
+				trait = lasombra
+				religion = autarkis
+			}
+			}
+	}
+	flags = {
+		defensive
+		cost_high
+	}
+	available_upgrades = {
+		# UNIQUE:
+		upgrade_armory
+		upgrade_watch_tower
+		upgrade_vault
+		upgrade_moat_pit
+		upgrade_moat_spike
+		upgrade_moat_water
+		upgrade_moat_bones
+		upgrade_hidden_passageways
+		upgrade_garden_inner
+		upgrade_dueling_room
+
+		#
+		upgrade_torture_chamber
+		upgrade_historical_mural
+
+		# OTHER:
+		upgrade_roads
+		upgrade_watchtower_network
+		upgrade_spikes
+		upgrade_hypocausts
+		upgrade_heating_pipes
+		upgrade_retinue
+		upgrade_road_tolls
+		upgrade_shadow_walls
+		upgrade_court_of_blood
+		upgrade_labyrinth_of_darkness
+		upgrade_lasombra_chamber
+	}
+	stage = {
+		allow = {
+		}
+		build_time = 300
+		gold_cost_flat = 2000
+		gold_cost_ticking = 3
+		restore_time = 150
+		loot_time = 200
+		restore_cost_flat = 400
+		restore_cost_ticking = 2
+		upgrade_slots = 2
+		local_modifier = {
+			fort_level = 0.25
+		}
+		owner_modifier = {
+			monthly_character_prestige = 0.1
+			lasombra_high_opinion = 10
+			court_size_maintenance_cost_modifier = -0.05
+		}
+	}
+	stage = {
+		allow = {
+		}
+		build_time = 400
+		gold_cost_flat = 4500
+		gold_cost_ticking = 3
+		restore_time = 200
+		loot_time = 200
+		restore_cost_flat = 500
+		restore_cost_ticking = 2
+		upgrade_slots = 2
+		local_modifier = {
+			fort_level = 0.25
+		}
+		owner_modifier = {
+			monthly_character_prestige = 0.1
+			lasombra_high_opinion = 15
+			court_size_modifier = 5
+		}
+	}
+	stage = {
+		allow = {
+		}
+		build_time = 500
+		gold_cost_flat = 6000
+		gold_cost_ticking = 3
+		restore_time = 200
+		loot_time = 20
+		restore_cost_flat = 500
+		restore_cost_ticking = 2
+		upgrade_slots = 2
+		local_modifier = {
+			fort_level = 0.25
+			siege_defence = 0.05
+		}
+		owner_modifier = {
+			court_size_maintenance_cost_modifier = -0.05
+			lasombra_high_opinion = 20
+			monthly_character_prestige = 0.1
+		}
+	}
+	stage = {
+		allow = {
+		}
+		build_time = 600
+		gold_cost_flat = 7000
+		gold_cost_ticking = 3
+		restore_time = 200
+		loot_time = 20
+		restore_cost_flat = 500
+		restore_cost_ticking = 2
+		upgrade_slots = 2
+		local_modifier = {
+			fort_level = 0.5
+			siege_defence = 0.05
+		}
+		owner_modifier = {
+			monthly_character_prestige = 0.1
+			lasombra_high_opinion = 45
+			court_size_modifier = 5
+		}
+	}
+}
+
