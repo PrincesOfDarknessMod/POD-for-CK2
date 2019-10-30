@@ -9276,3 +9276,24 @@ can_still_be_marshal_byzantine_trigger = {
 		} 
 	}
 }
+
+is_mongol_empire_leader_trigger = {
+	OR = {
+		has_landed_title = e_il-khanate
+		has_landed_title = e_golden_horde
+		has_landed_title = e_mongol_empire
+		liege = { has_landed_title = e_il-khanate }
+		liege = { has_landed_title = e_golden_horde }
+		liege = { has_landed_title = e_mongol_empire }
+		top_liege = { has_landed_title = e_il-khanate }
+		top_liege = { has_landed_title = e_golden_horde }
+		top_liege = { has_landed_title = e_mongol_empire }
+	}
+}
+
+is_single_player_observer_mode = {
+	AND = {
+		multiplayer = no
+		is_local_human_observer = yes
+	}
+}
