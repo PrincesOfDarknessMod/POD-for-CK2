@@ -3576,16 +3576,19 @@ increase_battle_experience_effect = { # This effect is called from Duel Experien
 }
 
 add_one_battlefield_experience_modifier = {
-	add_character_modifier = {
-		name = battlefield_experience
-		duration = -1
-		stacking = yes
+	random = {
+		chance = 33
+		add_character_modifier = {
+			name = battlefield_experience
+			duration = -1
+			stacking = yes
+		}
 	}
 }
 
 small_chance_for_one_battlefield_experience_modifier = {
 	random = {
-		chance = 30
+		chance = 10
 		add_character_modifier = {
 			name = battlefield_experience
 			duration = -1
@@ -3595,16 +3598,19 @@ small_chance_for_one_battlefield_experience_modifier = {
 }
 
 add_one_duel_experience_modifier = {
-	add_character_modifier = {
-		name = duel_experience
-		duration = -1
-		stacking = yes
-	}
+	random = {
+		chance = 33
+		add_character_modifier = {
+			name = duel_experience
+			duration = -1
+			stacking = yes
+		}
+	}	
 }
 
 small_chance_for_one_duel_experience_modifier = {
 	random = {
-		chance = 30
+		chance = 10
 		modifier = {
 			factor = 0.5
 			has_character_flag = mock_duel
@@ -3619,7 +3625,7 @@ small_chance_for_one_duel_experience_modifier = {
 
 big_chance_for_one_duel_experience_modifier = {
 	random = {
-		chance = 60
+		chance = 20
 		modifier = {
 			factor = 0.5
 			has_character_flag = mock_duel
