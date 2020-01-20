@@ -3,15 +3,9 @@ decisions = {
 		is_high_prio = yes
 		potential = {
 			is_ruler = yes
-
 			OR = {
 				trait = vampire
-				trait = werewolf
-				trait = changeling
-				trait = firstbornfae
 				trait = revenant
-				trait = mage
-				trait = supe_hunter
 			}
 			OR = {
 				government = feudal_government
@@ -24,35 +18,24 @@ decisions = {
 				government = republic_government
 				government = confucian_bureaucracy
 				government = nomadic_government
-				AND = { 
-					trait = vampire
-					OR = {
-						government = commoner_government 
-						government = magicka_government
-						government = reason_government
-						government = daedalan_government
-						government = litany_government
-						government = wyrm_government
-						government = sidhe_government
-						government = commoner_government
-						government = hunter_government
-					}
-				}				
+				government = commoner_government 
+				government = magicka_government
+				government = reason_government
+				government = daedalan_government
+				government = litany_government
+				government = wyrm_government
+				government = sidhe_government
+				government = commoner_government
+			}				
 				
-			}
-			
 		}
-	
+		
 		allow = {
+			is_ruler = yes
 			OR = {
 				trait = vampire
-				trait = werewolf
-				trait = changeling
-				trait = firstbornfae
 				trait = revenant
-				trait = mage
-				trait = supe_hunter
-			}	
+			}
 			OR = {
 				government = feudal_government
 				government = theocratic_feudal_government
@@ -64,22 +47,17 @@ decisions = {
 				government = republic_government
 				government = confucian_bureaucracy
 				government = nomadic_government
-				AND = { 
-					trait = vampire
-					OR = {
-						government = commoner_government 
-						government = magicka_government
-						government = reason_government
-						government = daedalan_government
-						government = litany_government
-						government = wyrm_government
-						government = sidhe_government
-						government = commoner_government
-						government = hunter_government
-					}
-				}				
-			}
+				government = commoner_government 
+				government = magicka_government
+				government = reason_government
+				government = daedalan_government
+				government = litany_government
+				government = wyrm_government
+				government = sidhe_government
+				government = commoner_government
+			}				
 		}
+		
 		effect = {
 			if = {
 				limit = {
@@ -88,7 +66,6 @@ decisions = {
 						trait = revenant
 					}
 				}
-
 
 				if = {
 					limit = {
@@ -183,6 +160,71 @@ decisions = {
 				}			
 			}
 
+		}
+		revoke_allowed = { always = no }
+			
+		ai_will_do = 
+		{
+			factor = 5
+		}
+	}
+	
+	
+	change_to_superantural_government_other_splat_decision = {
+		is_high_prio = yes
+		potential = {
+			is_ruler = yes
+
+			OR = {
+				trait = werewolf
+				trait = changeling
+				trait = firstbornfae
+				trait = revenant
+				trait = mage
+				trait = supe_hunter
+			}
+			
+			OR = {
+				government = feudal_government
+				government = theocratic_feudal_government
+				government = muslim_government
+				government = chinese_imperial_government
+				government = tribal_government
+				government = theocracy_government
+				government = merchant_republic_government
+				government = republic_government
+				government = confucian_bureaucracy
+				government = nomadic_government						
+			}
+			
+		}
+	
+		allow = {
+			OR = {
+				trait = werewolf
+				trait = changeling
+				trait = firstbornfae
+				trait = revenant
+				trait = mage
+				trait = supe_hunter
+			}	
+			OR = {
+				government = feudal_government
+				government = theocratic_feudal_government
+				government = muslim_government
+				government = chinese_imperial_government
+				government = tribal_government
+				government = theocracy_government
+				government = merchant_republic_government
+				government = republic_government
+				government = confucian_bureaucracy
+				government = nomadic_government
+				
+			}
+		}
+		
+		effect = {
+
 			if = {
 				limit = { 
 					trait = mage 
@@ -260,5 +302,5 @@ decisions = {
 		{
 			factor = 5
 		}
-	}
+	}	
 }
