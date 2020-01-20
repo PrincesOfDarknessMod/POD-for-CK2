@@ -25276,7 +25276,10 @@ add_scarred_tiered_effect = {
 		tooltip = { add_trait = scarred }
 	}
 	if = {
-		limit = { has_dlc = "Holy Fury" }
+		limit = { 
+			NOT = { trait = vampire }
+			has_dlc = "Holy Fury" 
+		}
 		hidden_tooltip = { change_variable = { which = scarred_variable value = 1 } } 
 		if = {
 			limit = {
@@ -25329,7 +25332,10 @@ add_scarred_tiered_effect = {
 		}
 	}
 	else_if =  { 
-		limit = { NOT = { has_dlc = "Holy Fury" } }
+		limit = { 
+			NOT = { trait = vampire }
+			NOT = { has_dlc = "Holy Fury" } 
+		}
 		add_trait = scarred
 	}
 	hidden_tooltip = {
