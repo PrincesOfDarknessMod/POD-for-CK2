@@ -1,13 +1,10 @@
-decisions = 
-{
-	change_to_superantural_government_decision = 
-	{
+decisions = {
+	change_to_superantural_government_decision = {
 		is_high_prio = yes
-		potential = 
-		{
+		potential = {
 			is_ruler = yes
-			OR = 
-			{
+
+			OR = {
 				trait = vampire
 				trait = werewolf
 				trait = changeling
@@ -16,8 +13,7 @@ decisions =
 				trait = mage
 				trait = supe_hunter
 			}
-			OR = 
-			{
+			OR = {
 				government = feudal_government
 				government = theocratic_feudal_government
 				government = muslim_government
@@ -28,13 +24,27 @@ decisions =
 				government = republic_government
 				government = confucian_bureaucracy
 				government = nomadic_government
+				AND = { 
+					trait = vampire
+					OR = {
+						government = commoner_government 
+						government = magicka_government
+						government = reason_government
+						government = daedalan_government
+						government = litany_government
+						government = wyrm_government
+						government = sidhe_government
+						government = commoner_government
+						government = hunter_government
+					}
+				}				
+				
 			}
+			
 		}
 	
-		allow = 
-		{
-			OR = 
-			{
+		allow = {
+			OR = {
 				trait = vampire
 				trait = werewolf
 				trait = changeling
@@ -43,8 +53,7 @@ decisions =
 				trait = mage
 				trait = supe_hunter
 			}	
-			OR = 
-			{
+			OR = {
 				government = feudal_government
 				government = theocratic_feudal_government
 				government = muslim_government
@@ -55,44 +64,44 @@ decisions =
 				government = republic_government
 				government = confucian_bureaucracy
 				government = nomadic_government
+				AND = { 
+					trait = vampire
+					OR = {
+						government = commoner_government 
+						government = magicka_government
+						government = reason_government
+						government = daedalan_government
+						government = litany_government
+						government = wyrm_government
+						government = sidhe_government
+						government = commoner_government
+						government = hunter_government
+					}
+				}				
 			}
 		}
-		effect = 
-		{
-			
-			
-			if = 
-			{
-				limit = 
-				{
-					OR = 
-					{
+		effect = {
+			if = {
+				limit = {
+					OR = {
 						trait = vampire
 						trait = revenant
 					}
-					
 				}
 
 
-				if = 
-				{
-					limit = 
-					{
+				if = {
+					limit = {
 						is_patrician = yes
 						NOT = { government = primogen_republic_government }
 					}
 					set_government_type = primogen_republic_government
-					
 				}
-				
-				
-				if = 
-				{
-					limit = 
-					{
+							
+				if = {
+					limit = {
 						NOT = { is_patrician = yes }
-						OR = 
-						{ 
+						OR = { 
 							religion_group = vampire_high_clans_group
 							religion_group = masquerade_camarilla_group
 							religion_group = inconnu_group
@@ -103,24 +112,18 @@ decisions =
 						}
 					}
 					set_government_type = traditions_government
-					
 				}
 					
-				if = 
-				{
-					limit = 
-					{
+				if = {
+					limit = {
 						religion_group = sabbat_group
 						NOT = { is_patrician = yes }
 					}
 					set_government_type = milan_government
-					
 				}	
 				
-				if = 
-				{
-					limit = 
-					{
+				if = {
+					limit = {
 						NOT = { religion = vampire_low_clans }
 						NOT = { religion = autarkis }
 						NOT = { is_patrician = yes }
@@ -132,12 +135,9 @@ decisions =
 					set_government_type = free_state_government
 				}		
 				
-				if = 
-				{
-					limit = 
-					{
-						OR = 
-						{ 
+				if = {
+					limit = {
+						OR = { 
 							religion_group = baali_group
 							religion = setite
 							religion = einherjar
@@ -147,47 +147,35 @@ decisions =
 						}
 						NOT = { is_patrician = yes }
 					}
-					set_government_type = cult_government
-					
+					set_government_type = cult_government	
 				}		
 					
-				if = 
-				{
-					limit = 
-					{
+				if = {
+					limit = {
 						religion_group = ashirra_vampire_group
 						NOT = { is_patrician = yes }
 					}
-					set_government_type = ashirra_government
-					
+					set_government_type = ashirra_government	
 				}
 				
-				if = 
-				{
-					limit = 
-					{
+				if = {
+					limit = {
 						religion = mayaparisataya
 						NOT = { is_patrician = yes }
 					}
-					set_government_type = dharmic_government
-					
+					set_government_type = dharmic_government	
 				}	
 				
-				if = 
-				{
-					limit = 
-					{
+				if = {
+					limit = {
 						religion = anda
 						NOT = { is_patrician = yes }
 					}
 					set_government_type = anda_government
-					
 				}
 					
-				if = 
-				{ 
-					limit = 
-					{
+				if = { 
+					limit = {
 						religion = autarkis
 						NOT = { is_patrician = yes }
 					}
@@ -195,41 +183,33 @@ decisions =
 				}			
 			}
 
-
-			
-			if = 
-			{
+			if = {
 				limit = { 
 					trait = mage 
 					NOT = { is_patrician = yes }
 					}
 				
-				if = 
-				{ 
+				if = { 
 					limit = { religion_group = magical_traditions_group }
 					set_government_type = magicka_government
 				}
-				if = 
-				{
+				if = {
 					limit = { religion_group = order_of_reason_group }
 					set_government_type = reason_government
 				}
-				if = 
-				{ 
+				if = { 
 					limit = { religion_group = daedalan_group }
 					set_government_type = daedalan_government
 				}
 			}
 			
-			if = 
-			{
+			if = {
 				limit = { 
 					trait = werewolf
 					NOT = { is_patrician = yes }
 				}
 				
-				if = 
-				{
+				if = {
 					limit = 
 					{
 						religion_group = garou_group
@@ -237,55 +217,42 @@ decisions =
 					
 					set_government_type = litany_government
 				}	
-				if = 
-				{
-					limit = 
-					{
+				if = {
+					limit = {
 						religion_group = wyrm_group
 					}
 					set_government_type = wyrm_government
 				}
 			}			
 			
-			
-
-			if = 
-			{
-				limit = 
-				{ 
-					OR =
-					{
+			if = {
+				limit = { 
+					OR = {
 						trait = firstbornfae
 						trait = changeling
 						NOT = { is_patrician = yes }
 					}
 				}
 				
-				if = 
-				{ 
+				if = { 
 					limit = { trait = sidhe }
 					set_government_type = sidhe_government
 				}
 				
-				if = 
-				{ 
+				if = { 
 					limit = { NOT = { trait = sidhe } }
 					set_government_type = commoner_government
 				}
 			}
 			
-			if = 
-			{
+			if = {
 				limit = 
 				{ 
 					trait = supe_hunter
 					NOT = { is_patrician = yes }
-				}
-				
+				}	
 				set_government_type = hunter_government
 			}
-							
-			
 		}
 		revoke_allowed = { always = no }
 			

@@ -5,10 +5,78 @@ character_event = {
 	is_triggered_only = yes
 	hide_window = yes
 
-	immediate = 
-	{
-		if = 
-		{
+	immediate = {
+	
+	if = {
+		limit = {
+			NOT = { religion_group = hunter_group }
+		}
+
+		if = { 
+			limit = { 
+				OR = {
+					culture_group = east_slavic
+					culture_group = south_slavic
+					culture_group = byzantine
+				}
+				NOT = { culture = croatian }
+				NOT = { culture = industrialcroatian }
+				NOT = { culture = renncroatian }
+				NOT = { culture = colonialcroatian }
+				NOT = { culture = moderncroatian }
+				NOT = { culture = bosnian }
+				NOT = { culture = industrialbosnian }
+				NOT = { culture = rennbosnian }
+				NOT = { culture = colonialbosnian }
+				NOT = { culture = modernbosnian }
+				#NOT = { culture = slovenian }
+				NOT = { culture = industrialslovenian }
+				NOT = { culture = rennslovenian }
+				NOT = { culture = colonialslovenian }
+				NOT = { culture = modernslovenian }	
+				NOT = { culture = albanian }
+				NOT = { culture = industrialalbanian }
+				NOT = { culture = rennalbanian }
+				NOT = { culture = colonialalbanian }
+				NOT = { culture = modernalbanian }
+			}
+			religion = akritai
+		}
+		
+		if = { 
+			limit = { 
+				OR = {
+					culture_group = arabic
+					culture_group = iranian
+					culture_group = indo_aryan_group 
+					culture_group = dravidian_group
+					culture_group = tibetan_group
+				}
+			}
+			religion = ilkhwan_al-safa
+		}
+
+		if = { 
+			limit = { 
+				culture_group = israelite
+			}			
+		religion = judges
+		}
+		
+		if = {
+			limit = {
+				OR = {
+					religion = judges
+					religion = akritai
+					religion = ilkhwan_al-safa
+				}
+			}
+			religion = shadow_inquisition
+		}
+		
+	}
+	
+		if = {
 			limit = 
 			{
 				age = 16

@@ -233,6 +233,7 @@ character_event = {
 				add_trait = supe_hunter
 				character_event = { id = CWOD_hunter_noble.1 }
 			}
+			
 			if = {
 				limit = { 
 					NOT = { trait = mortal }
@@ -265,11 +266,19 @@ character_event = {
 
 				else = {
 					random_list = {
-						75 = { 
+						70 = { 
 							# mortal
 							add_trait = mortal
 							character_event = { id = mortal_commoner.1 }	
 						}
+						
+						5 = {
+							# hunter
+							add_trait = mortal
+							add_trait = supe_hunter
+							character_event = { id = CWOD_hunter_noble.1 }
+						}						
+						
 						5 = {
 							# vampire
 							add_trait = vampire
