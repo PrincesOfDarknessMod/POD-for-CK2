@@ -23,12 +23,12 @@ return_to_human_mien_decision = {
 	effect = {
 		piety = -10
 		hidden_tooltip =  { 
-        set_graphical_culture = culture	
+        set_graphical_culture = ROOT	
 		if = { limit = { trait = satyr }
 			remove_trait = fae_mien }
 		}
 		
-		}
+	}
 		
 	revoke_allowed = { always = no }
 	
@@ -77,19 +77,26 @@ assume_fae_mien_decision = {
 						}
 					redcap = {
 						hidden_tooltip =  { 
-						set_graphical_culture = redcap
+						set_graphical_culture = redcapgfx
 						add_trait = fae_mien }
 						}
                     troll = {
 						hidden_tooltip =  { 
-                        set_graphical_culture = troll 
+                        set_graphical_culture = trollgfx 
 						add_trait = fae_mien }
                     }		
 					sluagh = {
 						hidden_tooltip =  { 
-						set_graphical_culture = sluagh 
+						set_graphical_culture = sluaghgfx
 						add_trait = fae_mien }
 					}
+					
+					nocker = {
+						hidden_tooltip =  { 
+						set_graphical_culture = nockergfx
+						add_trait = fae_mien }
+					}					
+					
 					satyr = {
 						hidden_tooltip =  { 
 						add_trait = fae_mien }

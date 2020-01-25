@@ -21,7 +21,8 @@ targetted_decisions = {
 
 		potential = {
 			is_adult = yes
-
+			NOT = { trait = vampire }
+			
 			OR = {
 				trait = depressed
 				AND = {
@@ -35,6 +36,7 @@ targetted_decisions = {
 			custom_tooltip = {
 				text = commit_suicide_allow_tooltip
 				hidden_tooltip = {
+					NOT = { trait = vampire }
 					OR = {
 						trait = depressed
 						trait = incapable
